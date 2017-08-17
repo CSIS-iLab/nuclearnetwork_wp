@@ -1,0 +1,23 @@
+{
+    "name": "CSIS-iLab/nuclearnetwork_wp",
+    "description": "WordPress theme for Next Generation Nuclear Network",
+    "repositories":[
+        {
+            "type":"composer",
+            "url":"https://wpackagist.org"
+        }
+    ],
+    "require": {
+        "wpackagist-plugin/akismet": "*",
+        "wpackagist-plugin/disable-comments": "*",
+        "wpackagist-plugin/disable-emojis": "*",
+        "wpackagist-plugin/easy-footnotes": "*",
+        "wpackagist-plugin/google-authenticator": "*",
+        "wpackagist-plugin/tinymce-advanced": "*",
+        "wpackagist-plugin/wordpress-seo": "*",
+        "wpackagist-plugin/jetpack": "*",
+        "wpackagist-plugin/search-by-algolia-instant-relevant-results": "*",
+        "wpackagist-plugin/regenerate-thumbnails": "*",
+        "wpackagist-plugin/search-filter": "*"
+    }
+}
