@@ -13,6 +13,7 @@
     },
     "require": {
         "wpackagist-plugin/akismet": "*",
+        "wpackagist-plugin/co-authors-plus": "*",
         "wpackagist-plugin/disable-comments": "*",
         "wpackagist-plugin/disable-emojis": "*",
         "wpackagist-plugin/easy-footnotes": "*",
