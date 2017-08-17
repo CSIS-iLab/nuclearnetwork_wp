@@ -15,6 +15,8 @@
  */
 function post_add_meta_boxes( $post ) {
 	add_meta_box( 'post_meta_box', __( 'Additional Post Information', 'nuclearnetwork' ), 'post_build_meta_box', 'post', 'normal', 'high' );
+
+	add_meta_box( 'post_meta_box', __( 'Additional Post Information', 'nuclearnetwork' ), 'news_build_meta_box', 'news', 'normal', 'high' );
 }
 add_action( 'add_meta_boxes', 'post_add_meta_boxes' );
 
@@ -106,6 +108,29 @@ function post_build_meta_box( $post ) {
 	</script>
 	<?php
 }
+
+/**
+ * Build custom field meta box
+ *
+ * @param post $post The post object.
+ */
+function news_build_meta_box( $post ) {
+	// Make sure the form request comes from WordPress.
+	wp_nonce_field( basename( __FILE__ ), 'post_meta_box_nonce' );
+
+	// Retrieve current value of fields.
+	$current_disable_linkedin = get_post_meta( $post->ID, '_post_disable_linkedin', true );
+
+	?>
+	<div class='inside'>
+		<h3>Disable LinkedIn Link:</h3>
+		<p>
+			<input type="checkbox" name="disable_linkedin" value="1" <?php checked( $current_disable_linkedin, '1' ); ?> /> Yes, disable the LinkedIn message
+		</p>
+	</div>
+	<?php
+}
+
 /**
  * Store custom field meta box data
  *
@@ -145,9 +170,9 @@ function post_save_meta_box_data( $post_id ) {
 	// Disable LinkedIn
 	if ( isset( $_REQUEST['disable_linkedin'] ) ) { // Input var okay.
 		update_post_meta( $post_id, '_post_disable_linkedin', sanitize_text_field( wp_unslash( $_POST['disable_linkedin'] ) ) ); // Input var okay.
+	} else {
+		update_post_meta( $post_id, '_post_disable_linkedin', '');
 	}
-
-	// print_r($_REQUEST);
 }
 add_action( 'save_post', 'post_save_meta_box_data' );
 
