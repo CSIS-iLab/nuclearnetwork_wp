@@ -7,6 +7,10 @@
             "url":"https://wpackagist.org"
         }
     ],
+    "require-dev": {
+        "dealerdirect/phpcodesniffer-composer-installer": "*",
+        "wp-coding-standards/wpcs": "*"
+    },
     "require": {
         "wpackagist-plugin/akismet": "*",
         "wpackagist-plugin/disable-comments": "*",
