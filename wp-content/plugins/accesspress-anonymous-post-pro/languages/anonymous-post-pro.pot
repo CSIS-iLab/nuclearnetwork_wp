@@ -1,0 +1,1249 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-04-09 10:51+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: \n"
+"Language: \n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/"
+
+#: accesspress-anonymous-post-pro.php:145
+msgid "Enter email address"
+msgstr ""
+
+#: accesspress-anonymous-post-pro.php:146
+#: accesspress-anonymous-post-pro.php:228
+msgid "This field is required"
+msgstr ""
+
+#: accesspress-anonymous-post-pro.php:147 inc/boards/form-fields-html.php:7
+#: inc/boards/form-fields-html.php:50 inc/boards/form-fields-html.php:104
+#: inc/boards/form-fields-html.php:147 inc/boards/form-fields-html.php:190
+#: inc/boards/form-fields-html.php:233 inc/boards/form-fields-html.php:276
+#: inc/boards/form-fields-html.php:319 inc/boards/form-fields-html.php:363
+#: inc/boards/form-settings.php:50 inc/boards/form-settings.php:156
+#: inc/boards/form-settings.php:296
+msgid "Show on form"
+msgstr ""
+
+#: accesspress-anonymous-post-pro.php:148 inc/boards/form-fields-html.php:11
+#: inc/boards/form-fields-html.php:54 inc/boards/form-fields-html.php:108
+#: inc/boards/form-fields-html.php:151 inc/boards/form-fields-html.php:194
+#: inc/boards/form-fields-html.php:237 inc/boards/form-fields-html.php:280
+#: inc/boards/form-fields-html.php:323 inc/boards/form-fields-html.php:367
+#: inc/boards/form-settings.php:54 inc/boards/form-settings.php:160
+#: inc/boards/form-settings.php:300
+msgid "Required"
+msgstr ""
+
+#: accesspress-anonymous-post-pro.php:149
+msgid "Custom required message"
+msgstr ""
+
+#: accesspress-anonymous-post-pro.php:150 inc/settings.php:244
+#: inc/boards/form-fields-html.php:19 inc/boards/form-fields-html.php:62
+#: inc/boards/form-fields-html.php:116 inc/boards/form-fields-html.php:159
+#: inc/boards/form-fields-html.php:202 inc/boards/form-fields-html.php:245
+#: inc/boards/form-fields-html.php:288 inc/boards/form-fields-html.php:331
+#: inc/boards/form-fields-html.php:375 inc/boards/form-settings.php:62
+#: inc/boards/form-settings.php:168 inc/boards/form-settings.php:308
+msgid "Label"
+msgstr ""
+
+#: accesspress-anonymous-post-pro.php:151 inc/boards/form-fields-html.php:23
+#: inc/boards/form-fields-html.php:66 inc/boards/form-fields-html.php:120
+#: inc/boards/form-fields-html.php:163 inc/boards/form-fields-html.php:173
+#: inc/boards/form-fields-html.php:206 inc/boards/form-fields-html.php:249
+#: inc/boards/form-fields-html.php:292 inc/boards/form-fields-html.php:336
+#: inc/boards/form-fields-html.php:379 inc/boards/form-settings.php:120
+#: inc/boards/form-settings.php:172 inc/boards/form-settings.php:494
+msgid "Field Notes"
+msgstr ""
+
+#: accesspress-anonymous-post-pro.php:152 inc/boards/form-fields-html.php:33
+#: inc/boards/form-fields-html.php:76 inc/boards/form-fields-html.php:130
+#: inc/boards/form-fields-html.php:216 inc/boards/form-fields-html.php:259
+#: inc/boards/form-fields-html.php:302 inc/boards/form-fields-html.php:345
+#: inc/boards/form-fields-html.php:389 inc/boards/form-settings.php:130
+#: inc/boards/form-settings.php:182 inc/boards/form-settings.php:504
+msgid "Field Notes Text"
+msgstr ""
+
+#: accesspress-anonymous-post-pro.php:153
+msgid ""
+"These are extra notes for the front form fields and will show <Br/>just "
+"below the field in the frontend form"
+msgstr ""
+
+#: accesspress-anonymous-post-pro.php:154 inc/boards/form-settings.php:312
+msgid "Field Type"
+msgstr ""
+
+#: accesspress-anonymous-post-pro.php:155 inc/boards/form-fields-html.php:26
+#: inc/boards/form-fields-html.php:69 inc/boards/form-fields-html.php:123
+#: inc/boards/form-fields-html.php:166 inc/boards/form-fields-html.php:209
+#: inc/boards/form-fields-html.php:252 inc/boards/form-fields-html.php:295
+#: inc/boards/form-fields-html.php:339 inc/boards/form-fields-html.php:382
+#: inc/boards/form-settings.php:123 inc/boards/form-settings.php:175
+#: inc/boards/form-settings.php:497
+msgid "Don't Show"
+msgstr ""
+
+#: accesspress-anonymous-post-pro.php:156 inc/boards/form-fields-html.php:27
+#: inc/boards/form-fields-html.php:70 inc/boards/form-fields-html.php:124
+#: inc/boards/form-fields-html.php:167 inc/boards/form-fields-html.php:210
+#: inc/boards/form-fields-html.php:253 inc/boards/form-fields-html.php:296
+#: inc/boards/form-fields-html.php:340 inc/boards/form-fields-html.php:383
+#: inc/boards/form-settings.php:124 inc/boards/form-settings.php:176
+#: inc/boards/form-settings.php:498
+msgid "Show as info icon"
+msgstr ""
+
+#: accesspress-anonymous-post-pro.php:157 inc/boards/form-fields-html.php:28
+#: inc/boards/form-fields-html.php:71 inc/boards/form-fields-html.php:125
+#: inc/boards/form-fields-html.php:168 inc/boards/form-fields-html.php:211
+#: inc/boards/form-fields-html.php:254 inc/boards/form-fields-html.php:297
+#: inc/boards/form-fields-html.php:341 inc/boards/form-fields-html.php:384
+#: inc/boards/form-settings.php:125 inc/boards/form-settings.php:177
+#: inc/boards/form-settings.php:499
+msgid "Show as tooltip"
+msgstr ""
+
+#: accesspress-anonymous-post-pro.php:158
+msgid ""
+"Check if you want allow users to select multiple items by pressing control "
+"or command key"
+msgstr ""
+
+#: accesspress-anonymous-post-pro.php:159 inc/boards/form-settings.php:230
+#: inc/boards/form-settings.php:523
+msgid "Check if you want to show this custom field value in the frontend post."
+msgstr ""
+
+#: accesspress-anonymous-post-pro.php:160 inc/boards/form-settings.php:227
+#: inc/boards/form-settings.php:520
+msgid "Frontend Display"
+msgstr ""
+
+#: accesspress-anonymous-post-pro.php:161
+msgid "Frontend Label"
+msgstr ""
+
+#: accesspress-anonymous-post-pro.php:162 inc/boards/form-settings.php:249
+#: inc/boards/form-settings.php:542
+msgid "Label to be shown in frontend"
+msgstr ""
+
+#: accesspress-anonymous-post-pro.php:163 inc/boards/form-settings.php:572
+msgid "Check if you want to open image in lightbox."
+msgstr ""
+
+#: accesspress-anonymous-post-pro.php:164 inc/boards/form-settings.php:573
+msgid "Note: This will only work for image file type"
+msgstr ""
+
+#: accesspress-anonymous-post-pro.php:165 inc/boards/form-settings.php:565
+msgid "Note: Height and width will only work for images file types."
+msgstr ""
+
+#: accesspress-anonymous-post-pro.php:166 inc/boards/form-settings.php:259
+#: inc/boards/form-settings.php:549
+msgid "Check if you want to show the url as link."
+msgstr ""
+
+#: accesspress-anonymous-post-pro.php:167
+msgid "Show as label"
+msgstr ""
+
+#: accesspress-anonymous-post-pro.php:168 inc/boards/form-settings.php:553
+msgid "Image Dimensions"
+msgstr ""
+
+#: accesspress-anonymous-post-pro.php:169 inc/boards/form-settings.php:569
+msgid "Open as lightbox"
+msgstr ""
+
+#: accesspress-anonymous-post-pro.php:170 inc/boards/form-settings.php:512
+msgid "Field Class"
+msgstr ""
+
+#: accesspress-anonymous-post-pro.php:229
+msgid "Sum is not correct."
+msgstr ""
+
+#: accesspress-anonymous-post-pro.php:310
+#: accesspress-anonymous-post-pro.php:1038
+msgid "Thank you for submitting the post."
+msgstr ""
+
+#: accesspress-anonymous-post-pro.php:495
+#: accesspress-anonymous-post-pro.php:569
+msgid "Choose Category"
+msgstr ""
+
+#: accesspress-anonymous-post-pro.php:617
+msgid "Custom Required Message"
+msgstr ""
+
+#: accesspress-anonymous-post-pro.php:800
+msgid "Hi there,"
+msgstr ""
+
+#: accesspress-anonymous-post-pro.php:801
+msgid "You have recived a new post submission from "
+msgstr ""
+
+#: accesspress-anonymous-post-pro.php:801
+msgid "Details below:"
+msgstr ""
+
+#: accesspress-anonymous-post-pro.php:805
+msgid "Thank You"
+msgstr ""
+
+#: accesspress-anonymous-post-pro.php:807 inc/boards/email-settings.php:30
+msgid "New Post Submission"
+msgstr ""
+
+#: accesspress-anonymous-post-pro.php:872
+msgid "Username"
+msgstr ""
+
+#: accesspress-anonymous-post-pro.php:873
+msgid "Password"
+msgstr ""
+
+#: accesspress-anonymous-post-pro.php:874
+#: accesspress-anonymous-post-pro.php:878 inc/boards/general-settings.php:127
+#: inc/cores/shortcode.php:37
+msgid "Login"
+msgstr ""
+
+#: accesspress-anonymous-post-pro.php:954
+#: accesspress-anonymous-post-pro.php:1428
+msgid "Post published"
+msgstr ""
+
+#: accesspress-anonymous-post-pro.php:995
+msgid "Default Settings Restored Successfully"
+msgstr ""
+
+#: accesspress-anonymous-post-pro.php:1218
+msgid "Form deleted successfully."
+msgstr ""
+
+#: accesspress-anonymous-post-pro.php:1220
+msgid "Default form can't be deleted"
+msgstr ""
+
+#: accesspress-anonymous-post-pro.php:1246
+msgid "Form Copied successfully."
+msgstr ""
+
+#: accesspress-anonymous-post-pro.php:1302
+msgid "Settings updated successfully."
+msgstr ""
+
+#: accesspress-anonymous-post-pro.php:1480 inc/boards/email-settings.php:141
+msgid "Post Rejected"
+msgstr ""
+
+#. Name of the plugin
+#: inc/extra-settings.php:8 inc/settings.php:25 inc/cores/list-forms.php:4
+msgid "AccessPress Anonymous Post Pro"
+msgstr ""
+
+#: inc/extra-settings.php:12 inc/settings.php:29 inc/cores/list-forms.php:8
+msgid "Follow us for new updates"
+msgstr ""
+
+#: inc/extra-settings.php:31
+msgid "AccessPress Anonymous Post Pro Settings"
+msgstr ""
+
+#: inc/extra-settings.php:48
+msgid "Disable Lightbox"
+msgstr ""
+
+#: inc/extra-settings.php:55
+msgid "Check if you want to disable lightbox in this plugin."
+msgstr ""
+
+#: inc/extra-settings.php:61
+msgid "Disable Jquery UI"
+msgstr ""
+
+#: inc/extra-settings.php:68
+msgid "Check if you want to disable jquery UI in this plugin."
+msgstr ""
+
+#: inc/extra-settings.php:75
+msgid "Save Changes"
+msgstr ""
+
+#: inc/settings.php:50
+msgid "Edit Anonymous Form"
+msgstr ""
+
+#: inc/settings.php:52
+msgid "Add New Anonymous Form"
+msgstr ""
+
+#: inc/settings.php:74 inc/settings.php:146 inc/cores/list-forms.php:88
+msgid "Preview"
+msgstr ""
+
+#: inc/settings.php:76 inc/settings.php:151
+msgid "Please save your changes before preview"
+msgstr ""
+
+#: inc/settings.php:81 inc/boards/general-settings.php:2
+msgid "General Settings"
+msgstr ""
+
+#: inc/settings.php:82 inc/boards/email-settings.php:2
+msgid "Email Settings"
+msgstr ""
+
+#: inc/settings.php:83
+msgid "Form Settings"
+msgstr ""
+
+#: inc/settings.php:84 inc/boards/captcha-settings.php:2
+msgid "Captcha Settings"
+msgstr ""
+
+#: inc/settings.php:85
+msgid "Form Style Settings"
+msgstr ""
+
+#: inc/settings.php:86
+msgid "How to use"
+msgstr ""
+
+#: inc/settings.php:87
+msgid "About"
+msgstr ""
+
+#: inc/settings.php:149
+msgid "Restore Default Settings"
+msgstr ""
+
+#: inc/settings.php:204 inc/boards/form-settings.php:373
+msgid "Custom Extensions"
+msgstr ""
+
+#: inc/settings.php:206
+msgid ""
+"Please enter custom extensions separated by comma without (.) if required "
+"extensions are not available in the above list."
+msgstr ""
+
+#: inc/settings.php:209
+msgid "Upload Button Label"
+msgstr ""
+
+#: inc/settings.php:211 inc/boards/form-settings.php:380
+msgid "Please enter the file upload button label"
+msgstr ""
+
+#: inc/settings.php:216
+msgid ""
+"Please enter the max upload size in MB.Default max upload file size is 8MB."
+"Please enter the size less than what is set in your php.ini <strong>"
+"post_max_size</strong> and <strong>upload_max_size</strong> else alert "
+"message may show up in frontend."
+msgstr ""
+
+#: inc/settings.php:221
+msgid "Check if you want to allow the vistors to upload multiple files"
+msgstr ""
+
+#: inc/settings.php:226 inc/boards/form-settings.php:395
+msgid ""
+"Please enter the maximum number of file to allow for multiple upload.Default "
+"maximum number is infinite"
+msgstr ""
+
+#: inc/settings.php:236 inc/boards/form-settings.php:408
+msgid "Check if you want to attach the media to post"
+msgstr ""
+
+#: inc/settings.php:241
+msgid "Custom Fields"
+msgstr ""
+
+#: inc/settings.php:249
+msgid "Meta Key"
+msgstr ""
+
+#: inc/settings.php:254
+msgid "Pre Available Meta Keys"
+msgstr ""
+
+#: inc/settings.php:276
+msgid ""
+"Note: Please use lower case letters only for meta key and please don't use "
+"any symbols or space keys.Use <br/>underscore( _ ) instead.For example: If "
+"you are to add Product Model then meta key can be product_model ."
+msgstr ""
+
+#: inc/boards/captcha-settings.php:8
+msgid "Check if you want to enable captcha in the form"
+msgstr ""
+
+#: inc/boards/captcha-settings.php:13
+msgid "Mathmatical Captcha"
+msgstr ""
+
+#: inc/boards/captcha-settings.php:14
+msgid "Google reCaptcha"
+msgstr ""
+
+#: inc/boards/captcha-settings.php:19
+msgid "Google reCaptcha Label"
+msgstr ""
+
+#: inc/boards/captcha-settings.php:25
+msgid "Google reCaptcha Version"
+msgstr ""
+
+#: inc/boards/captcha-settings.php:31
+msgid "Version 1"
+msgstr ""
+
+#: inc/boards/captcha-settings.php:32
+msgid "Version 2"
+msgstr ""
+
+#: inc/boards/captcha-settings.php:38
+msgid "Google reCaptcha Public Key"
+msgstr ""
+
+#: inc/boards/captcha-settings.php:44
+msgid "Google reCaptcha Private Key"
+msgstr ""
+
+#: inc/boards/captcha-settings.php:52
+msgid "Site Key"
+msgstr ""
+
+#: inc/boards/captcha-settings.php:58
+msgid "Secret Key"
+msgstr ""
+
+#: inc/boards/captcha-settings.php:65
+msgid "Google reCaptcha Error Message"
+msgstr ""
+
+#: inc/boards/captcha-settings.php:70
+msgid ""
+"Captcha will only show up in form if you have enabled the google captcha and "
+"filled the valid google captcha keys.We recommend you to use Captcha version "
+"2 as since version 1 will be depreciated soon.Please visit <a href=\"https:"
+"//www.google.com/recaptcha/admin\" target=\"_blank\">here</a> to get your "
+"site and secret key."
+msgstr ""
+
+#: inc/boards/captcha-settings.php:75
+msgid "Mathmatical Captcha Label"
+msgstr ""
+
+#: inc/boards/captcha-settings.php:81
+msgid "Mathmatical Captcha Error Message"
+msgstr ""
+
+#: inc/boards/email-settings.php:5
+msgid "Admin Notification:"
+msgstr ""
+
+#: inc/boards/email-settings.php:8
+msgid ""
+"Check if you want admin to recieve notification email after submitting of a "
+"new post."
+msgstr ""
+
+#: inc/boards/email-settings.php:24
+msgid ""
+"Add upto 3 extra email address for the admin notification.Only Site Admin "
+"will recieve notification if you don't add any."
+msgstr ""
+
+#: inc/boards/email-settings.php:28
+msgid "Admin Notification Subject"
+msgstr ""
+
+#: inc/boards/email-settings.php:34
+msgid "Admin Notification From Name"
+msgstr ""
+
+#: inc/boards/email-settings.php:40
+msgid "Admin Notification From Email"
+msgstr ""
+
+#: inc/boards/email-settings.php:43 inc/boards/email-settings.php:97
+#: inc/boards/email-settings.php:154
+msgid ""
+"Please use an email that most of email domain won't consider as spam email "
+"such as noreply@yourhost.com or leave blank to use a default one."
+msgstr ""
+
+#: inc/boards/email-settings.php:47
+msgid "Admin Notification Message"
+msgstr ""
+
+#: inc/boards/email-settings.php:68
+msgid ""
+"You can use #post_title,#post_admin_link,#post_author_name,"
+"#post_author_email,#post_author_url codes in the above message to get the "
+"respective values in the email."
+msgstr ""
+
+#: inc/boards/email-settings.php:73
+msgid "User Notification"
+msgstr ""
+
+#: inc/boards/email-settings.php:77
+msgid ""
+"Check if you want to notify guest author via email after the post is "
+"published ."
+msgstr ""
+
+#: inc/boards/email-settings.php:82
+msgid "User Notification Subject"
+msgstr ""
+
+#: inc/boards/email-settings.php:84
+msgid "Post Published"
+msgstr ""
+
+#: inc/boards/email-settings.php:88
+msgid "User Notification From Name"
+msgstr ""
+
+#: inc/boards/email-settings.php:94
+msgid "User Notification From Email"
+msgstr ""
+
+#: inc/boards/email-settings.php:101
+msgid "User Notification Message"
+msgstr ""
+
+#: inc/boards/email-settings.php:125
+msgid "Message sent to guest author after post published by admin."
+msgstr ""
+
+#: inc/boards/email-settings.php:126
+msgid ""
+"<b>Note:</b>You can use #post_title,#post_link for sending respective values "
+"in the email.The email will only be sent to guest author if author email is "
+"also recieved from post submission form."
+msgstr ""
+
+#: inc/boards/email-settings.php:134
+msgid ""
+"Check if you want to notify guest author via email after the post is "
+"rejected or trashed ."
+msgstr ""
+
+#: inc/boards/email-settings.php:139
+msgid "Post Rejection Notification Subject"
+msgstr ""
+
+#: inc/boards/email-settings.php:145
+msgid "Post Rejection Notification From Name"
+msgstr ""
+
+#: inc/boards/email-settings.php:151
+msgid "Post Rejection Notification From Email"
+msgstr ""
+
+#: inc/boards/email-settings.php:158
+msgid "Post Rejection Notification Message"
+msgstr ""
+
+#: inc/boards/email-settings.php:177
+msgid ""
+"Message sent to guest author after post is rejected or trashed by admin."
+msgstr ""
+
+#: inc/boards/email-settings.php:178
+msgid ""
+"<b>Note:</b>You can use #post_title for sending post title in the email.The "
+"email will only be sent to guest author if author email is also recieved "
+"from post submission form."
+msgstr ""
+
+#: inc/boards/form-fields-html.php:3 inc/boards/form-settings.php:10
+#: inc/cores/front-form.php:52
+msgid "Post Title"
+msgstr ""
+
+#: inc/boards/form-fields-html.php:35 inc/boards/form-fields-html.php:132
+#: inc/boards/form-fields-html.php:175 inc/boards/form-fields-html.php:218
+#: inc/boards/form-fields-html.php:304
+msgid ""
+"These are extra notes for the front form fields and will show just below the "
+"field in the frontend form"
+msgstr ""
+
+#: inc/boards/form-fields-html.php:46 inc/boards/form-settings.php:11
+#: inc/cores/front-form.php:75
+msgid "Post Content"
+msgstr ""
+
+#: inc/boards/form-fields-html.php:78 inc/boards/form-settings.php:185
+#: inc/boards/form-settings.php:507
+msgid "These are extra notes for the front form fields"
+msgstr ""
+
+#: inc/boards/form-fields-html.php:81 inc/boards/form-settings.php:191
+msgid "Editor Type"
+msgstr ""
+
+#: inc/boards/form-fields-html.php:100 inc/boards/form-settings.php:12
+#: inc/cores/front-form.php:147
+msgid "Post Excerpt"
+msgstr ""
+
+#: inc/boards/form-fields-html.php:143 inc/boards/form-settings.php:13
+#: inc/cores/front-form.php:123
+msgid "Post Image"
+msgstr ""
+
+#: inc/boards/form-fields-html.php:186 inc/boards/form-settings.php:14
+#: inc/cores/front-form.php:171
+msgid "Author Name"
+msgstr ""
+
+#: inc/boards/form-fields-html.php:229 inc/boards/form-settings.php:15
+#: inc/cores/front-form.php:175
+msgid "Author URL"
+msgstr ""
+
+#: inc/boards/form-fields-html.php:261
+msgid ""
+"These are extra notes for the front form fields and will show just the way "
+"you have selected on above option."
+msgstr ""
+
+#: inc/boards/form-fields-html.php:272 inc/boards/form-settings.php:16
+#: inc/cores/front-form.php:179
+msgid "Author Email"
+msgstr ""
+
+#: inc/boards/form-fields-html.php:315
+msgid "Post Category"
+msgstr ""
+
+#: inc/boards/form-fields-html.php:347 inc/boards/form-fields-html.php:391
+msgid ""
+"These are extra notes for the front form fields and will show just below the "
+"textfield in the frontend form"
+msgstr ""
+
+#: inc/boards/form-fields-html.php:359
+msgid "Post Tags"
+msgstr ""
+
+#: inc/boards/form-settings.php:67
+msgid "Show field as:"
+msgstr ""
+
+#: inc/boards/form-settings.php:82
+msgid "It will show textfield to add new items using comma for multiple items"
+msgstr ""
+
+#: inc/boards/form-settings.php:83
+msgid "It will show already available items as dropdown or checkbox"
+msgstr ""
+
+#: inc/boards/form-settings.php:88
+msgid "Auto Complete"
+msgstr ""
+
+#: inc/boards/form-settings.php:91
+msgid "Check if you want to enable auto complete for this tags/terms"
+msgstr ""
+
+#: inc/boards/form-settings.php:96 inc/boards/form-settings.php:486
+msgid "Multiple Select"
+msgstr ""
+
+#: inc/boards/form-settings.php:99
+msgid ""
+"Check if you want to allow users to select multiple items pressing control "
+"or command key"
+msgstr ""
+
+#: inc/boards/form-settings.php:103
+msgid "Dropdown First Option Label"
+msgstr ""
+
+#: inc/boards/form-settings.php:106
+msgid "Please enter the first option label of the dropdown."
+msgstr ""
+
+#: inc/boards/form-settings.php:110
+msgid "Exclude Categories/Tags/Terms"
+msgstr ""
+
+#: inc/boards/form-settings.php:114
+msgid ""
+"Please add the <b>slugs</b> of the categories/tags/terms separated by comma "
+"that you want<br/> to exclude while showing in the front form.For e.g:"
+"category-3,category-2"
+msgstr ""
+
+#: inc/boards/form-settings.php:132
+msgid "These are extra notes for the front form fields "
+msgstr ""
+
+#: inc/boards/form-settings.php:202
+msgid "Character Limit"
+msgstr ""
+
+#: inc/boards/form-settings.php:204
+msgid "e.g: 200"
+msgstr ""
+
+#: inc/boards/form-settings.php:205
+msgid ""
+"Please enter character limit in number for visual or rich <br/>content "
+"editor.Please leave blank if you don't want character limit.<br/>Please note "
+"that this feature will only work if there is only one visual/rich editor in "
+"the page."
+msgstr ""
+
+#: inc/boards/form-settings.php:212
+msgid ""
+"Please enter the message to be displayed when user exceeds <br/> character "
+"limit."
+msgstr ""
+
+#: inc/boards/form-settings.php:219
+msgid ""
+"Please enter the size of editor in number of rows.Default number of rows is "
+"10."
+msgstr ""
+
+#: inc/boards/form-settings.php:246 inc/boards/form-settings.php:539
+msgid "Frontend Display Label"
+msgstr ""
+
+#: inc/boards/form-settings.php:256 inc/boards/form-settings.php:546
+msgid "Show as link"
+msgstr ""
+
+#: inc/boards/form-settings.php:304
+msgid "Required Message"
+msgstr ""
+
+#: inc/boards/form-settings.php:375
+msgid ""
+"Please enter custom extensions separated by comma without (.) if required "
+"extensions are not available in the above list. But please note that those "
+"extensions should be supported by media library."
+msgstr ""
+
+#: inc/boards/form-settings.php:385
+msgid ""
+"Please enter the max upload size in MB.Default file size is 8MB.Please enter "
+"the size less than what is set in your php.ini post_max_size and "
+"upload_max_size else alert message may show up in frontend."
+msgstr ""
+
+#: inc/boards/form-settings.php:390
+msgid "Check if you want to allow the visitors to upload multiple files"
+msgstr ""
+
+#: inc/boards/form-settings.php:418
+msgid "Date Format"
+msgstr ""
+
+#: inc/boards/form-settings.php:421
+msgid "ISO 8601 - yy-mm-dd"
+msgstr ""
+
+#: inc/boards/form-settings.php:422
+msgid "Default - mm/dd/yy"
+msgstr ""
+
+#: inc/boards/form-settings.php:423
+msgid "Short - d M, y"
+msgstr ""
+
+#: inc/boards/form-settings.php:424
+msgid "Medium - d MM, y"
+msgstr ""
+
+#: inc/boards/form-settings.php:425
+msgid "Full - DD, d MM, yy"
+msgstr ""
+
+#: inc/boards/form-settings.php:426
+msgid "With text - 'day' d 'of' MM 'in the year' yy"
+msgstr ""
+
+#: inc/boards/form-settings.php:450 inc/boards/form-settings.php:455
+msgid "Checked"
+msgstr ""
+
+#: inc/boards/form-settings.php:460
+msgid "Selected"
+msgstr ""
+
+#: inc/boards/form-settings.php:474
+msgid "Display Type"
+msgstr ""
+
+#: inc/boards/form-settings.php:489
+msgid ""
+"Check if you want to allow users to select multiple items by pressing "
+"control or command key"
+msgstr ""
+
+#: inc/boards/form-settings.php:608
+msgid "Form Extra Settings"
+msgstr ""
+
+#: inc/boards/form-settings.php:611
+msgid "Post Categories"
+msgstr ""
+
+#: inc/boards/form-settings.php:616
+msgid ""
+"Choose any  only if you don't include to show the category selecting options "
+"in the form"
+msgstr ""
+
+#: inc/boards/form-settings.php:622
+msgid "Terms and Agreement"
+msgstr ""
+
+#: inc/boards/form-settings.php:625
+msgid ""
+"Check if you want to show the terms and agreement text at the end of the form"
+msgstr ""
+
+#: inc/boards/form-settings.php:632
+msgid "Terms and Agreement Required Message"
+msgstr ""
+
+#: inc/boards/form-settings.php:635
+msgid ""
+"Message to be displayed if agreement is not checked before submitting form"
+msgstr ""
+
+#: inc/boards/form-settings.php:641
+msgid "Terms and Agreement Text"
+msgstr ""
+
+#: inc/boards/form-settings.php:647
+msgid ""
+"Note: You can use basic html tags such as anchor links, strong, em,  ul li "
+"etc in Terms and Agreement Text."
+msgstr ""
+
+#: inc/boards/form-settings.php:653
+msgid "Submit Button Label"
+msgstr ""
+
+#: inc/boards/form-styles.php:4
+msgid "Form Styling Settings"
+msgstr ""
+
+#: inc/boards/form-styles.php:10
+msgid "Plugin Styles:"
+msgstr ""
+
+#: inc/boards/form-styles.php:14
+msgid "Check if you want to use the plugin styles in frontend form"
+msgstr ""
+
+#: inc/boards/form-styles.php:15
+msgid ""
+"<b>Note</b>: Unchecking will exclude all the plugin styles from frontend"
+msgstr ""
+
+#: inc/boards/form-styles.php:21
+msgid "Plugin Style Type :"
+msgstr ""
+
+#: inc/boards/form-styles.php:31
+msgid "Built in Form Templates"
+msgstr ""
+
+#: inc/boards/form-styles.php:50
+msgid "Label Styles"
+msgstr ""
+
+#: inc/boards/form-styles.php:53
+msgid "Label Fonts"
+msgstr ""
+
+#: inc/boards/form-styles.php:64
+msgid "Label Font Size"
+msgstr ""
+
+#: inc/boards/form-styles.php:81
+msgid "Label Color"
+msgstr ""
+
+#: inc/boards/form-styles.php:94
+msgid "Form Field Styles"
+msgstr ""
+
+#: inc/boards/form-styles.php:98
+msgid "Field Color"
+msgstr ""
+
+#: inc/boards/form-styles.php:105
+msgid "Field Border Thickness"
+msgstr ""
+
+#: inc/boards/form-styles.php:112
+msgid "Field Border Color"
+msgstr ""
+
+#: inc/boards/form-styles.php:125
+msgid "Form Button Styles"
+msgstr ""
+
+#: inc/boards/form-styles.php:128
+msgid "Button Text Font"
+msgstr ""
+
+#: inc/boards/form-styles.php:139
+msgid "Button Font Size"
+msgstr ""
+
+#: inc/boards/form-styles.php:157
+msgid "Button Font Color"
+msgstr ""
+
+#: inc/boards/form-styles.php:164
+msgid "Button Background Color"
+msgstr ""
+
+#: inc/boards/form-styles.php:177
+msgid "Form Styles"
+msgstr ""
+
+#: inc/boards/form-styles.php:180
+msgid "Form Width"
+msgstr ""
+
+#: inc/boards/form-styles.php:191
+msgid "Show Form Border"
+msgstr ""
+
+#: inc/boards/form-styles.php:198
+msgid "Form Border Color"
+msgstr ""
+
+#: inc/boards/form-styles.php:205
+msgid "Form Border Thickness"
+msgstr ""
+
+#: inc/boards/form-styles.php:214
+msgid "Show Round Corners"
+msgstr ""
+
+#: inc/boards/form-styles.php:222
+msgid "Form Background"
+msgstr ""
+
+#: inc/boards/form-styles.php:230
+msgid "Form Background Type"
+msgstr ""
+
+#: inc/boards/form-styles.php:239
+msgid "Background Color"
+msgstr ""
+
+#: inc/boards/form-styles.php:245
+msgid "Background Image"
+msgstr ""
+
+#: inc/boards/form-styles.php:250
+msgid "Background Repeat Type"
+msgstr ""
+
+#: inc/boards/general-settings.php:5
+msgid "Form Title"
+msgstr ""
+
+#: inc/boards/general-settings.php:11
+msgid "Post Publish Status:"
+msgstr ""
+
+#: inc/boards/general-settings.php:27
+msgid "Choose Language"
+msgstr ""
+
+#: inc/boards/general-settings.php:49
+msgid "Post Format:"
+msgstr ""
+
+#: inc/boards/general-settings.php:55
+msgid "Standard"
+msgstr ""
+
+#: inc/boards/general-settings.php:74
+msgid "Submit post as:"
+msgstr ""
+
+#: inc/boards/general-settings.php:90
+msgid "Check Login"
+msgstr ""
+
+#: inc/boards/general-settings.php:94
+msgid "Check if you want admin login to submit a new post."
+msgstr ""
+
+#: inc/boards/general-settings.php:99
+msgid "Login Type"
+msgstr ""
+
+#: inc/boards/general-settings.php:106
+msgid "Choose any one if you have enabled login check to submit the post"
+msgstr ""
+
+#: inc/boards/general-settings.php:112
+msgid "Login Message"
+msgstr ""
+
+#: inc/boards/general-settings.php:121 inc/cores/shortcode.php:36
+msgid "Please login to submit the post"
+msgstr ""
+
+#: inc/boards/general-settings.php:125
+msgid "Login Link Text"
+msgstr ""
+
+#: inc/boards/general-settings.php:131
+msgid "Login Link URL"
+msgstr ""
+
+#: inc/boards/general-settings.php:134
+msgid "Please leave blank to provide the default login link of backend"
+msgstr ""
+
+#: inc/boards/general-settings.php:140
+msgid "Username Label"
+msgstr ""
+
+#: inc/boards/general-settings.php:146
+msgid "Password Label"
+msgstr ""
+
+#: inc/boards/general-settings.php:152
+msgid "Login Button Label"
+msgstr ""
+
+#: inc/boards/general-settings.php:160
+msgid "Auto Fill Logged in Author Details:"
+msgstr ""
+
+#: inc/boards/general-settings.php:164
+msgid "Check if you want to auto fill logged in author details"
+msgstr ""
+
+#: inc/boards/general-settings.php:169
+msgid "Anonymous Image Upload"
+msgstr ""
+
+#: inc/boards/general-settings.php:173
+msgid ""
+"Check if you want to allow the guest visitors to upload images in the post "
+"content editor"
+msgstr ""
+
+#: inc/boards/general-settings.php:178
+msgid "Link to source url"
+msgstr ""
+
+#: inc/boards/general-settings.php:182
+msgid ""
+"Check if you want to link the anonymously uploaded image file to its source"
+msgstr ""
+
+#: inc/boards/general-settings.php:187
+msgid "Add Lightbox Rel Attribute"
+msgstr ""
+
+#: inc/boards/general-settings.php:191
+msgid ""
+"Check if you want to add rel=\"lightbox\" parameter in the added source link "
+"of the anonymously uploaded image. Please check Link to source URL too to "
+"use this feature."
+msgstr ""
+
+#: inc/boards/general-settings.php:196
+msgid "Anonymous Image Max Upload Size"
+msgstr ""
+
+#: inc/boards/general-settings.php:199
+msgid ""
+"Please enter the maximum allowed upload image size in MB for anonymous user."
+"Default is 2 MB"
+msgstr ""
+
+#: inc/boards/general-settings.php:203
+msgid "Media Upload"
+msgstr ""
+
+#: inc/boards/general-settings.php:208
+msgid ""
+"Check if you want to allow the logged in users to upload media in the "
+"rich/visual editor"
+msgstr ""
+
+#: inc/boards/general-settings.php:209
+msgid ""
+"Please note that the Add Media button will only show for the users with the "
+"upload_files Capability such as Administrator and Editor. Please check <a "
+"href=\"https://codex.wordpress.org/Roles_and_Capabilities#Capability_vs."
+"_Role_Table\" target=\"_blank\">here</a> for more details."
+msgstr ""
+
+#: inc/boards/general-settings.php:216
+msgid "Assign Author"
+msgstr ""
+
+#: inc/boards/general-settings.php:231
+msgid "Logged in User as Author"
+msgstr ""
+
+#: inc/boards/general-settings.php:239
+msgid ""
+"Check if you want to assign logged in user as the author of a new post. If "
+"not logged in, above assigned author will be default author."
+msgstr ""
+
+#: inc/boards/general-settings.php:244
+msgid "Redirect Type"
+msgstr ""
+
+#: inc/boards/general-settings.php:247
+msgid "Redirect to URL"
+msgstr ""
+
+#: inc/boards/general-settings.php:248
+msgid "Redirect to newly created posts/page"
+msgstr ""
+
+#: inc/boards/general-settings.php:249
+msgid ""
+"Note: Redirect to newly created posts/page will only work if you have set "
+"the post publish status to publish."
+msgstr ""
+
+#: inc/boards/general-settings.php:253
+msgid "Redirect URL"
+msgstr ""
+
+#: inc/boards/general-settings.php:256
+msgid ""
+"URL to be redirected after successful post submission.If kept blank, it will "
+"be redirected to same page"
+msgstr ""
+
+#: inc/boards/general-settings.php:261
+msgid "Post Submission Message"
+msgstr ""
+
+#: inc/boards/general-settings.php:264
+msgid "Message displayed after successful post submission."
+msgstr ""
+
+#: inc/cores/form-preview.php:3
+msgid "Form Preview"
+msgstr ""
+
+#: inc/cores/front-form.php:58 inc/cores/front-form.php:92
+#: inc/cores/front-form.php:130 inc/cores/front-form.php:154
+#: inc/cores/front-form.php:190 inc/cores/front-form.php:214
+#: inc/cores/front-form.php:294
+msgid "This field is required."
+msgstr ""
+
+#: inc/cores/front-form.php:256
+msgid "Choose"
+msgstr ""
+
+#: inc/cores/front-form.php:401
+msgid "Enter Sum"
+msgstr ""
+
+#: inc/cores/front-form.php:422 inc/cores/front-form.php:438
+msgid "The reCAPTCHA wasn't entered correctly. Please try it again."
+msgstr ""
+
+#: inc/cores/front-form.php:448
+msgid "Submit Post"
+msgstr ""
+
+#: inc/cores/list-forms.php:27
+msgid "AccessPress Anonymous Post Pro Forms"
+msgstr ""
+
+#: inc/cores/list-forms.php:86
+msgid "Edit"
+msgstr ""
+
+#: inc/cores/list-forms.php:87
+msgid "Are you sure you want to copy this form?"
+msgstr ""
+
+#: inc/cores/list-forms.php:89
+msgid "Are you sure you want to delete this form?"
+msgstr ""
+
+#: inc/cores/list-forms.php:100
+msgid "No Forms Added Yet"
+msgstr ""
+
+#: inc/cores/login.php:10
+msgid "Invalid Username or Password"
+msgstr ""
+
+#: inc/cores/save-post.php:34
+msgid "Invalid File Type"
+msgstr ""
+
+#: inc/cores/save-settings.php:253
+msgid "Form Updated Successfully."
+msgstr ""
+
+#: inc/cores/save-settings.php:263
+msgid "Form Added Successfully."
+msgstr ""
+
+#. Description of the plugin
+msgid ""
+"Publish any type of post from frontend anonymously with or without login "
+"with loads of configurable settings"
+msgstr ""
+
+#. URI of the plugin
+msgid ""
+"http://accesspressthemes.com/wordpress-plugins/accesspress-anonymous-post-"
+"premium/"
+msgstr ""
+
+#. Author of the plugin
+msgid "AccessPress Themes"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "http://accesspressthemes.com"
+msgstr ""

@@ -1,0 +1,148 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<head lang="en">
+	<meta http-equiv="content-type" content="text/html;charset=utf-8">
+	<title>Template Documentation Template</title>
+	<!-- Framework CSS -->
+	<link rel="stylesheet" href="assets/blueprint-css/screen.css" type="text/css" media="screen, projection">
+	<link rel="stylesheet" href="assets/blueprint-css/print.css" type="text/css" media="print">
+	<!--[if lt IE 8]><link rel="stylesheet" href="assets/blueprint-css/ie.css" type="text/css" media="screen, projection"><![endif]-->
+	<link rel="stylesheet" href="assets/blueprint-css/plugins/fancy-type/screen.css" type="text/css" media="screen, projection">
+	<style type="text/css" media="screen">
+		p, table, hr, .box { margin-bottom:25px; }
+		.box p { margin-bottom:10px; }
+	</style>
+</head>
+
+
+<body>
+	<div class="container">
+	
+		<h3 class="center alt">&ldquo;AccessPress Anonymous Post Pro&rdquo; Documentation by &ldquo;AccessPress Themes&rdquo; v1.0.0</h3>
+		
+		<hr/>
+		
+		<h1 class="center">&ldquo;AccessPress Anonymous Post Pro&rdquo;</h1>
+		
+		<div class="borderTop">
+			<div class="span-6 colborder info prepend-1">
+				<p class="prepend-top">
+					<strong>
+					Created: 10/9/2014<br/>
+					By: AccessPress Themes<br>
+					Email: <a href="mailto:support@accesspressthemes.com">support@accesspressthemes.com</a>
+					</strong>
+				</p>
+			</div><!-- end div .span-6 -->		
+	
+			<div class="span-12 last">
+				<p class="prepend-top append-0">Thank you for purchasing our plugin. If you have any questions that are beyond the scope of this help file, please feel free to email via my user page contact form <a href="http://codecanyon.net/user/AccessKeys">here</a>. Thanks so much!</p>
+			</div>
+		</div><!-- end div .borderTop -->
+		
+		<hr>
+		
+		<h2 id="toc" class="alt">Table of Contents</h2>
+		<ol class="alpha">
+            <li><a href="#installingInstructions">Installing Instructions</a></li>
+			<li><a href="#generalSettings">General Settings</a></li>
+			<li><a href="#formSettings">Form Settings</a></li>
+			<li><a href="#captchaSettings">Captcha Settings</a></li>
+			<li><a href="#formStyleSettings">Form Style Settings</a></li>
+			<li><a href="#usingShortcode">Using Shortcode</a></li>
+		</ol>
+		
+		<hr>
+		<h3 id="installingInstructions"><strong>A) Installing Instructions</strong> - <a href="#toc">top</a></h3>
+		
+		<ol>
+        	<li>Unzip accesspress-anonymous-post-pro.zip</li>
+        	<li>Upload all the files to the /wp-content/plugins/accesspress-anonymous-post-pro</li>
+        	<li>Activate the plugin through the 'Plugins' menu in WordPress.</li>
+        	<li>For customizing the plugin's settings, click on AccessPress Anonymous Post Pro option menu in Wordpress left admin menu.</li>
+        	<li>To display the anonymous post pro form in the frontend,please use [ap-form] shortcode wherever necessary.</li>
+        </ol>
+		<p>
+          Once the plugin is installed and activated you will find a menu named "AccessPress Anonymous Post Pro" in the left menu bar of the admin menu.Once you click on that menu , you will go to the plugin's main settings page.Basically there are 4 settings pagnel in the plugin settings page which is individually described detailly below.
+        </p>
+		<hr/>
+        
+		<h3 id="generalSettings"><strong>B) General Settings</strong> - <a href="#toc">top</a></h3>
+		<p>
+		
+		<img class="alignnone wp-image-1284 size-full" src="http://accesspressthemes.com/site/wp-content/uploads/2014/05/ap-pro-1.jpg" alt="AccessPress Anonymous Post Pro General Settings" width="839" height="1864" />
+        </p>
+        <p>From general setting panel, you can configure all the basic settings for the plugin and the frontend form.</p>
+        <ol>
+        	<li><strong>Form Title</strong><p>This is the field for the title of the form.</p></li>
+        	<li><strong>Post Publish Status</strong><p>You can choose any publish status (draft, pending or published) for the post submitted from the frontend.</p></li>
+        	<li><strong>Submit Post As:</strong><p>You can choose your post type here.All the registered post types will be listed here and all the submitted post from the frontform will be submitted as the selected post type.</p></li>
+        	<li><strong>Admin Notification</strong><p>Please check this to recieve the admin notification after every post submission from the frontform.You can add upto 3 extra email address for the admin notifications if there are multiple admins in the site.</p></li>
+        	<li><strong>Admin Notification Message</strong><p>Please enter the message format that will be sent to the admin emails.For sending the post title use <strong>#post_title</strong> and for sending post admin link, use <strong>#post_admin_link</strong>. In email these both codes will be replaced by the real post title and admin links that the users will submit.</p></li>
+        	<li><strong>User Notification</strong><p>Please check this option if you want to send the automatic email message to the post author/post submitter when the post is published in the site.</p></li>
+        	<li><strong>User Notification Email</strong><p>Please enter the notification message format that will be sent to post author/post submitter when the post is published.Please use <strong>#post_title</strong> and <strong>#post_link</strong>codes to send the post title and post frontend link to the post author/post submitter in the email.</p></li>
+        	<li><strong>Check Login</strong><p>This option provides you the ability to hide or show the form in the frontend by checking the login status of the users.If you wish that only logged in users to submit the post from the frontend then you can check this option.</p></li>
+        	<li><strong>Login Type / Login Message / Login Link Text </strong><p>Please choose the option to whether to show login form or login message if you have marked the check login option.Login form will show the inline login form where users can login to submit the post and login message will show the custom login message with the link to backend login.</p></li>
+            <li><strong>Anonymous Image Upload</strong><p>Check this option if you want the guest authors to upload the images directly to the post content editor as post content.This option is also useful to those registered users who don't have permission for media uploads.</p></li>
+        	<li><strong>Assign Author</strong><p>This option provides you the ability to assign specific author to the post submitted from frotnend.</p></li>
+        	<li><strong>Redirect URL</strong><p>if you wish to redirect to some other page after the successful form submission then , you can fill this field with that desired url and then the form will automatically be redirected to that page after successful post submission.If you don't keep any redirect URL then the form will be redirected to same page where the form is located.</p></li>
+        	<li><strong>Post Submission Message</strong><p>Place the message that needed to be displayed after successful post submission.</p></li>
+        </ol>
+		<hr/>
+
+		<h3 id="formSettings"><strong>B) Form Settings</strong> - <a href="#toc">top</a></h3>
+        <p><img src="http://accesspressthemes.com/site/wp-content/uploads/2014/10/ap-pro-form-settings.png" alt="ap-pro-form-settings" class="alignnone size-large wp-image-1328" style="width: 100%;"/></p>
+		<p>From this section  you can configure all the detailed settings regarding the form fields.Also you can drag and drop UI to order the form fields.</p>
+        <p>These are the settings that you can configure for each field:</p>
+        <ol>
+          <li><strong>Show on form</strong><p>Settings to show or hide the field in the form</p></li>
+          <li><strong>Required</strong><p>Settings to make the field required or not</p></li>
+          <li><strong>Custom Required Message</strong><p>You can configure you custom required message for the field</p></li>
+          <li><strong>Label</strong><p>You can configure the label for the form field field</p></li>
+          <li><strong>Field Notes</strong><p>You can choose any one option to show the extra notes in the form.The options available are showing the notes as info icon and tooltip</p></li>
+          <li><strong>Field Notes Text</strong><p>These are the extra notes which will be shown as configured from Field Notes select dropdown.</p></li>
+          <li><strong>Editor Type(Only available for post content)</strong><p>You can choose the content editor type.Currently there are 4 editor types.</p></li>
+        </ol> 
+        
+        <p>Another available feature is adding unlimited <strong>custom fields</strong> in the form from the right up section.You can add the custom field as <strong>textfield</strong> or <strong>textarea</strong> or <strong>datepicker</strong> or <strong>file uploader</strong>.If you choose file uploader then you can also select the <strong>extensions</strong> and configure the <strong>max upload size</strong> along with enabling and disabling <strong>multiple  file upload</strong>.</p>
+        
+        <hr/>
+		
+		<h3 id="captchaSettings"><strong>C) Captcha Settings</strong> - <a href="#toc">top</a></h3>
+		<img class="alignnone wp-image-1281 size-full" src="http://accesspressthemes.com/site/wp-content/uploads/2014/05/ap-pro-3.png" alt="AccessPress Anonymous Post Pro Captcha Settings" width="854" height="555" />
+		<p>From this panel , you can configure the captcha for the form.The plugin already has two types of captcha.You can show any one or none in the form as per the requirements.</p>
+        <ol>
+          <li><strong>Mathematical Captcha</strong><p>This type of captcha prevents the spam by simply asking the correct sum of two single digit numbers from form submitter.</p></li>
+          <li><strong>Google reCaptcha</strong><p>This type of captcha is the captcha provided by google itself for strong spam protection in any form.For using this captcha, we will be required to the google captcha private and public key.And to get the google captcha private and public key, site's domain must be registered.Else the captcha won't work.So to register the site's domain and get the google reCaptcha public and private key , please visit this link.<a href="https://www.google.com/recaptcha/admin" target="_blank">https://www.google.com/recaptcha/admin</a></p></li>
+        </ol>
+		
+		<hr>
+		
+		<h3 id="formStyleSettings"><strong>D) Form Style Settings</strong> - <a href="#toc">top</a></h3>
+		
+		<p>From this panel, you can configure all the options regarding the style of the form that will be displayed in the frontend. </p>
+        <p>In the plugin , there are two methods availble for styling the frontend form.They are :</p>
+        <ol>
+          <li><strong>Form Templates</strong><p>You can choose any of the already built in form templates to get the already designed form.The preview for each template will be shown below the template chooser.Currently there are 4 templates available.</p><p><img src="http://accesspressthemes.com/site/wp-content/uploads/2014/05/ap-pro-4.png" width="100%"/></p></li>
+          <li><strong>Form Styler</strong><p>If you don't like the inbuilt form templates then also you can use the plugin's inbuilt form styler to style the each and every element of the form.Using form styler, you can configure the label font, font size,color,field color, field border color,form width, form background type(color/image),border thickness etc.</p><p><img src="http://accesspressthemes.com/site/wp-content/uploads/2014/05/ap-pro-5.png" width="100%"/></p></li>
+        </ol>
+        <hr/>
+		
+		<h3 id="usingShortcode"><strong>E) Using Shortcode</strong> - <a href="#toc">top</a></h3>
+		
+		<p>
+      For viewing the form in the front end, you can place <pre><code>[ap-form]</code></pre> shortcode in  any page's content editor where you want to display the post submission form.Or if you want to use it in your template file then you can use <pre><code>&lt;?php echo do_shortcode['ap-form']?&gt;</code></pre></p>
+      <p>If you have kept the redirection url in the general settings tabs then once the form is submitted, the page will be redirected to the url that you have kept in that field.So to display your custom message after successful post submission in the redirected page, then please use <pre><code>[ap-form-message]</code> inside the page editor</pre>   or 
+      <pre><code>&lt;?php echo do_shortcode['ap-form-message']?&gt;</code> inside the template file</pre>  of the redirected page where you want to display the custom post submission message.If you won't place any url in the redirect url field , then the form will be submitted to the same page. So in that case the message will be automatically displayed in the top of the form just after the form title so you don't need to use shortcode for this case.
+       </p>
+		<p><strong><i>Note:</i></strong><i>Please don't copy paste the above shortcode directly to page or post's visual editor.Instead please type or copy paste to html version editor.</i></p>
+		<hr>
+		
+		<p>Once again, thank you so much for purchasing this plugin. As we said at the beginning, we'd be glad to help you if you have any questions relating to this plugin. No guarantees, but we'll do our best to assist. If you have a more general question relating to the plugin on CodeCanyon, you might consider visiting the forums and asking your question in the "Item Discussion" section.</p> 
+		
+		<p class="append-bottom alt large"><strong>AccessPress Themes</strong></p>
+		<p><a href="#toc">Go To Table of Contents</a></p>
+		
+		<hr class="space">
+	</div><!-- end div .container -->
+</body>
+</html>

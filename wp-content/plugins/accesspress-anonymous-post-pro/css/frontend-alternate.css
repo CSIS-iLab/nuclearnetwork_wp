@@ -1,0 +1,131 @@
+.ap-pro-info-notes-icon{
+    background: none repeat scroll 0 0 #676767;
+    border-radius: 50%;
+    color: #ffffff;
+    display: inline-block;
+    font-family: 'Times New Roman',sans-serif;
+    font-size: 12px;
+    font-style: italic;
+    height: 14px;
+    line-height: 14px;
+    margin-left: 6px;
+    margin-top: 4px;
+    padding: 0 5px;
+    vertical-align: top;
+    width: 14px;
+    cursor: pointer;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.ap-pro-info-wrap {
+    display: inline-block;
+    position: relative;
+    width: 50%;
+    line-height: 20px;
+}
+.ap-pro-info-wrap span:hover + .ap-pro-info-notes{
+    background: none repeat scroll 0 0 #676767;
+    border-radius: 3px;
+    color: #fff;
+    display: block;
+    font-family: Open Sans;
+    font-size: 12px;
+    left: 30px;
+    line-height: 20px;
+    padding: 5px;
+    position: absolute;
+    top: -1px;
+    font-style: italic;
+    z-index: 999;
+}
+.ap-pro-info-notes:after { 
+    right: 100%; 
+    top: 50%; 
+    border: solid transparent; 
+    content: " "; 
+    height: 0; 
+    width: 0; 
+    position: absolute; 
+    pointer-events: none; 
+    border-color: rgba(103, 103, 103, 0); 
+    border-right-color: #676767; 
+    border-width: 7px; 
+    margin-top: -7px;
+}
+.ap-pro-form-field textarea:hover ~ .ap-pro-tooltip-notes, 
+.ap-pro-form-field input:hover ~ .ap-pro-tooltip-notes, 
+.ap-pro-form-field select:hover ~ .ap-pro-tooltip-notes{
+    background: none repeat scroll 0 0 #676767;
+    border-radius: 3px;
+    bottom: -41px;
+    color: #fff;
+    display: block;
+    font-family: Open Sans;
+    font-size: 12px;
+    font-style: italic;
+    left: 0;
+    line-height: 20px;
+    padding: 5px;
+    position: absolute;
+    z-index: 999;
+}
+.ap-pro-tooltip-notes:after { 
+    bottom: 100%; 
+    left: 10px; 
+    border: solid transparent; 
+    content: " "; 
+    height: 0; 
+    width: 0; 
+    position: absolute; 
+    pointer-events: none; 
+    border-color: rgba(103, 103, 103, 0); 
+    border-bottom-color: #676767; 
+    border-width: 7px; 
+    margin-top: -7px;
+}
+.ui-datepicker {
+    display: none;
+     z-index: 999 !important;
+}
+#ap-content-file-uploader .qq-upload-button{
+    background: url("../images/add-images.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    border-radius: 0;
+    box-shadow: none;
+    color: transparent;
+    font: 0px/0 a;
+    height: 28px;
+    margin-right: 20px;
+    width: 112px;
+    z-index: 999; 
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+}
+#ap-content-file-uploader .qq-upload-list {
+    position: relative;
+    width: 70%;
+    display: block;    
+}
+#ap-content-file-uploader .qq-uploader{
+    margin-bottom: 0;
+}
+.qq-upload-list li.qq-upload-success {
+    background: none repeat scroll 0 0 #5da30c;
+    color: #ffffff;
+    font-size: 13px;
+    margin-top: -8px;
+    padding: 6px;
+}
+.ap-pro-info-notes, .ap-pro-tooltip-notes{
+    display: none;
+}
+.ap-pro-form-field{
+    position: relative;
+}
+.recaptchatable, #recaptcha_area tr, #recaptcha_area td, #recaptcha_area th {
+    line-height: 0 !important;
+}
+#recaptcha_area input {
+    height: 23px;
+    display: inline;
+    text-indent: 5px;
+}

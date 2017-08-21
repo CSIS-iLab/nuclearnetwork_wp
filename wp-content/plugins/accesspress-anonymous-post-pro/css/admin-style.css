@@ -1,0 +1,688 @@
+.ap-settings-wrapper {
+
+}
+.ap-settings-tabs > li {
+    border: 1px solid #cccccc;
+    border-radius: 5px 5px 0 0;
+    display: inline-block;
+    margin: 2px 0 -1px 2px;
+    padding: 5px 0;
+    text-align: center;
+}
+.ap-settings-tabs > li:hover, 
+.ap-tabs-trigger.ap-active-tab {
+    background: none repeat scroll 0 0 transparent;
+    border-bottom: 1px solid #f1f1f1;
+}
+
+.ap-settings-tabs {
+    border-bottom: 1px solid #ccc;
+    display: block;
+    margin-bottom: 0;
+}
+.ap-tabs-trigger {
+    background: none repeat scroll 0 0 #e4e4e4;
+    color: #555;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 24px;
+    padding: 6px 10px;
+    text-decoration: none;
+}
+.ap-tabs-trigger:hover {
+    color: #000000;
+}
+
+.ap-option-field, 
+.ap-fields-configurations {
+    display: inline-block;
+    width: calc(100% - 205px);
+}
+.ap-each-config-wrapper {
+    vertical-align: top;
+    margin-bottom: 20px;
+}
+.ap-fields-label{
+    display: inline-block;
+    vertical-align: top;
+}
+.ap-option-wrapper label {
+    display: inline-block;
+    font-size: 14px;
+    line-height: 33px;
+    vertical-align: top;
+    width: 200px;
+    font-weight: bold;
+    margin-bottom:10px
+}
+.ap-option-field > input[type="text"], 
+.ap-option-wrapper input[type="text"], 
+.ap-option-wrapper input[type="number"] {
+    display: block;
+    height: 32px;
+    width: 320px;
+}
+.ap-option-wrapper {
+    margin-bottom: 20px;
+}
+
+.ap-option-field select, 
+.ap-pro-labels-content select{
+    display: block;
+    height: 32px;
+    vertical-align: top;
+    width: 320px;
+    max-width: 320px !important;
+}
+.ap-option-note {
+    color: #666666;
+    display: inline-block;
+    font-weight: bold;
+    
+}
+.ap-option-note.ap-option-width, 
+.ap-pro-notes {
+    color: #909090;
+    display: block;
+    font-style: italic;
+    font-size: 12px;
+    font-weight: normal;
+    line-height: 1.4;
+    margin-top:8px;
+}
+.ap-checkbox-form {
+    display: inline-block;
+    margin-right: 2px;
+}
+
+.ap-settings-wrapper .updated {
+    border-radius: 5px;
+    margin-left: 0;
+}
+.ap-taxonomy-required, 
+.ap-taxonomy-includes {
+    display: block;
+    margin-top: 5px;
+}
+
+.ap-settings-wrapper #message > p {
+    font-size: 16px;
+    line-height: 20px;
+}
+.ap-taxonomy-includes {
+    display: block;
+    margin-top: 10px;
+}
+.ap-taxonomy-includes > span {
+    margin-right: 22px;
+}
+.ap-taxonomy-includes > span {
+    margin-right: 12px;
+}
+
+.ap-option-note.ap-options-widths {
+    display: block;
+    margin-left: 206px;
+    margin-top: 8px;
+}
+
+.ap-settings-submit {
+    display: block;
+    margin-top: 20px;
+}
+.ap-settings-submit > input {
+    background: none repeat scroll 0 0 #0074a2;
+    border: medium none;
+    border-radius: 4px;
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 14px;
+    height: 32px;
+    margin-left: 207px;
+    padding: 0 20px;
+}
+.ap-settings-submit > input:hover {
+    opacity: 0.8;
+}
+.ap-check-login {
+    margin-top: 0 !important;
+}
+.ap-form-config > h2, 
+.ap-tabs-board > h2 {
+    font-weight: bold;
+}
+.ap-form-labels > h2 {
+    font-size: 18px;
+    font-weight: bold;
+}
+.ap-settings-header {
+    background: #40A7CE;
+    border-bottom: 5px solid #20627B;
+    border-radius: 15px 15px 0 0;
+    color: #fff;
+    height: 65px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.ap-logo {
+    float: left;
+    padding: 15px 0 0 20px;
+    width: auto;
+}
+.ap-socials {
+    left: 50%;
+    margin-left: -100px;
+    position: absolute;
+    text-align: center;
+    top: 5px;
+    width: 200px;
+}
+.ap-socials p{
+    margin: 5px 0;
+}
+.ap-settings-header .ap-title {
+    color: #fff;
+    float: right;
+    font-size: 20px;
+    line-height: 65px;
+    padding: 0 20px 0 0;
+}
+
+#optionsframework {
+    background: none repeat scroll 0 0 #fff;
+    max-width: 840px;
+    width: 100%;
+    display: inline-block;
+}
+.ap-tab-wrapper{
+    padding: 15px;
+}
+#optionsframework-submit {
+    background-color: #f1f1f1;
+    border-top: 1px solid #ddd;
+    padding: 7px 10px;
+}
+#optionsframework h2 {
+    background-color: #f1f1f1;
+    border-bottom: 1px solid #ddd;
+    cursor: default;
+    font-size: 14px;
+    line-height: 1.4;
+    margin: 0;
+    padding: 8px 12px;
+}
+.ap-admin-email-list{
+    padding-top: 10px;
+}
+.ap-option-checkbox-field {
+    line-height: 33px;
+}
+.ap-each-admin-email{
+    display: inline-block;
+    margin-bottom: 10px;
+}
+.ap-each-admin-email input[type="text"]{
+    display: inline-block;
+    width: 150px;
+}
+.ap-remove-email-btn,.ap-remove-option-value{
+    background: #333;
+    padding: 1px 5px;
+    border-radius: 50%;
+    color: #FFF;
+    cursor: pointer;
+    text-transform: lowercase;
+    font-family: Arial;
+    margin-left: 3px;
+    margin-right: 10px;
+    text-decoration: none;
+}
+.ap-admin-email-add-btn .button.primary-button, 
+.ap-pro-custom-field-label .button.primary-button{
+    background: none repeat scroll 0 0 #0074a2;
+    border: medium none;
+    box-shadow: none;
+    color: #fff;
+    margin-bottom: 5px;
+}
+.ap-option-field textarea{
+    width: 320px;
+}
+.line{
+    border-bottom: 1px solid #ddd;
+    line-height: 0 !important;
+    padding: 0 !important;
+}
+.dottedline{
+    border-bottom: 1px dashed #ddd;
+    line-height: 0 !important;
+    padding: 0 !important;
+}
+.seperator{
+    padding: 10px;
+}
+.halfseperator{
+    padding: 5px;
+}
+.ap-included-single-wrap, 
+.ap-required-single-wrap, 
+.ap-required-message-single-wrap{
+    line-height: 33px;
+    display: inline-block;
+    width: 30%;
+}
+.ap-form-labels h3{
+    /*padding: 10px 0;
+    font-size: 16px;
+    border-bottom: 1px solid #EEE;
+    margin-bottom: 20px;*/
+    background-color: #f1f1f1;
+    border-bottom: 1px solid #ddd;
+    cursor: default;
+    font-size: 14px;
+    line-height: 1.4;
+    margin: 0;
+    padding: 8px 12px;
+}
+.captcha-fields .ap-option-wrapper > label {
+    width: 250px;
+}
+.captcha-fields .ap-option-field{
+    display: inline-block;
+    width: calc(100% - 255px);
+}
+.ap-captcha-list-field {
+    display: inline-block;
+    line-height: 33px;
+    margin-right: 25px;
+}
+.nomargin{
+    margin-bottom: 0;
+}
+.wp-picker-container input.wp-color-picker[type="text"]{
+    display: inline-block !important;
+    height: 25px;
+    vertical-align: top;
+}
+.wp-picker-input-wrap {
+    vertical-align: top;
+}
+.ap-form-styles .ap-option-field > input[type="text"]{
+    display: inline-block;
+}
+.width-type {
+    display: inline-block;
+    line-height: 33px;
+    margin-left: 10px;
+}
+.ap-radio-field{
+    line-height: 33px;
+    display: inline-block;
+    margin-right: 15px;
+}
+.ap-option-wrapper .wp-picker-container, .wp-picker-container:active{
+    margin-top: 3px;
+}
+.ap-form-background-switch .ap-radio-field input[type="button"]{
+    background: none repeat scroll 0 0 #0074a2;
+    border: medium none;
+    border-radius: 4px;
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 14px;
+    height: 32px;
+    padding: 0 20px;
+    margin-left: 10px;
+}
+.ap-form-background-switch input[type="text"]{
+    display: inline-block;
+}
+.ap-required-message-single-wrap {
+    vertical-align: bottom;
+}
+.ap-fields-configurations .ap-required-message-single-wrap input[type="text"] {
+    width: 100% !important;
+}
+#board-about-settings p{
+    font-size: 14px;
+    line-height: 1.8; 
+    margin-top: 0;
+}
+#board-about-settings h3{
+    font-size: 18px;
+    padding-left: 0px;
+    padding-right: 0; 
+}
+.logo-product{
+    float: left;
+    margin-right: 20px;
+}
+.product{
+    clear: both;
+    margin-bottom: 20px;
+}
+
+.logo-product > img {
+    width: 138px;
+}
+#message.updated {
+    background: none repeat scroll 0 0 green;
+    border-radius: 0 !important;
+    color: #fff;
+    padding: 1px 12px;
+    border-left: none;
+    -webkit-box-shadow: none;
+    box-shadow: none; 
+}
+.media-upload-form div.error, .wrap div.error, .wrap div.updated{
+    margin: 0;
+}
+
+.ap-pro-li-sortable {
+    /*background: url(../images/drag.png) no-repeat 10px center #FFF;*/
+    background: #FFF;
+    border: 1px solid #ccc;
+    border-left: 25px solid #ccc;
+    display: block;
+    /*padding: 5px 10px 5px 10px;*/
+    position: relative;
+}
+.ap-pro-labels-head {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    cursor: move;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 33px;
+    padding: 5px 10px;
+    width: 100%;
+}
+.ap-arrow {
+    cursor: pointer;
+    float: right;
+}
+.dragicon{
+    background: url("../images/drag.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    height: 11px;
+    left: -18px;
+    position: absolute;
+    top: 15px;
+    width: 11px;  
+}
+.ap-pro-checkbox, 
+.ap-pro-textbox, 
+.ap-pro-select {
+    display: inline-block;
+    line-height: 33px;
+}
+.ap-pro-inner-configs label{
+    width: 250px;
+}
+.ap-pro-labels-content {
+    border-top: 1px solid #ccc;
+    padding: 10px;
+}
+.ap-arrow-up{
+    font: 0/0 a;
+    background: url(../images/uparrow.png) no-repeat;
+    width: 12px;
+    height: 9px;
+    margin-top: 13px;
+}
+.ap-arrow-down{
+    font: 0/0 a;
+    background: url(../images/downarrow.png) no-repeat;
+    width: 12px;
+    height: 9px;
+    margin-top: 13px;
+}
+.ap-custom-li-delete{
+    background: url("../images/delete.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    cursor: pointer;
+    float: right;
+    font: 0px/0 a;
+    height: 15px;
+    margin: 9px 15px 0;
+    width: 13px;
+}
+.ap-pro-notes{
+    padding-top: 5px;
+}
+.ap-pro-custom-field-adder {
+    display: inline-block;
+    vertical-align: top;
+}
+.social-icon li{
+    display: inline-block;
+    margin-right: 10px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+.social-icon img {
+    display: block;
+}
+.upgrade{
+    margin: 15px 0;
+}
+.upgrade a{
+    background: none repeat scroll 0 0 #0074a2;
+    border: medium none;
+    border-radius: 4px;
+    color: #ffffff;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 14px;
+    line-height: 32px;
+    padding: 0 20px;
+    text-decoration: none;
+}
+.ap-pro-custom-field-adder {
+    background: none repeat scroll 0 0 #fff;
+    border: 1px solid #e5e5e5;
+    width: 250px;
+}
+.ap-pro-custom-field-adder h3{
+    background-color: #f1f1f1;
+    border-bottom: 1px solid #ddd;
+    cursor: default;
+    font-size: 14px;
+    line-height: 1.4;
+    margin: 0;
+    padding: 8px 12px;
+}
+.ap-pro-custom-field-label {
+    margin-bottom: 5px;
+}
+.ap-pro-custom-field-label > label {
+    display: block;
+    line-height: 24px;
+}
+.ap-pro-custom-field-label input[type="text"]{
+    height: 32px;
+    width: 100%;
+}
+.ap-custom-error{
+    color: #F00;
+    font-size: 12px; 
+}
+#messages.update{
+    background-color: #fff;
+    border-left: 4px solid #7ad03a;
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
+    padding: 10px 12px;
+    font-weight: 700;
+}
+.ap-label-font-text,.ap-button-font-text{
+    border: 1px solid #ddd;
+    margin: 15px 0;
+    padding: 20px;
+    background: #f8f8f8;
+}
+.ap-option-field .ap-color-field {
+    border-radius: 4px;
+    height: 25px !important;
+}
+.ap-form-styler-wrapper,
+.ap-template-preview-wrapper {
+    background: none repeat scroll 0 0 #fefefe;
+    border: 1px solid #999;
+    margin: auto;
+    width: 90%;
+    border-top: 5px solid #999;
+}
+.ap-form-styler-wrapper > h1,
+.ap-template-preview-wrapper > h1 {
+    background: none repeat scroll 0 0 #999;
+    color: #fff;
+    font-size: 24px;
+    line-height: 1.4;
+    margin: 0;
+    padding: 5px 0;
+    text-align: center;
+}
+.ap-template-image-wrapper h3{
+    margin-bottom: 0 !important;
+}
+.ap-template-image-wrapper > img {
+    display: block;
+    width: 100%;
+}
+.ap-pro-file-extensions {
+    background: none repeat scroll 0 0 #eee;
+    border: 1px solid #ddd;
+    margin-top: 10px;
+    padding: 10px 20px;
+}
+.ap-pro-fileuploader li {
+    display: inline-block;
+    line-height: 28px;
+    width: 19%;
+}
+.ap-pro-file-upload-size {
+    margin-bottom: 10px;
+}
+.ap-pro-file-upload-size input[type="text"] {
+    display: inline-block;
+    margin-bottom: 5px;
+}
+.ap-row-half {
+    display: inline-block;
+    margin-right: 80px;
+}
+#board-about-settings p, 
+#board-upgrade-settings p, 
+#board-how_to_use-settings p{
+    font-size: 14px;
+    line-height: 1.8; 
+    margin-top: 0;
+}
+#board-about-settings h3{
+    font-size: 18px;
+    padding-left: 0px;
+    padding-right: 0; 
+}
+dd, 
+dl{
+    margin: 0;
+    line-height: 1.8;
+    font-size: 14px;
+}
+
+/* version 2.0.1 */
+.ap-pro-option-value{margin: 10px 0 10px 251px;}
+.ap-pro-option-value input[type="text"]{width: 31%;
+                                        display: inline-block;
+                                        height: 28px;}
+.ap-each-option-value {
+    margin-top: 10px;
+    border: 1px solid #bbb;
+    padding: 5px;
+    background-color: #FFF;
+    position: relative;
+    border-left: 25px solid #bbb;
+    cursor: move;
+
+}
+.ap-terms-required-msg-label{line-height: 20px !important}
+input.button.ap-restore-default-settings {
+    height: 32px;
+    margin-left: 10px;
+}
+.ap-half-textbox input[type="text"]{width:48%;display: inline-block;}
+
+/* version 3.0.0 */
+.ap-extra-settings-wrap{padding:10px;}
+.ap-pro-shortcode-ref h3 {
+    display: inline;
+}
+
+.ap-pro-shortcode-ref {
+    background-color: white;
+    width: 450px;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.ap-pro-shortcode-ref input {
+    height: 30px;
+    font-size: 18px;
+    margin-left: 10px;
+}
+
+select#ap-pro-pre-meta {
+    width: 100%;
+    height: 32px;
+    margin-bottom: 10px;
+}
+
+.ap-pro-extra-note {
+    background-color: #FFFBCC;
+    padding: 10px;
+    font-style: italic;
+    margin-bottom: 25px;
+    line-height: 1.5;
+
+}
+
+.ap-pro-plain-label {
+    display: block !important;
+    font-weight: normal !important;
+    width: 100% !important;
+}
+
+span.ap-drap-arrow {
+    background: url("../images/drag.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    height: 10px;
+    width: 20px;
+    position: absolute;
+    top: 14px;
+    left: -18px;
+    display: inline-block;
+}
+.ap-template-image-wrapper > h3 {
+    text-align: center;
+    margin: 10px 0 !important;
+}
+.ap-each-option-value label {
+    display: inline-block;
+    width: auto;
+}
+a.ap-remove-option-value:hover {
+    color: white;
+}
+.ap-settings-submit a{text-decoration: none;}
+.ap-settings-submit p{margin-left:207px;margin-top:20px;}
+.ap-pro-shortcode-ref a {
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 20px;
+}
+.ap-pro-shortcode-ref p {
+    margin-top: 20px;
+}
+.ap-option-field >.ap-option-note {
+    margin-top: 20px;
+}
