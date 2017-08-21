@@ -160,3 +160,8 @@ if ( defined( 'JETPACK__VERSION' ) ) {
  * Load custom post meta and post types.
  */
 require get_template_directory() . '/inc/custom-post-types.php';
+
+/**
+ * Load custom user meta fields.
+ */
+require get_template_directory() . '/inc/custom-usermeta.php';
