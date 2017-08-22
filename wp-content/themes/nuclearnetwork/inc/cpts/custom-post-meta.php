@@ -35,6 +35,7 @@ function post_build_meta_box( $post ) {
 	$current_download_url = get_post_meta( $post->ID, '_post_download_url', true );
 	$current_view_url = get_post_meta( $post->ID, '_post_view_url', true );
 	$current_disable_linkedin = get_post_meta( $post->ID, '_post_disable_linkedin', true );
+	$current_disable_disclaimer = get_post_meta( $post->ID, '_post_disable_disclaimer', true );
 
 	// Set default value for post format.
 	if ( empty( $current_post_format ) ) {
@@ -91,6 +92,10 @@ function post_build_meta_box( $post ) {
 		<h3>Disable LinkedIn Link:</h3>
 		<p>
 			<input type="checkbox" name="disable_linkedin" value="1" <?php checked( $current_disable_linkedin, '1' ); ?> /> Yes, disable the LinkedIn message
+		</p>
+		<h3>Disable Disclaimer Message:</h3>
+		<p>
+			<input type="checkbox" name="disable_disclaimer" value="1" <?php checked( $current_disable_disclaimer, '1' ); ?> /> Yes, disable the disclaimer message
 		</p>
 	</div>
 
@@ -171,7 +176,13 @@ function post_save_meta_box_data( $post_id ) {
 	if ( isset( $_REQUEST['disable_linkedin'] ) ) { // Input var okay.
 		update_post_meta( $post_id, '_post_disable_linkedin', sanitize_text_field( wp_unslash( $_POST['disable_linkedin'] ) ) ); // Input var okay.
 	} else {
-		update_post_meta( $post_id, '_post_disable_linkedin', '');
+		update_post_meta( $post_id, '_post_disable_linkedin', '' );
+	}
+	// Disable Disclaimer
+	if ( isset( $_REQUEST['disable_disclaimer'] ) ) { // Input var okay.
+		update_post_meta( $post_id, '_post_disable_disclaimer', sanitize_text_field( wp_unslash( $_POST['disable_disclaimer'] ) ) ); // Input var okay.
+	} else {
+		update_post_meta( $post_id, '_post_disable_disclaimer', '' );
 	}
 }
 add_action( 'save_post', 'post_save_meta_box_data' );
