@@ -61,3 +61,44 @@ function nuclearnetwork_cpt_opportunities() {
 
 }
 add_action( 'init', 'nuclearnetwork_cpt_opportunities', 0 );
+
+/**
+ * Register custom taxonomy for the different types of opportunities
+ */
+function nuclearnetwork_opportunity_types() {
+
+	$labels = array(
+		'name'                       => _x( 'Opportunity Type', 'Taxonomy General Name', 'nuclearnetwork' ),
+		'singular_name'              => _x( 'Opportunity Type', 'Taxonomy Singular Name', 'nuclearnetwork' ),
+		'menu_name'                  => __( 'Opportunity Types', 'nuclearnetwork' ),
+		'all_items'                  => __( 'All Opportunity Types', 'nuclearnetwork' ),
+		'parent_item'                => __( 'Parent Opportunity Type', 'nuclearnetwork' ),
+		'parent_item_colon'          => __( 'Parent Opportunity Type:', 'nuclearnetwork' ),
+		'new_item_name'              => __( 'New Opportunity Type', 'nuclearnetwork' ),
+		'add_new_item'               => __( 'Add Opportunity Type', 'nuclearnetwork' ),
+		'edit_item'                  => __( 'Edit Opportunity Type', 'nuclearnetwork' ),
+		'update_item'                => __( 'Update Opportunity Type', 'nuclearnetwork' ),
+		'view_item'                  => __( 'View Opportunity Type', 'nuclearnetwork' ),
+		'separate_items_with_commas' => __( 'Separate opportunity types with commas', 'nuclearnetwork' ),
+		'add_or_remove_items'        => __( 'Add or remove opportunity types', 'nuclearnetwork' ),
+		'choose_from_most_used'      => __( 'Choose from the most used', 'nuclearnetwork' ),
+		'popular_items'              => __( 'Popular Opportunity Types', 'nuclearnetwork' ),
+		'search_items'               => __( 'Search Opportunity Types', 'nuclearnetwork' ),
+		'not_found'                  => __( 'Not Found', 'nuclearnetwork' ),
+		'no_terms'                   => __( 'No opportunity types', 'nuclearnetwork' ),
+		'items_list'                 => __( 'Opportunity Types list', 'nuclearnetwork' ),
+		'items_list_navigation'      => __( 'Opportunity Types list navigation', 'nuclearnetwork' ),
+	);
+	$args = array(
+		'labels'                     => $labels,
+		'hierarchical'               => true,
+		'public'                     => true,
+		'show_ui'                    => true,
+		'show_admin_column'          => true,
+		'show_in_nav_menus'          => true,
+		'show_tagcloud'              => true,
+	);
+	register_taxonomy( 'opportunity_types', array( 'opportunities' ), $args );
+
+}
+add_action( 'init', 'nuclearnetwork_opportunity_types', 0 );
