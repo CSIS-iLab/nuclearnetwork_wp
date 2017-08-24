@@ -16,9 +16,11 @@
 function post_add_meta_boxes( $post ) {
 	add_meta_box( 'post_meta_box', __( 'Additional Post Information', 'nuclearnetwork' ), 'post_build_meta_box', 'post', 'normal', 'high' );
 
-	add_meta_box( 'post_meta_box', __( 'Additional Post Information', 'nuclearnetwork' ), 'news_build_meta_box', 'news', 'normal', 'high' );
-
 	add_meta_box( 'post_meta_box', __( 'Additional Post Information', 'nuclearnetwork' ), 'essentials_build_meta_box', 'essentials', 'normal', 'high' );
+
+	add_meta_box( 'post_meta_box', __( 'Additional Post Information', 'nuclearnetwork' ), 'events_build_meta_box', 'events', 'normal', 'high' );
+
+	add_meta_box( 'post_meta_box', __( 'Additional Post Information', 'nuclearnetwork' ), 'news_build_meta_box', 'news', 'normal', 'high' );
 
 	add_meta_box( 'post_meta_box', __( 'Additional Post Information', 'nuclearnetwork' ), 'opportunities_build_meta_box', 'opportunities', 'normal', 'high' );
 }
@@ -123,33 +125,7 @@ function post_build_meta_box( $post ) {
 }
 
 /**
- * Build custom field meta box for news posts.
- *
- * @param post $post The post object.
- */
-function news_build_meta_box( $post ) {
-	// Make sure the form request comes from WordPress.
-	wp_nonce_field( basename( __FILE__ ), 'post_meta_box_nonce' );
-
-	// Retrieve current value of fields.
-	$current_disable_linkedin = get_post_meta( $post->ID, '_post_disable_linkedin', true );
-	$current_linkedin_url = get_post_meta( $post->ID, '_post_linkedin_url', true );
-
-	?>
-	<div class='inside'>
-		<h3><?php esc_html_e( 'LinkedIn:', 'nuclearnetwork' ); ?></h3>
-		<p>
-			<label for="linkedin_url"><?php esc_html_e( 'LinkedIn URL:', 'nuclearnetwork' ); ?></label> <input type="text" class="large-text" name="linkedin_url" value="<?php echo esc_textarea( $current_linkedin_url ); ?>" /> 
-		</p>
-		<p>
-			<input type="checkbox" name="disable_linkedin" value="1" <?php checked( $current_disable_linkedin, '1' ); ?> /> <?php esc_html_e( 'Yes, disable the LinkedIn message', 'nuclearnetwork' ); ?>
-		</p>
-	</div>
-	<?php
-}
-
-/**
- * Build custom field meta box for essentials posts..
+ * Build custom field meta box for essentials posts.
  *
  * @param post $post The post object.
  */
@@ -191,7 +167,71 @@ function essentials_build_meta_box( $post ) {
 }
 
 /**
- * Build custom field meta box for essentials posts..
+ * Build custom field meta box for events posts.
+ *
+ * @param post $post The post object.
+ */
+function events_build_meta_box( $post ) {
+	// Make sure the form request comes from WordPress.
+	wp_nonce_field( basename( __FILE__ ), 'post_meta_box_nonce' );
+
+	// Retrieve current value of fields.
+	$current_poni_sponsored = get_post_meta( $post->ID, '_post_poni_sponsored', true );
+	$current_location = get_post_meta( $post->ID, '_post_location', true );
+	$current_info_url = get_post_meta( $post->ID, '_post_info_url', true );
+	$current_start_date = get_post_meta( $post->ID, '_post_start_date', true );
+	$current_end_date = get_post_meta( $post->ID, '_post_end_date', true );
+	?>
+	<div class='inside'>
+		<h3><?php esc_html_e( 'PONI Sponsored:', 'nuclearnetwork' ); ?></h3>
+		<p>
+			<input type="checkbox" name="poni_sponsored" value="1" <?php checked( $current_poni_sponsored, '1' ); ?> /> <?php esc_html_e( 'Yes, this is a PONI Sponsored opportunity', 'nuclearnetwork' ); ?>
+		</p>
+		<h3><?php esc_html_e( 'Location:', 'nuclearnetwork' ); ?></h3>
+		<p>
+			<input type="text" class="large-text" name="location" value="<?php echo esc_textarea( $current_location ); ?>" /> 
+		</p>
+		<h3><?php esc_html_e( 'Event Dates:', 'nuclearnetwork' ); ?></h3>
+		<p>
+			<label for="start_date"><?php esc_html_e( 'Start Date:', 'nuclearnetwork' ); ?></label> <input type="date" class="medium-text" name="start_date" value="<?php echo esc_textarea( $current_start_date ); ?>" /><br />
+			<label for="end_date"><?php esc_html_e( 'End Date:', 'nuclearnetwork' ); ?></label> <input type="date" class="medium-text" name="end_date" value="<?php echo esc_textarea( $current_end_date ); ?>" />
+		</p>
+		<h3><?php esc_html_e( 'Register URL:', 'nuclearnetwork' ); ?></h3>
+		<p>
+			<input type="text" class="large-text" name="info_url" value="<?php echo esc_textarea( $current_info_url ); ?>" /> 
+		</p>
+	</div>
+	<?php
+}
+
+/**
+ * Build custom field meta box for news posts.
+ *
+ * @param post $post The post object.
+ */
+function news_build_meta_box( $post ) {
+	// Make sure the form request comes from WordPress.
+	wp_nonce_field( basename( __FILE__ ), 'post_meta_box_nonce' );
+
+	// Retrieve current value of fields.
+	$current_disable_linkedin = get_post_meta( $post->ID, '_post_disable_linkedin', true );
+	$current_linkedin_url = get_post_meta( $post->ID, '_post_linkedin_url', true );
+
+	?>
+	<div class='inside'>
+		<h3><?php esc_html_e( 'LinkedIn:', 'nuclearnetwork' ); ?></h3>
+		<p>
+			<label for="linkedin_url"><?php esc_html_e( 'LinkedIn URL:', 'nuclearnetwork' ); ?></label> <input type="text" class="large-text" name="linkedin_url" value="<?php echo esc_textarea( $current_linkedin_url ); ?>" /> 
+		</p>
+		<p>
+			<input type="checkbox" name="disable_linkedin" value="1" <?php checked( $current_disable_linkedin, '1' ); ?> /> <?php esc_html_e( 'Yes, disable the LinkedIn message', 'nuclearnetwork' ); ?>
+		</p>
+	</div>
+	<?php
+}
+
+/**
+ * Build custom field meta box for opportunity posts.
  *
  * @param post $post The post object.
  */
@@ -248,54 +288,6 @@ function post_save_meta_box_data( $post_id ) {
 		return;
 	}
 
-	// Sources
-	if ( isset( $_REQUEST['sources'] ) ) { // Input var okay.
-		update_post_meta( $post_id, '_post_sources', wp_kses_post( sanitize_text_field( wp_unslash( $_POST['sources'] ) ) ) ); // Input var okay.
-	}
-	// Post Format
-	if ( isset( $_REQUEST['post_format'] ) ) { // Input var okay.
-		update_post_meta( $post_id, '_post_post_format', sanitize_text_field( wp_unslash( $_POST['post_format'] ) ) ); // Input var okay.
-	}
-	// Download URL
-	if ( isset( $_REQUEST['download_url'] ) ) { // Input var okay.
-		update_post_meta( $post_id, '_post_download_url', esc_url_raw( wp_unslash( $_POST['download_url'] ) ) ); // Input var okay.
-	}
-	// View URL
-	if ( isset( $_REQUEST['view_url'] ) ) { // Input var okay.
-		update_post_meta( $post_id, '_post_view_url', esc_url_raw( wp_unslash( $_POST['view_url'] ) ) ); // Input var okay.
-	}
-	// LinkedIn URL
-	if ( isset( $_REQUEST['linkedin_url'] ) ) { // Input var okay.
-		update_post_meta( $post_id, '_post_linkedin_url', esc_url_raw( wp_unslash( $_POST['linkedin_url'] ) ) ); // Input var okay.
-	}
-	// Disable LinkedIn
-	if ( isset( $_REQUEST['disable_linkedin'] ) ) { // Input var okay.
-		update_post_meta( $post_id, '_post_disable_linkedin', intval( wp_unslash( $_POST['disable_linkedin'] ) ) ); // Input var okay.
-	} else {
-		update_post_meta( $post_id, '_post_disable_linkedin', '' );
-	}
-	// Disable Disclaimer
-	if ( isset( $_REQUEST['disable_disclaimer'] ) ) { // Input var okay.
-		update_post_meta( $post_id, '_post_disable_disclaimer', intval( wp_unslash( $_POST['disable_disclaimer'] ) ) ); // Input var okay.
-	} else {
-		update_post_meta( $post_id, '_post_disable_disclaimer', '' );
-	}
-	// Is Next Gen
-	if ( isset( $_REQUEST['is_nextgen'] ) ) { // Input var okay.
-		update_post_meta( $post_id, '_post_is_nextgen', intval( wp_unslash( $_POST['is_nextgen'] ) ) ); // Input var okay.
-	} else {
-		update_post_meta( $post_id, '_post_is_nextgen', '' );
-	}
-	// PONI Sponsored
-	if ( isset( $_REQUEST['poni_sponsored'] ) ) { // Input var okay.
-		update_post_meta( $post_id, '_post_poni_sponsored', intval( wp_unslash( $_POST['poni_sponsored'] ) ) ); // Input var okay.
-	} else {
-		update_post_meta( $post_id, '_post_poni_sponsored', '' );
-	}
-	// Location
-	if ( isset( $_REQUEST['location'] ) ) { // Input var okay.
-		update_post_meta( $post_id, '_post_location', sanitize_text_field( wp_unslash( $_POST['location'] ) ) ); // Input var okay.
-	}
 	// Deadline
 	if ( isset( $_REQUEST['deadline'] ) ) { // Input var okay.
 		$deadline = sanitize_text_field( wp_unslash( $_POST['deadline'] ) ); // Input var okay.
@@ -304,15 +296,79 @@ function post_save_meta_box_data( $post_id ) {
 			update_post_meta( $post_id, '_post_deadline', $deadline ); // Input var okay.
 		}
 	}
+	// Disable Disclaimer
+	if ( isset( $_REQUEST['disable_disclaimer'] ) ) { // Input var okay.
+		update_post_meta( $post_id, '_post_disable_disclaimer', intval( wp_unslash( $_POST['disable_disclaimer'] ) ) ); // Input var okay.
+	} else {
+		update_post_meta( $post_id, '_post_disable_disclaimer', '' );
+	}
+	// Disable LinkedIn
+	if ( isset( $_REQUEST['disable_linkedin'] ) ) { // Input var okay.
+		update_post_meta( $post_id, '_post_disable_linkedin', intval( wp_unslash( $_POST['disable_linkedin'] ) ) ); // Input var okay.
+	} else {
+		update_post_meta( $post_id, '_post_disable_linkedin', '' );
+	}
+	// Download URL
+	if ( isset( $_REQUEST['download_url'] ) ) { // Input var okay.
+		update_post_meta( $post_id, '_post_download_url', esc_url_raw( wp_unslash( $_POST['download_url'] ) ) ); // Input var okay.
+	}
+	// End Date
+	if ( isset( $_REQUEST['end_date'] ) ) { // Input var okay.
+		$end_date = sanitize_text_field( wp_unslash( $_POST['end_date'] ) ); // Input var okay.
+		$date = explode( '-', $end_date );
+		if ( wp_checkdate( $date[1], $date[2], $date[0], $end_date ) || empty( $start_date ) ) {
+			update_post_meta( $post_id, '_post_end_date', $end_date ); // Input var okay.
+		}
+	}
+	// Info URL (Apply/Register URL)
+	if ( isset( $_REQUEST['info_url'] ) ) { // Input var okay.
+		update_post_meta( $post_id, '_post_info_url', esc_url_raw( wp_unslash( $_POST['info_url'] ) ) ); // Input var okay.
+	}
 	// Is Ongoing
 	if ( isset( $_REQUEST['is_ongoing'] ) ) { // Input var okay.
 		update_post_meta( $post_id, '_post_is_ongoing', intval( wp_unslash( $_POST['is_ongoing'] ) ) ); // Input var okay.
 	} else {
 		update_post_meta( $post_id, '_post_is_ongoing', '' );
 	}
-	// Info URL (Apply/Register URL)
-	if ( isset( $_REQUEST['info_url'] ) ) { // Input var okay.
-		update_post_meta( $post_id, '_post_info_url', esc_url_raw( wp_unslash( $_POST['info_url'] ) ) ); // Input var okay.
+	// Is Next Gen
+	if ( isset( $_REQUEST['is_nextgen'] ) ) { // Input var okay.
+		update_post_meta( $post_id, '_post_is_nextgen', intval( wp_unslash( $_POST['is_nextgen'] ) ) ); // Input var okay.
+	} else {
+		update_post_meta( $post_id, '_post_is_nextgen', '' );
+	}
+	// LinkedIn URL
+	if ( isset( $_REQUEST['linkedin_url'] ) ) { // Input var okay.
+		update_post_meta( $post_id, '_post_linkedin_url', esc_url_raw( wp_unslash( $_POST['linkedin_url'] ) ) ); // Input var okay.
+	}
+	// Location
+	if ( isset( $_REQUEST['location'] ) ) { // Input var okay.
+		update_post_meta( $post_id, '_post_location', sanitize_text_field( wp_unslash( $_POST['location'] ) ) ); // Input var okay.
+	}
+	// PONI Sponsored
+	if ( isset( $_REQUEST['poni_sponsored'] ) ) { // Input var okay.
+		update_post_meta( $post_id, '_post_poni_sponsored', intval( wp_unslash( $_POST['poni_sponsored'] ) ) ); // Input var okay.
+	} else {
+		update_post_meta( $post_id, '_post_poni_sponsored', '' );
+	}
+	// Post Format
+	if ( isset( $_REQUEST['post_format'] ) ) { // Input var okay.
+		update_post_meta( $post_id, '_post_post_format', sanitize_text_field( wp_unslash( $_POST['post_format'] ) ) ); // Input var okay.
+	}
+	// Sources
+	if ( isset( $_REQUEST['sources'] ) ) { // Input var okay.
+		update_post_meta( $post_id, '_post_sources', wp_kses_post( sanitize_text_field( wp_unslash( $_POST['sources'] ) ) ) ); // Input var okay.
+	}
+	// Start Date
+	if ( isset( $_REQUEST['start_date'] ) ) { // Input var okay.
+		$start_date = sanitize_text_field( wp_unslash( $_POST['start_date'] ) ); // Input var okay.
+		$date = explode( '-', $start_date );
+		if ( wp_checkdate( $date[1], $date[2], $date[0], $start_date ) || empty( $start_date ) ) {
+			update_post_meta( $post_id, '_post_start_date', $start_date ); // Input var okay.
+		}
+	}
+	// View URL
+	if ( isset( $_REQUEST['view_url'] ) ) { // Input var okay.
+		update_post_meta( $post_id, '_post_view_url', esc_url_raw( wp_unslash( $_POST['view_url'] ) ) ); // Input var okay.
 	}
 }
 add_action( 'save_post', 'post_save_meta_box_data' );

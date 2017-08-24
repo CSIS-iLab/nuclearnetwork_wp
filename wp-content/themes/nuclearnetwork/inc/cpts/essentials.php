@@ -48,7 +48,7 @@ function nuclearnetwork_cpt_essentials() {
 		'show_ui'               => true,
 		'show_in_menu'          => true,
 		'menu_position'         => 5,
-		'menu_icon'             => 'dashicons-list-view',
+		'menu_icon'             => 'dashicons-book-alt',
 		'show_in_admin_bar'     => true,
 		'show_in_nav_menus'     => true,
 		'can_export'            => true,
