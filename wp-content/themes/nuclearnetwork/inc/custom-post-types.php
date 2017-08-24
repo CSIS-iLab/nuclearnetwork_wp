@@ -8,6 +8,9 @@
 /*----------  Custom Post Meta for Posts  ----------*/
 require get_template_directory() . '/inc/cpts/custom-post-meta.php';
 
+/*----------  Custom Post Type: Alumni  ----------*/
+require get_template_directory() . '/inc/cpts/alumni.php';
+
 /*----------  Custom Post Type: Director's Corner  ----------*/
 require get_template_directory() . '/inc/cpts/directors-corner.php';
 
