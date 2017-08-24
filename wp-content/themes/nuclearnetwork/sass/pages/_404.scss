@@ -1,0 +1,77 @@
+/*===========================
+=            404            =
+===========================*/
+
+.error-404 {
+    margin-top: 4rem;
+    text-align: center;
+
+    p {
+        text-align: left;
+
+        @include breakpoint("small") {
+            text-align: center;
+        }
+    }
+
+    .col-sm-6 {
+
+        padding-top: 1rem;
+
+        @include breakpoint("medium") {
+            padding: 1rem;
+        }
+    }
+
+    .img404 {
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+
+
+    .relatedContent-heading {
+        margin-top: 0px;
+    }
+    .relatedContent-post {
+        text-align: left;
+    }
+    .relatedContent-img {
+        max-width: 105px;
+        img {
+            padding-right: 10px;
+        }
+    }
+    .page-header {
+        margin-bottom: 2rem;
+
+        img {
+            max-height: 100px;
+        }
+    }
+
+    .error-explanation {
+        @include fontSize(18px);
+    }
+
+    .error-contactUs {
+        color: $gray;
+
+        a {
+            text-transform: uppercase;
+            color: $red;
+
+            &:hover {
+                color: $dark-blue;
+            }
+        }
+    }
+
+    form {
+        width: 100%;
+
+        input.search-field {
+            width: calc(90% - 80px);
+        }
+    }
+}

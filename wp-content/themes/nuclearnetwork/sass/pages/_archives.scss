@@ -1,0 +1,266 @@
+/*================================
+=            Archives            =
+================================*/
+
+.archive, .blog, .search-results {
+	background-color: $off-white;
+
+	header.page-header {
+		margin-top: 2rem;
+		margin-bottom: 2rem;
+
+		.page-title {
+			@extend %page-title;
+			margin: 0 0 1rem 0;
+			text-transform: uppercase;
+		}
+	}
+
+	&.post-type-archive-podcasts header.page-header .page-title {text-transform: none;}
+
+	/*----------  Posts, Podcasts  ----------*/
+	article.post,
+	article.podcasts,
+	article.interactives,
+	article.page {
+		position: relative;
+		margin-bottom: 1rem;
+		background-color: $white;
+
+		@include breakpoint("medium") {
+			margin-bottom: 2rem;
+		}
+
+		.sticky-container {
+			padding-left: 0;
+			padding-right: 0;
+
+			.entry-header {
+				@include breakpoint("medium") {
+					padding-bottom: 0.5rem;
+				}
+
+				.isFeatured {
+					display: inline-block;
+					background-color: $red;
+					font-family: $font__Roboto;
+					@include fontSize(13px);
+					line-height: 1.69;
+					font-weight: bold;
+					letter-spacing: 0.9px;
+					color: $white;
+					text-transform: uppercase;
+					padding: 4px 8px;
+					margin-right: 5px;
+				}
+
+				.cat-links {
+					display: inline-block;
+				}
+
+				.entry-title {
+					margin-top: 1rem;
+				}
+			}
+
+			.entry-content {
+				@include breakpoint("medium") {
+					padding: 0 2rem 2rem 2rem;
+				}
+			}
+		}
+
+		/*----------  Learn More  ----------*/
+		.learnMore {
+			position: absolute;
+		    bottom: 1rem;
+		    right: 2rem;
+		    opacity: 0;
+		    @include transition(all .25s ease-in-out);
+		    padding-right: 50px;
+
+			p {
+				margin-bottom: 0;
+				text-align: right;
+				@include fontSize(18px);
+				font-weight: 600;
+				line-height: 1.33;
+				letter-spacing: 1.1px;
+				text-transform: uppercase;
+
+				a {
+					color: $black;
+
+					&:hover {
+						color: $red;
+					}
+				}
+
+				.icon-arrow-long {
+					position: relative;
+					margin-left: 0;
+					vertical-align: top;
+					color: $red;
+					display: inline-block;
+				    width: 16px;
+				    height: 16px;
+				    line-height: 16px;
+				}
+			}
+		}
+
+		&:hover > .learnMore {
+		    display: block;
+		    opacity: 1;
+		    @include transition(all .25s ease-in-out);
+		    position: absolute;
+		    bottom: 1rem;
+		    right: 2rem;
+		    padding-right: 0px;
+
+		    .icon-arrow-long {
+		    	width: 40px;
+			    @include transition(all .25s ease-in-out);
+
+			    &:before {
+			    	content: " ";
+				    display: inline-block;
+				    height: 50%;
+				    width: 100%;
+				    display: block;
+				    border-bottom: 2px solid $red;
+				    position: absolute;
+				    top: 25%;
+			    }
+
+			    &:after {
+			    	content: " ";
+				    width: 10px;
+				    height: 10px;
+				    margin-left: 10px;
+				    border: solid #ed392a;
+				    border-width: 0px 2px 2px 0;
+				    display: block;
+				    left: calc(100% - 18px);
+				    padding: 5px;
+				    transform: rotate(-45deg);
+				    -webkit-transform: rotate(-45deg);
+				    position: absolute;
+				    top: 30%;
+			    }
+		    }
+		}
+
+		&:hover > .entry-header .entry-title a,
+		&:hover > .sticky-container .entry-header .entry-title a
+		{
+			color: $red;
+		}
+	}
+
+	/*----------  Pagination  ----------*/
+	.pagination {
+		span:not(.current), a {
+			background-color: $white;
+
+			&:hover {
+				background-color: $color__background-button-gray;
+			}
+		}
+
+		.next:before {
+			border-left-color: $white;
+		}
+		.next:hover:before {
+			border-left-color: $color__background-button-gray;
+		}
+		.prev:before {
+			border-right-color: $white;
+		}
+		.prev:hover:before {
+			border-right-color: $color__background-button-gray;
+		}
+	}
+
+	/*----------  Podcast Archive  ----------*/
+	.archive-control-area {
+		margin-bottom: 2rem;
+	}
+
+	.podcast-desc {
+		@include breakpoint("medium") {
+			padding-right: 2rem;
+		}
+
+		.itunes-btn {
+			text-align: center;
+
+			@include breakpoint("medium") {
+				text-align: left;
+			}
+		}
+	}
+
+	.podcast-host {
+		text-align: center;
+
+		@include breakpoint("medium") {
+			padding-left: 2rem;
+			text-align: left;
+		}
+
+		strong {
+			color: $red;
+			text-transform: uppercase;
+			@include fontSize(18px);
+			line-height: 1.71;
+		}
+		.podcast-host-pos {
+			color: $gray;
+			@include fontSize(14px);
+			line-height: 1.5;
+		}
+	}
+
+	article.podcasts {
+
+		.sticky-container .entry-header,
+		.sticky-container .entry-content {
+			@include breakpoint("medium") {
+				padding-right: 2rem;
+				padding-left: 1rem;
+			}
+		}
+
+		.entry-thumbnail {
+			text-align: center;
+			padding: 1rem 0;
+
+			@include breakpoint("medium") {
+				padding: 2rem 0;
+			}
+		}
+
+		.entry-header {
+			@include breakpoint("medium") {
+				padding: 2rem 1rem 2rem 2rem;
+			}
+		}
+
+		.entry-content {
+			@include breakpoint("medium") {
+				padding: 2rem 2rem 2rem 1rem;
+			}
+		}
+
+		.soundcloud-mini-container {
+			background-color: $off-white;
+			padding: 0.5rem;
+			margin-bottom: 1rem;
+
+			iframe {
+				vertical-align: middle;
+			}
+		}
+	}
+}

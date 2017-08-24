@@ -1,0 +1,82 @@
+/*==============================
+=            Colors            =
+==============================*/
+$black: #000;
+$white: #fff;
+$light-red: #f3c8c4;
+$red: #ed392a;
+$dark-red: #c42d20;
+$light-blue: #bfccd2;
+$blue: #728c99;
+$blue-hover: #90a5b0;
+$dark-blue: #455a64;
+$off-white: #f1f1f1;
+$light-gray: #d4d0cb;
+$blue-gray: #abb1b4;
+$gray: #8c898c;
+$dark-gray: #4a4a4a;
+$off-black: #333;
+
+$secondary-green: #58a897;
+$secondary-blue: #3b75bb;
+$secondary-purple: #69518d;
+
+
+$color__background-body: $white;
+$color__background-screen: $white;
+$color__background-hr: $light-gray;
+$color__background-hr-stat-home: #dbd9d7;
+$color__navigation-border: #dfdfdf;
+$color__background-button-red: $red;
+$color__background-button-gray: #d6d6d6;
+$color__background-button-blue: #2b3d46;
+$color__background-pre: #eee;
+$color__background-ins: #fff9c0;
+$color__background-tooltip: rgba(0,0,0,0.8);
+$color__background-nav-overlay: #53636b;
+$color__background-nav-overlay-heading: #4a5b63;
+$color__background-share-divider: $color__background-hr-stat-home;
+$color__background-btn-view: #d1d8dc;
+$color__background-btn-view-hover: $color__background-button-gray;
+$color__background-input: #fafafa;
+
+$color__text-screen: $off-black;
+$color__text-input: $gray;
+$color__text-input-focus: $black;
+$color__link: $red;
+$color__link-visited: $dark-red;
+$color__link-hover: $red;
+$color__text-main: $off-black;
+$color__text-copyright: #8c898c;
+$color__text-seeMore: #797679;
+$color__text-statIcon: #698491;
+$color__text-h6: #1c2e36;
+$color__text-captions: #808081;
+
+$color__border-input: $dark-blue;
+$color__border-abbr: #666;
+
+/*==================================
+=            Typography            =
+==================================*/
+@import url('https://fonts.googleapis.com/css?family=Hind:400,500,600|Roboto:400,700');
+
+$font__Roboto: 'Roboto', sans-serif;
+$font__Hind: 'Hind', sans-serif;
+
+
+$font__main: $font__Hind;
+$font__code: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+$font__pre: "Courier 10 Pitch", Courier, monospace;
+$font__line-height-body: 1.5;
+$font__line-height-pre: 1.6;
+
+
+
+/*=================================
+=            Structure            =
+=================================*/
+
+$size__container-max-width: 900px;
+$size__content-max-width: 700px;
+$size__hp-container-max-width: 1200px;

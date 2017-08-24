@@ -1,0 +1,61 @@
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"],
+.btn
+{
+	background-color: $color__background-button-red;
+	color: $white;
+	text-transform: uppercase;
+	font-family: $font__Roboto;
+	@include fontSize(13px);
+	line-height: 1.69;
+	letter-spacing: 0.7px;
+	padding: 0.25rem 0.75rem;
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+	border: 0;
+	border-radius: 2px;
+}
+
+.btn {
+
+	&.btn-red {
+		background-color: $red;
+
+		&:hover {
+			background-color: $dark-red;
+		}
+	}
+
+	&.btn-gray {
+		background-color: $off-white;
+		color: $dark-gray;
+
+		&:hover {
+			background-color: $color__background-button-gray;
+		}
+	}
+
+	&.btn-white {
+		background-color: $white;
+		color: $dark-gray;
+
+		&:hover {
+			background-color: $color__background-button-gray;
+		}
+	}
+
+	&.btn-blue {
+		background-color: $color__background-button-blue;
+
+		&:hover {
+			background-color: $blue;
+		}
+	}
+
+	&.btn-red-hover:hover {
+		background-color: $red;
+		color: $white;
+	}
+}

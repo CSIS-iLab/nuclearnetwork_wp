@@ -1,0 +1,87 @@
+@font-face {
+  font-family: 'chinapower';
+  src: url('/wp-content/themes/chinapower/fonts/chinapower.eot?16686240');
+  src: url('/wp-content/themes/chinapower/fonts/chinapower.eot?16686240#iefix') format('embedded-opentype'),
+       url('/wp-content/themes/chinapower/fonts/chinapower.woff2?16686240') format('woff2'),
+       url('/wp-content/themes/chinapower/fonts/chinapower.woff?16686240') format('woff'),
+       url('/wp-content/themes/chinapower/fonts/chinapower.ttf?16686240') format('truetype'),
+       url('/wp-content/themes/chinapower/fonts/chinapower.svg?16686240#chinapower') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+/* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */
+/* Note, that will break hinting! In other OS-es font will be not as sharp as it could be */
+/*
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: 'chinapower';
+    src: url('../font/chinapower.svg?95773996#chinapower') format('svg');
+  }
+}
+*/
+ 
+ [class^="icon-"]:before, [class*=" icon-"]:before {
+  font-family: "chinapower";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+ 
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+  /* opacity: .8; */
+ 
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+ 
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+ 
+  /* Animation center compensation - margins should be symmetric */
+  /* remove if not needed */
+  margin-left: .2em;
+ 
+  /* you can be more comfortable with increased icons size */
+  /* font-size: 120%; */
+ 
+  /* Font smoothing. That was taken from TWBS */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+ 
+  /* Uncomment for 3D effect */
+  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+}
+ 
+.icon-plus:before { content: '\e800'; } /* '' */
+.icon-close-x:before { content: '\e801'; } /* '' */
+.icon-arrow-right-full:before { content: '\e802'; } /* '' */
+.icon-left:before { content: '\e803'; } /* '' */
+.icon-up:before { content: '\e804'; } /* '' */
+.icon-copylink-share:before { content: '\e805'; } /* '' */
+.icon-email-contact:before { content: '\e806'; } /* '' */
+.icon-email-share:before { content: '\e807'; } /* '' */
+.icon-languages:before { content: '\e808'; } /* '' */
+.icon-printer-share:before { content: '\e809'; } /* '' */
+.icon-search:before { content: '\e80a'; } /* '' */
+.icon-share:before { content: '\e80b'; } /* '' */
+.icon-wechat:before { content: '\e80c'; } /* '' */
+.icon-down:before { content: '\e80d'; } /* '' */
+.icon-external-link:before { content: '\e80e'; } /* '' */
+.icon-arrow-right-1:before { content: '\e80f'; } /* '' */
+.icon-weibo:before { content: '\e810'; } /* '' */
+.icon-th:before { content: '\e811'; } /* '' */
+.icon-align-justify:before { content: '\e812'; } /* '' */
+.icon-play:before { content: '\e813'; } /* '' */
+.icon-info-circled:before { content: '\e814'; } /* '' */
+.icon-hamburger-menu-icon:before { content: '\e826'; } /* '' */
+.icon-down-open:before { content: '\f004'; } /* '' */
+.icon-up-open:before { content: '\f005'; } /* '' */
+.icon-arrow-right:before { content: '\f006'; } /* '' */
+.icon-left-open:before { content: '\f007'; } /* '' */
+.icon-twitter:before { content: '\f099'; } /* '' */
+.icon-facebook:before { content: '\f09a'; } /* '' */
+.icon-linkedin:before { content: '\f0e1'; } /* '' */
+.icon-play-circled:before { content: '\f144'; } /* '' */

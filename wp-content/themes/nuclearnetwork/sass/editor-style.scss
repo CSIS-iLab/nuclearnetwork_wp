@@ -1,0 +1,17 @@
+/*!
+Editor styles for TinyMCE editor
+*/
+
+@import "abstracts/variables";
+@import "abstracts/mixins";
+@import "base/normalize";
+@import "base/typography";
+
+
+// Headings
+h1 { @extend %h1; }
+h2 { @extend %h2; }
+h3 { @extend %h3; }
+h4 { @extend %h4; }
+h5 { @extend %h5; }
+h6 { @extend %h6; }

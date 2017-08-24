@@ -1,0 +1,280 @@
+body,
+button,
+input,
+select,
+textarea {
+	color: $color__text-main;
+	font-family: $font__main;
+	@include fontSize(18px);
+	line-height: $font__line-height-body;
+}
+
+/*================================
+=            Headings            =
+================================*/
+
+h1, h2, h3, h4, h5, h6 {
+	clear: both;
+}
+
+%h1 {
+	font-family: $font__Roboto;
+	@include fontSize(48px);
+	font-weight: bold;
+	line-height: 1.1;
+	letter-spacing: 0.6;
+	color: $black;
+	margin: 0 0 1rem 0;
+	
+}
+
+%h2 {
+	font-family: $font__Roboto;
+	@include fontSize(30px);
+	line-height: 1.2;
+	font-weight: 400;
+	color: $blue;
+	margin: 0.5rem 0 1rem 0;
+}
+
+%h3 {
+	font-family: $font__Roboto;
+	@include fontSize(25px);
+	line-height: 1.2;
+	font-weight: bold;
+	color: $black;
+	margin: 1rem 0;
+}
+
+%h4 {
+	font-family: $font__Roboto;
+	@include fontSize(22px);
+	line-height: 1.25;
+	font-weight: 600;
+	color: $black;
+	letter-spacing: 0.1px;
+	margin: 1rem 0;
+}
+
+%h5 {
+	font-family: $font__Roboto;
+	@include fontSize(22px);
+	line-height: 1.2;
+	font-weight: normal;
+	color: $black;
+	text-transform: uppercase;
+	letter-spacing: 1.1px;
+	margin: 1rem 0;
+}
+
+%h6 {
+	font-family: $font__Roboto;
+	@include fontSize(18px);
+	line-height: 1.2;
+	font-weight: 600;
+	color: $color__text-h6;
+	text-transform: uppercase;
+	letter-spacing: 1.1px;
+	margin: 1rem 0;
+}
+
+%page-title {
+	font-family: $font__Roboto;
+	@include fontSize(48px);
+	line-height: 1.27;
+	font-weight: bold;
+	letter-spacing: 0.6px;
+	color: $black;
+	text-align: center;
+}
+
+%post-title {
+	margin: 0;
+	font-family: $font__Hind;
+	@include fontSize(22px);
+	line-height: 1.32;
+	font-weight: 600;
+	letter-spacing: 0.1px;
+}
+
+%postFooter-heading {
+	font-family: $font__Hind;
+	@include fontSize(22px);
+	line-height: 1.55;
+	font-weight: 600;
+	letter-spacing: 1.1px;
+	color: $black;
+	text-transform: uppercase;
+	margin: 0 0 0.5rem 0;
+}
+
+%postFooter-subheading {
+	font-family: $font__Hind;
+	@include fontSize(18px);
+	line-height: 1.33;
+	font-weight: 600;
+	letter-spacing: 1.1px;
+	text-transform: uppercase;
+	color: $black;
+	margin-bottom: 1rem;
+}
+
+%homepage-heading {
+	font-family: $font__Roboto;
+	@include fontSize(25px);
+	font-weight: bold;
+	line-height: 1.36;
+}
+
+%dataSource-viewLink {
+	font-family: $font__Roboto;
+	@include fontSize(11px);
+	line-height: 2.64;
+	letter-spacing: 0.7px;
+	text-transform: uppercase;
+	color: $blue;
+}
+
+body.single, body.page {
+
+	h1 { @extend %h1 }
+	h2 { @extend %h2 }
+	h3 { @extend %h3 }
+	h4 { @extend %h4 }
+	h5 { @extend %h5 }
+	h6 { @extend %h6 }
+}
+
+/*============================
+=            Copy            =
+============================*/
+
+p {
+	margin: 0 0 1rem;
+	line-height: 1.8;
+}
+
+hr {
+	background-color: $color__background-hr;
+	border: 0;
+	height: 1px;
+	margin: 1rem 0;
+}
+
+b, strong {
+	font-weight: 600;
+}
+
+dfn, cite, em, i {
+	font-style: italic;
+}
+
+sub, sup {
+	.overlay-isActive & {
+		position: static;
+	}
+}
+
+%blockquote-source {
+	text-align: right;
+	@include fontSize(14px);
+	line-height: 2.07;
+	letter-spacing: 0.4px;
+	color: $dark-gray;
+	text-transform: uppercase;
+	margin-top: 5px;
+	margin-bottom: 0;
+}
+
+blockquote {
+	margin: 2rem auto;
+	padding: 1rem;
+	border-top: 2px solid $red;
+	border-bottom: 2px solid $red;
+
+	@include breakpoint("medium") {
+		width: 85%;
+	}
+
+	p {
+		margin-bottom: 0;
+	}
+
+	.source {
+		@extend %blockquote-source;
+	}
+}
+
+blockquote, blockquote p {
+	font-family: $font__Hind;
+	@include fontSize(18px);
+	line-height: 1.61;
+}
+
+blockquote, q {
+	quotes: "" "";
+
+	&:before,
+	&:after {
+		content: "";
+	}
+}
+
+address {
+	margin: 0 0 1.5em;
+}
+
+pre {
+	background: $color__background-pre;
+	font-family: $font__pre;
+	@include fontSize(14px);
+	line-height: $font__line-height-pre;
+	margin-bottom: 1.6em;
+	max-width: 100%;
+	overflow: auto;
+	padding: 1.6em;
+}
+
+code, kbd, tt, var {
+	font-family: $font__code;
+	@include fontSize(14px);
+}
+
+abbr, acronym {
+	border-bottom: 1px dotted $color__border-abbr;
+	cursor: help;
+}
+
+mark, ins {
+	background: $color__background-ins;
+	text-decoration: none;
+}
+
+big {
+	font-size: 125%;
+}
+
+/*=============================
+=            Links            =
+=============================*/
+a {
+	color: $color__link;
+	text-decoration: none;
+	@include transition(color .3s ease-in-out);
+
+	&:visited {
+		color: $color__link-visited;
+	}
+	&:hover,
+	&:focus,
+	&:active {
+		color: $color__link-hover;
+	}
+	&:focus {
+		outline: thin dotted;
+	}
+	&:hover,
+	&:active {
+		outline: 0;
+	}
+}

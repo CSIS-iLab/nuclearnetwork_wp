@@ -1,0 +1,30 @@
+/*=============================
+=            Pages            =
+=============================*/
+
+.page:not(.home) {
+	.content-area {
+		padding: 2rem 0;
+	}
+}
+
+.type-page.cardLayout {
+	margin-left: 0.5rem;
+	margin-right: 0.5rem;
+	padding-bottom: 1.5rem;
+
+	.entry-thumbnail {display: none;}
+	.entry-header,
+	.entry-content {
+		@include breakpoint("medium") {
+			flex-basis:100%;
+			max-width: 100%;
+			padding-left: 2rem;
+			padding-right: 2rem;
+		}
+	}
+
+	.entry-header .entry-title {margin: 0;}
+	.entry-header {padding-top: 2rem;}
+
+}

@@ -1,0 +1,33 @@
+/*=======================================
+=            Related Content            =
+=======================================*/
+
+.relatedContent-container {
+	.relatedContent-heading {
+		@extend %postFooter-subheading;
+
+		&.noMargin {margin-top: 0;}
+	}
+
+	.relatedContent-post {
+		margin-bottom: 1.5rem;
+
+		.relatedContent-img {
+			max-width: 105px;
+		}
+
+		.relatedContent-title a {
+			font-family: $font__Hind;
+			@include fontSize(18px);
+			font-weight: 500;
+			line-height: 1.22;
+			letter-spacing: 0.3px;
+			color: $black;
+
+			&:hover {
+				color: $red;
+			}
+		}
+	}
+
+}

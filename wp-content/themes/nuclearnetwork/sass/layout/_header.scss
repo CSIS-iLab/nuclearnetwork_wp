@@ -1,0 +1,749 @@
+/*==============================
+=            Header            =
+==============================*/
+
+header.site-header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 100;
+	width: 25%;
+	background-color: $white;
+	-webkit-box-shadow: 1px 1px 5px 0px rgba($gray,0.6);
+	-moz-box-shadow: 1px 1px 5px 0px rgba($gray,0.6);
+	box-shadow: 1px 1px 5px 0px rgba($gray,0.6);
+
+	.single-post &,
+	.single-podcasts & {
+		box-shadow: none;
+	}
+
+	&.overlay-isActive {
+		width: 100%;
+	}
+
+	&.postnav-overlay-isActive {
+		display: none;
+	}
+
+	@include breakpoint("medium") {
+		width: 100%;
+		box-shadow: none;
+		background-color: $blue;
+	}
+
+	.header-main {
+		position: relative;
+		z-index: 100;
+
+		@include breakpoint("medium") {
+			height: 100px;
+			width: 100%;
+			padding-top: 1rem;
+		}
+
+		.content-wrapper {
+			padding: 0;
+
+			@include breakpoint("medium") {
+				height: 100%;
+			}
+		}
+
+		.site-branding {
+			padding: 0;
+			text-align: left;
+
+			@include breakpoint("medium") {
+				padding: 0 0.5rem;
+			}
+
+			&.isHidden {
+				display: none;
+			}
+
+			a {
+				color: $white;
+
+				.logo-main {
+					display: none;
+					@include breakpoint("medium") {
+						display: block;
+						height: 45px;
+						width: auto;
+						@include transition(all .25s ease-in-out);
+					}
+				}
+				
+				img.logo-mobile {
+					display: block;
+				
+					max-width: 100%;
+
+					@include breakpoint("medium") {
+						display: none;
+					}
+				}
+
+				.site-tagline {
+					display: none;
+
+					@include breakpoint("medium") {
+						display: block;
+						font-family: $font__Roboto;
+						@include fontSize(14px);
+						line-height: normal;
+						font-style: italic;
+						color: $off-white;
+						letter-spacing: 0.3px;
+						opacity: 1;
+						visibility: visible;
+						position: static;
+						@include transition(all .25s ease-in-out);
+					}
+				}
+			}
+		}
+
+		/*----------  Navigation: Main Menu  ----------*/
+		.main-navigationContainer {
+			padding-left: 0.4rem;
+			align-self: center;
+
+			@include breakpoint("medium") {
+				align-self: flex-end;
+				padding-left: 0.5rem;
+			}
+
+			.main-navigationControl {
+				background-color: transparent;
+				padding: 0;
+				margin: 0;
+				height: 100%;
+
+				.icon {
+					vertical-align: middle;
+					margin-left: 0;
+					font-size: 16px;
+				}
+
+				@include breakpoint("medium") {
+					display: none;
+				}
+
+				&.isHidden {
+					display: none;
+				}
+
+			}
+			
+		
+			nav.main-navigation {
+				display: block;
+				position: absolute;
+				top: 5rem;
+				width: 100%;
+				left: -700px;
+				@include transition(all .25s ease-in-out);
+
+				@include breakpoint("medium") {
+					display: block;
+					position: relative;
+					top: initial;
+					left: initial;
+					padding-top: 1rem;
+					padding-bottom: 0;
+					width: initial;
+				}
+
+				&.isVisible {
+					display: block;
+					left: 0px;
+					@include transition(all .25s ease-in-out);
+				}
+
+				ul#primary-menu {
+					display: block;
+					list-style: none;
+					margin: 0;
+					padding: 0;
+					text-align: right;
+
+					li {
+						text-align: left;
+						margin-bottom: 0;
+						padding: 0;
+
+						@include breakpoint("medium") {
+							display: inline-block;
+							width: auto;
+							border: 0;
+							top: 0;
+						}
+
+						a {
+							font-family: $font__Hind;
+							@include fontSize(20px);
+							line-height: 2;
+							font-weight: 500;
+							text-decoration: none;
+							color: $white;
+							text-transform: uppercase;
+							padding: 0 1rem;
+							width: 100%;
+							position: relative;
+							display: block;
+
+							@include breakpoint("medium") {
+								@include fontSize(16px);
+								line-height: 1.81;
+								padding: 0.63rem 1rem;
+							}
+						}
+
+						&:hover {
+							transition: none;
+						}
+
+						@include breakpoint("medium") {
+							&:hover > div.sub-menu-container {
+								display: block;
+							}
+						}
+
+						&:not(.menu-item-has-children) {
+							&.sibHover a {
+								margin-right: -2rem;
+								transition: none;
+							}
+
+							a:after {
+								content: " ";
+								font-family: "chinapower";
+							}
+						}
+
+						// Item is Parent Item
+						&.menu-item-has-children {
+
+							&.active a {
+								padding-left: 1rem;
+								transition: none;
+
+								@include breakpoint("medium") {
+									padding-left: 3rem;
+								}
+							}
+
+							a:after {
+								content: "\e800";
+								font-family: "chinapower";
+								color: $light-blue;
+								margin-left: 5px;
+							}
+
+							&:hover a {
+								// padding-left: 3rem;
+
+								&:after {
+									content: "\2013";
+									color: $light-blue;
+									margin-left: 5px;
+								}
+
+								@include breakpoint("medium") {
+									&:before {
+										content:'';
+									    position: absolute;
+									    bottom: -2px;
+									    left: 50%;
+									    right: 50%;
+									    margin: 0 auto;
+									    width: 0;
+									    height: 0;
+									    border-bottom: solid 10px $off-white;
+									    border-left: solid 10px transparent;
+									    border-right: solid 10px transparent;
+									}
+								}
+							}
+						}
+
+						// Home Link
+						&.home {
+
+							a {
+								text-transform: none;
+								margin-bottom: .5rem;
+
+								img {
+									display: inline-block;
+									width: auto;
+									height: 28px;
+									vertical-align: text-top;
+
+								}
+							}
+
+							@include breakpoint("medium") {
+								display: none;
+							}
+						}
+
+						// Sub-menus
+						.sub-menu-container {
+							display: none;
+							
+							
+								@include breakpoint("small") {
+									display: block;
+									overflow:hidden;
+								    max-height:0;
+								    -webkit-transition:max-height 500ms ease;
+								    -moz-transition:max-height 500ms ease;
+								    -o-transition:max-height 500ms ease;
+								    transition:all 500ms ease;
+								}
+							&.isVisible {
+								display: block;
+								@include breakpoint("small") {
+									border-left: 1px solid $blue-gray;
+									margin: 0rem 1rem 1rem;
+									display: block;
+ 									max-height:300px;
+								}					
+							}
+
+							@include breakpoint("medium") {
+								position: fixed;
+								left: 0;
+								right: 0;
+								background-color: $off-white;
+								top: 100px;
+								border-left: 0;
+								margin: 0;
+								@include box-shadow(1px, 1px, 5px, 0px, rgba($gray,0.6));
+							}
+
+							ul.sub-menu {
+								width: $size__container-max-width;
+								margin: 0 auto;
+								padding: 0 0 0 1rem;
+								list-style: none;
+
+								@include breakpoint("medium") {
+									padding: 0;
+									text-align: right;
+								}
+
+								li {
+
+									@include breakpoint("medium") {
+										display: inline-block;
+										padding: 0.5rem 0;
+									}
+
+									&:hover {
+										background-color: transparent;
+									}
+
+									a {
+										padding: 0;
+										margin: 0 2rem 0 0;
+										color: $blue-gray;
+										font-family: $font__Roboto;
+										@include fontSize(18px);
+										line-height: 1.61;
+										letter-spacing: 0.7px;
+										background-color: transparent;
+
+										@include breakpoint("medium") {
+											@include fontSize(13px);
+											line-height: 1.69;
+											color: $dark-gray;
+										}
+
+										&:after, &:before {
+											content: none;
+										}
+
+										&:hover {
+											color: $red;
+
+											&:before, &:after {
+												content: none;
+											}
+										}
+									}
+
+									&.hidden-md {
+										@include breakpoint("medium") {
+											display: none;
+										}
+									}
+								}
+							}
+						}
+
+						/*----------  Search  ----------*/
+						&.searchIcon {
+							display: none;
+
+							@include breakpoint("medium") {
+							display: inline-block;
+
+								.icon-search {
+									margin-left: 0;
+									line-height: 14px;
+									width: 14px;
+									height: 14px;
+									vertical-align: text-top;
+									padding-top: 2px;
+									display: inline-block;
+
+									&:hover {
+										cursor: pointer;
+									}
+								}
+							}
+						}
+					}
+				}
+
+				/*----------  Social  ----------*/
+				ul.nav-socialContainer {
+					list-style: none;
+					margin-top: 2rem;
+					padding-left: 1rem;
+
+					@include breakpoint("medium") {
+						display: none;
+					}
+
+					a {
+						display: block;
+						font-family: $font__Hind;
+						@include fontSize(16px);
+						line-height: 1.81;
+						color: $blue;
+
+						.icon {
+							color: $white;
+							@include fontSize(20px);
+							margin-left: 0;
+							margin-right: 1.25rem;
+							vertical-align: middle;
+							height: 20px;
+							width: auto;
+							line-height: 20px;
+
+							&::before{
+								@include breakpoint("small") {
+									text-align: left;
+									margin-left: 0px;
+
+								}
+
+							}	
+
+							&.icon-email-share {
+								@include fontSize(18px);
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	/*----------  Search Form  ----------*/
+	.header-searchFormContainer {
+		display: none;
+		position: absolute;
+		z-index: 51;
+		top: 5rem;
+
+		@include breakpoint("small") {
+			display: block;
+			width: 100%;
+		right: -700px;
+
+		@include transition(all .25s ease-in-out);
+	}
+
+		@include breakpoint("medium") {
+			right: 0;
+			left: 0;
+			top: initial;
+			background-color: $off-white;
+			@include box-shadow(1px, 1px, 5px, 0px, rgba($gray,0.6));
+			padding-top: 0.25rem;
+			padding-bottom: 0.25rem;
+		}
+
+		&.isVisible {
+			display: block;
+			z-index: 200;
+
+			@include breakpoint("small") {
+			position: absolute;
+			right: 0px;
+			@include transition(all .25s ease-in-out);
+		}
+		}
+
+		.header-searchInputContainer {
+			padding: 0;
+		}
+
+		.search-form {
+
+			border-bottom: 1px solid $light-blue;
+			width: 100%;
+
+			@include breakpoint("medium") {
+				border-bottom-color: $blue-gray;
+			}
+		}
+
+		.search-field {
+			width: 93%;
+			border-radius: 0;
+			background-color: transparent;
+			border: 0;
+			color: $light-blue;
+			text-transform: uppercase;
+			@include fontSize(16px);
+			line-height: 1;
+			-webkit-appearance: textfield;
+			margin: 0;
+
+			&:focus {
+				box-shadow: none;
+				color: $white;
+
+				@include breakpoint("medium") {
+					color: $gray;
+				}
+			}
+
+			@include placeholder($light-blue);
+
+			@include breakpoint("medium") {
+				color: $blue-gray;
+				padding: 0;
+
+				@include placeholder($blue-gray);
+			}
+		}
+
+		.search-submit {
+			width: 5%;
+			border: 0;
+			background-color: transparent;
+			border-radius: 0;
+			color: $light-blue;
+			padding: 0;
+			@include fontSize(16px);
+			line-height: 1;
+			font-family: "chinapower";
+			margin: 0;
+			text-align: right;
+		}
+
+		.search-close {
+			text-align: right;
+
+			.icon {
+				color: $blue-gray;
+				margin-left: 0;
+				margin-right: 10px;
+				vertical-align: middle;
+				cursor: pointer;
+			}
+		}
+	}
+
+	/*----------  Navigation Overlay  ----------*/
+	.header-navOverlay {
+		display: none;
+		position: fixed;
+		z-index: 50;
+		top: 0;
+		left: -700px;
+		right: 0;
+		height: 100%;
+		overflow: hidden;
+		
+
+		&.isVisible {
+			display: block;
+			left: 0px;
+			@include transition(left .25s linear);
+		}
+
+		.navOverlay-heading {
+			background-color: #3b5159;
+			padding: 1rem 0;
+			text-align: center;
+			color: $blue-gray;
+			font-family: $font__Roboto;
+			@include fontSize(18px);
+			line-height: 1.61;
+			letter-spacing: 1px;
+			text-transform: uppercase;
+
+				@include breakpoint("small") {
+					padding: 1rem 0 1rem;
+					height: 60px
+				}
+
+			.icon {
+				color: $white;
+			}
+
+			.navOverlay-heading-menu, .navOverlay-heading-search { 
+				.col-xs-2:first-of-type, .col-xs-3:first-of-type{
+					padding: 0px;
+					text-align: left;
+					i.icon {
+						margin-left: 0px;
+						width: auto;
+					}
+					
+				}
+				.col-xs-2:last-of-type, .col-xs-3:last-of-type{
+					padding: 0px;
+					text-align: right;
+
+					i.icon {
+						margin-left: 0px;
+						width: auto;
+					}
+				}
+			}
+
+			.icon-close, .icon-close:before {
+				margin: 0px;
+			}
+
+
+			.navOverlay-heading-menu {
+				position: absolute;
+				left: 0px;
+				@include transition(left .25s linear);
+				width: 100%;
+				z-index: 20;
+
+				&.isHidden {
+					position: absolute;
+					left: -700px;
+					@include transition(left .25s linear);
+				}
+			}
+
+			.navOverlay-heading-search {
+				position: absolute;
+				right: -700px;
+				@include transition(right .25s linear);
+				width: 100%;
+				z-index: 20;
+
+				&.isVisible {
+					position: absolute;
+					right: 0px;
+					@include transition(right .25s linear);
+				}
+
+				.search-back {
+					@include fontSize(13px);
+					line-height: 1.69;
+					letter-spacing: 0.6px;
+					color: $white;
+
+					.icon {
+						color: $blue;
+						line-height: 13px;
+					}
+				}
+
+				.icon {
+					vertical-align: middle;
+				}
+			}
+		}
+
+		.navOverlay-content {
+			background-color: $dark-blue;
+			opacity: 0.95;
+			height: 100%;
+		}
+	}
+
+	/*----------  Minimal Header  ----------*/
+	@include breakpoint("medium") {
+		&.minimal .header-main {
+			height: 50px;
+			padding-top: 0;
+			padding-bottom: 0;
+			@include transition(height .25s linear);
+
+			.content-wrapper {
+				align-items: center;
+				height: 100%;
+			}
+
+			.site-branding {
+				margin-bottom: 0;
+				a {
+					img {
+						height: 28px;
+						margin: 0;
+						@include transition(all .25s ease-in-out);
+					}
+					.site-tagline {
+						opacity: 0;
+						visibility: 0;
+						position: absolute;
+						@include transition(all .25s ease-in-out);
+					}
+				}
+			}
+
+			.main-navigationContainer {
+				align-self: initial;
+				height: 100%;
+
+				.main-navigation {padding-top: 0;}
+
+				li.menu-item-has-children {
+						&:hover a {
+							@include breakpoint("medium") {
+									&:before {
+									    bottom: 0px;
+									    
+									}
+							}
+						}
+				}
+				
+			}
+		}
+	}
+}
+
+.admin-bar header.site-header,
+.admin-bar header.site-header .header-navOverlay {
+	top: 46px;
+
+	@include breakpoint("medium") {
+		top: 32px;
+	}
+}
+.admin-bar header.site-header .header-main .main-navigationContainer nav.main-navigation ul#primary-menu li .sub-menu-container {
+	top: 146px;
+
+	@include breakpoint("medium") {
+		top: 132px;
+	}
+}

@@ -1,0 +1,273 @@
+/*====================================
+=            Social Share            =
+====================================*/
+
+.addtoany_list {
+	line-height: inherit !important;
+
+	a {
+		margin-right: 0.75rem;
+	}
+
+	.a2a_svg {
+		background-color: transparent !important;
+
+		&:before {
+			font-family: 'chinapower';
+			color: $white;
+			line-height: 1;
+			display: inline-block;
+			vertical-align: middle;
+		}
+
+		/* Facebook */
+		&.a2a_s_facebook:before {
+			content: "\f09a";
+		}
+
+		/* Twitter */
+		&.a2a_s_twitter:before {
+			content: "\f099";
+		}
+
+		/* LinkedIn */
+		&.a2a_s_linkedin:before {
+			content: "\f0e1";
+		}
+
+		/* Weibo */
+		&.a2a_s_sina_weibo:before {
+			content: "\e810";
+		}
+
+		/* WeChat */
+		&.a2a_s_wechat:before {
+			content: "\e80c";
+		}
+
+		/* Print */
+		&.a2a_s_print:before, 
+		&.a2a_s_printfriendly:before {
+			content: "\e809";
+		}
+
+		/* Email */
+		&.a2a_s_email:before {
+			content: "\e807";
+		}
+
+		/* Copy Link */
+		&.a2a_s_link:before {
+			content: "\e805";
+		}
+
+		svg {display: none;}
+	}
+
+	& a>span {
+		width: inherit !important;
+		height: inherit !important;
+		line-height: inherit !important;
+		display: inline-block;
+		vertical-align: middle;
+		@include fontSize(20px);
+	}
+
+	/* Divider between Email & Social */
+	.a2a_button_email {
+
+		&:before {
+			content: "|";
+			color: $color__background-share-divider;
+			margin-left: 0.75rem;
+			margin-right: 1.5rem;
+		}
+	}
+}
+
+.sharing-inline {
+	text-align: center;
+	margin: 0.5rem 0 2rem 0;
+
+	&.overlay-isActive {
+		position: absolute;
+		background-color: $dark-blue;
+		opacity: 0.95;
+		height: 100%;
+		top: 0;
+		left: 50%;
+		right: 50%;
+		margin-left: -50vw !important;
+		margin-right: -50vw !important;
+		padding-top: 3rem;
+
+		.admin-bar & {
+			top: 75px;
+		}
+	}
+
+	.sharing-openShareBtn {
+		margin: 0 auto;
+
+		.icon {
+			color: $gray;
+			@include fontSize(10px);
+			margin-left: -2px;
+			margin-bottom: 2px !important;
+			vertical-align: middle;
+		}
+
+		&.isHidden {
+			display: none;
+		}
+	}
+
+	.sharing-shareBtns {
+		background-color: $off-white;
+		text-align: left;
+		padding: 0.2rem 0.5rem;
+		border-radius: 2px;
+		width: 0;
+		visibility: hidden;
+		opacity: 0;
+		position: absolute;
+
+		&.isVisible {
+			width: 100%;
+			visibility: visible;
+			opacity: 1;
+			position: relative;
+			background-color: transparent;
+			@include transition(visibility 0s, position 0s);
+
+			@include breakpoint("medium") {
+				width: 100%;
+				position: static;
+				@include transition(visibility 0s, position 0s, opacity 0.5s linear, width 0.2s ease-in);
+				background-color: $off-white;
+			}
+		}
+
+		.overlay-isActive & {
+			.post-title {
+				display: block;
+				@extend %post-title;
+				color: $white;
+				margin-bottom: 1rem;
+				text-align: center;
+				margin-bottom: 2rem;
+				padding: 0 2rem;
+			}
+
+			.icon-close-x {display: none;}
+			.addtoany_list {
+				text-align: center;
+				box-sizing: border-box;
+			    display: -webkit-box;
+			    display: -ms-flexbox;
+			    display: flex;
+			    -webkit-box-flex: 0;
+			    -ms-flex: 0 1 auto;
+			    flex: 0 1 auto;
+			    -webkit-box-orient: horizontal;
+			    -webkit-box-direction: normal;
+			    -ms-flex-direction: row;
+			    flex-direction: row;
+			    -ms-flex-wrap: wrap;
+			    flex-wrap: wrap;
+			    position: relative;
+
+				a {
+					display: inline-block;
+					flex: 33%;
+					margin-bottom: 2rem;
+					margin-right: 0;
+
+					& > span {
+						@include fontSize(32px);
+
+						&:before {color: $white;}
+
+					}
+
+					&:hover {
+						box-shadow: none;
+					}
+
+					&:nth-of-type(5) {
+						flex: 66%;
+
+						span {
+							margin-left: calc(100% / -2);
+						}
+					}
+
+					&.a2a_button_email:before {
+						content: " ";
+						border-top: 1px solid $blue-gray;
+						position: absolute;
+						left: 1.5rem;
+						right: 0.5rem;
+						top: calc(100% / 1.7);
+					}
+
+					%label {
+						clip: unset;
+						color: $light-blue;
+						font-family: $font__Hind;
+						@include fontSize(14px);
+						line-height: 2.07;
+						bottom: 1rem;
+					}
+
+					&.a2a_button_email .a2a_label {
+						@extend %label;
+						left: calc(100% / 8);
+					}
+
+					&.a2a_button_print .a2a_label,
+					&.a2a_button_printfriendly .a2a_label
+					{
+						@extend %label;
+						left: calc(100% / 2.15);
+					}
+
+					&.a2a_button_copy_link .a2a_label {
+						@extend %label;
+						left: calc(100% / 1.32);
+					}
+				}
+			}
+		}
+		@include breakpoint("medium") {
+			.post-title {display: none;}
+			.addtoany_list {
+				display: inline-block;
+			}
+
+			.addtoany_list a > span {
+				@include fontSize(16px);
+			}
+
+			.addtoany_list a:hover {
+				box-shadow: none;
+			}
+
+			.a2a_svg:before {
+				color: $dark-gray;
+			}
+
+			.a2a_svg:hover:before {
+				color: $red;
+			}
+
+			.icon-close-x {
+				float: right;
+				margin-top: 3px;
+				margin-left: 0;
+				margin-right: 5px;
+				color: $blue-gray;
+			}
+		}
+	}
+}

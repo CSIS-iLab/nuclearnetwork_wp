@@ -1,0 +1,37 @@
+/*==========================================
+=            Post Feature Image            =
+==========================================*/
+
+%post-featureImg {
+	width: 100%;
+	height: 600px;
+	position: relative;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center center;
+	display: flex;
+	padding-bottom: 1rem;
+
+	&:before {
+		content: '';
+		position: absolute;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		height: 40%;
+		background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.75) 100%); /* FF3.6-15 */
+		background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.75) 100%); /* Chrome10-25,Safari5.1-6 */
+		background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.75) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6000000',GradientType=0 ); /* IE6-9 */
+	}
+}
+
+%post-featureImgTitle {
+	position: relative;
+	flex: 1;
+	align-self: flex-end;
+	max-width: $size__container-max-width;
+	@extend %page-title;
+	color: $white;
+	margin: 0 auto;
+}

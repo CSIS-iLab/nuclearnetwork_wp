@@ -1,0 +1,49 @@
+ul, ol {
+	margin: 0 0 1.5em 0;
+
+	li {
+		margin-bottom: 0.75rem;
+		line-height: 1.69;
+	}
+}
+
+ul {
+	list-style: disc;
+}
+
+ol {
+	list-style: decimal;
+}
+
+li > ul,
+li > ol {
+	margin-bottom: 0;
+	margin-left: 1.5em;
+}
+
+dt {
+	font-weight: bold;
+}
+
+dd {
+	margin: 0 1.5em 1.5em;
+}
+
+.entry-content ul, .furtherReading-container ul {
+	list-style: none;
+	padding-left: 1.7rem;
+
+	li {
+
+		&:before {
+			content: "•";
+			color: $red;
+			margin-right: 0.5rem;
+		}
+	}
+}
+
+.furtherReading-container ul {
+	padding: 0;
+	margin: 0;
+}
