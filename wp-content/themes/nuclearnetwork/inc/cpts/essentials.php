@@ -61,3 +61,44 @@ function nuclearnetwork_cpt_essentials() {
 
 }
 add_action( 'init', 'nuclearnetwork_cpt_essentials', 0 );
+
+/**
+ * Register custom taxonomy for the different types of opportunities
+ */
+function nuclearnetwork_resource_types() {
+
+	$labels = array(
+		'name'                       => _x( 'Resource Type', 'Taxonomy General Name', 'nuclearnetwork' ),
+		'singular_name'              => _x( 'Resource Type', 'Taxonomy Singular Name', 'nuclearnetwork' ),
+		'menu_name'                  => __( 'Resource Types', 'nuclearnetwork' ),
+		'all_items'                  => __( 'All Resource Types', 'nuclearnetwork' ),
+		'parent_item'                => __( 'Parent Resource Type', 'nuclearnetwork' ),
+		'parent_item_colon'          => __( 'Parent Resource Type:', 'nuclearnetwork' ),
+		'new_item_name'              => __( 'New Resource Type', 'nuclearnetwork' ),
+		'add_new_item'               => __( 'Add Resource Type', 'nuclearnetwork' ),
+		'edit_item'                  => __( 'Edit Resource Type', 'nuclearnetwork' ),
+		'update_item'                => __( 'Update Resource Type', 'nuclearnetwork' ),
+		'view_item'                  => __( 'View Resource Type', 'nuclearnetwork' ),
+		'separate_items_with_commas' => __( 'Separate Resource Types with commas', 'nuclearnetwork' ),
+		'add_or_remove_items'        => __( 'Add or remove Resource Types', 'nuclearnetwork' ),
+		'choose_from_most_used'      => __( 'Choose from the most used', 'nuclearnetwork' ),
+		'popular_items'              => __( 'Popular Resource Types', 'nuclearnetwork' ),
+		'search_items'               => __( 'Search Resource Types', 'nuclearnetwork' ),
+		'not_found'                  => __( 'Not Found', 'nuclearnetwork' ),
+		'no_terms'                   => __( 'No Resource Types', 'nuclearnetwork' ),
+		'items_list'                 => __( 'Resource Types list', 'nuclearnetwork' ),
+		'items_list_navigation'      => __( 'Resource Types list navigation', 'nuclearnetwork' ),
+	);
+	$args = array(
+		'labels'                     => $labels,
+		'hierarchical'               => true,
+		'public'                     => true,
+		'show_ui'                    => true,
+		'show_admin_column'          => true,
+		'show_in_nav_menus'          => true,
+		'show_tagcloud'              => true,
+	);
+	register_taxonomy( 'resource_types', array( 'essentials' ), $args );
+
+}
+add_action( 'init', 'nuclearnetwork_resource_types', 0 );
