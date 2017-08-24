@@ -165,3 +165,8 @@ require get_template_directory() . '/inc/custom-post-types.php';
  * Load custom user meta fields.
  */
 require get_template_directory() . '/inc/custom-usermeta.php';
+
+/**
+ * Load custom settings.
+ */
+require get_template_directory() . '/inc/custom-settings.php';
