@@ -154,7 +154,7 @@ function nuclearnetwork_admin_init_section_contact() {
 	register_setting(
 		'nuclearnetwork_settings',
 		'nuclearnetwork_address',
-		'esc_textarea'
+		'wp_filter_post_kses'
 	);
 
 	register_setting(
