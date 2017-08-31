@@ -29,7 +29,7 @@ header.site-header {
 	@include breakpoint("medium") {
 		width: 100%;
 		box-shadow: none;
-		background-color: $blue;
+		background-color: $primary-blue;
 	}
 
 	.header-main {
@@ -90,7 +90,7 @@ header.site-header {
 
 					@include breakpoint("medium") {
 						display: block;
-						font-family: $font__Roboto;
+						font-family: $font__lato;
 						@include fontSize(14px);
 						line-height: normal;
 						font-style: italic;
@@ -182,7 +182,7 @@ header.site-header {
 						}
 
 						a {
-							font-family: $font__Hind;
+							font-family: $font__ptsans;
 							@include fontSize(20px);
 							line-height: 2;
 							font-weight: 500;
@@ -307,7 +307,7 @@ header.site-header {
 							&.isVisible {
 								display: block;
 								@include breakpoint("small") {
-									border-left: 1px solid $blue-gray;
+									border-left: 1px solid $secondary-blue;
 									margin: 0rem 1rem 1rem;
 									display: block;
  									max-height:300px;
@@ -350,8 +350,8 @@ header.site-header {
 									a {
 										padding: 0;
 										margin: 0 2rem 0 0;
-										color: $blue-gray;
-										font-family: $font__Roboto;
+										color: $secondary-blue;
+										font-family: $font__lato;
 										@include fontSize(18px);
 										line-height: 1.61;
 										letter-spacing: 0.7px;
@@ -368,7 +368,7 @@ header.site-header {
 										}
 
 										&:hover {
-											color: $red;
+											color: $primary-blue;;
 
 											&:before, &:after {
 												content: none;
@@ -422,10 +422,10 @@ header.site-header {
 
 					a {
 						display: block;
-						font-family: $font__Hind;
+						font-family: $font__ptsans;
 						@include fontSize(16px);
 						line-height: 1.81;
-						color: $blue;
+						color: $primary-blue;
 
 						.icon {
 							color: $white;
@@ -502,7 +502,7 @@ header.site-header {
 			width: 100%;
 
 			@include breakpoint("medium") {
-				border-bottom-color: $blue-gray;
+				border-bottom-color: $secondary-blue;
 			}
 		}
 
@@ -530,10 +530,10 @@ header.site-header {
 			@include placeholder($light-blue);
 
 			@include breakpoint("medium") {
-				color: $blue-gray;
+				color: $secondary-blue;
 				padding: 0;
 
-				@include placeholder($blue-gray);
+				@include placeholder($secondary-blue);
 			}
 		}
 
@@ -555,7 +555,7 @@ header.site-header {
 			text-align: right;
 
 			.icon {
-				color: $blue-gray;
+				color: $secondary-blue;
 				margin-left: 0;
 				margin-right: 10px;
 				vertical-align: middle;
@@ -586,8 +586,8 @@ header.site-header {
 			background-color: #3b5159;
 			padding: 1rem 0;
 			text-align: center;
-			color: $blue-gray;
-			font-family: $font__Roboto;
+			color: $secondary-blue;
+			font-family: $font__lato;
 			@include fontSize(18px);
 			line-height: 1.61;
 			letter-spacing: 1px;
@@ -662,7 +662,7 @@ header.site-header {
 					color: $white;
 
 					.icon {
-						color: $blue;
+						color: $primary-blue;
 						line-height: 13px;
 					}
 				}

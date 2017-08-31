@@ -7,7 +7,7 @@ footer.site-footer {
 	margin-top: 3rem;
 
 	.footer-logoContainer {
-		background-color: $blue;
+		background-color: $primary-blue;
 		padding: 1rem 0 0 0;
 
 		@include breakpoint("medium") {
@@ -33,7 +33,7 @@ footer.site-footer {
 		}
 
 		h3 {
-			font-family: $font__Hind;
+			font-family: $font__ptsans;
 			@include fontSize(18px);
 			font-weight: 600;
 			line-height: 1.33;
@@ -80,7 +80,7 @@ footer.site-footer {
 		p {
 			@include fontSize(15px);
 			line-height: 1.6;
-			color: $blue;
+			color: $primary-blue;
 			margin-bottom: 0;
 			padding-right: 0.5rem;
 			padding-left: 0.5rem;

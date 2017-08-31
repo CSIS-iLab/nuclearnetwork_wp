@@ -23,28 +23,5 @@
 				});
 			}
 		});
-		editor.addButton('toc', {
-			text: 'Table of Contents',
-			icon: null,
-			tooltip: 'Insert Table of Contents',
-			onclick: function() {
-				editor.windowManager.open( {
-					title: 'Insert Table of Contents',
-					width: 400,
-					height: 225,
-					body: [
-						{
-							type: 'textbox',
-							multiline: true,
-							name: 'toc',
-							rows: 10
-						},
-					],
-					onsubmit: function( e ) {
-						editor.insertContent( '[toc]' + e.data.toc + '[/toc]');
-					}
-				});
-			}
-		});
 	});
 })();

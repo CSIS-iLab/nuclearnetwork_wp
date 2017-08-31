@@ -7,7 +7,7 @@ input[type="submit"],
 	background-color: $color__background-button-red;
 	color: $white;
 	text-transform: uppercase;
-	font-family: $font__Roboto;
+	font-family: $font__lato;
 	@include fontSize(13px);
 	line-height: 1.69;
 	letter-spacing: 0.7px;
@@ -21,10 +21,10 @@ input[type="submit"],
 .btn {
 
 	&.btn-red {
-		background-color: $red;
+		background-color: $primary-blue;;
 
 		&:hover {
-			background-color: $dark-red;
+			background-color: $dark-blue;
 		}
 	}
 
@@ -50,12 +50,12 @@ input[type="submit"],
 		background-color: $color__background-button-blue;
 
 		&:hover {
-			background-color: $blue;
+			background-color: $primary-blue;
 		}
 	}
 
 	&.btn-red-hover:hover {
-		background-color: $red;
+		background-color: $primary-blue;;
 		color: $white;
 	}
 }

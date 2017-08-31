@@ -49,7 +49,7 @@
 					}
 
 					.cat-links {
-						font-family: $font__Hind;
+						font-family: $font__ptsans;
 						@include fontSize(14px);
 						line-height: 2.07;
 						font-weight: 500;
@@ -106,7 +106,7 @@
 							color: $black;
 
 							&:hover {
-								color: $red;
+								color: $primary-blue;;
 							}
 						}
 					}
@@ -167,10 +167,10 @@
 			}
 
 			.podcast-heading {
-				font-family: $font__Roboto;
+				font-family: $font__lato;
 				@include fontSize(30px);
 				line-height: 1.53;
-				color: $blue;
+				color: $primary-blue;
 				text-transform: uppercase;
 				margin: 0 0 1rem 0;
 
@@ -187,7 +187,7 @@
 				}
 
 				.entry-title {
-					font-family: $font__Hind;
+					font-family: $font__ptsans;
 					@include fontSize(18px);
 					font-weight: 500;
 					line-height: 1.22;
@@ -197,7 +197,7 @@
 					a {
 						color: $black;
 
-						&:hover { color: $red; }
+						&:hover { color: $primary-blue;; }
 					}
 				}
 				
@@ -206,7 +206,7 @@
 			.btn {
 				.icon {
 					margin-left: 0;
-					color: $blue-gray;
+					color: $secondary-blue;
 					@include fontSize(10px);
 					margin-top: 2px;
 				}
@@ -227,7 +227,7 @@
 		/*----------  Featured Stat  ----------*/
 		.featured-stat {
 			position: relative;
-			background-color: $blue;
+			background-color: $primary-blue;
 			padding: 2rem 2rem 2rem 0.5rem;
 
 			&:before {
@@ -238,7 +238,7 @@
 				right: calc(100% - 1px);
 				width: 100vw;
 				height: 100%;
-				background-color: $blue;
+				background-color: $primary-blue;
 			}
 
 			&:after {
@@ -249,7 +249,7 @@
 				left: calc(100% - 1px);
 				width: 100vw;
 				height: 100%;
-				background-color: $blue;
+				background-color: $primary-blue;
 			}
 
 			@include breakpoint("medium") {
@@ -292,7 +292,7 @@
 					margin-bottom: 2rem;
 
 					.data-featuredStatNumber {
-						font-family: $font__Roboto;
+						font-family: $font__lato;
 						@include fontSize(25px);
 						font-weight: 600;
 						color: $white;
@@ -385,7 +385,7 @@
 			}
 
 			.data-repo-title {
-				background-color: $red;
+				background-color: $primary-blue;;
 				color: $white;
 				@extend %homepage-heading;
 				text-transform: uppercase;
@@ -423,7 +423,7 @@
 
 		.heading {
 			@extend %postFooter-heading;
-			color: $blue;
+			color: $primary-blue;
 			font-style: normal;
 			margin-bottom: 0;
 		}
@@ -452,9 +452,9 @@
 				}
 
 				&:hover {
-					color: $blue;
+					color: $primary-blue;
 
-					.icon {color: $blue;}
+					.icon {color: $primary-blue;}
 				}
 			}
 		}

@@ -5,14 +5,14 @@ table {
 	overflow-x: scroll;
 
 	thead {
-		border: 1px solid $blue;
+		border: 1px solid $primary-blue;
 		border-bottom: 0;
 
 		th {
 			display: none;
-			background-color: $blue;
+			background-color: $primary-blue;
 			color: $white;
-			font-family: $font__Roboto;
+			font-family: $font__lato;
 			@include fontSize(17px);
 			font-weight: normal;
 
@@ -49,7 +49,7 @@ table {
 	td {
 		border: 1px solid $light-gray;
 		letter-spacing: 0.5px;
-		font-family: $font__Roboto;
+		font-family: $font__lato;
 		@include fontSize(16px);
 	}
 
@@ -58,7 +58,7 @@ table {
 		tbody tr:nth-child(odd) {background-color: $off-white;}
 
 		td {
-			font-family: $font__Roboto;
+			font-family: $font__lato;
 		}
 	}
 

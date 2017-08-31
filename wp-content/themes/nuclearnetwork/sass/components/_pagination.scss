@@ -4,7 +4,7 @@
 
 .pagination {
 	text-align: center;
-	font-family: $font__Roboto;
+	font-family: $font__lato;
 	@include fontSize(15px);
 	line-height: 2.5;
 	letter-spacing: 0.6px;
@@ -43,7 +43,7 @@
 	}
 
 	.current {
-		background-color: $red;
+		background-color: $primary-blue;;
 		color: $white;
 	}
 

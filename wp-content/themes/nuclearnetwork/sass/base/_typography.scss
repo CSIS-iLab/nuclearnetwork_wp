@@ -18,7 +18,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 %h1 {
-	font-family: $font__Roboto;
+	font-family: $font__lato;
 	@include fontSize(48px);
 	font-weight: bold;
 	line-height: 1.1;
@@ -29,16 +29,16 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 %h2 {
-	font-family: $font__Roboto;
+	font-family: $font__lato;
 	@include fontSize(30px);
 	line-height: 1.2;
 	font-weight: 400;
-	color: $blue;
+	color: $primary-blue;
 	margin: 0.5rem 0 1rem 0;
 }
 
 %h3 {
-	font-family: $font__Roboto;
+	font-family: $font__lato;
 	@include fontSize(25px);
 	line-height: 1.2;
 	font-weight: bold;
@@ -47,7 +47,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 %h4 {
-	font-family: $font__Roboto;
+	font-family: $font__lato;
 	@include fontSize(22px);
 	line-height: 1.25;
 	font-weight: 600;
@@ -57,7 +57,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 %h5 {
-	font-family: $font__Roboto;
+	font-family: $font__lato;
 	@include fontSize(22px);
 	line-height: 1.2;
 	font-weight: normal;
@@ -68,7 +68,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 %h6 {
-	font-family: $font__Roboto;
+	font-family: $font__lato;
 	@include fontSize(18px);
 	line-height: 1.2;
 	font-weight: 600;
@@ -79,7 +79,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 %page-title {
-	font-family: $font__Roboto;
+	font-family: $font__lato;
 	@include fontSize(48px);
 	line-height: 1.27;
 	font-weight: bold;
@@ -90,7 +90,7 @@ h1, h2, h3, h4, h5, h6 {
 
 %post-title {
 	margin: 0;
-	font-family: $font__Hind;
+	font-family: $font__ptsans;
 	@include fontSize(22px);
 	line-height: 1.32;
 	font-weight: 600;
@@ -98,7 +98,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 %postFooter-heading {
-	font-family: $font__Hind;
+	font-family: $font__ptsans;
 	@include fontSize(22px);
 	line-height: 1.55;
 	font-weight: 600;
@@ -109,7 +109,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 %postFooter-subheading {
-	font-family: $font__Hind;
+	font-family: $font__ptsans;
 	@include fontSize(18px);
 	line-height: 1.33;
 	font-weight: 600;
@@ -120,19 +120,19 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 %homepage-heading {
-	font-family: $font__Roboto;
+	font-family: $font__lato;
 	@include fontSize(25px);
 	font-weight: bold;
 	line-height: 1.36;
 }
 
 %dataSource-viewLink {
-	font-family: $font__Roboto;
+	font-family: $font__lato;
 	@include fontSize(11px);
 	line-height: 2.64;
 	letter-spacing: 0.7px;
 	text-transform: uppercase;
-	color: $blue;
+	color: $primary-blue;
 }
 
 body.single, body.page {
@@ -189,8 +189,8 @@ sub, sup {
 blockquote {
 	margin: 2rem auto;
 	padding: 1rem;
-	border-top: 2px solid $red;
-	border-bottom: 2px solid $red;
+	border-top: 2px solid $primary-blue;;
+	border-bottom: 2px solid $primary-blue;;
 
 	@include breakpoint("medium") {
 		width: 85%;
@@ -206,7 +206,7 @@ blockquote {
 }
 
 blockquote, blockquote p {
-	font-family: $font__Hind;
+	font-family: $font__ptsans;
 	@include fontSize(18px);
 	line-height: 1.61;
 }

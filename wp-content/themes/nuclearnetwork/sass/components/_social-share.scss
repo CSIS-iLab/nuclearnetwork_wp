@@ -204,7 +204,7 @@
 
 					&.a2a_button_email:before {
 						content: " ";
-						border-top: 1px solid $blue-gray;
+						border-top: 1px solid $secondary-blue;
 						position: absolute;
 						left: 1.5rem;
 						right: 0.5rem;
@@ -214,7 +214,7 @@
 					%label {
 						clip: unset;
 						color: $light-blue;
-						font-family: $font__Hind;
+						font-family: $font__ptsans;
 						@include fontSize(14px);
 						line-height: 2.07;
 						bottom: 1rem;
@@ -258,7 +258,7 @@
 			}
 
 			.a2a_svg:hover:before {
-				color: $red;
+				color: $primary-blue;;
 			}
 
 			.icon-close-x {
@@ -266,7 +266,7 @@
 				margin-top: 3px;
 				margin-left: 0;
 				margin-right: 5px;
-				color: $blue-gray;
+				color: $secondary-blue;
 			}
 		}
 	}

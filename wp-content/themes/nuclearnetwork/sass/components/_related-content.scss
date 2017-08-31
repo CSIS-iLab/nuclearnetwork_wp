@@ -17,7 +17,7 @@
 		}
 
 		.relatedContent-title a {
-			font-family: $font__Hind;
+			font-family: $font__ptsans;
 			@include fontSize(18px);
 			font-weight: 500;
 			line-height: 1.22;
@@ -25,7 +25,7 @@
 			color: $black;
 
 			&:hover {
-				color: $red;
+				color: $primary-blue;;
 			}
 		}
 	}
