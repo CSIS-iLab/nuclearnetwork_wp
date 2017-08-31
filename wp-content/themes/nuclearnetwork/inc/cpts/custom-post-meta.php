@@ -89,7 +89,7 @@ function post_build_meta_box( $post ) {
 			</p>
 			<h3><?php esc_html_e( 'Download URL:', 'nuclearnetwork' ); ?></h3>
 			<p>
-				<input type="text" class="large-text" name="download_url" value="<?php echo esc_textarea( $current_download_download ); ?>" /> 
+				<input type="text" class="large-text" name="download_url" value="<?php echo esc_textarea( $current_download_url ); ?>" /> 
 			</p>
 		</div>
 		<h3><?php esc_html_e( 'LinkedIn:', 'nuclearnetwork' ); ?></h3>
