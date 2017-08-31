@@ -170,3 +170,8 @@ require get_template_directory() . '/inc/custom-usermeta.php';
  * Load custom settings.
  */
 require get_template_directory() . '/inc/custom-settings.php';
+
+/**
+ * Load custom TinyMCE buttons.
+ */
+require get_template_directory() . '/inc/custom-tinymce.php';
