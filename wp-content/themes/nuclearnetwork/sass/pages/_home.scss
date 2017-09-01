@@ -4,8 +4,6 @@
 
 .home {
 
-	.content-wrapper { max-width: $size__hp-container-max-width; }
-
 	.site-main {
 		overflow-x: hidden;
 	}
@@ -23,7 +21,6 @@
 				position: relative;
 				flex: 1;
 				align-self: flex-end;
-				max-width: $size__hp-container-max-width;
 				margin: 0 auto;
 
 				.feature-title {

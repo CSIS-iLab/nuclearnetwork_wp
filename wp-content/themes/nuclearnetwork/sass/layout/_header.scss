@@ -7,6 +7,7 @@
 	top: 0;
 	left: 0;
 	right: 0;
+	z-index: 50;
 
 	body.admin-bar & { top: 32px; }
 
@@ -20,28 +21,125 @@
 		display: inline-block;
 		margin: 0;
 	}
+
+	.search-container {
+		text-align: right;
+	}
 }
 
 .header-logo {
-	position: absolute;
+	position: relative;
 	z-index: 5;
-	max-width: 25%;
 	background-color: $dark-blue;
+	text-align: center;
+
+	@include breakpoint("small") {
+		@include box-shadow( 0, 2px , 10px , 0 , rgba($black, 0.5));
+	}
+
+	.logo-big {
+		display: none;
+		width: 90%;
+		height: auto;
+		max-height: 90px;
+		margin: 0.5rem auto;
+
+		@include breakpoint("small") {
+			display: block;
+		}
+	}
+
+	.logo-small {
+		width: 90%;
+		height: auto;
+		max-height: 40px;
+		margin: 0.5rem auto;
+
+		@include breakpoint("small") {
+			display: none;
+		}
+	}
+
+	&.is-minimal {
+		box-shadow: none;
+
+		&::before {
+			content: "";
+			display: block;
+			position: absolute;
+			top: 0;
+			right: 100%;
+			width: 100vw;
+			height: 100%;
+			background-color: $dark-blue;
+		}
+
+		.logo-big { display: none; }
+		.logo-small { display: block; }
+	}
 }
 
 .header-top {
 	display: none;
 
-	@include breakpoint("large") {
+	@include breakpoint("small") {
+		position: relative;
 		display: block;
+		height: $size__header-top-height;
 		background-color: $primary-blue;
-		padding-left: 25%;
+
+		&::after,
+		&::before {
+			content: "";
+			display: block;
+			position: absolute;
+			top: 0;
+			width: 100vw;
+			height: 100%;
+			background-color: $primary-blue;
+		}
+
+		&::after {
+			left: 100%;
+		}
+
+		&::before {
+			right: 100%;
+		}
+
+		.is-minimal & {
+			display: none;
+		}
 	}
 }
 
 .header-bottom {
+	position: relative;
+	height: $size__header-bottom-height;
 	background-color: $secondary-blue;
-	padding-left: 25%;
+
+	&::after,
+	&::before {
+		content: "";
+		display: block;
+		position: absolute;
+		top: 0;
+		width: 100vw;
+		height: 100%;
+		background-color: $secondary-blue;
+	}
+
+	&::after {
+		left: 100%;
+	}
+
+	&::before {
+		right: 100%;
+	}
+
+	.is-minimal & {
+		height: $size__header-bottom-height-mobile;
+	}
 }
 
 #primary-menu {
