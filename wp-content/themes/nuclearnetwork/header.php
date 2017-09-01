@@ -43,13 +43,13 @@
 				</div>
 				<nav id="site-navigation" class="header-bottom main-navigation row middle-xs">
 					<div class="visible-xs col-xs-10">
-						<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'nuclearnetwork' ); ?></button>
+						<button class="btn btn-transparent menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Menu', 'nuclearnetwork' ); ?></button>
 					</div>
-					<div class="hidden-xs col-sm-10">
+					<div class="menu-container col-sm-10">
 						<?php
 							wp_nav_menu( array(
 								'theme_location' => 'menu-1',
-								'menu_id'        => 'primary-menu',
+								'menu_id'        => 'primary-menu'
 							) );
 						?>
 					</div>

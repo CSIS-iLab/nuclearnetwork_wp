@@ -5,10 +5,10 @@ $black: #000;
 $off-black: #333;
 $white: #fff;
 $off-white: #f1f1f1;
-$primary-blue: #225d94;
+$primary-blue: #235d94;
 $secondary-blue: #3873ab;
 $dark-blue: #153553;
-$medium-blue: #6d9dca;
+$medium-blue: #6e9dca;
 $light-blue: #cbdce5;
 $dark-gray: #6d6d6d;
 $gray: #c7c6c4;
@@ -16,16 +16,16 @@ $light-gray: #dedede;
 $yellow: #f1c161;
 $dark-yellow: #d19827;
 
-
-
 $color__background-body: $white;
 $color__background-screen: $white;
 $color__background-hr: $light-gray;
 $color__background-hr-stat-home: #dbd9d7;
 $color__navigation-border: #dfdfdf;
-$color__background-button-red: $primary-blue;
 $color__background-button-gray: #d6d6d6;
-$color__background-button-blue: #2b3d46;
+$color__background-button-blue: $primary-blue;
+$color__background-button-blue-hover: $medium-blue;
+$color__background-button-yellow: $yellow;
+$color__background-button-yellow-hover: $dark-yellow;
 $color__background-pre: #eee;
 $color__background-ins: #fff9c0;
 $color__background-tooltip: rgba(0,0,0,0.8);
