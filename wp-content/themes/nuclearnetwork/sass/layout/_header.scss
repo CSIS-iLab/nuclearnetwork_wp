@@ -345,8 +345,6 @@
 
 					@include transition(right 0.2s ease-in);
 				}
-
-				ul { width: max-content; }
 			}
 		}
 
@@ -362,7 +360,10 @@
 				color: $white;
 			}
 		}
-		ul { width: auto; }
+		ul { 
+			right: 0;
+			left: auto;
+		}
 		li a:hover { color: $black; }
 	}
 
