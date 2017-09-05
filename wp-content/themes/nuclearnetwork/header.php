@@ -68,6 +68,19 @@ $linkedin = get_option( 'nuclearnetwork_linkedin' );
 								'menu_id'        => 'primary-menu',
 							) );
 						?>
+						<ul class="header-social">
+							<?php
+							if ( $facebook ) {
+								echo '<li><a href="' . esc_url( $facebook ) . '">F</a></li>';
+							}
+							if ( $twitter ) {
+								echo '<li><a href="https://twitter.com/' . esc_attr( $twitter ) . '">T</a></li>';
+							}
+							if ( $linkedin ) {
+								echo '<li><a href="' . esc_url( $linkedin ) . '">in</a></li>';
+							}
+							?>
+						</ul>
 					</div>
 					<div class="search-container col-xs-2 col-sm-2 col-md-3 col-lg-4">
 						<?php get_template_part( 'search-inline' ); ?>
