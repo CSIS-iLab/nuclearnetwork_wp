@@ -31,9 +31,9 @@ $browser-context: 16px;
 
 // Breakpoints
 $breakpoint-xlarge: 90em;
-$breakpoint-large: 64em;
+$breakpoint-large: 62em;
 $breakpoing-medium: 48em;
-$breakpoing-small: 35em;
+$breakpoing-small: 36em;
 $breakpoint-xsmall: 25em;
 
 @mixin breakpoint($break) {
@@ -69,24 +69,28 @@ $breakpoint-xsmall: 25em;
 }
 
 // Placeholder
-@mixin placeholder($color) {
-	&::-webkit-input-placeholder { /* WebKit, Blink, Edge */
-	    color:    $color;
-	}
-	&:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-	   color:    $color;
-	   opacity:  1;
-	}
-	&::-moz-placeholder { /* Mozilla Firefox 19+ */
-	   color:    $color;
-	   opacity:  1;
-	}
-	&:-ms-input-placeholder { /* Internet Explorer 10-11 */
-	   color:    $color;
-	}
-	&::-ms-input-placeholder { /* Microsoft Edge */
-	   color:    $color;
-	}
+@mixin optional-at-root($sel) {
+  @at-root #{if(not &, $sel, selector-append(&, $sel))} {
+    @content;
+  }
+}
+
+@mixin placeholder {
+  @include optional-at-root('::-webkit-input-placeholder') {
+    @content;
+  }
+
+  @include optional-at-root(':-moz-placeholder') {
+    @content;
+  }
+
+  @include optional-at-root('::-moz-placeholder') {
+    @content;
+  }
+
+  @include optional-at-root(':-ms-input-placeholder') {
+    @content;
+  }
 }
 
 // Box Shadow

@@ -159,8 +159,21 @@
 		right: 100%;
 	}
 
+	// Search
+	.search-container { display: none; }
+
+	// Minimal Header
 	.is-minimal & {
 		height: $size__header-bottom-height-mobile;
+
+		.search-container { display: block; }
+
+		.menu-container {
+			@media screen and (min-width: 48em) and (max-width: 62em) {
+				flex-basis: 75%;
+				max-width: 75%;
+			}
+		}
 	}
 
 	.menu-container {
@@ -168,12 +181,19 @@
 
 		@include breakpoint("small") {
 			display: block;
+			padding-right: 0;
+		}
+
+		@media screen and (min-width: 48em) and (max-width: 62em) {
+			flex-basis: 83.33333333%;
+			max-width: 83.33333333%;
 		}
 	}
 
 	&.toggled .menu-container {
 		display: block;
 	}
+
 }
 
 // Main Menu
@@ -189,7 +209,7 @@
 	body.logged-in & { top: 92px; }
 
 	@include breakpoint("small") {
-		position: relative;
+		position: static;
 		top: unset;
 		bottom: unset;
 		left: unset;
@@ -207,8 +227,16 @@
 		@include breakpoint("small") {
 			display: inline-block;
 			position: relative;
-			margin-right: 2rem;
+			margin-right: 1rem;
 			text-align: left;
+		}
+
+		@include breakpoint("large") {
+			margin-right: 2rem;
+		}
+
+		&:nth-last-of-type(2) {
+			margin-right: 0;
 		}
 
 		@include breakpoint("xsmall") {
@@ -227,7 +255,7 @@
 			text-transform: uppercase;
 			color: $yellow;
 
-			@include breakpoint("medium") {
+			@include breakpoint("small") {
 				padding: 0;
 				@include fontSize(16px);
 				line-height: 2.03;
@@ -244,7 +272,7 @@
 		ul {
 			display: block;
 
-			@include breakpoint("medium") {
+			@include breakpoint("small") {
 				display: none;
 			}
 
@@ -295,17 +323,33 @@
 
 	// Special styles for "Apply" link
 	li.apply {
-		@include breakpoint("medium") {
+		@include breakpoint("small") {
 			position: absolute;
 			right: 0;
 			margin-right: 0;
+
+			.is-minimal & {
+				right: 2rem;
+
+				&.is-shifted {
+					right: 25%;
+
+					@include breakpoint("large") {
+						right: 33%;
+					}
+
+					@include transition(right 0.2s ease-in);
+				}
+
+				ul { width: max-content; }
+			}
 		}
 
 		a {
 			background-color: $yellow;
 			color: $black;
 
-			@include breakpoint("medium") {
+			@include breakpoint("small") {
 				padding: 0 0.5rem;
 			}
 
@@ -313,6 +357,8 @@
 				color: $white;
 			}
 		}
+		ul { width: auto; }
+		li a:hover { color: $black; }
 	}
 
 	// Special Styles for "Home" link
@@ -346,6 +392,7 @@
 	}
 }
 
+// Menu Toggle for Mobile
 .menu-toggle {
 	font-family: $font__lato;
 	@include fontSize(16px);
@@ -353,4 +400,61 @@
 	letter-spacing: 1.9px;
 	text-transform: uppercase;
 	color: $white;
+}
+
+// Social Media Icons
+.header-social {
+	list-style: none;
+
+	li {
+		display: inline-block;
+		margin-right: 1rem;
+
+		a {
+			line-height: 1;
+			color: $medium-blue;
+
+			&:hover { color: $white; }
+		}
+	}
+}
+
+// Search
+.header-search-form {
+
+	.search-label {
+		color: $white;
+		cursor: pointer;
+
+		&:hover { color: $yellow; }
+	}
+
+	.search-field:focus ~ label .search-label { color: $yellow; }
+
+	.search-field {
+		width: calc(100% - 3rem);
+		visibility: visible;
+		opacity: 1;
+		position: static;
+		margin: 0;
+		background-color: darken($primary-blue, 8%);
+		border: 0;
+		border-radius: 0;
+		color: $medium-blue;
+		@include transition(visibility 0s, position 0s, opacity 0.5s linear, width 0.2s ease-in);
+
+		&:focus { 
+			color: $medium-blue
+		}
+
+		@include placeholder { color: $medium-blue; }
+
+		&.is-hidden {
+			opacity: 0;
+			visibility: hidden;
+			position: absolute;
+			width: 0;
+		}
+
+	}
 }

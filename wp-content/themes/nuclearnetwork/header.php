@@ -9,6 +9,10 @@
  * @package Nuclear_Network
  */
 
+$facebook = get_option( 'nuclearnetwork_facebook' );
+$twitter = get_option( 'nuclearnetwork_twitter' );
+$linkedin = get_option( 'nuclearnetwork_linkedin' );
+
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
@@ -35,17 +39,29 @@
 			<div class="header-content-container col-xs-10 col-sm-11 col-md-8">
 				<div class="header-top row hidden-xs middle-sm">
 					<div class="social-container col-sm-3">
-						Social
+						<ul class="header-social">
+							<?php
+							if ( $facebook ) {
+								echo '<li><a href="' . esc_url( $facebook ) . '">F</a></li>';
+							}
+							if ( $twitter ) {
+								echo '<li><a href="https://twitter.com/' . esc_attr( $twitter ) . '">T</a></li>';
+							}
+							if ( $linkedin ) {
+								echo '<li><a href="' . esc_url( $linkedin ) . '">in</a></li>';
+							}
+							?>
+						</ul>
 					</div>
 					<div class="search-container col-sm-9">
-						Search
+						<?php get_template_part( 'search-inline' ); ?>
 					</div>
 				</div>
 				<nav id="site-navigation" class="header-bottom main-navigation row middle-xs">
 					<div class="visible-xs col-xs-10">
 						<button class="btn btn-transparent menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Menu', 'nuclearnetwork' ); ?></button>
 					</div>
-					<div class="menu-container col-sm-10">
+					<div class="menu-container col-sm-10 col-md-9 col-lg-8">
 						<?php
 							wp_nav_menu( array(
 								'theme_location' => 'menu-1',
@@ -53,8 +69,8 @@
 							) );
 						?>
 					</div>
-					<div class="search-container col-xs-2">
-						Search
+					<div class="search-container col-xs-2 col-sm-2 col-md-3 col-lg-4">
+						<?php get_template_part( 'search-inline' ); ?>
 					</div>
 				</nav><!-- #site-navigation -->
 			</div>
