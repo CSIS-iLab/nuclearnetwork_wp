@@ -66,7 +66,7 @@ function nuclearnetwork_admin_init_section_footer() {
 	register_setting(
 		'nuclearnetwork_settings',
 		'nuclearnetwork_description',
-		'sanitize_text_field'
+		'wp_filter_post_kses'
 	);
 
 	register_setting(

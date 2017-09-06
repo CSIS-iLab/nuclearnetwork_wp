@@ -32,7 +32,7 @@ $newsletter_daily_url = get_option( 'nuclearnetwork_newsletter_daily_url' );
 				CSIS Logo<br />
 				<?php
 				if ( $description ) {
-					echo '<p>' . esc_html( $description ) . '</p>';
+					echo '<p>' . wp_kses_post( $description ) . '</p>';
 				}
 				?>
 				<?php
@@ -41,53 +41,53 @@ $newsletter_daily_url = get_option( 'nuclearnetwork_newsletter_daily_url' );
 				}
 				?>
 			</div>
-			<div class="footer-contact col-xs-12 col-md-2">
-				<h5 class="section-title"><?php esc_html_e( 'Contact Us', 'nucleartnetwork' ); ?></h5>
+			<div class="footer-contact col-xs-12 col-md-3">
+				<h6 class="section-title"><?php esc_html_e( 'Contact Us', 'nucleartnetwork' ); ?></h6>
 				<?php
 				if ( $address ) {
-					echo '<h6 class="section-subtitle">' . esc_html( 'Address', 'nuclearnetwork' ) . '</h6>';
+					echo '<p class="footer-subtitle">' . esc_html( 'Address', 'nuclearnetwork' ) . '</p>';
 					echo '<address>' . wp_kses_post( $address ) . '</address>';
 				}
 				?>
 				<?php
 				if ( $email ) {
-					echo '<h6 class="section-subtitle">' . esc_html( 'Email', 'nuclearnetwork' ) . '</h6>';
-					echo '<a href="mailto:' . esc_attr( $email ) . '?subject=' . esc_attr( get_bloginfo( 'name' ) ) . '">' . esc_html( $email ) . '</a>';
+					echo '<p class="footer-subtitle">' . esc_html( 'Email', 'nuclearnetwork' ) . '</p>';
+					echo '<p><a href="mailto:' . esc_attr( $email ) . '?subject=' . esc_attr( get_bloginfo( 'name' ) ) . '">' . esc_html( $email ) . '</a></p>';
 				}
 				?>
 				<?php
 				if ( $phone ) {
-					echo '<h6 class="section-subtitle">' . esc_html( 'Phone', 'nuclearnetwork' ) . '</h6>';
+					echo '<p class="footer-subtitle">' . esc_html( 'Phone', 'nuclearnetwork' ) . '</p>';
 					echo '<p>' . esc_html( $phone ) . '</p>';
 				}
 				?>
 				<ul class="footer-social">
 					<?php
 					if ( $facebook ) {
-						echo '<li><a href="' . esc_url( $facebook ) . '">Facebook</a></li>';
+						echo '<li><a href="' . esc_url( $facebook ) . '"><i class="icon-facebook"></i></a></li>';
 					}
 					if ( $twitter ) {
-						echo '<li><a href="https://twitter.com/' . esc_attr( $twitter ) . '">Twitter</a></li>';
+						echo '<li><a href="https://twitter.com/' . esc_attr( $twitter ) . '"><i class="icon-twitter"></i></a></li>';
 					}
 					if ( $linkedin ) {
-						echo '<li><a href="' . esc_url( $linkedin ) . '">LinkedIn</a></li>';
+						echo '<li><a href="' . esc_url( $linkedin ) . '"><i class="icon-linkedin"></i></a></li>';
 					}
 					?>
 				</ul>
 			</div>
-			<div class="footer-newsletters col-xs-12 col-md-2">
-				<h5 class="section-title"><?php esc_html_e( 'Stay up to date', 'nuclearnetwork' ); ?></h5>
+			<div class="footer-newsletters col-xs-12 col-md-3">
+				<h6 class="section-title"><?php esc_html_e( 'Stay up to date', 'nuclearnetwork' ); ?></h6>
 				<?php
 				if ( $newsletter_monthly_url && $newsletter_monthly_desc ) {
-					echo '<h6 class="section-subtitle">' . esc_html( 'Monthly PONI Newsletter', 'nuclearnetwork' ) . '</h6>';
-					echo '<p>' . esc_html( $newsletter_monthly_desc ) . '</p>';
+					echo '<p class="footer-subtitle">' . esc_html( 'Monthly PONI Newsletter', 'nuclearnetwork' ) . '</p>';
+					echo '<p class="newsletter-desc">' . esc_html( $newsletter_monthly_desc ) . '</p>';
 					echo '<a href="' . esc_attr( $newsletter_monthly_url ) . '" class="btn btn-blue">' . esc_html( 'Sign Up', 'nuclearnetwork' ) . '</a>';
 				}
 				?>
 				<?php
 				if ( $newsletter_daily_url && $newsletter_daily_desc ) {
-					echo '<h6 class="section-subtitle">' . esc_html( 'Daily PONI Newsletter', 'nuclearnetwork' ) . '</h6>';
-					echo '<p>' . esc_html( $newsletter_daily_desc ) . '</p>';
+					echo '<p class="footer-subtitle">' . esc_html( 'Daily PONI Newsletter', 'nuclearnetwork' ) . '</p>';
+					echo '<p class="newsletter-desc">' . esc_html( $newsletter_daily_desc ) . '</p>';
 					echo '<a href="' . esc_attr( $newsletter_daily_url ) . '" class="btn btn-blue">' . esc_html( 'Sign Up', 'nuclearnetwork' ) . '</a>';
 				}
 				?>

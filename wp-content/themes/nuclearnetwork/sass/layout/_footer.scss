@@ -18,58 +18,109 @@ footer.site-footer {
 	.site-info {
 		padding: 1.5rem 0 0;
 
-		@include breakpoint("medium") {
-			.footer-info {
-				padding-right: 1.5rem;
+		// Description & Disclaimer
+		.footer-info {
+			@include breakpoint("medium") {
+				padding-right: 3rem;
 			}
 
-			.footer-contact {
+			a {
+				color: $light-blue;
+				text-decoration: underline;
+
+				&:hover { color: $white; }
+			}
+
+			.footer-disclaimer {
+				@include fontSize(14px);
+				line-height: 1.53;
+				font-style: italic;
+			}
+		}
+
+		// Contact Info
+		.footer-contact {
+			@include breakpoint("medium") {
 				padding: 0;
 			}
 
-			.footer-newsletters {
+			a {
+				color: $light-blue;
+
+				&:hover { color: $white; }
+			}
+
+			.footer-social { 
+				list-style: none; 
+				padding: 0;
+			}
+			.footer-social li {
+				display: inline-block;
+				margin-right: 0.5rem;
+
+				a {
+					background-color: $yellow;
+					border-radius: 50%;
+					text-align: center;
+			    padding: 1rem;
+			    position: relative;
+			    display: inline-block;
+			    vertical-align: middle;
+			    position: relative;
+			    color: $dark-blue;
+
+			    &:hover { background-color: $dark-yellow; }
+				}
+
+				i {
+					position: absolute;
+			    left: 50%;
+			    top: 50%;
+			    transform: translate(-50%, -50%);
+				}
+			}
+		}
+
+		// Newsletters
+		.footer-newsletters {
+			@include breakpoint("medium") {
 				padding-left: 1.5rem;
 			}
 		}
 
-		h3 {
-			font-family: $font__ptsans;
-			@include fontSize(18px);
-			font-weight: 600;
-			line-height: 1.33;
-			letter-spacing: 1.1px;
+		.section-title {
+			@extend %archive-content-type;
 			color: $white;
-			text-transform: uppercase;
-			margin: 0 0 0.25rem 0;
+			margin: 0 0 0.5rem 0;
 		}
 
-		p, address {
-			@include fontSize(15px);
-			line-height: 1.6;
-			color: $light-blue;
-			margin-bottom: 0;
+		.footer-subtitle {
+			@extend %footer-label;
+			margin: 0;
+		}
+
+		p,
+		address {
+			@extend %footer-text;
+			margin-bottom: 1.5rem;
 		}
 
 		address {
 			font-style: normal;
 		}
 
+		.newsletter-desc { margin-bottom: 0; }
+
 		.btn-blue {
 			color: $white;
 			display: inline-block;
-			margin: 0.5rem 0 0 0;
-
-			.icon {
-				margin-left: -3px;
-				margin-top: 2px;
-				@include fontSize(10px);
-				width: initial;
-			}
+			margin: 0.5rem 0 2rem 0;
+			text-transform: uppercase;
 		}
 	}
 
 	.footer-copyright {
-		background-color: $color__background-button-blue;
+		background-color: $primary-blue;
 		padding: .5rem;
 		display: block;
 
@@ -78,9 +129,10 @@ footer.site-footer {
 		}
 
 		p {
-			@include fontSize(15px);
-			line-height: 1.6;
-			color: $primary-blue;
+			font-family: $font__ptsans;
+			@include fontSize(14px);
+			line-height: 1.53;
+			color: $medium-blue;
 			margin-bottom: 0;
 			padding-right: 0.5rem;
 			padding-left: 0.5rem;
