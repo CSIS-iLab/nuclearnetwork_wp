@@ -5,7 +5,7 @@
  * navigation support for dropdown menus.
  */
 ( function() {
-	var container, button, menu, links, i, len;
+	var container, button, buttonMenu, buttonClose, menu, links, i, len;
 
 	container = document.getElementById( 'site-navigation' );
 	if ( ! container ) {
@@ -14,6 +14,16 @@
 
 	button = container.getElementsByTagName( 'button' )[0];
 	if ( 'undefined' === typeof button ) {
+		return;
+	}
+
+	buttonMenu = document.getElementById( 'menu-toggle-menu' );
+	if ( 'undefined' === typeof buttonMenu ) {
+		return;
+	}
+
+	buttonClose = document.getElementById( 'menu-toggle-close' );
+	if ( 'undefined' === typeof buttonClose ) {
 		return;
 	}
 
@@ -36,11 +46,15 @@
 			container.className = container.className.replace( ' toggled', '' );
 			button.setAttribute( 'aria-expanded', 'false' );
 			menu.setAttribute( 'aria-expanded', 'false' );
+			buttonClose.className += 'is-hidden';
+			buttonMenu.className = buttonMenu.className.replace( 'is-hidden', '' );
 		} else {
 			document.body.className += ' toggled';
 			container.className += ' toggled';
 			button.setAttribute( 'aria-expanded', 'true' );
 			menu.setAttribute( 'aria-expanded', 'true' );
+			buttonMenu.className += ' is-hidden';
+			buttonClose.className = buttonClose.className.replace( 'is-hidden', '' );
 		}
 	};
 

@@ -11,7 +11,9 @@ html {
 body {
 	background: $color__background-body; /* Fallback for when there is no custom background color defined. */
 
-	&.toggled { position: fixed; }
+	@include breakpoint("xsmall") {
+		&.toggled { position: fixed; }
+	}
 }
 
 .site-content {

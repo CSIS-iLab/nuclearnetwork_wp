@@ -406,6 +406,12 @@
 	letter-spacing: 1.9px;
 	text-transform: uppercase;
 	color: $white;
+
+	span {
+		display: inline;
+
+		&.is-hidden { display: none; }
+	}
 }
 
 // Social Media Icons
@@ -428,6 +434,24 @@
 // Search
 .header-search-form {
 
+	@include breakpoint("xsmall") {
+		&.is-active {
+			position: fixed;
+			top: $size__header-bottom-height-mobile;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background-color: $primary-blue;
+
+			.search-label {
+				position: fixed;
+				z-index: 5;
+				top: 1rem;
+				right: 1rem;
+			}
+		}
+	}
+
 	.search-label {
 		color: $white;
 		cursor: pointer;
@@ -438,16 +462,31 @@
 	.search-field:focus ~ label .search-label { color: $yellow; }
 
 	.search-field {
-		width: calc(100% - 3rem);
+		display: block;
+		width: 90%;
 		visibility: visible;
 		opacity: 1;
 		position: static;
-		margin: 0;
-		background-color: darken($primary-blue, 8%);
-		border: 0;
-		border-radius: 0;
+		margin: 2rem auto;
+		background-color: transparent;
 		color: $medium-blue;
+		border: 0;
+		border-bottom: 2px solid darken($primary-blue, 8%);
+		border-radius: 0;
+		@include fontSize(24px);
 		@include transition(visibility 0s, position 0s, opacity 0.5s linear, width 0.2s ease-in);
+
+		@include breakpoint("small") {
+			display: inline-block;
+			width: calc(100% - 3rem);
+			visibility: visible;
+			opacity: 1;
+			position: static;
+			margin: 0;
+			background-color: darken($primary-blue, 8%);
+			border: 0;
+			@include fontSize(15px);
+		}
 
 		&:focus { 
 			color: $medium-blue

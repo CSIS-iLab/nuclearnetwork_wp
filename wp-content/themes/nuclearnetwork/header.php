@@ -59,7 +59,10 @@ $linkedin = get_option( 'nuclearnetwork_linkedin' );
 				</div>
 				<nav id="site-navigation" class="header-bottom main-navigation row middle-xs">
 					<div class="visible-xs col-xs-10">
-						<button class="btn btn-transparent menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Menu', 'nuclearnetwork' ); ?></button>
+						<button class="btn btn-transparent menu-toggle" aria-controls="primary-menu" aria-expanded="false">
+							<span id="menu-toggle-menu"><?php esc_html_e( 'Menu', 'nuclearnetwork' ); ?></span>
+							<span id="menu-toggle-close" class="is-hidden">X</span>
+						</button>
 					</div>
 					<div class="menu-container col-sm-10 col-md-9 col-lg-8">
 						<?php

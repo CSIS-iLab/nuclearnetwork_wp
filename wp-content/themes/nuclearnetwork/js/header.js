@@ -21,8 +21,19 @@
 
   // Toggle class on search.
   $(".header-search-form .search-label").on("click", function() {
-    $(".header-search-form .search-field").toggleClass("is-hidden");
+    var parent = $(this).parents(".header-search-form");
+    $(parent).children(".search-field").toggleClass("is-hidden").focus();
+    $(parent).toggleClass("is-active");
     $(".main-navigation .apply").toggleClass("is-shifted");
+    $("body").toggleClass("toggled");
+  });
+
+  $(".menu-toggle").on("click", function() {
+    if($(".header-search-form").hasClass("is-active")) {
+      $(".header-search-form").removeClass("is-active");
+      $(".header-search-form .search-field").addClass("is-hidden");
+      $(".main-navigation .apply").removeClass("is-shifted");
+    }
   });
 
 
