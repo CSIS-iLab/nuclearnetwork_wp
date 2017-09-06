@@ -13,6 +13,6 @@
 		title="<?php echo esc_attr_x( 'Search for:', 'label' ); ?>" />
 	<label for="header-search">
 		<span class="screen-reader-text"><?php echo esc_attr_x( 'Search for:', 'label' ); ?></span>
-		<span class="search-label">Icon</span>
+		<span class="search-label"><i class="icon-search"></i></span>
 	</label>
 </form>

@@ -42,13 +42,13 @@ $linkedin = get_option( 'nuclearnetwork_linkedin' );
 						<ul class="header-social">
 							<?php
 							if ( $facebook ) {
-								echo '<li><a href="' . esc_url( $facebook ) . '">F</a></li>';
+								echo '<li><a href="' . esc_url( $facebook ) . '"><i class="icon-facebook"></i></a></li>';
 							}
 							if ( $twitter ) {
-								echo '<li><a href="https://twitter.com/' . esc_attr( $twitter ) . '">T</a></li>';
+								echo '<li><a href="https://twitter.com/' . esc_attr( $twitter ) . '"><i class="icon-twitter"></i></a></li>';
 							}
 							if ( $linkedin ) {
-								echo '<li><a href="' . esc_url( $linkedin ) . '">in</a></li>';
+								echo '<li><a href="' . esc_url( $linkedin ) . '"><i class="icon-linkedin"></i></a></li>';
 							}
 							?>
 						</ul>
@@ -61,7 +61,7 @@ $linkedin = get_option( 'nuclearnetwork_linkedin' );
 					<div class="visible-xs col-xs-10">
 						<button class="btn btn-transparent menu-toggle" aria-controls="primary-menu" aria-expanded="false">
 							<span id="menu-toggle-menu"><?php esc_html_e( 'Menu', 'nuclearnetwork' ); ?></span>
-							<span id="menu-toggle-close" class="is-hidden">X</span>
+							<span id="menu-toggle-close" class="is-hidden"><i class="icon-close"></i></span>
 						</button>
 					</div>
 					<div class="menu-container col-sm-10 col-md-9 col-lg-8">
@@ -74,13 +74,13 @@ $linkedin = get_option( 'nuclearnetwork_linkedin' );
 						<ul class="header-social">
 							<?php
 							if ( $facebook ) {
-								echo '<li><a href="' . esc_url( $facebook ) . '">F</a></li>';
+								echo '<li><a href="' . esc_url( $facebook ) . '"><i class="icon-facebook"></i></a></li>';
 							}
 							if ( $twitter ) {
-								echo '<li><a href="https://twitter.com/' . esc_attr( $twitter ) . '">T</a></li>';
+								echo '<li><a href="https://twitter.com/' . esc_attr( $twitter ) . '"><i class="icon-twitter"></i></a></li>';
 							}
 							if ( $linkedin ) {
-								echo '<li><a href="' . esc_url( $linkedin ) . '">in</a></li>';
+								echo '<li><a href="' . esc_url( $linkedin ) . '"><i class="icon-linkedin"></i></a></li>';
 							}
 							?>
 						</ul>

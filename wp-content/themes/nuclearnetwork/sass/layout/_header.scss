@@ -220,6 +220,13 @@
 		}
 	}
 
+	// Mobile Icons
+	@include breakpoint("xsmall") {
+		i {
+			@include fontSize(24px);
+		}
+	}
+
 }
 
 // Main Menu
@@ -334,7 +341,7 @@
 			margin-right: 0;
 
 			.is-minimal & {
-				right: 2rem;
+				right: 2.5rem;
 
 				&.is-shifted {
 					right: 25%;
