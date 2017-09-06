@@ -17,7 +17,9 @@ body {
 }
 
 .site-content {
-	margin-top: 150px;
+	margin-top: $size__header-top-height + $size__header-bottom-height;
+
+	&.is-minimal { margin-top: $size__header-bottom-height-mobile; }
 }
 
 .content-wrapper {

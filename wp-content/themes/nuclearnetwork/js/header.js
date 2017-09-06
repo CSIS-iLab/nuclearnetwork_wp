@@ -12,10 +12,12 @@
     if(currentScroll > 0){
       $(".site-header .header-logo").removeClass("col-md-4").addClass("is-minimal");
       $(".site-header .header-content-container").removeClass("col-md-8").addClass("is-minimal");
+      $(".site-content").addClass("is-minimal");
     }
     else {
       $(".site-header .header-logo").addClass("col-md-4").removeClass("is-minimal");
       $(".site-header .header-content-container").addClass("col-md-8").removeClass("is-minimal");
+      $(".site-content").removeClass("is-minimal");
     }
   });
 
