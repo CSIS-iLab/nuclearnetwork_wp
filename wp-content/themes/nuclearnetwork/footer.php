@@ -29,7 +29,7 @@ $newsletter_daily_url = get_option( 'nuclearnetwork_newsletter_daily_url' );
 	<footer id="colophon" class="site-footer">
 		<div class="site-info content-wrapper row">
 			<div class="footer-info col-xs-12 col-md-6">
-				CSIS Logo<br />
+				<img src="/wp-content/themes/nuclearnetwork/img/CSIS-PONI-logo-light.svg" alt="Center for Strategic and International Studies" title="Center for Strategic and International Studies" />
 				<?php
 				if ( $description ) {
 					echo '<p>' . wp_kses_post( $description ) . '</p>';

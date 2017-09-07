@@ -32,8 +32,8 @@ $linkedin = get_option( 'nuclearnetwork_linkedin' );
 		<div class="content-wrapper row">
 			<div class="header-logo col-xs-2 col-sm-1 col-md-4">
 				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-					<img src="/wp-content/themes/nuclearnetwork/img/poni-logo-big.svg" alt="<?php bloginfo( 'name' ); ?>" title="<?php bloginfo( 'name' ); ?>" class="logo-big" />
-					<img src="/wp-content/themes/nuclearnetwork/img/poni-logo-small.svg" alt="<?php bloginfo( 'name' ); ?>" title="<?php bloginfo( 'name' ); ?>" class="logo-small" />
+					<img src="/wp-content/themes/nuclearnetwork/img/NGNN-header-logo.svg" alt="<?php bloginfo( 'name' ); ?>" title="<?php bloginfo( 'name' ); ?>" class="logo-big" />
+					<img src="/wp-content/themes/nuclearnetwork/img/NGNN-header-logo-small.svg" alt="<?php bloginfo( 'name' ); ?>" title="<?php bloginfo( 'name' ); ?>" class="logo-small" />
 				</a>
 			</div>
 			<div class="header-content-container col-xs-10 col-sm-11 col-md-8">
