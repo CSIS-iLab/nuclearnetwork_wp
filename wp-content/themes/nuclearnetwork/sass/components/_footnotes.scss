@@ -2,4 +2,40 @@
 =            Footnotes            =
 =================================*/
 
-.easy-footnotes-wrapper {display: none;}
+.easy-footnotes-wrapper {
+  counter-reset: item;
+  margin: 0;
+  padding: 0;
+  list-style:none;
+
+  li {
+    font-family: $font__ptsans;
+    @include fontSize(16px);
+    line-height: 1.71;
+    color: $dark-gray;
+    position: relative;
+
+    .easy-footnote-margin-adjust {
+      position: static;
+      margin-top: unset;
+      width: 8px;
+      display: inline-block;
+    }
+
+    a {
+      float: left;
+      margin-left: 0;
+    }
+
+    a::after {
+      content: counter(item);
+      counter-increment: item;   
+      @include fontSize(11px);
+      line-height: 2.49;
+      color: $secondary-blue;
+      content: counter(item);
+      position: absolute;
+      top: -7px;
+    }
+  }
+}

@@ -28,22 +28,3 @@ dt {
 dd {
 	margin: 0 1.5em 1.5em;
 }
-
-.entry-content ul, .furtherReading-container ul {
-	list-style: none;
-	padding-left: 1.7rem;
-
-	li {
-
-		&:before {
-			content: "•";
-			color: $primary-blue;;
-			margin-right: 0.5rem;
-		}
-	}
-}
-
-.furtherReading-container ul {
-	padding: 0;
-	margin: 0;
-}

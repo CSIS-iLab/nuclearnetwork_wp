@@ -125,8 +125,8 @@ function nuclearnetwork_scripts() {
 
 	wp_enqueue_script( 'nuclearnetwork-header', get_template_directory_uri() . '/js/header.js', array(), '20170901', true );
 
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-		wp_enqueue_script( 'comment-reply' );
+	if ( is_singular() ) {
+		wp_enqueue_script( 'nuclearnetwork-posts', get_template_directory_uri() . '/js/posts.js', array(), '20170907', true );
 	}
 }
 add_action( 'wp_enqueue_scripts', 'nuclearnetwork_scripts' );

@@ -12,9 +12,9 @@ if ( ! function_exists( 'nuclearnetwork_posted_on' ) ) :
 	 * Prints HTML with meta information for the current post-date/time and author.
 	 */
 	function nuclearnetwork_posted_on() {
-		$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
+		$time_string = '<span class="meta-label">Published:</span><time class="entry-date published updated" datetime="%1$s">%2$s</time>';
 		if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
-			$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
+			$time_string = '<span class="meta-label">Published:</span><time class="entry-date published" datetime="%1$s">%2$s</time><span class="meta-label">Last Updated:</span><time class="updated" datetime="%3$s">%4$s</time>';
 		}
 
 		$time_string = sprintf( $time_string,
@@ -24,79 +24,72 @@ if ( ! function_exists( 'nuclearnetwork_posted_on' ) ) :
 			esc_html( get_the_modified_date() )
 		);
 
-		$posted_on = sprintf(
-			/* translators: %s: post date. */
-			esc_html_x( 'Posted on %s', 'post date', 'nuclearnetwork' ),
-			'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
-		);
-
-		$byline = sprintf(
-			/* translators: %s: post author. */
-			esc_html_x( 'by %s', 'post author', 'nuclearnetwork' ),
-			'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
-		);
-
-		echo '<span class="posted-on">' . $posted_on . '</span><span class="byline"> ' . $byline . '</span>'; // WPCS: XSS OK.
+		echo '<div class="posted-on">' . $time_string . '</div>'; // WPCS: XSS OK.
 
 	}
 endif;
 
-if ( ! function_exists( 'nuclearnetwork_entry_footer' ) ) :
+if ( ! function_exists( 'nuclearnetwork_authors_list' ) ) :
 	/**
-	 * Prints HTML with meta information for the categories, tags and comments.
+	 * Prints HTML with meta information for the current post-date/time and author.
 	 */
-	function nuclearnetwork_entry_footer() {
+	function nuclearnetwork_authors_list() {
+		$byline = sprintf(
+			'<span class="meta-label">' . esc_html_x( 'by', 'post author', 'nuclearnetwork' ) . '</span> %s',
+			'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
+		);
+
+		echo '<div class="authors-list">' . $byline . '</div>'; // WPCS: XSS OK.
+	}
+endif;
+
+if ( ! function_exists( 'nuclearnetwork_entry_tags' ) ) :
+	/**
+	 * Prints HTML with meta information for the tags.
+	 */
+	function nuclearnetwork_entry_tags() {
 		// Hide category and tag text for pages.
 		if ( 'post' === get_post_type() ) {
 			/* translators: used between list items, there is a space after the comma */
-			$categories_list = get_the_category_list( esc_html__( ', ', 'nuclearnetwork' ) );
-			if ( $categories_list ) {
-				/* translators: 1: list of categories. */
-				printf( '<span class="cat-links">' . esc_html__( 'Posted in %1$s', 'nuclearnetwork' ) . '</span>', $categories_list ); // WPCS: XSS OK.
-			}
-
-			/* translators: used between list items, there is a space after the comma */
-			$tags_list = get_the_tag_list( '', esc_html_x( ', ', 'list item separator', 'nuclearnetwork' ) );
+			$tags_list = get_the_tag_list();
 			if ( $tags_list ) {
 				/* translators: 1: list of tags. */
-				printf( '<span class="tags-links">' . esc_html__( 'Tagged %1$s', 'nuclearnetwork' ) . '</span>', $tags_list ); // WPCS: XSS OK.
+				printf( '<span class="tags-links">' . esc_html__( 'More on... %1$s', 'nuclearnetwork' ) . '</span>', $tags_list ); // WPCS: XSS OK.
 			}
 		}
+	}
+endif;
 
-		if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
-			echo '<span class="comments-link">';
-			comments_popup_link(
-				sprintf(
-					wp_kses(
-						/* translators: %s: post title */
-						__( 'Leave a Comment<span class="screen-reader-text"> on %s</span>', 'nuclearnetwork' ),
-						array(
-							'span' => array(
-								'class' => array(),
-							),
-						)
-					),
-					get_the_title()
-				)
-			);
-			echo '</span>';
+if ( ! function_exists( 'nuclearnetwork_entry_categories' ) ) :
+	/**
+	 * Prints HTML with meta information for the categories.
+	 */
+	function nuclearnetwork_entry_categories() {
+		// Hide category and tag text for pages.
+		if ( 'post' === get_post_type() ) {
+			/* translators: used between list items, there is a space after the comma */
+			$categories_list = get_the_category_list();
+			if ( $categories_list ) {
+				/* translators: 1: list of categories. */
+				printf( '<div class="cat-links"><span class="meta-label">' . esc_html__( 'Categories:', 'nuclearnetwork' ) . '</span>' . esc_html( '%1$s' ) . '</div>', $categories_list ); // WPCS: XSS OK.
+			}
 		}
+	}
+endif;
 
-		edit_post_link(
-			sprintf(
-				wp_kses(
-					/* translators: %s: Name of current post. Only visible to screen readers */
-					__( 'Edit <span class="screen-reader-text">%s</span>', 'nuclearnetwork' ),
-					array(
-						'span' => array(
-							'class' => array(),
-						),
-					)
-				),
-				get_the_title()
-			),
-			'<span class="edit-link">',
-			'</span>'
-		);
+if ( ! function_exists( 'nuclearnetwork_post_format' ) ) :
+	/**
+	 * Returns HTML with post format.
+	 *
+	 * @param int $id Post ID.
+	 */
+	function nuclearnetwork_post_format( $id ) {
+		// Hide category and tag text for pages.
+		if ( 'post' === get_post_type() ) {
+			$post_format = get_post_meta( $id, '_post_post_format', true );
+			if ( $post_format ) {
+				printf( '<p class="post-format">' . esc_html( '%1$s' ) . '</p>', $post_format ); // WPCS: XSS OK.
+			}
+		}
 	}
 endif;
