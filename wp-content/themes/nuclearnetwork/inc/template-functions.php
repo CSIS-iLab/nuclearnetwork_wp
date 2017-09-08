@@ -43,7 +43,7 @@ function insert_content_discuss_message( $content ) {
 		global $post;
 		$disable_linkedin = get_post_meta( $post->ID, '_post_disable_linkedin', true );
 		if ( ! $disable_linkedin ) {
-			$content .= nuclearnetwork_linkedin( $post->ID );
+			$content .= nuclearnetwork_post_discuss( $post->ID );
 		}
 	}
 	return $content;

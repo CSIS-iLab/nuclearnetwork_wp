@@ -91,42 +91,11 @@ h1, h2, h3, h4, h5, h6 {
 	letter-spacing: 0.1px;
 }
 
-%postFooter-heading {
-	font-family: $font__ptsans;
-	@include fontSize(22px);
-	line-height: 1.55;
-	font-weight: 600;
-	letter-spacing: 1.1px;
-	color: $black;
-	text-transform: uppercase;
-	margin: 0 0 0.5rem 0;
-}
-
-%postFooter-subheading {
-	font-family: $font__ptsans;
-	@include fontSize(18px);
-	line-height: 1.33;
-	font-weight: 600;
-	letter-spacing: 1.1px;
-	text-transform: uppercase;
-	color: $black;
-	margin-bottom: 1rem;
-}
-
 %homepage-heading {
 	font-family: $font__lato;
 	@include fontSize(25px);
 	font-weight: bold;
 	line-height: 1.36;
-}
-
-%dataSource-viewLink {
-	font-family: $font__lato;
-	@include fontSize(11px);
-	line-height: 2.64;
-	letter-spacing: 0.7px;
-	text-transform: uppercase;
-	color: $primary-blue;
 }
 
 %archive-content-type {
@@ -135,20 +104,13 @@ h1, h2, h3, h4, h5, h6 {
 	font-weight: 300;
 	line-height: 1.34;
 	letter-spacing: 1.6px;
-}
-
-%footer-label {
-	font-family: $font__ptsans;
-	@include fontSize(16px);
-	line-height: 1.34;
-	color: $yellow;
+	text-transform: uppercase;
 }
 
 %footer-text {
 	font-family: $font__ptsans;
 	@include fontSize(16px);
 	line-height: 1.34;
-	color: $light-blue;
 }
 
 %single-title {
@@ -178,6 +140,7 @@ h1, h2, h3, h4, h5, h6 {
 	@include fontSize(18px);
 	font-weight: bold;
 	text-transform: uppercase;
+	margin: 0 0 0.5rem 0;
 }
 
 h1 { @extend %h1 }

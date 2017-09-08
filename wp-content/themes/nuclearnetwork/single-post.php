@@ -67,17 +67,24 @@ get_header(); ?>
 				<footer class="entry-footer">
 					<div class="content-wrapper row">
 						<div class="post-about-authors col-xs-12 col-sm-9">
-							Disclaimer<br />
+							<?php nuclearnetwork_post_disclaimer( $id ); ?>
 							About the Authors
 						</div>
 						<div class="post-write col-xs-12 col-sm-3">
-							Write for Us
+							<?php nuclearnetwork_post_write(); ?>
 						</div>
 					</div>
 					<div class="post-related-container">
-						<div class="content-wrapper">
-						Related Content<br />
-						<?php nuclearnetwork_entry_tags(); ?>
+						<div class="content-wrapper row">
+							<div class="col-xs-12">
+								<h4 class="related-header"><?php echo esc_html_x( 'Related Reading', 'nuclearnetwork' ); ?></h4>
+							</div>
+							<div class="col-xs">
+								Related Posts
+							</div>
+							<div class="col-xs">
+								<?php nuclearnetwork_entry_tags(); ?>
+							</div>
 						</div>
 					</div>
 				</footer><!-- .entry-footer -->

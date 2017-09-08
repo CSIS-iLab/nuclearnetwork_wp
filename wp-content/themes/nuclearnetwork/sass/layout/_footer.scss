@@ -95,13 +95,15 @@ footer.site-footer {
 		}
 
 		.footer-subtitle {
-			@extend %footer-label;
+			@extend %footer-text;
+			color: $yellow;
 			margin: 0;
 		}
 
 		p,
 		address {
 			@extend %footer-text;
+			color: $light-blue;
 			margin-bottom: 1.5rem;
 		}
 

@@ -51,10 +51,10 @@ if ( ! function_exists( 'nuclearnetwork_entry_tags' ) ) :
 		// Hide category and tag text for pages.
 		if ( 'post' === get_post_type() ) {
 			/* translators: used between list items, there is a space after the comma */
-			$tags_list = get_the_tag_list();
+			$tags_list = get_the_tag_list( '<ul><li>','</li><li>','</li></ul>' );
 			if ( $tags_list ) {
 				/* translators: 1: list of tags. */
-				printf( '<span class="tags-links">' . esc_html__( 'More on... %1$s', 'nuclearnetwork' ) . '</span>', $tags_list ); // WPCS: XSS OK.
+				printf( '<div class="post-tags-container">' . esc_html__( 'More on... %1$s', 'nuclearnetwork' ) . '</div>', $tags_list ); // WPCS: XSS OK.
 			}
 		}
 	}
@@ -84,7 +84,6 @@ if ( ! function_exists( 'nuclearnetwork_post_format' ) ) :
 	 * @param int $id Post ID.
 	 */
 	function nuclearnetwork_post_format( $id ) {
-		// Hide category and tag text for pages.
 		if ( 'post' === get_post_type() ) {
 			$post_format = get_post_meta( $id, '_post_post_format', true );
 			if ( $post_format ) {
@@ -94,14 +93,13 @@ if ( ! function_exists( 'nuclearnetwork_post_format' ) ) :
 	}
 endif;
 
-if ( ! function_exists( 'nuclearnetwork_linkedin' ) ) :
+if ( ! function_exists( 'nuclearnetwork_post_discuss' ) ) :
 	/**
-	 * Returns HTML with post format.
+	 * Returns HTML with discuss this post message.
 	 *
 	 * @param int $id Post ID.
 	 */
-	function nuclearnetwork_linkedin( $id ) {
-		// Hide category and tag text for pages.
+	function nuclearnetwork_post_discuss( $id ) {
 		if ( 'post' === get_post_type() ) {
 			$linkedin_url = get_post_meta( $id, '_post_linkedin_url', true );
 			if ( ! $linkedin_url ) {
@@ -116,6 +114,38 @@ if ( ! function_exists( 'nuclearnetwork_linkedin' ) ) :
 				<p>' . $message . '</p></a></div>';
 
 				return $output;
+			}
+		}
+	}
+endif;
+
+if ( ! function_exists( 'nuclearnetwork_post_disclaimer' ) ) :
+	/**
+	 * Returns HTML with post disclaimer.
+	 *
+	 * @param int $id Post ID.
+	 */
+	function nuclearnetwork_post_disclaimer( $id ) {
+		if ( 'post' === get_post_type() && ! get_post_meta( $post->ID, '_post_disable_linkedin', true ) ) {
+			$disclaimer = get_option( 'nuclearnetwork_post_disclaimer' );
+			if ( $disclaimer ) {
+				printf( '<p class="post-disclaimer">' . esc_html( '%1$s' ) . '</p>', $disclaimer ); // WPCS: XSS OK.
+			}
+		}
+	}
+endif;
+
+if ( ! function_exists( 'nuclearnetwork_post_write' ) ) :
+	/**
+	 * Returns HTML with post "Write for Us" message.
+	 */
+	function nuclearnetwork_post_write() {
+		if ( 'post' === get_post_type() ) {
+			$message = get_option( 'nuclearnetwork_post_write' );
+			if ( $message ) {
+				printf( '<div class="post-write">
+					<h5 class="callout-header"><i class="icon-pencil-write"></i> ' . esc_html_x( 'Write for Us', 'nuclearnetwork' ) . '</h5>
+				<p>' . esc_html( '%1$s' ) . '</p></div>', $message ); // WPCS: XSS OK.
 			}
 		}
 	}

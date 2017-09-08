@@ -58,58 +58,34 @@
 
 /*----------  Tags  ----------*/
 .post-tags-container {
-	margin: 3rem auto 2rem auto;
-
-	.tags-heading {
-		position: relative;
-		background-color: $primary-blue;;
-		color: $white;
-		font-family: $font__lato;
-		@include fontSize(13px);
-		line-height: 1.69;
-		letter-spacing: 0.7px;
-		text-transform: uppercase;
-		padding: 3px 7px;
-
-		&:before {
-			content: "";
-			float: right;
-			position: absolute;
-			top: 0;
-			right: -12px;
-			width: 0;
-			height: 0;
-			border-color: transparent transparent transparent $primary-blue;;
-			border-style: solid;
-			border-width: 12px 0 12px 12px;
-		}
-	}
+	padding-top: 3rem;
+	@extend %archive-content-type;
 
 	ul {
-		list-style-type: none;
-		display: inline;
-		margin-bottom: 0;
-		padding-left: 1.5rem;
+		list-style: none;
+		padding: 0;
+		margin-top: 0.5rem;
+	}
 
-		@include breakpoint("medium") {
-			display: inline-block;
-		}
+	li {
+		margin-bottom: 0.5rem;
+		width: fit-content;
+	}
 
-		li {
-			display: inline-block;
-			margin: 0 0.5rem;
-			padding: 3px 0;
-			font-family: $font__lato;
-			@include fontSize(15px);
+	a {
+		display: block;
+		background-color: $yellow;
+		color: $black;
+		box-shadow: none;
+		text-transform: none;
+		padding: 0 0.5rem;
+		font-family: $font__ptsans;
+		font-weight: normal;
+		line-height: 1.59;
 
-			a {
-				color: $black;
-				border-bottom: 1px solid $primary-blue;;
-
-				&:hover {
-					border-bottom-color: $dark-blue;
-				}
-			}
+		&:hover {
+			background-color: $dark-yellow;
+			color: $white;
 		}
 	}
 }
@@ -153,4 +129,27 @@
 		margin-top: 0.2rem;
 		margin-bottom: 0;
 	}
+}
+
+/*----------  Disclaimer  ----------*/
+.post-disclaimer {
+	font-family: $font__ptsans;
+	@include fontSize(14px);
+	line-height: 1.43;
+	color: $dark-gray;
+}
+
+/*----------  Write for Us  ----------*/
+.post-write {
+	i { 
+		@include fontSize(21px);
+		color: $yellow; 
+	}
+
+	p {
+		@include fontSize(16px);
+		line-height: 1.5;
+		margin-bottom: 0;
+	}
+
 }

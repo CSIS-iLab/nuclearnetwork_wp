@@ -2,32 +2,14 @@
 =            Related Content            =
 =======================================*/
 
-.relatedContent-container {
-	.relatedContent-heading {
-		@extend %postFooter-subheading;
+.post-related-container {
+	background-color: $off-white;
+	margin-top: 3rem;
+	padding-top: 3rem;
+	padding-bottom: 3rem;
 
-		&.noMargin {margin-top: 0;}
+	.related-header {
+		text-transform: uppercase;
+		margin: 0 0 1.5rem;
 	}
-
-	.relatedContent-post {
-		margin-bottom: 1.5rem;
-
-		.relatedContent-img {
-			max-width: 105px;
-		}
-
-		.relatedContent-title a {
-			font-family: $font__ptsans;
-			@include fontSize(18px);
-			font-weight: 500;
-			line-height: 1.22;
-			letter-spacing: 0.3px;
-			color: $black;
-
-			&:hover {
-				color: $primary-blue;;
-			}
-		}
-	}
-
 }
