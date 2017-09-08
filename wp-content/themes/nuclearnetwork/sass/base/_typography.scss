@@ -19,11 +19,10 @@ h1, h2, h3, h4, h5, h6 {
 
 %h1 {
 	font-family: $font__lato;
-	@include fontSize(48px);
-	font-weight: bold;
-	line-height: 1.1;
-	letter-spacing: 0.6;
-	color: $black;
+	@include fontSize(50px);
+	font-weight: 400;
+	line-height: 1.2;
+	color: $primary-blue;
 	margin: 0 0 1rem 0;
 	
 }
@@ -32,49 +31,44 @@ h1, h2, h3, h4, h5, h6 {
 	font-family: $font__lato;
 	@include fontSize(30px);
 	line-height: 1.2;
-	font-weight: 400;
+	font-weight: 300;
 	color: $primary-blue;
 	margin: 0.5rem 0 1rem 0;
 }
 
 %h3 {
 	font-family: $font__lato;
-	@include fontSize(25px);
+	@include fontSize(26px);
 	line-height: 1.2;
-	font-weight: bold;
 	color: $black;
 	margin: 1rem 0;
 }
 
 %h4 {
 	font-family: $font__lato;
-	@include fontSize(22px);
+	@include fontSize(25px);
 	line-height: 1.25;
-	font-weight: 600;
+	font-weight: 300;
 	color: $black;
-	letter-spacing: 0.1px;
 	margin: 1rem 0;
 }
 
 %h5 {
 	font-family: $font__lato;
-	@include fontSize(22px);
+	@include fontSize(18px);
 	line-height: 1.2;
 	font-weight: normal;
 	color: $black;
-	text-transform: uppercase;
-	letter-spacing: 1.1px;
 	margin: 1rem 0;
 }
 
 %h6 {
 	font-family: $font__lato;
-	@include fontSize(18px);
+	@include fontSize(16px);
 	line-height: 1.2;
-	font-weight: 600;
-	color: $color__text-h6;
-	text-transform: uppercase;
-	letter-spacing: 1.1px;
+	font-weight: 300;
+	color: $black;
+	letter-spacing: 1.4px;
 	margin: 1rem 0;
 }
 
@@ -179,15 +173,19 @@ h1, h2, h3, h4, h5, h6 {
 	line-height: 1.34;
 }
 
-body.single, body.page {
-
-	h1 { @extend %h1 }
-	h2 { @extend %h2 }
-	h3 { @extend %h3 }
-	h4 { @extend %h4 }
-	h5 { @extend %h5 }
-	h6 { @extend %h6 }
+%callout-header {
+	font-family: $font__lato;
+	@include fontSize(18px);
+	font-weight: bold;
+	text-transform: uppercase;
 }
+
+h1 { @extend %h1 }
+h2 { @extend %h2 }
+h3 { @extend %h3 }
+h4 { @extend %h4 }
+h5 { @extend %h5 }
+h6 { @extend %h6 }
 
 /*============================
 =            Copy            =

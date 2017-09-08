@@ -93,3 +93,30 @@ if ( ! function_exists( 'nuclearnetwork_post_format' ) ) :
 		}
 	}
 endif;
+
+if ( ! function_exists( 'nuclearnetwork_linkedin' ) ) :
+	/**
+	 * Returns HTML with post format.
+	 *
+	 * @param int $id Post ID.
+	 */
+	function nuclearnetwork_linkedin( $id ) {
+		// Hide category and tag text for pages.
+		if ( 'post' === get_post_type() ) {
+			$linkedin_url = get_post_meta( $id, '_post_linkedin_url', true );
+			if ( ! $linkedin_url ) {
+				$linkedin_url = get_option( 'nuclearnetwork_linkedin' );
+			}
+
+			if ( $linkedin_url ) {
+				$message = get_option( 'nuclearnetwork_post_discuss' );
+
+				$output = '<div class="discuss-linkedin"><a href="' . esc_url( $linkedin_url ) . '" target="_blank">
+				<i class="icon-linkedin-discuss"></i><h5 class="callout-header">' . esc_html_x( 'Discuss this Post', 'nuclearnetwork' ) . '</h5>
+				<p>' . $message . '</p></a></div>';
+
+				return $output;
+			}
+		}
+	}
+endif;

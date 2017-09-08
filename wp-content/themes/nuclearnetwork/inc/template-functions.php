@@ -30,3 +30,21 @@ function nuclearnetwork_pingback_header() {
 	}
 }
 add_action( 'wp_head', 'nuclearnetwork_pingback_header' );
+
+add_filter( 'the_content', 'insert_content_discuss_message' );
+/**
+ * Insert "Discuss this post" message after single posts unless it's turned off at the post level.
+ *
+ * @param  string $content Post content.
+ * @return string          HTML of call out box
+ */
+function insert_content_discuss_message( $content ) {
+	if ( is_single() ) {
+		global $post;
+		$disable_linkedin = get_post_meta( $post->ID, '_post_disable_linkedin', true );
+		if ( ! $disable_linkedin ) {
+			$content .= nuclearnetwork_linkedin( $post->ID );
+		}
+	}
+	return $content;
+}

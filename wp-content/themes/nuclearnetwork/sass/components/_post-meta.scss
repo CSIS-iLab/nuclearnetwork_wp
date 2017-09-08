@@ -113,3 +113,44 @@
 		}
 	}
 }
+
+.callout-header {
+	@extend %callout-header;
+}
+
+
+/*----------  LinkedIn  ----------*/
+.discuss-linkedin {
+	background-color: $off-white;
+	width: 55%;
+	margin: 2rem auto 3rem auto;
+	text-align: center;
+
+	a {
+		display: block;
+		padding: 1rem;
+
+		&:hover {
+			i { color: $dark-blue; }
+			.callout-header { box-shadow: none; }
+		}
+	}
+
+	i {
+		@include fontSize(25px);
+		color: $secondary-blue;
+	}
+
+	.callout-header {
+		display: inline; 
+		@include box-shadow(0,-1px,0,0, $secondary-blue, true);
+	}
+
+	p {
+		@extend %post-meta;
+		font-style: italic;
+		color: $dark-gray;
+		margin-top: 0.2rem;
+		margin-bottom: 0;
+	}
+}

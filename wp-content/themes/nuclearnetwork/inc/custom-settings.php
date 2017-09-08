@@ -74,7 +74,6 @@ function nuclearnetwork_admin_init_section_footer() {
 		'nuclearnetwork_disclaimer',
 		'sanitize_text_field'
 	);
-
 }
 
 /**
@@ -275,6 +274,72 @@ function nuclearnetwork_admin_init_section_newsletter() {
  */
 function nuclearnetwork_display_section_newsletter_message() {
 	echo 'Information visible in the site\'s newsletter.';
+}
+
+add_action( 'admin_init', 'nuclearnetwork_admin_init_section_posts' );
+/**
+ * Creates the "Footer" settings section.
+ */
+function nuclearnetwork_admin_init_section_posts() {
+
+	add_settings_section(
+		'nuclearnetwork_settings_section_posts',
+		'Footer',
+		'nuclearnetwork_display_section_posts_message',
+		'nuclearnetwork-options-page'
+	);
+
+	add_settings_field(
+		'nuclearnetwork_post_write',
+		'Write for Us',
+		'nuclearnetwork_textarea_callback',
+		'nuclearnetwork-options-page',
+		'nuclearnetwork_settings_section_posts',
+		array( 'nuclearnetwork_post_write' )
+	);
+
+	add_settings_field(
+		'nuclearnetwork_post_discuss',
+		'Discuss this Post',
+		'nuclearnetwork_textarea_callback',
+		'nuclearnetwork-options-page',
+		'nuclearnetwork_settings_section_posts',
+		array( 'nuclearnetwork_post_discuss' )
+	);
+
+	add_settings_field(
+		'nuclearnetwork_post_disclaimer',
+		'Guest Author Disclaimer',
+		'nuclearnetwork_textarea_callback',
+		'nuclearnetwork-options-page',
+		'nuclearnetwork_settings_section_posts',
+		array( 'nuclearnetwork_post_disclaimer' )
+	);
+
+	register_setting(
+		'nuclearnetwork_settings',
+		'nuclearnetwork_post_write',
+		'sanitize_text_field'
+	);
+
+	register_setting(
+		'nuclearnetwork_settings',
+		'nuclearnetwork_post_discuss',
+		'sanitize_text_field'
+	);
+
+	register_setting(
+		'nuclearnetwork_settings',
+		'nuclearnetwork_post_disclaimer',
+		'sanitize_text_field'
+	);
+}
+
+/**
+ * Footer section description.
+ */
+function nuclearnetwork_display_section_posts_message() {
+	echo 'Information visible in the site\'s posts.';
 }
 
 /**
