@@ -16,53 +16,53 @@ get_header(); ?>
 		<main id="main" class="site-main">
 
 			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-				<header class="entry-header">
-					<div class="content-wrapper row">
-						<div class="col-xs-12 col-md-6">
+				<div class="content-wrapper">
+					<header class="entry-header">
+						<div class="title-container">
+							<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+						</div>
+						<?php the_excerpt(); ?>
+					</header><!-- .entry-header -->
+					<div class="post-img-container">
+						<?php the_post_thumbnail( 'full' ); ?>
+						<div class="caption">
+							<?php the_post_thumbnail_caption(); ?>
+						</div>
+					</div>
+					<div class="entry-content">
+						<div class="post-sidebar">
 							<?php
-								the_title( '<h1 class="entry-title">', '</h1>' );
-								the_excerpt();
+							nuclearnetwork_post_format( $id );
+							nuclearnetwork_authors_list();
+							nuclearnetwork_posted_on();
+							nuclearnetwork_entry_categories();
 							?>
 						</div>
-						<div class="col-xs-12 col-md-6">
-							Thumbnail
-						</div>
-					</div>
-				</header><!-- .entry-header -->
-
-				<div class="entry-content content-wrapper row">
-					<div class="post-sidebar col-xs-12 col-md-3">
+						<div class="post-content">
 						<?php
-						nuclearnetwork_post_format( $id );
-						nuclearnetwork_authors_list();
-						nuclearnetwork_posted_on();
-						nuclearnetwork_entry_categories();
+							the_content( sprintf(
+								wp_kses(
+									/* translators: %s: Name of current post. Only visible to screen readers */
+									__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'nuclearnetwork' ),
+									array(
+										'span' => array(
+											'class' => array(),
+										),
+									)
+								),
+								get_the_title()
+							) );
 						?>
-					</div>
-					<div class="post-content col-xs-12 col-md-9">
-					<?php
-						the_content( sprintf(
-							wp_kses(
-								/* translators: %s: Name of current post. Only visible to screen readers */
-								__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'nuclearnetwork' ),
-								array(
-									'span' => array(
-										'class' => array(),
-									),
-								)
-							),
-							get_the_title()
-						) );
-					?>
-					<?php if ( $sources ) : ?>
-					<p class="sources-label">View Sources</p>
-					<div class="sources">
-						<?php echo wp_kses_post( $sources ); ?>
-					</div>
-					<?php endif; ?>
+						<?php if ( $sources ) : ?>
+						<p class="sources-label">View Sources</p>
+						<div class="sources">
+							<?php echo wp_kses_post( $sources ); ?>
+						</div>
+						<?php endif; ?>
 
-					</div>
-				</div><!-- .entry-content -->
+						</div>
+					</div><!-- .entry-content -->
+				</div>
 
 				<footer class="entry-footer">
 					<div class="content-wrapper row">
