@@ -115,24 +115,40 @@ h1, h2, h3, h4, h5, h6 {
 
 %single-title {
 	font-family: $font__lato;
-	@include fontSize(50px);
-	line-height: 1.2;
-	color: $primary-blue;
+  @include fontSize(28px);
+  line-height: 1.25;
+  text-align: center;
+  font-weight: 600;
+  color: $primary-blue;
+
+  @include breakpoint("medium") {
+  	@include fontSize(50px);
+    line-height: 1.2;
+    font-weight: normal;
+  }
 }
 
 %content-type {
 	font-family: $font__lato;
 	@include fontSize(16px);
 	font-weight: bold;
-	line-height: 1.25;
+	line-height: 1.9;
 	letter-spacing: 1.1px;
 	color: $primary-blue;
+
+	@include breakpoint("medium") {
+		line-height: 1.25;
+	}
 }
 
 %post-meta {
 	font-family: $font__ptsans;
 	@include fontSize(16px);
-	line-height: 1.34;
+	line-height: 1.9;
+
+	@include breakpoint("medium") {
+		line-height: 1.34;
+	}
 }
 
 %callout-header {

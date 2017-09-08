@@ -17,18 +17,18 @@ get_header(); ?>
 
 			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 				<div class="content-wrapper">
-					<header class="entry-header">
-						<div class="title-container">
-							<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
-						</div>
-						<?php the_excerpt(); ?>
-					</header><!-- .entry-header -->
 					<div class="post-img-container">
 						<?php the_post_thumbnail( 'full' ); ?>
 						<div class="caption">
 							<?php the_post_thumbnail_caption(); ?>
 						</div>
 					</div>
+					<header class="entry-header">
+						<div class="title-container">
+							<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+						</div>
+						<?php the_excerpt(); ?>
+					</header><!-- .entry-header -->
 					<div class="entry-content">
 						<div class="post-sidebar">
 							<?php
@@ -70,7 +70,7 @@ get_header(); ?>
 							<?php nuclearnetwork_post_disclaimer( $id ); ?>
 							About the Authors
 						</div>
-						<div class="post-write col-xs-12 col-sm-3">
+						<div class="post-write-container col-xs-12 col-sm-3">
 							<?php nuclearnetwork_post_write(); ?>
 						</div>
 					</div>
@@ -79,10 +79,10 @@ get_header(); ?>
 							<div class="col-xs-12">
 								<h4 class="related-header"><?php echo esc_html_x( 'Related Reading', 'nuclearnetwork' ); ?></h4>
 							</div>
-							<div class="col-xs">
+							<div class="col-xs-12 col-md">
 								Related Posts
 							</div>
-							<div class="col-xs">
+							<div class="col-xs-12 col-md">
 								<?php nuclearnetwork_entry_tags(); ?>
 							</div>
 						</div>
