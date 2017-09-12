@@ -37,11 +37,7 @@ get_header(); ?>
 							nuclearnetwork_posted_on();
 							nuclearnetwork_entry_categories();
 							?>
-							<?php
-							if ( function_exists( 'ADDTOANY_SHARE_SAVE_KIT' ) ) {
-								ADDTOANY_SHARE_SAVE_KIT();
-							}
-							?>
+							<?php get_template_part( 'share-inline' ); ?>
 						</div>
 						<div class="post-content">
 						<?php
