@@ -49,29 +49,42 @@ function insert_content_discuss_message( $content ) {
 	return $content;
 }
 
-function jetpackme_custom_related( $atts ) {
-    $posts_titles = array();
- 
-    if ( class_exists( 'Jetpack_RelatedPosts' ) && method_exists( 'Jetpack_RelatedPosts', 'init_raw' ) ) {
-        $related = Jetpack_RelatedPosts::init_raw()
-            ->set_query_name( 'jetpackme-shortcode' ) // Optional, name can be anything
-            ->get_for_post_id(
-                get_the_ID(),
-                array( 'size' => 2 )
-            );
- 
-        if ( $related ) {
-            foreach ( $related as $result ) {
-                // Get the related post IDs
-                $related_post = get_post( $result[ 'id' ] );
-                // From there you can do just about anything. Here we get the post titles
-                $posts_titles[] = $related_post->post_title;
-            }
-        }
+function jetpackme_remove_rp() {
+    if ( class_exists( 'Jetpack_RelatedPosts' ) ) {
+        $jprp = Jetpack_RelatedPosts::init();
+        $callback = array( $jprp, 'filter_add_target_to_dom' );
+        remove_filter( 'the_content', $callback, 40 );
     }
- 
-    // Return a list of post titles separated by commas
-    return implode( ', ', $posts_titles );
 }
-// Create a [jprel] shortcode
+add_filter( 'wp', 'jetpackme_remove_rp', 20 );
+
+function jetpackme_custom_related( $atts ) {
+	$related_html = '';
+
+	if ( class_exists( 'Jetpack_RelatedPosts' ) && method_exists( 'Jetpack_RelatedPosts', 'init_raw' ) ) {
+		$related = Jetpack_RelatedPosts::init_raw()
+			->set_query_name( 'jetpackme-shortcode' ) // Optional, name can be anything
+			->get_for_post_id(
+				get_the_ID(),
+				array( 'size' => 2 )
+			);
+
+		if ( $related ) {
+			foreach ( $related as $result ) {
+				// Get the related post IDs.
+				$related_post = get_post( $result[ 'id' ] );
+				$thumbnail = get_the_post_thumbnail_url( $related_post, 'medium_large' );
+				$related_html .= '<div class="related-post col-xs-12 col-md-4" style="background-image:url(\'' . $thumbnail . '\');">
+				<a href="' . esc_url( get_permalink( $related_post ) ) . '">
+				<h4>' . $related_post->post_title . '</h4>
+				<span class="post-date">' . get_the_date( '', $result['id'] ) . '</span>
+				</a></div>';
+			}
+		}
+	}
+
+	// Return a list of post titles separated by commas.
+	return $related_html;
+}
+// Create a [jprel] shortcode.
 add_shortcode( 'jprel', 'jetpackme_custom_related' );

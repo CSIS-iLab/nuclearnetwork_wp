@@ -67,11 +67,11 @@ get_header(); ?>
 
 				<footer class="entry-footer">
 					<div class="content-wrapper row">
-						<div class="post-about-authors col-xs-12 col-sm-9">
+						<div class="post-about-authors col-xs-12 col-sm-8">
 							<?php nuclearnetwork_post_disclaimer( $id ); ?>
 							<?php nuclearnetwork_authors_list_extended(); ?>
 						</div>
-						<div class="post-write-container col-xs-12 col-sm-3">
+						<div class="post-write-container col-xs-12 col-sm-4">
 							<?php nuclearnetwork_post_write(); ?>
 						</div>
 					</div>
@@ -80,14 +80,28 @@ get_header(); ?>
 							<div class="col-xs-12">
 								<h4 class="related-header"><?php echo esc_html_x( 'Related Reading', 'nuclearnetwork' ); ?></h4>
 							</div>
-							<div class="col-xs-12 col-md">
-								<?php
-								if ( class_exists( 'Jetpack_RelatedPosts' ) ) {
-									echo do_shortcode( '[jprel]' );
-								}
+							<?php
+							if ( class_exists( 'Jetpack_RelatedPosts' ) ) {
+								echo do_shortcode( '[jprel]' );
+							}
+
+							if( JETPACK_DEV_DEBUG ) {
 								?>
-							</div>
-							<div class="col-xs-12 col-md">
+								<div class="related-post col-xs-12 col-md-4" style="background-image:url('');">
+								<a href="http://nuclearnetwork.wpengine.com/the-road-to-nuclear-arms-is-paved-with-good-intentions-the-inf-treaty-preservation-act-of-2017/">
+								<h4>The Road to Nuclear Arms is Paved with Good Intentions: The INF Treaty Preservation Act of 2017</h4>
+								<span class="post-date">April 19, 2017</span>
+								</a></div>
+								<div class="related-post col-xs-12 col-md-4" style="background-image:url('http://nuclearnetwork.wpengine.com/wp-content/uploads/2017/08/Nunnandlugar.jpg');">
+								<a href="http://nuclearnetwork.wpengine.com/weapons-of-mass-disagreement-the-decline-of-arms-control-in-the-u-s-senate/">
+								<h4>Weapons of Mass Disagreement: The Decline of Arms Control in the U.S. Senate</h4>
+								<span class="post-date">May 31, 2017</span>
+								</a></div>
+								<?php
+							}
+
+							?>
+							<div class="col-xs-12 col-md-4">
 								<?php nuclearnetwork_entry_tags(); ?>
 							</div>
 						</div>
