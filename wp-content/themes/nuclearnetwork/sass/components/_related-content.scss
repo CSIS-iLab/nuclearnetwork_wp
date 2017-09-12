@@ -5,8 +5,13 @@
 .post-related-container {
 	background-color: $off-white;
 	margin-top: 3rem;
-	padding-top: 3rem;
-	padding-bottom: 3rem;
+	padding-top: 2rem;
+	padding-bottom: 2rem;
+
+	@include breakpoint("medium") {
+		padding-top: 3rem;
+		padding-bottom: 3rem;
+	}
 
 	.related-header {
 		text-transform: uppercase;

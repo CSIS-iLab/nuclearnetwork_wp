@@ -56,6 +56,32 @@ if ( ! function_exists( 'nuclearnetwork_authors_list' ) ) :
 	}
 endif;
 
+if ( ! function_exists( 'nuclearnetwork_authors_list_extended' ) ) :
+	/**
+	 * Prints HTML with short author list.
+	 */
+	function nuclearnetwork_authors_list_extended() {
+		if ( function_exists( 'coauthors_posts_links' ) ) {
+			$authors = '';
+			foreach ( get_coauthors() as $coauthor ) :
+				if ( ! get_user_meta( $coauthor->ID, 'title') ) {
+					$title = 'Guest Author';
+				} else {
+					$title = get_user_meta( $coauthor->ID, 'title', true );
+				}
+
+				$authors .= '<div class="entry-author"><h4 class="section-header">' . esc_html_x( 'About the Author:', 'nuclearnetwork' ) . ' <a href="' . get_author_posts_url( $coauthor->ID, $coauthor->user_nicename ) . '">' . $coauthor->display_name . '</a></h4>
+				<p><span class="author-title">' . esc_html( $title ) . ' &mdash; </span>' . $coauthor->description . '</p></div>';
+			endforeach;
+
+		} else {
+			$authors = the_author_posts_link();
+		}
+
+		echo '<div class="authors-list-extended">' . $authors . '</div>';
+	}
+endif;
+
 if ( ! function_exists( 'nuclearnetwork_entry_tags' ) ) :
 	/**
 	 * Prints HTML with meta information for the tags.

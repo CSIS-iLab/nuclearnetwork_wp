@@ -68,7 +68,7 @@ get_header(); ?>
 					<div class="content-wrapper row">
 						<div class="post-about-authors col-xs-12 col-sm-9">
 							<?php nuclearnetwork_post_disclaimer( $id ); ?>
-							About the Authors
+							<?php nuclearnetwork_authors_list_extended(); ?>
 						</div>
 						<div class="post-write-container col-xs-12 col-sm-3">
 							<?php nuclearnetwork_post_write(); ?>

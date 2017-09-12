@@ -5,7 +5,18 @@ select,
 textarea {
 	color: $color__text-main;
 	font-family: $font__main;
-	@include fontSize(18px);
+	@include fontSize(16px);
+	line-height: $font__line-height-body;
+
+	@include breakpoint("medium") {
+		@include fontSize(18px);
+	}
+}
+
+%body-small {
+	color: $color__text-main;
+	font-family: $font__main;
+	@include fontSize(16px);
 	line-height: $font__line-height-body;
 }
 
@@ -46,11 +57,15 @@ h1, h2, h3, h4, h5, h6 {
 
 %h4 {
 	font-family: $font__lato;
-	@include fontSize(25px);
+	@include fontSize(20px);
 	line-height: 1.25;
 	font-weight: 300;
 	color: $black;
 	margin: 1rem 0;
+
+	@include breakpoint("medium") {
+		@include fontSize(25px);
+	}
 }
 
 %h5 {

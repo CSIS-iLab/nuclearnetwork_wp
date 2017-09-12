@@ -36,6 +36,8 @@
 
 		.author-title {
 			@extend %post-meta;
+		  font-style: italic;
+		  color: $dark-gray;
 			display: none;
 
 			@include breakpoint("medium") {
@@ -61,6 +63,43 @@
 				}
 			}
 		}
+	}
+}
+
+.authors-list-extended {
+	margin-bottom: 2rem;
+
+	@include breakpoint("medium") {
+		margin-bottom: 0;
+	}
+
+	.entry-author {
+		margin-bottom: 1.5rem;
+	}
+
+	.section-header { 
+		text-transform: uppercase;
+		margin: 0 0 0.5rem 0; 
+	}
+
+	a {
+		text-transform: none;
+		color: $secondary-blue;
+		font-weight: normal;
+	}
+
+	.author-title {
+		display: inline;
+		color: $dark-gray;
+
+		@include breakpoint("medium") {
+			display: none;
+		}
+	}
+
+	p {
+		@extend %body-small;
+		margin-bottom: 0;
 	}
 }
 
@@ -155,6 +194,13 @@
 	li {
 		margin-bottom: 0.5rem;
 		width: fit-content;
+		display: inline-block;
+		margin-right: 0.5rem;
+
+		@include breakpoint("medium") {
+			display: block;
+			margin-right: 0;
+		}
 	}
 
 	a {
@@ -226,18 +272,30 @@
 	@include fontSize(14px);
 	line-height: 1.43;
 	color: $dark-gray;
+	margin-bottom: 1.5rem;
 }
 
 /*----------  Write for Us  ----------*/
 .post-write {
 	i { 
-		@include fontSize(21px);
-		color: $yellow; 
+		@include fontSize(48px);
+		color: $yellow;
+		display: block;
+		float: left;
+		min-height: 6rem; 
+		margin-right: 0.5rem;
+
+		@include breakpoint("medium") {
+			@include fontSize(21px);
+			display: inline;
+			float: none;
+			min-height: unset;
+			margin-right: 0;
+		}
 	}
 
 	p {
-		@include fontSize(16px);
-		line-height: 1.5;
+		@extend %body-small;
 		margin-bottom: 0;
 	}
 

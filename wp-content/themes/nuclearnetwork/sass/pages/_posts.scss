@@ -178,6 +178,9 @@
       margin-left: calc(25% - 1rem);
       padding-right: 0;
     }
+
+    // Headings
+    h1, h2, h3, h4, h5, h6 { clear: none; }
   }
 
   // Sources
@@ -209,5 +212,15 @@
     &.is-active { display: block; }
   }
 
+  // Post Authors/Disclaimer Block
+  .post-about-authors {
+    padding-right: 0.5rem;
+
+    @include breakpoint("medium") {
+      padding-right: 2rem;
+    }
+  }
+
+  // Site Footer
   .site-footer { margin-top: 0; }
 }
