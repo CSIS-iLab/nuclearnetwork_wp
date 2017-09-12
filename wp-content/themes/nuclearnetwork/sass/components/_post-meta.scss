@@ -25,6 +25,43 @@
 	@include breakpoint("medium") {
 		margin-bottom: 1.5rem;
 	}
+
+	.entry-author {
+		display: inline;
+
+		@include breakpoint("medium") {
+			display: block;
+			margin-bottom: 1rem;
+		}
+
+		.author-title {
+			@extend %post-meta;
+			display: none;
+
+			@include breakpoint("medium") {
+				display: block;
+				text-transform: lowercase;
+			}
+		}
+
+		&:not(:first-child) {
+			.meta-label { 
+				display: none;
+
+				@include breakpoint("medium") {
+					display: inline;
+				}
+			}
+			&::before {
+				content: ", ";
+				margin-left: -5px;
+
+				@include breakpoint("medium") {
+					content: none;
+				}
+			}
+		}
+	}
 }
 
 /*----------  Posted On  ----------*/

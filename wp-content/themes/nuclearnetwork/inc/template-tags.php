@@ -44,8 +44,8 @@ if ( ! function_exists( 'nuclearnetwork_authors_list' ) ) :
 				}
 
 				$authors .= '<div class="entry-author"><span class="meta-label">by</span> 
-					<a href="' . get_author_posts_url( $coauthor->ID, $coauthor->user_nicename ) . '">' . $coauthor->display_name . '</a><br />
-					<span class="meta-label author-title">' . esc_html( $title ) . '</span></div>';
+					<a href="' . get_author_posts_url( $coauthor->ID, $coauthor->user_nicename ) . '">' . $coauthor->display_name . '</a>
+					<span class="author-title">' . esc_html( $title ) . '</span></div>';
 			endforeach;
 
 		} else {
