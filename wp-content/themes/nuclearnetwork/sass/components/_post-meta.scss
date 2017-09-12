@@ -26,6 +26,12 @@
 		margin-bottom: 1.5rem;
 	}
 
+	a {
+		color: $black;
+
+		&:hover { color: $secondary-blue; }
+	}
+
 	.entry-author {
 		display: inline;
 

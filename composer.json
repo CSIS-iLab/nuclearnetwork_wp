@@ -12,6 +12,7 @@
         "wp-coding-standards/wpcs": "*"
     },
     "require": {
+        "wpackagist-plugin/add-to-any": "*",
         "wpackagist-plugin/akismet": "*",
         "wpackagist-plugin/archive-control": "*",
         "wpackagist-plugin/co-authors-plus": "*",
