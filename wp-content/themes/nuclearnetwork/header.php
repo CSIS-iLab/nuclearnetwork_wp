@@ -38,7 +38,7 @@ $linkedin = get_option( 'nuclearnetwork_linkedin' );
 			</div>
 			<div class="header-content-container col-xs-10 col-sm-11 col-md-8">
 				<div class="header-top row hidden-xs middle-sm">
-					<div class="social-container col-sm-3">
+					<div class="social-container col-sm-4 col-lg-3">
 						<ul class="header-social">
 							<?php
 							if ( $facebook ) {
@@ -53,7 +53,7 @@ $linkedin = get_option( 'nuclearnetwork_linkedin' );
 							?>
 						</ul>
 					</div>
-					<div class="search-container col-sm-9">
+					<div class="search-container col-sm-8 col-lg-9">
 						<?php get_template_part( 'search-inline' ); ?>
 					</div>
 				</div>

@@ -137,6 +137,12 @@ h1, h2, h3, h4, h5, h6 {
   color: $primary-blue;
 
   @include breakpoint("medium") {
+  	@include fontSize(40px);
+    line-height: 1.2;
+    font-weight: normal;
+  }
+
+  @include breakpoint("large") {
   	@include fontSize(50px);
     line-height: 1.2;
     font-weight: normal;
