@@ -31,15 +31,28 @@ endif;
 
 if ( ! function_exists( 'nuclearnetwork_authors_list' ) ) :
 	/**
-	 * Prints HTML with meta information for the current post-date/time and author.
+	 * Prints HTML with short author list.
 	 */
 	function nuclearnetwork_authors_list() {
-		$byline = sprintf(
-			'<span class="meta-label">' . esc_html_x( 'by', 'post author', 'nuclearnetwork' ) . '</span> %s',
-			'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
-		);
+		if ( function_exists( 'coauthors_posts_links' ) ) {
+			$authors = '';
+			foreach ( get_coauthors() as $coauthor ) :
+				if ( ! get_user_meta( $coauthor->ID, 'title') ) {
+					$title = 'Guest Author';
+				} else {
+					$title = get_user_meta( $coauthor->ID, 'title', true );
+				}
 
-		echo '<div class="authors-list">' . $byline . '</div>'; // WPCS: XSS OK.
+				$authors .= '<div class="entry-author"><span class="meta-label">by</span> 
+					<a href="' . get_author_posts_url( $coauthor->ID, $coauthor->user_nicename ) . '">' . $coauthor->display_name . '</a><br />
+					<span class="meta-label author-title">' . esc_html( $title ) . '</span></div>';
+			endforeach;
+
+		} else {
+			$authors = the_author_posts_link();
+		}
+
+		echo '<div class="authors-list">' . $authors . '</div>';
 	}
 endif;
 
