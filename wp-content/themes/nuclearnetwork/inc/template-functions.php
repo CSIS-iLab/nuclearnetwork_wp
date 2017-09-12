@@ -48,3 +48,30 @@ function insert_content_discuss_message( $content ) {
 	}
 	return $content;
 }
+
+function jetpackme_custom_related( $atts ) {
+    $posts_titles = array();
+ 
+    if ( class_exists( 'Jetpack_RelatedPosts' ) && method_exists( 'Jetpack_RelatedPosts', 'init_raw' ) ) {
+        $related = Jetpack_RelatedPosts::init_raw()
+            ->set_query_name( 'jetpackme-shortcode' ) // Optional, name can be anything
+            ->get_for_post_id(
+                get_the_ID(),
+                array( 'size' => 2 )
+            );
+ 
+        if ( $related ) {
+            foreach ( $related as $result ) {
+                // Get the related post IDs
+                $related_post = get_post( $result[ 'id' ] );
+                // From there you can do just about anything. Here we get the post titles
+                $posts_titles[] = $related_post->post_title;
+            }
+        }
+    }
+ 
+    // Return a list of post titles separated by commas
+    return implode( ', ', $posts_titles );
+}
+// Create a [jprel] shortcode
+add_shortcode( 'jprel', 'jetpackme_custom_related' );

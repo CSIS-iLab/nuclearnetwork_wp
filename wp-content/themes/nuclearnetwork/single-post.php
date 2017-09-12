@@ -81,7 +81,11 @@ get_header(); ?>
 								<h4 class="related-header"><?php echo esc_html_x( 'Related Reading', 'nuclearnetwork' ); ?></h4>
 							</div>
 							<div class="col-xs-12 col-md">
-								Related Posts
+								<?php
+								if ( class_exists( 'Jetpack_RelatedPosts' ) ) {
+									echo do_shortcode( '[jprel]' );
+								}
+								?>
 							</div>
 							<div class="col-xs-12 col-md">
 								<?php nuclearnetwork_entry_tags(); ?>
