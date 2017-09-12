@@ -228,7 +228,7 @@ function nuclearnetwork_admin_init_section_newsletter() {
 
 	add_settings_field(
 		'nuclearnetwork_newsletter_daily_desc',
-		'Monthly Description',
+		'Daily Description',
 		'nuclearnetwork_textarea_callback',
 		'nuclearnetwork-options-page',
 		'nuclearnetwork_settings_section_newsletter',
@@ -237,7 +237,7 @@ function nuclearnetwork_admin_init_section_newsletter() {
 
 	add_settings_field(
 		'nuclearnetwork_newsletter_daily_url',
-		'Monthly URL',
+		'Daily URL',
 		'nuclearnetwork_text_callback',
 		'nuclearnetwork-options-page',
 		'nuclearnetwork_settings_section_newsletter',
