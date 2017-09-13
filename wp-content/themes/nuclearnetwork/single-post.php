@@ -87,12 +87,14 @@ get_header(); ?>
 
 							if( JETPACK_DEV_DEBUG ) {
 								?>
-								<div class="related-post col-xs-12 col-md-4" style="background-image:url('');">
+								<div class="related-post col-xs-12 col-md-4">
+									<div class="related-post-img" style="background-image:url('http://nuclearnetwork.wpengine.com/wp-content/uploads/2017/08/Nunnandlugar.jpg');"></div>
 								<a href="http://nuclearnetwork.wpengine.com/the-road-to-nuclear-arms-is-paved-with-good-intentions-the-inf-treaty-preservation-act-of-2017/">
 								<h4>The Road to Nuclear Arms is Paved with Good Intentions: The INF Treaty Preservation Act of 2017</h4>
 								<span class="post-date">April 19, 2017</span>
 								</a></div>
-								<div class="related-post col-xs-12 col-md-4" style="background-image:url('http://nuclearnetwork.wpengine.com/wp-content/uploads/2017/08/Nunnandlugar.jpg');">
+								<div class="related-post col-xs-12 col-md-4">
+									<div class="related-post-img" style="background-image:url('http://nuclearnetwork.wpengine.com/wp-content/uploads/2017/08/Nunnandlugar.jpg');"></div>
 								<a href="http://nuclearnetwork.wpengine.com/weapons-of-mass-disagreement-the-decline-of-arms-control-in-the-u-s-senate/">
 								<h4>Weapons of Mass Disagreement: The Decline of Arms Control in the U.S. Senate</h4>
 								<span class="post-date">May 31, 2017</span>
@@ -101,7 +103,7 @@ get_header(); ?>
 							}
 
 							?>
-							<div class="col-xs-12 col-md-4">
+							<div class="col-xs-12 col-md">
 								<?php nuclearnetwork_entry_tags(); ?>
 							</div>
 						</div>

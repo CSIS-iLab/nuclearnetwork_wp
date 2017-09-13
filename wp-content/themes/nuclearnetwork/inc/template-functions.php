@@ -74,7 +74,8 @@ function jetpackme_custom_related( $atts ) {
 				// Get the related post IDs.
 				$related_post = get_post( $result[ 'id' ] );
 				$thumbnail = get_the_post_thumbnail_url( $related_post, 'medium_large' );
-				$related_html .= '<div class="related-post col-xs-12 col-md-4" style="background-image:url(\'' . $thumbnail . '\');">
+				$related_html .= '<div class="related-post col-xs-12 col-md-4">
+				<div class="related-post-img" style="background-image:url(\'' . $thumbnail . '\');"></div>
 				<a href="' . esc_url( get_permalink( $related_post ) ) . '">
 				<h4>' . $related_post->post_title . '</h4>
 				<span class="post-date">' . get_the_date( '', $result['id'] ) . '</span>

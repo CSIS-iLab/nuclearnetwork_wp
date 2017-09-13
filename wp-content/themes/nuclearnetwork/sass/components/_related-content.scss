@@ -17,4 +17,84 @@
 		text-transform: uppercase;
 		margin: 0 0 1.5rem;
 	}
+
+	.related-post {
+		position: relative;
+		height: 13rem;
+		overflow: hidden;
+		margin-bottom: 1rem;
+
+		@include breakpoint("medium") {
+			height: 19rem;
+			margin-bottom: 0;
+		}
+
+		.related-post-img {
+			position: relative;
+			width: 100%;
+			height: 100%;
+			background-origin: content-box;
+			background-repeat: no-repeat;
+			background-size: cover;
+			@include transition(transform 0.3s);
+
+			&::before {
+		    content: '';
+				position: absolute;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				background-color: $secondary-blue;
+				background-origin: content-box;
+				opacity: 0.6; 
+				@include transition(opacity 0.3s);
+		  }
+		}
+
+		a {
+			position: absolute;
+			top: 0;
+			z-index: 5;
+			display: block;
+			padding: 2rem;
+			width: calc(100% - 1rem);
+			height: 100%;
+
+			@include breakpoint("medium") {
+				padding: 3rem 3rem 3rem 2rem;
+			}
+		}
+
+		h4 {
+			margin: 0;
+			color: $white;
+			font-weight: normal;
+			@include transition(all 0.3s);
+		}
+
+		.post-date {
+			@include fontSize(16px);
+			line-height: 1.34;
+			font-style: italic;
+			color: $white;
+
+		}
+
+		// Hover
+		&:hover {
+			
+			.related-post-img {
+				transform: scale(1.1);
+
+				&::before {
+					opacity: 0.8;
+				}
+			}
+
+			h4 { 
+				color: $yellow;
+			}
+		}
+	}
 }
