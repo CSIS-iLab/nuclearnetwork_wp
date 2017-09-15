@@ -3,492 +3,132 @@
 =================================*/
 
 .home {
+	background-color: $off-white;
 
 	.site-main {
-		overflow-x: hidden;
-	}
+		position: relative;
 
-	/*----------  Feature 1  ----------*/
-	.feature-1 {
-		.featureImg {
-			@extend %post-featureImg;
-
-			&:before {
-				height: 75%;
-			}
-
-			.post-info {
-				position: relative;
-				flex: 1;
-				align-self: flex-end;
-				margin: 0 auto;
-
-				.feature-title {
-						@include breakpoint("small"){
-							padding: 1rem;
-						}
-					.entry-title {
-						@extend %page-title;
-						color: $white;
-						text-align: left;
-						margin-top: 0;
-						margin-bottom: 0;
-
-						@include breakpoint("small"){
-								@include fontSize(38px);
-							}	
-							
-						
-
-						&:hover {
-							color: $off-white;
-						}
-					}
-
-					.cat-links {
-						font-family: $font__ptsans;
-						@include fontSize(14px);
-						line-height: 2.07;
-						font-weight: 500;
-						letter-spacing: 0.9px;
-						color: $light-blue;
-
-						a { 
-							color: $white;
-
-							&:hover {
-								color: $off-white;
-							} 
-						}
-					}
-				}
-
-				.feature-excerpt {
-					p {
-						color: $white;
-					}
-				}
-			}
-		}
-	}	
-
-	/*----------  Section 1  ----------*/
-	.section-1 {
-
-		/*----------  Secondary Features  ----------*/
-		.secondary-features {
-			padding: 1rem 0 0 0;
-
-			@include breakpoint("medium") {
-				padding: 2rem 2rem 2rem 0.5rem;
-			}
-
-			article {
-				margin-bottom: 1rem;
-
-				@include breakpoint("medium") {
-					margin-bottom: 2rem;
-				}
-
-				.post-info {
-					@include breakpoint("medium") {
-						padding-left: 1rem;
-					}
-
-					.entry-title {
-						@extend %homepage-heading;
-						margin: 0 0 0.25rem 0;
-
-						a {
-							color: $black;
-
-							&:hover {
-								color: $primary-blue;;
-							}
-						}
-					}
-				}
-				.entry-thumbnail {
-					a img {
-						height: 100%;
-    					max-height: 305px;
-    					width: auto;
-    					vertical-align: top;
-    					object-fit: cover;
-    				@include breakpoint("small") {
-    					height: 200px;
-    				}
-    					
-					}
-					@include breakpoint("small") {
-    						margin-bottom: 1rem;
-    					}
-				}
-			}
-		}
-		
-		/*----------  Podcast  ----------*/
-		.podcast {
-			position: relative;
-			background-color: $off-white;
-			padding: 2rem 0.5rem;
-
-			@include breakpoint("medium") {
-				padding-left: 2rem;
-			}
-
-			&:after {
-				content: "";
-				display: block;
-				position: absolute;
-				top: 0;
-				left: 100%;
-				width: 100vw;
-				height: 100%;
-				background-color: $off-white;
-			}
-
-			&:before {
-				content: "";
-				display: block;
-				position: absolute;
-				top: 0;
-				right: 100%;
-				width: 100vw;
-				height: 100%;
-				background-color: $off-white;
-
-				@include breakpoint("medium") {
-					content: none;
-				}
-			}
-
-			.podcast-heading {
-				font-family: $font__lato;
-				@include fontSize(30px);
-				line-height: 1.53;
-				color: $primary-blue;
-				text-transform: uppercase;
-				margin: 0 0 1rem 0;
-
-				img {
-					width: 25px;
-				}
-			}
-
-			article {
-				margin-bottom: 1rem;
-
-				@include breakpoint("medium") {
-					margin-bottom: 1.5rem;
-				}
-
-				.entry-title {
-					font-family: $font__ptsans;
-					@include fontSize(18px);
-					font-weight: 500;
-					line-height: 1.22;
-					letter-spacing: 0.3px;
-					margin: 0;
-
-					a {
-						color: $black;
-
-						&:hover { color: $primary-blue;; }
-					}
-				}
-				
-			}
-
-			.btn {
-				.icon {
-					margin-left: 0;
-					color: $secondary-blue;
-					@include fontSize(10px);
-					margin-top: 2px;
-				}
-			}
-
-			p {
-				@include fontSize(14px);
-				line-height: 1.5;
-				color: $gray;
-			}
-
+		.section-header {
+			color: $white;
+			text-transform: uppercase;
+			margin: 0;
 		}
 	}
 
-	/*----------  Section 2  ----------*/
-	.section-2 {
+	.row-section {
+		position: relative;
+		margin-bottom: 1rem;
+	}
 
-		/*----------  Featured Stat  ----------*/
-		.featured-stat {
-			position: relative;
-			background-color: $primary-blue;
-			padding: 2rem 2rem 2rem 0.5rem;
+	.hp-block {
+		height: $size__homepage-block-height;
+		padding: 1.5rem;
+	}
 
-			&:before {
-				content: "";
-				display: block;
+	.hp-block-2x {
+		height: $size__homepage-block-height-2x;
+		padding: 1.5rem;
+
+		.section-header { text-align: center; }
+	}
+
+	.split-main {
+		float: left;
+		width: 50%;
+	}
+
+	.split-featured {
+		width: 50%;
+		margin-left: 50%;
+	}
+
+	.dark-main {
+		background-color: $dark-blue;
+	}
+
+	.dark-featured {
+		background-color: $white;
+	}
+
+	.light-main {
+		background-color: $secondary-blue;
+	}
+
+	.light-featured {
+		background-color: $white;
+	}
+
+	.img-block {
+		height: $size__homepage-block-height;
+		background-color: $gray;
+		background-clip: content-box;
+	}
+
+	// Shapes for Images.
+	.shape1 {
+		display: none;
+		@include breakpoint("medium") {
+			display: block;
+			background-color: $gray;
+			position: absolute;
+			right: 0.5rem;
+			width: calc(50% - 1rem);
+			height: $size__homepage-block-height-2x;
+			z-index: -1;
+			background-image: url('https://i1.wp.com/missilethreat.csis.org/wp-content/uploads/2017/07/Hwasong-14-b.png');
+			background-size: cover;
+			background-repeat: no-repeat;
+
+			.cutout {
 				position: absolute;
-				top: 0;
-				right: calc(100% - 1px);
-				width: 100vw;
-				height: 100%;
-				background-color: $primary-blue;
-			}
-
-			&:after {
-				content: "";
-				display: block;
-				position: absolute;
-				top: 0;
-				left: calc(100% - 1px);
-				width: 100vw;
-				height: 100%;
-				background-color: $primary-blue;
-			}
-
-			@include breakpoint("medium") {
-				&:after {content: none;}
-			}
-
-			/*----------  Icon  ----------*/
-			.stat-container {
-				width: 100%;
-			    height: 100%;
-			    position: absolute;
-			    top: 0;
-			    overflow: hidden;
-
-				.fa {
-					font-size: calc(100vh / 2);
-					color: $color__text-statIcon;
-
-					@include breakpoint("medium") {
-						font-size: calc(100vh / 4.5);
-					}
-				}
-			}
-
-			/*----------  Stat  ----------*/
-			.stat-content {
-				position: relative;
-				z-index: 10;
-				
-				@include breakpoint("medium") {
-					padding: 0 5rem;
-				}
-
-				.stat {
-					@include fontSize(25px);
-					font-weight: 400;
-					line-height: 1.32;
-					letter-spacing: 0.1px;
-					color: #eee;
-					margin-bottom: 2rem;
-
-					.data-featuredStatNumber {
-						font-family: $font__lato;
-						@include fontSize(25px);
-						font-weight: 600;
-						color: $white;
-					}
-				}
-
-				.share-stat {
-					@include fontSize(14px);
-					font-weight: 500;
-					line-height: 1.5;
-					color: $light-blue;
-					text-transform: uppercase;
-
-					@include breakpoint("medium") {
-						line-height: 2.07;
-					}
-
-					.addtoany_list {
-						display: inline-block;
-						margin-top: 0;
-						margin-left: 0.5rem;
-
-						&.a2a_kit_size_32 a>span {
-							@include fontSize(14px);
-						}
-
-						.a2a_svg:hover:before {
-							color: $light-blue;
-						}
-
-					}
-				}
-
-				hr {
-					background-color: $color__background-hr-stat-home;
-					margin: 0.25rem 0;
-					opacity: .5;
-				}
-
-				.stat-article {
-					@include fontSize(14px);
-					font-weight: 500;
-					line-height: 1.5;
-					color: $light-blue;
-					text-transform: uppercase;
-
-					@include breakpoint("medium") {
-						line-height: 2.07;
-					}
-
-					a {
-						color: $light-blue;
-						text-transform: none;
-						font-weight: normal;
-
-						&:hover {
-							color: $white;
-						}
-					}
-				}
-			}
-		}
-		
-		/*----------  Data Repo  ----------*/
-		.data-repo {
-			position: relative;
-			padding: 2rem 0.5rem 2rem 0rem;
-
-			@include breakpoint("medium") {
-				padding-left: 2rem;
-			}
-
-			&:after {
-				content: "";
-				display: block;
-				position: absolute;
-				z-index: -1;
-				top: 0;
-				left: -1rem;
-				width: 100vw;
-				height: 100%;
-				background-image:url('/wp-content/themes/chinapower/img/chinapower-data-repo.jpg');
-				background-repeat: no-repeat;
-				background-size: cover;
-				background-color: $dark-blue;
-
-				@include breakpoint("medium") {
-					left: 0;
-				}
-			}
-
-			.data-repo-title {
-				background-color: $primary-blue;;
-				color: $white;
-				@extend %homepage-heading;
-				text-transform: uppercase;
-				margin: 0 0 1rem -2rem;
-				padding: 1rem 0 1rem 2rem;
-			}
-
-			p {
-				color: #eee;
-			}
-
-			a {
-				color: $white;
-				font-weight: bold;
-
-				.icon {
-					margin-left: 0;
-					vertical-align: inherit;
-					@include fontSize(12px);
-				}
-
-				&:hover {
-					color: $off-white;
-
-					.icon {color: $off-white;}
-				}
+				bottom: 0;
+				width: calc(50% + 0.5rem);
+		    height: 16rem;
+		    background-color: $off-white;
 			}
 		}
 	}
 
-	/*----------  Section 3  ----------*/
-	.section-3 {
-		background-color: $off-white;
-		padding: 2rem 0;
-
-		.heading {
-			color: $primary-blue;
-			font-style: normal;
-			margin-bottom: 0;
+	.shape2 {
+		display: none;
+		@include breakpoint("medium") {
+			display: block;
+			background-color: $gray;
+			position: absolute;
+			left: 0.5rem;
+			width: calc(25% - 1rem);
+			height: $size__homepage-block-height-2x;
+			z-index: -1;
+			background-image: url('https://i1.wp.com/missilethreat.csis.org/wp-content/uploads/2017/07/Hwasong-14-b.png');
+			background-size: cover;
+			background-position: center center;
+			background-repeat: no-repeat;
 		}
-
-		.winner-of {
-			.col-xs-6 {margin-bottom: 1rem;}
-
-			p {
-				margin-bottom: 0.5rem;
-			}
-
-			.seeMore {
-				color: $color__text-seeMore;
-				display: inline-block;
-				margin-bottom: 0.5rem;
-
-				@include breakpoint("medium") {
-					margin-bottom: 0;
-				}
-
-				.icon {
-					@include fontSize(11px);
-					vertical-align: middle;
-					margin-left: -5px;
-					color: $gray;
-				}
-
-				&:hover {
-					color: $primary-blue;
-
-					.icon {color: $primary-blue;}
-				}
-			}
-		}
-
-		.featured-in {
-			padding-left: 0.5rem;
-
-			@include breakpoint("medium") {
-				padding-left: 4em;
-			}
-
-			.heading {
-				margin-bottom: 10px;
-
-				@include breakpoint("medium") {
-					margin-bottom: 28px;
-
-				}
-			}
-
-			img {
-				max-width: 200px;
-				max-height: 40px;
-				width: auto;
-				margin-bottom: 1rem;
-				margin-right: 3rem;
-				vertical-align: middle;
-
-				@include breakpoint("medium") {
-					max-width: 250px;
-					margin-bottom: 2rem;
-				}
-			}
-		}
-		
 	}
 
-	footer.site-footer {
-		margin-top: 0;
+	.shape3 {
+		display: none;
+		@include breakpoint("medium") {
+			display: block;
+			background-color: $gray;
+			position: absolute;
+			right: 0.5rem;
+	    width: calc(75% - 1rem);
+	    height: $size__homepage-block-height-2x;
+			z-index: -1;
+			background-image: url('https://i1.wp.com/missilethreat.csis.org/wp-content/uploads/2017/07/Hwasong-14-b.png');
+			background-size: cover;
+			background-position: center center;
+			background-repeat: no-repeat;
+
+			.cutout {
+				position: absolute;
+				right: 0;
+				bottom: 0;
+				width: calc(100% / 3 * 2 + 0.75rem);
+	    	height: calc(31rem / 2 + 0.75rem);
+		    background-color: $off-white;
+			}
+		}
 	}
 }
