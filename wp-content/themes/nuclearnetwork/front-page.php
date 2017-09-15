@@ -83,10 +83,11 @@ get_header(); ?>
 					<div class="cutout"></div>
 				</div>
 				<div class="col-xs-12 col-md-6 col-md-offset-3">
-					<div class="hp-block dark-main">
+					<div class="hp-block dark-main hp-categories">
 						<h4 class="section-header">
 							<?php esc_html_e( 'Explore by Category:', 'nuclearnetwork' ); ?>
 						</h4>
+						<ul>
 						<?php
 							wp_list_categories( array(
 								'orderby' => 'name',
@@ -94,6 +95,7 @@ get_header(); ?>
 								'title_li' => '',
 							) );
 						?>
+						</ul>
 					</div>
 				</div>
 			</div>

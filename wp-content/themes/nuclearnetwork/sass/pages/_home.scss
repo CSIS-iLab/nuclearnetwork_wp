@@ -131,4 +131,26 @@
 			}
 		}
 	}
+
+	// Categories List
+	.hp-categories {
+		ul {
+			margin-top: 1rem;
+			list-style: none;
+			padding: 0;
+			columns: 2;
+		  -webkit-columns: 2;
+		  -moz-columns: 2;
+		}
+
+		a {
+			font-family: $font__lato;
+			@include fontSize(18px);
+			font-weight: bold;
+			line-height: 1.17;
+			color: $white;
+
+			&:hover { color: $yellow; }
+		}
+	}
 }
