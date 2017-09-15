@@ -144,6 +144,28 @@
 		font-weight: 300;
 	}
 
+	// Featured Alumni
+	.alumni-featured {
+		img {
+			display: block;
+			border-radius: 50%;
+			margin: 2rem auto;
+		}
+
+		.alumni-name {
+			font-family: $font__lato;
+			@include fontSize(20px);
+			line-height: 1.07;
+			font-weight: 600;
+			color: $white;
+		}
+
+		p {
+			line-height: 1.36;
+			color: $white;
+		}
+	}
+
 	// Categories List
 	.hp-categories {
 		ul {

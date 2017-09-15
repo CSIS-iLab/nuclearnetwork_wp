@@ -77,6 +77,28 @@ get_header(); ?>
 						<h4 class="section-header">
 							<?php esc_html_e( 'Next Gen Scholar Highlight', 'nuclearnetwork' ); ?>
 						</h4>
+						<?php
+							$args = array(
+								'post_type'              => array( 'alumni' ),
+								'posts_per_page' => 1,
+								'cache_results'          => true,
+								'update_post_meta_cache' => false,
+								'meta_query' => array(
+									array(
+										'key' => '_post_is_featured',
+										'value' => 1,
+										'compare' => '=',
+									),
+								),
+							);
+
+							$alumni = new WP_Query( $args );
+						?>
+						<?php
+						while ( $alumni->have_posts() ) : $alumni->the_post();
+							get_template_part( 'template-parts/featured-alumni' );
+						endwhile;
+						?>
 					</div>
 				</div>
 				<div class="shape3">
