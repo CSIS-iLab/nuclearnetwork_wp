@@ -32,6 +32,57 @@ function nuclearnetwork_display_options_page() {
 	echo '</form>';
 }
 
+add_action( 'admin_init', 'nuclearnetwork_admin_init_section_home' );
+/**
+ * Creates the "Home" settings section.
+ */
+function nuclearnetwork_admin_init_section_home() {
+
+	add_settings_section(
+		'nuclearnetwork_settings_section_home',
+		'Home Page',
+		'nuclearnetwork_display_section_home_message',
+		'nuclearnetwork-options-page'
+	);
+
+	add_settings_field(
+		'nuclearnetwork_home_desc_short',
+		'Brief Description',
+		'nuclearnetwork_textarea_callback',
+		'nuclearnetwork-options-page',
+		'nuclearnetwork_settings_section_home',
+		array( 'nuclearnetwork_home_desc_short' )
+	);
+
+	add_settings_field(
+		'nuclearnetwork_home_desc_long',
+		'About the Project',
+		'nuclearnetwork_textarea_callback',
+		'nuclearnetwork-options-page',
+		'nuclearnetwork_settings_section_home',
+		array( 'nuclearnetwork_home_desc_long' )
+	);
+
+	register_setting(
+		'nuclearnetwork_settings',
+		'nuclearnetwork_home_desc_short',
+		'sanitize_text_field'
+	);
+
+	register_setting(
+		'nuclearnetwork_settings',
+		'nuclearnetwork_home_desc_long',
+		'sanitize_text_field'
+	);
+}
+
+/**
+ * Home section description.
+ */
+function nuclearnetwork_display_section_home_message() {
+	echo 'Information visible on the site\'s homepage.';
+}
+
 add_action( 'admin_init', 'nuclearnetwork_admin_init_section_footer' );
 /**
  * Creates the "Footer" settings section.

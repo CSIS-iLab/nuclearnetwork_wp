@@ -7,11 +7,11 @@
 
 	.site-main {
 		position: relative;
+		margin-top: 2rem;
 
 		.section-header {
-			color: $white;
 			text-transform: uppercase;
-			margin: 0;
+			margin: 0 0 1rem 0;
 		}
 	}
 
@@ -22,14 +22,19 @@
 
 	.hp-block {
 		height: $size__homepage-block-height;
-		padding: 1.5rem;
 	}
 
 	.hp-block-2x {
 		height: $size__homepage-block-height-2x;
-		padding: 1.5rem;
 
 		.section-header { text-align: center; }
+	}
+
+	.hp-block,
+	.hp-block-2x {
+		padding: 1.5rem;
+
+		.section-header { color: $white; }
 	}
 
 	.split-main {
@@ -132,10 +137,16 @@
 		}
 	}
 
+	// Tagline
+	.tagline {
+		font-family: $font__lato;
+		@include fontSize(26px);
+		font-weight: 300;
+	}
+
 	// Categories List
 	.hp-categories {
 		ul {
-			margin-top: 1rem;
 			list-style: none;
 			padding: 0;
 			columns: 2;
@@ -149,8 +160,29 @@
 			font-weight: bold;
 			line-height: 1.17;
 			color: $white;
+			box-shadow: none;
 
 			&:hover { color: $yellow; }
+		}
+	}
+
+	// About this Project
+	.about-info {
+		margin-top: 2rem;
+
+		ul {
+			list-style: none;
+			margin-top: 2.75rem;
+		}
+
+		li {
+			margin-bottom: 0;
+
+			a {
+				@include fontSize(16px);
+				font-style: italic;
+				line-height: 2.03;
+			}
 		}
 	}
 }

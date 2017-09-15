@@ -15,7 +15,7 @@ get_header(); ?>
 			<!-- First Row -->
 			<div class="row row-section">
 				<div class="hp-block col-xs-12 col-md-6">
-					Paragraph Intro
+					<?php echo '<p class="tagline">' . esc_html( get_option( 'nuclearnetwork_home_desc_short' ) ) . '</p>'; ?>
 				</div>
 				<div class="col-xs-12 col-md-6">
 					<div class="hp-block dark-main split-main">
@@ -97,6 +97,21 @@ get_header(); ?>
 						?>
 						</ul>
 					</div>
+				</div>
+			</div>
+
+			<!-- About this Project -->
+			<div class="row about-info">
+				<div class="col-xs-12 col-sm-9">
+					<h4 class="section-header"><?php esc_html_e( ' About this Project', 'nuclearnetwork' ); ?></h4>
+					<?php echo '<p>' . esc_html( get_option( 'nuclearnetwork_home_desc_long' ) ) . '</p>'; ?>
+				</div>
+				<div class="col-xs-12 col-sm-3">
+					<?php
+						wp_nav_menu( array(
+							'theme_location' => 'menu-2',
+						) );
+					?>
 				</div>
 			</div>
 

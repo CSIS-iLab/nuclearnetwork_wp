@@ -311,6 +311,7 @@ a {
 	&:focus,
 	&:active {
 		color: $color__link-hover;
+		border: 0;
 	}
 	&:focus {
 		outline: thin dotted;
@@ -318,5 +319,11 @@ a {
 	&:hover,
 	&:active {
 		outline: 0;
+	}
+
+	.site-main & {
+		@include box-shadow(0,-1px,0,0, $secondary-blue, true);
+
+		&:hover { box-shadow: none; }
 	}
 }
