@@ -115,7 +115,7 @@ function nuclearnetwork_homepage_blocks() {
 			$item->menu_post_type = get_post_meta( $item->ID, 'menu-item-menu_post_type', true );
 			$item->menu_featured_img = get_post_meta( $item->ID, 'menu-item-menu_featured_img', true );
 
-			if ( $item->featured_post ) {
+			if ( $item->menu_post_type ) {
 				$item->featured_post = nuclearnetwork_blocks_featured_post( $item->menu_post_type );
 			}
 
