@@ -161,8 +161,11 @@
 
 	.img-block {
 		height: $size__homepage-block-height;
-		background-color: $gray;
+		background-color: transparent;
 		background-clip: content-box;
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: center center;
 	}
 
 	// Shapes for Images.
@@ -170,15 +173,15 @@
 		display: none;
 		@include breakpoint("medium") {
 			display: block;
-			background-color: $gray;
+			background-color: transparent;
 			position: absolute;
 			right: 0.5rem;
 			width: calc(50% - 1rem);
 			height: $size__homepage-block-height-2x;
 			z-index: -1;
-			background-image: url('https://i1.wp.com/missilethreat.csis.org/wp-content/uploads/2017/07/Hwasong-14-b.png');
 			background-size: cover;
 			background-repeat: no-repeat;
+			background-position: center center;
 
 			.cutout {
 				position: absolute;
@@ -194,13 +197,12 @@
 		display: none;
 		@include breakpoint("medium") {
 			display: block;
-			background-color: $gray;
+			background-color: transparent;
 			position: absolute;
 			left: 0.5rem;
 			width: calc(25% - 1rem);
 			height: $size__homepage-block-height-2x;
 			z-index: -1;
-			background-image: url('https://i1.wp.com/missilethreat.csis.org/wp-content/uploads/2017/07/Hwasong-14-b.png');
 			background-size: cover;
 			background-position: center center;
 			background-repeat: no-repeat;
@@ -211,13 +213,12 @@
 		display: none;
 		@include breakpoint("medium") {
 			display: block;
-			background-color: $gray;
+			background-color: transparent;
 			position: absolute;
 			right: 0.5rem;
 	    width: calc(75% - 1rem);
 	    height: $size__homepage-block-height-2x;
 			z-index: -1;
-			background-image: url('https://i1.wp.com/missilethreat.csis.org/wp-content/uploads/2017/07/Hwasong-14-b.png');
 			background-size: cover;
 			background-position: center center;
 			background-repeat: no-repeat;

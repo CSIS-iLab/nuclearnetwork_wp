@@ -63,6 +63,42 @@ function nuclearnetwork_admin_init_section_home() {
 		array( 'nuclearnetwork_home_desc_long' )
 	);
 
+	add_settings_field(
+		'nuclearnetwork_home_img_1',
+		'Featured Image #1',
+		'nuclearnetwork_text_callback',
+		'nuclearnetwork-options-page',
+		'nuclearnetwork_settings_section_home',
+		array( 'nuclearnetwork_home_img_1' )
+	);
+
+	add_settings_field(
+		'nuclearnetwork_home_img_2',
+		'Featured Image #2',
+		'nuclearnetwork_text_callback',
+		'nuclearnetwork-options-page',
+		'nuclearnetwork_settings_section_home',
+		array( 'nuclearnetwork_home_img_2' )
+	);
+
+	add_settings_field(
+		'nuclearnetwork_home_img_3',
+		'Featured Image #3',
+		'nuclearnetwork_text_callback',
+		'nuclearnetwork-options-page',
+		'nuclearnetwork_settings_section_home',
+		array( 'nuclearnetwork_home_img_3' )
+	);
+
+	add_settings_field(
+		'nuclearnetwork_home_img_4',
+		'Featured Image #4',
+		'nuclearnetwork_text_callback',
+		'nuclearnetwork-options-page',
+		'nuclearnetwork_settings_section_home',
+		array( 'nuclearnetwork_home_img_4' )
+	);
+
 	register_setting(
 		'nuclearnetwork_settings',
 		'nuclearnetwork_home_desc_short',
@@ -73,6 +109,30 @@ function nuclearnetwork_admin_init_section_home() {
 		'nuclearnetwork_settings',
 		'nuclearnetwork_home_desc_long',
 		'sanitize_text_field'
+	);
+
+	register_setting(
+		'nuclearnetwork_settings',
+		'nuclearnetwork_home_img_1',
+		'esc_url_raw'
+	);
+
+	register_setting(
+		'nuclearnetwork_settings',
+		'nuclearnetwork_home_img_2',
+		'esc_url_raw'
+	);
+
+	register_setting(
+		'nuclearnetwork_settings',
+		'nuclearnetwork_home_img_3',
+		'esc_url_raw'
+	);
+
+	register_setting(
+		'nuclearnetwork_settings',
+		'nuclearnetwork_home_img_4',
+		'esc_url_raw'
 	);
 }
 

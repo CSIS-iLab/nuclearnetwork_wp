@@ -10,9 +10,10 @@
 get_header();
 
 $blocks = nuclearnetwork_homepage_blocks();
-// echo "<pre>";
-// print_r($blocks);
-// echo '</pre>';
+$img1 = get_option( 'nuclearnetwork_home_img_1' );
+$img2 = get_option( 'nuclearnetwork_home_img_2' );
+$img3 = get_option( 'nuclearnetwork_home_img_3' );
+$img4 = get_option( 'nuclearnetwork_home_img_4' );
 
 ?>
 
@@ -46,14 +47,14 @@ $blocks = nuclearnetwork_homepage_blocks();
 						wp_reset_postdata();
 					?>
 				</div>
-				<div class="shape1">
+				<div class="shape1" style="background-image:url('<?php echo esc_url( $img1 ); ?>');">
 					<div class="cutout"></div>
 				</div>
 			</div>
 
 			<!-- Third Row -->
 			<div class="row row-section">
-				<div class="shape2"></div>
+				<div class="shape2" style="background-image:url('<?php echo esc_url( $img2 ); ?>');"></div>
 				<div class="col-xs-12 col-md-offset-3 col-md-6 combo-block">
 					<?php
 						$post = $blocks[2];
@@ -67,9 +68,7 @@ $blocks = nuclearnetwork_homepage_blocks();
 
 			<!-- 4th Row -->
 			<div class="row row-section">
-				<div class="img-block col-xs-12 col-md-offset-3 col-md-3">
-					Image
-				</div>
+				<div class="img-block col-xs-12 col-md-offset-3 col-md-3" style="background-image:url('<?php echo esc_url( $img3 ); ?>');"></div>
 				<div class="col-xs-12 col-md-6 combo-block">
 					<?php
 						$post = $blocks[3];
@@ -112,7 +111,7 @@ $blocks = nuclearnetwork_homepage_blocks();
 						?>
 					</div>
 				</div>
-				<div class="shape3">
+				<div class="shape3" style="background-image:url('<?php echo esc_url( $img4 ); ?>');">
 					<div class="cutout"></div>
 				</div>
 				<div class="col-xs-12 col-md-6 col-md-offset-3">
