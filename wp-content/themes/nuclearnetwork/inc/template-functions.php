@@ -49,15 +49,24 @@ function insert_content_discuss_message( $content ) {
 	return $content;
 }
 
+/**
+ * Removes JetPack related posts after posts.
+ */
 function jetpackme_remove_rp() {
-    if ( class_exists( 'Jetpack_RelatedPosts' ) ) {
-        $jprp = Jetpack_RelatedPosts::init();
-        $callback = array( $jprp, 'filter_add_target_to_dom' );
-        remove_filter( 'the_content', $callback, 40 );
-    }
+	if ( class_exists( 'Jetpack_RelatedPosts' ) ) {
+		 $jprp = Jetpack_RelatedPosts::init();
+		$callback = array( $jprp, 'filter_add_target_to_dom' );
+		remove_filter( 'the_content', $callback, 40 );
+	}
 }
 add_filter( 'wp', 'jetpackme_remove_rp', 20 );
 
+/**
+ * Create custom shortcode for Jetpack related posts.
+ *
+ * @param  array $atts Shortcode attributes.
+ * @return string       HTML of related posts.
+ */
 function jetpackme_custom_related( $atts ) {
 	$related_html = '';
 
@@ -89,3 +98,78 @@ function jetpackme_custom_related( $atts ) {
 }
 // Create a [jprel] shortcode.
 add_shortcode( 'jprel', 'jetpackme_custom_related' );
+
+/**
+ * Renders content blocks for the homepage.
+ *
+ * @return array Array of menu items HTML to return.
+ */
+function nuclearnetwork_homepage_blocks() {
+	$menu_locations = get_nav_menu_locations();
+	$menu_id = $menu_locations['menu-1'];
+	$homepage_menu = wp_get_nav_menu_items( $menu_id );
+	$homepage_menu_items = array();
+	$current_parent = 0;
+	foreach ( $homepage_menu as $item ) {
+		if ( strpos( $item->classes[0], 'homepage' ) !== false ) {
+			$item->menu_post_type = get_post_meta( $item->ID, 'menu-item-menu_post_type', true );
+			$item->menu_featured_img = get_post_meta( $item->ID, 'menu-item-menu_featured_img', true );
+			$homepage_menu_items[$item->ID] = $item;
+
+			$item->featured_post = nuclearnetwork_blocks_featured_post( $item->menu_post_type );
+
+			if ( 0 == $item->menu_item_parent ) {
+			$current_parent = $item->ID;
+
+				if ( ! isset( $homepage_menu_items[ $current_parent ]->children ) ) {
+					$homepage_menu_items[ $current_parent ]->children = array();
+				}
+			}
+		}
+
+		if ( $current_parent == $item->menu_item_parent && 0 != $current_parent ) {
+			$homepage_menu_items[$current_parent]->children[] = $item;
+		}
+	}
+
+	// Sort Array.
+	usort( $homepage_menu_items, 'nuclearnetwork_blocks_cmp' );
+
+	return $homepage_menu_items;
+}
+
+/**
+ * Compare objects for homepage blocks to get them in the right order.
+ *
+ * @param  object $a First object to compare.
+ * @param  object $b Second object to compare.
+ * @return array    Sorted array.
+ */
+function nuclearnetwork_blocks_cmp( $a, $b ) {
+	return strcmp( $a->classes[0], $b->classes[0] );
+}
+
+/**
+ * Gets the featured post for the homepage block based on a specified post type.
+ *
+ * @param  string $post_type Post type to get post from.
+ * @return array            Post object.
+ */
+function nuclearnetwork_blocks_featured_post( $post_type = 'post' ) {
+	$args = array(
+		'post_type'  => array( $post_type ),
+		'posts_per_page' => 1,
+		'cache_results' => true,
+		'update_post_meta_cache' => false,
+		'meta_query' => array(
+			array(
+				'key' => '_post_is_featured',
+				'value' => 1,
+				'compare' => '=',
+			),
+		),
+	);
+
+	$query = new WP_Query( $args );
+	return $query->post;
+}
