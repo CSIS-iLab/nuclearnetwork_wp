@@ -15,4 +15,7 @@
 	<?php endif; ?>
 	<h5 class="alumni-name"><?php the_title(); ?></h5>
 	<?php the_excerpt(); ?>
+	<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" class="alumni-readmore">
+		<?php esc_html_e( 'Read more', 'nuclearnetwork' ); ?>
+	</a>
 </div>

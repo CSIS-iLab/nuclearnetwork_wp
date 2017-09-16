@@ -6,8 +6,13 @@
 	background-color: $off-white;
 
 	.site-main {
+		padding: 0;
 		position: relative;
 		margin-top: 2rem;
+
+		@include breakpoint("medium") {
+			padding: 0 1rem;
+		}
 
 		.section-header {
 			text-transform: uppercase;
@@ -21,26 +26,38 @@
 	}
 
 	.hp-block {
-		height: $size__homepage-block-height;
+
+		@include breakpoint("medium") {
+			height: $size__homepage-block-height;
+		}
 	}
 
 	.hp-block-2x {
-		height: $size__homepage-block-height-2x;
+		@include breakpoint("medium") {
+			height: $size__homepage-block-height-2x;
+		}
 
 		.section-header { text-align: center; }
 	}
 
 	.hp-block,
 	.hp-block-2x {
-		padding: 1.5rem;
+		padding: 1.5rem 1rem;
+
+		@include breakpoint("medium") {
+			padding: 1.5rem;
+		}
 
 		.section-header { color: $white; }
 	}
 
 	.split-main {
-		float: left;
-		width: 50%;
 		color: $white;
+
+		@include breakpoint("medium") {
+			float: left;
+			width: 50%;
+		}
 
 		.entry-title { margin: 0 0 1rem 0; }
 
@@ -55,14 +72,23 @@
 
 		p {
 			font-style: italic;
-			line-height: 1.19;
-			color: $off-white;
+			line-height: 1.12;
+			color: $light-blue;
+
+			@include breakpoint("medium") {
+				color: $off-white;
+				line-height: 1.19;
+			}
 		}
 
 		ul {
-			display: none;
 			list-style: none;
 			padding: 0;
+			margin: 0;
+
+			@include breakpoint("medium") {
+				display: none;
+			}
 		}
 
 		li {
@@ -89,83 +115,142 @@
 
 	.split-featured {
 		position: relative;
+		display: flex;
+		width: 100%;
+		min-height: $size__homepage-block-height-mobile;
+		padding: 0;
+
+		@include breakpoint("medium") {
+			display: block;
+			margin-left: 50%;
+			width: 50%;
+			height: 100%;
+		}
+	}
+
+	.split-featured-img {
 		width: 50%;
-		margin-left: 50%;
-		background-color: $primary-blue;
 		background-repeat: no-repeat;
 		background-size: cover;
 		background-position: center center;
 
-		&::before {
-	    content: '';
-			position: absolute;
-			top: 0;
-			right: 0;
-			bottom: 0;
-			left: 0;
-			background-color: $primary-blue;
-			opacity: 0.65; 
-			@include transition(opacity 0.3s);
-	  }
+		@include breakpoint("medium") {
+			width: 100%;
+			height: 100%;
 
-	  &-content {
-	  	display: none;
-	  	position: absolute;
-	  	z-index: 1;
-	  	color: $white;
+			&::before {
+		    content: '';
+				position: absolute;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				background-color: $primary-blue;
+				opacity: 0.65; 
+				@include transition(opacity 0.3s);
+		  }
+		}
+	}
 
-	  	.subsection-header {
-	  		color: $white;
-	  		line-height: 1.34;
-	  		letter-spacing: 1.6px;
-	  		text-transform: uppercase;
-	  		margin: 0 0 1rem 0;
-	  	}
-	  }
+	.split-featured-content {
+  	width: 50%;
+  	color: $white;
+  	padding: 1rem;
 
-	  .post-title {
+  	@include breakpoint("medium") {
+  		display: none;
+  		position: absolute;
+  		top: 0;
+  		z-index: 1;
+  		width: 100%;
+  		padding: 1.5rem;
+  	}
+
+  	.subsection-header {
+  		color: $white;
+  		line-height: 1.34;
+  		letter-spacing: 1.6px;
+  		text-transform: uppercase;
+  		margin: 0 0 0.5rem 0;
+
+  		@include breakpoint("medium") {
+  			margin: 0 0 1rem 0;
+  		}
+  	}
+
+  	.post-title {
 	  	display: block;
 	  	font-family: $font__lato;
-	  	@include fontSize(20px);
+	  	@include fontSize(16px);
 	  	color: $white;
 	  	box-shadow: none;
+	  	margin-bottom: 0.5rem;
+
+	  	@include breakpoint("medium") {
+	  		@include fontSize(20px);
+	  		margin-bottom: 0;
+	  	}
 
 	  	&:hover { color: $yellow; }
 	  }
 
 	  .post-date {
-	  	@include fontSize(16px);
+	  	@include fontSize(14px);
 	  	font-style: italic;
-	  	line-height: 1.34;
+	  	line-height: 1.53;
+
+	  	@include breakpoint("medium") {
+	  		@include fontSize(16px);
+	  		line-height: 1.34;
+	  	}
 	  }
 	}
 
 	.combo-block:hover {
 			p { display: none; }
 			ul { display: block; }
-			.split-featured::before { opacity: 0.85; }
+			.split-featured-img::before { opacity: 0.85; }
 			.split-featured-content { display: block; }
 	}
 
-	.block-dark {
-		background-color: $dark-blue;
-	}
+	$blocks: (dark: $dark-blue, primary: $primary-blue, secondary: $secondary-blue);
 
-	.block-primary {
-		background-color: $primary-blue;
-	}
+	@each $block, $color in $blocks {
+	  .block-#{$block} {
+	    background-color: $color;
 
-	.block-secondary {
-		background-color: $secondary-blue;
+	    & ~ .split-featured .split-featured-content {
+				background-color: $color;
+				opacity: .85;
+
+				@include breakpoint("medium") {
+					background-color: transparent;
+					opacity: 1;
+				}
+			}
+	  }
 	}
 
 	.img-block {
-		height: $size__homepage-block-height;
+		height: $size__homepage-block-height-mobile;
 		background-color: transparent;
 		background-clip: content-box;
 		background-repeat: no-repeat;
 		background-size: cover;
 		background-position: center center;
+
+		@include breakpoint("medium") {
+			height: $size__homepage-block-height;
+		}
+	}
+
+	.img-block-third {
+		height: 33%;
+		margin-bottom: 1rem;
+	}
+
+	.img-block-twothirds {
+		height: calc(66% - 0.75rem);
 	}
 
 	// Shapes for Images.
@@ -237,8 +322,13 @@
 	// Tagline
 	.tagline {
 		font-family: $font__lato;
-		@include fontSize(26px);
 		font-weight: 300;
+		margin: 0 0.5rem 0.5rem 0.5rem;
+
+		@include breakpoint("medium") {
+			@include fontSize(26px);
+			margin: 0 0 1rem 0;
+		}
 	}
 
 	// Featured Alumni
@@ -261,16 +351,41 @@
 			line-height: 1.36;
 			color: $white;
 		}
+
+		.alumni-readmore {
+			@include fontSize(14px);
+	  	font-style: italic;
+	  	line-height: 1.53;
+	  	color: $light-blue;
+	  	box-shadow: none;
+
+	  	@include breakpoint("medium") {
+	  		@include fontSize(16px);
+	  		line-height: 1.34;
+	  	}
+
+	  	&:hover { color: $white; }
+		}
 	}
 
 	// Categories List
 	.hp-categories {
+		margin-top: 1rem;
+
+		@include breakpoint("medium") {
+			margin-bottom: 0;
+		}
+
 		ul {
 			list-style: none;
 			padding: 0;
-			columns: 2;
-		  -webkit-columns: 2;
-		  -moz-columns: 2;
+			margin: 0;
+
+		  @include breakpoint("medium") {
+		  	columns: 2;
+			  -webkit-columns: 2;
+			  -moz-columns: 2;
+		  }
 		}
 
 		a {
@@ -287,11 +402,36 @@
 
 	// About this Project
 	.about-info {
-		margin-top: 2rem;
+		margin-top: 3rem;
+		padding: 0 1rem;
+
+		@include breakpoint("medium") {
+			margin-top: 2rem;
+			padding: 0;
+		}
+
+		.section-header {
+			@include fontSize(25px);
+
+			@include breakpoint("medium") {
+				@include fontSize(20px);
+			}
+		}
+
+		p {
+			@include fontSize(18px);
+			line-height: 1.78;
+		}
 
 		ul {
 			list-style: none;
-			margin-top: 2.75rem;
+			margin-top: 0.5rem;
+			padding: 0;
+
+			@include breakpoint("medium") {
+				margin-top: 2.75rem;
+				padding-left: 40px;
+			}
 		}
 
 		li {

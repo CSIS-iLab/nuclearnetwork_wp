@@ -28,7 +28,8 @@ if ( $post->menu_featured_img ) {
 	</ul>
 
 </div>
-<div class="hp-block split-featured"<?php echo $featured_img; ?>>
+<div class="hp-block split-featured">
+	<div class="split-featured-img"<?php echo $featured_img; ?>></div>
 	<div class="split-featured-content">
 		<h6 class="subsection-header"><?php esc_html_e( 'Featured', 'nuclearnetwork' ); ?></h6>
 		<?php
@@ -37,3 +38,4 @@ if ( $post->menu_featured_img ) {
 		?>
 	</div>
 </div>
+

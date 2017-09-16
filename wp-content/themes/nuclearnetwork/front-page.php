@@ -53,6 +53,12 @@ $img4 = get_option( 'nuclearnetwork_home_img_4' );
 			</div>
 
 			<!-- Third Row -->
+
+			<div class="row row-section hidden-md hidden-lg">
+				<div class="img-block col-xs-6" style="background-image:url('<?php echo esc_url( $img1 ); ?>');"></div>
+				<div class="img-block col-xs-6" style="background-image:url('<?php echo esc_url( $img2 ); ?>');"></div>
+			</div>
+
 			<div class="row row-section">
 				<div class="shape2" style="background-image:url('<?php echo esc_url( $img2 ); ?>');"></div>
 				<div class="col-xs-12 col-md-offset-3 col-md-6 combo-block">
@@ -68,7 +74,7 @@ $img4 = get_option( 'nuclearnetwork_home_img_4' );
 
 			<!-- 4th Row -->
 			<div class="row row-section">
-				<div class="img-block col-xs-12 col-md-offset-3 col-md-3" style="background-image:url('<?php echo esc_url( $img3 ); ?>');"></div>
+				<div class="img-block hidden-xs hidden-sm col-md-offset-3 col-md-3" style="background-image:url('<?php echo esc_url( $img3 ); ?>');"></div>
 				<div class="col-xs-12 col-md-6 combo-block">
 					<?php
 						$post = $blocks[3];
@@ -81,8 +87,8 @@ $img4 = get_option( 'nuclearnetwork_home_img_4' );
 			</div>
 
 			<!-- 5th/6th Row -->
-			<div class="row row-section bottom-sm">
-				<div class="col-xs-12 col-md-3">
+			<div class="row row-section bottom-md">
+				<div class="col-xs-6 col-md-3">
 					<div class="hp-block-2x block-primary">
 						<h4 class="section-header">
 							<?php esc_html_e( 'Next Gen Scholar Highlight', 'nuclearnetwork' ); ?>
@@ -110,6 +116,10 @@ $img4 = get_option( 'nuclearnetwork_home_img_4' );
 						endwhile;
 						?>
 					</div>
+				</div>
+				<div class="col-xs-6 hidden-md hidden-lg">
+					<div class="img-block img-block-third" style="background-image:url('<?php echo esc_url( $img3 ); ?>');"></div>
+					<div class="img-block img-block-twothirds" style="background-image:url('<?php echo esc_url( $img4 ); ?>');"></div>
 				</div>
 				<div class="shape3" style="background-image:url('<?php echo esc_url( $img4 ); ?>');">
 					<div class="cutout"></div>
