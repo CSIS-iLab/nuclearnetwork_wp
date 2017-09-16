@@ -15,6 +15,10 @@ $img2 = get_option( 'nuclearnetwork_home_img_2' );
 $img3 = get_option( 'nuclearnetwork_home_img_3' );
 $img4 = get_option( 'nuclearnetwork_home_img_4' );
 
+echo '<pre>';
+print_r($blocks);
+echo '</pre>';
+
 ?>
 	<!-- Logo -->
 	<div class="home-logo-container">

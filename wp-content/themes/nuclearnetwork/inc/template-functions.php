@@ -114,12 +114,19 @@ function nuclearnetwork_homepage_blocks() {
 		if ( strpos( $item->classes[0], 'homepage' ) !== false ) {
 			$item->menu_post_type = get_post_meta( $item->ID, 'menu-item-menu_post_type', true );
 			$item->menu_featured_img = get_post_meta( $item->ID, 'menu-item-menu_featured_img', true );
-			$homepage_menu_items[$item->ID] = $item;
 
-			$item->featured_post = nuclearnetwork_blocks_featured_post( $item->menu_post_type );
+			if ( $item->featured_post ) {
+				$item->featured_post = nuclearnetwork_blocks_featured_post( $item->menu_post_type );
+			}
+
+			if ( ! $item->post_title ) {
+				$item->post_title = $item->title;
+			}
+
+			$homepage_menu_items[ $item->ID ] = $item;
 
 			if ( 0 == $item->menu_item_parent ) {
-			$current_parent = $item->ID;
+				$current_parent = $item->ID;
 
 				if ( ! isset( $homepage_menu_items[ $current_parent ]->children ) ) {
 					$homepage_menu_items[ $current_parent ]->children = array();
@@ -128,7 +135,10 @@ function nuclearnetwork_homepage_blocks() {
 		}
 
 		if ( $current_parent == $item->menu_item_parent && 0 != $current_parent ) {
-			$homepage_menu_items[$current_parent]->children[] = $item;
+			if ( ! $item->post_title ) {
+				$item->post_title = $item->title;
+			}
+			$homepage_menu_items[ $current_parent ]->children[] = $item;
 		}
 	}
 
