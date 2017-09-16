@@ -27,7 +27,9 @@
     .search-container {
         text-align: right;
     }
-} // Logo Styles
+}
+
+// Logo Styles
 .header-logo {
     position: relative;
     z-index: 5;
@@ -107,14 +109,15 @@
         //display: block;
         //}
     }
-} // Top Bar: Social Media & Search
+}
+// Top Bar: Social Media & Search
 .header-top {
     display: none;
     transition: height .5s ease-out .5s;
 
-    @include breakpoint("medium") {
-        padding-left: 1rem;
-    }
+    // @include breakpoint("medium") {
+    //     padding-left: 1rem;
+    // }
 
     @include breakpoint("small") {
         position: relative;
@@ -146,15 +149,17 @@
             height: 0px;
         }
     }
-} // Bottom Bar: Main Menu & Search
+}
+
+// Bottom Bar: Main Menu & Search
 .header-bottom {
     position: relative;
     height: $size__header-bottom-height-mobile;
     background-color: $secondary-blue;
     transition: all 1s ease-in-out;
-    @include breakpoint("medium") {
-        padding-left: 1rem;
-    }
+    // @include breakpoint("medium") {
+    //     padding-left: 1rem;
+    // }
 
     @include breakpoint("small") {
         height: $size__header-bottom-height;

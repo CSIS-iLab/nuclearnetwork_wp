@@ -42,7 +42,7 @@ $linkedin = get_option( 'nuclearnetwork_linkedin' );
 			<div class="header-content-container col-xs-10 col-sm-11 col-md-8">
 				<div class="header-top row hidden-xs middle-sm">
 					<div class="social-container col-sm-4 col-lg-3">
-						<ul class="header-social">asdfsdf
+						<ul class="header-social">
 							<?php
 							if ( $facebook ) {
 								echo '<li><a href="' . esc_url( $facebook ) . '"><i class="icon-facebook"></i></a></li>';

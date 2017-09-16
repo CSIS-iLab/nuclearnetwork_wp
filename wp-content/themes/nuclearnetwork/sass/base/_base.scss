@@ -17,7 +17,11 @@ body {
 }
 
 .site-content {
-	margin-top: $size__header-top-height + $size__header-bottom-height;
+	margin-top: 46px;
+
+	@include breakpoint("medium") {
+		margin-top: $size__header-top-height + $size__header-bottom-height;
+	}
 
 	&.is-minimal { margin-top: $size__header-bottom-height-mobile; }
 }

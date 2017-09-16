@@ -16,6 +16,13 @@ $img3 = get_option( 'nuclearnetwork_home_img_3' );
 $img4 = get_option( 'nuclearnetwork_home_img_4' );
 
 ?>
+	<!-- Logo -->
+	<div class="home-logo-container">
+		<div class="content-wrapper">
+			<img src="/wp-content/themes/nuclearnetwork/img/NGNN-header-logo-home.svg" alt="<?php bloginfo( 'name' ); ?>" title="<?php bloginfo( 'name' ); ?>" class="logo-home" />
+			<?php echo $blocks[0]->post_title; ?>
+		</div>
+	</div>
 
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main content-wrapper">
@@ -27,7 +34,7 @@ $img4 = get_option( 'nuclearnetwork_home_img_4' );
 				</div>
 				<div class="col-xs-12 col-md-6 combo-block">
 					<?php
-						$post = $blocks[0];
+						$post = $blocks[1];
 						setup_postdata( $post );
 						$post->block_color = 'dark';
 						get_template_part( 'template-parts/hp-block' );
@@ -40,7 +47,7 @@ $img4 = get_option( 'nuclearnetwork_home_img_4' );
 			<div class="row row-section">
 				<div class="col-xs-12 col-md-6 combo-block">
 					<?php
-						$post = $blocks[1];
+						$post = $blocks[2];
 						setup_postdata( $post );
 						$post->block_color = 'secondary';
 						get_template_part( 'template-parts/hp-block' );
@@ -63,7 +70,7 @@ $img4 = get_option( 'nuclearnetwork_home_img_4' );
 				<div class="shape2" style="background-image:url('<?php echo esc_url( $img2 ); ?>');"></div>
 				<div class="col-xs-12 col-md-offset-3 col-md-6 combo-block">
 					<?php
-						$post = $blocks[2];
+						$post = $blocks[3];
 						setup_postdata( $post );
 						$post->block_color = 'primary';
 						get_template_part( 'template-parts/hp-block' );
@@ -77,7 +84,7 @@ $img4 = get_option( 'nuclearnetwork_home_img_4' );
 				<div class="img-block hidden-xs hidden-sm col-md-offset-3 col-md-3" style="background-image:url('<?php echo esc_url( $img3 ); ?>');"></div>
 				<div class="col-xs-12 col-md-6 combo-block">
 					<?php
-						$post = $blocks[3];
+						$post = $blocks[4];
 						setup_postdata( $post );
 						$post->block_color = 'secondary';
 						get_template_part( 'template-parts/hp-block' );
