@@ -21,6 +21,7 @@ body {
 
 	@include breakpoint("medium") {
 		margin-top: $size__header-top-height + $size__header-bottom-height;
+		overflow-x: hidden;
 	}
 
 	&.is-minimal { margin-top: $size__header-bottom-height-mobile; }
@@ -52,8 +53,4 @@ body {
 			margin: 0 auto;
 		}
 	}
-}
-
-article {
-	overflow-x: hidden;
 }
