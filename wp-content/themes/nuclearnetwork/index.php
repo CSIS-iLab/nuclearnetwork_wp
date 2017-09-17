@@ -52,7 +52,7 @@ if ( is_home() && get_option( 'page_for_posts' ) ) {
 
 					endwhile;
 
-					the_posts_navigation();
+					the_posts_pagination();
 
 				else :
 

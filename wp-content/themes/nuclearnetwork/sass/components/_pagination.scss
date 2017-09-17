@@ -17,79 +17,46 @@
 	span, a {
 		margin: 0 0.2rem;
 		background-color: $off-white;
-		border-radius: 2px;
 		padding: 4px 10px;
-		line-height: 1.69;
+		font-family: $font__lato;
+		@include fontSize(16px);
+		line-height: 1.34;
+		box-shadow: none;
 
 		@include breakpoint("medium") {
-			margin: 0 0.1rem;
+			margin: 0 0.25rem;
 		}
 	}
 
-	.dots, .ellipsis {
+	.dots {
 		background-color: transparent !important;
-		border-radius: 0;
 		padding: 4px 5px;
 	}
 
 	a {
-		color: $dark-gray;
-
+		color: $black;
 
 		&:hover {
-			background-color: $color__background-button-gray;
-			color: $black;
+			background-color: $secondary-blue;
+			color: $white;
 		}
 	}
 
 	.current {
-		background-color: $primary-blue;;
+		background-color: $primary-blue;
 		color: $white;
 	}
 
-	.next {
+	.next,
+	.prev {
 		position: relative;
+		background-color: transparent;
+		color: $black;
+		padding: 4px 5px;
 
-		&:before {
-			content: "";
-			float: right;
-			position: absolute;
-			top: 0;
-			right: -12px;
-			width: 0;
-			height: 0;
-			border-color: transparent transparent transparent $off-white;
-			border-style: solid;
-			border-width: 13px 0 13px 13px;
-			@include transition(all .3s ease-in-out);
-		}
-
-		&:hover:before {
-			@include transition(all .3s ease-in-out);
-			border-color: transparent transparent transparent $color__background-button-gray;
-		}
-	}
-
-	.prev, .previous {
-		position: relative;
-
-		&:before {
-			content: "";
-			float: left;
-			position: absolute;
-			top: 0;
-			left: -12px;
-			width: 0;
-			height: 0;
-			border-color: transparent $off-white transparent transparent;
-			border-style: solid;
-			border-width: 13px 13px 13px 0;
-			@include transition(all .3s ease-in-out);
-		}
-
-		&:hover:before {
-			@include transition(all .3s ease-in-out);
-			border-color: transparent $color__background-button-gray transparent transparent;
+		&:hover {
+			background-color: transparent;
+			color: $secondary-blue;
 		}
 	}
 
