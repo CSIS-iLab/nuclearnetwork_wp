@@ -15,7 +15,7 @@ get_header(); ?>
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main">
 
-			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+			<article id="post-<?php the_ID(); ?>" <?php post_class( 'sidebar-left' ); ?>>
 				<div class="content-wrapper">
 					<div class="post-img-container">
 						<?php the_post_thumbnail( 'full' ); ?>
@@ -84,7 +84,7 @@ get_header(); ?>
 							if ( class_exists( 'Jetpack_RelatedPosts' ) ) {
 								echo do_shortcode( '[jprel]' );
 							}
-							?>	
+							?>
 							<div class="col-xs-12 col-md">
 								<?php nuclearnetwork_entry_tags(); ?>
 							</div>

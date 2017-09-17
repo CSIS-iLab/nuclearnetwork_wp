@@ -12,11 +12,13 @@
 		width: 100%;
 		border-top: 1px solid $gray;
 		padding-top: 0.5rem;
+		margin-top: 1.5rem;
 	}
 
 	a {
 		text-align: center;
 		flex-grow: 1;
+		box-shadow: none;
 
 		@include breakpoint("medium") {
 			width: unset;

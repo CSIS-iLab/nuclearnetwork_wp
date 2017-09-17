@@ -71,6 +71,8 @@ function post_add_meta_boxes( $post ) {
 	add_meta_box( 'post_meta_box', __( 'Additional Post Information', 'nuclearnetwork' ), 'news_build_meta_box', 'news', 'normal', 'high' );
 
 	add_meta_box( 'post_meta_box', __( 'Additional Post Information', 'nuclearnetwork' ), 'opportunities_build_meta_box', 'opportunities', 'normal', 'high' );
+
+	add_meta_box( 'post_meta_box', __( 'Additional Post Information', 'nuclearnetwork' ), 'pages_build_meta_box', 'page', 'normal', 'high' );
 }
 add_action( 'add_meta_boxes', 'post_add_meta_boxes' );
 
@@ -317,6 +319,55 @@ function opportunities_build_meta_box( $post ) {
 }
 
 /**
+ * Build custom field meta box for pages.
+ *
+ * @param post $post The post object.
+ */
+function pages_build_meta_box( $post ) {
+	// Make sure the form request comes from WordPress.
+	wp_nonce_field( basename( __FILE__ ), 'post_meta_box_nonce' );
+
+	// Retrieve current value of fields.
+	$current_sidebar = get_post_meta( $post->ID, '_post_sidebar', true );
+	$current_footer = get_post_meta( $post->ID, '_post_footer', true );
+	?>
+	<div class='inside'>
+		<h3><?php esc_html_e( 'Sidebar Content:', 'nuclearnetwork' ); ?></h3>
+		<p>
+			<?php
+				wp_editor(
+					$current_sidebar,
+					'sidebar',
+					array(
+						'media_buttons' => false,
+						'textarea_name' => 'sidebar',
+						'textarea_rows' => 5,
+						'teeny' => true,
+					)
+				);
+			?>
+		</p>
+		<h3><?php esc_html_e( 'Footer Content:', 'nuclearnetwork' ); ?></h3>
+		<p>
+			<?php
+				wp_editor(
+					$current_footer,
+					'footer',
+					array(
+						'media_buttons' => false,
+						'textarea_name' => 'footer',
+						'textarea_rows' => 5,
+						'teeny' => true,
+					)
+				);
+			?>
+		</p>
+		
+	</div>
+	<?php
+}
+
+/**
  * Store custom field meta box data
  *
  * @param int $post_id The post ID.
@@ -384,6 +435,10 @@ function post_save_meta_box_data( $post_id ) {
 	} else {
 		update_post_meta( $post_id, '_post_is_nextgen', '' );
 	}
+	// Footer
+	if ( isset( $_REQUEST['footer'] ) ) { // Input var okay.
+		update_post_meta( $post_id, '_post_footer', wp_kses_post( wp_unslash( $_POST['footer'] ) ) ); // Input var okay.
+	}
 	// LinkedIn URL
 	if ( isset( $_REQUEST['linkedin_url'] ) ) { // Input var okay.
 		update_post_meta( $post_id, '_post_linkedin_url', esc_url_raw( wp_unslash( $_POST['linkedin_url'] ) ) ); // Input var okay.
@@ -402,9 +457,13 @@ function post_save_meta_box_data( $post_id ) {
 	if ( isset( $_REQUEST['post_format'] ) ) { // Input var okay.
 		update_post_meta( $post_id, '_post_post_format', sanitize_text_field( wp_unslash( $_POST['post_format'] ) ) ); // Input var okay.
 	}
+	// Sidebar
+	if ( isset( $_REQUEST['sidebar'] ) ) { // Input var okay.
+		update_post_meta( $post_id, '_post_sidebar', wp_kses_post( wp_unslash( $_POST['sidebar'] ) ) ); // Input var okay.
+	}
 	// Sources
 	if ( isset( $_REQUEST['sources'] ) ) { // Input var okay.
-		update_post_meta( $post_id, '_post_sources', wp_kses_post( sanitize_text_field( wp_unslash( $_POST['sources'] ) ) ) ); // Input var okay.
+		update_post_meta( $post_id, '_post_sources', wp_kses_post( wp_unslash( $_POST['sources'] ) ) ); // Input var okay.
 	}
 	// Start Date
 	if ( isset( $_REQUEST['start_date'] ) ) { // Input var okay.
