@@ -2,17 +2,18 @@
 =            Pagination            =
 ==================================*/
 
+.pagination-totals {
+	font-family: $font__lato;
+	@include fontSize(16px);
+	line-height: 1.34;
+	font-weight: 300;
+
+	span { color: $secondary-blue; }
+}
+
 .pagination {
 	text-align: center;
-	font-family: $font__lato;
-	@include fontSize(15px);
-	line-height: 2.5;
-	letter-spacing: 0.6px;
-	text-transform: uppercase;
-
-	@include breakpoint("medium") {
-		@include fontSize(13px);
-	}
+	margin: 4rem 0 3rem;
 
 	span, a {
 		margin: 0 0.2rem;

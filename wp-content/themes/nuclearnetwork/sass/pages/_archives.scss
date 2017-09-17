@@ -2,7 +2,8 @@
 =            Archives            =
 ================================*/
 
-.blog {
+.blog,
+.archive {
 	background-color: $off-white;
 
 	.archive-container {
@@ -10,15 +11,38 @@
 	}
 
 	.page-header {
+		position: relative;
 		background-color: $black;
 		background-repeat: no-repeat;
 		background-position: center center;
 		background-size: cover;
 
+		&::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			background-color: rgba(7, 47, 85, 0.47);
+		}
+
 		.header-content {
+			position: relative;
+			z-index: 1;
 			width: 47rem;
 			margin: 0 auto;
 			padding: 5rem 0 2rem 0;
+		}
+
+		.page-title {
+			font-family: $font__lato;
+			@include fontSize(60px);
+			font-weight: bold;
+			line-height: 1.15;
+			color: $yellow;
+			text-transform: uppercase;
+			margin: 0;
 		}
 	}
 
@@ -37,7 +61,7 @@
 
 	.archive-content {
 		background-color: $white;
-		padding-bottom: 3rem;
+		padding: 1rem 3rem 3rem 1rem;
 	}
 
 	.archive-sidebar {

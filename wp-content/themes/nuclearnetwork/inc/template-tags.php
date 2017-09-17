@@ -125,8 +125,20 @@ if ( ! function_exists( 'nuclearnetwork_post_format' ) ) :
 	function nuclearnetwork_post_format( $id ) {
 		if ( 'post' === get_post_type() ) {
 			$post_format = get_post_meta( $id, '_post_post_format', true );
+			$is_featured = get_post_meta( $id, '_post_is_featured', true );
+
+			$is_nextgen = get_post_meta( $id, '_post_is_nextgen', true );
+
+			if ( $is_featured ) {
+				$is_featured = '<span class="featured">' . esc_html( 'Featured', 'nuclearnetwork' ) . '</span>';
+			}
+
+			if ( $is_nextgen ) {
+				$is_nextgen = '<span class="nextgen">' . esc_html( 'Next Gen Perspectives', 'nuclearnetwork' ) . '</span>';
+			}
+
 			if ( $post_format ) {
-				printf( '<p class="post-format">' . esc_html( '%1$s' ) . '</p>', $post_format ); // WPCS: XSS OK.
+				printf( '<p class="post-format">' . esc_html( '%2$s' ) . esc_html( '%1$s' ) . esc_html( '%3$s' ) . '</p>', $post_format, $is_featured, $is_nextgen ); // WPCS: XSS OK.
 			}
 		}
 	}
@@ -187,5 +199,18 @@ if ( ! function_exists( 'nuclearnetwork_post_write' ) ) :
 				<p>' . esc_html( '%1$s' ) . '</p></div>', $message ); // WPCS: XSS OK.
 			}
 		}
+	}
+endif;
+
+if ( ! function_exists( 'nuclearnetwork_post_num' ) ) :
+	/**
+	 * Returns HTML with total # of posts returned and the current page the user is on.
+	 */
+	function nuclearnetwork_post_num() {
+		global $wp_query;
+		// Current page.
+		$paged = (get_query_var( 'paged' )) ? get_query_var( 'paged' ) : 1;
+		/* translators: 1: number of pages. */
+		printf( '<div class="pagination-totals">' . esc_html_x( '%1$s entries', 'nuclearnetwork' ) . ' <span>|</span> ' . esc_html_x( 'Page %2$s of %3$s', 'nuclearnetwork' ) . '</div>', $wp_query->found_posts, $paged, $wp_query->max_num_pages ); // WPCS: XSS OK.
 	}
 endif;

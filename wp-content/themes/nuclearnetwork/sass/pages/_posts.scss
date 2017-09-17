@@ -44,3 +44,41 @@
   // Site Footer
   .site-footer { margin-top: 0; }
 }
+
+// Card Format for archives & search results.
+.article-card {
+  margin: 1.5rem 0 0 2rem !important;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid $gray;
+
+  &:last-of-type { border-bottom: 0;}
+
+  .post-thumbnail {
+    padding-right: 1.5rem;
+  }
+
+  .post-format {
+    margin-bottom: 0.5rem;
+  }
+
+  .entry-title {
+    @extend %h4;
+    margin: 0 0 1rem 0;
+
+    a {
+      color: $black;
+      box-shadow: none;
+
+      &:hover { color: $secondary-blue; }
+    }
+  }
+
+  .entry-meta {
+    margin-bottom: 1rem;
+  }
+
+  .entry-content p {
+    @extend .body-small;
+    margin-bottom: 0;
+  }
+}

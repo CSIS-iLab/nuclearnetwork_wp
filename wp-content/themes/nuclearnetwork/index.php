@@ -40,6 +40,8 @@ if ( is_home() && get_option( 'page_for_posts' ) ) {
 				<?php
 				if ( have_posts() ) :
 
+					nuclearnetwork_post_num();
+
 					/* Start the Loop */
 					while ( have_posts() ) : the_post();
 

@@ -321,7 +321,7 @@ a {
 		outline: 0;
 	}
 
-	.site-main & {
+	.entry-content & {
 		@include box-shadow(0,-1px,0,0, $secondary-blue, true);
 
 		&:hover { box-shadow: none; }

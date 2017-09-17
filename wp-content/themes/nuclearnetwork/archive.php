@@ -7,23 +7,34 @@
  * @package Nuclear_Network
  */
 
-get_header(); ?>
+get_header();
+
+if ( is_home() && get_option( 'page_for_posts' ) ) {
+	$img = wp_get_attachment_image_src( get_post_thumbnail_id( get_option( 'page_for_posts' ) ), 'full' );
+	$featured_img = ' style="background-image:url(\'' . esc_attr( $img[0] ) . '\');"';
+}
+
+?>
 
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main">
-
-			<header class="page-header">
-				<?php
-					the_archive_title( '<h1 class="page-title">', '</h1>' );
-					the_archive_description( '<div class="archive-description">', '</div>' );
-				?>
+			<header class="page-header"<?php echo $featured_img; ?>>
+				<div class="header-content">
+					<?php
+						the_archive_title( '<h1 class="page-title">', '</h1>' );
+						the_archive_description( '<div class="archive-description">', '</div>' );
+					?>
+				</div>
+				<div class="content-wrapper">
+					<?php echo do_shortcode( '[searchandfilter taxonomies="category,post_tag"]' ); ?>
+				</div>
 			</header><!-- .page-header -->
 
-			<div class="content-wrapper row">
-				<div class="col-xs-12 col-md-9">
-
+			<div class="content-wrapper row archive-container">
+				<div class="col-xs-12 col-md-9 archive-content">
 				<?php
 				if ( have_posts() ) :
+
 					/* Start the Loop */
 					while ( have_posts() ) : the_post();
 
@@ -36,7 +47,7 @@ get_header(); ?>
 
 					endwhile;
 
-					the_posts_navigation();
+					the_posts_pagination();
 
 				else :
 
@@ -45,7 +56,7 @@ get_header(); ?>
 				endif;
 				?>
 				</div>
-				<div class="col-xs-12 col-md-3">
+				<div class="col-xs-12 col-md-3 archive-sidebar">
 					<?php get_sidebar(); ?>
 				</div>
 			</div>
