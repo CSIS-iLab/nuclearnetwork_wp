@@ -455,6 +455,8 @@ function post_save_meta_box_data( $post_id ) {
 	}
 	// Post Format
 	if ( isset( $_REQUEST['post_format'] ) ) { // Input var okay.
+		// echo $_POST['post_format'];
+		// die();
 		update_post_meta( $post_id, '_post_post_format', sanitize_text_field( wp_unslash( $_POST['post_format'] ) ) ); // Input var okay.
 	}
 	// Sidebar

@@ -180,6 +180,14 @@ h1, h2, h3, h4, h5, h6 {
 	margin: 0 0 0.5rem 0;
 }
 
+%form-label {
+	font-family: $font__lato;
+	@include fontSize(14px);
+	font-weight: bold;
+	color: $black;
+	text-transform: uppercase;
+}
+
 h1 { @extend %h1 }
 h2 { @extend %h2 }
 h3 { @extend %h3 }

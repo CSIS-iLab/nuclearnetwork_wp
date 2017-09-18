@@ -52,10 +52,53 @@
 		background-color: $yellow;
 		height: 4.4rem;
 
-		ul {
+		& > ul {
+			display: flex;
 			width: 100%;
 			margin: 0;
 			padding: 0;
+
+			& > li {
+				width: 20%;
+				overflow-x: hidden;
+				// margin-top: 0.5rem;
+				padding: 0 1rem;
+				border-right: 1px solid $dark-yellow;
+
+				&:last-child {
+					border-right: 0;
+				}
+			}
+		}
+
+		& ul li ul {
+			padding: 0;
+			margin: 0;
+		}
+
+		& li[data-sf-field-input-type=checkbox] label,
+		& li[data-sf-field-input-type=radio] label,
+		& li[data-sf-field-input-type=range-radio] label,
+		& li[data-sf-field-input-type=range-checkbox] label {
+			@extend .body-small;
+			display: inline;
+		}
+
+		h4 {
+			@extend %form-label;
+			margin: 0;
+		}
+
+		select.sf-input-select {
+			min-width: unset;
+		}
+
+		input[type="submit"] {
+			@extend .body-small;
+			font-style: italic;
+			background-color: transparent;
+			padding: 0;
+			margin: 0;
 		}
 	}
 

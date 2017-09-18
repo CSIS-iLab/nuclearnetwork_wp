@@ -31,7 +31,7 @@ if ( is_home() && get_option( 'page_for_posts' ) ) {
 					?>
 				</div>
 				<div class="content-wrapper">
-					<?php echo do_shortcode( '[searchandfilter taxonomies="category,post_tag"]' ); ?>
+					<?php echo do_shortcode( '[searchandfilter id="181"]' ); ?>
 				</div>
 			</header><!-- .page-header -->
 
