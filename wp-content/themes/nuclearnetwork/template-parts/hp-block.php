@@ -22,7 +22,7 @@ if ( $post->menu_featured_img ) {
 	<ul class="block-submenu">
 		<?php
 		foreach ( $post->children as $child ) {
-			echo '<li><a href="' . esc_url( get_the_permalink( $child->ID ) ) . '" rel="bookmark">' . esc_html( $child->post_title ) . '</a></li>';
+			echo '<li><a href="' . esc_url( $child->url ) . '" rel="bookmark">' . esc_html( $child->post_title ) . '</a></li>';
 		}
 		?>
 	</ul>
