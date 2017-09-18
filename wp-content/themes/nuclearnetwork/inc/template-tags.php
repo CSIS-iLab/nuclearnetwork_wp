@@ -129,8 +129,10 @@ if ( ! function_exists( 'nuclearnetwork_post_format' ) ) :
 
 			$is_nextgen = get_post_meta( $id, '_post_is_nextgen', true );
 
-			if ( $is_featured ) {
+			if ( 1 == $is_featured ) {
 				$is_featured = '<span class="featured">' . esc_html( 'Featured', 'nuclearnetwork' ) . '</span>';
+			} else {
+				$is_featured = '';
 			}
 
 			if ( $is_nextgen ) {

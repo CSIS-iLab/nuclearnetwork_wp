@@ -51,7 +51,7 @@ function nuclearnetwork_extra_publish_options_save( $post_id, $post, $update ) {
 	if ( isset( $_REQUEST['is_featured'] ) ) { // Input var okay.
 		update_post_meta( $post_id, '_post_is_featured', intval( wp_unslash( $_POST['is_featured'] ) ) ); // Input var okay.
 	} else {
-		update_post_meta( $post_id, '_post_is_featured', '' );
+		update_post_meta( $post_id, '_post_is_featured', 0 );
 	}
 }
 

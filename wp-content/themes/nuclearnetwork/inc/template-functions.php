@@ -183,3 +183,19 @@ function nuclearnetwork_blocks_featured_post( $post_type = 'post' ) {
 	$query = new WP_Query( $args );
 	return $query->post;
 }
+
+add_action( 'pre_get_posts', 'nuclearnetwork_custom_sort_posts' );
+/**
+ * Change the default post query to show featured posts first.
+ *
+ * @param  array $query Query object.
+ */
+function nuclearnetwork_custom_sort_posts( $query ) {
+	if ( ( ( is_home() && get_option( 'page_for_posts' ) ) || is_category() || is_archive()) && $query->is_main_query() ) {
+		$query->set( 'meta_key', '_post_is_featured' );
+		$query->set( 'orderby', array(
+			'meta_value_num' => 'DESC',
+			'post_date' => 'DESC',
+		) );
+	}
+}
