@@ -20,11 +20,12 @@
         "wpackagist-plugin/disable-emojis": "*",
         "wpackagist-plugin/easy-footnotes": "*",
         "wpackagist-plugin/google-authenticator": "*",
+        "wpackagist-plugin/html-in-widget-titles": "*",
+        "wpackagist-plugin/menu-item-custom-fields": "*",
         "wpackagist-plugin/tinymce-advanced": "*",
         "wpackagist-plugin/wordpress-seo": "*",
         "wpackagist-plugin/jetpack": "*",
         "wpackagist-plugin/search-by-algolia-instant-relevant-results": "*",
-        "wpackagist-plugin/regenerate-thumbnails": "*",
-        "wpackagist-plugin/search-filter": "*"
+        "wpackagist-plugin/regenerate-thumbnails": "*"
     }
 }
