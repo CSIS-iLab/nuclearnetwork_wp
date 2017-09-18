@@ -31,7 +31,7 @@ if ( is_home() && get_option( 'page_for_posts' ) ) {
 					?>
 				</div>
 				<div class="content-wrapper">
-					<?php echo do_shortcode( '[searchandfilter id="181"]' ); ?>
+					<?php echo do_shortcode( '[searchandfilter slug="analysis-search"]' ); ?>
 				</div>
 			</header><!-- .page-header -->
 
