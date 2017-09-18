@@ -35,7 +35,7 @@
     background-color: $dark-blue;
     text-align: center;
     transition: all 1s ease-in;
-    @include breakpoint("small") {
+    @include breakpoint("medium") {
         height: unset;
         @include box-shadow( 0, 2px, 10px, 0, rgba($black, 0.5));
     }
@@ -51,14 +51,14 @@
         background-color: $dark-blue;
         transition: all 2s ease-in-out;
         opacity: 1;
-        @include breakpoint("small") {
+        @include breakpoint("medium") {
             display: none;
         }
     }
 
     .logo-container {
         display: none;
-        @include breakpoint("small") {
+        @include breakpoint("medium") {
             display: block;
         }
     }
@@ -66,7 +66,7 @@
     .logo-big {
         height: 100%;
         display: none;
-        @include breakpoint("small") {
+        @include breakpoint("medium") {
             display: block;
         }
     }
@@ -79,7 +79,7 @@
 
 
 
-        @include breakpoint("small") {
+        @include breakpoint("medium") {
             display: none;
         }
 
@@ -101,10 +101,10 @@
             height: 100%;
             background-color: $dark-blue;
 
-            @include breakpoint("small") {
+            @include breakpoint("medium") {
                 background-color: $dark-blue;
                 transition: opacity 1s ease-in-out;
-                animation: before-logo 1s ease-in-out;
+                animation: before-logo 2s ease-in-out;
             }
         }
 
@@ -131,7 +131,7 @@
     transition: height .5s ease-out .5s; // @include breakpoint("medium") {
     //     padding-left: 1rem;
     // }
-    @include breakpoint("small") {
+    @include breakpoint("medium") {
         position: relative;
         display: block;
         height: $size__header-top-height;
@@ -169,7 +169,7 @@
     transition: all 1s ease-in-out; // @include breakpoint("medium") {
     //     padding-left: 1rem;
     // }
-    @include breakpoint("small") {
+    @include breakpoint("medium") {
         height: $size__header-bottom-height;
     }
 
@@ -194,7 +194,7 @@
     .header-social {
         display: none;
     } // Search
-    @include breakpoint("small") {
+    @include breakpoint("medium") {
         .search-container {
             display: none;
         }
@@ -218,7 +218,7 @@
     .menu-container {
         display: none;
 
-        @include breakpoint("small") {
+        @include breakpoint("medium") {
             display: block;
             padding-right: 0;
         }
@@ -267,14 +267,14 @@
         display: block;
         text-align: center;
 
-        @include breakpoint("small") {
+        @include breakpoint("medium") {
             display: inline-block;
             position: relative;
             margin-right: 1rem;
             text-align: left;
         }
 
-        @include breakpoint("large") {
+        @include breakpoint("medium") {
             margin-right: 2rem;
         }
 
@@ -282,7 +282,7 @@
             margin-right: 0;
         }
 
-        @include breakpoint("xsmall") {
+        @include breakpoint("small") {
             &:nth-of-type(even) {
                 background-color: $primary-blue;
             }
@@ -298,7 +298,7 @@
             text-transform: uppercase;
             color: $yellow;
 
-            @include breakpoint("small") {
+            @include breakpoint("medium") {
                 padding: 0;
                 @include fontSize(16px);
                 line-height: 2.03;
@@ -313,7 +313,7 @@
         ul {
             display: block;
 
-            @include breakpoint("small") {
+            @include breakpoint("medium") {
                 display: none;
             }
 
@@ -340,7 +340,7 @@
             }
         }
 
-        @include breakpoint("small") {
+        @include breakpoint("medium") {
             &:hover ul {
                 display: block;
                 position: absolute;
@@ -368,7 +368,7 @@
         }
     } // Special styles for "Apply" link
     li.apply {
-        @include breakpoint("small") {
+        @include breakpoint("medium") {
             position: absolute;
             right: 0;
             margin-right: 0;
@@ -392,7 +392,7 @@
             background-color: $yellow;
             color: $black;
 
-            @include breakpoint("small") {
+            @include breakpoint("medium") {
                 padding: 0 0.5rem;
             }
 
@@ -432,7 +432,7 @@
             color: $gray;
         }
 
-        @include breakpoint("small") {
+        @include breakpoint("medium") {
             display: none;
         }
     }
@@ -472,7 +472,7 @@
 } // Search
 .header-search-form {
 
-    @include breakpoint("xsmall") {
+    @include breakpoint("small") {
         &.is-active {
             position: fixed;
             top: $size__header-bottom-height-mobile;
@@ -518,7 +518,7 @@
         @include fontSize(24px);
         @include transition(visibility 0s, position 0s, opacity 0.5s linear, width 0.2s ease-in);
 
-        @include breakpoint("small") {
+        @include breakpoint("medium") {
             display: inline-block;
             width: calc(100% - 3rem);
             visibility: visible;
@@ -558,8 +558,8 @@
     padding: .7rem 1rem 1rem;
 }
 
-.header-logo.col-sm-1,
-.header-content-container.col-sm-11 {
+.header-logo.col-md-4,
+.header-content-container.col-md-8 {
     flex-grow: 1;
     flex-shrink: 1;
     flex-basis: auto;
@@ -574,7 +574,7 @@
         display: none;
         height: 100%;
 
-        @include breakpoint("small") {
+        @include breakpoint("medium") {
             display: block;
         }
     }
