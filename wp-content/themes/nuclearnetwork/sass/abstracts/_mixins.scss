@@ -31,11 +31,10 @@ $browser-context: 16px;
 
 // Breakpoints
 $breakpoint-xlarge: 90em;
-$breakpoint-large: 62em;
-$breakpoing-medium: 48em;
-$breakpoing-small: 36em;
-$breakpoint-xsmall: 25em;
-
+$breakpoint-large: 62em; 
+$breakpoing-medium: 48em; 
+$breakpoing-small: 36em; 
+$breakpoint-xsmall: 25em; 
 @mixin breakpoint($break) {
 	@if $break == xlarge {
 		@media screen and (min-width:$breakpoint-xlarge) { @content; }

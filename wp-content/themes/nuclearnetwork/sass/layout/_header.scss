@@ -1,4 +1,4 @@
-    /*==============================
+/*==============================
 =            Header            =
 ==============================*/
 
@@ -27,9 +27,7 @@
     .search-container {
         text-align: right;
     }
-}
-
-// Logo Styles
+} // Logo Styles
 .header-logo {
     position: relative;
     z-index: 5;
@@ -37,7 +35,7 @@
     background-color: $dark-blue;
     text-align: center;
     transition: all 1s ease-in;
-    @include breakpoint("small") {
+    @include breakpoint("medium") {
         height: unset;
         @include box-shadow( 0, 2px, 10px, 0, rgba($black, 0.5));
     }
@@ -50,17 +48,25 @@
         right: 100%;
         width: 100vw;
         height: 100%;
-        background-color: green;
+        background-color: $dark-blue;
         transition: all 2s ease-in-out;
-        opacity: 0;
-        @include breakpoint("small") {
-            content: none;
+        opacity: 1;
+        @include breakpoint("medium") {
+            display: none;
+        }
+    }
+
+    .logo-container {
+        display: none;
+        @include breakpoint("medium") {
+            display: block;
         }
     }
 
     .logo-big {
-       height: 100%;
-        @include breakpoint("small") {
+        height: 100%;
+        display: none;
+        @include breakpoint("medium") {
             display: block;
         }
     }
@@ -71,9 +77,13 @@
         max-height: 40px;
         margin: 0.5rem auto;
 
-        @include breakpoint("small") {
+
+
+        @include breakpoint("medium") {
             display: none;
         }
+
+
     }
 
     &.is-minimal {
@@ -90,8 +100,12 @@
             width: 100vw;
             height: 100%;
             background-color: $dark-blue;
-            transition: opacity 2s ease-in-out;
-            animation: before-logo 2s ease-in-out;
+
+            @include breakpoint("medium") {
+                background-color: $dark-blue;
+                transition: opacity 1s ease-in-out;
+                animation: before-logo 2s ease-in-out;
+            }
         }
 
         @keyframes before-logo {
@@ -110,16 +124,14 @@
         //}
     }
 }
+
 // Top Bar: Social Media & Search
 .header-top {
     display: none;
-    transition: height .5s ease-out .5s;
-
-    // @include breakpoint("medium") {
+    transition: height .5s ease-out .5s; // @include breakpoint("medium") {
     //     padding-left: 1rem;
     // }
-
-    @include breakpoint("small") {
+    @include breakpoint("medium") {
         position: relative;
         display: block;
         height: $size__header-top-height;
@@ -149,19 +161,15 @@
             height: 0px;
         }
     }
-}
-
-// Bottom Bar: Main Menu & Search
+} // Bottom Bar: Main Menu & Search
 .header-bottom {
     position: relative;
     height: $size__header-bottom-height-mobile;
     background-color: $secondary-blue;
-    transition: all 1s ease-in-out;
-    // @include breakpoint("medium") {
+    transition: all 1s ease-in-out; // @include breakpoint("medium") {
     //     padding-left: 1rem;
     // }
-
-    @include breakpoint("small") {
+    @include breakpoint("medium") {
         height: $size__header-bottom-height;
     }
 
@@ -186,7 +194,7 @@
     .header-social {
         display: none;
     } // Search
-    @include breakpoint("small") {
+    @include breakpoint("medium") {
         .search-container {
             display: none;
         }
@@ -210,7 +218,7 @@
     .menu-container {
         display: none;
 
-        @include breakpoint("small") {
+        @include breakpoint("medium") {
             display: block;
             padding-right: 0;
         }
@@ -259,14 +267,14 @@
         display: block;
         text-align: center;
 
-        @include breakpoint("small") {
+        @include breakpoint("medium") {
             display: inline-block;
             position: relative;
             margin-right: 1rem;
             text-align: left;
         }
 
-        @include breakpoint("large") {
+        @include breakpoint("medium") {
             margin-right: 2rem;
         }
 
@@ -274,7 +282,7 @@
             margin-right: 0;
         }
 
-        @include breakpoint("xsmall") {
+        @include breakpoint("small") {
             &:nth-of-type(even) {
                 background-color: $primary-blue;
             }
@@ -290,7 +298,7 @@
             text-transform: uppercase;
             color: $yellow;
 
-            @include breakpoint("small") {
+            @include breakpoint("medium") {
                 padding: 0;
                 @include fontSize(16px);
                 line-height: 2.03;
@@ -305,7 +313,7 @@
         ul {
             display: block;
 
-            @include breakpoint("small") {
+            @include breakpoint("medium") {
                 display: none;
             }
 
@@ -332,7 +340,7 @@
             }
         }
 
-        @include breakpoint("small") {
+        @include breakpoint("medium") {
             &:hover ul {
                 display: block;
                 position: absolute;
@@ -360,7 +368,7 @@
         }
     } // Special styles for "Apply" link
     li.apply {
-        @include breakpoint("small") {
+        @include breakpoint("medium") {
             position: absolute;
             right: 0;
             margin-right: 0;
@@ -384,7 +392,7 @@
             background-color: $yellow;
             color: $black;
 
-            @include breakpoint("small") {
+            @include breakpoint("medium") {
                 padding: 0 0.5rem;
             }
 
@@ -424,7 +432,7 @@
             color: $gray;
         }
 
-        @include breakpoint("small") {
+        @include breakpoint("medium") {
             display: none;
         }
     }
@@ -464,7 +472,7 @@
 } // Search
 .header-search-form {
 
-    @include breakpoint("xsmall") {
+    @include breakpoint("small") {
         &.is-active {
             position: fixed;
             top: $size__header-bottom-height-mobile;
@@ -510,7 +518,7 @@
         @include fontSize(24px);
         @include transition(visibility 0s, position 0s, opacity 0.5s linear, width 0.2s ease-in);
 
-        @include breakpoint("small") {
+        @include breakpoint("medium") {
             display: inline-block;
             width: calc(100% - 3rem);
             visibility: visible;
@@ -542,37 +550,42 @@
 
 
 
-  .logo-container {
+.logo-container {
     transition: all 3s ease-in .2s;
     display: block;
     position: relative;
-        height: 100%;
-        padding: .7rem 1rem 1rem;
-    }
+    height: 100%;
+    padding: .7rem 1rem 1rem;
+}
 
-.header-logo.col-sm-1,
-.header-content-container.col-sm-11 {
+.header-logo.col-md-4,
+.header-content-container.col-md-8 {
     flex-grow: 1;
     flex-shrink: 1;
     flex-basis: auto;
     transition: all .5s ease-in .2s;
 } // Header Animation on Scroll
 .header-logo.is-minimal {
-   
+
 
     .logo-container {
         overflow: hidden;
         position: relative;
-        display: block;
+        display: none;
         height: 100%;
+
+        @include breakpoint("medium") {
+            display: block;
+        }
     }
 
-    svg {
-         transition: all .5s ease-in .2s;
-         
+
+
+    svg.logo-big {
+        transition: all .5s ease-in .2s;
         transform-origin: 0% 0%; //@include animation(scale);
         display: block;
-        
+
         #Inner-Ring {
             @include animation(shrink-fade, normal);
         }
@@ -756,13 +769,14 @@
                 display: none;
             }
         }
-
     }
 }
 
 
 .header-logo.is-large {
-    svg {
+    svg.logo-big {
+
+
 
         #Inner-Ring {
             @include animation(rev-shrink-fade, reverse);
@@ -858,7 +872,7 @@
                 }
             }
             #LetterN {
-                 transform-origin: 50% 50%;
+                transform-origin: 50% 50%;
                 animation: rev-letter-n .5s ease-in-out 0s both 1 reverse;
             }
         }
