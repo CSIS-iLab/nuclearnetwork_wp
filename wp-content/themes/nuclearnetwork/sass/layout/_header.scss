@@ -1,4 +1,4 @@
-    /*==============================
+/*==============================
 =            Header            =
 ==============================*/
 
@@ -27,9 +27,7 @@
     .search-container {
         text-align: right;
     }
-}
-
-// Logo Styles
+} // Logo Styles
 .header-logo {
     position: relative;
     z-index: 5;
@@ -50,16 +48,24 @@
         right: 100%;
         width: 100vw;
         height: 100%;
-        background-color: green;
+        background-color: $dark-blue;
         transition: all 2s ease-in-out;
-        opacity: 0;
+        opacity: 1;
         @include breakpoint("small") {
-            content: none;
+            display: none;
+        }
+    }
+
+    .logo-container {
+        display: none;
+        @include breakpoint("small") {
+            display: block;
         }
     }
 
     .logo-big {
-       height: 100%;
+        height: 100%;
+        display: none;
         @include breakpoint("small") {
             display: block;
         }
@@ -71,9 +77,13 @@
         max-height: 40px;
         margin: 0.5rem auto;
 
+
+
         @include breakpoint("small") {
             display: none;
         }
+
+
     }
 
     &.is-minimal {
@@ -90,8 +100,12 @@
             width: 100vw;
             height: 100%;
             background-color: $dark-blue;
-            transition: opacity 2s ease-in-out;
-            animation: before-logo 2s ease-in-out;
+
+            @include breakpoint("small") {
+                background-color: $dark-blue;
+                transition: opacity 1s ease-in-out;
+                animation: before-logo 1s ease-in-out;
+            }
         }
 
         @keyframes before-logo {
@@ -110,15 +124,13 @@
         //}
     }
 }
+
 // Top Bar: Social Media & Search
 .header-top {
     display: none;
-    transition: height .5s ease-out .5s;
-
-    // @include breakpoint("medium") {
+    transition: height .5s ease-out .5s; // @include breakpoint("medium") {
     //     padding-left: 1rem;
     // }
-
     @include breakpoint("small") {
         position: relative;
         display: block;
@@ -149,18 +161,14 @@
             height: 0px;
         }
     }
-}
-
-// Bottom Bar: Main Menu & Search
+} // Bottom Bar: Main Menu & Search
 .header-bottom {
     position: relative;
     height: $size__header-bottom-height-mobile;
     background-color: $secondary-blue;
-    transition: all 1s ease-in-out;
-    // @include breakpoint("medium") {
+    transition: all 1s ease-in-out; // @include breakpoint("medium") {
     //     padding-left: 1rem;
     // }
-
     @include breakpoint("small") {
         height: $size__header-bottom-height;
     }
@@ -542,13 +550,13 @@
 
 
 
-  .logo-container {
+.logo-container {
     transition: all 3s ease-in .2s;
     display: block;
     position: relative;
-        height: 100%;
-        padding: .7rem 1rem 1rem;
-    }
+    height: 100%;
+    padding: .7rem 1rem 1rem;
+}
 
 .header-logo.col-sm-1,
 .header-content-container.col-sm-11 {
@@ -558,21 +566,26 @@
     transition: all .5s ease-in .2s;
 } // Header Animation on Scroll
 .header-logo.is-minimal {
-   
+
 
     .logo-container {
         overflow: hidden;
         position: relative;
-        display: block;
+        display: none;
         height: 100%;
+
+        @include breakpoint("small") {
+            display: block;
+        }
     }
 
-    svg {
-         transition: all .5s ease-in .2s;
-         
+
+
+    svg.logo-big {
+        transition: all .5s ease-in .2s;
         transform-origin: 0% 0%; //@include animation(scale);
         display: block;
-        
+
         #Inner-Ring {
             @include animation(shrink-fade, normal);
         }
@@ -756,13 +769,14 @@
                 display: none;
             }
         }
-
     }
 }
 
 
 .header-logo.is-large {
-    svg {
+    svg.logo-big {
+
+
 
         #Inner-Ring {
             @include animation(rev-shrink-fade, reverse);
@@ -858,7 +872,7 @@
                 }
             }
             #LetterN {
-                 transform-origin: 50% 50%;
+                transform-origin: 50% 50%;
                 animation: rev-letter-n .5s ease-in-out 0s both 1 reverse;
             }
         }
