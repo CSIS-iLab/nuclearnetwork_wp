@@ -71,3 +71,24 @@ add_action(
 	'edit_user_profile_update',
 	'nuclearnetwork_user_title_update'
 );
+
+
+add_filter( 'coauthors_guest_author_fields', 'nuclearnetwork_filter_guest_author_fields', 10, 2 );
+/**
+ * Add fields for Guest Author names.
+ */
+function nuclearnetwork_filter_guest_author_fields( $fields_to_return, $groups ) {
+	if ( in_array( 'all', $groups ) || in_array( 'name', $groups ) ) {
+		$fields_to_return[] = array(
+			'key'      => 'name_prefix',
+			'label'    => 'Prefix/Title',
+			'group'    => 'name',
+		);
+		$fields_to_return[] = array(
+			'key'   => 'name_suffix',
+			'label' => 'Suffix',
+			'group' => 'name',
+		);
+	}
+	return $fields_to_return;
+}
