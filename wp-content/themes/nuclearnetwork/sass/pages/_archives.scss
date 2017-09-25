@@ -89,8 +89,40 @@
 			margin: 0;
 		}
 
+		label {
+			position: relative;
+			width: 100%;
+			overflow-x: hidden;
+
+			&:not(.sf-label-checkbox):after {
+				content: "+";
+                text-align: right;
+                pointer-events: none;
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: 30%;
+                background: rgba(97, 27, 21, 1);
+                background: -moz-linear-gradient(left, rgba(242, 194, 97, 0) 0%, $yellow 65%);
+                background: -webkit-gradient(left top, right top, color-stop(0%, rgba(242, 194, 97, 0)), color-stop(65%, $yellow));
+                background: -webkit-linear-gradient(left, rgba(242, 194, 97, 0) 0%, $yellow 65%);
+                background: -o-linear-gradient(left, rgba(242, 194, 97, 0) 0%, $yellow 65%);
+                background: -ms-linear-gradient(left, rgba(242, 194, 97, 0) 0%, $yellow 65%);
+                background: linear-gradient(to right, rgba(242, 194, 97, 0) 0%, $yellow 65%);
+			}
+		}
+
 		select.sf-input-select {
 			min-width: unset;
+			@include fontSize(16px);
+			line-height: 1;
+			border-color: transparent;
+			background-color: transparent;
+			display: inline-block;
+		    -webkit-appearance: button;
+		    white-space: nowrap;
+		    width: 100%;
+		    max-width: 500px;
 		}
 
 		input[type="submit"] {
