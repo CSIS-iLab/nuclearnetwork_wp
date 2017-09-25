@@ -82,6 +82,7 @@
 		& li[data-sf-field-input-type=range-checkbox] label {
 			@extend .body-small;
 			display: inline;
+			padding-left: 18px;
 		}
 
 		h4 {
@@ -131,6 +132,34 @@
 			background-color: transparent;
 			padding: 0;
 			margin: 0;
+		}
+
+		.sf-input-checkbox {
+			position: absolute;
+			z-index: -1;
+			opacity: 0;
+		}
+
+		.sf-label-checkbox {
+			position: relative;
+
+			&::before {
+				content: "";
+				position: absolute;
+			    top: 2px;
+			    left: 0;
+			    height: 12px;
+			    width: 12px;
+			    border: 2px solid $black;
+			    background: transparent;
+			}
+		}
+
+		.sf-input-checkbox:checked ~ .sf-label-checkbox {
+
+			&::before {
+			    background: $black;
+			}
 		}
 	}
 
