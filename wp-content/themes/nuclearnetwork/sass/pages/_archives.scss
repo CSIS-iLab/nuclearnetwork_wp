@@ -42,7 +42,29 @@
 			line-height: 1.15;
 			color: $yellow;
 			text-transform: uppercase;
+			margin: 0 0 0.5rem 0;
+		}
+
+		.archive-category p {
+			font-family: $font__lato;
+			@include fontSize(30px);
+			font-weight: bold;
+			line-height: 2;
+			text-transform: uppercase;
+			color: $off-white;
 			margin: 0;
+
+			&::after {
+				content: " \2014";
+			}
+		}
+
+		.archive-description p {
+			@include fontSize(20px);
+			line-height: 1.5;
+			font-style: italic;
+			color: $white;
+			margin-bottom: 0;
 		}
 	}
 

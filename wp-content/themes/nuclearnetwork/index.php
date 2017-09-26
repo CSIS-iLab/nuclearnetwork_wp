@@ -17,6 +17,8 @@ get_header();
 if ( is_home() && get_option( 'page_for_posts' ) ) {
 	$img = wp_get_attachment_image_src( get_post_thumbnail_id( get_option( 'page_for_posts' ) ), 'full' );
 	$featured_img = ' style="background-image:url(\'' . esc_attr( $img[0] ) . '\');"';
+	$archive_desc = get_option( 'nuclearnetwork_analysis_desc' );
+	$archive_category = get_option( 'nuclearnetwork_analysis_category' );
 }
 
 ?>
@@ -26,8 +28,13 @@ if ( is_home() && get_option( 'page_for_posts' ) ) {
 			<header class="page-header"<?php echo $featured_img; ?>>
 				<div class="header-content">
 					<?php
+						echo '<div class="archive-category">';
+						echo '<p>' . esc_html( $archive_category ) . '</p>';
+						echo '</div>';
 						the_archive_title( '<h1 class="page-title">', '</h1>' );
-						the_archive_description( '<div class="archive-description">', '</div>' );
+						echo '<div class="archive-description">';
+						echo '<p>' . esc_html( $archive_desc ) . '</p>';
+						echo '</div>';
 					?>
 				</div>
 				<div class="content-wrapper">
