@@ -53,10 +53,12 @@
 		height: 4.4rem;
 
 		& > ul {
-			display: flex;
+			display: inline-flex;
 			width: 100%;
-			margin: 0;
+			height: calc(4.4rem - 1rem);
+			margin: 1rem 0 0 0;
 			padding: 0;
+			align-items: flex-end;
 
 			& > li {
 				width: 20%;
@@ -67,6 +69,11 @@
 
 				&:last-child {
 					border-right: 0;
+				}
+
+				&.sf-field-post-meta-_post_is_nextgen,
+				&.sf-field-reset {
+					padding-top: calc(52px - 2.5rem);
 				}
 			}
 		}
@@ -88,12 +95,14 @@
 		h4 {
 			@extend %form-label;
 			margin: 0;
+			padding: 0 0 5px 0;
 		}
 
 		label {
 			position: relative;
 			width: 100%;
 			overflow-x: hidden;
+			line-height: 1;
 
 			&:not(.sf-label-checkbox):after {
 				content: "+";
@@ -131,7 +140,7 @@
 			font-style: italic;
 			background-color: transparent;
 			padding: 0;
-			margin: 0;
+			margin: 0 0 0.5rem 0;
 		}
 
 		.sf-input-checkbox {
