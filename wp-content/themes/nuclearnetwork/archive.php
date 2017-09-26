@@ -9,10 +9,8 @@
 
 get_header();
 
-if ( is_home() && get_option( 'page_for_posts' ) ) {
-	$img = wp_get_attachment_image_src( get_post_thumbnail_id( get_option( 'page_for_posts' ) ), 'full' );
-	$featured_img = ' style="background-image:url(\'' . esc_attr( $img[0] ) . '\');"';
-}
+$img = get_archive_thumbnail_src( 'full' );
+$featured_img = ' style="background-image:url(\'' . esc_attr( $img ) . '\');"';
 
 ?>
 
@@ -21,12 +19,18 @@ if ( is_home() && get_option( 'page_for_posts' ) ) {
 			<header class="page-header"<?php echo $featured_img; ?>>
 				<div class="header-content">
 					<?php
+						echo '<div class="archive-category">';
+						the_archive_top_content();
+						echo '</div>';
 						the_archive_title( '<h1 class="page-title">', '</h1>' );
 						the_archive_description( '<div class="archive-description">', '</div>' );
+						echo '<div class="archive-description">';
+						the_archive_bottom_content();
+						echo '</div>';
 					?>
 				</div>
 				<div class="content-wrapper">
-					<?php echo do_shortcode( '[searchandfilter taxonomies="category,post_tag"]' ); ?>
+					<?php echo do_shortcode( '[searchandfilter slug="analysis-search"]' ); ?>
 				</div>
 			</header><!-- .page-header -->
 
@@ -34,6 +38,8 @@ if ( is_home() && get_option( 'page_for_posts' ) ) {
 				<div class="col-xs-12 col-md-9 archive-content">
 				<?php
 				if ( have_posts() ) :
+
+					nuclearnetwork_post_num();
 
 					/* Start the Loop */
 					while ( have_posts() ) : the_post();

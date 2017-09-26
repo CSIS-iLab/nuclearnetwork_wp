@@ -81,4 +81,51 @@
     @extend .body-small;
     margin-bottom: 0;
   }
+
+  // Featured Posts
+  &.featured {
+
+    .post-header {
+      position: relative;
+      z-index: 10;
+      float: left;
+      width: 50%;
+      margin-right: -2rem;
+    }
+
+    .title-container {
+      width: 135%;
+      margin-top: 0;
+      margin-bottom: 1rem;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .entry-title {
+      position: relative;
+      z-index: 3;
+      background-color: $white;
+      border-right: .5rem solid $white;
+      box-decoration-break: clone;
+      -webkit-box-decoration-break: clone;
+      display: inline;
+      padding: 0 0 0.2rem 0;
+      @include fontSize(30px);
+      line-height: 1.1;
+    }
+
+    .post-thumbnail {
+      float: right;
+      width: 50%;
+      margin-bottom: 0.5rem;
+
+      img {
+        margin-left: 1rem;
+      }
+    }
+
+    .entry-meta {
+      clear: left;
+    }
+  }
 }

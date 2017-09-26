@@ -389,7 +389,7 @@ function nuclearnetwork_display_section_newsletter_message() {
 
 add_action( 'admin_init', 'nuclearnetwork_admin_init_section_posts' );
 /**
- * Creates the "Footer" settings section.
+ * Creates the "Post" settings section.
  */
 function nuclearnetwork_admin_init_section_posts() {
 
@@ -447,10 +447,61 @@ function nuclearnetwork_admin_init_section_posts() {
 }
 
 /**
- * Footer section description.
+ * Post section description.
  */
 function nuclearnetwork_display_section_posts_message() {
 	echo 'Information visible in the site\'s posts.';
+}
+
+add_action( 'admin_init', 'nuclearnetwork_admin_init_section_archives' );
+/**
+ * Creates the "Archives" settings section.
+ */
+function nuclearnetwork_admin_init_section_archives() {
+
+	add_settings_section(
+		'nuclearnetwork_settings_section_archives',
+		'Archives',
+		'nuclearnetwork_display_section_archives_message',
+		'nuclearnetwork-options-page'
+	);
+
+	add_settings_field(
+		'nuclearnetwork_analysis_desc',
+		'Analysis Archive Description',
+		'nuclearnetwork_textarea_callback',
+		'nuclearnetwork-options-page',
+		'nuclearnetwork_settings_section_archives',
+		array( 'nuclearnetwork_analysis_desc' )
+	);
+
+	add_settings_field(
+		'nuclearnetwork_analysis_category',
+		'Analysis Archive Category',
+		'nuclearnetwork_text_callback',
+		'nuclearnetwork-options-page',
+		'nuclearnetwork_settings_section_archives',
+		array( 'nuclearnetwork_analysis_category' )
+	);
+
+	register_setting(
+		'nuclearnetwork_settings',
+		'nuclearnetwork_analysis_desc',
+		'sanitize_text_field'
+	);
+
+	register_setting(
+		'nuclearnetwork_settings',
+		'nuclearnetwork_analysis_category',
+		'sanitize_text_field'
+	);
+}
+
+/**
+ * Archives section description.
+ */
+function nuclearnetwork_display_section_archives_message() {
+	echo 'Information visible in the site\'s archives.';
 }
 
 /**
