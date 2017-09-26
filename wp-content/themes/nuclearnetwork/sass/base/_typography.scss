@@ -329,7 +329,7 @@ a {
 		outline: 0;
 	}
 
-	.entry-content & {
+	.post-content & {
 		@include box-shadow(0,-1px,0,0, $secondary-blue, true);
 
 		&:hover { box-shadow: none; }
