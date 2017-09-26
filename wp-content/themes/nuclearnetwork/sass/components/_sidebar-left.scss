@@ -23,11 +23,16 @@
     @include breakpoint("medium") {
       position: fixed;
       float: left;
-      width: calc(20% - 1.5rem);
+      width: calc(25% - 1.5rem);
+      max-width: 250px;
       margin-bottom: 0;
       padding-bottom: 0;
       padding-right: 1rem;
       border-bottom: 0;
+
+      @include breakpoint("large") {
+        max-width: 230px;
+      }
     }
   }
   // Post Body
