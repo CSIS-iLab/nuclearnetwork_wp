@@ -40,6 +40,51 @@
         @include box-shadow( 0, 2px, 10px, 0, rgba($black, 0.5));
     }
 
+    &.col-xs-2.is-minimal {
+        padding: 0 1rem 0 0;
+        @include breakpoint("medium") {
+            padding: 0 .5rem 0 .5rem;
+            max-width: 90px;
+        }
+    }
+
+    &.col-md-4.is-minimal {
+        flex-shrink: 2;
+    }
+
+    &.col-xs-2.is-minimal,
+    &.col-md-4 {
+        padding: 0 1rem 0 0;
+        @include breakpoint("medium") {
+            padding: 0 .5rem 0 .5rem;
+        }
+    }
+
+
+
+    &.col-xs-2.is-minimal {
+        @include breakpoint("medium") {
+            max-width: 90px;
+        }
+    }
+
+
+
+
+    &::before {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 100%;
+        width: 100vw;
+        height: 100%;
+        background-color: $dark-blue;
+        @include breakpoint("medium") {
+            width: 0vw;
+        }
+    }
+
 
 
     .logo-big {
@@ -50,10 +95,10 @@
     }
 
     .logo-small {
-        width: 90%;
-        height: auto;
+        //width: 90%;
+        height: 100%;
         max-height: 40px;
-        margin: 0.5rem auto;
+        margin: .5rem auto;
 
         @include breakpoint("medium") {
             display: none;
@@ -63,9 +108,18 @@
 
 
     &.is-minimal {
+
+
         box-shadow: none; //transition: all 1.5s;
-        height:60px;
-        transition: height 0s ease-in-out 0s;
+        height: 60px; //transition: height 1s ease-in-out;
+        .col-xs-10.is-minimal {
+            @include breakpoint("medium") {
+                background-color: $dark-blue;
+                max-width: calc(100% - 90px);
+                transition: max-width .5s ease-in;
+            }
+        }
+
         &::before {
             content: "";
             display: block;
@@ -75,7 +129,9 @@
             width: 100vw;
             height: 100%;
             background-color: $dark-blue;
-            animation: before-logo-minimal 1s ease-in-out;
+            @include breakpoint("medium") {
+                animation: before-logo-minimal .5s ease-in-out;
+            }
         }
 
         @keyframes before-logo-minimal {
@@ -87,6 +143,11 @@
             }
         }
 
+        svg {
+            @include breakpoint("medium") {
+                min-height: 2.1rem;
+            }
+        }
         .logo-big {
             //display: none;
         } //.logo-small {
@@ -102,10 +163,12 @@
             position: absolute;
             top: 0;
             right: 100%;
-            width: 0vw;
             height: 100%;
             background-color: $dark-blue; //transition: width 1s ease-in-out;
-            animation: before-logo 1s ease-in-out;
+            @include breakpoint("medium") {
+                animation: before-logo .7s ease-in-out;
+                width: 0vw;
+            }
         }
 
         @keyframes before-logo {
@@ -116,13 +179,32 @@
                 width: 0vw;
             }
         }
+
+        svg {
+            @include breakpoint("medium") {
+                min-height: 2.1rem;
+            }
+        }
     }
 }
 
-// Top Bar: Social Media & Search
+.header-content-container {
+    &.col-md-8 {
+        @include breakpoint("medium") {
+            max-width: 100%;
+            flex-grow: 3;
+        }
+        &.is-minimal {
+            @include breakpoint("medium") {
+                max-width: 100%;
+                flex-grow: 4;
+            }
+        }
+    }
+} // Top Bar: Social Media & Search
 .header-top {
     display: none;
-    transition: height .5s ease-in-out 0s; // @include breakpoint("medium") {
+    transition: height .5s ease-in .3s; // @include breakpoint("medium") {
     //     padding-left: 1rem;
     // }
     @include breakpoint("medium") {
@@ -153,7 +235,7 @@
 
         .is-minimal & {
             height: 0px;
-            transition: height .5s ease-in-out;
+            transition: height .4s ease-in;
         }
     }
 } // Bottom Bar: Main Menu & Search
@@ -161,7 +243,7 @@
     position: relative;
     height: $size__header-bottom-height-mobile;
     background-color: $secondary-blue;
-    transition: all .5s ease-in-out; // @include breakpoint("medium") {
+    transition: all .5s ease-in; // @include breakpoint("medium") {
     //     padding-left: 1rem;
     // }
     @include breakpoint("medium") {
@@ -256,9 +338,7 @@
             @include fontSize(24px);
         }
     }
-}
-
-// Main Menu
+} // Main Menu
 #primary-menu {
 
     @include breakpoint("medium") {
@@ -438,9 +518,7 @@
             display: none;
         }
     }
-}
-
-// Menu Toggle for Mobile
+} // Menu Toggle for Mobile
 .menu-toggle {
     font-family: $font__lato;
     @include fontSize(16px);
@@ -456,9 +534,7 @@
             display: none;
         }
     }
-}
-
-// Social Media Icons
+} // Social Media Icons
 .header-social {
     list-style: none;
 
@@ -475,9 +551,7 @@
             }
         }
     }
-}
-
-// Search
+} // Search
 .header-search-form {
 
     @include breakpoint("xsmall") {
@@ -559,211 +633,212 @@
 
 
 .logo-container {
-    transition: all 1s ease-in-out .2s;
-    display: block;
-    position: relative;
-    height: 100%;
-    padding: .7rem 1rem 1rem;
-}
-
-// Header Animation on Scroll
-.header-logo.is-minimal {
-
-
-    .logo-container {
-        overflow: hidden;
+    display: none;
+    @include breakpoint("medium") {
+        transition: all .3s ease-in .2s;
+        display: block;
         position: relative;
-        display: block;
         height: 100%;
+        padding: .7rem 1rem 1rem;
     }
-
-    svg {
-        transition: all .5s ease-in .2s;
-
-        transform-origin: 0% 0%; //@include animation(scale);
-        display: block;
-
-        #Inner-Ring {
-            @include animation(shrink-fade, normal);
+} // Header Animation on Scroll
+.header-logo.is-minimal {
+    .logo-container {
+        display: none;
+        @include breakpoint("medium") {
+            overflow: hidden;
+            position: relative;
+            display: block;
+            height: 100%;
         }
 
-        #Outer-Ring {
-            #Outer-Ovals {
-                #Oval-large {
-                    @include animation(oval-large-rotate, normal);
-                    #Oval1 {
-                        #Oval1-yellow {
-                            @include animation(less-opacity, normal);
+        svg {
+            transition: all .3s ease-in .2s;
+            transform-origin: 0% 0%; //@include animation(scale);
+            display: block;
+
+            #Inner-Ring {
+                @include animation(shrink-fade, normal);
+            }
+
+            #Outer-Ring {
+                #Outer-Ovals {
+                    #Oval-large {
+                        @include animation(oval-large-rotate, normal);
+                        #Oval1 {
+                            #Oval1-yellow {
+                                @include animation(less-opacity, normal);
+                            }
+                        }
+                    }
+                    #Oval-small {
+                        @include animation(oval-small-rotate, normal);
+                        #Oval2 {
+                            @include animation(oval-large-grow, normal);
+                            #Oval2-yellow {
+                                @include animation(more-opacity, normal);
+                            }
                         }
                     }
                 }
-                #Oval-small {
-                    @include animation(oval-small-rotate, normal);
-                    #Oval2 {
-                        @include animation(oval-large-grow, normal);
-                        #Oval2-yellow {
-                            @include animation(more-opacity, normal);
-                        }
-                    }
+                #Outer-Orbit {
+                    @include animation(outer-orbit-shrink-rotate, normal);
                 }
             }
-            #Outer-Orbit {
-                @include animation(outer-orbit-shrink-rotate, normal);
-            }
-        }
 
-        #Middle-Ring {
-            // @include animation(middle-orbit-shrink-rotate);
-            #Middle-Ovals {
-                @include animation(middle-ovals-shrink-rotate, normal);
+            #Middle-Ring {
+                // @include animation(middle-orbit-shrink-rotate);
+                #Middle-Ovals {
+                    @include animation(middle-ovals-shrink-rotate, normal);
+                }
+
+                #Middle-Ovals #Oval-5 {
+                    @include animation(grow-middle-dot, normal);
+                }
+                #Middle-Orbit {
+                    @include animation(middle-orbit-shrink-rotate, normal);
+                }
             }
 
-            #Middle-Ovals #Oval-5 {
-                @include animation(grow-middle-dot, normal);
-            }
-            #Middle-Orbit {
-                @include animation(middle-orbit-shrink-rotate, normal);
-            }
-        }
+            #Logo-Text {
+                #Letters {
+                    #Shape-3,
+                    #Shape-8,
+                    #Shape-16,
+                    #Shape-23,
+                    #Shape-26,
+                    #LetterN {
+                        transform-origin: 50% 50%;
+                        animation: letters-group .3s ease-out 0s both 1 normal;
+                    }
 
-        #Logo-Text {
-            #Letters {
-                #Shape-3,
-                #Shape-8,
-                #Shape-16,
-                #Shape-23,
-                #Shape-26,
+                    #Shape,
+                    #Shape-5,
+                    #Shape-10,
+                    #Shape-13,
+                    #Shape-20,
+                    #Shape-25 {
+                        transform-origin: 50% 50%;
+                        animation: letters-group .3s ease-out .1s both 1 normal;
+                    }
+
+                    #Shape-2,
+                    #Shape-14,
+                    #Shape-11,
+                    #Shape-18,
+                    #Shape-22,
+                    #Shape-27 {
+                        transform-origin: 50% 50%;
+                        animation: letters-group .3s ease-out .2s both 1 normal;
+                    }
+
+                    #Shape-6,
+                    #Shape-12,
+                    #Shape-17,
+                    #Shape-19,
+                    #Shape-24 {
+                        transform-origin: 50% 50%;
+                        animation: letters-group .3s ease-out .3s both 1 normal;
+                    }
+
+                    #Shape-4,
+                    #Shape-7,
+                    #Shape-9,
+                    #Shape-15,
+                    #Shape-21 {
+                        transform-origin: 50% 50%;
+                        animation: letters-group .3s ease-out .4s both 1 normal;
+                    }
+                }
                 #LetterN {
-                    transform-origin: 50% 50%;
-                    animation: letters-group .5s ease-out 0s both 1 normal;
-                }
-
-                #Shape,
-                #Shape-5,
-                #Shape-10,
-                #Shape-13,
-                #Shape-20,
-                #Shape-25 {
-                    transform-origin: 50% 50%;
-                    animation: letters-group .5s ease-out .1s both 1 normal;
-                }
-
-                #Shape-2,
-                #Shape-14,
-                #Shape-11,
-                #Shape-18,
-                #Shape-22,
-                #Shape-27 {
-                    transform-origin: 50% 50%;
-                    animation: letters-group .5s ease-out .2s both 1 normal;
-                }
-
-                #Shape-6,
-                #Shape-12,
-                #Shape-17,
-                #Shape-19,
-                #Shape-24 {
-                    transform-origin: 50% 50%;
-                    animation: letters-group .5s ease-out .3s both 1 normal;
-                }
-
-                #Shape-4,
-                #Shape-7,
-                #Shape-9,
-                #Shape-15,
-                #Shape-21 {
-                    transform-origin: 50% 50%;
-                    animation: letters-group .5s ease-out .4s both 1 normal;
+                    @include animation(letter-n, normal);
                 }
             }
-            #LetterN {
-                @include animation(letter-n, normal);
+            @keyframes middle-ovals-shrink-rotate {
+                to {
+                    transform: scale(.75) rotate(-55deg);
+                }
             }
-        }
-        @keyframes middle-ovals-shrink-rotate {
-            to {
-                transform: scale(.75) rotate(-55deg);
-            }
-        }
 
-        @keyframes more-opacity {
-            to {
-                opacity: 1;
+            @keyframes more-opacity {
+                to {
+                    opacity: 1;
+                }
             }
-        }
 
-        @keyframes more-opacity {
-            to {
-                opacity: 1;
+            @keyframes more-opacity {
+                to {
+                    opacity: 1;
+                }
             }
-        }
 
-        @keyframes less-opacity {
-            to {
-                opacity: .6;
+            @keyframes less-opacity {
+                to {
+                    opacity: .6;
+                }
             }
-        }
 
-        @keyframes oval-small-rotate {
-            to {
-                transform: rotate(170deg);
+            @keyframes oval-small-rotate {
+                to {
+                    transform: rotate(170deg);
+                }
             }
-        }
 
-        @keyframes oval-large-rotate {
-            to {
-                transform: rotate(30deg);
+            @keyframes oval-large-rotate {
+                to {
+                    transform: rotate(30deg);
+                }
             }
-        }
 
-        @keyframes middle-orbit-shrink-rotate {
-            to {
-                transform: scale(.75) rotate(20deg);
+            @keyframes middle-orbit-shrink-rotate {
+                to {
+                    transform: scale(.75) rotate(20deg);
+                }
             }
-        }
 
-        @keyframes oval-large-grow {
-            to {
-                transform: scale(2.5);
+            @keyframes oval-large-grow {
+                to {
+                    transform: scale(2.5);
+                }
             }
-        }
 
-        @keyframes outer-orbit-shrink-rotate {
-            to {
-                transform: rotate(20deg);
+            @keyframes outer-orbit-shrink-rotate {
+                to {
+                    transform: rotate(20deg);
+                }
             }
-        }
 
-        @keyframes grow-middle-dot {
-            to {
-                transform: scale(1.50);
+            @keyframes grow-middle-dot {
+                to {
+                    transform: scale(1.50);
+                }
             }
-        }
 
-        @keyframes outer-orbit-rotate-clockwise2 {
-            to {
-                transform: rotate(30deg);
+            @keyframes outer-orbit-rotate-clockwise2 {
+                to {
+                    transform: rotate(30deg);
+                }
             }
-        }
 
-        @keyframes shrink-fade {
-            to {
-                transform: scale(0);
-                opacity: 0;
+            @keyframes shrink-fade {
+                to {
+                    transform: scale(0);
+                    opacity: 0;
+                }
             }
-        }
 
-        @keyframes letter-n {
-            to {
-                transform: scale(4.2) translate(27%, -6%);
+            @keyframes letter-n {
+                to {
+                    transform: scale(4.2) translate(27%, -6%);
+                }
             }
-        }
 
-        @keyframes letters-group {
-            to {
-                transform: scale(0);
-                opacity: 0;
-                display: none;
+            @keyframes letters-group {
+                to {
+                    transform: scale(0);
+                    opacity: 0;
+                    display: none;
+                }
             }
         }
     }
@@ -774,45 +849,45 @@
     svg {
 
         #Inner-Ring {
-            @include animation(rev-shrink-fade, reverse);
+            @include animationrev(rev-shrink-fade, reverse);
         }
 
         #Outer-Ring {
             #Outer-Ovals {
                 #Oval-large {
-                    @include animation(rev-oval-large-rotate, reverse);
+                    @include animationrev(rev-oval-large-rotate, reverse);
                     #Oval1 {
                         #Oval1-yellow {
-                            @include animation(rev-less-opacity, reverse);
+                            @include animationrev(rev-less-opacity, reverse);
                         }
                     }
                 }
                 #Oval-small {
-                    @include animation(rev-oval-small-rotate, reverse);
+                    @include animationrev(rev-oval-small-rotate, reverse);
                     #Oval2 {
-                        @include animation(rev-oval-large-grow, reverse);
+                        @include animationrev(rev-oval-large-grow, reverse);
                         #Oval2-yellow {
-                            @include animation(rev-more-opacity, reverse);
+                            @include animationrev(rev-more-opacity, reverse);
                         }
                     }
                 }
             }
             #Outer-Orbit {
-                @include animation(rev-outer-orbit-shrink-rotate, reverse);
+                @include animationrev(rev-outer-orbit-shrink-rotate, reverse);
             }
         }
 
         #Middle-Ring {
             // @include animation(middle-orbit-shrink-rotate);
             #Middle-Ovals {
-                @include animation(rev-middle-ovals-shrink-rotate, reverse);
+                @include animationrev(rev-middle-ovals-shrink-rotate, reverse);
             }
 
             #Middle-Ovals #Oval-5 {
-                @include animation(rev-grow-middle-dot, reverse);
+                @include animationrev(rev-grow-middle-dot, reverse);
             }
             #Middle-Orbit {
-                @include animation(rev-middle-orbit-shrink-rotate, reverse);
+                @include animationrev(rev-middle-orbit-shrink-rotate, reverse);
             }
         }
 
@@ -825,7 +900,7 @@
                 #Shape-26,
                 #LetterN {
                     transform-origin: 50% 50%;
-                    animation: rev-letters-group .5s ease-in-out 0s both 1 reverse;
+                    animation: rev-letters-group .3s ease-in-out 0s both 1 reverse;
                 }
 
                 #Shape,
@@ -835,7 +910,7 @@
                 #Shape-20,
                 #Shape-25 {
                     transform-origin: 50% 50%;
-                    animation: rev-letters-group .5s ease-in-out .1s both 1 reverse;
+                    animation: rev-letters-group .3s ease-in-out .1s both 1 reverse;
                 }
 
                 #Shape-2,
@@ -845,7 +920,7 @@
                 #Shape-22,
                 #Shape-27 {
                     transform-origin: 50% 50%;
-                    animation: rev-letters-group .5s ease-in-out .2s both 1 reverse;
+                    animation: rev-letters-group .3s ease-in-out .2s both 1 reverse;
                 }
 
                 #Shape-6,
@@ -854,7 +929,7 @@
                 #Shape-19,
                 #Shape-24 {
                     transform-origin: 50% 50%;
-                    animation: rev-letters-group .5s ease-in-out .3s both 1 reverse;
+                    animation: rev-letters-group .3s ease-in-out .3s both 1 reverse;
                 }
 
                 #Shape-4,
@@ -863,12 +938,12 @@
                 #Shape-15,
                 #Shape-21 {
                     transform-origin: 50% 50%;
-                    animation: rev-letters-group .5s ease-in-out .4s both 1 reverse;
+                    animation: rev-letters-group .3s ease-in-out .4s both 1 reverse;
                 }
             }
             #LetterN {
                 transform-origin: 50% 50%;
-                animation: rev-letter-n .5s ease-in-out 0s both 1 reverse;
+                animation: rev-letter-n .3s ease-in-out 0s both 1 reverse;
             }
         }
         @keyframes rev-middle-ovals-shrink-rotate {
