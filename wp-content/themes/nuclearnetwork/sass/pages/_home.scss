@@ -571,7 +571,7 @@
             0,
             0,
             rgba($black, 0));
-            transition: all .5s ease-in-out 0s;
+            transition: all .5s ease-in 0s, height .5s ease-in-out .4s;
         }
 
         .logo-container {
@@ -612,6 +612,8 @@
             @include breakpoint("medium") {
                 max-width: 90px;
                 height: 60px;
+                transition: all .5s ease-in 0s, height .4s ease-in 0s;
+
             }
 
             .logo-small {

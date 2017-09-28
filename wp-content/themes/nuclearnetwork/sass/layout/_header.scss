@@ -243,7 +243,7 @@
     position: relative;
     height: $size__header-bottom-height-mobile;
     background-color: $secondary-blue;
-    transition: all .5s ease-in-out; // @include breakpoint("medium") {
+    transition: all .5s ease-in; // @include breakpoint("medium") {
     //     padding-left: 1rem;
     // }
     @include breakpoint("medium") {
@@ -635,7 +635,7 @@
 .logo-container {
     display: none;
     @include breakpoint("medium") {
-        transition: all .5s ease-in-out .2s;
+        transition: all .3s ease-in .2s;
         display: block;
         position: relative;
         height: 100%;
