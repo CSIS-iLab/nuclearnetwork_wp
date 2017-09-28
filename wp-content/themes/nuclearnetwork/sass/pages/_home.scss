@@ -477,8 +477,10 @@
         @include box-shadow( 0, 2px, 10px, 0, rgba($black, 0.5));
 
         @include breakpoint("medium") {
+            background: url("img/home-header.jpg") no-repeat fixed center;
+            background-size: cover;
             padding: 0 0 0 0;
-            height: 250px;
+            
         }
 
         .content-wrapper {
@@ -495,8 +497,9 @@
                 position: relative;
                 z-index: 1;
                 width: auto;
+                margin: 1rem auto;
                 height: 100%;
-                max-height: 200px; //margin-top: -70px;
+                max-height: 150px; //margin-top: -70px;
             }
         }
 
@@ -530,7 +533,7 @@
                 display: block;
                 margin-left: 5.5rem;
                 margin-top: -0.5rem;
-                text-align: left;
+                text-align: center;
             }
         }
     }
@@ -543,9 +546,9 @@
 
     .home-logo-container {
         @include breakpoint("medium") {
-            height: calc(90px + 2rem + 250px); //overflow: hidden;
-            transition: all 1s ease-in-out 0s;
-            padding-top: calc(90px + 2rem);
+            height: calc(90px + 20rem); //overflow: hidden;
+            transition: all .6s ease-in-out 0s;
+            padding-top: calc(90px + 3rem);
             bottom: 0px;
             overflow: hidden;
         }
@@ -553,7 +556,7 @@
         .logo-home {
             @include breakpoint("medium") {
                 bottom: 0px;
-                transition: all .5s ease-in-out .5s;
+                transition: all .5s ease-in-out .3s;
             }
         }
     }
@@ -563,8 +566,12 @@
             max-width: 0px;
             height: 90px;
             padding: 0rem;
-            @include box-shadow( 0, 0, 0, 0, rgba($black, 0));
-            transition: all 1s ease-in-out 0s;
+            @include box-shadow( 0,
+            0,
+            0,
+            0,
+            rgba($black, 0));
+            transition: all .5s ease-in-out 0s;
         }
 
         .logo-container {
