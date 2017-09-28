@@ -547,57 +547,85 @@
             transition: all 1s ease-in-out 0s;
             padding-top: calc(90px + 2rem);
             bottom: 0px;
+            overflow: hidden;
+        }
+
+        .logo-home {
+            @include breakpoint("medium") {
+                bottom: 0px;
+                transition: all .5s ease-in-out .5s;
+            }
         }
     }
 
     .header-logo.col-md-4 {
-        max-width: 0px;
-        height: 90px;
+        @include breakpoint("medium") {
+            max-width: 0px;
+            height: 90px;
+        }
 
         @include box-shadow( 0, 0, 0, 0, rgba($black, 0));
         transition: all 1s ease-in-out 0s;
 
         .logo-container {
-            display: none;
+            @include breakpoint("medium") {
+                display: none;
+            }
         }
 
         .sm-logo-container {
-            overflow: hidden;
+            @include breakpoint("medium") {
+                overflow: hidden;
+            }
         }
         .logo-small {
-            bottom: -100px;
-            display: block;
-            position: relative;
-            opacity: 1;
-            transition: all .5s ease-in-out 0s;
+            @include breakpoint("medium") {
+                bottom: -100px;
+                display: block;
+                position: relative;
+                opacity: 1;
+                transition: all .5s ease-in-out 0s;
+            }
         }
     }
 
     .is-minimal {
         .home-logo-container {
-            height: 0px;
-            bottom: 200px;
+            @include breakpoint("medium") {
+                height: 0px;
+                bottom: 200px;
+            }
+            .logo-home {
+                @include breakpoint("medium") {
+                    bottom: 200px;
+                }
+            }
         }
         &.header-logo.col-md-4 {
-            max-width: 90px;
-            height: 60px;
-
+            @include breakpoint("medium") {
+                max-width: 90px;
+                height: 60px;
+            }
 
             .logo-small {
-                display: block;
-                bottom: 0px;
-                transition: all .5s ease-in-out .2s;
+                @include breakpoint("medium") {
+                    display: block;
+                    bottom: 0px;
+                    transition: all .5s ease-in-out .2s;
+                }
             }
         }
     }
 
     .is-large {
         .logo-small {
-            bottom: -100px;
-            display: block;
-            position: relative;
-            opacity: 1;
-            transition: all .5s ease-in-out 0s;
+            @include breakpoint("medium") {
+                bottom: -100px;
+                display: block;
+                position: relative;
+                opacity: 1;
+                transition: all .5s ease-in-out 0s;
+            }
         }
     }
 }
