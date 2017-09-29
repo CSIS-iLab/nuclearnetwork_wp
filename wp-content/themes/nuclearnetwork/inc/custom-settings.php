@@ -499,6 +499,33 @@ function nuclearnetwork_admin_init_section_archives() {
 		array( 'nuclearnetwork_analysis_category' )
 	);
 
+	add_settings_field(
+		'nuclearnetwork_default_archive_search',
+		'Default Archive Search Form ID',
+		'nuclearnetwork_text_callback',
+		'nuclearnetwork-options-page',
+		'nuclearnetwork_settings_section_archives',
+		array( 'nuclearnetwork_default_archive_search' )
+	);
+
+	add_settings_field(
+		'nuclearnetwork_post_archive_search',
+		'Analysis Archive Search Form ID',
+		'nuclearnetwork_text_callback',
+		'nuclearnetwork-options-page',
+		'nuclearnetwork_settings_section_archives',
+		array( 'nuclearnetwork_post_archive_search' )
+	);
+
+	add_settings_field(
+		'nuclearnetwork_news_archive_search',
+		'News Archive Search Form ID',
+		'nuclearnetwork_text_callback',
+		'nuclearnetwork-options-page',
+		'nuclearnetwork_settings_section_archives',
+		array( 'nuclearnetwork_news_archive_search' )
+	);
+
 	register_setting(
 		'nuclearnetwork_settings',
 		'nuclearnetwork_analysis_desc',
@@ -508,6 +535,24 @@ function nuclearnetwork_admin_init_section_archives() {
 	register_setting(
 		'nuclearnetwork_settings',
 		'nuclearnetwork_analysis_category',
+		'sanitize_text_field'
+	);
+
+	register_setting(
+		'nuclearnetwork_settings',
+		'nuclearnetwork_default_archive_search',
+		'sanitize_text_field'
+	);
+
+	register_setting(
+		'nuclearnetwork_settings',
+		'nuclearnetwork_post_archive_search',
+		'sanitize_text_field'
+	);
+
+	register_setting(
+		'nuclearnetwork_settings',
+		'nuclearnetwork_news_archive_search',
 		'sanitize_text_field'
 	);
 }

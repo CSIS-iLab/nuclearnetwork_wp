@@ -218,3 +218,26 @@ if ( ! function_exists( 'nuclearnetwork_post_num' ) ) :
 		printf( '<div class="pagination-totals">' . esc_html_x( '%1$s entries', 'nuclearnetwork' ) . ' <span>|</span> ' . esc_html_x( 'Page %2$s of %3$s', 'nuclearnetwork' ) . '</div>', $wp_query->found_posts, $paged, $wp_query->max_num_pages ); // WPCS: XSS OK.
 	}
 endif;
+
+if ( ! function_exists( 'nuclearnetwork_archive_search' ) ) :
+	/**
+	 * Returns HTML of archive search according to settings.
+	 */
+	function nuclearnetwork_archive_search() {
+		if ( class_exists( 'Search_Filter' ) ) {
+			global $wp_query;
+			$post_type = $wp_query->query['post_type'];
+			$id = get_option( 'nuclearnetwork_' . $post_type . '_archive_search' );
+
+			if ( $id && '-1' === $id ) {
+				return;
+			} elseif ( ! $id ) {
+				$id = get_option( 'nuclearnetwork_default_archive_search' );
+			}
+
+			$output = '<div class="content-wrapper">' . do_shortcode( '[searchandfilter id="' . $id . '"]' ) . '</div>';
+
+			return $output;
+		}
+	}
+endif;

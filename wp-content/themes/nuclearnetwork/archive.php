@@ -29,9 +29,7 @@ $featured_img = ' style="background-image:url(\'' . esc_attr( $img ) . '\');"';
 						echo '</div>';
 					?>
 				</div>
-				<div class="content-wrapper">
-					<?php echo do_shortcode( '[searchandfilter slug="analysis-search"]' ); ?>
-				</div>
+				<?php echo nuclearnetwork_archive_search(); ?>
 			</header><!-- .page-header -->
 
 			<div class="content-wrapper row archive-container">
