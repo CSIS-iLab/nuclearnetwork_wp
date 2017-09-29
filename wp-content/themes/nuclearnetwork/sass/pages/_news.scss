@@ -8,9 +8,15 @@
 		margin-bottom: 1rem;
 		text-transform: uppercase;
 	}
+
 	h5 {
-		margin: 2rem 0 0 0;
+		margin: 0 0 0.5rem 0;
 		font-weight: bold;
+	}
+
+	h2 + h5,
+	p + h5 {
+		margin: 2rem 0 0 0;
 	}
 
 	h5 + p {
@@ -36,4 +42,35 @@
 	}
 
 	.callout-container a::after { content: none; }
+}
+
+.archive .news .entry-content {
+	h5 {
+		margin: 0;
+		color: $primary-blue;
+		font-family: $font__ptsans;
+		line-height: 1.47;
+		font-weight: bold;
+	}
+
+	p {
+		margin-bottom: 1rem;
+	}
+
+	a {
+		display: inline;
+		margin-left: 5px;
+		@include fontSize(14px);
+		color: $primary-blue;
+
+		&::after {
+			content: " \f39c";
+			font-family: 'poni';
+			@include fontSize(12px);
+		}
+
+		&:hover {
+			color: $secondary-blue;
+		}
+	}
 }

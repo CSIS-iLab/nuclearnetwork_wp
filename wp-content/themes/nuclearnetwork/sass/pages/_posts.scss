@@ -72,6 +72,7 @@
   .entry-title {
     @extend %h4;
     margin: 0 0 1rem 0;
+    font-weight: 400;
 
     a {
       color: $black;

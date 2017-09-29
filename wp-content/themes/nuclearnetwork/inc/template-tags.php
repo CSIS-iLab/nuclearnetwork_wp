@@ -241,3 +241,20 @@ if ( ! function_exists( 'nuclearnetwork_archive_search' ) ) :
 		}
 	}
 endif;
+
+if ( ! function_exists( 'nuclearnetwork_posted_on_calendar' ) ) :
+	/**
+	 * Prints HTML of posted on date in calendar form.
+	 */
+	function nuclearnetwork_posted_on_calendar() {
+		$date_string = '<div class="month">%1$s</div><div class="day">%2$s</div>';
+
+		$date_string = sprintf( $date_string,
+			esc_attr( get_the_date( 'M' ) ),
+			esc_html( get_the_date( 'j' ) )
+		);
+
+		echo '<div class="calendar-container"><a href="' . esc_url( get_permalink() ) . '">' . $date_string . '</a></div>'; // WPCS: XSS OK.
+
+	}
+endif;
