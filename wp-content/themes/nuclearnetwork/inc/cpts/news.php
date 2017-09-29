@@ -9,7 +9,7 @@
 function nuclearnetwork_cpt_news() {
 
 	$labels = array(
-		'name'                  => _x( 'News', 'Post Type General Name', 'nuclearnetwork' ),
+		'name'                  => _x( 'Nuclear Policy News', 'Post Type General Name', 'nuclearnetwork' ),
 		'singular_name'         => _x( 'News Post', 'Post Type Singular Name', 'nuclearnetwork' ),
 		'menu_name'             => __( 'News', 'nuclearnetwork' ),
 		'name_admin_bar'        => __( 'News', 'nuclearnetwork' ),

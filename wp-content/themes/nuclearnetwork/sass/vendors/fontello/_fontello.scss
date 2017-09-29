@@ -55,6 +55,7 @@
   /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
 }
  
+.icon-mail:before { content: '\e800'; } /* '' */
 .icon-quote:before { content: '\e801'; } /* '' */
 .icon-select-down:before { content: '\e803'; } /* '' */
 .icon-plus:before { content: '\e804'; } /* '' */

@@ -39,11 +39,18 @@ add_filter( 'the_content', 'insert_content_discuss_message' );
  * @return string          HTML of call out box
  */
 function insert_content_discuss_message( $content ) {
-	if ( is_single() ) {
+	if ( is_single() && 'post' === get_post_type() ) {
 		global $post;
 		$disable_linkedin = get_post_meta( $post->ID, '_post_disable_linkedin', true );
 		if ( ! $disable_linkedin ) {
-			$content .= nuclearnetwork_post_discuss( $post->ID );
+			$callout_title = 'Discuss this Post';
+			$callout_message = get_option( 'nuclearnetwork_post_discuss' );
+			$callout_url = get_post_meta( $id, '_post_linkedin_url', true );
+			if ( ! $callout_url ) {
+				$callout_url = get_option( 'nuclearnetwork_linkedin' );
+			}
+			$callout_icon = 'icon-linkedin-discuss';
+			$content .= nuclearnetwork_post_callout( $callout_title, $callout_message, $callout_url, $callout_icon );
 		}
 	}
 	return $content;

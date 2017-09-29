@@ -123,20 +123,27 @@ if ( ! function_exists( 'nuclearnetwork_post_format' ) ) :
 	 * @param int $id Post ID.
 	 */
 	function nuclearnetwork_post_format( $id ) {
-		if ( 'post' === get_post_type() ) {
-			$post_format = get_post_meta( $id, '_post_post_format', true );
+		$post_type = get_post_type();
+		if ( in_array( $post_type, array( 'post', 'news' ), true ) ) {
+
 			$is_featured = get_post_meta( $id, '_post_is_featured', true );
 
-			$is_nextgen = get_post_meta( $id, '_post_is_nextgen', true );
+			if ( 'post' === $post_type ) {
+				$post_format = get_post_meta( $id, '_post_post_format', true );
+				$is_nextgen = get_post_meta( $id, '_post_is_nextgen', true );
+
+				if ( $is_nextgen ) {
+					$is_nextgen = '<span class="nextgen">' . esc_html( 'Next Gen Perspectives', 'nuclearnetwork' ) . '</span>';
+				}
+			} else {
+				$obj = get_post_type_object( $post_type );
+				$post_format = $obj->labels->name;
+			}
 
 			if ( 1 == $is_featured ) {
 				$is_featured = '<span class="featured">' . esc_html( 'Featured', 'nuclearnetwork' ) . '</span>';
 			} else {
 				$is_featured = '';
-			}
-
-			if ( $is_nextgen ) {
-				$is_nextgen = '<span class="nextgen">' . esc_html( 'Next Gen Perspectives', 'nuclearnetwork' ) . '</span>';
 			}
 
 			if ( $post_format ) {
@@ -146,28 +153,23 @@ if ( ! function_exists( 'nuclearnetwork_post_format' ) ) :
 	}
 endif;
 
-if ( ! function_exists( 'nuclearnetwork_post_discuss' ) ) :
+if ( ! function_exists( 'nuclearnetwork_post_callout' ) ) :
 	/**
 	 * Returns HTML with discuss this post message.
 	 *
-	 * @param int $id Post ID.
+	 * @param string $title Title of the callout.
+	 * @param string $message Message of the callout.
+	 * @param string $url URL to link to.
+	 * @param string $icon Icon to use.
 	 */
-	function nuclearnetwork_post_discuss( $id ) {
-		if ( 'post' === get_post_type() ) {
-			$linkedin_url = get_post_meta( $id, '_post_linkedin_url', true );
-			if ( ! $linkedin_url ) {
-				$linkedin_url = get_option( 'nuclearnetwork_linkedin' );
-			}
+	function nuclearnetwork_post_callout( $title, $message, $url, $icon = null ) {
 
-			if ( $linkedin_url ) {
-				$message = get_option( 'nuclearnetwork_post_discuss' );
+		if ( $title && $message && $url ) {
+			$output = '<div class="callout-container"><a href="' . esc_url( $url ) . '" target="_blank">
+				<i class="' . esc_attr( $icon ) . '"></i><h5 class="callout-header">' . esc_html( $title ) . '</h5>
+				<p>' . esc_html( $message ) . '</p></a></div>';
 
-				$output = '<div class="discuss-linkedin"><a href="' . esc_url( $linkedin_url ) . '" target="_blank">
-				<i class="icon-linkedin-discuss"></i><h5 class="callout-header">' . esc_html_x( 'Discuss this Post', 'nuclearnetwork' ) . '</h5>
-				<p>' . $message . '</p></a></div>';
-
-				return $output;
-			}
+			return $output;
 		}
 	}
 endif;

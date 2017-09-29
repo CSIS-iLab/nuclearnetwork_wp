@@ -7,25 +7,16 @@
   // Add class to header on scroll
   $(window).scroll(function(){
     var currentScroll = $(this).scrollTop();
-    console.log("scroll");
       
     if(currentScroll > 0){
-      //$(".site-header .header-logo").removeClass("col-md-4").removeClass("is-large").addClass("is-minimal");
-      //$(".site-header .header-content-container").removeClass("col-md-8").addClass("is-minimal");
       $(".site-header .header-logo").removeClass("is-large").addClass("is-minimal");
       $(".site-header .header-content-container").addClass("is-minimal");
       $(".site-content").addClass("is-minimal");
-      
-      
-
     }
     else {
-      //$(".site-header .header-logo").addClass("col-md-4").removeClass("is-minimal").addClass("is-large");
-      //$(".site-header .header-content-container").addClass("col-md-8").removeClass("is-minimal");
       $(".site-header .header-logo").removeClass("is-minimal").addClass("is-large");
       $(".site-header .header-content-container").removeClass("is-minimal");
       $(".site-content").removeClass("is-minimal");
-
     }
   });
 

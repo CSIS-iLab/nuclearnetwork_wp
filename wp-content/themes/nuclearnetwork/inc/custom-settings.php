@@ -419,6 +419,15 @@ function nuclearnetwork_admin_init_section_posts() {
 	);
 
 	add_settings_field(
+		'nuclearnetwork_post_news',
+		'Daily News',
+		'nuclearnetwork_textarea_callback',
+		'nuclearnetwork-options-page',
+		'nuclearnetwork_settings_section_posts',
+		array( 'nuclearnetwork_post_news' )
+	);
+
+	add_settings_field(
 		'nuclearnetwork_post_disclaimer',
 		'Guest Author Disclaimer',
 		'nuclearnetwork_textarea_callback',
@@ -436,6 +445,12 @@ function nuclearnetwork_admin_init_section_posts() {
 	register_setting(
 		'nuclearnetwork_settings',
 		'nuclearnetwork_post_discuss',
+		'sanitize_text_field'
+	);
+
+	register_setting(
+		'nuclearnetwork_settings',
+		'nuclearnetwork_post_news',
 		'sanitize_text_field'
 	);
 

@@ -2,6 +2,14 @@
 =            Posts            =
 =============================*/
 
+.single {
+  .hentry:not(.footer-simple) .entry-content {
+    margin-bottom: 1.5rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid $gray;
+  }
+}
+
 .single-post {
   // Sources
   .sources-label {
@@ -128,4 +136,84 @@
       clear: left;
     }
   }
+}
+
+/*----------  Callout ----------*/
+.callout-header {
+  @extend %callout-header;
+}
+
+.callout-container {
+  background-color: $off-white;
+  width: 100%;
+  margin: 2rem auto;
+  text-align: center;
+
+  @include breakpoint("medium") {
+    width: 55%;
+  }
+
+  a {
+    display: block;
+    padding: 1rem;
+    box-shadow: none;
+
+    &:hover {
+      i { color: $dark-blue; }
+      .callout-header { box-shadow: none; }
+    }
+  }
+
+  i {
+    @include fontSize(25px);
+    color: $secondary-blue;
+  }
+
+  .callout-header {
+    display: inline; 
+    @include box-shadow(0,-1px,0,0, $secondary-blue, true);
+  }
+
+  p {
+    @extend %post-meta;
+    font-style: italic;
+    color: $dark-gray;
+    margin-top: 0.2rem;
+    margin-bottom: 0;
+  }
+}
+
+/*----------  Disclaimer  ----------*/
+.post-disclaimer {
+  font-family: $font__ptsans;
+  @include fontSize(14px);
+  line-height: 1.43;
+  color: $dark-gray;
+  margin-bottom: 1.5rem;
+}
+
+/*----------  Write for Us  ----------*/
+.post-write {
+  i { 
+    @include fontSize(48px);
+    color: $yellow;
+    display: block;
+    float: left;
+    min-height: 6rem; 
+    margin-right: 0.5rem;
+
+    @include breakpoint("medium") {
+      @include fontSize(21px);
+      display: inline;
+      float: none;
+      min-height: unset;
+      margin-right: 0;
+    }
+  }
+
+  p {
+    @extend .body-small;
+    margin-bottom: 0;
+  }
+
 }

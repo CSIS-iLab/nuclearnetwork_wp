@@ -6,6 +6,8 @@
 <font id="poni" horiz-adv-x="1000" >
 <font-face font-family="poni" font-weight="400" font-stretch="normal" units-per-em="1000" ascent="850" descent="-150" />
 <missing-glyph horiz-adv-x="1000" />
+<glyph glyph-name="mail" unicode="&#xe800;" d="M580 306l258-267-789 0 259 264 135-127z m-517 355l760 0-380-362z m566-309l257 242 0-508z m-629-266l0 508 259-243z" horiz-adv-x="886" />
+
 <glyph glyph-name="quote" unicode="&#xe801;" d="M911 16l-335 0 0 335q0 139 99 236t236 98l0-111q-93 0-158-66t-65-157l223 0 0-335z m-558 0l-335 0 0 335q0 139 98 236t237 98l0-111q-93 0-158-66t-65-157l223 0 0-335z" horiz-adv-x="928" />
 
 <glyph glyph-name="select-down" unicode="&#xe803;" d="M460 550l-230-400-230 400 460 0z" horiz-adv-x="460" />
