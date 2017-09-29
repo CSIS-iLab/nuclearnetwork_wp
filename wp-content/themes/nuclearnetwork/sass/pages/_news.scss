@@ -1,0 +1,39 @@
+/*===================================
+=            Posts: News            =
+===================================*/
+
+.news .post-content {
+	h2 {
+		margin-top: 3rem;
+		margin-bottom: 1rem;
+		text-transform: uppercase;
+	}
+	h5 {
+		margin: 2rem 0 0 0;
+		font-weight: bold;
+	}
+
+	h5 + p {
+		margin-bottom: 0.5rem;
+	}
+
+	a {
+		display: block;
+		@include fontSize(16px);
+		line-height: 2.03;
+		color: $primary-blue;
+		box-shadow: none;
+
+		&::after {
+			content: " \f39c";
+			font-family: 'poni';
+			@include fontSize(14px);
+		}
+
+		&:hover {
+			color: $secondary-blue;
+		}
+	}
+
+	.callout-container a::after { content: none; }
+}
