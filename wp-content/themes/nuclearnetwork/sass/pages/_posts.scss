@@ -66,18 +66,41 @@
 
   &:last-of-type { border-bottom: 0;}
 
+  .entry-header {
+    position: relative;
+  }
+
   .post-thumbnail {
-    padding-right: 1.5rem;
+    margin-bottom: -2.5rem;
+
+    @include breakpoint("medium") {
+      padding-right: 1.5rem;
+    }
   }
 
   .post-format {
-    margin-bottom: 0.5rem;
+    position: relative;
+    display: inline-block;
+    background-color: $white;
+    padding: 1rem;
+
+    @include breakpoint("medium") {
+      display: block;
+      margin-bottom: 0.5rem;
+      background-color: transparent;
+      width: 100%;
+      padding: 0;
+    }
   }
 
   .entry-title {
     @extend %h4;
-    margin: 0 0 1rem 0;
+    margin: 0 1rem 1rem 1rem;
     font-weight: 400;
+
+    @include breakpoint("medium") {
+      margin: 0 0 1rem 0;
+    }
 
     a {
       color: $black;
@@ -89,52 +112,95 @@
 
   .entry-meta {
     margin-bottom: 1rem;
+    padding: 0 1rem;
+
+    @include breakpoint("medium") {
+      padding: 0;
+    }
   }
 
-  .entry-content p {
-    @extend .body-small;
-    margin-bottom: 0;
+  .entry-content {
+    padding: 0 1rem;
+
+    @include breakpoint("medium") {
+      padding: 0;
+    }
+
+    p {
+      @extend .body-small;
+      margin-bottom: 0;
+    }
   }
 
   // Featured Posts
   &.featured {
 
+    .entry-header {
+      @include breakpoint("medium") {
+        padding-top: 1.75rem;
+      }
+    }
+
+    .post-format {
+      @include breakpoint("medium") {
+        position: absolute;
+        top: 0;
+        height: 1.75rem;
+      }
+    }
+
     .post-header {
-      position: relative;
-      z-index: 10;
-      float: left;
-      width: 50%;
-      margin-right: -2rem;
+      @include breakpoint("medium") {
+        position: relative;
+        z-index: 10;
+        float: left;
+        width: 50%;
+        margin-right: -2rem;
+        padding: 0;
+      }
     }
 
     .title-container {
-      width: 135%;
-      margin-top: 0;
       margin-bottom: 1rem;
-      margin-left: auto;
-      margin-right: auto;
+
+      @include breakpoint("medium") {
+        width: 135%;
+        margin-top: 0;
+        margin-left: auto;
+        margin-right: auto;
+      }
     }
 
     .entry-title {
       position: relative;
       z-index: 3;
-      background-color: $white;
-      border-right: .5rem solid $white;
-      box-decoration-break: clone;
-      -webkit-box-decoration-break: clone;
-      display: inline;
       padding: 0 0 0.2rem 0;
-      @include fontSize(30px);
-      line-height: 1.1;
+      @include fontSize(20px);
+      line-height: 1.35;
+      font-weight: bold;
+
+      @include breakpoint("medium") {
+        @include fontSize(30px);
+        line-height: 1.1;
+        background-color: $white;
+        border-right: .5rem solid $white;
+        box-decoration-break: clone;
+        -webkit-box-decoration-break: clone;
+        display: inline;
+      }
     }
 
     .post-thumbnail {
-      float: right;
-      width: 50%;
-      margin-bottom: 0.5rem;
+      @include breakpoint("medium") {
+        float: right;
+        width: 50%;
+        margin-bottom: 0.5rem;
+      }
 
       img {
-        margin-left: 1rem;
+        @include breakpoint("medium") {
+          margin-left: 1rem;
+        }
       }
     }
 

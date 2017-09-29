@@ -71,9 +71,8 @@
       z-index: 3;
       @extend %single-title;
       background-color: $off-white;
-      padding-top: 1rem;
-      padding-left: 1rem;
-      padding-right: 1rem;
+      padding: 1rem;
+      margin-bottom: 0;
 
       @include breakpoint("medium") {
         border-right: .5rem solid $off-white;
@@ -81,9 +80,7 @@
         box-decoration-break: clone;
         -webkit-box-decoration-break: clone;
         display: inline;
-        padding-top: 0;
-        padding-left: 0;
-        padding-right: 0;
+        padding: 0;
       }
     }
 
@@ -172,7 +169,7 @@
       position: absolute;
       top: 0;
       left: 100%;
-      width: 100vw;
+      width: calc(100vw - 100% - 1rem);
       height: 100%;
       background-color: $off-white;
     }

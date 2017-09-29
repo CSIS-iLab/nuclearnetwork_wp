@@ -46,33 +46,38 @@
 
 		.page-title {
 			font-family: $font__lato;
-			@include fontSize(40px);
-			font-weight: bold;
+			@include fontSize(30px);
 			line-height: 1.15;
+			font-weight: bold;
 			color: $yellow;
 			text-transform: uppercase;
-			margin: 0 0 0.5rem 0;
+			margin: 0.5rem 0 1rem 0;
+			text-align: center;
 
 			@include breakpoint("medium") {
 				@include fontSize(60px);
+				text-align: left;
+				margin: 0 0 0.5rem 0;
 			}
 		}
 
 		.archive-category p {
 			font-family: $font__lato;
-			@include fontSize(24px);
+			@include fontSize(20px);
 			font-weight: bold;
 			line-height: 2;
 			text-transform: uppercase;
 			color: $off-white;
 			margin: 0;
-
-			&::after {
-				content: " \2014";
-			}
+			text-align: center;
 
 			@include breakpoint("medium") {
 				@include fontSize(30px);
+				text-align: left;
+
+				&::after {
+					content: " \2014";
+				}
 			}
 		}
 
@@ -82,10 +87,24 @@
 			font-style: italic;
 			color: $white;
 			margin-bottom: 0;
+			text-align: center;
 
 			@include breakpoint("medium") {
 				@include fontSize(20px);
+				text-align: left;
 			}
+		}
+	}
+
+	.archive-search-container {
+		position: relative;
+		z-index: 5;
+		background-color: $off-white;
+		padding: 1rem 1rem 0rem 1rem;
+
+		@include breakpoint("medium") {
+			background-color: transparent;
+			padding: 0;
 		}
 	}
 
@@ -101,22 +120,24 @@
 		& > ul {
 			display: block;
 			width: 100%;
-			margin: 1rem 0 0 0;
+			margin: 0;
 			padding: 0;
 
 			@include breakpoint("medium") {
 				display: inline-flex;
 				height: calc(4.4rem - 1rem);
 				align-items: flex-end;
+				margin: 1rem 0 0 0;
 			}
 
 			& > li {
 				width: 100%;
 				overflow-x: hidden;
 				padding: 0.5rem 1rem;
-				border-bottom: 1px solid $dark-yellow;
+				border-bottom: 1px solid $off-white;
 
 				@include breakpoint("medium") {
+					border-bottom: 0;
 					border-right: 1px solid $dark-yellow;
 					width: 20%;
 					padding: 0 1rem;
@@ -124,9 +145,14 @@
 
 				&:last-child {
 					border-bottom: 0;
+					background-color: $off-white;
+					text-align: right;
+					padding-bottom: 0;
 
 					@include breakpoint("medium") {
 						border-right: 0;
+						background-color: transparent;
+						text-align: left;
 					}
 				}
 
@@ -242,7 +268,7 @@
 
 	.archive-sidebar {
 		background-color: $color__background-archive-sidebar;
-		padding: 0 1rem 0 2rem;
+		padding: 2rem 1rem 0 2rem;
 
 		@include breakpoint("medium") {
 			padding: 4rem 1rem 3rem 2rem;

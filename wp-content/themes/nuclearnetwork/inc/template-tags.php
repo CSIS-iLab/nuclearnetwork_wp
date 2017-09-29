@@ -235,7 +235,7 @@ if ( ! function_exists( 'nuclearnetwork_archive_search' ) ) :
 				$id = get_option( 'nuclearnetwork_default_archive_search' );
 			}
 
-			$output = '<div class="content-wrapper">' . do_shortcode( '[searchandfilter id="' . $id . '"]' ) . '</div>';
+			$output = '<div class="content-wrapper archive-search-container">' . do_shortcode( '[searchandfilter id="' . $id . '"]' ) . '</div>';
 
 			return $output;
 		}

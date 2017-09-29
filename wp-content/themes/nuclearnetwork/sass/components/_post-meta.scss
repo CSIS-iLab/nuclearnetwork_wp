@@ -33,17 +33,23 @@
   }
 
   .nextgen {
-  	display: inline-block;
-  	margin-left: 0.5rem;
+  	position: relative;
+  	z-index: 5;
+  	display: block;
   	color: $primary-blue;
   	font-weight: bold;
   	text-transform: none;
   	letter-spacing: 0.5px;
 
-  	&:before {
-  		content: "/";
-  		margin-right: 0.5rem;
-  	}
+  	@include breakpoint("medium") {
+	  	display: inline-block;
+	  	margin-left: 0.5rem;
+
+	  	&:before {
+	  		content: "/";
+	  		margin-right: 0.5rem;
+	  	}
+	}
   }
 
   .article-card & {

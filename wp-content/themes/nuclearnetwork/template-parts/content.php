@@ -15,12 +15,12 @@ if ( 1 == $is_featured ) {
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'article-card featured' ); ?>>
 		<header class="entry-header">
 			<?php
-			nuclearnetwork_post_format( $post->ID );
 			if ( has_post_thumbnail() ) {
 				echo '<div class="post-thumbnail"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">';
 				the_post_thumbnail( 'medium_large' );
 				echo '</a></div>';
 			}
+			nuclearnetwork_post_format( $post->ID );
 			echo '<div class="post-header"><div class="title-container">';
 				the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
 			echo '</div></div>';
