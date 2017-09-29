@@ -7,7 +7,12 @@
 	background-color: $off-white;
 
 	.archive-container {
+		padding: 0;
 		@include box-shadow(0, 2px, 12px, 0, rgba(0, 0, 0, 0.19));
+
+		@include breakpoint("medium") {
+			padding: 0;
+		}
 	}
 
 	.page-header {
@@ -30,24 +35,32 @@
 		.header-content {
 			position: relative;
 			z-index: 1;
-			width: 47rem;
 			margin: 0 auto;
-			padding: 5rem 0 2rem 0;
+			padding: 2rem 1rem;
+
+			@include breakpoint("medium") {
+				width: 47rem;
+				padding: 5rem 0 2rem 0;
+			}
 		}
 
 		.page-title {
 			font-family: $font__lato;
-			@include fontSize(60px);
+			@include fontSize(40px);
 			font-weight: bold;
 			line-height: 1.15;
 			color: $yellow;
 			text-transform: uppercase;
 			margin: 0 0 0.5rem 0;
+
+			@include breakpoint("medium") {
+				@include fontSize(60px);
+			}
 		}
 
 		.archive-category p {
 			font-family: $font__lato;
-			@include fontSize(30px);
+			@include fontSize(24px);
 			font-weight: bold;
 			line-height: 2;
 			text-transform: uppercase;
@@ -57,14 +70,22 @@
 			&::after {
 				content: " \2014";
 			}
+
+			@include breakpoint("medium") {
+				@include fontSize(30px);
+			}
 		}
 
 		.archive-description p {
-			@include fontSize(20px);
+			@include fontSize(16px);
 			line-height: 1.5;
 			font-style: italic;
 			color: $white;
 			margin-bottom: 0;
+
+			@include breakpoint("medium") {
+				@include fontSize(20px);
+			}
 		}
 	}
 
@@ -72,25 +93,41 @@
 		position: relative;
 		bottom: -2px;
 		background-color: $yellow;
-		height: 4.4rem;
+
+		@include breakpoint("medium") {
+			height: 4.4rem;
+		}
 
 		& > ul {
-			display: inline-flex;
+			display: block;
 			width: 100%;
-			height: calc(4.4rem - 1rem);
 			margin: 1rem 0 0 0;
 			padding: 0;
-			align-items: flex-end;
+
+			@include breakpoint("medium") {
+				display: inline-flex;
+				height: calc(4.4rem - 1rem);
+				align-items: flex-end;
+			}
 
 			& > li {
-				width: 20%;
+				width: 100%;
 				overflow-x: hidden;
-				// margin-top: 0.5rem;
-				padding: 0 1rem;
-				border-right: 1px solid $dark-yellow;
+				padding: 0.5rem 1rem;
+				border-bottom: 1px solid $dark-yellow;
+
+				@include breakpoint("medium") {
+					border-right: 1px solid $dark-yellow;
+					width: 20%;
+					padding: 0 1rem;
+				}
 
 				&:last-child {
-					border-right: 0;
+					border-bottom: 0;
+
+					@include breakpoint("medium") {
+						border-right: 0;
+					}
 				}
 
 				&.sf-field-post-meta-_post_is_nextgen,
@@ -196,12 +233,20 @@
 
 	.archive-content {
 		background-color: $white;
-		padding: 1rem 3rem 3rem 1rem;
+		padding: 1rem;
+
+		@include breakpoint("medium") {
+			padding: 1rem 3rem 3rem 1rem;
+		}
 	}
 
 	.archive-sidebar {
 		background-color: $color__background-archive-sidebar;
-		padding: 4rem 1rem 3rem 2rem;
+		padding: 0 1rem 0 2rem;
+
+		@include breakpoint("medium") {
+			padding: 4rem 1rem 3rem 2rem;
+		}
 	}
 
 	.site-footer { margin-top: 0; }
