@@ -42,7 +42,7 @@ function nuclearnetwork_cpt_events() {
 		'description'           => __( 'Events for PONI members to attend.', 'nuclearnetwork' ),
 		'labels'                => $labels,
 		'supports'              => array( 'title', 'editor', 'excerpt' ),
-		'taxonomies'            => array( 'category' ),
+		'taxonomies'            => array( 'category', 'post_tag' ),
 		'hierarchical'          => false,
 		'public'                => true,
 		'show_ui'               => true,
