@@ -242,7 +242,16 @@
 			display: block;
 		}
 
-		&:before {
+		&:first-of-type::before {
+			content: none;
+
+			@include breakpoint("medium") {
+				content: "\2014";
+				color: $secondary-blue;
+			}
+		}
+
+		&::before {
 			content: ", ";
 
 			@include breakpoint("medium") {
@@ -323,6 +332,56 @@
 		&:hover {
 			background-color: $dark-yellow;
 			color: $white;
+		}
+	}
+}
+
+/*----------  PONI Sponsored  ----------*/
+.poni-sponsored {
+	@include breakpoint("medium") {
+		margin-top: -1.5rem;
+		margin-bottom: 1.5rem;
+	}
+
+	i {
+		margin: 0;
+		@include fontSize(14px);
+		color: $yellow;
+
+		&::before {
+			margin: 0;
+		}
+	}
+}
+
+/*----------  Location  ----------*/
+.post-location {
+	@extend %post-meta;
+	margin-bottom: 0;
+
+	@include breakpoint("medium") {
+		margin-bottom: 1.5rem;
+	}
+
+	.meta-label {
+		@include breakpoint("medium") {
+			display: block;
+		}
+	}
+}
+
+/*----------  Dates  ----------*/
+.post-event-dates {
+	@extend %post-meta;
+	margin-bottom: 0;
+
+	@include breakpoint("medium") {
+		margin-bottom: 1.5rem;
+	}
+
+	.meta-label {
+		@include breakpoint("medium") {
+			display: block;
 		}
 	}
 }

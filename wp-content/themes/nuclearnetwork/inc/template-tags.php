@@ -105,7 +105,7 @@ if ( ! function_exists( 'nuclearnetwork_entry_categories' ) ) :
 	 */
 	function nuclearnetwork_entry_categories() {
 		// Hide category and tag text for pages.
-		if ( 'post' === get_post_type() ) {
+		if ( in_array( get_post_type(), array( 'post', 'events' ), true ) ) {
 			/* translators: used between list items, there is a space after the comma */
 			$categories_list = get_the_category_list();
 			if ( $categories_list ) {
@@ -124,9 +124,14 @@ if ( ! function_exists( 'nuclearnetwork_post_format' ) ) :
 	 */
 	function nuclearnetwork_post_format( $id ) {
 		$post_type = get_post_type();
-		if ( in_array( $post_type, array( 'post', 'news' ), true ) ) {
+		if ( in_array( $post_type, array( 'post', 'news', 'events' ), true ) ) {
 
 			$is_featured = get_post_meta( $id, '_post_is_featured', true );
+			if ( 1 == $is_featured ) {
+				$is_featured = '<span class="featured">' . esc_html( 'Featured', 'nuclearnetwork' ) . '</span>';
+			} else {
+				$is_featured = null;
+			}
 
 			if ( 'post' === $post_type ) {
 				$post_format = get_post_meta( $id, '_post_post_format', true );
@@ -135,15 +140,17 @@ if ( ! function_exists( 'nuclearnetwork_post_format' ) ) :
 				if ( $is_nextgen ) {
 					$is_nextgen = '<span class="nextgen">' . esc_html( 'Next Gen Perspectives', 'nuclearnetwork' ) . '</span>';
 				}
-			} else {
-				$obj = get_post_type_object( $post_type );
-				$post_format = $obj->labels->name;
+			} elseif ( 'events' === $post_type ) {
+				$event_types = get_the_terms( $id, 'event_types' );
+				if ( ! empty( $event_types ) && ! is_wp_error( $event_types ) ) {
+					$event_types = wp_list_pluck( $event_types, 'name' );
+					$post_format = $event_types[0];
+				}
 			}
 
-			if ( 1 == $is_featured ) {
-				$is_featured = '<span class="featured">' . esc_html( 'Featured', 'nuclearnetwork' ) . '</span>';
-			} else {
-				$is_featured = '';
+			if ( ! $post_format ) {
+				$obj = get_post_type_object( $post_type );
+				$post_format = $obj->labels->name;
 			}
 
 			if ( $post_format ) {
@@ -258,3 +265,69 @@ if ( ! function_exists( 'nuclearnetwork_posted_on_calendar' ) ) :
 
 	}
 endif;
+
+if ( ! function_exists( 'nuclearnetwork_poni_sponsored' ) ) :
+	/**
+	 * Returns HTML with post disclaimer.
+	 *
+	 * @param  int $id Post ID.
+	 */
+	function nuclearnetwork_poni_sponsored( $id ) {
+		if ( 'events' === get_post_type() && 1 == get_post_meta( $id, '_post_poni_sponsored', true ) ) {
+			printf( '<div class="poni-sponsored"><i class="icon-bookmark"></i> <span class="meta-label">' . esc_html_x( 'PONI Program Opportunity', 'nuclearnetwork' ) . '</span></div>' ); // WPCS: XSS OK.
+		}
+	}
+endif;
+
+if ( ! function_exists( 'nuclearnetwork_post_location' ) ) :
+	/**
+	 * Returns HTML with post disclaimer.
+	 *
+	 * @param  int $id Post ID.
+	 */
+	function nuclearnetwork_post_location( $id ) {
+		if ( 'events' === get_post_type() && '0' !== get_post_meta( $id, '_post_location', true ) ) {
+			$location = get_post_meta( $id, '_post_location', true );
+			printf( '<div class="post-location"><span class="meta-label">' . esc_html_x( 'Location:', 'nuclearnetwork' ) . '</span> %1$s</div>', $location ); // WPCS: XSS OK.
+		}
+	}
+endif;
+
+if ( ! function_exists( 'nuclearnetwork_event_dates' ) ) :
+	/**
+	 * Returns HTML with post disclaimer.
+	 *
+	 * @param  int $id Post ID.
+	 */
+	function nuclearnetwork_event_dates( $id ) {
+		if ( 'events' === get_post_type() && null !== get_post_meta( $id, '_post_start_date', true ) ) {
+			$start_date = get_post_meta( $id, '_post_start_date', true );
+			$start_date_array = nuclearnetwork_check_date( $start_date );
+			if ( $start_date_array ) {
+				$start_date = date( get_option( 'date_format' ), mktime( 0, 0, 0, $start_date_array[1], $start_date_array[2], $start_date_array[0] ) );
+			}
+
+			$end_date = get_post_meta( $id, '_post_end_date', true );
+			if ( $end_date ) {
+				$label = 'Dates';
+				$end_date_array = nuclearnetwork_check_date( $end_date );
+				if ( $end_date_array ) {
+					$end_date = ' - ' . date( get_option( 'date_format' ), mktime( 0, 0, 0, $end_date_array[1], $end_date_array[2], $end_date_array[0] ) );
+				}
+			} else {
+				$label = 'Date';
+			}
+
+			printf( '<div class="post-event-dates"><span class="meta-label">' . esc_html_x( '%1$s:', 'nuclearnetwork' ) . '</span> %2$s%3$s</div>', $label, $start_date, $end_date ); // WPCS: XSS OK.
+		}
+	}
+endif;
+
+function nuclearnetwork_check_date( $date ) {
+	$date_array = explode( '-', $date );
+	if ( wp_checkdate( $date_array[1], $date_array[2], $date_array[0], $date ) ) {
+		return $date_array;
+	} else {
+		return false;
+	}
+}

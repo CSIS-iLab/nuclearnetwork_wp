@@ -415,7 +415,7 @@ function post_save_meta_box_data( $post_id ) {
 	if ( isset( $_REQUEST['end_date'] ) ) { // Input var okay.
 		$end_date = sanitize_text_field( wp_unslash( $_POST['end_date'] ) ); // Input var okay.
 		$date = explode( '-', $end_date );
-		if ( wp_checkdate( $date[1], $date[2], $date[0], $end_date ) || empty( $start_date ) ) {
+		if ( wp_checkdate( $date[1], $date[2], $date[0], $end_date ) || empty( $end_date ) ) {
 			update_post_meta( $post_id, '_post_end_date', $end_date ); // Input var okay.
 		}
 	}
