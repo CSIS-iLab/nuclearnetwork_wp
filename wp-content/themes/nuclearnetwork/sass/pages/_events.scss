@@ -1,0 +1,24 @@
+/*==============================
+=            Events            =
+==============================*/
+
+.archive .events {
+	.poni-sponsored {
+		margin-bottom: 1rem;
+		margin-top: 1rem;
+	}
+
+	.post-location,
+	.post-event-dates {
+		margin-bottom: 0rem;
+		line-height: 1.5rem;
+
+		.meta-label {
+			display: inline;
+		}
+	}
+
+	.entry-content {
+		margin-top: 1rem;
+	}
+}

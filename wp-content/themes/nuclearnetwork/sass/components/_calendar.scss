@@ -30,4 +30,11 @@
 			@include fontSize(36px);
 		}
 	}
+
+	.past & .month {
+		background-color: $gray;
+	}
+	.past & .day {
+		background-color: $dark-gray;
+	}
 }
