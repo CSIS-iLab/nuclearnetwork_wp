@@ -218,3 +218,49 @@ function nuclearnetwork_custom_sort_posts( $query ) {
 		) );
 	}
 }
+
+add_action( 'pre_get_posts', 'nuclearnetwork_events_archive' );
+/**
+ * Change the default post query to show featured posts first.
+ *
+ * @param  array $query Query object.
+ */
+function nuclearnetwork_events_archive( $query ) {
+	if ( ! is_admin() && is_post_type_archive( 'events' ) && $query->is_main_query() ) {
+		$query->set( 'post_status', array( 'publish', 'future' ) );
+		// if this is a past events view
+		// set compare to before today,
+		// otherwise set to today or later.
+		$compare = isset( $query->query_vars['is_past'] ) ? '<' : '>=';
+
+		// add the meta query and use the $compare var.
+		$today = date( 'Y-m-d' );
+		$meta_query = array(
+			array(
+				'key' => '_post_start_date',
+				'value' => $today,
+				'compare' => $compare,
+				'type' => 'DATE',
+			),
+		);
+		$query->set( 'meta_query', $meta_query );
+	}
+}
+
+/**
+ * Rewrite events URL to account for past events.
+ */
+function event_archive_rewrites() {
+	add_rewrite_tag( '%is_past%','([^&]+)' );
+	add_rewrite_rule(
+		'events/past/page/([0-9]+)/?$',
+		'index.php?post_type=events&paged=$matches[1]&is_past=true',
+		'top'
+	);
+	add_rewrite_rule(
+		'events/past/?$',
+		'index.php?post_type=events&is_past=true',
+		'top'
+	);
+}
+add_action( 'init', 'event_archive_rewrites' );
