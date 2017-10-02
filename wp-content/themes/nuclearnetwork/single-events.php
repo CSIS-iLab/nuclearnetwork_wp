@@ -47,13 +47,28 @@ get_header(); ?>
 								),
 								get_the_title()
 							) );
+							nuclearnetwork_info_url( $id, 'Register' );
 						?>
 						</div>
 					</div><!-- .entry-content -->
 				</div>
 
 				<footer class="entry-footer">
-					
+					<div class="post-related-container">
+						<div class="content-wrapper row">
+							<div class="col-xs-12">
+								<h4 class="related-header"><?php echo esc_html_x( 'Related Reading', 'nuclearnetwork' ); ?></h4>
+							</div>
+							<?php
+							if ( class_exists( 'Jetpack_RelatedPosts' ) ) {
+								echo do_shortcode( '[jprel]' );
+							}
+							?>
+							<div class="col-xs-12 col-md">
+								<?php nuclearnetwork_entry_tags(); ?>
+							</div>
+						</div>
+					</div>
 				</footer><!-- .entry-footer -->
 			</article><!-- #post-<?php the_ID(); ?> -->
 

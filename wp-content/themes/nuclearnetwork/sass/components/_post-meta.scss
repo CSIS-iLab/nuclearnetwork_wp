@@ -385,3 +385,17 @@
 		}
 	}
 }
+
+/*----------  More Info  ----------*/
+.post-info-url {
+	margin-top: 1.5rem;
+	
+	a {
+		color: $black;
+		text-transform: uppercase;
+
+		&:hover {
+			color: $black;
+		}
+	}
+}

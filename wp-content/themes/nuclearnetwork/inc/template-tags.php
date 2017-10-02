@@ -88,7 +88,7 @@ if ( ! function_exists( 'nuclearnetwork_entry_tags' ) ) :
 	 */
 	function nuclearnetwork_entry_tags() {
 		// Hide category and tag text for pages.
-		if ( 'post' === get_post_type() ) {
+		if ( in_array( get_post_type(), array( 'post', 'events' ), true ) ) {
 			/* translators: used between list items, there is a space after the comma */
 			$tags_list = get_the_tag_list( '<ul><li>','</li><li>','</li></ul>' );
 			if ( $tags_list ) {
@@ -268,7 +268,7 @@ endif;
 
 if ( ! function_exists( 'nuclearnetwork_poni_sponsored' ) ) :
 	/**
-	 * Returns HTML with post disclaimer.
+	 * Returns HTML with PONI sponsored marker.
 	 *
 	 * @param  int $id Post ID.
 	 */
@@ -281,7 +281,7 @@ endif;
 
 if ( ! function_exists( 'nuclearnetwork_post_location' ) ) :
 	/**
-	 * Returns HTML with post disclaimer.
+	 * Returns HTML with post location.
 	 *
 	 * @param  int $id Post ID.
 	 */
@@ -295,7 +295,7 @@ endif;
 
 if ( ! function_exists( 'nuclearnetwork_event_dates' ) ) :
 	/**
-	 * Returns HTML with post disclaimer.
+	 * Returns HTML with event dates.
 	 *
 	 * @param  int $id Post ID.
 	 */
@@ -323,6 +323,27 @@ if ( ! function_exists( 'nuclearnetwork_event_dates' ) ) :
 	}
 endif;
 
+if ( ! function_exists( 'nuclearnetwork_info_url' ) ) :
+	/**
+	 * Returns info button with custom label.
+	 *
+	 * @param  int    $id Post ID.
+	 * @param  string $label Label for the button.
+	 */
+	function nuclearnetwork_info_url( $id, $label = 'More Info' ) {
+		if ( in_array( get_post_type(), array( 'events' ), true ) && '' !== get_post_meta( $id, '_post_info_url', true ) ) {
+			$info_url = get_post_meta( $id, '_post_info_url', true );
+			printf( '<div class="post-info-url"><a href="' . esc_url( '%1$s' ) . '" target="_blank" class="btn btn-yellow">%2$s</a></div>', $info_url, $label ); // WPCS: XSS OK.
+		}
+	}
+endif;
+
+/**
+ * Check a given date to ensure it is valid.
+ *
+ * @param  string $date Date string in YYYY-MM-DD format.
+ * @return [type]       [description]
+ */
 function nuclearnetwork_check_date( $date ) {
 	$date_array = explode( '-', $date );
 	if ( wp_checkdate( $date_array[1], $date_array[2], $date_array[0], $date ) ) {

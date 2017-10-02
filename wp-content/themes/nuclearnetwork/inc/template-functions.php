@@ -69,6 +69,18 @@ function jetpackme_remove_rp() {
 add_filter( 'wp', 'jetpackme_remove_rp', 20 );
 
 /**
+ * Allow related posts for custom post types.
+ *
+ * @param  array $allowed_post_types Array of allowed post types.
+ * @return array                     Updated allowed post types array.
+ */
+function jetpackme_allow_my_post_types( $allowed_post_types ) {
+	$allowed_post_types[] = 'events';
+	return $allowed_post_types;
+}
+add_filter( 'rest_api_allowed_post_types', 'jetpackme_allow_my_post_types' );
+
+/**
  * Create custom shortcode for Jetpack related posts.
  *
  * @param  array $atts Shortcode attributes.
