@@ -84,7 +84,11 @@
 		}
 	}
 
-	stickySidebar();
+	if ( $('.post-sidebar').height() < $('.post-content').height() ) {
+		stickySidebar();
+	} else {
+		$('.post-sidebar').css('position', 'relative');
+	}
 
 	window.addEventListener('resize', function(event){
 	  sidebarMarginBottom = $('.post-sidebar').css('margin-bottom');
