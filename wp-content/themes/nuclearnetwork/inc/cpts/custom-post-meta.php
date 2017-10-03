@@ -198,8 +198,9 @@ function resources_build_meta_box( $post ) {
 		</p>
 		<h3><?php esc_html_e( 'Publication Date:', 'nuclearnetwork' ); ?></h3>
 		<p>
-			<label for="publication_year">Year:</label> <input type="text" class="small-text" id="publication_year" name="publication_year" value="<?php echo esc_textarea( $current_publication_year ); ?>" /> 
+			<label for="publication_year">Year:</label> <input type="number" class="small-text" id="publication_year" name="publication_year" value="<?php echo esc_textarea( $current_publication_year ); ?>" /> 
 			<label for="publication_month">Month:</label> <select id="publication_month" name="publication_month">
+				<option value=''>No Month</option>
 				<?php
 				foreach ( $months as $month ) {
 					if ( $month === $current_publication_month ) {
@@ -463,7 +464,7 @@ function post_save_meta_box_data( $post_id ) {
 	}
 	// Publication Year
 	if ( isset( $_REQUEST['publication_year'] ) ) { // Input var okay.
-		update_post_meta( $post_id, '_post_publication_year', intval( wp_unslash( $_POST['publication_year'] ) ) ); // Input var okay.
+		update_post_meta( $post_id, '_post_publication_year', sanitize_text_field( wp_unslash( $_POST['publication_year'] ) ) ); // Input var okay.
 	}
 	// Sidebar
 	if ( isset( $_REQUEST['sidebar'] ) ) { // Input var okay.
