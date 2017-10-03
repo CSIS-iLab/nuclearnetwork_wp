@@ -352,3 +352,29 @@ function nuclearnetwork_check_date( $date ) {
 		return false;
 	}
 }
+
+/**
+ * Shows link to past & future archives depending on what page the user is on.
+ */
+function nuclearnetwork_event_future_past_link() {
+	if ( ! is_post_type_archive( 'events' ) ) {
+		return false;
+	}
+
+	if ( 'true' === get_query_var( 'other' ) ) {
+		$label = 'Other';
+		$url = 'other/';
+	} else {
+		$label = 'PONI';
+		$url = '';
+	}
+
+	if ( 'true' === get_query_var( 'is_past' ) ) {
+		$label = 'Future ' . $label;
+	} else {
+		$label = 'Past ' . $label;
+		$url = $url . 'past/';
+	}
+
+	printf( '<div class="view-past"><a href="/events/%2$s" class="btn btn-blue">' . esc_html_x( 'View %1$s Events', 'nuclearnetwork' ) . '</a></div>', $label, $url ); // WPCS: XSS OK.
+}

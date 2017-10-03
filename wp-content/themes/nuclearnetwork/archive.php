@@ -58,6 +58,9 @@ $featured_img = ' style="background-image:url(\'' . esc_attr( $img ) . '\');"';
 					get_template_part( 'template-parts/content', 'none' );
 
 				endif;
+
+				nuclearnetwork_event_future_past_link();
+
 				?>
 				</div>
 				<div class="col-xs-12 col-md-3 archive-sidebar">

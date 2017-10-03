@@ -221,36 +221,59 @@ function nuclearnetwork_custom_sort_posts( $query ) {
 
 add_action( 'pre_get_posts', 'nuclearnetwork_events_archive' );
 /**
- * Change the default post query to show featured posts first.
+ * Modify events archive to only show current & future events unless we've filtered.
  *
  * @param  array $query Query object.
  */
 function nuclearnetwork_events_archive( $query ) {
 	if ( ! is_admin() && is_post_type_archive( 'events' ) && $query->is_main_query() ) {
 		$query->set( 'post_status', array( 'publish', 'future' ) );
-		// if this is a past events view
-		// set compare to before today,
-		// otherwise set to today or later.
-		$compare = isset( $query->query_vars['is_past'] ) ? '<' : '>=';
 
-		// add the meta query and use the $compare var.
-		$today = date( 'Y-m-d' );
-		$meta_query = array(
-			array(
+		// If we're searching, show all results.
+		$url = parse_url( $_SERVER['REQUEST_URI'] );
+		if ( false === strpos( $url['query'], 'sft' ) && false === strpos( $url['query'], 'sfm' ) ) {
+
+			// If we're viewing non-PONI events, filter appropriately.
+			if ( isset( $query->query_vars['other'] ) ) {
+				$meta_query[] = array(
+					'key' => '_post_poni_sponsored',
+					'value' => '1',
+					'compare' => '!=',
+					'type' => 'INT',
+				);
+				$query->set( 'meta_query', $meta_query );
+			} else {
+				$meta_query[] = array(
+					'key' => '_post_poni_sponsored',
+					'value' => '1',
+					'compare' => '=',
+					'type' => 'INT',
+				);
+				$query->set( 'meta_query', $meta_query );
+			}
+
+			// if this is a past events view
+			// set compare to before today,
+			// otherwise set to today or later.
+			$compare = isset( $query->query_vars['is_past'] ) ? '<' : '>=';
+
+			// add the meta query and use the $compare var.
+			$today = date( 'Y-m-d' );
+			$meta_query[] = array(
 				'key' => '_post_start_date',
 				'value' => $today,
 				'compare' => $compare,
 				'type' => 'DATE',
-			),
-		);
-		$query->set( 'meta_query', $meta_query );
+			);
+			$query->set( 'meta_query', $meta_query );
+		}
 	}
 }
 
 /**
  * Rewrite events URL to account for past events.
  */
-function event_archive_rewrites() {
+function nuclearnetwork_event_archive_rewrites() {
 	add_rewrite_tag( '%is_past%','([^&]+)' );
 	add_rewrite_rule(
 		'events/past/page/([0-9]+)/?$',
@@ -262,5 +285,27 @@ function event_archive_rewrites() {
 		'index.php?post_type=events&is_past=true',
 		'top'
 	);
+	add_rewrite_tag( '%other%','([^&]+)' );
+	add_rewrite_rule(
+		'events/other/page/([0-9]+)/?$',
+		'index.php?post_type=events&paged=$matches[1]&other=true',
+		'top'
+	);
+	add_rewrite_rule(
+		'events/other/?$',
+		'index.php?post_type=events&other=true',
+		'top'
+	);
+	add_rewrite_rule(
+		'events/other/past/page/([0-9]+)/?$',
+		'index.php?post_type=events&paged=$matches[1]&is_past=true&other=true',
+		'top'
+	);
+	add_rewrite_rule(
+		'events/other/past/?$',
+		'index.php?post_type=events&is_past=true&other=true',
+		'top'
+	);
 }
-add_action( 'init', 'event_archive_rewrites' );
+add_action( 'init', 'nuclearnetwork_event_archive_rewrites' );
+

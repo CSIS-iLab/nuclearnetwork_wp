@@ -264,6 +264,12 @@
 		@include breakpoint("medium") {
 			padding: 1rem 3rem 3rem 1rem;
 		}
+
+		.view-past {
+			text-align: center;
+
+			a { color: $white; }
+		}
 	}
 
 	.archive-sidebar {

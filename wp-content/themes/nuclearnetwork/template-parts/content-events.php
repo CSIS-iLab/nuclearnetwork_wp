@@ -13,9 +13,9 @@ if ( $is_featured ) {
 	$featured_class = ' featured';
 }
 
-$current_date = strtotime( '-1 day' );
-$post_date = strtotime( $post->post_date );
-if ( $current_date > $post_date ) {
+$current_date = date( 'Y-m-d' );
+$post_date = explode( ' ', $post->post_date);
+if ( $current_date > $post_date[0] ) {
 	$past_class = ' past';
 }
 
