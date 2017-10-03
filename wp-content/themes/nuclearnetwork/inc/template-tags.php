@@ -88,7 +88,7 @@ if ( ! function_exists( 'nuclearnetwork_entry_tags' ) ) :
 	 */
 	function nuclearnetwork_entry_tags() {
 		// Hide category and tag text for pages.
-		if ( in_array( get_post_type(), array( 'post', 'events' ), true ) ) {
+		if ( in_array( get_post_type(), array( 'post', 'events', 'opportunities', 'announcements' ), true ) ) {
 			/* translators: used between list items, there is a space after the comma */
 			$tags_list = get_the_tag_list( '<ul><li>','</li><li>','</li></ul>' );
 			if ( $tags_list ) {
@@ -105,7 +105,7 @@ if ( ! function_exists( 'nuclearnetwork_entry_categories' ) ) :
 	 */
 	function nuclearnetwork_entry_categories() {
 		// Hide category and tag text for pages.
-		if ( in_array( get_post_type(), array( 'post', 'events', 'opportunities' ), true ) ) {
+		if ( in_array( get_post_type(), array( 'post', 'events', 'opportunities', 'announcements' ), true ) ) {
 			/* translators: used between list items, there is a space after the comma */
 			$categories_list = get_the_category_list();
 			if ( $categories_list ) {
@@ -124,7 +124,7 @@ if ( ! function_exists( 'nuclearnetwork_post_format' ) ) :
 	 */
 	function nuclearnetwork_post_format( $id ) {
 		$post_type = get_post_type();
-		if ( in_array( $post_type, array( 'post', 'news', 'events', 'opportunities' ), true ) ) {
+		if ( in_array( $post_type, array( 'post', 'news', 'events', 'opportunities', 'announcements' ), true ) ) {
 
 			$is_featured = get_post_meta( $id, '_post_is_featured', true );
 			if ( 1 == $is_featured ) {

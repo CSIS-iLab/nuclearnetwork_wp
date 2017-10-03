@@ -11,8 +11,8 @@ require get_template_directory() . '/inc/cpts/custom-post-meta.php';
 /*----------  Custom Post Type: Alumni  ----------*/
 require get_template_directory() . '/inc/cpts/alumni.php';
 
-/*----------  Custom Post Type: Director's Corner  ----------*/
-require get_template_directory() . '/inc/cpts/directors-corner.php';
+/*----------  Custom Post Type: Announcements  ----------*/
+require get_template_directory() . '/inc/cpts/announcements.php';
 
 /*----------  Custom Post Type: Essentials  ----------*/
 require get_template_directory() . '/inc/cpts/essentials.php';

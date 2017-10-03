@@ -76,6 +76,7 @@ add_filter( 'wp', 'jetpackme_remove_rp', 20 );
  */
 function jetpackme_allow_my_post_types( $allowed_post_types ) {
 	$allowed_post_types[] = 'events';
+	$allowed_post_types[] = 'announcements';
 	return $allowed_post_types;
 }
 add_filter( 'rest_api_allowed_post_types', 'jetpackme_allow_my_post_types' );
@@ -271,7 +272,7 @@ function nuclearnetwork_events_archive( $query ) {
 }
 
 /**
- * Rewrite events URL to account for past events.
+ * Rewrite events URL to account for past events & non-PONI events.
  */
 function nuclearnetwork_event_archive_rewrites() {
 	add_rewrite_tag( '%is_past%','([^&]+)' );
