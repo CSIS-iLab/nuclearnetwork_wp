@@ -41,7 +41,7 @@ function nuclearnetwork_cpt_announcements() {
 		'label'                 => __( 'Announcements', 'nuclearnetwork' ),
 		'description'           => __( 'Posts by the PONI program director', 'nuclearnetwork' ),
 		'labels'                => $labels,
-		'supports'              => array( 'title', 'editor', 'excerpt', 'thumbnail' ),
+		'supports'              => array( 'title', 'editor', 'excerpt', 'thumbnail', 'author' ),
 		'taxonomies'            => array( 'category', 'post_tag' ),
 		'hierarchical'          => false,
 		'public'                => true,
