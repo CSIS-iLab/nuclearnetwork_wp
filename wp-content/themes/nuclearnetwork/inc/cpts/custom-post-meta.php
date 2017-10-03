@@ -64,7 +64,7 @@ function nuclearnetwork_extra_publish_options_save( $post_id, $post, $update ) {
 function post_add_meta_boxes( $post ) {
 	add_meta_box( 'post_meta_box', __( 'Additional Post Information', 'nuclearnetwork' ), 'post_build_meta_box', 'post', 'normal', 'high' );
 
-	add_meta_box( 'post_meta_box', __( 'Additional Post Information', 'nuclearnetwork' ), 'essentials_build_meta_box', 'essentials', 'normal', 'high' );
+	add_meta_box( 'post_meta_box', __( 'Additional Post Information', 'nuclearnetwork' ), 'resources_build_meta_box', 'resources', 'normal', 'high' );
 
 	add_meta_box( 'post_meta_box', __( 'Additional Post Information', 'nuclearnetwork' ), 'events_build_meta_box', 'events', 'normal', 'high' );
 
@@ -175,42 +175,42 @@ function post_build_meta_box( $post ) {
 }
 
 /**
- * Build custom field meta box for essentials posts.
+ * Build custom field meta box for resources posts.
  *
  * @param post $post The post object.
  */
-function essentials_build_meta_box( $post ) {
+function resources_build_meta_box( $post ) {
 	// Make sure the form request comes from WordPress.
 	wp_nonce_field( basename( __FILE__ ), 'post_meta_box_nonce' );
 
 	// Retrieve current value of fields.
-	$current_sources = get_post_meta( $post->ID, '_post_sources', true );
-	$current_disable_linkedin = get_post_meta( $post->ID, '_post_disable_linkedin', true );
-	$current_linkedin_url = get_post_meta( $post->ID, '_post_linkedin_url', true );
+	$current_info_url = get_post_meta( $post->ID, '_post_info_url', true );
+	$current_publication_month = get_post_meta( $post->ID, '_post_publication_month', true );
+	$current_publication_year = get_post_meta( $post->ID, '_post_publication_year', true );
+
+	$months = array( 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December' );
 
 	?>
 	<div class='inside'>
-		<h3><?php esc_html_e( 'Additional Sources:', 'nuclearnetwork' ); ?></h3>
+		<h3><?php esc_html_e( 'URL:', 'nuclearnetwork' ); ?></h3>
 		<p>
-			<?php
-				wp_editor(
-					$current_sources,
-					'sources',
-					array(
-						'media_buttons' => false,
-						'textarea_name' => 'sources',
-						'textarea_rows' => 5,
-						'teeny' => true,
-					)
-				);
-			?>
+			<input type="text" class="large-text" name="info_url" value="<?php echo esc_textarea( $current_info_url ); ?>" /> 
 		</p>
-		<h3><?php esc_html_e( 'LinkedIn:', 'nuclearnetwork' ); ?></h3>
+		<h3><?php esc_html_e( 'Publication Date:', 'nuclearnetwork' ); ?></h3>
 		<p>
-			<label for="linkedin_url"><?php esc_html_e( 'LinkedIn URL:', 'nuclearnetwork' ); ?></label> <input type="text" class="large-text" name="linkedin_url" value="<?php echo esc_textarea( $current_linkedin_url ); ?>" /> 
-		</p>
-		<p>
-			<input type="checkbox" name="disable_linkedin" value="1" <?php checked( $current_disable_linkedin, '1' ); ?> /> <?php esc_html_e( 'Yes, disable the LinkedIn message', 'nuclearnetwork' ); ?>
+			<label for="publication_year">Year:</label> <input type="text" class="small-text" id="publication_year" name="publication_year" value="<?php echo esc_textarea( $current_publication_year ); ?>" /> 
+			<label for="publication_month">Month:</label> <select id="publication_month" name="publication_month">
+				<?php
+				foreach ( $months as $month ) {
+					if ( $month === $current_publication_month ) {
+						$selected = ' selected';
+					} else {
+						$selected = '';
+					}
+					echo '<option value="' . $month . '"' . $selected .'>' . $month . '</option>';
+				}
+				?>
+			</select>
 		</p>
 	</div>
 	<?php
@@ -455,9 +455,15 @@ function post_save_meta_box_data( $post_id ) {
 	}
 	// Post Format
 	if ( isset( $_REQUEST['post_format'] ) ) { // Input var okay.
-		// echo $_POST['post_format'];
-		// die();
 		update_post_meta( $post_id, '_post_post_format', sanitize_text_field( wp_unslash( $_POST['post_format'] ) ) ); // Input var okay.
+	}
+	// Publication Month
+	if ( isset( $_REQUEST['publication_month'] ) ) { // Input var okay.
+		update_post_meta( $post_id, '_post_publication_month', sanitize_text_field( wp_unslash( $_POST['publication_month'] ) ) ); // Input var okay.
+	}
+	// Publication Year
+	if ( isset( $_REQUEST['publication_year'] ) ) { // Input var okay.
+		update_post_meta( $post_id, '_post_publication_year', intval( wp_unslash( $_POST['publication_year'] ) ) ); // Input var okay.
 	}
 	// Sidebar
 	if ( isset( $_REQUEST['sidebar'] ) ) { // Input var okay.

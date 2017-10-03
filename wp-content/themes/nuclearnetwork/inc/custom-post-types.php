@@ -14,9 +14,6 @@ require get_template_directory() . '/inc/cpts/alumni.php';
 /*----------  Custom Post Type: Announcements  ----------*/
 require get_template_directory() . '/inc/cpts/announcements.php';
 
-/*----------  Custom Post Type: Essentials  ----------*/
-require get_template_directory() . '/inc/cpts/essentials.php';
-
 /*----------  Custom Post Type: Events  ----------*/
 require get_template_directory() . '/inc/cpts/events.php';
 
@@ -25,3 +22,6 @@ require get_template_directory() . '/inc/cpts/news.php';
 
 /*----------  Custom Post Type: Opportunities  ----------*/
 require get_template_directory() . '/inc/cpts/opportunities.php';
+
+/*----------  Custom Post Type: Resources  ----------*/
+require get_template_directory() . '/inc/cpts/resources.php';

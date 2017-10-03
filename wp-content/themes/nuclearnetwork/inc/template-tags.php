@@ -88,7 +88,7 @@ if ( ! function_exists( 'nuclearnetwork_entry_tags' ) ) :
 	 */
 	function nuclearnetwork_entry_tags() {
 		// Hide category and tag text for pages.
-		if ( in_array( get_post_type(), array( 'post', 'events', 'opportunities', 'announcements' ), true ) ) {
+		if ( in_array( get_post_type(), array( 'post', 'events', 'opportunities', 'announcements', 'resources' ), true ) ) {
 			/* translators: used between list items, there is a space after the comma */
 			$tags_list = get_the_tag_list( '<ul><li>','</li><li>','</li></ul>' );
 			if ( $tags_list ) {
@@ -105,7 +105,7 @@ if ( ! function_exists( 'nuclearnetwork_entry_categories' ) ) :
 	 */
 	function nuclearnetwork_entry_categories() {
 		// Hide category and tag text for pages.
-		if ( in_array( get_post_type(), array( 'post', 'events', 'opportunities', 'announcements' ), true ) ) {
+		if ( in_array( get_post_type(), array( 'post', 'events', 'opportunities', 'announcements', 'resources' ), true ) ) {
 			/* translators: used between list items, there is a space after the comma */
 			$categories_list = get_the_category_list();
 			if ( $categories_list ) {
@@ -124,7 +124,7 @@ if ( ! function_exists( 'nuclearnetwork_post_format' ) ) :
 	 */
 	function nuclearnetwork_post_format( $id ) {
 		$post_type = get_post_type();
-		if ( in_array( $post_type, array( 'post', 'news', 'events', 'opportunities', 'announcements' ), true ) ) {
+		if ( in_array( $post_type, array( 'post', 'news', 'events', 'opportunities', 'announcements', 'resources' ), true ) ) {
 
 			$is_featured = get_post_meta( $id, '_post_is_featured', true );
 			if ( 1 == $is_featured ) {
@@ -151,6 +151,12 @@ if ( ! function_exists( 'nuclearnetwork_post_format' ) ) :
 				if ( ! empty( $opportunity_types ) && ! is_wp_error( $opportunity_types ) ) {
 					$opportunity_types = wp_list_pluck( $opportunity_types, 'name' );
 					$post_format = $opportunity_types[0];
+				}
+			} elseif ( 'resources' === $post_type ) {
+				$resource_types = get_the_terms( $id, 'resource_types' );
+				if ( ! empty( $resource_types ) && ! is_wp_error( $resource_types ) ) {
+					$resource_types = wp_list_pluck( $resource_types, 'name' );
+					$post_format = $resource_types[0];
 				}
 			}
 
@@ -360,9 +366,54 @@ if ( ! function_exists( 'nuclearnetwork_info_url' ) ) :
 	 * @param  string $label Label for the button.
 	 */
 	function nuclearnetwork_info_url( $id, $label = 'More Info' ) {
-		if ( in_array( get_post_type(), array( 'events', 'opportunities' ), true ) && '' !== get_post_meta( $id, '_post_info_url', true ) ) {
+		if ( in_array( get_post_type(), array( 'events', 'opportunities', 'resources' ), true ) && '' !== get_post_meta( $id, '_post_info_url', true ) ) {
 			$info_url = get_post_meta( $id, '_post_info_url', true );
-			printf( '<div class="post-info-url"><a href="' . esc_url( '%1$s' ) . '" target="_blank" class="btn btn-yellow">%2$s</a></div>', $info_url, $label ); // WPCS: XSS OK.
+			$info_url = esc_url( $info_url );
+			printf( '<div class="post-info-url"><a href="%1$s" target="_blank" class="btn btn-yellow">%2$s</a></div>', $info_url, $label ); // WPCS: XSS OK.
+		}
+	}
+endif;
+
+if ( ! function_exists( 'nuclearnetwork_publication_date' ) ) :
+	/**
+	 * Returns publication dates for resources.
+	 *
+	 * @param  int $id Post ID.
+	 */
+	function nuclearnetwork_publication_date( $id ) {
+		if ( 'resources' === get_post_type() && ( '' !== get_post_meta( $id, '_post_publication_year', true ) || '' !== get_post_meta( $id, '_post_publication_month', true ) ) ) {
+			$publication_month = ' ' . get_post_meta( $id, '_post_publication_month', true );
+			$publication_year = ' ' . get_post_meta( $id, '_post_publication_year', true );
+			printf( '<div class="post-publication-date"><span class="meta-label">Published:</span>%1$s%2$s</a></div>', $publication_month, $publication_year ); // WPCS: XSS OK.
+		}
+	}
+endif;
+
+if ( ! function_exists( 'nuclearnetwork_resources_authors' ) ) :
+	/**
+	 * Prints HTML with resource author information.
+	 *
+	 * @param  int $id Post ID.
+	 */
+	function nuclearnetwork_resources_authors( $id ) {
+		// Hide category and tag text for pages.
+		if ( 'resources' === get_post_type() ) {
+			/* translators: used between list items, there is a space after the comma */
+			$authors_list = wp_get_post_terms( $id, 'resource_authors', array(
+				'fields' => 'names',
+			) );
+			if ( $authors_list ) {
+
+				if ( count( $authors_list ) > 1 ) {
+					$label = 'Authors';
+				} else {
+					$label = 'Author';
+				}
+				$authors_list = implode( ', ', $authors_list );
+
+				/* translators: 1: list of resource authors. */
+				printf( '<div class="resource-authors"><span class="meta-label">' . esc_html__( '%1$s:', 'nuclearnetwork' ) . '</span> ' . esc_html( '%2$s' ) . '</div>', $label, $authors_list ); // WPCS: XSS OK.
+			}
 		}
 	}
 endif;

@@ -370,9 +370,11 @@
 	}
 }
 
-/*----------  Dates  ----------*/
+/*----------  Dates & Resource Authors  ----------*/
 .post-event-dates,
-.post-opportunity-deadline {
+.post-opportunity-deadline,
+.post-publication-date,
+.resource-authors {
 	@extend %post-meta;
 	margin-bottom: 0;
 
