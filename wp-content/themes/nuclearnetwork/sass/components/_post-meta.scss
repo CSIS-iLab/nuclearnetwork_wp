@@ -371,7 +371,8 @@
 }
 
 /*----------  Dates  ----------*/
-.post-event-dates {
+.post-event-dates,
+.post-opportunity-deadline {
 	@extend %post-meta;
 	margin-bottom: 0;
 

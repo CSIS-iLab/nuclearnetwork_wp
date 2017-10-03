@@ -105,7 +105,7 @@ if ( ! function_exists( 'nuclearnetwork_entry_categories' ) ) :
 	 */
 	function nuclearnetwork_entry_categories() {
 		// Hide category and tag text for pages.
-		if ( in_array( get_post_type(), array( 'post', 'events' ), true ) ) {
+		if ( in_array( get_post_type(), array( 'post', 'events', 'opportunities' ), true ) ) {
 			/* translators: used between list items, there is a space after the comma */
 			$categories_list = get_the_category_list();
 			if ( $categories_list ) {
@@ -124,7 +124,7 @@ if ( ! function_exists( 'nuclearnetwork_post_format' ) ) :
 	 */
 	function nuclearnetwork_post_format( $id ) {
 		$post_type = get_post_type();
-		if ( in_array( $post_type, array( 'post', 'news', 'events' ), true ) ) {
+		if ( in_array( $post_type, array( 'post', 'news', 'events', 'opportunities' ), true ) ) {
 
 			$is_featured = get_post_meta( $id, '_post_is_featured', true );
 			if ( 1 == $is_featured ) {
@@ -145,6 +145,12 @@ if ( ! function_exists( 'nuclearnetwork_post_format' ) ) :
 				if ( ! empty( $event_types ) && ! is_wp_error( $event_types ) ) {
 					$event_types = wp_list_pluck( $event_types, 'name' );
 					$post_format = $event_types[0];
+				}
+			} elseif ( 'opportunities' === $post_type ) {
+				$opportunity_types = get_the_terms( $id, 'opportunity_types' );
+				if ( ! empty( $opportunity_types ) && ! is_wp_error( $opportunity_types ) ) {
+					$opportunity_types = wp_list_pluck( $opportunity_types, 'name' );
+					$post_format = $opportunity_types[0];
 				}
 			}
 
@@ -273,7 +279,7 @@ if ( ! function_exists( 'nuclearnetwork_poni_sponsored' ) ) :
 	 * @param  int $id Post ID.
 	 */
 	function nuclearnetwork_poni_sponsored( $id ) {
-		if ( 'events' === get_post_type() && 1 == get_post_meta( $id, '_post_poni_sponsored', true ) ) {
+		if ( in_array( get_post_type(), array( 'events', 'opportunities' ), true ) && 1 == get_post_meta( $id, '_post_poni_sponsored', true ) ) {
 			printf( '<div class="poni-sponsored"><i class="icon-bookmark"></i> <span class="meta-label">' . esc_html_x( 'PONI Program Opportunity', 'nuclearnetwork' ) . '</span></div>' ); // WPCS: XSS OK.
 		}
 	}
@@ -286,7 +292,7 @@ if ( ! function_exists( 'nuclearnetwork_post_location' ) ) :
 	 * @param  int $id Post ID.
 	 */
 	function nuclearnetwork_post_location( $id ) {
-		if ( 'events' === get_post_type() && '0' !== get_post_meta( $id, '_post_location', true ) ) {
+		if ( in_array( get_post_type(), array( 'events', 'opportunities' ), true ) && '' !== get_post_meta( $id, '_post_location', true ) ) {
 			$location = get_post_meta( $id, '_post_location', true );
 			printf( '<div class="post-location"><span class="meta-label">' . esc_html_x( 'Location:', 'nuclearnetwork' ) . '</span> %1$s</div>', $location ); // WPCS: XSS OK.
 		}
@@ -323,6 +329,29 @@ if ( ! function_exists( 'nuclearnetwork_event_dates' ) ) :
 	}
 endif;
 
+if ( ! function_exists( 'nuclearnetwork_opportunity_deadline' ) ) :
+	/**
+	 * Returns HTML with event dates.
+	 *
+	 * @param  int $id Post ID.
+	 */
+	function nuclearnetwork_opportunity_deadline( $id ) {
+		if ( 'opportunities' === get_post_type() && null !== get_post_meta( $id, '_post_deadline', true ) ) {
+			$date = get_post_meta( $id, '_post_deadline', true );
+			$date_array = nuclearnetwork_check_date( $date );
+			if ( $date_array ) {
+				$date = date( get_option( 'date_format' ), mktime( 0, 0, 0, $date_array[1], $date_array[2], $date_array[0] ) );
+			}
+
+			if ( '1' === get_post_meta( $id, '_post_is_ongoing', true ) ) {
+				$ongoing = ' (Ongoing)';
+			}
+
+			printf( '<div class="post-opportunity-deadline"><span class="meta-label">' . esc_html_x( 'Deadline:', 'nuclearnetwork' ) . '</span> %1$s%2$s</div>', $date, $ongoing ); // WPCS: XSS OK.
+		}
+	}
+endif;
+
 if ( ! function_exists( 'nuclearnetwork_info_url' ) ) :
 	/**
 	 * Returns info button with custom label.
@@ -331,7 +360,7 @@ if ( ! function_exists( 'nuclearnetwork_info_url' ) ) :
 	 * @param  string $label Label for the button.
 	 */
 	function nuclearnetwork_info_url( $id, $label = 'More Info' ) {
-		if ( in_array( get_post_type(), array( 'events' ), true ) && '' !== get_post_meta( $id, '_post_info_url', true ) ) {
+		if ( in_array( get_post_type(), array( 'events', 'opportunities' ), true ) && '' !== get_post_meta( $id, '_post_info_url', true ) ) {
 			$info_url = get_post_meta( $id, '_post_info_url', true );
 			printf( '<div class="post-info-url"><a href="' . esc_url( '%1$s' ) . '" target="_blank" class="btn btn-yellow">%2$s</a></div>', $info_url, $label ); // WPCS: XSS OK.
 		}
