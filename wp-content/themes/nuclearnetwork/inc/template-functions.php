@@ -77,6 +77,7 @@ add_filter( 'wp', 'jetpackme_remove_rp', 20 );
 function jetpackme_allow_my_post_types( $allowed_post_types ) {
 	$allowed_post_types[] = 'events';
 	$allowed_post_types[] = 'announcements';
+	$allowed_post_types[] = 'resources';
 	return $allowed_post_types;
 }
 add_filter( 'rest_api_allowed_post_types', 'jetpackme_allow_my_post_types' );
