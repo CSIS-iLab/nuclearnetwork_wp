@@ -327,3 +327,17 @@ function nuclearnetwork_co_author_wseo_title( $title ) {
 	return $title;
 }
 add_filter( 'wpseo_title', 'nuclearnetwork_co_author_wseo_title' );
+
+/**
+ * Filter the "read more" excerpt string link to the post.
+ *
+ * @param string $more "Read more" excerpt string.
+ * @return string (Maybe) modified "read more" excerpt string.
+ */
+function nuclearnetwork_excerpt_more( $more ) {
+	return sprintf( ' <a class="read-more" href="%1$s">%2$s<i class="icon-arrow-right"></i></a>',
+		get_permalink( get_the_ID() ),
+		__( 'Read More', 'textdomain' )
+	);
+}
+add_filter( 'excerpt_more', 'nuclearnetwork_excerpt_more' );

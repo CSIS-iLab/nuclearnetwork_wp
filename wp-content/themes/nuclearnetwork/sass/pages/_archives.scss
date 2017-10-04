@@ -291,6 +291,21 @@
 
 			a { color: $white; }
 		}
+
+		.read-more {
+			@include fontSize(14px);
+			@include box-shadow(0,-1px,0,0, $secondary-blue, true);
+
+			&:hover { box-shadow: none; }
+
+			i {
+				@include fontSize(12px);
+				&::before {
+					margin-right: 0;
+					width: 0.5rem;
+				}
+			}
+		}
 	}
 
 	.archive-sidebar {
