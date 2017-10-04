@@ -23,5 +23,37 @@
 				});
 			}
 		});
+
+		editor.addButton('toc', {
+			text: 'Table of Contents',
+			icon: null,
+			tooltip: 'Insert ToC Heading',
+			onclick: function() {
+				editor.insertContent( '[toc]' );
+			}
+		});
+
+		editor.addButton('readPDF', {
+			text: 'PDF Page',
+			icon: null,
+			tooltip: 'Insert PDF Page Link',
+			onclick: function() {
+				editor.windowManager.open( {
+					title: 'Insert PDF Page Number to link to',
+					width: 400,
+					height: 100,
+					body: [
+						{
+							type: 'textbox',
+							multiline: false,
+							name: 'page'
+						}
+					],
+					onsubmit: function( e ) {
+						editor.insertContent( '[readPDF page="' + e.data.page + '"]');
+					}
+				});
+			}
+		});
 	});
 })();

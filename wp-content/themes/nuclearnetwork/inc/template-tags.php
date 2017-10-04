@@ -238,11 +238,11 @@ if ( ! function_exists( 'nuclearnetwork_report_download' ) ) :
 			$view_url = get_post_meta( $id, '_post_view_url', true );
 
 			if ( '' !== $download_url ) {
-				$download = '<p><a href="' . esc_url( $download_url ) . '"><i class="icon-download"></i>' . esc_html( 'Download', 'nuclearnetwork' ) . '</a></p>';
+				$download = '<p><a href="' . esc_url( $download_url ) . '" download="PONIReport"><i class="icon-download"></i>' . esc_html( 'Download', 'nuclearnetwork' ) . '</a></p>';
 			}
 
 			if ( '' !== $view_url ) {
-				$view = '<p><a href="' . esc_url( $view_url ) . '"><i class="icon-file-pdf"></i>' . esc_html( 'View', 'nuclearnetwork' ) . '</a></p>';
+				$view = '<p><a href="' . esc_url( $view_url ) . '" target="_blank"><i class="icon-file-pdf"></i>' . esc_html( 'View', 'nuclearnetwork' ) . '</a></p>';
 			}
 
 			printf( '<div class="post-report">%1$s%2$s</div>', $download, $view ); // WPCS: XSS OK.

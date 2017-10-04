@@ -7,6 +7,10 @@ Editor styles for TinyMCE editor
 @import "base/normalize";
 @import "base/typography";
 
+// Editor
+body.wp-autoresize {
+	padding: 0.5rem !important;
+}
 
 // Headings
 h1 { @extend %h1; }

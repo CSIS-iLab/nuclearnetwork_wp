@@ -49,6 +49,13 @@
     }
   }
 
+  // Reports
+  .post-report-content {
+    h4:not(.toc-heading) {
+      font-weight: bold;
+    }
+  }
+
   // Site Footer
   .site-footer { margin-top: 0; }
 }

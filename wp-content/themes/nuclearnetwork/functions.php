@@ -175,6 +175,11 @@ require get_template_directory() . '/inc/custom-usermeta.php';
 require get_template_directory() . '/inc/custom-settings.php';
 
 /**
+ * Load custom shortcodes..
+ */
+require get_template_directory() . '/inc/custom-shortcodes.php';
+
+/**
  * Load custom TinyMCE buttons.
  */
 require get_template_directory() . '/inc/custom-tinymce.php';

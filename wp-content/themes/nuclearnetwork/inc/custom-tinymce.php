@@ -57,7 +57,7 @@ if ( ! function_exists( 'nuclearnetwork_register_buttons' ) ) {
 	 * @return Array          Updated buttons array.
 	 */
 	function nuclearnetwork_register_buttons( $buttons ) {
-		array_push( $buttons, 'note' );
+		array_push( $buttons, 'note', 'toc', 'readPDF' );
 		return $buttons;
 	}
 }

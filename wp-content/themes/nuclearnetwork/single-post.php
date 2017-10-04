@@ -9,6 +9,10 @@
 
 $id = $post->ID;
 $sources = get_post_meta( $id, '_post_sources', true );
+$post_format = get_post_meta( $id, '_post_post_format', true );
+if ( 'report' === $post_format ) {
+	$report_class = 'post-report-content';
+}
 
 get_header(); ?>
 
@@ -40,7 +44,7 @@ get_header(); ?>
 							?>
 							<?php get_template_part( 'share-inline' ); ?>
 						</div>
-						<div class="post-content">
+						<div class="post-content <?php echo sanitize_html_class( $report_class ); ?>">
 						<?php
 							the_content( sprintf(
 								wp_kses(
