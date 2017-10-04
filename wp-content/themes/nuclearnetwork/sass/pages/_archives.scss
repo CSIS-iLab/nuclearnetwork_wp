@@ -191,7 +191,7 @@
 			overflow-x: hidden;
 			line-height: 1;
 
-			&:not(.sf-label-checkbox):after {
+			&:not(.sf-label-checkbox)::after {
 				content: "+";
                 text-align: right;
                 pointer-events: none;
@@ -206,6 +206,25 @@
                 background: -o-linear-gradient(left, rgba(242, 194, 97, 0) 0%, $yellow 65%);
                 background: -ms-linear-gradient(left, rgba(242, 194, 97, 0) 0%, $yellow 65%);
                 background: linear-gradient(to right, rgba(242, 194, 97, 0) 0%, $yellow 65%);
+			}
+		}
+
+		.sf-field-search {
+			label::after { content: none; }
+
+			input[type="text"] {
+				margin: 0;
+				background-color: transparent;
+				border-radius: 0;
+				border: 0;
+				border-bottom: 1px solid $dark-yellow;
+				padding: 0;
+				color: $black;
+
+				@include placeholder {
+		            color: $dark-yellow;
+		            font-style: italic;
+		        }
 			}
 		}
 
