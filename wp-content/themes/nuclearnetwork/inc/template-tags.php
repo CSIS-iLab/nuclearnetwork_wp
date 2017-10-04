@@ -225,6 +225,31 @@ if ( ! function_exists( 'nuclearnetwork_post_write' ) ) :
 	}
 endif;
 
+if ( ! function_exists( 'nuclearnetwork_report_download' ) ) :
+	/**
+	 * Returns HTML with download & view report links.
+	 *
+	 * @param  int $id Post ID.
+	 */
+	function nuclearnetwork_report_download( $id ) {
+		if ( 'post' === get_post_type() && 'report' === get_post_meta( $id, '_post_post_format', true ) ) {
+
+			$download_url = get_post_meta( $id, '_post_download_url', true );
+			$view_url = get_post_meta( $id, '_post_view_url', true );
+
+			if ( '' !== $download_url ) {
+				$download = '<p><a href="' . esc_url( $download_url ) . '"><i class="icon-download"></i>' . esc_html( 'Download', 'nuclearnetwork' ) . '</a></p>';
+			}
+
+			if ( '' !== $view_url ) {
+				$view = '<p><a href="' . esc_url( $view_url ) . '"><i class="icon-file-pdf"></i>' . esc_html( 'View', 'nuclearnetwork' ) . '</a></p>';
+			}
+
+			printf( '<div class="post-report">%1$s%2$s</div>', $download, $view ); // WPCS: XSS OK.
+		}
+	}
+endif;
+
 if ( ! function_exists( 'nuclearnetwork_post_num' ) ) :
 	/**
 	 * Returns HTML with total # of posts returned and the current page the user is on.

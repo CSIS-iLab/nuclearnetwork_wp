@@ -402,3 +402,26 @@
 		}
 	}
 }
+
+/*----------  Report  ----------*/
+.post-report {
+	margin-bottom: 1.5rem;
+	@extend %post-meta;
+
+	p {
+		margin-bottom: 0;
+	}
+
+	a {
+		color: $black;
+
+		&:hover {
+			color: $secondary-blue;
+		}
+	}
+
+	i {
+		color: $primary-blue;
+	}
+
+}

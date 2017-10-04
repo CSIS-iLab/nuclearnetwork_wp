@@ -33,6 +33,7 @@ get_header(); ?>
 						<div class="post-sidebar">
 							<?php
 							nuclearnetwork_post_format( $id );
+							nuclearnetwork_report_download( $id );
 							nuclearnetwork_authors_list();
 							nuclearnetwork_posted_on();
 							nuclearnetwork_entry_categories();
