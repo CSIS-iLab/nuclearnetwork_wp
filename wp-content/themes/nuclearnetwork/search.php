@@ -7,45 +7,59 @@
  * @package Nuclear_Network
  */
 
-get_header(); ?>
+get_header();
+
+$img = get_option( 'nuclearnetwork_category_and_tag_archive_image' );
+$featured_img = ' style="background-image:url(\'' . esc_attr( $img ) . '\');"';
+?>
 
 	<section id="primary" class="content-area">
 		<main id="main" class="site-main">
-
-		<?php
-		if ( have_posts() ) : ?>
-
-			<header class="page-header">
-				<h1 class="page-title"><?php
-					/* translators: %s: search query. */
-					printf( esc_html__( 'Search Results for: %s', 'nuclearnetwork' ), '<span>' . get_search_query() . '</span>' );
-				?></h1>
+			<header class="page-header"<?php echo $featured_img; ?>>
+				<div class="header-content">
+					<div class="archive-category"><p><?php echo esc_html_x( 'Search Results for', 'nuclearnetwork' ); ?></p></div>
+					<h1 class="page-title"><?php echo get_search_query(); ?></h1>
+				</div>
+				<?php echo nuclearnetwork_archive_search(); ?>
 			</header><!-- .page-header -->
+			<div class="content-wrapper row archive-container">
+				<div class="col-xs-12 col-md-9 archive-content">
+				<?php
+				if ( have_posts() ) :
 
-			<?php
-			/* Start the Loop */
-			while ( have_posts() ) : the_post();
+					nuclearnetwork_post_num();
 
-				/**
-				 * Run the loop for the search to output the results.
-				 * If you want to overload this in a child theme then include a file
-				 * called content-search.php and that will be used instead.
-				 */
-				get_template_part( 'template-parts/content', 'search' );
+					/* Start the Loop */
+					while ( have_posts() ) : the_post();
 
-			endwhile;
+						/**
+						 * Run the loop for the search to output the results.
+						 * If you want to overload this in a child theme then include a file
+						 * called content-search.php and that will be used instead.
+						 */
+						
+						if( in_array( get_post_type(), array( 'post', 'events', 'opportunities', 'resources', 'announcements' ), true ) ) {
+							get_template_part( 'template-parts/content', get_post_type() );
+						} else {
+							get_template_part( 'template-parts/content', 'search' );
+						}
 
-			the_posts_navigation();
+					endwhile;
 
-		else :
+					the_posts_pagination();
 
-			get_template_part( 'template-parts/content', 'none' );
+				else :
 
-		endif; ?>
+					get_template_part( 'template-parts/content', 'none' );
 
+				endif; ?>
+				</div>
+				<div class="col-xs-12 col-md-3 archive-sidebar">
+					<?php get_sidebar(); ?>
+				</div>
+			</div>
 		</main><!-- #main -->
 	</section><!-- #primary -->
 
 <?php
-get_sidebar();
 get_footer();
