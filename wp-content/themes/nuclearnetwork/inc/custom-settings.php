@@ -500,6 +500,24 @@ function nuclearnetwork_admin_init_section_archives() {
 	);
 
 	add_settings_field(
+		'nuclearnetwork_category_and_tag_archive_image',
+		'Category & Tags Archive Image',
+		'nuclearnetwork_text_callback',
+		'nuclearnetwork-options-page',
+		'nuclearnetwork_settings_section_archives',
+		array( 'nuclearnetwork_category_and_tag_archive_image' )
+	);
+
+	add_settings_field(
+		'nuclearnetwork_authors_archive_image',
+		'Authors Archive Image',
+		'nuclearnetwork_text_callback',
+		'nuclearnetwork-options-page',
+		'nuclearnetwork_settings_section_archives',
+		array( 'nuclearnetwork_authors_archive_image' )
+	);
+
+	add_settings_field(
 		'nuclearnetwork_default_archive_search',
 		'Default Archive Search Form ID',
 		'nuclearnetwork_text_callback',
@@ -571,6 +589,18 @@ function nuclearnetwork_admin_init_section_archives() {
 	register_setting(
 		'nuclearnetwork_settings',
 		'nuclearnetwork_analysis_category',
+		'sanitize_text_field'
+	);
+
+	register_setting(
+		'nuclearnetwork_settings',
+		'nuclearnetwork_category_and_tag_archive_image',
+		'sanitize_text_field'
+	);
+
+	register_setting(
+		'nuclearnetwork_settings',
+		'nuclearnetwork_authors_archive_image',
 		'sanitize_text_field'
 	);
 

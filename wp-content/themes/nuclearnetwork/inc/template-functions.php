@@ -311,3 +311,19 @@ function nuclearnetwork_event_archive_rewrites() {
 }
 add_action( 'init', 'nuclearnetwork_event_archive_rewrites' );
 
+/**
+ * Custom page titles for Guest Authors with WordPress SEO
+ * Returns "[author name]&#39;s articles on [site name]".
+ *
+ * @param  string $title Author's name.
+ */
+function nuclearnetwork_co_author_wseo_title( $title ) {
+	// Only filter title output for author pages.
+	if ( is_author() && function_exists( 'get_coauthors' ) ) {
+		$qo = get_queried_object();
+		$author_name = $qo->display_name;
+		return $author_name . '&#39;s articles on ' . get_bloginfo( 'name' );
+	}
+	return $title;
+}
+add_filter( 'wpseo_title', 'nuclearnetwork_co_author_wseo_title' );
