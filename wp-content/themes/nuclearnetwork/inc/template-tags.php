@@ -275,6 +275,8 @@ if ( ! function_exists( 'nuclearnetwork_archive_search' ) ) :
 
 			if ( $id && '-1' === $id ) {
 				return;
+			} elseif ( is_home() ) {
+				$id = get_option( 'nuclearnetwork_post_archive_search' );
 			} elseif ( ! $id ) {
 				$id = get_option( 'nuclearnetwork_default_archive_search' );
 			}
