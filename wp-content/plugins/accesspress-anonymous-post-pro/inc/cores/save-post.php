@@ -171,6 +171,7 @@ if ( $error_flag == 0 ) {
 				// JS - Programmatically add guest authors.
 				if ( function_exists( 'coauthors_posts_links' ) ) {
 					$guest_author['display_name'] = $author_name;
+					$guest_author['user_login'] = sanitize_title( $author_name );
 				}
 			} else {
 				if ( is_user_logged_in() ) {
@@ -192,7 +193,6 @@ if ( $error_flag == 0 ) {
 
 				// JS - Programmatically add guest authors.
 				if ( function_exists( 'coauthors_posts_links' ) ) {
-					$guest_author['user_login'] = substr( $author_email, 0, strrpos( $author_email, '@' ) );
 					$guest_author['user_email'] = $author_email;
 				}
 			} else {
