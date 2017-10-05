@@ -9,7 +9,7 @@
 function nuclearnetwork_cpt_alumni() {
 
 	$labels = array(
-		'name'                  => _x( 'Alumni', 'Post Type General Name', 'nuclearnetwork' ),
+		'name'                  => _x( 'Next Generation', 'Post Type General Name', 'nuclearnetwork' ),
 		'singular_name'         => _x( 'Alumni Post', 'Post Type Singular Name', 'nuclearnetwork' ),
 		'menu_name'             => __( 'Alumni', 'nuclearnetwork' ),
 		'name_admin_bar'        => __( 'Alumni', 'nuclearnetwork' ),
@@ -38,14 +38,14 @@ function nuclearnetwork_cpt_alumni() {
 		'filter_items_list'     => __( 'Filter alumni list', 'nuclearnetwork' ),
 	);
 	$rewrite = array(
-		'slug'                  => 'nuclear-scholars',
+		'slug'                  => 'next-generation',
 		'with_front'            => true,
 		'pages'                 => true,
 		'feeds'                 => true,
 	);
 	$args = array(
-		'label'                 => __( 'Alumni', 'nuclearnetwork' ),
-		'description'           => __( 'Nuclear Scholar alumni profiles', 'nuclearnetwork' ),
+		'label'                 => __( 'Next Generation', 'nuclearnetwork' ),
+		'description'           => __( 'Next Gen Scholar alumni profiles', 'nuclearnetwork' ),
 		'labels'                => $labels,
 		'supports'              => array( 'title', 'editor', 'excerpt', 'thumbnail' ),
 		'hierarchical'          => false,
@@ -57,7 +57,7 @@ function nuclearnetwork_cpt_alumni() {
 		'show_in_admin_bar'     => true,
 		'show_in_nav_menus'     => true,
 		'can_export'            => true,
-		'has_archive'           => 'nuclear-scholars',
+		'has_archive'           => 'next-generation',
 		'exclude_from_search'   => false,
 		'publicly_queryable'    => true,
 		'rewrite'               => $rewrite,

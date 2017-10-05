@@ -124,7 +124,7 @@ if ( ! function_exists( 'nuclearnetwork_post_format' ) ) :
 	 */
 	function nuclearnetwork_post_format( $id ) {
 		$post_type = get_post_type();
-		if ( in_array( $post_type, array( 'post', 'news', 'events', 'opportunities', 'announcements', 'resources' ), true ) ) {
+		if ( in_array( $post_type, array( 'post', 'news', 'events', 'opportunities', 'announcements', 'resources', 'alumni' ), true ) ) {
 
 			$is_featured = get_post_meta( $id, '_post_is_featured', true );
 			if ( 1 == $is_featured ) {
@@ -272,6 +272,9 @@ if ( ! function_exists( 'nuclearnetwork_archive_search' ) ) :
 			global $wp_query;
 			$post_type = $wp_query->query['post_type'];
 			$id = get_option( 'nuclearnetwork_' . $post_type . '_archive_search' );
+
+			echo $post_type;
+			echo $id;
 
 			if ( $id && '-1' === $id ) {
 				return;

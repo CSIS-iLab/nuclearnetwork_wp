@@ -98,7 +98,7 @@ $img4 = get_option( 'nuclearnetwork_home_img_4' );
 				<div class="col-xs-6 col-md-3">
 					<div class="hp-block-2x block-primary">
 						<h4 class="section-header">
-							<?php esc_html_e( 'Next Gen Scholar Highlight', 'nuclearnetwork' ); ?>
+							<?php esc_html_e( 'Next Gen Highlight', 'nuclearnetwork' ); ?>
 						</h4>
 						<?php
 							$args = array(

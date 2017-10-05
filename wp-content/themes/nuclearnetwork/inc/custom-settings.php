@@ -580,6 +580,15 @@ function nuclearnetwork_admin_init_section_archives() {
 		array( 'nuclearnetwork_resources_archive_search' )
 	);
 
+	add_settings_field(
+		'nuclearnetwork_alumni_events_search',
+		'Alumni Archive Search Form ID',
+		'nuclearnetwork_text_callback',
+		'nuclearnetwork-options-page',
+		'nuclearnetwork_settings_section_archives',
+		array( 'nuclearnetwork_alumni_archive_search' )
+	);
+
 	register_setting(
 		'nuclearnetwork_settings',
 		'nuclearnetwork_analysis_desc',
@@ -643,6 +652,12 @@ function nuclearnetwork_admin_init_section_archives() {
 	register_setting(
 		'nuclearnetwork_settings',
 		'nuclearnetwork_resources_archive_search',
+		'sanitize_text_field'
+	);
+
+	register_setting(
+		'nuclearnetwork_settings',
+		'nuclearnetwork_alumni_archive_search',
 		'sanitize_text_field'
 	);
 }
