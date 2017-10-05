@@ -3,18 +3,22 @@ table {
 	width: 100%;
 	border-collapse: collapse;
 	overflow-x: scroll;
+	font-family: $font__lato;
 
 	thead {
-		border: 1px solid $primary-blue;
+		border: 1px solid $dark-blue;
 		border-bottom: 0;
 
 		th {
 			display: none;
-			background-color: $primary-blue;
+			background-color: $dark-blue;
 			color: $white;
-			font-family: $font__lato;
-			@include fontSize(17px);
+			@include fontSize(20px);
 			font-weight: normal;
+
+			&.show-xs {
+				display: table-cell;
+			}
 
 			@include breakpoint("medium") {
 				display: table-cell;
@@ -37,10 +41,6 @@ table {
 		padding: 10px;
 		text-align: left;
 
-		@include breakpoint("medium") {
-			text-align: center;
-		}
-
 		&.colorBG {
 			background-color: $off-white;
 		}
@@ -53,13 +53,12 @@ table {
 		@include fontSize(16px);
 	}
 
-	&.striped {
-		tbody tr:nth-child(even) {background-color: $white;}
-		tbody tr:nth-child(odd) {background-color: $off-white;}
+	tbody tr:nth-child(even) { background-color: $white; }
+	tbody tr:nth-child(odd) { background-color: $off-white; }
 
-		td {
-			font-family: $font__lato;
-		}
+	&.plain {
+		tbody tr:nth-child(even) { background-color: $white; }
+		tbody tr:nth-child(odd) { background-color: $white; }
 	}
 
 	&.showData td.showData,

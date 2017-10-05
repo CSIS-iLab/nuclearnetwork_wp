@@ -44,13 +44,14 @@ h1, h2, h3, h4, h5, h6 {
 	line-height: 1.2;
 	font-weight: 300;
 	color: $primary-blue;
-	margin: 0.5rem 0 1rem 0;
+	margin: 1rem 0;
 }
 
 %h3 {
 	font-family: $font__lato;
 	@include fontSize(26px);
 	line-height: 1.2;
+	font-weight: normal;
 	color: $black;
 	margin: 1rem 0;
 }
@@ -226,6 +227,7 @@ sub, sup {
 }
 
 %blockquote-source {
+	display: block;
 	text-align: right;
 	@include fontSize(14px);
 	line-height: 2.07;
@@ -238,27 +240,25 @@ sub, sup {
 
 blockquote {
 	margin: 2rem auto;
-	padding: 1rem;
-	border-top: 2px solid $primary-blue;;
-	border-bottom: 2px solid $primary-blue;;
+	padding: 0rem;
 
 	@include breakpoint("medium") {
-		width: 85%;
+		width: 66%;
 	}
 
 	p {
 		margin-bottom: 0;
 	}
 
-	.source {
+	cite {
 		@extend %blockquote-source;
 	}
 }
 
 blockquote, blockquote p {
-	font-family: $font__ptsans;
-	@include fontSize(18px);
-	line-height: 1.61;
+	font-family: $font__lato;
+	@include fontSize(20px);
+	line-height: 1.5;
 }
 
 blockquote, q {
@@ -333,6 +333,7 @@ a {
 	.post-content & {
 		@include box-shadow(0,-1px,0,0, $secondary-blue, true);
 
+		&:vsited { @include box-shadow(0,-1px,0,0, $secondary-blue, true); }
 		&:hover { box-shadow: none; }
 	}
 }
