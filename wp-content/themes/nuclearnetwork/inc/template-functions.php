@@ -406,3 +406,59 @@ function nuclearnetwork_events_archive_search_rewrites( $url, $sfid ) {
 	return $url;
 }
 add_filter( 'sf_results_url', 'nuclearnetwork_events_archive_search_rewrites', 10, 2 );
+
+/**
+  * Add REST API support to an already registered post type.
+  */
+  add_action( 'init', 'my_custom_post_type_rest_support', 25 );
+  function my_custom_post_type_rest_support() {
+  	global $wp_post_types;
+  
+  	//be sure to set this to the name of your post type!
+  	$post_type_name = 'guest-author';
+  	if( isset( $wp_post_types[ $post_type_name ] ) ) {
+  		$wp_post_types[$post_type_name]->show_in_rest = true;
+  		$wp_post_types[$post_type_name]->rest_base = 'guestauthor';
+  		$wp_post_types[$post_type_name]->rest_controller_class = 'WP_REST_Posts_Controller';
+  	}
+  
+  }
+
+// function nuclearnetwork_filter_guestauthor_json( $data, $post, $context ) {
+// 	$email = get_post_meta( $post->ID, 'cap-user_email', true );
+
+// 	if( $email ) {
+// 	    $data->data['email'] = $email;
+// 	}
+
+// 	return $data;
+// }
+// add_filter( 'rest_prepare_guest-author', 'nuclearnetwork_filter_guestauthor_json', 10, 3 );
+
+add_action( 'rest_api_init', 'myplugin_add_karma' );
+function myplugin_add_karma() {
+    register_rest_field( 'guest-author', 'cap-user_email', array(
+        'get_callback' => function( $comment_arr ) {
+            $email = get_post_meta( $comment_arr['id'], 'cap-user_email', true );
+            return $email;
+        },
+        'update_callback' => function( $karma, $comment_obj ) {
+            $ret = wp_update_comment( array(
+                'comment_ID'    => $comment_obj->comment_ID,
+                'comment_karma' => $karma
+            ) );
+            if ( false === $ret ) {
+                return new WP_Error(
+                  'rest_comment_karma_failed',
+                  __( 'Failed to update comment karma.' ),
+                  array( 'status' => 500 )
+                );
+            }
+            return true;
+        },
+        'schema' => array(
+            'description' => __( 'Guest author email.' ),
+            'type'        => 'string'
+        ),
+    ) );
+}
