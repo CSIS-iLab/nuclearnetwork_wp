@@ -31,7 +31,7 @@ if ( is_home() && get_option( 'page_for_posts' ) ) {
 						echo '<div class="archive-category">';
 						echo '<p>' . esc_html( $archive_category ) . '</p>';
 						echo '</div>';
-						the_archive_title( '<h1 class="page-title">', '</h1>' );
+						echo '<h1 class="page-title">' . esc_html( 'Analysis', 'nuclearnetwork' ) . '</h1>';
 						echo '<div class="archive-description">';
 						echo '<p>' . esc_html( $archive_desc ) . '</p>';
 						echo '</div>';
