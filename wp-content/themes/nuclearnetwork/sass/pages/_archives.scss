@@ -4,7 +4,8 @@
 
 .blog,
 .archive,
-.search {
+.search,
+.page-template-page_sidebar_right {
 	background-color: $off-white;
 
 	.archive-container {
@@ -318,4 +319,10 @@
 	}
 
 	.site-footer { margin-top: 0; }
+}
+
+.page-template-page_sidebar_right .archive-content {
+	@include breakpoint("medium") {
+		padding-left: 3rem;
+	}
 }
