@@ -89,6 +89,11 @@ function nuclearnetwork_filter_guest_author_fields( $fields_to_return, $groups )
 			'label' => 'Suffix',
 			'group' => 'name',
 		);
+		$fields_to_return[] = array(
+			'key'   => 'job_title',
+			'label' => 'Job Title',
+			'group' => 'about',
+		);
 	}
 	return $fields_to_return;
 }

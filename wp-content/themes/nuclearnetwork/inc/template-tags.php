@@ -37,7 +37,9 @@ if ( ! function_exists( 'nuclearnetwork_authors_list' ) ) :
 		if ( function_exists( 'coauthors_posts_links' ) ) {
 			$authors = '';
 			foreach ( get_coauthors() as $coauthor ) :
-				if ( ! get_user_meta( $coauthor->ID, 'title') ) {
+				if ( $coauthor->job_title ) {
+					$title = $coauthor->job_title;
+				} elseif ( ! get_user_meta( $coauthor->ID, 'title') ) {
 					$title = 'Guest Author';
 				} else {
 					$title = get_user_meta( $coauthor->ID, 'title', true );
