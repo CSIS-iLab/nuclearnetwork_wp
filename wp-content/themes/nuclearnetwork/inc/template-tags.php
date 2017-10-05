@@ -273,9 +273,6 @@ if ( ! function_exists( 'nuclearnetwork_archive_search' ) ) :
 			$post_type = $wp_query->query['post_type'];
 			$id = get_option( 'nuclearnetwork_' . $post_type . '_archive_search' );
 
-			echo $post_type;
-			echo $id;
-
 			if ( $id && '-1' === $id ) {
 				return;
 			} elseif ( is_home() ) {
