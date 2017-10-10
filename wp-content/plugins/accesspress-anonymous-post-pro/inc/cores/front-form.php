@@ -230,8 +230,8 @@ foreach ( $ap_settings[ 'form_fields' ] as $field_title => $field_array ) {
              * */
             case 'taxonomy':
                 $taxonomy_label = ($field_array[ 'label' ] == '') ? $field_label[ 'taxonomy_label' ] : $field_array[ 'label' ];
-                $form .= '<div class="ap-pro-form-field-wrapper">';
-                $form .= '<div class="label-wrap"><label>' . $taxonomy_label . '</label>';
+                $form .= '<div class="ap-pro-form-field-wrapper ' . $field_title . '">';
+                $form .= '<div class="label-wrap"><label for="' . $field_title . '">' . $taxonomy_label . '</label>';
                 if ( $field_array[ 'notes_type' ] == 'icon' && $field_array[ 'notes' ] != '' ) {
                     $form .= '<div class="ap-pro-info-wrap"><span class="ap-pro-info-notes-icon">i</span><div class="ap-pro-info-notes">' . $field_array[ 'notes' ] . '</div></div>';
                 }
@@ -490,7 +490,7 @@ $submit_button_label = ($ap_settings[ 'post_submit_label' ] == '') ? __('Submit 
 $redirect_url = ($ap_settings[ 'redirect_url' ] == '') ? $this->curPageURL() : esc_url($ap_settings[ 'redirect_url' ]);
 $captcha_type = ($ap_settings[ 'captcha_settings' ] == 1) ? $ap_settings[ 'captcha_type' ] : '';
 $captcha_version = (isset($ap_settings[ 'google_captcha_version' ])) ? $ap_settings[ 'google_captcha_version' ] : 'v1';
-$form .= '<div class="ap-pro-form-field-wrapper">
+$form .= '<div class="ap-pro-form-field-wrapper form-submit">
             <input type="hidden" name="redirect_url" value="' . $redirect_url . '"/>
             <input type="hidden" class="ap-captcha-type" value="' . $captcha_type . '"/>
             <input type="hidden" class="ap-captcha-version" value="' . $captcha_version . '"/>
