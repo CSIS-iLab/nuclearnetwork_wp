@@ -1524,7 +1524,7 @@ if ( !class_exists('AP_Pro_Class') ) {
                 if ( !in_array($term->slug, $exclude_terms) ) {
                     $space = $this->check_parent($term);
                     $option_value = ($hierarchical == 0) ? $term->name : $term->term_id;
-                    $form .= '<label class="ap-checkbox-label">' . $space . '<input type="checkbox" name="' . $field_title . '[]"  value="' . $option_value . '"/>' . $term->name . '</label>';
+                    $form .= '<label class="ap-checkbox-label">' . $space . '<input type="checkbox" name="' . $field_title . '[]"  value="' . $option_value . '"/><div class="checkbox-indicator"></div>' . $term->name . '</label>';
                 }
                 ?>
 

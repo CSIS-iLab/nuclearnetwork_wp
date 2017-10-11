@@ -334,7 +334,7 @@ foreach ( $ap_settings[ 'form_fields' ] as $field_title => $field_array ) {
                 $required_message = ($field_array[ 'required_message' ] == '') ? __('This field is required.', 'anonymous-post-pro') : $field_array[ 'required_message' ];
                 $form .= '</div><div class="ap-pro-form-field">';
                 if ( $field_array[ 'textbox_type' ] == 'textarea' ) {
-                    $form .= '<textarea name="' . $field_title . '" data-required-msg="' . $field_array[ 'required_message' ] . '" class="ap-pro-textarea' . $required . '"></textarea>';
+                    $form .= '<textarea id="' . $field_title . '" name="' . $field_title . '" data-required-msg="' . $field_array[ 'required_message' ] . '" class="ap-pro-textarea' . $required . '"></textarea>';
                 } else if ( $field_array[ 'textbox_type' ] == 'file_uploader' ) {
                     $file_upload_counter++;
                     $each_upload_counter++;
@@ -397,7 +397,7 @@ foreach ( $ap_settings[ 'form_fields' ] as $field_title => $field_array ) {
                             $checked_option_value = (isset($checked_option[ $option_count ])) ? $checked_option[ $option_count ] : 0;
                             $checked = ($checked_option_value == 1) ? 'checked="checked"' : '';
 
-                            $form .= '<label class="ap-checkbox-label ' . $display_type_class . '"><input type="checkbox" name="' . $field_title . '[]"  value="' . $values[ $option_count ] . '" ' . $checked . '>' . $option . '</label>';
+                            $form .= '<label class="ap-checkbox-label ' . $display_type_class . '"><input type="checkbox" name="' . $field_title . '[]"  value="' . $values[ $option_count ] . '" ' . $checked . '><div class="checkbox-indicator"></div>' . $option . '</label>';
                             $option_count++;
                         }
                         $form .= '</div>';
