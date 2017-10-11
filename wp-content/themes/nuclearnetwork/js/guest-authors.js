@@ -4,7 +4,8 @@
 
 ( function( $ ) {
 	var emailInput = 'input[name=ap_form_author_email]';
-	if ( $( emailInput ).length ) {
+	var nameInput = 'input[name=ap_form_author_name]';
+	if ( $( emailInput ).length && $( nameInput ).length ) {
 
 		// Alert
 		$('.author_email').before('<div class="author_alert">If you\'ve published content with us before, we\'ll look up your detailed information based on your email address.</div>');

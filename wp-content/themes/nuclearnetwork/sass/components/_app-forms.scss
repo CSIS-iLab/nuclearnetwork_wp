@@ -127,6 +127,15 @@
 	.qq-uploader {
 		margin-bottom: 0;
 	}
+
+	// Success Message
+	.ap-pro-form-success-msg {
+		background-color: $primary-blue;
+		color: $white;
+		margin: 1rem 0;
+		padding: 1rem;
+		@include fontSize(14px);
+	}
 	
 	// Author Fields
 	.author_alert {
