@@ -11,6 +11,7 @@
 		box-shadow: none;
 		border: 1px solid $dark-blue;
 		color: $dark-gray;
+		margin-bottom: 0;
 
 		&:focus {
 			color: $black;
@@ -102,6 +103,25 @@
 		    }
 	    }
 	}
+
+	// Required
+	.required,
+	.post_title,
+	.post_content,
+	.category,
+	.post_tag,
+	.author_email,
+	.author_name {
+		.label-wrap label::after {
+			content: '*';
+			color: red;
+		}
+	}
+
+	// Upload Button
+	.qq-uploader {
+		margin-bottom: 0;
+	}
 	
 	// Author Fields
 	.author_alert {
@@ -149,6 +169,7 @@
 	// Submit
 	.form-submit {
 		clear: left;
+		margin-top: 2rem;
 	}
 
 	.ap-pro-form-field-wrapper input[type="submit"] {
