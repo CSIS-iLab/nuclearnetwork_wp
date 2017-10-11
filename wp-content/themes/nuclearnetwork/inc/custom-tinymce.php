@@ -20,17 +20,9 @@ if ( ! function_exists( 'nuclearnetwork_theme_setup' ) ) {
 if ( ! function_exists( 'nuclearnetwork_buttons' ) ) {
 
 	/**
-	 * Only render buttons if users can edit posts & is using rich editor
+	 * Render buttons.
 	 */
 	function nuclearnetwork_buttons() {
-		if ( ! current_user_can( 'edit_posts' ) && ! current_user_can( 'edit_pages' ) ) {
-			return;
-		}
-
-		if ( get_user_option( 'rich_editing' ) !== 'true' ) {
-			return;
-		}
-
 		add_filter( 'mce_external_plugins', 'nuclearnetwork_add_buttons' );
 		add_filter( 'mce_buttons_3', 'nuclearnetwork_register_buttons' );
 	}
@@ -57,7 +49,11 @@ if ( ! function_exists( 'nuclearnetwork_register_buttons' ) ) {
 	 * @return Array          Updated buttons array.
 	 */
 	function nuclearnetwork_register_buttons( $buttons ) {
-		array_push( $buttons, 'note', 'toc', 'readPDF' );
+		if ( current_user_can( 'edit_posts' ) ) {
+			array_push( $buttons, 'note', 'toc', 'readPDF' );
+		} else {
+			array_push( $buttons, 'note' );
+		}
 		return $buttons;
 	}
 }
