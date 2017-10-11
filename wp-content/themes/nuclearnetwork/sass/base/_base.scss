@@ -17,7 +17,8 @@ body {
 }
 
 .site-content {
-	margin-top: 46px;
+	overflow-x: hidden;
+	margin-top: $size__header-bottom-height-mobile;
 
 	@include breakpoint("medium") {
 		margin-top: $size__header-top-height + $size__header-bottom-height;

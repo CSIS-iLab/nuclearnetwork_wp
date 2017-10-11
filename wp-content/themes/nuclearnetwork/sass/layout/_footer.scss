@@ -6,22 +6,17 @@ footer.site-footer {
 	background-color: $dark-blue;
 	margin-top: 3rem;
 
-	.footer-logoContainer {
-		background-color: $primary-blue;
-		padding: 1rem 0 0 0;
-
-		@include breakpoint("medium") {
-			padding: 1rem 0;
-		}
-	}
-
 	.site-info {
-		padding: 1.5rem 0 0;
+		padding: 2rem 0.5rem 0;
 
 		// Description & Disclaimer
 		.footer-info {
 			@include breakpoint("medium") {
 				padding-right: 3rem;
+			}
+
+			img {
+				margin-bottom: 1.5rem;
 			}
 
 			a {

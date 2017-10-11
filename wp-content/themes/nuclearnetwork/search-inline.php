@@ -14,5 +14,6 @@
 	<label for="header-search">
 		<span class="screen-reader-text"><?php echo esc_attr_x( 'Search for:', 'label' ); ?></span>
 		<span class="search-label"><i class="icon-search"></i></span>
+		<span class="search-label search-close is-hidden"><i class="icon-close"></i></span>
 	</label>
 </form>

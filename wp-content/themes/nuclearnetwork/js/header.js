@@ -24,6 +24,7 @@
   $(".header-search-form .search-label").on("click", function() {
     var parent = $(this).parents(".header-search-form");
     $(parent).children(".search-field").toggleClass("is-hidden").focus();
+    $(parent).find(".search-label").toggleClass("is-hidden");
     $(parent).toggleClass("is-active");
     $(".main-navigation .apply").toggleClass("is-shifted");
     $("body").toggleClass("toggled");
