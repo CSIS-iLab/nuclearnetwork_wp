@@ -170,7 +170,7 @@ foreach ( $ap_settings[ 'form_fields' ] as $field_title => $field_array ) {
                      * */
                     case 'post_excerpt':
                         $post_excerpt_label = ($field_array[ 'label' ] == '') ? __('Post Excerpt', 'anonymous-post-pro') : $field_array[ 'label' ];
-                        $form .= '<div class="ap-pro-form-field-wrapper">';
+                        $form .= '<div class="ap-pro-form-field-wrapper post_excerpt">';
                         $form .= '<div class="label-wrap"><label>' . $post_excerpt_label . '</label>';
                         if ( $field_array[ 'notes_type' ] == 'icon' && $field_array[ 'notes' ] != '' ) {
                             $form .= '<div class="ap-pro-info-wrap"><span class="ap-pro-info-notes-icon">i</span><div class="ap-pro-info-notes">' . $field_array[ 'notes' ] . '</div></div>';

@@ -112,6 +112,7 @@
 	.required,
 	.post_title,
 	.post_content,
+	.post_excerpt,
 	.category,
 	.post_tag,
 	.author_email,
@@ -151,23 +152,27 @@
 	}
 
 	// Taxonomies
-	.ap-pro-form-field-wrapper.category {
-		float: left;
-		width: 40%;
+	.ap-pro-form-field-wrapper.category,
+	.ap-pro-form-field-wrapper.post_tag {
 
 		.ap-checkbox-label {
-			margin: 0 10px 10px 0;
+			display: inline-block;
+			margin: 0 1rem 1rem 0;
 		}
 	}
 
-	.ap-pro-form-field-wrapper.post_tag {
-		width: 60%;
-		margin-left: 40%;
+	.ap-pro-form-field-wrapper.post_tag .ap-checkbox-wrap {
+		max-height: 300px;
+		overflow: scroll;
 
-		.ap-checkbox-label {
-			display: inline;
-			margin: 0 15px 10px 0;
-		}
+		&::-webkit-scrollbar {
+	        -webkit-appearance: none;
+	        width: 7px;
+	    }
+	    &::-webkit-scrollbar-thumb {
+	        background-color: $gray;
+	        -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
+	    }
 	}
 
 	// Submit
