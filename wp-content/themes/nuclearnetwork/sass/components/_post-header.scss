@@ -17,7 +17,7 @@
       margin-bottom: 3rem;
       z-index: 10;
       float: left;
-      padding-top: 3rem;
+      padding-top: 10rem;
       background-color: $off-white;
     }
 
@@ -125,9 +125,9 @@
       @include breakpoint("medium") {
         display: inline;
         background-color: $off-white;
-        padding-top: 30px;
+        padding-top: 8rem;
+        min-height: calc(350px + 8rem);
         z-index: 2;
-        min-height: 400px;
       }
     }
 
@@ -142,6 +142,9 @@
       }
     }
   }
+
+  // Site Content
+  .site-content { margin-top: 0; }
 }
 
 .header-simple,
@@ -149,7 +152,7 @@
   .entry-header {
     position: relative;
     background-color: $off-white;
-    padding-top: 3rem;
+    padding-top: 10rem;
     padding-bottom: 2rem;
     margin-bottom: 2rem;
 
@@ -182,4 +185,7 @@
       text-align: left;
     }
   }
+
+  // Site Content
+  .site-content { margin-top: 0; }
 }

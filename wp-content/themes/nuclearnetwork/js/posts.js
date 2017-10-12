@@ -32,7 +32,6 @@
 	        $from = $(from),
 	        $bumper = $(bumper),
 	        $startPos = $from.offset().top + $from.outerHeight(true),
-	        $startPosMinimalHeader = $from.offset().top + $from.outerHeight(true) - 25,
 	        bumperPos = $bumper.offset().top,
 	        thisHeight = $this.outerHeight(true),
 	        $headerHeight = $(".site-header").height(),
@@ -52,7 +51,7 @@
 	            } else if ($window.scrollTop() < $startPos - 100 ) {
 	            	$this.css({
 	                    position: 'absolute',
-	                    top: $startPosMinimalHeader
+	                    top: $startPos
 	                });
 	            } else if ($window.scrollTop() > (bumperPos - thisHeight - 175)) {
 	                $this.css({
