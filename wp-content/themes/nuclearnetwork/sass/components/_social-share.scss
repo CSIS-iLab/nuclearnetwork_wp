@@ -160,6 +160,8 @@
 	.to-top {
 		display: inline-block;
 		float: right;
+
+		&:hover { background-color: $primary-blue; }
 	}
 
 	.share-close-container {

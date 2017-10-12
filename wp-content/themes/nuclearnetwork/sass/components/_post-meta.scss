@@ -45,7 +45,7 @@
 	  	display: inline-block;
 	  	margin-left: 0.5rem;
 
-	  	&:before {
+	  	&::before {
 	  		content: "/";
 	  		margin-right: 0.5rem;
 	  	}
@@ -58,6 +58,16 @@
   	letter-spacing: 1.6px;
   	color: $black;
   }
+}
+
+.single .nextgen {
+	display: block;
+	margin: 0;
+
+	&::before {
+		content: none;
+		margin: 0;
+	}
 }
 
 /*----------  Authors List  ----------*/
@@ -225,7 +235,7 @@
 		padding: 0;
 		list-style-type: none;
 		display: inline;
-		margin-left: 0;
+		margin-left: 0.2rem;
 		margin-bottom: 0;
 
 		@include breakpoint("medium") {
@@ -243,23 +253,22 @@
 			margin-bottom: 0.25rem;
 		}
 
-		&:first-of-type::before {
-			content: none;
-
+		&::before {
 			@include breakpoint("medium") {
 				content: "\2014";
 				color: $secondary-blue;
 			}
 		}
 
-		&::before {
+		&::after {
 			content: ", ";
 
 			@include breakpoint("medium") {
-				content: "\2014";
-				color: $secondary-blue;
+				content: none;
 			}
 		}
+
+		&:last-of-type::after { content: none; }
 
 		a {
 			color: $black;
@@ -280,14 +289,18 @@
 		li {
 			display: inline;
 
-			&:first-of-type:before {
+			&::before {
 				content: none;
+				margin: 0;
 			}
 
-			&:not(:first-of-type):before {
+			&:not(:last-of-type)::after {
 				content: ", ";
 				color: $black;
-				margin-left: -4px;
+			}
+
+			&:last-of-type::after {
+				content: none;
 			}
 		}
 	}
