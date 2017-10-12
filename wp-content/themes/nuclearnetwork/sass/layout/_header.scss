@@ -60,16 +60,11 @@
         }
     }
 
-
-
     &.col-xs-2.is-minimal {
         @include breakpoint("medium") {
             max-width: 90px;
         }
     }
-
-
-
 
     &::before {
         content: "";
@@ -84,8 +79,6 @@
             width: 0vw;
         }
     }
-
-
 
     .logo-big {
         height: 100%;
@@ -105,11 +98,7 @@
         }
     }
 
-
-
     &.is-minimal {
-
-
         box-shadow: none; //transition: all 1.5s;
         height: 60px; //transition: height 1s ease-in-out;
         .col-xs-10.is-minimal {
@@ -148,15 +137,9 @@
                 min-height: 2.1rem;
             }
         }
-        .logo-big {
-            //display: none;
-        } //.logo-small {
-        //display: block;
-        //}
     }
 
     &.is-large {
-
         &::before {
             content: "";
             display: block;
@@ -204,9 +187,7 @@
 } // Top Bar: Social Media & Search
 .header-top {
     display: none;
-    transition: height .5s ease-in .3s; // @include breakpoint("medium") {
-    //     padding-left: 1rem;
-    // }
+    transition: height .5s ease-in .3s;
     @include breakpoint("medium") {
         position: relative;
         display: block;
@@ -243,9 +224,7 @@
     position: relative;
     height: $size__header-bottom-height-mobile;
     background-color: $secondary-blue;
-    transition: all .5s ease-in; // @include breakpoint("medium") {
-    //     padding-left: 1rem;
-    // }
+    transition: all .5s ease-in;
     @include breakpoint("medium") {
         height: $size__header-bottom-height;
     }
@@ -595,9 +574,7 @@
     .search-field {
         display: block;
         width: 90%;
-        visibility: visible;
         opacity: 1;
-        position: static;
         margin: 2rem auto;
         background-color: transparent;
         color: $medium-blue;
@@ -605,7 +582,7 @@
         border-bottom: 2px solid darken($primary-blue, 8%);
         border-radius: 0;
         @include fontSize(24px);
-        @include transition(visibility 0s, position 0s, opacity 0.5s linear, width 0.2s ease-in);
+        @include transition(opacity 0.5s linear, width 0.2s ease-in);
 
         @include breakpoint("medium") {
             display: inline-block;
@@ -629,9 +606,16 @@
 
         &.is-hidden {
             opacity: 0;
-            visibility: hidden;
-            position: absolute;
             width: 0;
+            height: 0;
+            margin: 0;
+            padding: 0;
+
+            @include breakpoint("medium") {
+                height: unset;
+                margin: 0;
+                padding: 5px 9px;
+            }
         }
     }
 }

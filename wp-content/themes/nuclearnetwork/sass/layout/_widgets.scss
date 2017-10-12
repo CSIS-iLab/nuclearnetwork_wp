@@ -22,6 +22,11 @@
 		}
 
 		.icon-twitter:before { margin-top: 0; }
+
+		a:hover {
+			color: $white;
+			@include transition(color .3s ease-in-out)
+		}
 	}
 
 	p {
