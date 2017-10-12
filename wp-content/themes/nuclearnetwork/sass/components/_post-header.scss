@@ -156,9 +156,13 @@
   .entry-header {
     position: relative;
     background-color: $off-white;
-    padding-top: 10rem;
+    padding-top: 3rem;
     padding-bottom: 2rem;
     margin-bottom: 2rem;
+
+    @include breakpoint("medium") {
+      padding-top: 10rem;
+    }
 
     &::before {
       content: "";
