@@ -63,7 +63,7 @@
 /*----------  Authors List  ----------*/
 .authors-list {
 	@include breakpoint("medium") {
-		margin-bottom: 1.5rem;
+		margin-bottom: 1rem;
 	}
 
 	a {
@@ -175,7 +175,7 @@
 	margin-bottom: 0;
 
 	@include breakpoint("medium") {
-		margin-bottom: 1.5rem;
+		margin-bottom: 1rem;
 	}
 
 	.meta-label { 
@@ -201,7 +201,7 @@
 	span:nth-of-type(2) {
 
 		@include breakpoint("medium") {
-			margin-top: 1.5rem;
+			margin-top: 1rem;
 		}
 	}
 
