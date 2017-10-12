@@ -58,6 +58,13 @@
 
   // Site Footer
   .site-footer { margin-top: 0; }
+  .site-footer .footer-copyright {
+    padding: 0.5rem 0.5rem 3rem;
+
+    @include breakpoint("medium") {
+      padding: 0.5rem;
+    }
+  }
 }
 
 // Card Format for archives & search results.
@@ -259,6 +266,11 @@
     color: $dark-gray;
     margin-top: 0.2rem;
     margin-bottom: 0;
+    line-height: 1.5;
+
+    @include breakpoint("medium") {
+      line-height: 1.9;
+    }
   }
 }
 

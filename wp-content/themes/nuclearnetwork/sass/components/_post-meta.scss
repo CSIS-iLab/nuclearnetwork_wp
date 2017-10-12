@@ -17,7 +17,7 @@
 .post-format {
   @extend %content-type;
   text-transform: uppercase;
-  margin-bottom: 0;
+  margin-bottom: 1rem;
 
   @include breakpoint("medium") {
   	margin-bottom: 1.5rem;
@@ -224,13 +224,13 @@
 	ul {
 		padding: 0;
 		list-style-type: none;
-		display: inline-block;
-		margin-left: 0.5rem;
+		display: inline;
+		margin-left: 0;
 		margin-bottom: 0;
 
 		@include breakpoint("medium") {
 			display: block;
-			margin-left: 0;
+			margin-left: 0.5rem;
 		}
 	}
 
@@ -240,6 +240,7 @@
 
 		@include breakpoint("medium") {
 			display: block;
+			margin-bottom: 0.25rem;
 		}
 
 		&:first-of-type::before {
@@ -328,6 +329,7 @@
 		font-family: $font__ptsans;
 		font-weight: normal;
 		line-height: 1.59;
+		letter-spacing: 0.5px;
 
 		&:hover {
 			background-color: $dark-yellow;
