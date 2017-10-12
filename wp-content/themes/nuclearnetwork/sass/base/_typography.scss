@@ -165,10 +165,11 @@ h1, h2, h3, h4, h5, h6 {
 
 %post-meta {
 	font-family: $font__ptsans;
-	@include fontSize(16px);
-	line-height: 1.9;
+	@include fontSize(14px);
+	line-height: inherit;
 
 	@include breakpoint("medium") {
+		@include fontSize(16px);
 		line-height: 1.34;
 	}
 }

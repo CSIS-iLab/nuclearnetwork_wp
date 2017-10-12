@@ -89,20 +89,19 @@
     position: relative;
     display: inline-block;
     background-color: $white;
-    padding: 1rem;
+    padding: 0;
 
     @include breakpoint("medium") {
       display: block;
       margin-bottom: 0.5rem;
       background-color: transparent;
       width: 100%;
-      padding: 0;
     }
   }
 
   .entry-title {
     @extend %h4;
-    margin: 0 1rem 1rem 1rem;
+    margin: 0.5rem 1rem 1rem 0rem;
     font-weight: 400;
 
     @include breakpoint("medium") {
@@ -119,19 +118,11 @@
 
   .entry-meta {
     margin-bottom: 1rem;
-    padding: 0 1rem;
-
-    @include breakpoint("medium") {
-      padding: 0;
-    }
+    padding: 0;
   }
 
   .entry-content {
-    padding: 0 1rem;
-
-    @include breakpoint("medium") {
-      padding: 0;
-    }
+    padding: 0;
 
     p {
       @extend .body-small;
@@ -214,6 +205,15 @@
     .entry-meta {
       clear: left;
     }
+  }
+}
+
+// Post Title if Thumbnail on card layout
+.article-card.has-post-thumbnail .post-format {
+  padding: 1rem 1rem 0.5rem 0;
+
+  @include breakpoint("medium") {
+    padding: 0 1rem 0 0;
   }
 }
 
