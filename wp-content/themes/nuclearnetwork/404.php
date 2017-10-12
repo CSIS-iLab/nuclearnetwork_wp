@@ -10,47 +10,46 @@
 get_header(); ?>
 
 	<div id="primary" class="content-area">
-		<main id="main" class="site-main">
+		<main id="main" class="site-main content-wrapper">
 
 			<section class="error-404 not-found">
 				<header class="page-header">
-					<h1 class="page-title"><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'nuclearnetwork' ); ?></h1>
+					<h1 class="page-title"><?php esc_html_e( 'Page Not Found', 'nuclearnetwork' ); ?></h1>
 				</header><!-- .page-header -->
 
-				<div class="page-content">
-					<p><?php esc_html_e( 'It looks like nothing was found at this location. Maybe try one of the links below or a search?', 'nuclearnetwork' ); ?></p>
-
-					<?php
-						get_search_form();
-
-						the_widget( 'WP_Widget_Recent_Posts' );
-					?>
-
-					<div class="widget widget_categories">
-						<h2 class="widget-title"><?php esc_html_e( 'Most Used Categories', 'nuclearnetwork' ); ?></h2>
+				<div class="entry-content row">
+					<div class="col-xs-12">
+						<img src="/wp-content/themes/nuclearnetwork/img/404-poni.jpg" alt="404 Page Not Found" alt="404 Page Not Found" class="img404" />
+					</div>
+					<div class="col-xs-12 col-md-8 post-content">
+						<p><?php esc_html_e( 'We were unable to locate the page you requested. The page may have moved or may no longer be available. We apologize for the inconvenience!', 'nuclearnetwork' ); ?></p>
 						<ul>
-						<?php
-							wp_list_categories( array(
-								'orderby'    => 'count',
-								'order'      => 'DESC',
-								'show_count' => 1,
-								'title_li'   => '',
-								'number'     => 10,
-							) );
-						?>
+							<li><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">Go to the Homepage</a></li>
+
+							<?php
+							if ( get_option( 'nuclearnetwork_email' ) ) {
+								echo '<li><a href="mailto:' . esc_attr( get_option( 'nuclearnetwork_email' ) ) . '">Tell us about this broken link</a></li>';
+							}
+							?>
 						</ul>
-					</div><!-- .widget -->
+					</div>
+					<div class="col-xs-12 col-md-4 related-container">
+						<h4 class="section-header"><?php esc_html_e( 'Recent Articles', 'nuclearnetwork' ); ?></h4>
+						<?php
+						$the_query = new WP_Query( 'posts_per_page=2' );
+						while ( $the_query->have_posts()) : $the_query -> the_post();
 
-					<?php
+							echo '<div class="related-post">';
+							the_title( sprintf( '<h5 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h5>' );
+							nuclearnetwork_authors_list();
+							nuclearnetwork_posted_on();
+							echo '</div>';
 
-						/* translators: %1$s: smiley */
-						$archive_content = '<p>' . sprintf( esc_html__( 'Try looking in the monthly archives. %1$s', 'nuclearnetwork' ), convert_smilies( ':)' ) ) . '</p>';
-						the_widget( 'WP_Widget_Archives', 'dropdown=1', "after_title=</h2>$archive_content" );
-
-						the_widget( 'WP_Widget_Tag_Cloud' );
-					?>
-
-				</div><!-- .page-content -->
+						endwhile;
+						wp_reset_postdata();
+						?>
+					</div>
+				</div><!-- .entry-content -->
 			</section><!-- .error-404 -->
 
 		</main><!-- #main -->

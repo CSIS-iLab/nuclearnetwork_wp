@@ -4,74 +4,96 @@
 
 .error-404 {
     margin-top: 4rem;
-    text-align: center;
 
-    p {
-        text-align: left;
-
-        @include breakpoint("small") {
-            text-align: center;
-        }
-    }
-
-    .col-sm-6 {
-
-        padding-top: 1rem;
-
-        @include breakpoint("medium") {
-            padding: 1rem;
-        }
-    }
+    .page-title { text-align: center; }
 
     .img404 {
         display: block;
-        width: 100%;
-        height: 100%;
+        width: auto;
+        height: auto;
+        max-height: 600px;
+        margin: 0 auto;
     }
 
-
-    .relatedContent-heading {
-        margin-top: 0px;
-    }
-    .relatedContent-post {
-        text-align: left;
-    }
-    .relatedContent-img {
-        max-width: 105px;
-        img {
-            padding-right: 10px;
-        }
-    }
-    .page-header {
-        margin-bottom: 2rem;
-
-        img {
-            max-height: 100px;
+    .post-content {
+        @include breakpoint("medium") {
+            padding-right: 3rem;
         }
     }
 
-    .error-explanation {
-        @include fontSize(18px);
+    p {
+        @include fontSize(24px);
+        line-height: 1.33;
+    }
+    
+    ul {
+        list-style: none;
+        margin-top: 0.5rem;
+        padding: 0;
+
+        @include breakpoint("medium") {
+            margin-top: 1rem;
+            padding-left: 40px;
+        }
     }
 
-    .error-contactUs {
-        color: $gray;
+    li {
+        margin-bottom: 0;
 
         a {
-            text-transform: uppercase;
-            color: $primary-blue;;
-
-            &:hover {
-                color: $dark-blue;
-            }
+            @include fontSize(16px);
+            font-style: italic;
+            line-height: 2.03;
         }
     }
 
-    form {
-        width: 100%;
+    .section-header {
+        text-transform: uppercase;
+        margin: 0 0 1rem;
+        @include fontSize(25px);
+    }
 
-        input.search-field {
-            width: calc(90% - 80px);
+    .related-post {
+        margin-bottom: 1rem;
+        .entry-title {
+            font-weight: bold;
+            font-family: $font__ptsans;
+            @include fontSize(20px);
+            line-height: 1.2;
+            margin: 0;
+
+            a {
+                color: $black;
+
+                &:hover {
+                    color: $secondary-blue;
+                }
+            }
+        }
+
+        .authors-list { margin: 0; }
+        .authors-list .entry-author {
+            display: inline;
+
+            a { @include fontSize(16px); line-height: 1.34; }
+            .author-title { display: none; }
+        }
+
+        .posted-on { margin: 0; }
+        .posted-on .meta-label {
+            display: inline;
+
+            @include breakpoint("medium") {
+                padding-right: 5px;
+            }
+        }
+
+        .posted-on .meta-label:not(:first-of-type),
+        .posted-on time:not(:first-of-type) { display: none; }
+
+        &:last-of-type {
+            border-top: 1px solid $gray;
+            padding-top: 1rem;
         }
     }
 }
