@@ -144,7 +144,11 @@
   }
 
   // Site Content
-  .site-content { margin-top: 0; }
+  .site-content {
+    @include breakpoint("medium") {
+      margin-top: 0;
+    }
+  }
 }
 
 .header-simple,
@@ -152,9 +156,13 @@
   .entry-header {
     position: relative;
     background-color: $off-white;
-    padding-top: 10rem;
+    padding-top: 3rem;
     padding-bottom: 2rem;
     margin-bottom: 2rem;
+
+    @include breakpoint("medium") {
+      padding-top: 10rem;
+    }
 
     &::before {
       content: "";
@@ -187,5 +195,9 @@
   }
 
   // Site Content
-  .site-content { margin-top: 0; }
+  .site-content {
+    @include breakpoint("medium") {
+      margin-top: 0;
+    }
+  }
 }

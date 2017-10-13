@@ -23,7 +23,11 @@
 		background-repeat: no-repeat;
 		background-position: center center;
 		background-size: cover;
-		padding: 14rem 0 0 0;
+		padding: 3rem 0 0 0;
+
+		@include breakpoint("medium") {
+			padding-top: 14rem;
+		}
 
 		&::before {
 			content: '';
@@ -332,7 +336,11 @@
 	.no-results { margin-left: 2rem; }
 
 	// Site content
-	.site-content { margin-top: 0; }
+	.site-content {
+		@include breakpoint("medium") {
+			margin-top: 0;
+		}
+	}
 }
 
 .page-template-page_sidebar_right .archive-content {
