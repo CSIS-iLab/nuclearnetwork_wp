@@ -370,7 +370,7 @@
             }
         }
 
-        &:hover > a {
+        &:hover>a {
             color: $yellow;
         } // Submenu Items
         ul {
@@ -666,6 +666,10 @@
                     }
                     #Oval-small {
                         @include animation(oval-small-rotate, normal);
+                        @-moz-document url-prefix() {
+                            transform-origin: 60px 80px;
+                        }
+                        -webkit-transform-origin: 60px 80px;
                         #Oval2 {
                             @include animation(oval-large-grow, normal);
                             #Oval2-yellow {
@@ -745,6 +749,7 @@
                 }
                 #LetterN {
                     @include animation(letter-n, normal);
+
                 }
             }
             @keyframes middle-ovals-shrink-rotate {
@@ -823,6 +828,8 @@
             @keyframes letter-n {
                 to {
                     transform: scale(4.2) translate(27%, -6%);
+                    -moz-transform: scale(4.2) translate(2px, -20px);
+                    -webkit-transform: scale(4.2) translate(2px, -20px);
                 }
             }
 
@@ -857,6 +864,10 @@
                 }
                 #Oval-small {
                     @include animationrev(rev-oval-small-rotate, reverse);
+                    @-moz-document url-prefix() {
+                        transform-origin: 60px 80px;
+                    }
+                    -webkit-transform-origin: 60px 80px;
                     #Oval2 {
                         @include animationrev(rev-oval-large-grow, reverse);
                         #Oval2-yellow {
@@ -937,6 +948,10 @@
             #LetterN {
                 transform-origin: 50% 50%;
                 animation: rev-letter-n .3s ease-in-out 0s both 1 reverse;
+                @-moz-document url-prefix() {
+                    transform-origin: 50px 50px;
+                }
+
             }
         }
         @keyframes rev-middle-ovals-shrink-rotate {
@@ -1015,6 +1030,8 @@
         @keyframes rev-letter-n {
             to {
                 transform: scale(4.2) translate(27%, -6%);
+                -moz-transform: scale(4.2) translate(2px, -20px);
+                -webkit-transform: scale(4.2) translate(2px, -20px);
             }
         }
 
