@@ -44,7 +44,8 @@
 	.callout-container a::after { content: none; }
 }
 
-.archive .news .entry-content {
+.archive .news .entry-content,
+.search .news .entry-content {
 	h5 {
 		margin: 0;
 		color: $primary-blue;

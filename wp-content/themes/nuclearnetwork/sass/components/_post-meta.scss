@@ -284,6 +284,7 @@
 			list-style-type: none;
 			display: inline;
 			margin-bottom: 0;
+			margin-left: 0;
 		}
 
 		li {
@@ -322,6 +323,7 @@
 
 	li {
 		margin-bottom: 0.5rem;
+		width: -moz-fit-content;
 		width: fit-content;
 		display: inline-block;
 		margin-right: 0.5rem;
