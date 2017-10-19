@@ -260,7 +260,7 @@ function nuclearnetwork_events_archive( $query ) {
 
 			// add the meta query and use the $compare var.
 			$today = date( 'Y-m-d' );
-			$meta_query[] = array(
+			$meta_query['_post_start_date'] = array(
 				'key' => '_post_start_date',
 				'value' => $today,
 				'compare' => $compare,
@@ -268,6 +268,17 @@ function nuclearnetwork_events_archive( $query ) {
 			);
 			$query->set( 'meta_query', $meta_query );
 		}
+
+		if ( isset( $query->query_vars['is_past'] ) ) {
+			$past_events_order_dir = 'DESC';
+		} else {
+			$past_events_order_dir = 'ASC';
+		}
+
+		$query->set( 'orderby', array(
+			'meta_value' => 'DESC',
+			'_post_start_date' => $past_events_order_dir,
+		) );
 	}
 }
 
@@ -374,3 +385,23 @@ function nuclearnetwork_resources_archive( $query ) {
 		$query->query_vars['orderby'] = 'post__in';
 	}
 }
+
+/**
+ * Append /other & /past to URL for events to keep proper pagination.
+ *
+ * @param  string $url  URL.
+ * @param  int    $sfid Search form ID.
+ * @return string       Updated URL.
+ */
+function nuclearnetwork_events_archive_search_rewrites( $url, $sfid ) {
+	$other = get_query_var( 'other', false );
+	if ( 'true' === $other ) {
+		$url = $url . 'other/';
+	}
+	$is_past = get_query_var( 'is_past', false );
+	if ( 'true' === $is_past ) {
+		$url = $url . 'past/';
+	}
+	return $url;
+}
+add_filter( 'sf_results_url', 'nuclearnetwork_events_archive_search_rewrites', 10, 2 );

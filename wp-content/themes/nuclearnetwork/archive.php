@@ -42,6 +42,7 @@ $featured_img = ' style="background-image:url(\'' . esc_attr( $img ) . '\');"';
 			<div class="content-wrapper row archive-container">
 				<div class="col-xs-12 col-md-9 archive-content">
 				<?php
+
 				if ( have_posts() ) :
 
 					nuclearnetwork_post_num();
