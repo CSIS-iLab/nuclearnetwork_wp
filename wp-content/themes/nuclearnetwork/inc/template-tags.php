@@ -110,6 +110,10 @@ if ( ! function_exists( 'nuclearnetwork_entry_categories' ) ) :
 		if ( in_array( get_post_type(), array( 'post', 'events', 'opportunities', 'announcements', 'resources' ), true ) ) {
 			/* translators: used between list items, there is a space after the comma */
 			$categories_list = get_the_category_list();
+			if ( 'Uncategorized' === $categories_list ) {
+				return;
+			}
+
 			if ( $categories_list ) {
 				/* translators: 1: list of categories. */
 				printf( '<div class="cat-links"><span class="meta-label">' . esc_html__( 'Categories:', 'nuclearnetwork' ) . '</span>' . esc_html( '%1$s' ) . '</div>', $categories_list ); // WPCS: XSS OK.
