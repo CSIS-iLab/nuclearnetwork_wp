@@ -46,42 +46,17 @@ $featured_img = ' style="background-image:url(\'' . esc_attr( $img ) . '\');"';
 
 					nuclearnetwork_post_num();
 
-					if ( is_post_type_archive( 'resources' ) ) {
-						$types = get_terms( 'resource_types' );
-						foreach ( $types as $type ) {
-							$resource_posts = new WP_Query( array(
-								'post_type' => 'resources',
-								'tax_query' => array(
-									array(
-										'taxonomy' => 'resource_types',
-										'field' => 'slug',
-										'terms' => array( $type->slug ),
-										'operator' => 'IN',
-									),
-								),
-								'orderby' => 'title',
-								'order' => 'ASC',
-							) );
+					/* Start the Loop */
+					while ( have_posts() ) : the_post();
 
-							while ( $resource_posts->have_posts() ) : $resource_posts->the_post();
-								get_template_part( 'template-parts/content', 'resources' );
-							endwhile;
-							unset( $resource_posts );
-							wp_reset_postdata();
-						}
-					} else {
-						/* Start the Loop */
-						while ( have_posts() ) : the_post();
+						/*
+						 * Include the Post-Format-specific template for the content.
+						 * If you want to override this in a child theme, then include a file
+						 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
+						 */
+						get_template_part( 'template-parts/content', get_post_type() );
 
-							/*
-							 * Include the Post-Format-specific template for the content.
-							 * If you want to override this in a child theme, then include a file
-							 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-							 */
-							get_template_part( 'template-parts/content', get_post_type() );
-
-						endwhile;
-					}
+					endwhile;
 
 					the_posts_pagination();
 

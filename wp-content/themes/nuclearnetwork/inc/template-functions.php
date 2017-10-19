@@ -341,3 +341,37 @@ function nuclearnetwork_excerpt_more( $more ) {
 	);
 }
 add_filter( 'excerpt_more', 'nuclearnetwork_excerpt_more' );
+
+add_action( 'pre_get_posts', 'nuclearnetwork_resources_archive' );
+/**
+ * Modify resources archive to group posts by category.
+ *
+ * @param  array $query Query object.
+ */
+function nuclearnetwork_resources_archive( $query ) {
+	if ( ! is_admin() && is_post_type_archive( 'resources' ) && $query->is_main_query() ) {
+		$post_ids = array();
+
+		$terms = get_terms( 'resource_types' );
+
+		foreach ( $terms as $term ) {
+			$filtered_posts = new WP_Query( array(
+				'post_type' => 'resources',
+				'fields' => 'ids',
+				'orderby' => 'title',
+				'order' => 'ASC',
+				'tax_query' => array(
+					array(
+						'taxonomy' => $term->taxonomy,
+						'field' => 'term_id',
+						'terms' => $term->term_id,
+					),
+				),
+			));
+			$post_ids = array_merge( $post_ids, $filtered_posts->posts );
+		}
+
+		$query->query_vars['post__in'] = $post_ids;
+		$query->query_vars['orderby'] = 'post__in';
+	}
+}
