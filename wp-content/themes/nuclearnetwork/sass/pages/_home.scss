@@ -271,14 +271,6 @@
         }
     }
 
-    .img-block-third {
-        height: 33%;
-        margin-bottom: 1rem;
-    }
-
-    .img-block-twothirds {
-        height: calc(66% - 0.75rem);
-    } // Shapes for Images.
     .shape1 {
         display: none;
         @include breakpoint("medium") {
@@ -366,7 +358,10 @@
             line-height: 1.07;
             font-weight: 600;
             color: $white;
-            text-align: center;
+
+            @include breakpoint("medium") {
+                text-align: center;
+            }
         }
 
         p {
