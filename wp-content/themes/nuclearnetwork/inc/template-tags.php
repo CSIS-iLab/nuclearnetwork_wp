@@ -294,12 +294,25 @@ if ( ! function_exists( 'nuclearnetwork_posted_on_calendar' ) ) :
 	/**
 	 * Prints HTML of posted on date in calendar form.
 	 */
-	function nuclearnetwork_posted_on_calendar() {
+	function nuclearnetwork_posted_on_calendar($id) {
+
+		if ( 'events' === get_post_type() ) {
+			$start_date = get_post_meta( $id, '_post_start_date', true );
+			$start_date_array = nuclearnetwork_check_date( $start_date );
+			$month_time = mktime(0, 0, 0, $start_date_array[1], 1);
+			$month = date( 'M', $month_time );
+
+			$day = $start_date_array[2];
+		} else {
+			$month = get_the_date( 'M' );
+			$day = get_the_date( 'j' );
+		}
+
 		$date_string = '<div class="month">%1$s</div><div class="day">%2$s</div>';
 
 		$date_string = sprintf( $date_string,
-			esc_attr( get_the_date( 'M' ) ),
-			esc_html( get_the_date( 'j' ) )
+			esc_attr( $month ),
+			esc_html( $day )
 		);
 
 		echo '<div class="calendar-container"><a href="' . esc_url( get_permalink() ) . '">' . $date_string . '</a></div>'; // WPCS: XSS OK.

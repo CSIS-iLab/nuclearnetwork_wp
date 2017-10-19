@@ -229,7 +229,6 @@ add_action( 'pre_get_posts', 'nuclearnetwork_events_archive' );
  */
 function nuclearnetwork_events_archive( $query ) {
 	if ( ! is_admin() && is_post_type_archive( 'events' ) && $query->is_main_query() ) {
-		$query->set( 'post_status', array( 'publish', 'future' ) );
 
 		// If we're searching, show all results.
 		$url = parse_url( $_SERVER['REQUEST_URI'] );

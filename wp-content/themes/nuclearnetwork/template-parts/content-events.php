@@ -14,8 +14,8 @@ if ( $is_featured ) {
 }
 
 $current_date = date( 'Y-m-d' );
-$post_date = explode( ' ', $post->post_date);
-if ( $current_date > $post_date[0] ) {
+$start_date = get_post_meta( $id, '_post_start_date', true );
+if ( $current_date > $start_date ) {
 	$past_class = ' past';
 }
 
@@ -23,7 +23,7 @@ if ( $current_date > $post_date[0] ) {
 
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'article-card row' . $featured_class . $past_class ); ?>>
 	<div class="col-xs-12 col-sm-2">
-		<?php nuclearnetwork_posted_on_calendar(); ?>
+		<?php nuclearnetwork_posted_on_calendar( $post->ID ); ?>
 	</div>
 	<div class="col-xs-12 col-sm-10">
 		<header class="entry-header">
