@@ -209,6 +209,7 @@
                 top: 0;
                 right: 0;
                 width: 30%;
+                height: 100%;
                 background: rgba(97, 27, 21, 1);
                 background: -moz-linear-gradient(left, rgba(242, 194, 97, 0) 0%, $yellow 65%);
                 background: -webkit-gradient(left top, right top, color-stop(0%, rgba(242, 194, 97, 0)), color-stop(65%, $yellow));
@@ -216,6 +217,14 @@
                 background: -o-linear-gradient(left, rgba(242, 194, 97, 0) 0%, $yellow 65%);
                 background: -ms-linear-gradient(left, rgba(242, 194, 97, 0) 0%, $yellow 65%);
                 background: linear-gradient(to right, rgba(242, 194, 97, 0) 0%, $yellow 65%);
+
+                @-moz-document url-prefix() {
+                	padding-top: 5px;
+                }
+
+                @media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none) {
+                	padding-top: 5px;
+                }
 			}
 		}
 

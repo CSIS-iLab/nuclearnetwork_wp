@@ -23,6 +23,7 @@
 		height: 13rem;
 		overflow: hidden;
 		margin-bottom: 1rem;
+		transform: translateZ(0);
 
 		@include breakpoint("medium") {
 			height: 19rem;
@@ -36,10 +37,10 @@
 			background-origin: content-box;
 			background-repeat: no-repeat;
 			background-size: cover;
-			@include transition(transform 0.3s);
+			@include transition(transform 0.3s ease-in-out);
 
 			&::before {
-		    content: '';
+		    	content: '';
 				position: absolute;
 				top: 0;
 				right: 0;
@@ -49,7 +50,7 @@
 				background-origin: content-box;
 				opacity: 0.6; 
 				@include transition(opacity 0.3s);
-		  }
+		  	}
 		}
 
 		a {
