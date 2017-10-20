@@ -2569,16 +2569,31 @@ module.exports = function(options)
 
                 if((this_tag=="input")&&((input_type=="radio")||(input_type=="checkbox")) && (parent_tag=="li"))
                 {
-                    var $all_options = $cthis_parent.siblings();
+                    var $all_options = $cthis_parent.parent().find('li');
+                    var $all_options_fields = $cthis_parent.parent().find('input:checked');
+
                     $all_options.removeClass("sf-option-active");
-                    $cthis_parent.addClass("sf-option-active");
+                    $all_options_fields.each(function(){
+
+                        var $parent = $(this).closest("li");
+                        $parent.addClass("sf-option-active");
+
+                    });
+
                 }
                 else if(this_tag=="select")
                 {
                     var $all_options = $cthis.children();
                     $all_options.removeClass("sf-option-active");
                     var this_val = $cthis.val();
-                    $cthis.find("option[value='"+this_val+"']").addClass("sf-option-active");
+
+                    var this_arr_val = (typeof this_val == 'string' || this_val instanceof String) ? [this_val] : this_val;
+
+                    $(this_arr_val).each(function(i, value){
+                        $cthis.find("option[value='"+value+"']").addClass("sf-option-active");
+                    });
+
+
                 }
             });
 
@@ -2835,10 +2850,13 @@ module.exports = function(options)
 
                     var slider_object = $(this).find(".meta-slider")[0];
 
+                    if( "undefined" !== typeof( slider_object.noUiSlider ) ) {
+                        //destroy if it exists.. this means somehow another instance had initialised it..
+                        slider_object.noUiSlider.destroy();
+                        //console.log("ttypeof(slider_object.noUiSlider));
+                    }
+
                     noUiSlider.create(slider_object, noUIOptions);
-
-                    //
-
 
                     $start_val.off();
                     $start_val.on('change', function(){
@@ -3291,6 +3309,41 @@ module.exports = function(options)
             self.ajax_results_conf['data_type'] = self.ajax_data_type;
         };
 
+
+
+        this.updateLoaderTag = function($object, tagName) {
+
+            var $parent;
+
+            if(self.infinite_scroll_result_class!="")
+            {
+                $parent = self.$infinite_scroll_container.find(self.infinite_scroll_result_class).last().parent();
+            }
+            else
+            {
+                $parent = self.$infinite_scroll_container;
+            }
+
+            var tagName = $parent.prop("tagName");
+
+            var tagType = 'div';
+            if( ( tagName.toLowerCase() == 'ol' ) || ( tagName.toLowerCase() == 'ul' ) ){
+                tagType = 'li';
+            }
+
+            var $new = $('<'+tagType+' />').html($object.html());
+            var attributes = $object.prop("attributes");
+
+            // loop through <select> attributes and apply them on <div>
+            $.each(attributes, function() {
+                $new.attr(this.name, this.value);
+            });
+
+            return $new;
+
+        }
+
+
         this.loadMoreResults = function()
         {
             self.is_loading_more = true;
@@ -3299,6 +3352,7 @@ module.exports = function(options)
             var event_data = {
                 sfid: self.sfid,
                 targetSelector: self.ajax_target_attr,
+                type: "load_more",
                 object: self
             };
 
@@ -3332,6 +3386,9 @@ module.exports = function(options)
                 var $loader = $('<div/>',{
                     'class': 'search-filter-scroll-loading'
                 });//.appendTo(self.$ajax_results_container);
+
+                $loader = self.updateLoaderTag($loader);
+
                 self.infiniteScrollAppend($loader);
             }
 
@@ -3385,6 +3442,7 @@ module.exports = function(options)
             var event_data = {
                 sfid: self.sfid,
                 targetSelector: self.ajax_target_attr,
+                type: "load_results",
                 object: self
             };
 
@@ -3799,7 +3857,7 @@ module.exports = function(options)
             }
             else
             {
-                self.$infinite_scroll_container.append($object);
+               self.$infinite_scroll_container.append($object);
             }
         }
 
@@ -4264,14 +4322,12 @@ module.exports = function(options)
 
                     var $thisInput = $(this);
 
-                    if($thisInput.parent().hasClass("sf-meta-range"))
-                    {
-                        if(index==0)
-                        {
+                    if($thisInput.parent().parent().hasClass("sf-meta-range")) {
+
+                        if(index==0) {
                             $thisInput.val($thisInput.attr("min"));
                         }
-                        else if(index==1)
-                        {
+                        else if(index==1) {
                             $thisInput.val($thisInput.attr("max"));
                         }
                     }
@@ -4281,8 +4337,8 @@ module.exports = function(options)
                 //meta / numbers with 2 inputs (from / to fields) - second input must be reset to max value
                 var $meta_select_from_to = $field.find(".sf-meta-range-select-fromto");
 
-                if($meta_select_from_to.length>0)
-                {
+                if($meta_select_from_to.length>0) {
+
                     var start_min = $meta_select_from_to.attr("data-min");
                     var start_max = $meta_select_from_to.attr("data-max");
 
@@ -4290,12 +4346,11 @@ module.exports = function(options)
 
                         var $thisInput = $(this);
 
-                        if(index==0)
-                        {
+                        if(index==0) {
+
                             $thisInput.val(start_min);
                         }
-                        else if(index==1)
-                        {
+                        else if(index==1) {
                             $thisInput.val(start_max);
                         }
 

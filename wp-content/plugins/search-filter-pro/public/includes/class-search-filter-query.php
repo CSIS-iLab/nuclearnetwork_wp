@@ -372,14 +372,17 @@ class Search_Filter_Query {
 	{
 		global $wpdb;
 		global $searchandfilter;
-		
+
 		if($this->has_prep_query==false)
 		{//only run once
 			
 			$this->has_prep_query = true;
 			//apply filter logic from cache, and `sf_edit_query_args` filter
-
 			$this->query_args = $this->cache->filter_query_args($this->query_args, $all_terms);
+
+			if(has_filter("sf_query_post__in")) {
+				$this->query_args['post__in'] = apply_filters('sf_query_post__in', $this->query_args['post__in'], $this->sfid);
+			}
 
             if(($all_terms==true) && ($this->has_prep_terms==false)) {
                 $this->has_prep_terms = true;
@@ -506,7 +509,7 @@ class Search_Filter_Query {
 		$args = $this->filter_query_inherited_defaults($args);
 		//$args = $this->filter_query_hidden($args);
 
-		
+
 		return $args;
 	}
 	
@@ -1187,6 +1190,7 @@ class Search_Filter_Query {
 	function get_results_url($searchform)
 	{
 		$display_results_as = $searchform->settings('display_results_as');
+		$enable_taxonomy_archives = $searchform->settings("enable_taxonomy_archives");
 
 		$results_url = "";
 
@@ -1221,11 +1225,11 @@ class Search_Filter_Query {
                 $results_url = apply_filters('sf_archive_results_url', $results_url, $this->sfid, $page_slug);
             }
 		}
-		else if(($display_results_as=="custom_woocommerce_store")&&(function_exists('woocommerce_get_page_id')))
+		else if(($display_results_as=="custom_woocommerce_store")&&(Search_Filter_Helper::wc_get_page_id()))
 		{
 			if(get_option('permalink_structure'))
 			{
-				$results_url = get_permalink( woocommerce_get_page_id( 'shop' ));
+				$results_url = get_permalink( Search_Filter_Helper::wc_get_page_id( 'shop' ));
 			}
 			else
 			{
@@ -1236,7 +1240,7 @@ class Search_Filter_Query {
 
             $searchform->query()->remove_permalink_filters();
             if (get_option('permalink_structure')) {
-                $results_url = get_permalink(woocommerce_get_page_id('shop'));
+                $results_url = get_permalink( Search_Filter_Helper::wc_get_page_id('shop') );
             }
             $searchform->query()->add_permalink_filters();
 
@@ -1251,10 +1255,12 @@ class Search_Filter_Query {
                 $filters = $searchform->get_filters();
                 if (in_array("_sft_" . $term->taxonomy, $filters)) {
                     $has_tax_in_fields = true;
+
                 }
+
             }
 
-            if (($enable_taxonomy_archives == 1) && ($has_tax_in_fields == false) && ($is_tax_archive)) {
+            if (($enable_taxonomy_archives == 1) && ($has_tax_in_fields == true) && ($is_tax_archive)) {
 
                 $results_url = get_term_link($term);
             }
@@ -1286,7 +1292,7 @@ class Search_Filter_Query {
 
                     }
 
-                    if (($enable_taxonomy_archives==1) && ($has_tax_in_fields==false) && ($is_tax_archive) ) {
+                    if (($enable_taxonomy_archives==1) && ($has_tax_in_fields==true) && ($is_tax_archive) ) {
 
                         $results_url = get_term_link($term);
                     }
@@ -1294,10 +1300,10 @@ class Search_Filter_Query {
 
 
                         ///////////////////////////
-                        if (($enable_taxonomy_archives==1) && ($is_tax_archive) ) {
-                            $results_url = get_term_link($term);
-                        }
-                        else {
+                        //if (($enable_taxonomy_archives==1) && ($is_tax_archive) ) {
+                        //    $results_url = get_term_link($term);
+                        //}
+                        //else {
                             if ($post_type == "post") {
                                 if (get_option('show_on_front') == 'page') {
                                     $results_url = get_permalink(get_option('page_for_posts'));
@@ -1307,7 +1313,7 @@ class Search_Filter_Query {
                             } else {
                                 $results_url = get_post_type_archive_link($post_type);
                             }
-                        }
+                        //}
 
                     }
 				}

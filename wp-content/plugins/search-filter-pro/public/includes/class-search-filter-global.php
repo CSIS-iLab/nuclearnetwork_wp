@@ -56,7 +56,7 @@ class Search_Filter_Global
 
                 $query_args_new = $query->query_vars;
                 $query_args_new['post__in'] = "Count: ".count($query->query_vars['post__in']);
-                var_dump($query_args_new);
+                //var_dump($query_args_new);
                 echo "\r\n -->\r\n";
             }
 

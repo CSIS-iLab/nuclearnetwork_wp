@@ -14,9 +14,7 @@ class Search_Filter_Taxonomy_Object_Walker extends Walker_Category {
 	private $type = '';
 	private $auto_count = 0;
 	private $defaults = array();
-	private $multidepth = 0; //manually calculate depth on multiselects
-	private $multilastid = 0;
-	private $multilastdepthchange = 0;
+	private $depth_track = array();
 	private $elementno = 0; //internal counter of which element we are on
     private $term_rewrite_depth = 0;
     private $parents_names = array();
@@ -116,36 +114,57 @@ class Search_Filter_Taxonomy_Object_Walker extends Walker_Category {
 		{
 			$option_count = intval($taxonomy_term->count);
 		}
-		
+
+
+		$current_depth = 0;
 		if($args['hierarchical']==1)
 		{
-			// Custom  depth calculations! :/ 
-			if($taxonomy_term->parent == 0)
-			{//then this has no parent so reset depth
-				$this->multidepth = 0;
+
+
+			if($taxonomy_term->parent == 0) {
+				//then this has no parent so reset depth
+				$current_depth = 0;
+				//and reset the array tracking the parent IDs of this tree
+				$this->depth_track = array( $taxonomy_term_id ); //reset the chain
+				//echo "\r\nHERE ";
 			}
-			else if($taxonomy_term->parent == $this->multilastid)
-			{
-				$this->multidepth++;
-				$this->multilastdepthchange = $this->multilastid;
-			}
-			else if($taxonomy_term->parent == $this->multilastdepthchange)
-			{//then this is also a child with the same parent so don't change depth
-				
-			}
-			else
-			{//then this has a different parent so must be lower depth
-				if($this->multidepth>0)
-				{
-					$this->multidepth--;
-					
-					$this->multilastdepthchange = $taxonomy_term->parent;
+			else {
+
+				//check to see if the parent ID is somewhere in the depth tracker
+				//array_search( $taxonomy_term->parent, $this->depth_track, true );
+				$depth_length = count($this->depth_track);
+
+				$found_parent_depth = array_search( $taxonomy_term->parent, $this->depth_track );
+				//echo "\r\nLOOKING FOR PARENT ID: ".$taxonomy_term->parent." in depth_track | RES: ".$found_parent_depth."\r\n";
+				//var_dump($this->depth_track);
+
+				if($found_parent_depth !== false ) {
+					//echo "xxxx";
+					$current_depth = $found_parent_depth + 1;
+					//then we found a parent, but it was at the end of the chain, so we need to extend it by
+					$this->depth_track[$current_depth] =  $taxonomy_term_id;
+
+
+				} else {
+					//depth does not yet exist, so add it
+					//array_push($this->depth_track, $current_depth);
 				}
+
+
+
+
+
+				//if the last item had the same parent ID as the previous item, then the depth stays the same
+				/*if($this->depth_track[$depth_length-1] == $taxonomy_term->parent) {
+
+				} else if($this->depth_track[$depth_length-1] == $taxonomy_term->parent) {
+
+
+				}*/
 			}
 		}
 
-
-        $this->parents_names[$this->multidepth] = $taxonomy_term->slug;
+        $this->parents_names[$current_depth] = $taxonomy_term->slug;
 
 		if((intval($hide_empty)!=1)||($option_count!=0))
 		{
@@ -153,7 +172,7 @@ class Search_Filter_Taxonomy_Object_Walker extends Walker_Category {
 			$option->value = $taxonomy_term_slug;
 			//$option->selected_value = $taxonomy_term_id; //we want to match defaults based on ID
 			$option->label = $taxonomy_term_name;
-			$option->depth = $this->multidepth;
+			$option->depth = $current_depth;
 			$option->count = $option_count;
 
             //we only want to grab the term rewrite template once for each depth
@@ -164,7 +183,7 @@ class Search_Filter_Taxonomy_Object_Walker extends Walker_Category {
             }
 
 			//add classes
-			$option->attributes['class'] = SF_CLASS_PRE."level-".$this->multidepth.' '.SF_ITEM_CLASS_PRE.$taxonomy_term_id;
+			$option->attributes['class'] = SF_CLASS_PRE."level-".$current_depth.' '.SF_ITEM_CLASS_PRE.$taxonomy_term_id;
 			
 			if ( !empty($show_count) )
 			{
@@ -183,9 +202,7 @@ class Search_Filter_Taxonomy_Object_Walker extends Walker_Category {
 		}
 		
 		$this->options_obj->set($this->options);
-		
-		$this->multilastid = $taxonomy_term_id;
-				
+
 		$output = '';
 	}
     private function get_term_link_template($term, $term_names)

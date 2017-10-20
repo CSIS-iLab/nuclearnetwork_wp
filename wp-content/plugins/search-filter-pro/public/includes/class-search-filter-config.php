@@ -93,7 +93,8 @@ class Search_Filter_Config
 		$this->form_data['fields'] = Search_Filter_Helper::get_fields_meta($form_id);
 		$this->form_data['fields_assoc'] = array();
 		$this->form_data['fields_taxonomies'] = array();
-				
+		$this->form_data['fields_meta'] = array();
+
 		if(($this->form_data['settings'])&&($this->form_data['fields']))
 		{
 			$this->form_data['id'] = $form_id;
@@ -115,6 +116,8 @@ class Search_Filter_Config
 						}
 					}
 					$this->form_data['fields_assoc'][SF_META_PRE.$meta_key] = $field; //make fields accessible by key
+
+					array_push($this->form_data['fields_meta'], $meta_key);
 				}
 				else if($field['type']=="taxonomy")
 				{
@@ -197,6 +200,11 @@ class Search_Filter_Config
 	public function get_fields_taxonomies()
 	{
 		return $this->form_data['fields_taxonomies'];
+	}
+
+	public function get_fields_meta()
+	{
+		return $this->form_data['fields_meta'];
 	}
 	
 	function data($index = '')

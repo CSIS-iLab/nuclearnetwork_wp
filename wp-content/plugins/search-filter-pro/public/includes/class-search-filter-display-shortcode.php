@@ -548,7 +548,7 @@ class Search_Filter_Display_Shortcode {
                         {//use the results_url defined by the user
 
                         }
-                        else if(($display_results_as=="custom_woocommerce_store")&&(function_exists('woocommerce_get_page_id'))) {
+                        else if(($display_results_as=="custom_woocommerce_store")&&(Search_Filter_Helper::wc_get_page_id())) {
                             //find woocommerce shop page
 
                             $post_type = "product";
@@ -556,7 +556,7 @@ class Search_Filter_Display_Shortcode {
 
                             $searchform->query()->remove_permalink_filters();
                             if (get_option('permalink_structure')) {
-                                $results_url = get_permalink(woocommerce_get_page_id('shop'));
+                                $results_url = get_permalink(Search_Filter_Helper::wc_get_page_id('shop'));
                             }
                             $searchform->query()->add_permalink_filters();
 
@@ -1046,10 +1046,11 @@ class Search_Filter_Display_Shortcode {
             if(Search_Filter_Wp_Data::is_taxonomy_archive())
             {
                 $term =	$searchandfilter->get_queried_object();
-                $taxonomy_name = $term->taxonomy;
-                if($field_taxonomy==$taxonomy_name)
-                {
-                    $addAttributes .= " data-sf-taxonomy-archive='1'";
+                if(isset($term->taxonomy)) {
+	                $taxonomy_name = $term->taxonomy;
+	                if ( $field_taxonomy == $taxonomy_name ) {
+		                $addAttributes .= " data-sf-taxonomy-archive='1'";
+	                }
                 }
             }
         }

@@ -161,6 +161,18 @@ class Search_Filter_Helper {
 		return false;
 	}
 	
+	public static function wc_get_page_id($page_name = '')
+	{
+		if(function_exists('wc_get_page_id')) {
+			return wc_get_page_id($page_name);
+		}
+		else if(function_exists('woocommerce_get_page_id')) {
+			return woocommerce_get_page_id($page_name);
+		}
+
+		return false;
+
+	}
 	public static function wpml_object_id($id = 0, $type = '', $return_original = '', $lang_code = '')
 	{
 		$lang_id = 0;
@@ -232,7 +244,12 @@ class Search_Filter_Helper {
 
         if(!isset($settings['results_url']))
         {
-            $settings['results_url'] = get_post_meta( $sfid , '_search-filter-results-url' , true );
+	        $settings['results_url'] = '';
+	        $results_url = get_post_meta( $sfid , '_search-filter-results-url' , true );
+
+            if(!empty($results_url)) {
+	            $settings['results_url'] = $results_url;
+            }
         }
 
         if(!isset($search_form_settings["enable_taxonomy_archives"]))

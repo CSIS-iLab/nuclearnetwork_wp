@@ -13,9 +13,6 @@ class Search_Filter_Wp_Data
     public static $wp_transients_loaded = array();
     public static $wp_tax_terms_cache_key = 'wp_tax_terms_';
     public static $use_transients = -1;
-    public static $post_types = array();
-    public static $is_taxonomy_archive = -1;
-
 
     public static function setup($taxonomy_name)
     {
@@ -102,12 +99,10 @@ class Search_Filter_Wp_Data
             self::$wp_tax_terms[$taxonomy_name]['id'][$t_taxonomy_terms[$ti]->term_id] = $t_taxonomy_terms[$ti];
             self::$wp_tax_terms[$taxonomy_name]['slug'][$t_taxonomy_terms[$ti]->slug] = $t_taxonomy_terms[$ti];
         }*/
-        //
 
-        if(empty(self::$wp_tax_terms[$taxonomy_name]))
-        {
-            return array();
-        }
+
+
+        //
 
         return self::$wp_tax_terms[$taxonomy_name]["id"];
     }
@@ -136,109 +131,10 @@ class Search_Filter_Wp_Data
             self::$wp_tax_terms[$taxonomy_name]["id"][$term->term_id] = $term;
             self::$wp_tax_terms[$taxonomy_name]["slug"][$term->slug] = $term;
 
-            if(isset(self::$wp_tax_terms[$taxonomy_name][$by][$term_name])) {
-                return self::$wp_tax_terms[$taxonomy_name][$by][$term_name];
-            }
-            else
-            {
-                return array();
-            }
+            return self::$wp_tax_terms[$taxonomy_name][$by][$term_name];
         }
 
         return false;
-    }
-
-    public static function get_post_type_taxonomies($post_type)
-    {
-
-    }
-
-    public static function is_taxonomy_archive($query = "")
-    {
-        if($query=="") {
-            if(self::$is_taxonomy_archive===-1)
-            {
-                self::$is_taxonomy_archive = false;
-
-                if ((is_tax() || is_category() || is_tag()) && (is_archive())) {
-
-                    self::$is_taxonomy_archive = true;
-                }
-            }
-
-            return self::$is_taxonomy_archive;
-        }
-        else
-        {
-            if (($query->is_tax() || $query->is_category() || $query->is_tag()) && ($query->is_archive())) {
-
-                return true;
-            }
-
-            return false;
-        }
-
-
-    }
-	public static function get_post_types_by_taxonomy( $tax = 'category' ){
-		$out = array();
-		$post_types = get_post_types();
-		foreach( $post_types as $post_type ){
-
-			if (!isset(self::$post_types[$post_type]))
-			{
-				self::$post_types[$post_type] = array();
-			}
-
-			if (!isset(self::$post_types[$post_type]['taxonomies']))
-			{
-				self::$post_types[$post_type]['taxonomies'] = get_object_taxonomies( $post_type );
-			}
-
-			$taxonomies = self::$post_types[$post_type]['taxonomies'];
-			if( in_array( $tax, $taxonomies ) ){
-				$out[] = $post_type;
-			}
-		}
-		return $out;
-	}
-
-    public static function is_taxonomy_archive_of_post_type($post_type, $single = true)
-    {
-        if(!self::is_taxonomy_archive())
-        {
-            return false;
-        }
-
-        if (!isset(self::$post_types[$post_type]))
-        {
-            self::$post_types[$post_type] = array();
-        }
-
-        if (!isset(self::$post_types[$post_type]['taxonomies']))
-        {
-            self::$post_types[$post_type]['taxonomies'] = get_object_taxonomies( $post_type );
-        }
-
-
-
-        global $searchandfilter;
-        $term = $searchandfilter->get_queried_object();
-	    $is_taxonomy_archive = false;
-
-        if(isset($term->taxonomy)){
-	        $taxonomy_name = $term->taxonomy;
-
-
-	        $tax_post_types = self::get_post_types_by_taxonomy($taxonomy_name);
-
-	        //make sure this tax is not shared
-			if( 1 === count($tax_post_types)){
-				$is_taxonomy_archive = in_array( $taxonomy_name, self::$post_types[$post_type]['taxonomies'] );
-			}
-        }
-
-        return $is_taxonomy_archive;
     }
 }
 

@@ -4,7 +4,7 @@ Donate link:
 Tags: posts, custom posts, products, category, filter, taxonomy, post meta, custom fields, search, wordpress, post type, post date, author
 Requires at least: 3.5
 Tested up to: 4.7
-Stable tag: 2.3.4
+Stable tag: 2.4.0
 
 Search and Filtering for posts, products and custom posts. Allow your users to Search & Filter by taxonomies, custom fields and more.
 
@@ -56,6 +56,22 @@ Great for searching in your online shop, tested with: WooCommerce and WP eCommer
 
 
 == Changelog ==
+
+= 2.4.0 =
+* NOTICE - IF YOUR ARE USING S&F WITH WOOCOMMERCE VARIATIONS YOU NEED TO REBUILD THE S&F CACHE AFTER APPLYING THIS UPDATE
+* Fix - WooCommerce deprecated `woocommerce_get_page_id` in 3.0
+* Fix - various WooCommerce issues relating to Variations - Woocommerce users' who use variations need to rebuild S&F cache
+* Fix - correctly set the `sf-option-active` class on multi select items (this includes checkboxes)
+* Fix - properly escape some strings
+* Fix - destroy nuUiSlider (if it exists) before init, in case it has been init by another plugin (compat)
+* Fix - some issues with levels / nesting of hierarchical taxonomies
+* Fix - some issues with polylang and ajax requests
+* Fix - an issue with a number range field not resetting properly
+* Fix - an issue with `enable on taxonomy archives` when taxonomies were shared between multiple post types
+* Fix - a PHP error when using multiple date pickers with post meta
+* Fix - the infinite scroll loader will now check the parent it is attached to and use the correct html tag for the loader
+* Fix - an issue with the icon not loading for available fields
+* Fix - an issue with "enable on taxonomy archives" and pagination not working correctly
 
 = 2.3.4 =
 * Fix - issues in some environments where infinite scroll wasn't activating after a performing search, or getting the page var wrong

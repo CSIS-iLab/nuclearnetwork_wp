@@ -683,12 +683,23 @@ ul.sort_options_list li.sort-option-template, ul.meta_options_list li.meta-optio
     float:none;
 
 }
-
+.widget-top .widget-title-action-move a.widget-action {
+	position:relative;
+	display:block;
+	display:none;
+}
 .widget-top .widget-title-action-move a.widget-action:after
 {	
-   content: "\f333";  
-}
+   content: "\f132";
+	font-family: dashicons;
+	font-size:20px;
+	color:#cccccc;
 
+}
+.widget-top .widget-title-action-move a.widget-action:hover:after
+{
+	color:#666666;
+}
 
 .widget-title-action-move
 {
