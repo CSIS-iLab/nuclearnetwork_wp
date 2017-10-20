@@ -406,9 +406,10 @@
 
         @include breakpoint("medium") {
             &:hover ul {
-                display: block;
+                display: table;
                 position: absolute;
                 z-index: 1;
+                width: 250px;
                 width: -moz-max-content;
                 width: max-content;
                 border-top: 2px solid $yellow;
