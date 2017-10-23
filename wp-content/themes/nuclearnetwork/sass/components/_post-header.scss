@@ -193,8 +193,13 @@
       text-align: left;
     }
   }
+}
 
-  // Site Content
+.page-template-default,
+.single-events,
+.single-opportunities,
+.single-news,
+.single-resources {
   .site-content {
     @include breakpoint("medium") {
       margin-top: 0;
