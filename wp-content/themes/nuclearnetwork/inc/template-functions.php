@@ -104,6 +104,12 @@ function jetpackme_custom_related( $atts ) {
 				// Get the related post IDs.
 				$related_post = get_post( $result[ 'id' ] );
 				$thumbnail = get_the_post_thumbnail_url( $related_post, 'medium_large' );
+
+				// If no thumbnail exists, get a fallback image.
+				if ( ! $thumbnail ) {
+					$thumbnail = get_option( 'nuclearnetwork_category_and_tag_archive_image' );
+				}
+
 				$related_html .= '<div class="related-post col-xs-12 col-md-4">
 				<div class="related-post-img" style="background-image:url(\'' . $thumbnail . '\');"></div>
 				<a href="' . esc_url( get_permalink( $related_post ) ) . '">

@@ -37,6 +37,7 @@
 			background-origin: content-box;
 			background-repeat: no-repeat;
 			background-size: cover;
+			background-position: center center;
 			@include transition(transform 0.3s ease-in-out);
 
 			&::before {
