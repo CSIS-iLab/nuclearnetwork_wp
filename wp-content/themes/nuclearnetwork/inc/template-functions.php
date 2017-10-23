@@ -227,6 +227,18 @@ function nuclearnetwork_custom_sort_posts( $query ) {
 	}
 }
 
+add_action( 'pre_get_posts', 'nuclearnetwork_cpt_tags_archive' );
+/**
+ * Amend category & tags archives to include custom post types.
+ *
+ * @param  array $query Query object.
+ */
+function nuclearnetwork_cpt_tags_archive( $query ) {
+	if ( ( $query->is_category() || $query->is_tag() ) && $query->is_main_query() ) {
+		$query->set( 'post_type', array( 'post', 'events', 'opportunities', 'news', 'announcements', 'resources' ) );
+	}
+}
+
 add_action( 'pre_get_posts', 'nuclearnetwork_events_archive' );
 /**
  * Modify events archive to only show current & future events unless we've filtered.

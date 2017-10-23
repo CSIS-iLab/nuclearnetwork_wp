@@ -224,7 +224,7 @@ if ( ! function_exists( 'nuclearnetwork_post_write' ) ) :
 			$message = get_option( 'nuclearnetwork_post_write' );
 			if ( $message ) {
 				printf( '<div class="post-write">
-					<h5 class="callout-header"><a href="/submit-analysis/"><i class="icon-pencil-write"></i> ' . esc_html_x( 'Write for Us', 'nuclearnetwork' ) . '</a></h5>
+					<h5 class="callout-header"><a href="/write-for-us/"><i class="icon-pencil-write"></i> ' . esc_html_x( 'Write for Us', 'nuclearnetwork' ) . '</a></h5>
 				<p>' . esc_html( '%1$s' ) . '</p></div>', $message ); // WPCS: XSS OK.
 			}
 		}
