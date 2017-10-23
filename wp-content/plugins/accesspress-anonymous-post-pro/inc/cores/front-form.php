@@ -57,13 +57,13 @@ foreach ( $ap_settings[ 'form_fields' ] as $field_title => $field_array ) {
                     case 'post_title':
                         $post_title_label = ($field_array[ 'label' ] == '') ? __('Post Title', 'anonymous-post-pro') : $field_array[ 'label' ];
                         $form .= '<div class="ap-pro-form-field-wrapper">';
-                        $form .= '<div class="label-wrap"><label>' . $post_title_label . '</label>';
+                        $form .= '<div class="label-wrap"><label for="ap_form_post_title">' . $post_title_label . '</label>';
                         if ( $field_array[ 'notes_type' ] == 'icon' && $field_array[ 'notes' ] != '' ) {
                             $form .= '<div class="ap-pro-info-wrap"><span class="ap-pro-info-notes-icon">i</span><div class="ap-pro-info-notes">' . $field_array[ 'notes' ] . '</div></div>';
                         }
                         $required_message = ($field_array[ 'required_message' ] == '') ? __('This field is required.', 'anonymous-post-pro') : $field_array[ 'required_message' ];
                         $form .= '</div><div class="ap-pro-form-field">
-                   <input type="text" name="ap_form_post_title" data-required-msg="' . $field_array[ 'required_message' ] . '" class="ap-pro-textfield ap-required-field""/>
+                   <input type="text" id="ap_form_post_title" name="ap_form_post_title" data-required-msg="' . $field_array[ 'required_message' ] . '" class="ap-pro-textfield ap-required-field""/>
                    <input type="hidden" name="form_included_fields[]" value="post_title"/>';
                         if ( $field_array[ 'notes_type' ] == 'tooltip' && $field_array[ 'notes' ] != '' ) {
                             $form .= '<span class="ap-pro-tooltip-notes">' . $field_array[ 'notes' ] . '</span>';
@@ -80,7 +80,7 @@ foreach ( $ap_settings[ 'form_fields' ] as $field_title => $field_array ) {
                     case 'post_content':
                         $post_content_label = ($field_array[ 'label' ] == '') ? __('Post Content', 'anonymous-post-pro') : $field_array[ 'label' ];
                         $form .= '<div class="ap-pro-form-field-wrapper">';
-                        $form .= '<div class="label-wrap"><label>' . $post_content_label . '</label>';
+                        $form .= '<div class="label-wrap"><label for="ap_form_post_content">' . $post_content_label . '</label>';
                         if ( $field_array[ 'notes_type' ] == 'icon' && $field_array[ 'notes' ] != '' ) {
                             $form .= '<div class="ap-pro-info-wrap"><span class="ap-pro-info-notes-icon">i</span><div class="ap-pro-info-notes">' . $field_array[ 'notes' ] . '</div></div>';
                         }
@@ -88,7 +88,7 @@ foreach ( $ap_settings[ 'form_fields' ] as $field_title => $field_array ) {
 
 
                         if ( $field_array[ 'editor_type' ] == 'simple' ) {
-                            $wp_editor = '<textarea name="ap_form_post_content" rows="5" class="ap-simple-textarea ap-form-content-editor"></textarea>';
+                            $wp_editor = '<textarea id="ap_form_post_content" name="ap_form_post_content" rows="5" class="ap-simple-textarea ap-form-content-editor"></textarea>';
                         } else {
                             $editor_size = (isset($field_array[ 'editor_size' ]) && $field_array[ 'editor_size' ] != '') ? $field_array[ 'editor_size' ] : 10;
                             $media_upload_flag = (isset($ap_settings[ 'media_upload' ]) && $ap_settings[ 'media_upload' ] == 1) ? true : false;
@@ -205,8 +205,8 @@ foreach ( $ap_settings[ 'form_fields' ] as $field_title => $field_array ) {
                             $author_auto_fill_value = $author_email;
                         }
 
-                        $form .= '<div class="ap-pro-form-field-wrapper">';
-                        $form .= '<div class="label-wrap"><label>' . $author_label . '</label>';
+                        $form .= '<div class="ap-pro-form-field-wrapper ' . $field_title . '">';
+                        $form .= '<div class="label-wrap"><label for="ap_form_' . $field_title . '">' . $author_label . '</label>';
                         if ( $field_array[ 'notes_type' ] == 'icon' && $field_array[ 'notes' ] != '' ) {
                             $form .= '<div class="ap-pro-info-wrap"><span class="ap-pro-info-notes-icon">i</span><div class="ap-pro-info-notes">' . $field_array[ 'notes' ] . '</div></div>';
                         }
@@ -214,7 +214,7 @@ foreach ( $ap_settings[ 'form_fields' ] as $field_title => $field_array ) {
                         $required = ($field_title == 'author_email') ? $required . ' ap-email-field' : $required;
                         $required_message = ($field_array[ 'required_message' ] == '') ? __('This field is required.', 'anonymous-post-pro') : $field_array[ 'required_message' ];
                         $form .= '</div><div class="ap-pro-form-field">
-                   <input type="text" name="ap_form_' . $field_title . '" data-required-msg="' . $field_array[ 'required_message' ] . '" class="ap-pro-textfield' . $required . '" value="' . $author_auto_fill_value . '"/>
+                   <input type="text" id="ap_form_' . $field_title . '" name="ap_form_' . $field_title . '" data-required-msg="' . $field_array[ 'required_message' ] . '" class="ap-pro-textfield' . $required . '" value="' . $author_auto_fill_value . '"/>
                    <input type="hidden" name="form_included_fields[]" value="' . $field_title . '"/>';
                         if ( $field_array[ 'notes_type' ] == 'tooltip' && $field_array[ 'notes' ] != '' ) {
                             $form .= '<span class="ap-pro-tooltip-notes">' . $field_array[ 'notes' ] . '</span>';
@@ -325,8 +325,8 @@ foreach ( $ap_settings[ 'form_fields' ] as $field_title => $field_array ) {
             case 'custom':
                 $custom_label = ($field_array[ 'label' ] == '') ? $field_array[ 'custom_label' ] : $field_array[ 'label' ];
                 $field_class = isset($field_array[ 'field_class' ]) ? $field_array[ 'field_class' ] : '';
-                $form .= '<div class="ap-pro-form-field-wrapper ' . $field_class . '">';
-                $form .= '<div class="label-wrap"><label>' . $custom_label . '</label>';
+                $form .= '<div class="ap-pro-form-field-wrapper ' . $field_class . $field_title . '">';
+                $form .= '<div class="label-wrap"><label for="' . $field_title . '">' . $custom_label . '</label>';
                 if ( $field_array[ 'notes_type' ] == 'icon' && $field_array[ 'notes' ] != '' ) {
                     $form .= '<div class="ap-pro-info-wrap"><span class="ap-pro-info-notes-icon">i</span><div class="ap-pro-info-notes">' . $field_array[ 'notes' ] . '</div></div>';
                 }

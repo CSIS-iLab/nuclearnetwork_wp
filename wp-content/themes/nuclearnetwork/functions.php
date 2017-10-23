@@ -126,7 +126,7 @@ function nuclearnetwork_scripts() {
 
 	wp_enqueue_script( 'nuclearnetwork-header', get_template_directory_uri() . '/js/header.js', array(), '20170901', true );
 
-	wp_enqueue_script( 'nuclearnetwork-guest-authors', get_template_directory_uri() . '/js/guest-authors.js', array( 'wp-api' ), '20171005', true );
+	wp_enqueue_script( 'nuclearnetwork-guest-authors', get_template_directory_uri() . '/js/guest-authors.js', array(), '20171005', true );
 
 	if ( is_singular() ) {
 		wp_enqueue_script( 'nuclearnetwork-posts', get_template_directory_uri() . '/js/posts.js', array(), '20170907', true );
@@ -185,3 +185,8 @@ require get_template_directory() . '/inc/custom-shortcodes.php';
  * Load custom TinyMCE buttons.
  */
 require get_template_directory() . '/inc/custom-tinymce.php';
+
+/**
+ * Custom Rest API Endpoints.
+ */
+require get_template_directory() . '/inc/custom-rest-api.php';
