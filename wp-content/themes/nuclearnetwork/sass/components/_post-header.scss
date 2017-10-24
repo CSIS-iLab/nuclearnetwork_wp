@@ -199,7 +199,8 @@
 .single-events,
 .single-opportunities,
 .single-news,
-.single-resources {
+.single-resources,
+.single-alumni {
   .site-content {
     @include breakpoint("medium") {
       margin-top: 0;
