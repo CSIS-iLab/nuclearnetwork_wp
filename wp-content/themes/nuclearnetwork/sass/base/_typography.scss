@@ -206,7 +206,12 @@ p {
 	line-height: 1.8;
 }
 
-p + h2 {
+p + h2,
+p + h3,
+p + h4,
+p + h5,
+p + h6
+{
 	margin-top: 2rem;
 }
 
