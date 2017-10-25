@@ -110,6 +110,7 @@ if ( ! function_exists( 'nuclearnetwork_entry_categories' ) ) :
 		if ( in_array( get_post_type(), array( 'post', 'events', 'opportunities', 'announcements', 'resources' ), true ) ) {
 			/* translators: used between list items, there is a space after the comma */
 			$categories_list = get_the_category_list();
+
 			if ( 'Uncategorized' === $categories_list ) {
 				return;
 			}
