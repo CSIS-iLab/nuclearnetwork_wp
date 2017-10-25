@@ -42,7 +42,7 @@ $linkedin = get_option( 'nuclearnetwork_linkedin' );
 					</div>
 				</a>
 			</div>
-			<div class="header-content-container col-xs-10 col-md-8">
+			<div class="header-content-container col-xs-10 col-md">
 				<div class="header-top row hidden-xs hidden-sm middle-md">
 					<div class="social-container col-md-4 col-lg-3">
 						<ul class="header-social">
