@@ -11,6 +11,18 @@ if ( $post->menu_featured_img ) {
 	$featured_img = null;
 }
 
+if ( 'events' === $post->featured_post->post_type ) {
+	$date = get_post_meta( $post->featured_post->ID, '_post_start_date', true );
+	$formatted_date = date_create_from_format('Y-n-d', $date);
+	$date = date_format($formatted_date, 'F j, Y');
+} elseif ( 'opportunities' === $post->featured_post->post_type ) {
+	$date = get_post_meta( $post->featured_post->ID, '_post_deadline', true );
+	$formatted_date = date_create_from_format('Y-n-d', $date);
+	$date = date_format($formatted_date, 'F j, Y');
+} else {
+	$date = get_the_date( '', $post->featured_post->ID );
+}
+
 ?>
 
 <div class="hp-block split-main block-<?php echo sanitize_html_class( $post->block_color ); ?>">
@@ -34,7 +46,7 @@ if ( $post->menu_featured_img ) {
 		<h6 class="subsection-header"><?php esc_html_e( 'Featured', 'nuclearnetwork' ); ?></h6>
 		<?php
 			echo '<a href="' . esc_url( get_the_permalink( $post->featured_post->ID ) ) . '" rel="bookmark" class="post-title">' . esc_html( $post->featured_post->post_title ) . '</a>';
-			echo '<span class="post-date">' . get_the_date( '', $post->featured_post->ID ) . '</span>';
+			echo '<span class="post-date">' . $date . '</span>';
 		?>
 	</div>
 </div>
