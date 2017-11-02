@@ -357,3 +357,11 @@
 		padding-left: 3rem;
 	}
 }
+
+// Authors Archive
+.archive.author {
+	.archive-description {
+		@extend .body-small;
+		margin-bottom: 2rem;
+	}
+}

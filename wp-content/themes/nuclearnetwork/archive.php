@@ -26,14 +26,18 @@ $featured_img = ' style="background-image:url(\'' . esc_attr( $img ) . '\');"';
 			<header class="page-header"<?php echo $featured_img; ?>>
 				<div class="header-content">
 					<?php
-						echo '<div class="archive-category">';
-						the_archive_top_content();
-						echo '</div>';
-						the_archive_title( '<h1 class="page-title">', '</h1>' );
+					echo '<div class="archive-category">';
+					the_archive_top_content();
+					echo '</div>';
+					the_archive_title( '<h1 class="page-title">', '</h1>' );
+
+					// Don't show description on author pages because the bios are too long.
+					if ( ! is_author() ) {
 						the_archive_description( '<div class="archive-description">', '</div>' );
 						echo '<div class="archive-description">';
 						the_archive_bottom_content();
 						echo '</div>';
+					}
 					?>
 				</div>
 				<?php echo nuclearnetwork_archive_search(); ?>
@@ -42,6 +46,12 @@ $featured_img = ' style="background-image:url(\'' . esc_attr( $img ) . '\');"';
 			<div class="content-wrapper row archive-container">
 				<div class="col-xs-12 col-md-9 archive-content">
 				<?php
+
+				// Show description in post section if author page.
+				if ( is_author() ) {
+					echo '<h2>About the Author</h2>';
+					the_archive_description( '<div class="archive-description">', '</div>' );
+				}
 
 				if ( have_posts() ) :
 

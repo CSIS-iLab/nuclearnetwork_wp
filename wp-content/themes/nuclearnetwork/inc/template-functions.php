@@ -462,3 +462,11 @@ function myplugin_add_karma() {
         ),
     ) );
 }
+
+function nuclearnetwork_co_author_archive( $query ) {
+	if ( $query->is_author ) {
+		$query->set( 'post_type', array( 'post', 'events', 'opportunities', 'news', 'announcements', 'resources' ) );
+	}
+	remove_action( 'pre_get_posts', 'co_author_archive' );
+}
+add_action( 'pre_get_posts', 'nuclearnetwork_co_author_archive' );
