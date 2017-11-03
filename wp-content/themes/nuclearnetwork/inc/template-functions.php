@@ -45,10 +45,12 @@ function insert_content_discuss_message( $content ) {
 		if ( ! $disable_linkedin ) {
 			$callout_title = 'Discuss this Post';
 			$callout_message = get_option( 'nuclearnetwork_post_discuss' );
-			$callout_url = get_post_meta( $id, '_post_linkedin_url', true );
+			$callout_url = get_post_meta( $post->ID, '_post_linkedin_url', true );
+
 			if ( ! $callout_url ) {
 				$callout_url = get_option( 'nuclearnetwork_linkedin' );
 			}
+
 			$callout_icon = 'icon-linkedin-discuss';
 			$content .= nuclearnetwork_post_callout( $callout_title, $callout_message, $callout_url, $callout_icon );
 		}
