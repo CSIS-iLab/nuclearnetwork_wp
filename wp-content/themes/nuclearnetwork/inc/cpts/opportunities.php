@@ -41,7 +41,7 @@ function nuclearnetwork_cpt_opportunities() {
 		'label'                 => __( 'Opportunity', 'nuclearnetwork' ),
 		'description'           => __( 'Jobs and opportunities for PONI members.', 'nuclearnetwork' ),
 		'labels'                => $labels,
-		'supports'              => array( 'title', 'editor', 'excerpt', 'thumbnail' ),
+		'supports'              => array( 'title', 'editor', 'excerpt' ),
 		'taxonomies'            => array( 'category' ),
 		'hierarchical'          => false,
 		'public'                => true,
