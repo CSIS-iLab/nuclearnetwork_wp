@@ -125,6 +125,7 @@ $img4 = get_option( 'nuclearnetwork_home_img_4' );
 						while ( $alumni->have_posts() ) : $alumni->the_post();
 							get_template_part( 'template-parts/featured-alumni' );
 						endwhile;
+						wp_reset_postdata();
 						?>
 					</div>
 				</div>
@@ -152,8 +153,33 @@ $img4 = get_option( 'nuclearnetwork_home_img_4' );
 			<!-- About this Project -->
 			<div class="row about-info">
 				<div class="col-xs-12 col-sm-9">
-					<h4 class="section-header"><?php esc_html_e( ' About this Project', 'nuclearnetwork' ); ?></h4>
+					<h4 class="section-header"><?php esc_html_e( 'About this Project', 'nuclearnetwork' ); ?></h4>
 					<?php echo '<p>' . esc_html( get_option( 'nuclearnetwork_home_desc_long' ) ) . '</p>'; ?>
+
+					<?php
+						$announcement_args = array(
+							'post_type' => array( 'announcements' ),
+							'posts_per_page' => 1,
+							'cache_results'          => true,
+							'meta_query' => array(
+								array(
+									'key' => '_post_is_featured',
+									'value' => 1,
+									'compare' => '=',
+								),
+							),
+						);
+
+						$announcement = new WP_Query( $announcement_args );
+						if ( $announcement->have_posts() ) {
+							echo '<h5 class="subsection-header">' . esc_html( 'Featured Announcement', 'nuclearnetwork' ) . '</h5>';
+							while ( $announcement->have_posts() ) : $announcement->the_post();
+								get_template_part( 'template-parts/featured-announcement' );
+							endwhile;
+							wp_reset_postdata();
+						}
+					?>
+
 				</div>
 				<div class="col-xs-12 col-sm-3">
 					<?php

@@ -438,6 +438,14 @@
             @include fontSize(25px);
         }
 
+        .subsection-header {
+            margin: 1.5rem 0 0.5rem 0;
+            font-family: $font__lato;
+            @include fontSize(20px);
+            line-height: 1.07;
+            font-weight: 600;
+        }
+
         p {
             @include fontSize(18px);
             line-height: 1.78;

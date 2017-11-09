@@ -28,6 +28,7 @@ if ( $is_featured ) {
 			<?php
 			nuclearnetwork_post_format( $post->ID );
 			the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
+			nuclearnetwork_posted_on();
 			nuclearnetwork_entry_categories();
 			?>
 		</header><!-- .entry-header -->
