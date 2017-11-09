@@ -280,8 +280,8 @@ function nuclearnetwork_events_archive( $query ) {
 
 			// add the meta query and use the $compare var.
 			$today = date( 'Y-m-d' );
-			$meta_query['_post_start_date'] = array(
-				'key' => '_post_start_date',
+			$meta_query['_post_end_date'] = array(
+				'key' => '_post_end_date',
 				'value' => $today,
 				'compare' => $compare,
 				'type' => 'DATE',
@@ -297,7 +297,7 @@ function nuclearnetwork_events_archive( $query ) {
 
 		$query->set( 'orderby', array(
 			'meta_value' => 'DESC',
-			'_post_start_date' => $past_events_order_dir,
+			'_post_end_date' => $past_events_order_dir,
 		) );
 	}
 }
@@ -425,17 +425,6 @@ add_filter( 'sf_results_url', 'nuclearnetwork_events_archive_search_rewrites', 1
   	}
   
   }
-
-// function nuclearnetwork_filter_guestauthor_json( $data, $post, $context ) {
-// 	$email = get_post_meta( $post->ID, 'cap-user_email', true );
-
-// 	if( $email ) {
-// 	    $data->data['email'] = $email;
-// 	}
-
-// 	return $data;
-// }
-// add_filter( 'rest_prepare_guest-author', 'nuclearnetwork_filter_guestauthor_json', 10, 3 );
 
 add_action( 'rest_api_init', 'myplugin_add_karma' );
 function myplugin_add_karma() {
