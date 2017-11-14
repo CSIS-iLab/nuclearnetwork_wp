@@ -172,7 +172,6 @@ $img4 = get_option( 'nuclearnetwork_home_img_4' );
 
 						$announcement = new WP_Query( $announcement_args );
 						if ( $announcement->have_posts() ) {
-							echo '<h5 class="subsection-header">' . esc_html( 'Featured Announcement', 'nuclearnetwork' ) . '</h5>';
 							while ( $announcement->have_posts() ) : $announcement->the_post();
 								get_template_part( 'template-parts/featured-announcement' );
 							endwhile;
