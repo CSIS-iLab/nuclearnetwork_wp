@@ -50,9 +50,7 @@ get_header(); ?>
 								get_the_title()
 							) );
 						?>
-						<form action="/next-generation">
-						    <input type="submit" style="border-radius:0" value="Back To Next Gen Highlights" />
-						</form>
+						<a href="/next-generation/" class="alumni btn btn-blue">Back To Next Gen</a>
 						</div>
 					</div><!-- .entry-content -->
 				</div>
