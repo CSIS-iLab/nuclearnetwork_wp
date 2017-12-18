@@ -50,12 +50,13 @@ get_header(); ?>
 								get_the_title()
 							) );
 						?>
+						<a href="/next-generation/" class="btn btn-blue alumni-btn">Back To Next Gen</a>
 						</div>
 					</div><!-- .entry-content -->
 				</div>
 
 				<footer class="entry-footer">
-					
+
 				</footer><!-- .entry-footer -->
 			</article><!-- #post-<?php the_ID(); ?> -->
 
