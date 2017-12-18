@@ -33,7 +33,6 @@ $featured_img = ' style="background-image:url(\'' . esc_attr( $img ) . '\');"';
 
 					// Don't show description on author pages because the bios are too long.
 					if ( ! is_author() ) {
-						the_archive_description( '<div class="archive-description">', '</div>' );
 						echo '<div class="archive-description">';
 						the_archive_bottom_content();
 						echo '</div>';
