@@ -138,7 +138,7 @@
   }
 
   // Featured Posts
-  &.featured:not(.announcements) {
+  &.featured:not(.announcements):not(.alumni) {
 
     .entry-header {
       @include breakpoint("medium") {

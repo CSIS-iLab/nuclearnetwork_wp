@@ -50,7 +50,7 @@ get_header(); ?>
 								get_the_title()
 							) );
 						?>
-						<a href="/next-generation/" class="alumni btn btn-blue">Back To Next Gen</a>
+						<a href="/next-generation/" class="btn btn-blue alumni-btn">Back To Next Gen</a>
 						</div>
 					</div><!-- .entry-content -->
 				</div>

@@ -12,8 +12,12 @@
 		margin-left: 0 !important;
 	}
 }
-.alumni .btn {
+.alumni-btn {
 	color: $white;
 	margin: 1rem 0 -0.5rem;
 	display: inline-block;
+
+	&:visited {
+		color: $white;
+	}
 }
