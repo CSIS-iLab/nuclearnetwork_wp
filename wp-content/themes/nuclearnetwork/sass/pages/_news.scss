@@ -58,7 +58,7 @@
 		margin-bottom: 1rem;
 	}
 
-	a {
+	a:not(.read-more) {
 		display: inline;
 		margin-left: 5px;
 		@include fontSize(14px);

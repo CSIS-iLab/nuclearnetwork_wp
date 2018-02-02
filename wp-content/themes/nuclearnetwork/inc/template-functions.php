@@ -367,10 +367,29 @@ add_filter( 'wpseo_title', 'nuclearnetwork_co_author_wseo_title' );
 function nuclearnetwork_excerpt_more( $more ) {
 	return sprintf( ' <a class="read-more" href="%1$s">%2$s<i class="icon-arrow-right"></i></a>',
 		get_permalink( get_the_ID() ),
-		__( 'Read More', 'textdomain' )
+		__( 'Read More', 'nuclearnetwork' )
 	);
 }
 add_filter( 'excerpt_more', 'nuclearnetwork_excerpt_more' );
+
+/**
+ * Filter the "read more" excerpt string link to all news posts on news archive.
+ *
+ * @param string $more "Read more" excerpt string.
+ * @return string (Maybe) modified "read more" excerpt string.
+ */
+function nuclearnetwork_excerpt_read_more_link( $output ) {
+	global $post;
+	if ( 'news' !== get_post_type() ) {
+		return $output;
+	}
+
+	return $output . sprintf( ' <a class="read-more" href="%1$s">%2$s<i class="icon-arrow-right"></i></a>',
+			get_permalink( $post->ID ),
+			__( 'Read More', 'nuclearnetwork' )
+		);
+}
+add_filter( 'the_excerpt', 'nuclearnetwork_excerpt_read_more_link' );
 
 add_action( 'pre_get_posts', 'nuclearnetwork_resources_archive' );
 /**
