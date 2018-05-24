@@ -106,7 +106,7 @@ class Search_Filter_Activator {
 			field_name varchar(255) NOT NULL,
 			field_value varchar(255) NOT NULL,
 			field_value_num bigint(20) NULL,
-			result_ids text NOT NULL,
+			result_ids mediumtext NOT NULL,
 			PRIMARY KEY  (id),
             KEY field_name_index (field_name),
             KEY field_value_index (field_value),

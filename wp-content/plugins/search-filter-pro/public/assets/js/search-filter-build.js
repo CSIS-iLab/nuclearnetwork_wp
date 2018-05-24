@@ -2335,6 +2335,7 @@ module.exports = function(options)
         this.ajax_data_type = $this.attr('data-ajax-data-type');
         this.ajax_target_attr = $this.attr("data-ajax-target");
         this.use_history_api = $this.attr("data-use-history-api");
+        this.is_submitting = false;
 
         this.last_ajax_request = null;
 
@@ -2485,7 +2486,7 @@ module.exports = function(options)
                     //then it is a date range, so make sure both fields are filled before updating
                     var dp_counter = 0;
                     var dp_empty_field_count = 0;
-                    $tf_date_pickers.each(function(){
+                    $tf_date_pickers.each(function() {
 
                         if($(this).val()=="")
                         {
@@ -2495,21 +2496,18 @@ module.exports = function(options)
                         dp_counter++;
                     });
 
-                    if(dp_empty_field_count==0)
-                    {
+                    if(dp_empty_field_count==0) {
                         self.inputUpdate(1200);
                     }
                 }
-                else
-                {
+                else {
                     self.inputUpdate(1200);
                 }
             }
         }
 
 
-        this.scrollToPos = function()
-        {
+        this.scrollToPos = function() {
             var offset = 0;
             var canScroll = true;
 
@@ -2603,19 +2601,18 @@ module.exports = function(options)
             /* auto update */
             if((self.auto_update==1)||(self.auto_count_refresh_mode==1))
             {
-                $this.on('change', 'input[type="radio"], input[type="checkbox"], select', function(e)
-                {
+                $this.on('change', 'input[type="radio"], input[type="checkbox"], select', function(e) {
                     self.inputUpdate(200);
-                });
-                $this.on('change', '.meta-slider', function(e)
-                {
-                    self.inputUpdate(200);
-                });
-                $this.on('input', 'input[type="number"]', function(e)
-                {
-                    self.inputUpdate(800);
                 });
 
+                //$this.on('change', '.meta-slider', function(e) {
+                //    self.inputUpdate(200);
+                //    console.log("CHANGE META SLIDER");
+                //});
+
+                $this.on('input', 'input[type="number"]', function(e) {
+                    self.inputUpdate(800);
+                });
 
                 var $textInput = $this.find('input[type="text"]:not(.sf-datepicker)');
                 var lastValue = $textInput.val();
@@ -2633,8 +2630,8 @@ module.exports = function(options)
 
                 $this.on('keypress', 'input[type="text"]:not(.sf-datepicker)', function(e)
                 {
-                    if (e.which == 13)
-                    {
+                    if (e.which == 13){
+
                         e.preventDefault();
                         self.submitForm();
                         return false;
@@ -2642,7 +2639,7 @@ module.exports = function(options)
 
                 });
 
-                $this.on('input', 'input.sf-datepicker', self.dateInputType);
+                //$this.on('input', 'input.sf-datepicker', self.dateInputType);
 
             }
         };
@@ -2650,7 +2647,7 @@ module.exports = function(options)
         //this.initAutoUpdateEvents();
 
 
-        this.clearTimer = function(delayDuration)
+        this.clearTimer = function()
         {
             clearTimeout(self.inputTimer);
         };
@@ -2692,7 +2689,7 @@ module.exports = function(options)
                     var datePickerOptions = {
                         inline: true,
                         showOtherMonths: true,
-                        onSelect: self.dateSelect,
+                        onSelect: function(){ self.dateSelect(); },
                         dateFormat: dateFormat,
 
                         changeMonth: dateDropdownMonth,
@@ -2770,6 +2767,7 @@ module.exports = function(options)
                 {
                     self.inputUpdate(1);
                 }
+
             }
         };
 
@@ -2902,8 +2900,8 @@ module.exports = function(options)
                         if((self.auto_update==1)||(self.auto_count_refresh_mode==1))
                         {
                             //only try to update if the values have actually changed
-                            if((slider_start_val!=min_formatted)||(slider_end_val!=max_formatted))
-                            {
+                            if((slider_start_val!=min_formatted)||(slider_end_val!=max_formatted)) {
+
                                 self.inputUpdate(800);
                             }
 
@@ -2936,30 +2934,51 @@ module.exports = function(options)
 
             if($combobox.length>0)
             {
-                if (typeof $combobox.chosen != "undefined")
-                {
-                    // safe to use the function
-                    //search_contains
-                    if(self.is_rtl==1)
+                $combobox.each(function(index ){
+                    var $thiscb = $( this );
+                    var nrm = $thiscb.attr("data-combobox-nrm");
+
+                    if (typeof $thiscb.chosen != "undefined")
                     {
-                        $combobox.addClass("chosen-rtl");
+                        var chosenoptions = {
+                            search_contains: true
+                        };
+
+                        if((typeof(nrm)!=="undefined")&&(nrm)){
+                            chosenoptions.no_results_text = nrm;
+                        }
+                        // safe to use the function
+                        //search_contains
+                        if(self.is_rtl==1)
+                        {
+                            $thiscb.addClass("chosen-rtl");
+                        }
+
+                        $thiscb.chosen(chosenoptions);
+                    }
+                    else
+                    {
+
+                        var select2options = {};
+
+                        if(self.is_rtl==1)
+                        {
+                            select2options.dir = "rtl";
+                        }
+                        if((typeof(nrm)!=="undefined")&&(nrm)){
+                            select2options.language= {
+                                "noResults": function(){
+                                    return nrm;
+                                }
+                            };
+                        }
+
+                        $thiscb.select2(select2options);
                     }
 
-                    $combobox.chosen({
-                        search_contains: true
-                    });
-                }
-                else
-                {
+                });
+                
 
-                    var select2options = {};
-
-                    if(self.is_rtl==1)
-                    {
-                        select2options.dir = "rtl";
-                    }
-                    $combobox.select2(select2options);
-                }
             }
 
 
@@ -2977,17 +2996,6 @@ module.exports = function(options)
             if(keep_pagination==false)
             {
                 self.last_submit_query_params = self.getUrlParams(false);
-            }
-
-            if(this.pagination_type=="infinite_scroll")
-            {
-                if(parseInt(this.instance_number)==1) {
-                    $(window).off("scroll", self.onWindowScroll);
-
-                    if (self.canFetchAjaxResults("pagination")) {
-                        $(window).on("scroll", self.onWindowScroll);
-                    }
-                }
             }
         }
 
@@ -3515,12 +3523,16 @@ module.exports = function(options)
                 //updates the resutls & form html
                 self.updateResults(data, data_type);
 
+                /* update URL */
+                //update url before pagination, because we need to do some checks agains the URL for infinite scroll
+                self.updateUrlHistory(ajax_results_url);
+
                 //setup pagination
                 self.setupAjaxPagination();
 
-                /* update URL */
-                self.updateUrlHistory(ajax_results_url);
 
+
+                self.isSubmitting = false;
 
                 /* user def */
                 self.initWooCommerceControls(); //woocommerce orderby
@@ -3536,6 +3548,7 @@ module.exports = function(options)
                 data.jqXHR = jqXHR;
                 data.textStatus = textStatus;
                 data.errorThrown = errorThrown;
+                self.isSubmitting = false;
                 self.triggerEvent("sf:ajaxerror", data);
                 /*console.log("AJAX FAIL");
                  console.log(e);
@@ -3564,12 +3577,11 @@ module.exports = function(options)
                         }
 
                     });
-                    if($input.length==1)
-                    {
+                    if($input.length==1) {
+
                         $input.focus().val($input.val());
+                        self.focusCampo($input[0]);
                     }
-
-
                 }
 
                 $this.find("input[name='_sf_search']").focus();
@@ -3577,6 +3589,25 @@ module.exports = function(options)
 
             });
         };
+
+        this.focusCampo = function(inputField){
+            //var inputField = document.getElementById(id);
+            if (inputField != null && inputField.value.length != 0){
+                if (inputField.createTextRange){
+                    var FieldRange = inputField.createTextRange();
+                    FieldRange.moveStart('character',inputField.value.length);
+                    FieldRange.collapse();
+                    FieldRange.select();
+                }else if (inputField.selectionStart || inputField.selectionStart == '0') {
+                    var elemLen = inputField.value.length;
+                    inputField.selectionStart = elemLen;
+                    inputField.selectionEnd = elemLen;
+                    inputField.focus();
+                }
+            }else{
+                inputField.focus();
+            }
+        }
 
         this.triggerEvent = function(eventname, data)
         {
@@ -3587,12 +3618,14 @@ module.exports = function(options)
         this.fetchAjaxForm = function()
         {
             //trigger start event
-            /*var event_data = {
-             sfid: self.sfid,
-             targetSelector: self.ajax_target_attr
-             };*/
+            var event_data = {
+                sfid: self.sfid,
+                targetSelector: self.ajax_target_attr,
+                type: "form",
+                object: self
+            };
 
-            //$this.trigger("sf:ajaxstart", [ event_data ]);
+            self.triggerEvent("sf:ajaxformstart", [ event_data ]);
 
             $this.addClass("search-filter-disabled");
             process_form.disableInputs(self);
@@ -3643,10 +3676,12 @@ module.exports = function(options)
                 var data = {};
                 data.sfid = self.sfid;
                 data.targetSelector = self.ajax_target_attr;
-                //self.triggerEvent("sf:ajaxfinish", [ data ]);
+                data.object = self;
 
                 $this.removeClass("search-filter-disabled");
                 process_form.enableInputs(self);
+
+                self.triggerEvent("sf:ajaxformfinish", [ data ]);
             });
         };
 
@@ -3838,7 +3873,6 @@ module.exports = function(options)
             {
                 //check to make sure the new html fetched is different
                 self.last_load_more_html = self.load_more_html;
-
                 self.infiniteScrollAppend(self.load_more_html);
 
             }
@@ -4077,9 +4111,14 @@ module.exports = function(options)
                     fetch_ajax_results = true;
                 }
 
-                var results_url = self.results_url;  //ss
+                var results_url = self.results_url;  //
                 var current_url = window.location.href;
 
+                //ignore # and everything after
+                var hash_pos = window.location.href.indexOf('#');
+                if(hash_pos!==-1){
+                    current_url = window.location.href.substr(0, window.location.href.indexOf('#'));
+                }
 
                 if( ( ( self.display_result_method=="custom_woocommerce_store" ) || ( self.display_result_method=="post_type_archive" ) ) && ( self.enable_taxonomy_archives == 1 ) )
                 {
@@ -4174,11 +4213,21 @@ module.exports = function(options)
 
         this.setupAjaxPagination = function()
         {
-
-
             if(typeof(self.ajax_links_selector)=="undefined")
             {
                 return;
+            }
+
+            //infinite scroll
+            if(this.pagination_type==="infinite_scroll")
+            {
+                if(parseInt(this.instance_number)===1) {
+                    $(window).off("scroll", self.onWindowScroll);
+
+                    if (self.canFetchAjaxResults("pagination")) {
+                        $(window).on("scroll", self.onWindowScroll);
+                    }
+                }
             }
 
             //var $ajax_links_object = jQuery(self.ajax_links_selector);
@@ -4239,9 +4288,7 @@ module.exports = function(options)
         this.formUpdated = function(e){
 
             //e.preventDefault();
-
-            if(self.auto_update==1)
-            {
+            if(self.auto_update==1) {
                 self.submitForm();
             }
             else if((self.auto_update==0)&&(self.auto_count_refresh_mode==1))
@@ -4261,10 +4308,47 @@ module.exports = function(options)
             return false;
         };
 
+        //make any corrections/updates to fields before the submit completes
+        this.setFields = function(e){
+
+            //if(self.is_ajax==0) {
+
+                //sometimes the form is submitted without the slider yet having updated, and as we get our values from
+                //the slider and not inputs, we need to check it if needs to be set
+                //only occurs if ajax is off, and autosubmit on
+
+                self.$fields.each(function() {
+
+                    var $field = $(this);
+
+                    $field.find(".meta-slider").each(function (index) {
+
+                        var slider_object = $(this)[0];
+                        var $slider_el = $(this).closest(".sf-meta-range-slider");
+                        //var minVal = $slider_el.attr("data-min");
+                        //var maxVal = $slider_el.attr("data-max");
+                        var minVal = $slider_el.find(".sf-range-min").val();
+                        var maxVal = $slider_el.find(".sf-range-max").val();
+                        slider_object.noUiSlider.set([minVal, maxVal]);
+
+                    });
+                });
+            //}
+
+        }
+
+        //submit
         this.submitForm = function(e){
 
             //loop through all the fields and build the URL
-            clearTimeout(self.inputTimer);
+            if(self.isSubmitting == true) {
+                return false;
+            }
+
+            self.setFields();
+            self.clearTimer();
+
+            self.isSubmitting = true;
 
             process_form.setTaxArchiveResultsUrl(self, self.results_url);
 
@@ -4272,9 +4356,8 @@ module.exports = function(options)
 
             if(self.canFetchAjaxResults())
             {//then we will ajax submit the form
+
                 self.ajax_action = "submit"; //so we know it wasn't pagination
-
-
                 self.fetchAjaxResults();
             }
             else
@@ -5112,10 +5195,12 @@ module.exports = {
 				});
 				
 				var values = [];
-				
+
+
 				var slider_object = $container.find(".meta-slider")[0];
+				//val from slider object
 				var slider_val = slider_object.noUiSlider.get();
-				
+
 				values.push(field_format.from(slider_val[0]));
 				values.push(field_format.from(slider_val[1]));
 				

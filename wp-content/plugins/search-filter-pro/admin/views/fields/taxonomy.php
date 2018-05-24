@@ -15,12 +15,13 @@
 ?>
 <div class="widget" data-field-type="taxonomy">
 	<div class="widget-top">
-		<div class="widget-title-action">
-			<a class="widget-action hide-if-no-js" href="#"></a>
-		</div>
-		<div class="widget-title-action-move">
-			<a class="widget-action hide-if-no-js" href="#"></a>
-		</div>
+        <div class="widget-title-action">
+            <a class="widget-control-edit hide-if-js">
+                <span class="edit">Edit</span>
+                <span class="add">Add</span>
+                <span class="screen-reader-text">Taxonomy Field</span>
+            </a>
+        </div>
 		<div class="widget-title">
 			<h4><?php _e("Taxonomy", $this->plugin_slug); ?><span class="in-widget-title"></span></h4>
 		</div>
@@ -102,10 +103,7 @@
 							</select>
 						</label>
 					</p>
-					<p class="sf_make_combobox">
-						<input class="checkbox" type="checkbox" id="{0}[{1}][combo_box]" name="{0}[{1}][combo_box]"<?php $this->set_checked($values['combo_box']); ?>>
-						<label for="{0}[{1}][combo_box]"><?php _e("Make Combobox?", $this->plugin_slug); ?><span class="hint--top hint--info" data-hint="<?php _e("Allow for text input to find values, with autocomplete and dropdown suggest", $this->plugin_slug); ?>"><i class="dashicons dashicons-info"></i></span></label>
-					</p>
+
 					<p>
 						<label for="{0}[{1}][heading]"><?php _e("Add a heading?", $this->plugin_slug); ?><br /><input class="" id="{0}[{1}][heading]" name="{0}[{1}][heading]" type="text" value="<?php echo esc_attr($values['heading']); ?>"></label>
 					</p>
@@ -149,6 +147,25 @@
 						<label for="{0}[{1}][include_children]"><?php _e("Include Children in Parents?", $this->plugin_slug); ?><span class="hint--top hint--info" data-hint="<?php _e("results in child terms will also be returned when a user searches its parent", $this->plugin_slug); ?>"><i class="dashicons dashicons-info"></i></span>
 						</label>
 					</p>
+                    <p class="sf_make_combobox" style="vertical-align: top;">
+                        <input class="checkbox" type="checkbox" id="{0}[{1}][combo_box]" name="{0}[{1}][combo_box]"<?php $this->set_checked($values['combo_box']); ?> style="vertical-align: top;margin-top:2px;">
+                        <label for="{0}[{1}][combo_box]" style="display:inline-block;">
+                            <?php _e("Make Combobox?", $this->plugin_slug); ?><span class="hint--top hint--info" data-hint="<?php _e("Allow for text input to find values, with autocomplete and dropdown suggest", $this->plugin_slug); ?>"><i class="dashicons dashicons-info"></i></span>
+                            <br />
+                            <span class="sf_combobox_message" style="padding-top:10px; display:inline-block;">
+
+                                <input class="" id="{0}[{1}][no_results_message]" name="{0}[{1}][no_results_message]" type="text" value="<?php echo esc_attr($values['no_results_message']); ?>">
+                                <br /><em><?php _e("No Matches message", $this->plugin_slug); ?></em>
+                                <span class="hint--top hint--info" data-hint="<?php _e("This message is usually displayed when there are no matches in the list - leave blank for default", $this->plugin_slug); ?>"><i class="dashicons dashicons-info"></i></span>
+
+                            </span>
+                        </label>
+                    </p>
+
+
+
+
+
 					<!--<p class="sf_drill_down">
 						<input class="checkbox" type="checkbox" id="{0}[{1}][drill_down]" name="{0}[{1}][drill_down]"<?php $this->set_checked($values['drill_down']); ?>>
 						<label for="{0}[{1}][drill_down]"><?php _e("Make drill down?", $this->plugin_slug); ?><span class="hint--top hint--info" data-hint="<?php _e("child taxonomy terms will only be revealed once a parent has been selected", $this->plugin_slug); ?>"><i class="dashicons dashicons-info"></i></span></label>

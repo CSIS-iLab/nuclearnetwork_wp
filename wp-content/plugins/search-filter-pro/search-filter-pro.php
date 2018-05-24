@@ -11,7 +11,7 @@
  * Plugin Name:       Search & Filter Pro
  * Plugin URI:        http://www.designsandcode.com/wordpress-plugins/search-filter-pro/
  * Description:       Search & Filtering for posts, products and custom posts. Allow your users to Search & Filter by categories, tags, taxonomies, custom fields, post meta, post dates, post types and authors.
- * Version:           2.4.0
+ * Version:           2.4.2
  * Author:            Designs & Code
  * Author URI:        http://www.designsandcode.com/
  * Text Domain:       search-filter
@@ -33,27 +33,34 @@ if ( ! defined( 'SEARCH_FILTER_QUERY_DEBUG' ) ) {
 }
 
 if ( ! defined( 'SEARCH_FILTER_VERSION' ) ) {
-	define('SEARCH_FILTER_VERSION', "2.4.0");
+	define('SEARCH_FILTER_VERSION', "2.4.2");
 }
 
 if ( ! defined( 'SEARCH_FILTER_PRO_BASE_PATH' ) ) {
 	define('SEARCH_FILTER_PRO_BASE_PATH', __FILE__);
 }
 
-if( true == SEARCH_FILTER_DEBUG )
-{
-	if ( ! function_exists('sf_write_log')) {
-	   function sf_write_log ( $log )  {
-	      if ( is_array( $log ) || is_object( $log ) ) {
-	         error_log( print_r( $log, true ) );
-	      } else {
-	         error_log( $log );
-	      }
-	   }
-	}
-	//sf_write_log("S&F DEBUG Started: ".time());
-}
+if ( ! function_exists('sf_write_log')) {
+	function sf_write_log( $log, $error_log = true ) {
+		if ( true == SEARCH_FILTER_DEBUG ) {
+			if($error_log) {
+				if ( is_array( $log ) || is_object( $log ) ) {
+					error_log( print_r( $log, true ) );
+				} else {
+					error_log( $log );
+				}
+			}
+			else{
+				$debug_file = WP_CONTENT_DIR."/debug.log";
+				if ( is_array( $log ) || is_object( $log ) ) {
+					$log = ( print_r( $log, true ) );
+				}
 
+				file_put_contents($debug_file, $log, FILE_APPEND | LOCK_EX);
+			}
+		}
+	}
+}
 
 if (!function_exists('array_replace'))
 {
@@ -167,6 +174,7 @@ if ( ! class_exists( 'Search_Filter_Post_Cache' ) )
 {
 	require_once( plugin_dir_path( __FILE__ ) . 'includes/class-search-filter-post-cache.php' );
 }
+
 if ( ! class_exists( 'Search_Filter_Wp_Cache' ) )
 {
 	require_once( plugin_dir_path( __FILE__ ) . 'includes/class-search-filter-wp-cache.php' );
@@ -175,7 +183,7 @@ if ( ! class_exists( 'Search_Filter_Wp_Data' ) )
 {
 	require_once( plugin_dir_path( __FILE__ ) . 'includes/class-search-filter-wp-data.php' );
 }
-if ( ! class_exists( 'Search_Filter_Post_Helper' ) )
+if ( ! class_exists( 'Search_Filter_Helper' ) )
 {
 	require_once( plugin_dir_path( __FILE__ ) . 'includes/class-search-filter-helper.php' );
 }
@@ -217,3 +225,18 @@ if (!defined('SF_ITEM_CLASS_PRE'))
 {
     define('SF_ITEM_CLASS_PRE', SF_CLASS_PRE."item-");
 }
+
+global $search_filter_post_cache; //should be singleton
+$search_filter_post_cache = new Search_Filter_Post_Cache();
+
+global $search_filter_third_party; //should be singleton
+$search_filter_third_party = new Search_Filter_Third_Party();
+
+global $search_filter_shared; //should be singleton
+$search_filter_shared = new Search_Filter_Shared();
+
+if(true === SEARCH_FILTER_DEBUG) {
+	global $search_filter_session;
+	$search_filter_session = rand( 1000, 100000 );
+}
+

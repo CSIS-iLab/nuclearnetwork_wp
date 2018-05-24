@@ -68,7 +68,7 @@ class Search_Filter_Active_Query {
 		}
 		
 		$this->field_values = $field_values;
-		
+
 		//perhaps we should keep the inherited stuff sepearte? And add an option to the functions to merge with regular defaults
 		$this->set_inherited_defaults();
 		
@@ -170,7 +170,7 @@ class Search_Filter_Active_Query {
 		
 		
 		$taxs = array();
-		
+
 		if(isset($this->form_fields))
 		{
 			foreach($this->form_fields as $field_name => $field)
@@ -189,7 +189,7 @@ class Search_Filter_Active_Query {
 					else if (strpos($key, SF_META_PRE) === 0)
 					{
 						$meta_data = $this->get_post_meta($key);
-						$this->query_array[$key] = $meta_data;					
+						$this->query_array[$key] = $meta_data;
 						
 					}
 				}
@@ -1019,10 +1019,13 @@ class Search_Filter_Active_Query {
             $exclude_list = array("sf_data", "sf_action", "sfid", "page_id");
 
             foreach ($_GET as $get_key => $get_val) {
-                if (!in_array($get_key, $exclude_list)) {
-                    $query_param = $get_key . "=" . $get_val;
-                    array_push($query_parts, $query_param);
-                }
+
+            	if ( ( gettype($get_key)==="string" ) && ( gettype($get_val) === "string" ) ) {
+		            if ( ! in_array( $get_key, $exclude_list ) ) {
+			            $query_param = $get_key . "=" . $get_val;
+			            array_push( $query_parts, $query_param );
+		            }
+	            }
             }
 
             //now we have the $_get values, but there could still be some values set in the form not from $_GET url, so deal with them here
@@ -1055,10 +1058,17 @@ class Search_Filter_Active_Query {
 		
 	}
 	
-	public function is_filtered()
+	public function is_filtered($exclude_items = array())
 	{
 		$filtered_array = $this->get_array();
-		
+
+		foreach($exclude_items as $exclude_item){
+
+			if(isset($filtered_array[$exclude_item])){
+				unset($filtered_array[$exclude_item]);
+			}
+		}
+
 		if(empty($filtered_array))
 		{
 			return false;

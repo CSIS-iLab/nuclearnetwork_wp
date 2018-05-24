@@ -129,7 +129,6 @@ class Search_Filter_Posts_Admin {
         } /* If there is no new meta value but an old value exists, delete it. */
         elseif ('' == $new_meta_value && $meta_value) {
             delete_post_meta($post_id, $meta_key, $meta_value);
-
         }
     }
 
@@ -1131,6 +1130,7 @@ class Search_Filter_Posts_Admin {
 				'exclude_ids'			=> '',
 				'sync_include_exclude'	=> '1',
 				'combo_box'				=> '',
+				'no_results_message'	=> '',
 				'type'					=> $type
 			);
 			
@@ -1157,6 +1157,7 @@ class Search_Filter_Posts_Admin {
 				'exclude_ids'			=> '',
 				'sync_include_exclude'	=> '1',
 				'combo_box'				=> '',
+				'no_results_message'	=> '',
 				'type'					=> $type
 			);
 			
@@ -1183,11 +1184,12 @@ class Search_Filter_Posts_Admin {
 				'exclude_ids'			=> '',
 				'sync_include_exclude'	=> '1',
 				'combo_box'				=> '',
+				'no_results_message'	=> '',
 				'type'					=> $type
 			);
 			
 			$values = array_replace($defaults, $widget_data);
-			
+
 			include( ( plugin_dir_path( dirname( __FILE__ ) ) ) . 'views/fields/taxonomy.php' );
 		}
 		else if($type=="post_type")
@@ -1203,6 +1205,7 @@ class Search_Filter_Posts_Admin {
 				'order_by'				=> '',
 				'order_dir'				=> '',
 				'combo_box'				=> '',
+				'no_results_message'	=> '',
 				'type'					=> $type
 			);
 			
@@ -1249,6 +1252,7 @@ class Search_Filter_Posts_Admin {
 
 				'choice_input_type'			=> '',
 				'combo_box'					=> '',
+				'no_results_message'	    => '',
 				'show_count'				=> '1',
 				'hide_empty'				=> '',
 				'date_input_type'			=> '',
@@ -1347,6 +1351,7 @@ class Search_Filter_Posts_Admin {
 				'all_items_label'			=> '',
 				'exclude'					=> '',
 				'combo_box'					=> '',
+				'no_results_message'	    => '',
 				'type'						=> $type
 			);
 			
@@ -1446,7 +1451,6 @@ class Search_Filter_Posts_Admin {
 			'sort_by'					=> '',
 			'sort_label'				=> '',
 			'sort_dir'					=> '',
-			'sort_label'				=> '',
 			'sort_type'					=> 'numeric'
 		);
 		

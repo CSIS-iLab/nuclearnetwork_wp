@@ -433,6 +433,13 @@
 						
 						if(dataDragging=="0") 
 						{
+							var is_open = item.find('.widget-top').attr("data-sf-field-open");
+							if(typeof(is_open) == "undefined") {
+								is_open = 0;
+							}
+							is_open = 1 - is_open;
+                            item.find('.widget-top').attr("data-sf-field-open", is_open);
+
 							itemInside.slideToggle("fast");
 						}
 					}
@@ -489,11 +496,12 @@
 						
 					});
 					
-					var $combobox = item.find(".sf_make_combobox input");
-					
+					var $combobox_container = item.find(".sf_make_combobox");
+					var $combobox = item.find(".sf_make_combobox input:checkbox");
+
 					$combobox.change(function()
 					{
-						var tinput_type = $(this).parent().parent().find('.sf_input_type select').val();
+						var tinput_type = item.find('.sf_input_type select').val();
 						
 						if(tinput_type=="multiselect")
 						{
@@ -506,6 +514,19 @@
 								item.find(".sf_all_items_label").hide();
 							}
 						}
+
+						if((tinput_type=="multiselect")||(tinput_type=="select")){
+							if($(this).prop("checked")){
+								item.find(".sf_combobox_message input").prop("disabled", false);
+								item.find(".sf_combobox_message").css("opacity", 1);
+							}
+							else {
+                                item.find(".sf_combobox_message input").prop("disabled", true);
+                                item.find(".sf_combobox_message").css("opacity", 0.7);
+							}
+						}
+
+
 					});
 					
 					var $tax_button = null;
@@ -576,23 +597,34 @@
 					// start off by showing/hiding correct fields
 					showHideFieldsAuthor($input_type_field.val());
 					
-					var $combobox = item.find(".sf_make_combobox input");
+					var $combobox = item.find(".sf_make_combobox input:checkbox");
 					
 					$combobox.change(function()
 					{
-						var tinput_type = $(this).parent().parent().find('.sf_input_type select').val();
-						
-						if(tinput_type=="multiselect")
-						{
-							if($(this).prop("checked"))
-							{
-								item.find(".sf_all_items_label").show();
-							}
-							else
-							{
-								item.find(".sf_all_items_label").hide();
-							}
-						}
+                        var tinput_type = item.find('.sf_input_type select').val();
+
+                        if(tinput_type=="multiselect")
+                        {
+                            if($(this).prop("checked"))
+                            {
+                                item.find(".sf_all_items_label").show();
+                            }
+                            else
+                            {
+                                item.find(".sf_all_items_label").hide();
+                            }
+                        }
+
+                        if((tinput_type=="multiselect")||(tinput_type=="select")){
+                            if($(this).prop("checked")){
+                                item.find(".sf_combobox_message input").prop("disabled", false);
+                                item.find(".sf_combobox_message").css("opacity", 1);
+                            }
+                            else {
+                                item.find(".sf_combobox_message input").prop("disabled", true);
+                                item.find(".sf_combobox_message").css("opacity", 0.7);
+                            }
+                        }
 					});
 					
 					
@@ -776,7 +808,7 @@
 					
 					
 					
-					var $combobox = item.find(".sf_make_combobox input");
+					var $combobox = item.find(".sf_make_combobox input:checkbox");
 					
 					$combobox.change(function()
 					{
@@ -1389,7 +1421,17 @@
 						item.find(".sf_drill_down").show();
 						item.find(".sf_all_items_label").show();
 						item.find(".sf_make_combobox").show();
+						item.find(".sf_combobox_message").show();
 						item.find(".sf_accessibility_label").show();
+
+                        if(item.find(".sf_make_combobox input").prop("checked")) {
+                            item.find(".sf_combobox_message input").prop("disabled", false);
+                            item.find(".sf_combobox_message").css("opacity", 1);
+                        }
+                        else{
+                            item.find(".sf_combobox_message input").prop("disabled", true);
+                            item.find(".sf_combobox_message").css("opacity", 0.7);
+						}
 					}
 					else if(input_type=="checkbox")
 					{
@@ -1397,6 +1439,7 @@
 						item.find(".sf_drill_down").hide();
 						item.find(".sf_all_items_label").hide();
 						item.find(".sf_make_combobox").hide();
+                        item.find(".sf_combobox_message").hide();
 						item.find(".sf_accessibility_label").hide();
 					}
 					else if(input_type=="radio")
@@ -1404,6 +1447,7 @@
 						item.find(".sf_operator").hide();
 						item.find(".sf_drill_down").hide();
 						item.find(".sf_make_combobox").hide();
+                        item.find(".sf_combobox_message").hide();
 						item.find(".sf_all_items_label").show();
 						item.find(".sf_accessibility_label").hide();
 					}
@@ -1413,12 +1457,23 @@
 						item.find(".sf_drill_down").hide();
 						item.find(".sf_all_items_label").hide();
 						item.find(".sf_make_combobox").show();
+                        item.find(".sf_combobox_message").show();
 						item.find(".sf_accessibility_label").show();
 						
 						if(item.find(".sf_make_combobox input").prop("checked"))
 						{
 							item.find(".sf_all_items_label").show();
 						}
+
+                        if(item.find(".sf_make_combobox input").prop("checked")) {
+                            item.find(".sf_combobox_message input").prop("disabled", false);
+                            item.find(".sf_combobox_message").css("opacity", 1);
+                        }
+                        else{
+                            item.find(".sf_combobox_message input").prop("disabled", true);
+                            item.find(".sf_combobox_message").css("opacity", 0.7);
+                        }
+
 					}
 					else if(input_type=="date")
 					{
@@ -1438,13 +1493,24 @@
 						//item.find(".sf_operator").hide();
 						item.find(".sf_all_items_label").show();
 						item.find(".sf_make_combobox").show();
+                        item.find(".sf_combobox_message").show();
 						item.find(".sf_accessibility_label").show();
+
+                        if(item.find(".sf_make_combobox input").prop("checked")) {
+                            item.find(".sf_combobox_message input").prop("disabled", false);
+                            item.find(".sf_combobox_message").css("opacity", 1);
+                        }
+                        else{
+                            item.find(".sf_combobox_message input").prop("disabled", true);
+                            item.find(".sf_combobox_message").css("opacity", 0.7);
+                        }
 					}
 					else if(input_type=="checkbox")
 					{
 						//item.find(".sf_operator").show();
 						item.find(".sf_all_items_label").hide();
 						item.find(".sf_make_combobox").hide();
+                        item.find(".sf_combobox_message").hide();
 						item.find(".sf_accessibility_label").hide();
 					}
 					else if(input_type=="radio")
@@ -1452,6 +1518,7 @@
 						//item.find(".sf_operator").hide();
 						item.find(".sf_all_items_label").show();
 						item.find(".sf_make_combobox").hide();
+                        item.find(".sf_combobox_message").hide();
 						item.find(".sf_accessibility_label").hide();
 					}
 					else if(input_type=="multiselect")
@@ -1459,12 +1526,22 @@
 						//item.find(".sf_operator").show();
 						item.find(".sf_all_items_label").hide();
 						item.find(".sf_make_combobox").show();
+                        item.find(".sf_combobox_message").show();
 						item.find(".sf_accessibility_label").show();
 						
 						if(item.find(".sf_make_combobox input").prop("checked"))
 						{
 							item.find(".sf_all_items_label").show();
 						}
+
+                        if(item.find(".sf_make_combobox input").prop("checked")) {
+                            item.find(".sf_combobox_message input").prop("disabled", false);
+                            item.find(".sf_combobox_message").css("opacity", 1);
+                        }
+                        else{
+                            item.find(".sf_combobox_message input").prop("disabled", true);
+                            item.find(".sf_combobox_message").css("opacity", 0.7);
+                        }
 					}
 					
 				}

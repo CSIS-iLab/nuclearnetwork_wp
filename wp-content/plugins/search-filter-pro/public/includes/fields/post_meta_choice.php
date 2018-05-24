@@ -259,15 +259,14 @@ class Search_Filter_Field_Post_Meta_Choice {
 		*/
 		$is_acf = $args['choice_is_acf'];
 		$pre_options = array();
-		if($is_acf==1)
-		{
-			
+		if($is_acf==1){
+
 			$pre_options = $this->get_acf_options($args);
 			$options = array_merge($options, $pre_options);
 		}
 		
-		if(empty($pre_options))
-		{
+		if(empty($pre_options)){
+
 			$cache_options = $this->get_options_from_cache($args);
 			$options = array_merge($options, $cache_options);
 		}
@@ -302,7 +301,41 @@ class Search_Filter_Field_Post_Meta_Choice {
 		
 		return 0;
 	}
-	
+
+	private function find_post_id_with_field_2($meta_key)
+	{
+		global $wpdb;
+		global $searchandfilter;
+		$searchform = $searchandfilter->get($this->sfid);
+		$post_types = array_keys($searchform->settings("post_types"));
+
+		$args = array(
+			'post_type' => $post_types,
+			'fields' => 'ids',
+			'posts_per_page' => 1,
+			'post_status'=>'publish',
+			'meta_query' => array(
+				array(
+					'key' => $meta_key,
+					'compare' => 'EXISTS'
+				)
+			)
+		);
+
+		$query = new WP_Query($args);
+		//$results = $query->get_posts();
+		$post_id = 0;
+
+		if ( $query->have_posts() ){
+
+			foreach($query->posts as $posts_id){
+				$post_id = $posts_id;
+			}
+		}
+
+		return $post_id;
+	}
+
 	private function get_acf_options($args)
 	{
 		$options = array();
@@ -312,19 +345,18 @@ class Search_Filter_Field_Post_Meta_Choice {
 			return $options;
 		}
 
-
-
 		$name = $args['name_sf'];
 		$show_option_all_sf = $args['show_option_all_sf'];
 		$show_default_option_sf = $args['show_default_option_sf'];
 		$show_count = $args['show_count'];
 		$show_count_format_sf = $args['show_count_format_sf'];
 		$hide_empty = $args['hide_empty'];
-		
-		
-		$post_id = $this->find_post_id_with_field($name); //acf needs to have at least 1 post id with the post meta attached in order to lookup the rest of the field
+
+		//$post_id = $this->find_post_id_with_field($name); //acf needs to have at least 1 post id with the post meta attached in order to lookup the rest of the field
+		$post_id = $this->find_post_id_with_field_2($args['meta_key']); //acf needs to have at least 1 post id with the post meta attached in order to lookup the rest of the field
 		$field = get_field_object($args['meta_key'], $post_id);
-		
+
+
 		$options_array = array();
 		
 		if(!isset($field['choices']))
@@ -332,7 +364,7 @@ class Search_Filter_Field_Post_Meta_Choice {
 			if(($field['type']=="post_object")||($field['type']=="page_link")||($field['type']=="relationship"))
 			{
 				$cached_options = $this->get_options_from_cache($args);
-				
+
 				foreach($cached_options as $sf_option)
 				{
 					$sf_option->label = get_the_title($sf_option->value);
@@ -413,7 +445,6 @@ class Search_Filter_Field_Post_Meta_Choice {
 					array_push($options, $option);
 				}
 			}
-			
 		}
 		
 		//sort the options

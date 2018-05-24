@@ -14,7 +14,26 @@
 if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
 	exit;
 }
-
+if ( ! class_exists( 'Search_Filter_Wp_Cache' ) )
+{
+	require_once( plugin_dir_path( __FILE__ ) . 'includes/class-search-filter-wp-cache.php' );
+}
+if ( ! class_exists( 'Search_Filter_Wp_Data' ) )
+{
+	require_once( plugin_dir_path( __FILE__ ) . 'includes/class-search-filter-wp-data.php' );
+}
+if ( ! class_exists( 'Search_Filter_Helper' ) )
+{
+	require_once( plugin_dir_path( __FILE__ ) . 'includes/class-search-filter-helper.php' );
+}
+if ( ! class_exists( 'Search_Filter_Shared' ) )
+{
+	require_once( plugin_dir_path( __FILE__ ) . 'includes/class-search-filter-shared.php' );
+}
+if ( ! class_exists( 'Search_Filter_Third_Party' ) )
+{
+	require_once( plugin_dir_path( __FILE__ ) . 'includes/class-search-filter-third-party.php' );
+}
 global $wpdb;
 
 if ( is_multisite() ) {
@@ -42,7 +61,7 @@ function uninstall_search_filter_pro()
 
 	global $wpdb;
 
-    $remove_all_data = get_option( 'search_filter_remove_all_data' );
+    $remove_all_data = Search_Filter_Helper::get_option( 'remove_all_data' );
 
     if($remove_all_data == 1) {
 
@@ -70,6 +89,8 @@ function uninstall_search_filter_pro()
         foreach ($search_forms as $search_form) {
             wp_delete_post($search_form->ID, true);
         }
+
+	    Search_Filter_Wp_Cache::purge_all_transients();
     }
 
 	// flush rewrite rules in order to remove the rewrite rule

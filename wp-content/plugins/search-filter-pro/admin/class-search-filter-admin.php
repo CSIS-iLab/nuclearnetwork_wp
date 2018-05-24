@@ -66,6 +66,7 @@ class Search_Filter_Admin {
 	 * @var      string
 	 */
 	protected $widget_screen_admin = null;
+	protected $plugin_slug = null;
 
 	/**
 	 * Initialize the plugin by loading admin scripts & styles and adding a
@@ -75,23 +76,9 @@ class Search_Filter_Admin {
 	 */
 	private function __construct() {
 
-		/*
-		 * @TODO :
-		 *
-		 * - Uncomment following lines if the admin class should only be available for super admins
-		 */
-		/* if( ! is_super_admin() ) {
-			return;
-		} */
-
-		/*
-		 * Call $plugin_slug from public plugin class.
-		 */
-
-		//$plugin = Search_Filter::get_instance();
-		//$this->plugin_slug = $plugin->get_plugin_slug();
 		$this->plugin_slug = "search-filter";
-        $shared = new Search_Filter_Shared(); //this sets up shared (between frontend and admin) attributes (like post types & taxonomies)
+		global $search_filter_shared;
+        $shared = $search_filter_shared; //this sets up shared (between frontend and admin) attributes (like post types & taxonomies)
 
 		global $wpdb;
 		$this->cache_table_name = $wpdb->prefix . 'search_filter_cache';
@@ -104,7 +91,6 @@ class Search_Filter_Admin {
 		// Add the options page and menu item.
 		add_action( 'admin_menu', array( $this, 'add_plugin_admin_menu' ) );
 
-
 		//plugin activation
 		add_action('admin_init', array($this,'search_filter_register_option'));
 		add_action('admin_init', array($this,'search_filter_activate_license'));
@@ -114,13 +100,11 @@ class Search_Filter_Admin {
 		add_action( 'wpmu_new_blog', array($this, 'on_create_blog'), 10, 6 );
 
 		//adds all the filters for the post cache and admin hooks, probably should be singleton
-		/*if( true == SEARCH_FILTER_DEBUG )
-		{
-			sf_write_log("`[admin] ** new Search_Filter_Post_Cache` construct  **");
+		global $search_filter_post_cache;
+		$this->post_cache = $search_filter_post_cache;
 
-		}*/
-		$this->post_cache = new Search_Filter_Post_Cache();
-        $this->third_party = new Search_Filter_Third_Party($this->plugin_slug);
+		global $search_filter_third_party;
+        $this->third_party = $search_filter_third_party;
 		// Add an action link pointing to the options page.
 		$plugin_basename = plugin_basename( plugin_dir_path( dirname(__FILE__) ) . $this->plugin_slug . '.php' );
 		add_filter( 'plugin_action_links_' . $plugin_basename, array( $this, 'add_action_links' ) );
@@ -320,14 +304,6 @@ class Search_Filter_Admin {
 	 */
 	public static function get_instance() {
 
-		/*
-		 * @TODO :
-		 *
-		 * - Uncomment following lines if the admin class should only be available for super admins
-		 */
-		/* if( ! is_super_admin() ) {
-			return;
-		} */
 
 		// If the single instance hasn't been set, set it now.
 		if ( null == self::$instance ) {
@@ -518,49 +494,21 @@ class Search_Filter_Admin {
 
 	public function display_plugin_settings_admin_page()
 	{
+        // *******************
+        //**********************
+        //need to do a custom "get option" function which initialised the defaults, then use that everywhere
 
-		$cache_speed 								= get_option( 'search_filter_cache_speed' );
-		$cache_use_manual 							= get_option( 'search_filter_cache_use_manual' );
-		$cache_use_background_processes 			= get_option( 'search_filter_cache_use_background_processes' );
-		$cache_use_transients 						= get_option( 'search_filter_cache_use_transients' );
+		$cache_speed 								= Search_Filter_Helper::get_option( 'cache_speed' );
+		$cache_use_manual 							= Search_Filter_Helper::get_option( 'cache_use_manual' );
+		$cache_use_background_processes 			= Search_Filter_Helper::get_option( 'cache_use_background_processes' );
+		$cache_use_transients 						= Search_Filter_Helper::get_option( 'cache_use_transients' );
 
-		$load_jquery_i18n 							= get_option( 'search_filter_load_jquery_i18n' );
-		$lazy_load_js 								= get_option( 'search_filter_lazy_load_js' );
-		$load_js_css 								= get_option( 'search_filter_load_js_css' );
+		$load_jquery_i18n 							= Search_Filter_Helper::get_option( 'load_jquery_i18n' );
+		$lazy_load_js 								= Search_Filter_Helper::get_option( 'lazy_load_js' );
+		$load_js_css 								= Search_Filter_Helper::get_option( 'load_js_css' );
 		
-		$combobox_script 							= get_option( 'search_filter_combobox_script' );
-		$remove_all_data 							= get_option( 'search_filter_remove_all_data' );
-
-		if($combobox_script=="")
-		{
-			$combobox_script = "chosen";
-		}
-
-		if(empty($cache_speed))
-		{
-			$cache_speed = "slow";
-		}
-
-		if($cache_use_background_processes===false)
-		{
-			$cache_use_background_processes = 1;
-		}
-		if($cache_use_transients===false)
-		{
-			$cache_use_transients = 0;
-		}
-		if($lazy_load_js===false)
-		{
-			$lazy_load_js = 0;
-		}
-		if($load_js_css===false)
-		{
-			$load_js_css = 1;
-		}
-		if($remove_all_data===false)
-		{
-            $remove_all_data = 0;
-		}
+		$combobox_script 							= Search_Filter_Helper::get_option( 'combobox_script' );
+		$remove_all_data 							= Search_Filter_Helper::get_option( 'remove_all_data' );
 
 		include_once( 'views/admin-settings.php' );
 	}
@@ -1052,8 +1000,7 @@ class Search_Filter_Admin {
             "edit-search-filter-widget",
             "dashboard",
         );
-        //var_dump($current_screen->id);
-        //var_dump($current_screen);
+
         if(in_array($current_screen->id, $allowed_screens)) {
 
             global $wpdb;
@@ -1145,7 +1092,7 @@ class Search_Filter_Admin {
 			field_name varchar(255) NOT NULL,
 			field_value varchar(255) NOT NULL,
 			field_value_num bigint(20) NULL,
-			result_ids text NOT NULL,
+			result_ids mediumtext NOT NULL,
 			PRIMARY KEY  (id),
             KEY field_name_index (field_name),
             KEY field_value_index (field_value),

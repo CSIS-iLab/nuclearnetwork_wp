@@ -28,8 +28,6 @@ class Search_Filter_Shared {
     }
 	public function create_custom_post_types()
 	{
-		// @TODO: Define your action hook callback here
-		
 		$labels = array(
 		    'name'					=>	__( 'Search &amp; Filter', $this->plugin_slug ),
 			'singular_name'			=>	__( 'Search Form', $this->plugin_slug ),
@@ -141,7 +139,6 @@ class Search_Filter_Shared {
 
 
     /**
-     * Fired when a new site is activated with a WPMU environment.
      *
      * @since    1.0.0
      *

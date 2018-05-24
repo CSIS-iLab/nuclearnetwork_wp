@@ -207,7 +207,7 @@ class Search_Filter_Generate_Input {
 				$postfix = $input_args['postfix'];
 			}
 		}
-		
+
 		ob_start();
 		
 		?>
@@ -227,7 +227,7 @@ class Search_Filter_Generate_Input {
 						'id'	=> ''
 					);
 				}
-				
+
 				if($this->is_option_selected($option, $input_args['defaults']))
 				{
 					$option->attributes['selected'] = 'selected';
@@ -272,7 +272,7 @@ class Search_Filter_Generate_Input {
 		<?php
 		
 		$output = ob_get_clean();
-		
+
 		return $output;
 	}
 	
@@ -486,13 +486,6 @@ class Search_Filter_Generate_Input {
 				$option->attributes['value'] = $option->value;
 				$option->attributes['name'] = $input_name;
 				
-				//echo $args['name']. " | ".implode(", ", $input_args['defaults'])."<br />";
-				if(($args['name']=="_sfm_edd_price_min")||($args['name']=="_sfm_edd_price_max"))
-				{
-					/*echo '<pre>';
-					var_dump($input_args['defaults']);
-					echo '</pre>';*/
-				}
 				if($this->is_option_selected($option, $input_args['defaults']))
 				{
 					$option->attributes['checked'] = 'checked';
@@ -635,7 +628,7 @@ class Search_Filter_Generate_Input {
 
 		if($no_selected_options>0)
 		{
-			if(in_array($select_value, $defaults))
+			if(in_array((string)$select_value, $defaults))
 			{
 				return true;
 			}
@@ -652,14 +645,13 @@ class Search_Filter_Generate_Input {
 		
 		$args = $this->prepare_range_args($args, "slider");
 		
-		if($args['number_display_values_as']=="text")
-		{
+		if($args['number_display_values_as']=="text") {
+
 			$input_class = 'sf-text-number';
-			$value_min_html = $args['prefix'].'<span class="sf-range-min '.$input_class.'">'.$args['attributes']['data-start-min'].'</span>'.$args['postfix'];
-			$value_max_html = $args['prefix'].'<span class="sf-range-max '.$input_class.'">'.$args['attributes']['data-start-max'].'</span>'.$args['postfix'];
+			$value_min_html = $args['prefix'].'<span class="sf-range-min '.$input_class.'">'.$args['attributes']['data-start-min-formatted'].'</span>'.$args['postfix'];
+			$value_max_html = $args['prefix'].'<span class="sf-range-max '.$input_class.'">'.$args['attributes']['data-start-max-formatted'].'</span>'.$args['postfix'];
 		}
-		else
-		{
+		else {
 			//setup input/text fields
 			
 			//setup vars in common with both fields
@@ -700,11 +692,11 @@ class Search_Filter_Generate_Input {
 			
 			//now setup the min / max vars for the fields
 			$text_field_min = $text_args;
-			$text_field_min['value'] = $args['attributes']['data-start-min'];
+			$text_field_min['value'] = $args['attributes']['data-start-min-formatted'];
 			$text_field_min['attributes']['class'] .= ' sf-range-min';
 			
 			$text_field_max = $text_args;
-			$text_field_max['value'] = $args['attributes']['data-start-max'];
+			$text_field_max['value'] = $args['attributes']['data-start-max-formatted'];
 			$text_field_max['attributes']['class'] .= ' sf-range-max';
 			
 			$value_min_html = $this->text($text_field_min);
@@ -930,6 +922,8 @@ class Search_Filter_Generate_Input {
 		
 		$args['attributes']['data-start-min'] = $args['default_min'];
 		$args['attributes']['data-start-max'] = $args['default_max'];
+		$args['attributes']['data-start-min-formatted'] = $args['default_min_formatted'];
+		$args['attributes']['data-start-max-formatted'] = $args['default_max_formatted'];
 		$args['attributes']['data-min'] = $args['range_min'];
 		$args['attributes']['data-max'] = $args['range_max'];
 		$args['attributes']['data-step'] = $args['range_step'];

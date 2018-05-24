@@ -220,7 +220,7 @@
 
 					</p>
 				</fieldset>
-                <fieldset class="item-container child-columns-w">
+                <fieldset class="item-container child-columns-w sf_number_formatting">
 
                     <p class="">
                         <label for="{0}[{1}][decimal_seperator]">

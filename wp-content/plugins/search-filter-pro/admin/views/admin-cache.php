@@ -36,6 +36,7 @@
             $cache_list = $cache_options['cache_list'];
 
             $connection_status = $cache_options['rc_status'];
+
             $connection_text = "";
 
             $run_method = "automatic";

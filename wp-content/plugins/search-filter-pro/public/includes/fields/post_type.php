@@ -35,7 +35,8 @@ class Search_Filter_Field_Post_Type extends Search_Filter_Field_Base {
 			'order_dir'				=> '',
 			'all_items_label'		=> '',
 			'accessibility_label'	=> '',
-			'combo_box'				=> ''
+			'combo_box'				=> '',
+			'no_results_message'	=> ''
 		);
 		
 		$values = array_replace($defaults, $field_data);
@@ -67,6 +68,10 @@ class Search_Filter_Field_Post_Type extends Search_Filter_Field_Base {
 			if($values['combo_box']==1)
 			{
 				$attributes['data-combobox'] = '1';
+
+				if(!empty($values['no_results_message'])){
+					$attributes['data-combobox-nrm'] = $values['no_results_message'];
+				}
 			}
 			
 			$args['show_default_option_sf'] = true;
@@ -109,6 +114,10 @@ class Search_Filter_Field_Post_Type extends Search_Filter_Field_Base {
 			{
 				$attributes['data-combobox'] = '1';
 				$attributes['data-placeholder'] = $args['show_option_all_sf'];
+
+				if(!empty($values['no_results_message'])){
+					$attributes['data-combobox-nrm'] = $values['no_results_message'];
+				}
 			}			
 			$attributes['multiple'] = "multiple";
 			

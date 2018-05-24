@@ -14,12 +14,13 @@
 ?>
 <div class="widget">
 	<div class="widget-top">
-		<div class="widget-title-action">
-			<a class="widget-action hide-if-no-js" href="#"></a>
-		</div>
-		<div class="widget-title-action-move">
-			<a class="widget-action hide-if-no-js" href="#"></a>
-		</div>
+        <div class="widget-title-action">
+            <a class="widget-control-edit hide-if-js">
+                <span class="edit">Edit</span>
+                <span class="add">Add</span>
+                <span class="screen-reader-text">Reset Button</span>
+            </a>
+        </div>
 		<div class="widget-title">
 			<h4><?php _e("Reset Button", $this->plugin_slug); ?><span class="in-widget-title"></span></h4>
 		</div>

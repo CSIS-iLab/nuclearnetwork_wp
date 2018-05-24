@@ -134,5 +134,10 @@ footer.site-footer {
 			padding-right: 0.5rem;
 			padding-left: 0.5rem;
 		}
+
+		a {
+			color: $medium-blue;
+			&:hover { color: $white; }
+		}
 	}
 }

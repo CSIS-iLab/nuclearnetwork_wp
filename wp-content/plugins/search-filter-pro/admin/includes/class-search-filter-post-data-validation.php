@@ -8,18 +8,6 @@
  * @copyright 2015 Designs & Code
  */
 
-/**
- * Plugin class. This class should ideally be used to work with the
- * administrative side of the WordPress site.
- *
- * If you're interested in introducing public-facing
- * functionality, then refer to `class-plugin-name.php`
- *
- * @TODO: Rename this class to a proper name for your plugin.
- *
- * @package Plugin_Name_Admin
- * @author  Your Name <email@example.com>
- */
 class Search_Filter_Post_Data_Validation {
 	
 	public function __construct() {
@@ -110,7 +98,8 @@ class Search_Filter_Post_Data_Validation {
 			'order_dir'				=> '',
 			'exclude_ids'			=> '',
 			'sync_include_exclude'	=> '',
-			'combo_box'				=> ''
+			'combo_box'				=> '',
+			'no_results_message'	=> ''
 		);
 		
 		
@@ -132,7 +121,8 @@ class Search_Filter_Post_Data_Validation {
 		$clean_widget['sync_include_exclude'] = $this->sanitize_checkbox($widget_data['sync_include_exclude']);
 		
 		$clean_widget['combo_box'] = $this->sanitize_checkbox($widget_data['combo_box']);
-		
+		$clean_widget['no_results_message'] = sanitize_text_field($widget_data['no_results_message']);
+
 		$clean_widget['operator'] = sanitize_key($widget_data['operator']);
 		$clean_widget['order_by'] = sanitize_key($widget_data['order_by']);
 		$clean_widget['order_dir'] = sanitize_key($widget_data['order_dir']);
@@ -165,7 +155,8 @@ class Search_Filter_Post_Data_Validation {
 			
 			'order_by'				=> '',
 			'order_dir'				=> '',
-			'combo_box'				=> ''
+			'combo_box'				=> '',
+			'no_results_message'	=> ''
 		);		
 		
 		$widget_data = array_replace($defaults, $widget_data);
@@ -184,6 +175,7 @@ class Search_Filter_Post_Data_Validation {
 		$clean_widget['accessibility_label'] = sanitize_text_field($widget_data['accessibility_label']);
 		
 		$clean_widget['combo_box'] = $this->sanitize_checkbox($widget_data['combo_box']);
+		$clean_widget['no_results_message'] = sanitize_text_field($widget_data['no_results_message']);
 		
 		//$clean_widget['show_count'] = $this->sanitize_checkbox($widget_data['show_count']);
 		//$clean_widget['hide_empty'] = $this->sanitize_checkbox($widget_data['hide_empty']);
@@ -249,7 +241,8 @@ class Search_Filter_Post_Data_Validation {
 			'all_items_label'			=> '',
 			'accessibility_label'		=> '',
 			'exclude'					=> '',
-			'combo_box'					=> ''
+			'combo_box'					=> '',
+			'no_results_message'	    => ''
 		);
 				
 		$widget_data = array_replace($defaults, $widget_data);
@@ -267,6 +260,7 @@ class Search_Filter_Post_Data_Validation {
 		$clean_widget['show_fullname'] = $this->sanitize_checkbox($widget_data['show_fullname']);
 		$clean_widget['hide_empty'] = $this->sanitize_checkbox($widget_data['hide_empty']);
 		$clean_widget['combo_box'] = $this->sanitize_checkbox($widget_data['combo_box']);
+		$clean_widget['no_results_message'] = sanitize_text_field($widget_data['no_results_message']);
 		
 		$clean_widget['operator'] = sanitize_key($widget_data['operator']);
 		$clean_widget['order_by'] = sanitize_key($widget_data['order_by']);
@@ -326,6 +320,7 @@ class Search_Filter_Post_Data_Validation {
 			'number_is_decimal'			=> '',
 			'choice_input_type'			=> '',
 			'combo_box'					=> '',
+			'no_results_message'	    => '',
 			'show_count'				=> '',
 			'hide_empty'				=> '',
 			'date_input_type'			=> '',
@@ -375,6 +370,7 @@ class Search_Filter_Post_Data_Validation {
 		
 		$clean_widget['meta_key_manual_toggle'] = $this->sanitize_checkbox($widget_data['meta_key_manual_toggle']);
 		$clean_widget['combo_box'] = $this->sanitize_checkbox($widget_data['combo_box']);
+		$clean_widget['no_results_message'] = sanitize_text_field($widget_data['no_results_message']);
 		$clean_widget['show_count'] = $this->sanitize_checkbox($widget_data['show_count']);
 		$clean_widget['hide_empty'] = $this->sanitize_checkbox($widget_data['hide_empty']);
 		
@@ -476,10 +472,14 @@ class Search_Filter_Post_Data_Validation {
 			$range_max = number_format( (float)$range_max, $clean_widget['number_decimal_places'], $decimal_point, '' );
 			$range_step = number_format( (float) $range_step, $clean_widget['number_decimal_places'], $decimal_point, '' );
 		}
-		
-		$clean_widget['range_min'] = number_format( (float)$range_min, $clean_widget['decimal_places'], $decimal_point, '' );
-		$clean_widget['range_max'] = number_format( (float)$range_max, $clean_widget['decimal_places'], $decimal_point, '' );
-		$clean_widget['range_step'] = number_format( (float)$range_step, $clean_widget['decimal_places'], $decimal_point, '' );
+
+		$decimal_places = $clean_widget['decimal_places'];
+		if($clean_widget['number_input_type'] == 'range-number') {
+			$decimal_places = 0;
+		}
+		$clean_widget['range_min'] = number_format( (float)$range_min, $decimal_places, $decimal_point, '' );
+		$clean_widget['range_max'] = number_format( (float)$range_max, $decimal_places, $decimal_point, '' );
+		$clean_widget['range_step'] = number_format( (float)$range_step, $decimal_places, $decimal_point, '' );
 		
 		
 		$clean_widget['range_value_prefix'] = $this->sanitize_text_field_kws($widget_data['range_value_prefix']);

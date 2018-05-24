@@ -33,7 +33,7 @@
 				</p>
 				
 
-				<p class="item-container" style="padding-right:0;">
+				<p class="item-container" style="">
 					
 					<span class="sf_make_combobox">
 						<input class="checkbox" type="checkbox" id="{0}[{1}][combo_box]" name="{0}[{1}][combo_box]"<?php $this->set_checked($values['combo_box']); ?>>
@@ -45,7 +45,11 @@
 					<input class="checkbox " type="checkbox" id="{0}[{1}][hide_empty]" name="{0}[{1}][hide_empty]"<?php $this->set_checked($values['hide_empty']); ?>>
 					<label for="{0}[{1}][hide_empty]"><?php _e("Hide Empty?", $this->plugin_slug); ?><span class="hint--top hint--info" data-hint="<?php _e("hide values with no results - only available if Auto Count is enabled", $this->plugin_slug); ?>"><i class="dashicons dashicons-info"></i></span></label>
 				</p>
-				
+                <p class="item-container" style="padding-right:0;">
+                    <span class="sf_combobox_message">
+                        <label for="{0}[{1}][no_results_message]"><?php _e("Combobox No Results message", $this->plugin_slug); ?><br /><input class="" id="{0}[{1}][no_results_message]" name="{0}[{1}][no_results_message]" type="text" value="<?php echo esc_attr($values['no_results_message']); ?>"></label>
+                    </span>
+                </p>
 				<div class="clear"></div>
 				<hr />
 				<p style="margin-bottom:0;"><strong><?php _e("Meta Key", $this->plugin_slug); ?></strong> <span class="hint--top hint--info" data-hint="<?php _e("choose a meta key for this field", $this->plugin_slug); ?>"><i class="dashicons dashicons-info"></i></span></p>
