@@ -389,11 +389,13 @@ if ( ! function_exists( 'nuclearnetwork_opportunity_deadline' ) ) :
 	 * @param  int $id Post ID.
 	 */
 	function nuclearnetwork_opportunity_deadline( $id ) {
-		if ( 'opportunities' === get_post_type() && null !== get_post_meta( $id, '_post_deadline', true ) ) {
+		if ( 'opportunities' === get_post_type() ) {
 			$date = get_post_meta( $id, '_post_deadline', true );
-			$date_array = nuclearnetwork_check_date( $date );
-			if ( $date_array ) {
-				$date = date( get_option( 'date_format' ), mktime( 0, 0, 0, $date_array[1], $date_array[2], $date_array[0] ) );
+			if ( $date ) {
+				$date_array = nuclearnetwork_check_date( $date );
+				if ( $date_array ) {
+					$date = date( get_option( 'date_format' ), mktime( 0, 0, 0, $date_array[1], $date_array[2], $date_array[0] ) );
+				}
 			}
 
 			if ( '1' === get_post_meta( $id, '_post_is_ongoing', true ) ) {

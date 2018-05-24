@@ -17,8 +17,12 @@ if ( 'events' === $post->featured_post->post_type ) {
 	$date = date_format($formatted_date, 'F j, Y');
 } elseif ( 'opportunities' === $post->featured_post->post_type ) {
 	$date = get_post_meta( $post->featured_post->ID, '_post_deadline', true );
-	$formatted_date = date_create_from_format('Y-n-d', $date);
-	$date = date_format($formatted_date, 'F j, Y');
+	if ( $date ) {
+		$formatted_date = date_create_from_format('Y-n-d', $date);
+		$date = date_format($formatted_date, 'F j, Y');
+	} else {
+		$date = '';
+	}
 } elseif ( 'page' === $post->featured_post->post_type ) {
 	$date = '';
 } else {
