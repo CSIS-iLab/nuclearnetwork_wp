@@ -177,6 +177,31 @@ function nuclearnetwork_homepage_blocks() {
 	return $homepage_menu_items;
 }
 
+
+
+/**
+ * Make links pushed to Algolia relative.
+ *
+ * @param array   $shared_attributes Attributes to push.
+ * @param WP_Post $post Post object.
+ * @return array Updated Attributes array.
+ */
+function nuclearnetwork_algolia_shared_attributes( array $shared_attributes, WP_Post $post ) {
+    $shared_attributes['permalink'] = wp_make_link_relative( get_post_permalink( $post ) );
+    if ( has_post_thumbnail( $post ) ) {
+        $shared_attributes['images']['thumbnail']['url'] = wp_make_link_relative( get_the_post_thumbnail_url( $post ) );
+    }
+    if ( $post->post_type === 'guest-author' ) {
+        $shared_attributes['permalink_author'] = '/author/' . sanitize_title( $post->post_title );
+    }
+    return $shared_attributes;
+}
+add_filter( 'algolia_post_shared_attributes', 'nuclearnetwork_algolia_shared_attributes', 10, 2 );
+add_filter( 'algolia_searchable_post_shared_attributes', 'nuclearnetwork_algolia_shared_attributes', 10, 2 );
+
+
+
+
 /**
  * Compare objects for homepage blocks to get them in the right order.
  *
@@ -434,7 +459,7 @@ add_filter( 'sf_results_url', 'nuclearnetwork_events_archive_search_rewrites', 1
   add_action( 'init', 'my_custom_post_type_rest_support', 25 );
   function my_custom_post_type_rest_support() {
   	global $wp_post_types;
-  
+
   	//be sure to set this to the name of your post type!
   	$post_type_name = 'guest-author';
   	if( isset( $wp_post_types[ $post_type_name ] ) ) {
@@ -442,7 +467,7 @@ add_filter( 'sf_results_url', 'nuclearnetwork_events_archive_search_rewrites', 1
   		$wp_post_types[$post_type_name]->rest_base = 'guestauthor';
   		$wp_post_types[$post_type_name]->rest_controller_class = 'WP_REST_Posts_Controller';
   	}
-  
+
   }
 
 add_action( 'rest_api_init', 'myplugin_add_karma' );
