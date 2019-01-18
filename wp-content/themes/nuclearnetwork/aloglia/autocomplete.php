@@ -9,7 +9,7 @@
     <# if ( data.permalink_author ) { #>
     <a class="suggestion-link" href="{{ data.permalink_author }}" title="{{ data.post_title }}">
     <# } else { #>
-    <a class="suggestion-link" href="{{ data.permalink_author }}" title="{{ data.post_title }}">
+    <a class="suggestion-link" href="{{ data.permalink }}" title="{{ data.post_title }}">
     <# } #>
     <# if ( data.images.thumbnail ) { #>
       <img class="suggestion-post-thumbnail" src="{{ data.images.thumbnail.url }}" alt="{{ data.post_title }}">
