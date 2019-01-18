@@ -11,9 +11,9 @@
       <img class="suggestion-post-thumbnail" src="{{ data.images.thumbnail.url }}" alt="{{ data.post_title }}">
       <# } #>
         <div class="suggestion-post-attributes">
-          <span class="suggestion-post-title">{{{ data.permalink_author }}}post</span>
+          <span class="suggestion-post-title">{{{ data._highlightResult.post_title.value }}}</span>
           <# if ( data._snippetResult['content'] ) { #>
-            <span class="suggestion-post-content">{{{ data.permalink_author }}}post</span>
+            <span class="suggestion-post-content">{{{ data._snippetResult['content'].value }}}</span>
             <# } #>
         </div>
   </a>
@@ -28,7 +28,7 @@
             fill-rule="evenodd"></path>
       </svg>
     </svg>
-    <span class="suggestion-post-title">{{{ data.permalink_author }}}term</span>
+    <span class="suggestion-post-title">{{{ data._highlightResult.name.value }}}</span>
   </a>
 </script>
 
@@ -38,7 +38,7 @@
     <# } else { #>
     <a class="suggestion-link user-suggestion-link" href="{{ data.posts_url }}" title="{{ data.display_name }}">
     <# } #>
-        <span class="suggestion-post-title">{{{ data.permalink_author }}}user</span>
+        <span class="suggestion-post-title">{{{ data._highlightResult.display_name.value }}}</span>
   </a>
 </script>
 
