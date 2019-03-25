@@ -37,7 +37,9 @@
     @include fontSize(16px);
     line-height: 1.5;
 
-    &.is-active { display: block; }
+    &.is-active {
+      display: block;
+    }
   }
 
   // Post Authors/Disclaimer Block
@@ -57,7 +59,9 @@
   }
 
   // Site Footer
-  .site-footer { margin-top: 0; }
+  .site-footer {
+    margin-top: 0;
+  }
   .site-footer .footer-copyright {
     padding: 0.5rem 0.5rem 3rem;
 
@@ -78,7 +82,9 @@
     padding-bottom: 3rem;
   }
 
-  &:last-of-type { border-bottom: 0;}
+  &:last-of-type {
+    border-bottom: 0;
+  }
 
   .entry-header {
     position: relative;
@@ -119,7 +125,9 @@
       color: $black;
       box-shadow: none;
 
-      &:hover { color: $secondary-blue; }
+      &:hover {
+        color: $secondary-blue;
+      }
     }
   }
 
@@ -139,7 +147,6 @@
 
   // Featured Posts
   &.featured:not(.announcements):not(.alumni) {
-
     .entry-header {
       @include breakpoint("medium") {
         padding-top: 1.75rem;
@@ -188,7 +195,7 @@
         @include fontSize(30px);
         line-height: 1.1;
         background-color: $white;
-        border-right: .5rem solid $white;
+        border-right: 0.5rem solid $white;
         box-decoration-break: clone;
         -webkit-box-decoration-break: clone;
         display: inline;
@@ -245,8 +252,12 @@
     box-shadow: none;
 
     &:hover {
-      i { color: $dark-blue; }
-      .callout-header { box-shadow: none; }
+      i {
+        color: $dark-blue;
+      }
+      .callout-header {
+        box-shadow: none;
+      }
     }
   }
 
@@ -256,8 +267,8 @@
   }
 
   .callout-header {
-    display: inline; 
-    @include box-shadow(0,-1px,0,0, $secondary-blue, true);
+    display: inline;
+    @include box-shadow(0, -1px, 0, 0, $secondary-blue, true);
   }
 
   p {
@@ -284,13 +295,19 @@
 }
 
 /*----------  Write for Us  ----------*/
+article#post-6 {
+  @include breakpoint("medium") {
+    min-height: calc(100vh - 400px);
+  }
+}
+
 .post-write {
-  i { 
+  i {
     @include fontSize(48px);
     color: $yellow;
     display: block;
     float: left;
-    min-height: 6rem; 
+    min-height: 6rem;
     margin-right: 0.5rem;
 
     @include breakpoint("medium") {
@@ -306,5 +323,4 @@
     @extend .body-small;
     margin-bottom: 0;
   }
-
 }
