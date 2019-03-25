@@ -97,6 +97,7 @@ function nuclearnetwork_opportunity_types() {
 		'show_admin_column'          => true,
 		'show_in_nav_menus'          => true,
 		'show_tagcloud'              => true,
+		'show_in_rest'							 => true
 	);
 	register_taxonomy( 'opportunity_types', array( 'opportunities' ), $args );
 
