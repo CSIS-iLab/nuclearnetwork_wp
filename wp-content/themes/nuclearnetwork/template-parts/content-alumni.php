@@ -39,6 +39,14 @@ if ( 1 == $is_featured ) {
 				nuclearnetwork_entry_categories();
 				?>
 			</div><!-- .entry-meta -->
+		<?php elseif ( 'announcements' === get_post_type() ) :
+			?>
+			<div class="entry-meta">
+				<?php
+				nuclearnetwork_authors_list();
+				nuclearnetwork_posted_on();
+				?>
+			</div><!-- .entry-meta -->
 			<?php endif; ?>
 		</header><!-- .entry-header -->
 
@@ -79,8 +87,16 @@ if ( 1 == $is_featured ) {
 				nuclearnetwork_entry_categories();
 				?>
 			</div><!-- .entry-meta -->
+		<?php elseif ( 'announcements' === get_post_type() ) :
+			?>
+			<div class="entry-meta">
+				<?php
+				nuclearnetwork_authors_list();
+				nuclearnetwork_posted_on();
+				?>
+			</div><!-- .entry-meta -->
 			<?php endif; ?>
-		</header><!-- .entry-header -->
+			</header><!-- .entry-header -->
 
 		<div class="entry-content">
 			<?php the_excerpt(); ?>

@@ -48,12 +48,13 @@ if ( 'events' === $post->featured_post->post_type ) {
 </div>
 <div class="hp-block split-featured">
 	<div class="split-featured-img"<?php echo $featured_img; ?>></div>
-	<div class="split-featured-content">
-		<h6 class="subsection-header"><?php esc_html_e( 'Featured', 'nuclearnetwork' ); ?></h6>
-		<?php
-			echo '<a href="' . esc_url( get_the_permalink( $post->featured_post->ID ) ) . '" rel="bookmark" class="post-title">' . esc_html( $post->featured_post->post_title ) . '</a>';
-			echo '<span class="post-date">' . $date . '</span>';
-		?>
-	</div>
+	<?php if ( $post->featured_post ) :	?>
+		<div class="split-featured-content">
+			<h6 class="subsection-header"><?php esc_html_e( 'Featured', 'nuclearnetwork' ); ?></h6>
+			<?php
+				echo '<a href="' . esc_url( get_the_permalink( $post->featured_post->ID ) ) . '" rel="bookmark" class="post-title">' . esc_html( $post->featured_post->post_title ) . '</a>';
+				echo '<span class="post-date">' . $date . '</span>';
+			?>
+		</div>
+	<?php endif; ?>
 </div>
-

@@ -6,7 +6,11 @@
 </script>
 
 <script type="text/html" id="tmpl-autocomplete-post-suggestion">
-  <a class="suggestion-link" href="{{ data.permalink }}" title="{{ data.post_title }}">
+    <# if ( data.permalink_author ) { #>
+    <a class="suggestion-link" href="{{ data.permalink_author }}" title="{{ data.post_title }}">
+    <# } else { #>
+    <a class="suggestion-link" href="{{ data.permalink }}" title="{{ data.post_title }}">
+    <# } #>
     <# if ( data.images.thumbnail ) { #>
       <img class="suggestion-post-thumbnail" src="{{ data.images.thumbnail.url }}" alt="{{ data.post_title }}">
       <# } #>
@@ -33,7 +37,11 @@
 </script>
 
 <script type="text/html" id="tmpl-autocomplete-user-suggestion">
-  <a class="suggestion-link user-suggestion-link" href="{{ data.posts_url }}" title="{{ data.display_name }}">
+    <# if ( data.permalink_author ) { #>
+    <a class="suggestion-link user-suggestion-link" href="{{ data.permalink_author }}" title="{{ data.display_name }}">
+    <# } else { #>
+    <a class="suggestion-link user-suggestion-link" href="{{ data.posts_url }}" title="{{ data.display_name }}">
+    <# } #>
         <span class="suggestion-post-title">{{{ data._highlightResult.display_name.value }}}</span>
   </a>
 </script>
@@ -41,7 +49,7 @@
 <script type="text/html" id="tmpl-autocomplete-footer">
   <div class="autocomplete-footer">
     <div class="autocomplete-footer-branding">
-      <a href="" class="seeMoreResults"><?php esc_html_e( 'See More Results', 'algolia' ); ?></a>
+      <a href="" class="seeMoreResults"><?php esc_html_e('See More Results', 'algolia'); ?></a>
     </div>
   </div>
 </script>
