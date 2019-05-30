@@ -3,7 +3,7 @@
 ===================================*/
 
 .single-post,
-.page-template,
+.page-template-default,
 .single-announcements {
   .entry-header {
     position: relative;
@@ -11,7 +11,7 @@
     padding-bottom: 2rem;
     margin-bottom: 2rem;
 
-    @include breakpoint("medium") {
+    @include breakpoint('medium') {
       width: 60%;
       margin-right: -2rem;
       margin-bottom: 3rem;
@@ -22,7 +22,7 @@
     }
 
     &::before {
-      content: "";
+      content: '';
       display: block;
       position: absolute;
       top: 3rem;
@@ -32,20 +32,20 @@
       background-color: $off-white;
       z-index: -1;
 
-      @include breakpoint("medium") {
+      @include breakpoint('medium') {
         top: 0;
         height: 100%;
         right: 100%;
       }
     }
 
-    @include breakpoint("medium") {
+    @include breakpoint('medium') {
       &::after {
-        content: "";
+        content: '';
         display: block;
         position: absolute;
         top: 0;
-        left: calc(160% + (40%/6));
+        left: calc(160% + (40% / 6));
         width: 100vw;
         height: 100%;
         background-color: $off-white;
@@ -58,7 +58,7 @@
       margin-left: 1rem;
       margin-right: 1rem;
 
-      @include breakpoint("medium") {
+      @include breakpoint('medium') {
         width: 120%;
         margin-top: 0;
         margin-bottom: 2rem;
@@ -75,8 +75,8 @@
       padding: 1rem;
       margin-bottom: 0;
 
-      @include breakpoint("medium") {
-        border-right: .5rem solid $off-white;
+      @include breakpoint('medium') {
+        border-right: 0.5rem solid $off-white;
         /* Needs prefixing */
         box-decoration-break: clone;
         -webkit-box-decoration-break: clone;
@@ -92,7 +92,7 @@
       line-height: 1.33;
       margin-bottom: 0;
 
-      @include breakpoint("large") {
+      @include breakpoint('large') {
         @include fontSize(20px);
         line-height: 1.5;
         margin-right: 1rem;
@@ -107,7 +107,7 @@
     margin-left: -1rem;
     margin-right: -1rem;
 
-    @include breakpoint("medium") {
+    @include breakpoint('medium') {
       float: right;
       position: relative;
       z-index: 10;
@@ -122,7 +122,7 @@
       display: block;
       object-fit: cover;
 
-      @include breakpoint("medium") {
+      @include breakpoint('medium') {
         display: inline;
         background-color: $off-white;
         padding-top: 8rem;
@@ -134,7 +134,7 @@
     .caption {
       display: none;
 
-      @include breakpoint("medium") {
+      @include breakpoint('medium') {
         display: block;
         @include fontSize(14px);
         line-height: 1.71;
@@ -145,7 +145,7 @@
 
   // Site Content
   .site-content {
-    @include breakpoint("medium") {
+    @include breakpoint('medium') {
       margin-top: 0;
     }
   }
@@ -160,12 +160,12 @@
     padding-bottom: 2rem;
     margin-bottom: 2rem;
 
-    @include breakpoint("medium") {
+    @include breakpoint('medium') {
       padding-top: 10rem;
     }
 
     &::before {
-      content: "";
+      content: '';
       display: block;
       position: absolute;
       top: 0;
@@ -176,7 +176,7 @@
       z-index: -1;
     }
     &::after {
-      content: "";
+      content: '';
       display: block;
       position: absolute;
       top: 0;
@@ -202,7 +202,7 @@
 .single-resources,
 .single-alumni {
   .site-content {
-    @include breakpoint("medium") {
+    @include breakpoint('medium') {
       margin-top: 0;
     }
   }

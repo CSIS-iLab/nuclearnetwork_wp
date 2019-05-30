@@ -23,12 +23,12 @@
     cursor: pointer;
 
     &::after {
-      content: "\002B";
+      content: '\002B';
       margin-left: 0.2rem;
     }
 
     &.is-active::after {
-      content: "\2014";
+      content: '\2014';
     }
   }
 
@@ -46,7 +46,7 @@
   .post-about-authors {
     padding-right: 0.5rem;
 
-    @include breakpoint("medium") {
+    @include breakpoint('medium') {
       padding-right: 2rem;
     }
   }
@@ -65,7 +65,7 @@
   .site-footer .footer-copyright {
     padding: 0.5rem 0.5rem 3rem;
 
-    @include breakpoint("medium") {
+    @include breakpoint('medium') {
       padding: 0.5rem;
     }
   }
@@ -77,8 +77,8 @@
   padding-bottom: 2rem;
   border-bottom: 1px solid $gray;
 
-  @include breakpoint("medium") {
-    margin: 1.5rem 0 0 2rem !important;
+  @include breakpoint('medium') {
+    margin: 1.5rem 0 0 0 !important;
     padding-bottom: 3rem;
   }
 
@@ -93,7 +93,7 @@
   .post-thumbnail {
     margin-bottom: -2.5rem;
 
-    @include breakpoint("medium") {
+    @include breakpoint('medium') {
       padding-right: 1.5rem;
     }
   }
@@ -104,7 +104,7 @@
     background-color: $white;
     padding: 0;
 
-    @include breakpoint("medium") {
+    @include breakpoint('medium') {
       display: block;
       margin-bottom: 0.5rem;
       background-color: transparent;
@@ -117,7 +117,7 @@
     margin: 0.5rem 1rem 1rem 0rem;
     font-weight: 400;
 
-    @include breakpoint("medium") {
+    @include breakpoint('medium') {
       margin: 0 0 1rem 0;
     }
 
@@ -148,13 +148,13 @@
   // Featured Posts
   &.featured:not(.announcements):not(.alumni) {
     .entry-header {
-      @include breakpoint("medium") {
+      @include breakpoint('medium') {
         padding-top: 1.75rem;
       }
     }
 
     .post-format {
-      @include breakpoint("medium") {
+      @include breakpoint('medium') {
         position: absolute;
         top: 0;
         height: 1.75rem;
@@ -162,7 +162,7 @@
     }
 
     .post-header {
-      @include breakpoint("medium") {
+      @include breakpoint('medium') {
         position: relative;
         z-index: 10;
         float: left;
@@ -175,7 +175,7 @@
     .title-container {
       margin-bottom: 1rem;
 
-      @include breakpoint("medium") {
+      @include breakpoint('medium') {
         width: 135%;
         margin-top: 0;
         margin-left: auto;
@@ -191,7 +191,7 @@
       line-height: 1.35;
       font-weight: bold;
 
-      @include breakpoint("medium") {
+      @include breakpoint('medium') {
         @include fontSize(30px);
         line-height: 1.1;
         background-color: $white;
@@ -203,14 +203,14 @@
     }
 
     .post-thumbnail {
-      @include breakpoint("medium") {
+      @include breakpoint('medium') {
         float: right;
         width: 50%;
         margin-bottom: 0.5rem;
       }
 
       img {
-        @include breakpoint("medium") {
+        @include breakpoint('medium') {
           margin-left: 1rem;
         }
       }
@@ -226,7 +226,7 @@
 .article-card.has-post-thumbnail .post-format {
   padding: 1rem 1rem 0.5rem 0;
 
-  @include breakpoint("medium") {
+  @include breakpoint('medium') {
     padding: 0 1rem 0 0;
   }
 }
@@ -242,7 +242,7 @@
   margin: 2rem auto;
   text-align: center;
 
-  @include breakpoint("medium") {
+  @include breakpoint('medium') {
     width: 55%;
   }
 
@@ -279,7 +279,7 @@
     margin-bottom: 0;
     line-height: 1.5;
 
-    @include breakpoint("medium") {
+    @include breakpoint('medium') {
       line-height: 1.9;
     }
   }
@@ -296,7 +296,7 @@
 
 /*----------  Write for Us  ----------*/
 article#post-6 {
-  @include breakpoint("medium") {
+  @include breakpoint('medium') {
     min-height: calc(100vh - 400px);
   }
 }
@@ -310,7 +310,7 @@ article#post-6 {
     min-height: 6rem;
     margin-right: 0.5rem;
 
-    @include breakpoint("medium") {
+    @include breakpoint('medium') {
       @include fontSize(21px);
       display: inline;
       float: none;

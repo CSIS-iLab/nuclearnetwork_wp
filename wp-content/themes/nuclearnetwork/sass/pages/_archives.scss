@@ -4,364 +4,421 @@
 
 .blog,
 .archive,
+.page-template-directors-corner,
 .search,
 .page-template-page_sidebar_right {
-	background-color: $off-white;
+  background-color: $off-white;
 
-	.archive-container {
-		padding: 0;
-		@include box-shadow(0, 2px, 12px, 0, rgba(0, 0, 0, 0.19));
+  .archive-container {
+    padding: 0;
+    @include box-shadow(0, 2px, 12px, 0, rgba(0, 0, 0, 0.19));
 
-		@include breakpoint("medium") {
-			padding: 0;
-		}
-	}
+    @include breakpoint('medium') {
+      padding: 0;
+    }
 
-	.page-header {
-		position: relative;
-		background-color: $black;
-		background-repeat: no-repeat;
-		background-position: center center;
-		background-size: cover;
-		padding: 3rem 0 0 0;
+    .directors-bio {
+      background-color: $white;
 
-		@include breakpoint("medium") {
-			padding-top: 14rem;
-		}
+      @include breakpoint('medium') {
+        padding: 4rem 3rem 3rem 3rem;
+      }
 
-		&::before {
-			content: '';
-			position: absolute;
-			top: 0;
-			right: 0;
-			bottom: 0;
-			left: 0;
-			background-color: rgba(7, 47, 85, 0.47);
-		}
+      p {
+        margin: 0 auto 1rem;
+        max-width: 650px;
+      }
+    }
+  }
 
-		.header-content {
-			position: relative;
-			z-index: 1;
-			margin: 0 auto;
-			padding: 2rem 1rem;
+  .page-header {
+    position: relative;
+    background-color: $black;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    padding: 3rem 0 0 0;
 
-			@include breakpoint("medium") {
-				width: 47rem;
-				padding: 5rem 0 2rem 0;
-			}
-		}
+    @include breakpoint('medium') {
+      padding-top: 14rem;
+    }
 
-		.page-title {
-			font-family: $font__lato;
-			@include fontSize(30px);
-			line-height: 1.15;
-			font-weight: bold;
-			color: $yellow;
-			text-transform: uppercase;
-			margin: 0.5rem 0 1rem 0;
-			text-align: center;
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-color: rgba(7, 47, 85, 0.47);
+    }
 
-			@include breakpoint("medium") {
-				@include fontSize(60px);
-				text-align: left;
-				margin: 0 0 0.5rem 0;
-			}
-		}
+    .header-content {
+      position: relative;
+      z-index: 1;
+      margin: 0 auto;
+      padding: 2rem 1rem;
 
-		.archive-category p {
-			font-family: $font__lato;
-			@include fontSize(20px);
-			font-weight: bold;
-			line-height: 1.5;
-			text-transform: uppercase;
-			color: $off-white;
-			margin: 0;
-			text-align: center;
+      @include breakpoint('medium') {
+        width: 47rem;
+        padding: 5rem 0 2rem 0;
+      }
+    }
 
-			@include breakpoint("medium") {
-				@include fontSize(30px);
-				text-align: left;
+    .page-title {
+      font-family: $font__lato;
+      @include fontSize(30px);
+      line-height: 1.15;
+      font-weight: bold;
+      color: $yellow;
+      text-transform: uppercase;
+      margin: 0.5rem 0 1rem 0;
+      text-align: center;
 
-				&::after {
-					content: " \2014";
-				}
-			}
-		}
+      @include breakpoint('medium') {
+        @include fontSize(60px);
+        text-align: left;
+        margin: 0 0 0.5rem 0;
+      }
+    }
 
-		.archive-description,
-		.archive-description p {
-			@include fontSize(16px);
-			line-height: 1.5;
-			font-style: italic;
-			color: $white;
-			margin-bottom: 0;
-			text-align: center;
+    .archive-category p {
+      font-family: $font__lato;
+      @include fontSize(20px);
+      font-weight: bold;
+      line-height: 1.5;
+      text-transform: uppercase;
+      color: $off-white;
+      margin: 0;
+      text-align: center;
 
-			@include breakpoint("medium") {
-				@include fontSize(20px);
-				text-align: left;
-			}
-		}
-	}
+      @include breakpoint('medium') {
+        @include fontSize(30px);
+        text-align: left;
 
-	.archive-search-container {
-		position: relative;
-		z-index: 5;
-		background-color: $off-white;
-		padding: 1rem 1rem 0rem 1rem;
+        &::after {
+          content: ' \2014';
+        }
+      }
+    }
 
-		@include breakpoint("medium") {
-			background-color: transparent;
-			padding: 0;
-		}
-	}
+    .archive-description {
+      &,
+      p {
+        @include fontSize(16px);
+        line-height: 1.5;
+        font-style: italic;
+        color: $white;
+        margin-bottom: 0;
+        text-align: center;
 
-	.searchandfilter {
-		position: relative;
-		bottom: -2px;
-		background-color: $yellow;
+        @include breakpoint('medium') {
+          @include fontSize(20px);
+          text-align: left;
+        }
+      }
+    }
+  }
 
-		@include breakpoint("medium") {
-			height: 4.4rem;
-		}
+  .archive-search-container {
+    position: relative;
+    z-index: 5;
+    background-color: $off-white;
+    padding: 1rem 1rem 0rem 1rem;
 
-		& > ul {
-			display: block;
-			width: 100%;
-			margin: 0;
-			padding: 0;
+    @include breakpoint('medium') {
+      background-color: transparent;
+      padding: 0;
+    }
+  }
 
-			@include breakpoint("medium") {
-				display: inline-flex;
-				height: 100%;
-				align-items: flex-end;
-				margin: 0;
-			}
+  .searchandfilter {
+    position: relative;
+    bottom: -2px;
+    background-color: $yellow;
 
-			& > li {
-				width: 100%;
-				overflow-x: hidden;
-				padding: 0.5rem 1rem;
-				border-bottom: 1px solid $off-white;
+    @include breakpoint('medium') {
+      height: 4.4rem;
+    }
 
-				@include breakpoint("medium") {
-					border-bottom: 0;
-					border-right: 1px solid $dark-yellow;
-					width: 22%;
-					padding: 0 1rem 0.5rem;
-				}
+    & > ul {
+      display: block;
+      width: 100%;
+      margin: 0;
+      padding: 0;
 
-				&:last-child {
-					border-bottom: 0;
-					background-color: $off-white;
-					text-align: right;
-					padding-bottom: 0;
+      @include breakpoint('medium') {
+        display: inline-flex;
+        height: 100%;
+        align-items: flex-end;
+        margin: 0;
+      }
 
-					@include breakpoint("medium") {
-						border-right: 0;
-						background-color: transparent;
-						text-align: left;
-					}
-				}
+      & > li {
+        width: 100%;
+        overflow-x: hidden;
+        padding: 0.5rem 1rem;
+        border-bottom: 1px solid $off-white;
 
-				&.sf-field-post-meta-_post_is_nextgen,
-				&.sf-field-reset {
-					padding-top: calc(52px - 2rem);
-				}
-			}
-		}
+        @include breakpoint('medium') {
+          border-bottom: 0;
+          border-right: 1px solid $dark-yellow;
+          width: 22%;
+          padding: 0 1rem 0.5rem;
+        }
 
-		& ul li ul {
-			padding: 0;
-			margin: 0;
-		}
+        &:last-child {
+          border-bottom: 0;
+          background-color: $off-white;
+          text-align: right;
+          padding-bottom: 0;
 
-		& li[data-sf-field-input-type=checkbox] label,
-		& li[data-sf-field-input-type=radio] label,
-		& li[data-sf-field-input-type=range-radio] label,
-		& li[data-sf-field-input-type=range-checkbox] label {
-			@extend .body-small;
-			display: inline;
-			padding-left: 18px;
-		}
+          @include breakpoint('medium') {
+            border-right: 0;
+            background-color: transparent;
+            text-align: left;
+          }
+        }
 
-		h4 {
-			@extend %form-label;
-			margin: 0;
-			padding: 0 0 5px 0;
+        &.sf-field-post-meta-_post_is_nextgen,
+        &.sf-field-reset {
+          padding-top: calc(52px - 2rem);
+        }
+      }
+    }
 
-			@include breakpoint("medium") {
-				padding-top: 0.5rem;
-			}
-		}
+    & ul li ul {
+      padding: 0;
+      margin: 0;
+    }
 
-		label {
-			position: relative;
-			width: 100%;
-			overflow-x: hidden;
-			line-height: 1;
+    & li[data-sf-field-input-type='checkbox'] label,
+    & li[data-sf-field-input-type='radio'] label,
+    & li[data-sf-field-input-type='range-radio'] label,
+    & li[data-sf-field-input-type='range-checkbox'] label {
+      @extend .body-small;
+      display: inline;
+      padding-left: 18px;
+    }
 
-			&:not(.sf-label-checkbox)::after {
-				content: "+";
-                text-align: right;
-                pointer-events: none;
-                position: absolute;
-                top: 0;
-                right: 0;
-                width: 30%;
-                height: 100%;
-                background: rgba(97, 27, 21, 1);
-                background: -moz-linear-gradient(left, rgba(242, 194, 97, 0) 0%, $yellow 65%);
-                background: -webkit-gradient(left top, right top, color-stop(0%, rgba(242, 194, 97, 0)), color-stop(65%, $yellow));
-                background: -webkit-linear-gradient(left, rgba(242, 194, 97, 0) 0%, $yellow 65%);
-                background: -o-linear-gradient(left, rgba(242, 194, 97, 0) 0%, $yellow 65%);
-                background: -ms-linear-gradient(left, rgba(242, 194, 97, 0) 0%, $yellow 65%);
-                background: linear-gradient(to right, rgba(242, 194, 97, 0) 0%, $yellow 65%);
+    h4 {
+      @extend %form-label;
+      margin: 0;
+      padding: 0 0 5px 0;
 
-                @-moz-document url-prefix() {
-                	padding-top: 5px;
-                }
+      @include breakpoint('medium') {
+        padding-top: 0.5rem;
+      }
+    }
 
-                @media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none) {
-                	padding-top: 5px;
-                }
-			}
-		}
+    label {
+      position: relative;
+      width: 100%;
+      overflow-x: hidden;
+      line-height: 1;
 
-		.sf-field-search {
-			label::after { content: none; }
+      &:not(.sf-label-checkbox)::after {
+        content: '+';
+        text-align: right;
+        pointer-events: none;
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 30%;
+        height: 100%;
+        background: rgba(97, 27, 21, 1);
+        background: -moz-linear-gradient(
+          left,
+          rgba(242, 194, 97, 0) 0%,
+          $yellow 65%
+        );
+        background: -webkit-gradient(
+          left top,
+          right top,
+          color-stop(0%, rgba(242, 194, 97, 0)),
+          color-stop(65%, $yellow)
+        );
+        background: -webkit-linear-gradient(
+          left,
+          rgba(242, 194, 97, 0) 0%,
+          $yellow 65%
+        );
+        background: -o-linear-gradient(
+          left,
+          rgba(242, 194, 97, 0) 0%,
+          $yellow 65%
+        );
+        background: -ms-linear-gradient(
+          left,
+          rgba(242, 194, 97, 0) 0%,
+          $yellow 65%
+        );
+        background: linear-gradient(
+          to right,
+          rgba(242, 194, 97, 0) 0%,
+          $yellow 65%
+        );
 
-			input[type="text"] {
-				margin: 0;
-				background-color: transparent;
-				border-radius: 0;
-				border: 0;
-				border-bottom: 1px solid $dark-yellow;
-				padding: 0;
-				color: $black;
+        @-moz-document url-prefix() {
+          padding-top: 5px;
+        }
 
-				@include placeholder {
-		            color: $dark-yellow;
-		            font-style: italic;
-		        }
-			}
-		}
+        @media screen and (-ms-high-contrast: active),
+          screen and (-ms-high-contrast: none) {
+          padding-top: 5px;
+        }
+      }
+    }
 
-		select.sf-input-select {
-			min-width: unset;
-			@include fontSize(16px);
-			line-height: 1;
-			border-color: transparent;
-			background-color: transparent;
-			display: inline-block;
-		    -webkit-appearance: none;
-		    -moz-appearance: none;
-		    white-space: nowrap;
-		    width: 100%;
-		    max-width: 500px;
-		    padding-bottom: 0.1em;
-		}
+    .sf-field-search {
+      label::after {
+        content: none;
+      }
 
-		input[type="submit"] {
-			@extend .body-small;
-			font-style: italic;
-			background-color: transparent;
-			padding: 0;
-			margin: 0 0 0.5rem 0;
-			letter-spacing: 0.2px;
-		}
+      input[type='text'] {
+        margin: 0;
+        background-color: transparent;
+        border-radius: 0;
+        border: 0;
+        border-bottom: 1px solid $dark-yellow;
+        padding: 0;
+        color: $black;
 
-		.sf-input-checkbox {
-			position: absolute;
-			z-index: -1;
-			opacity: 0;
-		}
+        @include placeholder {
+          color: $dark-yellow;
+          font-style: italic;
+        }
+      }
+    }
 
-		.sf-label-checkbox {
-			position: relative;
+    select.sf-input-select {
+      min-width: unset;
+      @include fontSize(16px);
+      line-height: 1;
+      border-color: transparent;
+      background-color: transparent;
+      display: inline-block;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      white-space: nowrap;
+      width: 100%;
+      max-width: 500px;
+      padding-bottom: 0.1em;
+    }
 
-			&::before {
-				content: "";
-				position: absolute;
-			    top: 2px;
-			    left: 0;
-			    height: 12px;
-			    width: 12px;
-			    border: 2px solid $black;
-			    background: transparent;
-			}
-		}
+    input[type='submit'] {
+      @extend .body-small;
+      font-style: italic;
+      background-color: transparent;
+      padding: 0;
+      margin: 0 0 0.5rem 0;
+      letter-spacing: 0.2px;
+    }
 
-		.sf-input-checkbox:checked ~ .sf-label-checkbox {
+    .sf-input-checkbox {
+      position: absolute;
+      z-index: -1;
+      opacity: 0;
+    }
 
-			&::before {
-			    background: $black;
-			}
-		}
-	}
+    .sf-label-checkbox {
+      position: relative;
 
-	.archive-content {
-		background-color: $white;
-		padding: 1rem;
+      &::before {
+        content: '';
+        position: absolute;
+        top: 2px;
+        left: 0;
+        height: 12px;
+        width: 12px;
+        border: 2px solid $black;
+        background: transparent;
+      }
+    }
 
-		@include breakpoint("medium") {
-			padding: 1rem 3rem 3rem 1rem;
-		}
+    .sf-input-checkbox:checked ~ .sf-label-checkbox {
+      &::before {
+        background: $black;
+      }
+    }
+  }
 
-		.view-past {
-			text-align: center;
+  .archive-content {
+    background-color: $white;
+    padding: 1rem;
 
-			a { color: $white; }
-		}
+    @include breakpoint('medium') {
+      padding: 1rem 3rem 3rem 3rem;
+    }
 
-		.read-more {
-			@include fontSize(14px);
-			@include box-shadow(0,-1px,0,0, $secondary-blue, true);
+    .view-past {
+      text-align: center;
 
-			&:hover { box-shadow: none; }
+      a {
+        color: $white;
+      }
+    }
 
-			i {
-				@include fontSize(12px);
-				&::before {
-					margin-right: 0;
-					width: 0.5rem;
-				}
-			}
-		}
-	}
+    .read-more {
+      @include fontSize(14px);
+      @include box-shadow(0, -1px, 0, 0, $secondary-blue, true);
 
-	.archive-sidebar {
-		background-color: $color__background-archive-sidebar;
-		padding: 2rem 1rem 0 2rem;
+      &:hover {
+        box-shadow: none;
+      }
 
-		@include breakpoint("medium") {
-			padding: 4rem 1rem 3rem 2rem;
-		}
-	}
+      i {
+        @include fontSize(12px);
+        &::before {
+          margin-right: 0;
+          width: 0.5rem;
+        }
+      }
+    }
+  }
 
-	.site-footer { margin-top: 0; }
+  .archive-sidebar {
+    background-color: $color__background-archive-sidebar;
+    padding: 2rem 1rem 0 2rem;
 
-	// No Results
-	.no-results { margin-left: 2rem; }
+    @include breakpoint('medium') {
+      padding: 4rem 1rem 3rem 2rem;
+    }
+  }
 
-	// Site content
-	.site-content {
-		@include breakpoint("medium") {
-			margin-top: 0;
-		}
-	}
+  .site-footer {
+    margin-top: 0;
+  }
+
+  // No Results
+  .no-results {
+    margin-left: 2rem;
+  }
+
+  // Site content
+  .site-content {
+    @include breakpoint('medium') {
+      margin-top: 0;
+    }
+  }
 }
 
 .page-template-page_sidebar_right .archive-content {
-	@include breakpoint("medium") {
-		padding-left: 3rem;
-	}
+  @include breakpoint('medium') {
+    padding-left: 3rem;
+  }
+}
+.page-template-directors-corner .searchandfilter {
+  bottom: 0;
+  @media screen and (min-width: 1208px) {
+    margin: 0 calc((1208px - 100%) / -2);
+  }
 }
 
 // Authors Archive
 .archive.author {
-	.archive-description {
-		@extend .body-small;
-		margin-bottom: 2rem;
-	}
+  .archive-description {
+    @extend .body-small;
+    margin-bottom: 2rem;
+  }
 }
