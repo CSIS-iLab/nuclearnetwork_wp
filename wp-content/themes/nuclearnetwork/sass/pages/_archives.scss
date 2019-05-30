@@ -18,6 +18,7 @@
     }
 
     .directors-bio {
+      padding: 1rem;
       background-color: $white;
 
       @include breakpoint('medium') {
