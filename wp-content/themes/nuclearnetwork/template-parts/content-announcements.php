@@ -18,7 +18,7 @@ if ( $is_featured ) {
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'article-card row' . $featured_class ); ?>>
 	<?php
 	if ( has_post_thumbnail() ) {
-		echo '<div class="col-xs-12 col-md-4 post-thumbnail"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">';
+		echo '<div class="col-xs-12 col-md col-md-4 post-thumbnail"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">';
 		the_post_thumbnail( 'medium_large' );
 		echo '</a></div>';
 	}
