@@ -19,8 +19,9 @@ footer.site-footer {
 				margin-bottom: 1.5rem;
 			}
 
-		.footer__related img{
+		.footer__related img {
 			max-width: 200px;
+			
 			@include breakpoint("medium") {
 				max-width: 300px;
 			}
