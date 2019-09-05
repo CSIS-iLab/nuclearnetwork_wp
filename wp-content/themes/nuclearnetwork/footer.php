@@ -40,6 +40,11 @@ $newsletter_daily_url = get_option( 'nuclearnetwork_newsletter_daily_url' );
 					echo '<p class="footer-disclaimer">' . esc_html( $disclaimer ) . '</p>';
 				}
 				?>
+			<div class="footer__related">
+				<div class="section-title">Visit Our Other Projects —</div>
+					<a href="https://ontheradar.csis.org" >
+						<img src="/wp-content/themes/nuclearnetwork/img/on-the-radar-logo.svg" alt ="On the Radar Logo" title="Visit on the Radar"></a>
+			</div>
 			</div>
 			<div class="footer-contact col-xs-12 col-md-3">
 				<h6 class="section-title"><?php esc_html_e( 'Contact Us', 'nucleartnetwork' ); ?></h6>
