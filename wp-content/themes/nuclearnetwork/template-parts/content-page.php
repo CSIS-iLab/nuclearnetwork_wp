@@ -10,8 +10,16 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+	<div class="post-img-container">
+		<?php the_post_thumbnail( 'full' ); ?>
+		<div class="caption">
+			<?php the_post_thumbnail_caption(); ?>
+		</div>
+	</div>
 	<header class="entry-header">
-		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+		<div class="title-container">
+			<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+		</div>
 	</header><!-- .entry-header -->
 
 	<div class="entry-content post-content">
