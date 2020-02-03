@@ -52,11 +52,11 @@ $featured_img = ' style="background-image:url(\'' . esc_attr( $img ) . '\');"';
 				<div class="col-xs-12 col-md-9 archive-content">
 				<?php
 
-				// Show description in post section if author page.
+        // Show description in post section if author page.
 				if ( is_author() ) {
-					echo '<h2>About the Author</h2>';
-					the_archive_description( '<div class="archive-description">', '</div>' );
-				}
+          the_archive_description( '<div class="archive-description">', '</div>' );
+        }
+        
 
 				if ( have_posts() ) :
 
