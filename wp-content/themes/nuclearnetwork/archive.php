@@ -39,7 +39,7 @@ $featured_img = ' style="background-image:url(\'' . esc_attr( $img ) . '\');"';
 					}
 					?>
 				</div>
-				<?php echo nuclearnetwork_archive_search(); ?>
+				<!-- <?php echo nuclearnetwork_archive_search(); ?> -->
 			</header><!-- .page-header -->
 
 			<div class="content-wrapper row archive-container">
