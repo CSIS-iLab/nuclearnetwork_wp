@@ -24,8 +24,8 @@ get_header();
 ?>
 
 <div id="primary" class="content-area">
-		<main id="main" class="site-main content-wrapper">
-			<header class="page-header"<?php echo $featured_img; ?>>
+		<main id="main" class="site-main">
+			<header class="page-header">
         <div class="header-content">
           <h2><?php the_field('title'); ?></h2>
           <h1><?php the_field('name'); ?></h1>
@@ -45,31 +45,77 @@ get_header();
               <h4>to friends of poni</h4>
               <p><?php the_field('community_message'); ?></p>
                 <!-- for looop here -->
-              <a class="btn btn-blue" href="">view all</a>   
+
+
+
+              <a class="btn btn-blue" href="http://nuclear-network:8888/tag/directors-corner/">view all</a>   
             </div>
 				
-				
-<?php
-
-	while ( have_posts() ) : the_post();
-
-		get_template_part( 'template-parts/content', 'page' );
-		
-
-	endwhile; // End of the loop.
-
-	the_posts_pagination();
-
-
+ 
+	<?php
+		$args = array(
+			'post_type' => 'announcements',
+			'tag' => 'directors-corner',
+			'posts_per_page' => 3
+		);
+		$the_query = new WP_Query( $args );
+	?>	
+	<?php
+		if ( $the_query->have_posts() ):
+		while ( $the_query->have_posts() ):
+		$the_query->the_post();
 	?>
+	<h2><?php
+		the_title();
+	?></h2>
+	<?php
+		the_excerpt();
+	?>
+
+	<?php
+		endwhile;
+		wp_reset_postdata();
+		else:
+	?>
+
+	<p><?php
+		esc_html_e( 'Sorry, no posts matched your criteria.' );
+	?></p>
+
+<?php
+	endif;
+?>
+
+
+
+
+<?php
+			while ( have_posts() ) : the_post();
+
+				get_template_part( 'template-parts/content', 'page' );
+
+			endwhile; // End of the loop.
+			?>
+
+
+
+
+
+	
     </div>
       <div class="col-xs-12 col-md-3 archive-sidebar">
         <?php get_sidebar(); ?>
       </div>
     </div>
+	<div>
+</div>
 
+
+
+		
     </main><!-- #main -->
   </div><!-- #primary -->
 
     <?php
-    get_footer();
+	get_footer();
+	
