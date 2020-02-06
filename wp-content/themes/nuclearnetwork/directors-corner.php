@@ -34,11 +34,83 @@ get_header();
       </header><!-- .page-header -->
       
 
+
+
+
+
+
+
+
+
+
+
 			<div class="content-wrapper row archive-container">
 				<div class="col-xs-12 col-md-9 archive-content director-content">
 
       <div class="entry-content">
         <!-- To friends of Poni Section -->
+
+
+	
+
+
+		<?php
+				if ( have_posts() ) :
+
+					nuclearnetwork_post_num();
+
+					/* Start the Loop */
+					while ( have_posts() ) : the_post();
+
+						/**
+						 * Run the loop for the search to output the results.
+						 * If you want to overload this in a child theme then include a file
+						 * called content-search.php and that will be used instead.
+						 */
+						
+						if( in_array( get_post_type(), array( 'post' ), true ) ) {
+							get_template_part( 'template-parts/content-search', nuclearnetwork_post_format( ) );
+						} else {
+							get_template_part( 'template-parts/content', 'search' );
+						}
+
+					endwhile;
+
+				endif; ?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       </div>
             <div class="director-sidebar">
               <img src="<?php the_field('image'); ?>" alt="director's photo"/>
@@ -66,33 +138,19 @@ get_header();
 	?>
 	<ul>
 		<li>
-
-		 <a href="http://nuclear-network:8888/?page_id=<?php echo the_ID(); ?>&preview=true"><?php the_Title() ?></a>
-			</li>
+			<a href="http://nuclear-network:8888/?page_id=<?php echo the_ID(); ?>&preview=true"><?php the_Title() ?></a>
+		</li>	
+	</ul>
 			
-			
-			</ul>
-			
-
-
-
-
-
-
-
 	<?php
 		endwhile;
 		wp_reset_postdata();
 		else:
 	?>
 
-	<p><?php
-		esc_html_e( 'Sorry, no posts matched your criteria.' );
-	?></p>
-
-<?php
-	endif;
-?>
+	<?php
+		endif;
+	?>
  <a class="btn btn-blue" href="http://nuclearnetwork.csis/tag/directors-corner/">view all</a>   
             </div>
 
@@ -106,6 +164,33 @@ get_header();
 			endwhile; // End of the loop.
 			?>
 
+<?php
+		$args = array(
+			'post_type' => 'post',
+			'author_name' => 'rebecca-hersman',
+			'_post_post_format' => 'report',
+			'posts_per_page' => 5
+		);
+		$the_query = new WP_Query( $args );
+	?>
+	<?php
+		if ( $the_query->have_posts() ):
+		while ( $the_query->have_posts() ):
+		$the_query->the_post();
+	?>		
+	  <h2><?php
+		                   the_title();
+	                   ?>
+                   </h2>
+                   
+
+	<?php
+		endwhile;
+		wp_reset_postdata();
+		else:
+
+		endif;
+	?>
 
 
 
