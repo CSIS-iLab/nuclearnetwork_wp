@@ -44,19 +44,18 @@ get_header();
               <img src="<?php the_field('image'); ?>" alt="director's photo"/>
               <h4>to friends of poni</h4>
               <p><?php the_field('community_message'); ?></p>
-                <!-- for looop here -->
+        
 
 
 
-              <a class="btn btn-blue" href="http://nuclear-network:8888/tag/directors-corner/">view all</a>   
-            </div>
+             
 				
  
 	<?php
 		$args = array(
 			'post_type' => 'announcements',
 			'tag' => 'directors-corner',
-			'posts_per_page' => 3
+			'posts_per_page' => 2
 		);
 		$the_query = new WP_Query( $args );
 	?>	
@@ -65,12 +64,21 @@ get_header();
 		while ( $the_query->have_posts() ):
 		$the_query->the_post();
 	?>
-	<h2><?php
-		the_title();
-	?></h2>
-	<?php
-		the_excerpt();
-	?>
+	<ul>
+		<li>
+
+		 <a href="http://nuclear-network:8888/?page_id=<?php echo the_ID(); ?>&preview=true"><?php the_Title() ?></a>
+			</li>
+			
+			
+			</ul>
+			
+
+
+
+
+
+
 
 	<?php
 		endwhile;
@@ -85,7 +93,8 @@ get_header();
 <?php
 	endif;
 ?>
-
+ <a class="btn btn-blue" href="http://nuclearnetwork.csis/tag/directors-corner/">view all</a>   
+            </div>
 
 
 
