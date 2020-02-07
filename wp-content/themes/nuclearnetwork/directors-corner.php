@@ -92,8 +92,8 @@ get_header();
 $posts = get_posts(array(
 	'post_type'			=> 'post',
 	'posts_per_page'	=> 10,
-	// 'author_name'		=> 'rebecca-hersman',
-	'order'				=> 'DESC'
+	'order'				=> 'DESC',
+	// 'author_name'		=> 'rebecca-hersman'
 ));
 
 if( $posts ): ?>
@@ -105,13 +105,18 @@ if( $posts ): ?>
 		setup_postdata( $post )
 		
 		?>
-		
+
 		<hr>
 
-		<?php
-			nuclearnetwork_post_format( $id ); ?>
+		<?php nuclearnetwork_post_format( $id ); ?>
 			<a href="<?php the_permalink(); ?>"><?php the_title(); ?> </a>
+	
+						<div class="caption">
+						<?php the_post_thumbnail( 'full' ); ?>
+							
+			</div>
 		<?php
+			the_excerpt();
 			nuclearnetwork_authors_list();
 			nuclearnetwork_posted_on();
 			nuclearnetwork_entry_categories();
