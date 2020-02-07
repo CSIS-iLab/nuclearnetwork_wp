@@ -87,28 +87,44 @@ get_header();
           ?>
 
 		  <!-- WP query to display posts by type -->
-          <?php
-            $args = array(
-              'post_type'         => 'post',
-              'author_name'       => 'rebecca-hersman',
-              '_post_post_format' => 'report',
-              'posts_per_page'    => 5
-            );
-            $the_query = new WP_Query( $args );
+        
+<?php
+$posts = get_posts(array(
+	'post_type'			=> 'post',
+	'posts_per_page'	=> 10,
+	// 'author_name'		=> 'rebecca-hersman',
+	'order'				=> 'DESC'
+));
 
-          if ( $the_query->have_posts() ):
-            while ( $the_query->have_posts() ):
-              $the_query->the_post();
-        ?>
+if( $posts ): ?>
+	
+	
+		
+	<?php foreach( $posts as $post ): 
+		
+		setup_postdata( $post )
+		
+		?>
+		
+		<hr>
 
-        <h2><?php the_title(); ?></h2>
+		<?php
+			nuclearnetwork_post_format( $id ); ?>
+			<a href="<?php the_permalink(); ?>"><?php the_title(); ?> </a>
+		<?php
+			nuclearnetwork_authors_list();
+			nuclearnetwork_posted_on();
+			nuclearnetwork_entry_categories();
+		?>
+	
+	
+	<?php endforeach; ?>
+	
 
-        <?php
-            endwhile;
-            wp_reset_postdata();
-          else:
-          endif;
-        ?>
+	
+	<?php wp_reset_postdata(); ?>
+
+<?php endif; ?>
 
         </div>
         <div class="col-xs-12 col-md-3 archive-sidebar">
