@@ -25,17 +25,19 @@ get_header();
 
 <div id="primary" class="content-area">
   <main id="main" class="site-main">
+  
+      <!-- page-header -->
 	  <header class="page-header">
       <div class="header-content">
         <h2><?php the_field('title'); ?></h2>
         <h1><?php the_field('name');  ?></h1>
       </div>
-  
-      </header><!-- .page-header -->
+      </header>
 
 			<div class="content-wrapper row archive-container">
 			  <div class="col-xs-12 col-md-9 archive-content director-content">
           <div class="entry-content">
+
           <!-- To friends of Poni Section -->
           </div>
 
@@ -69,32 +71,22 @@ get_header();
                 endwhile;
                 wp_reset_postdata();
               else:
-            ?>
-
-            <!-- Add HTML here -->
-            
-            <?php
+           
               endif;
             ?>
 
             <a class="btn btn-blue" href="http://nuclearnetwork.csis/tag/directors-corner/">view all</a>   
           </div>
 
+		  <!-- Wordpress loop to display main content -->
           <?php
-            // ~~*~~ Can also be written like this! ~~*~~
-            // while ( have_posts() ) {
-            //   the_post();
-            //   get_template_part( 'template-parts/content', 'page' );
-            // };         
-            // If you're doing loops completely within _ONE_ PHP tag (<?php .. ? >),
-            // Don't do if/endif | while/endwhile | foreach/endforeach | etc.
-            // That's for when you're using conditional blocks over multiple <?php ? > tag blocks.
-
-            while ( have_posts() ) : the_post();
-              get_template_part( 'template-parts/content', 'page' );
-            endwhile; // End of the loop.
+            while ( have_posts() ) {
+				the_post();
+				get_template_part( 'template-parts/content', 'page' );
+			} 
           ?>
 
+		  <!-- WP query to display posts by type -->
           <?php
             $args = array(
               'post_type'         => 'post',
