@@ -29,7 +29,7 @@ get_header();
       <!-- page-header -->
 	  <header class="page-header">
       <div class="header-content">
-        <h2><?php the_field('title'); ?></h2>
+        <h2 class="director"><?php the_field('title'); ?></h2>
         <h1><?php the_field('name');  ?></h1>
       </div>
       </header>
