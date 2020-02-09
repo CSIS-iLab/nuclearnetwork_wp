@@ -513,19 +513,18 @@ if ( ! function_exists( 'nuclearnetwork_directors_list' ) ) :
 	 * Prints HTML with short director's list.
 	 */
 
-	function nuclearnetwork_directors_list() {
+	function nuclearnetwork_directors_list($name) {
 		if ( function_exists( 'coauthors_posts_links' ) ) {
 			$director = '';
 			foreach ( get_coauthors() as $coauthor ) :
-				if ($coauthor->display_name=='Rebecca Hersman') {
+				if ($coauthor->display_name=='Rebecca Hersman' && ($name=='Rebecca Hersman') ) {
 					$director = $coauthor->display_name;
-				} elseif ($coauthor->display_name=='Eric Brewer') {
+				} elseif ($coauthor->display_name=='Eric Brewer' && ($name=='Eric Brewer') ) {
 					$director = $coauthor->display_name;
 				}
 			endforeach;
 	}
 
-	echo '<h2>Director - </h2><h1 class="page-title">' . esc_html($director) . '</h1>';
+	return $director;
 }	 
 endif;
-

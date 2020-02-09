@@ -91,18 +91,22 @@ get_header();
 <?php
 $posts = get_posts(array(
 	'post_type'			=> 'post',
-	'posts_per_page'	=> 10,
+	'posts_per_page'	=> 100,
 	'order'				=> 'DESC',
-	// 'author_name'		=> 'rebecca-hersman'
 ));
 
+$name = get_field('name');
+
 if( $posts ): ?>
-	
-	
 		
 	<?php foreach( $posts as $post ): 
-		
-		setup_postdata( $post )
+    
+    
+    setup_postdata( $post );
+
+
+    
+    if ( nuclearnetwork_directors_list($name) ) :
 		
 		?>
 
@@ -122,7 +126,7 @@ if( $posts ): ?>
 			nuclearnetwork_entry_categories();
 		?>
 	
-	
+    <?php endif; ?>
 	<?php endforeach; ?>
 	
 
