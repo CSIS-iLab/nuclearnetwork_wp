@@ -38,9 +38,12 @@ get_header();
 			  <div class="col-xs-12 col-md-9 archive-content director-content">
           <div class="entry-content">
 
-          <!-- To friends of Poni Section -->
-          </div>
-
+            </div>
+            
+            <!-- To friends of Poni Section -->
+            <?php
+            if ( nuclearnetwork_directors_list('Rebecca Hersman') ) :
+              ?>
           <div class="director-sidebar">
             <img src="<?php the_field('image'); ?>" alt="director's photo"/>
             <h4>to friends of poni</h4>
@@ -77,6 +80,7 @@ get_header();
 
             <a class="btn btn-blue" href="http://nuclearnetwork.csis/tag/directors-corner/">view all</a>   
           </div>
+            <?php endif; ?>
 
 		  <!-- Wordpress loop to display main content -->
           <?php
@@ -101,11 +105,8 @@ if( $posts ): ?>
 		
 	<?php foreach( $posts as $post ): 
     
-    
     setup_postdata( $post );
 
-
-    
     if ( nuclearnetwork_directors_list($name) ) :
 		
 		?>
@@ -128,9 +129,7 @@ if( $posts ): ?>
 	
     <?php endif; ?>
 	<?php endforeach; ?>
-	
-
-	
+		
 	<?php wp_reset_postdata(); ?>
 
 <?php endif; ?>
