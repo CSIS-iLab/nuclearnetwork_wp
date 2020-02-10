@@ -472,6 +472,44 @@
             }
         }
     }
+    // Director's Profiles
+
+    .home-director-wrapper {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .home-director-name {
+      
+      h3 {
+        margin-bottom: 0;
+
+        &::after {
+          content: "\203A";
+          display: inline-block;
+          position: relative;
+          width: 20px;
+          height: 20px;
+          transform: scale(1.5);
+          bottom: 5px;
+          left: 10px; 
+          color: $secondary-blue;
+        }
+      }
+      
+      h6 {
+        margin-top: 5px;
+      }
+    }
+
+    .home-director-block {
+      display: inline-block;
+
+      div {
+        display: inline-block;
+      }
+    }
+
     // Logo
     .home-logo-container {
         position: relative;
@@ -641,3 +679,4 @@
         }
     }
 }
+
