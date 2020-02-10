@@ -13,10 +13,6 @@ get_header();
 
 $img = get_option( 'nuclearnetwork_authors_archive_image' );
 $featured_img = ' style="background-image:url(\'' . esc_attr( $img ) . '\');"';
-
-
-
-
 ?>
 
 <div id="primary" class="content-area">
@@ -31,8 +27,17 @@ $featured_img = ' style="background-image:url(\'' . esc_attr( $img ) . '\');"';
     </header>
 
     <div class="content-wrapper row archive-container">
-      <div class="col-xs-12 col-md-9 archive-content director-content"> 
+      <div class="col-xs-12 col-md-9 archive-content"> 
         <div class="entry-content">
+          <div class="post-wrapper">
+
+          <!-- Wordpress loop to display main content -->
+          <?php
+            while ( have_posts() ) {
+              the_post();
+              get_template_part( 'template-parts/content', 'page' );
+            } 
+          ?>
               
           <!-- To friends of Poni Section -->
           <?php
@@ -51,7 +56,7 @@ $featured_img = ' style="background-image:url(\'' . esc_attr( $img ) . '\');"';
             );
             $the_query = new WP_Query( $args );
           ?>
-
+          
           <?php
             if ( $the_query->have_posts() ):
               while ( $the_query->have_posts() ):
@@ -73,15 +78,10 @@ $featured_img = ' style="background-image:url(\'' . esc_attr( $img ) . '\');"';
 
           <a class="btn btn-blue" href="http://nuclearnetwork.csis/tag/directors-corner/">view all</a>   
         </div>
+        </div>
         <?php endif; ?>
 
-        <!-- Wordpress loop to display main content -->
-        <?php
-          while ( have_posts() ) {
-            the_post();
-            get_template_part( 'template-parts/content', 'page' );
-          } 
-        ?>
+      
         <hr>
         <!-- WP query to display posts by type -->
         <?php
