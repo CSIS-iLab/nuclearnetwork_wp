@@ -32,117 +32,98 @@ get_header();
         <h2 class="director"><?php the_field('title'); ?></h2>
         <h1><?php the_field('name');  ?></h1>
       </div>
-      </header>
+    </header>
 
-			<div class="content-wrapper row archive-container">
-			  <div class="col-xs-12 col-md-9 archive-content director-content">
-          <div class="entry-content">
-
-            </div>
-            
-            <!-- To friends of Poni Section -->
-            <?php
+    <div class="content-wrapper row archive-container">
+      <div class="col-xs-12 col-md-9 archive-content director-content"> 
+        <div class="entry-content">
+              
+          <!-- To friends of Poni Section -->
+          <?php
             if ( nuclearnetwork_directors_list('Rebecca Hersman') ) :
-              ?>
+          ?>
           <div class="director-sidebar">
             <img src="<?php the_field('image'); ?>" alt="director's photo"/>
             <h4>to friends of poni</h4>
             <p><?php the_field('community_message'); ?></p>
 
-            <?php
-              $args = array(
-                'post_type' => 'announcements',
-                'tag' => 'directors-corner',
-                'posts_per_page' => 2
-              );
-              $the_query = new WP_Query( $args );
-            ?>
-
-            <?php
-              if ( $the_query->have_posts() ):
-                while ( $the_query->have_posts() ):
-                  $the_query->the_post();
-            ?>
-
-            <ul>
-              <li>
-                <a href="http://nuclear-network:8888/?page_id=<?php echo the_ID(); ?>&preview=true"><?php the_Title() ?></a>
-              </li>	
-            </ul>
-
-            <?php
-                endwhile;
-                wp_reset_postdata();
-              else:
-           
-              endif;
-            ?>
-
-            <a class="btn btn-blue" href="http://nuclearnetwork.csis/tag/directors-corner/">view all</a>   
-          </div>
-            <?php endif; ?>
-
-		  <!-- Wordpress loop to display main content -->
           <?php
-            while ( have_posts() ) {
-				the_post();
-				get_template_part( 'template-parts/content', 'page' );
-			} 
+            $args = array(
+              'post_type' => 'announcements',
+              'tag' => 'directors-corner',
+              'posts_per_page' => 2
+            );
+            $the_query = new WP_Query( $args );
           ?>
 
-		  <!-- WP query to display posts by type -->
+          <?php
+            if ( $the_query->have_posts() ):
+              while ( $the_query->have_posts() ):
+                $the_query->the_post();
+          ?>
+
+          <ul>
+            <li>
+              <a href="http://nuclear-network:8888/?page_id=<?php echo the_ID(); ?>&preview=true"><?php the_Title() ?></a>
+            </li>	
+          </ul>
+
+          <?php
+              endwhile;
+              wp_reset_postdata();
+            else:
+            endif;
+          ?>
+
+          <a class="btn btn-blue" href="http://nuclearnetwork.csis/tag/directors-corner/">view all</a>   
+        </div>
+        <?php endif; ?>
+
+        <!-- Wordpress loop to display main content -->
+        <?php
+          while ( have_posts() ) {
+            the_post();
+            get_template_part( 'template-parts/content', 'page' );
+          } 
+        ?>
+        <hr>
+        <!-- WP query to display posts by type -->
+        <?php
+          $posts = get_posts(array(
+            'post_type'			=> 'post',
+            'posts_per_page'	=> -1,
+            'order'				=> 'DESC',
+          ));
+
+          $name = get_field('name');
+          
+          if( $posts ):
+            foreach( $posts as $post ): 
+                  
+              setup_postdata( $post );
+              if ( nuclearnetwork_directors_list($name) ) :    
+  
+
+                
+          ?>
+          <?php	get_template_part( 'template-parts/content', get_post_type() );?>
+                <?php
+              endif;
+            endforeach;
+          wp_reset_postdata();
+        endif; ?>
+
         
-<?php
-$posts = get_posts(array(
-	'post_type'			=> 'post',
-	'posts_per_page'	=> -1,
-	'order'				=> 'DESC',
-));
-
-$name = get_field('name');
-
-if( $posts ): ?>
-		
-	<?php foreach( $posts as $post ): 
-    
-    setup_postdata( $post );
-
-    if ( nuclearnetwork_directors_list($name) ) :
-		
-		?>
-
-		<hr>
-
-		<?php nuclearnetwork_post_format( $id ); ?>
-			<a href="<?php the_permalink(); ?>"><?php the_title(); ?> </a>
-	
-						<div class="caption">
-						<?php the_post_thumbnail( 'full' ); ?>
-							
-			</div>
-		<?php
-			the_excerpt();
-			nuclearnetwork_authors_list();
-			nuclearnetwork_posted_on();
-			nuclearnetwork_entry_categories();
-		?>
-	
-    <?php endif; ?>
-	<?php endforeach; ?>
-		
-	<?php wp_reset_postdata(); ?>
-
-<?php endif; ?>
-
-        </div>
-        <div class="col-xs-12 col-md-3 archive-sidebar">
-          <?php get_sidebar(); ?>
-        </div>
       </div>
-	  <div>
-  </div>
-  </main><!-- #main -->
-</div><!-- #primary -->
+  
+      </div>
+				<div class="col-xs-12 col-md-3 archive-sidebar">
+					<?php get_sidebar(); ?>
+				</div>
+			</div>
 
-<?php get_footer(); ?>
-	
+		</main><!-- #main -->
+	</div><!-- #primary -->
+
+<?php
+get_footer();
