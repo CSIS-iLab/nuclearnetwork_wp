@@ -82,8 +82,7 @@ $featured_img = ' style="background-image:url(\'' . esc_attr( $img ) . '\');"';
         </div>
       </div>
 
-      
-      <div class="bio-wrapper"><button class="btn btn-blue">full bio & headshot</button></div>
+      <div class="bio-wrapper"><a class="btn btn-blue" href="<?php the_field("file") ?>">full bio & headshot</a></div>
       
         <hr>
         <!-- WP query to display posts by type -->
