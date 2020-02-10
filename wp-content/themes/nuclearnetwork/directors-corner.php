@@ -100,13 +100,12 @@ $featured_img = ' style="background-image:url(\'' . esc_attr( $img ) . '\');"';
             foreach( $posts as $post ): 
                   
               setup_postdata( $post );
-              if ( nuclearnetwork_directors_list($name) ) :    
-  
+			  if ( nuclearnetwork_directors_list($name) ) :    ?>
+			  
 
-                
-          ?>
           <?php	get_template_part( 'template-parts/content', get_post_type() );?>
-                <?php
+				
+				<?php
               endif;
             endforeach;
           wp_reset_postdata();
