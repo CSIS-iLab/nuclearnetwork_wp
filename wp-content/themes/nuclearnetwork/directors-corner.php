@@ -40,11 +40,12 @@ $featured_img = ' style="background-image:url(\'' . esc_attr( $img ) . '\');"';
           ?>
               
           <!-- To friends of Poni Section -->
-          <?php
-            if ( nuclearnetwork_directors_list('Rebecca Hersman') ) :
-          ?>
+         
           <div class="director-sidebar">
             <img src="<?php the_field('image'); ?>" alt="director's photo"/>
+            <?php
+              if ( nuclearnetwork_directors_list('Rebecca Hersman') ) :
+            ?>
             <h4>to friends of poni</h4>
             <p><?php the_field('community_message'); ?></p>
 
@@ -77,12 +78,12 @@ $featured_img = ' style="background-image:url(\'' . esc_attr( $img ) . '\');"';
           ?>
 
           <a class="btn btn-blue" href="http://nuclearnetwork.csis/tag/directors-corner/">view all</a>   
+          <?php endif; ?>
         </div>
       </div>
 
+      
       <div class="bio-wrapper"><button class="btn btn-blue">full bio & headshot</button></div>
-        <?php endif; ?>
-
       
         <hr>
         <!-- WP query to display posts by type -->
