@@ -11,15 +11,11 @@
 
 get_header();
 
-// if ( is_category() || is_tag() ) {
-// 	$img = get_option( 'nuclearnetwork_category_and_tag_archive_image' );
-// } elseif ( is_author() ) {
-// 	$img = get_option( 'nuclearnetwork_authors_archive_image' );
-// } else {
-// 	$img = get_archive_thumbnail_src( 'full' );
-// }
+$img = get_option( 'nuclearnetwork_authors_archive_image' );
+$featured_img = ' style="background-image:url(\'' . esc_attr( $img ) . '\');"';
 
-// $featured_img = ' style="background-image:url(\'' . esc_attr( $img ) . '\');"';
+
+
 
 ?>
 
@@ -27,10 +23,10 @@ get_header();
   <main id="main" class="site-main">
   
       <!-- page-header -->
-	  <header class="page-header">
+	  <header class="page-header"<?php echo $featured_img; ?>>
       <div class="header-content">
-        <h2 class="director"><?php the_field('title'); ?></h2>
-        <h1><?php the_field('name');  ?></h1>
+        <div class="archive-category"><p><?php the_field('title'); ?></p></div>
+        <h1 class="page-title"><?php the_field('name');  ?></h1>
       </div>
     </header>
 
