@@ -78,7 +78,9 @@ $featured_img = ' style="background-image:url(\'' . esc_attr( $img ) . '\');"';
 
           <a class="btn btn-blue" href="http://nuclearnetwork.csis/tag/directors-corner/">view all</a>   
         </div>
-        </div>
+      </div>
+
+      <div class="bio-wrapper"><button class="btn btn-blue">full bio & headshot</button></div>
         <?php endif; ?>
 
       

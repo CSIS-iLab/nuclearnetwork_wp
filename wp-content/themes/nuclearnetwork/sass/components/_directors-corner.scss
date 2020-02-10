@@ -1,5 +1,9 @@
 .post-wrapper {
-  display: flex;
+  display: block;
+
+  @include breakpoint("medium") {
+    display: flex;
+  }
 }
 
 .director-sidebar {
@@ -32,14 +36,16 @@
         color: #163553;
       }
     }
-  }
-  
-  .btn-blue {
-    color: $white;
-    display: inline-block;
-    margin: 0.5rem 0 2rem 0;
-    text-transform: uppercase;
-  }
-  
+  } 
 }
 
+.btn-blue {
+  color: $white;
+  display: inline-block;
+  margin: 0.5rem 0 2rem 0;
+  text-transform: uppercase;
+}
+
+.bio-wrapper {
+  text-align: center;
+}
