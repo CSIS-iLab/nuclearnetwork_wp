@@ -40,7 +40,6 @@ $featured_img = ' style="background-image:url(\'' . esc_attr( $img ) . '\');"';
           ?>
               
           <!-- To friends of Poni Section -->
-         
           <div class="director-sidebar">
             <img src="<?php the_field('image'); ?>" alt="director's photo"/>
             <?php
@@ -99,10 +98,9 @@ $featured_img = ' style="background-image:url(\'' . esc_attr( $img ) . '\');"';
             foreach( $posts as $post ): 
                   
               setup_postdata( $post );
-			  if ( nuclearnetwork_directors_list($name) ) :    ?>
+			        if ( nuclearnetwork_directors_list($name) ) :    ?>
 			  
-
-          <?php	get_template_part( 'template-parts/content', get_post_type() );?>
+        <?php	get_template_part( 'template-parts/content', get_post_type() );?>
 				
 				<?php
               endif;
@@ -110,7 +108,6 @@ $featured_img = ' style="background-image:url(\'' . esc_attr( $img ) . '\');"';
           wp_reset_postdata();
         endif; ?>
 
-        
       </div>
   
       </div>

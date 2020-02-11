@@ -161,10 +161,11 @@ $img4 = get_option( 'nuclearnetwork_home_img_4' );
 							wp_reset_query();
 							setup_postdata($post); 
 							echo esc_attr(htmlentities(the_content()));
-						} else {
-							echo "There is no content to be displayed.";
-						};
-    				?>
+						}
+						// else {
+						// 	echo "There is no content to be displayed.";
+						// };
+    			?>
 
 					  
 				</div>
