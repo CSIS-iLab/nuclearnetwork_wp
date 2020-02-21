@@ -65,7 +65,7 @@ $featured_img = ' style="background-image:url(\'' . esc_attr( $img ) . '\');"';
 
           <ul>
             <li>
-              <a href="http://nuclear-network:8888/?page_id=<?php echo the_ID(); ?>&preview=true"><?php the_Title() ?></a>
+              <a href="/?page_id=<?php echo the_ID(); ?>&preview=true"><?php the_Title() ?></a>
             </li>	
           </ul>
 
@@ -76,7 +76,7 @@ $featured_img = ' style="background-image:url(\'' . esc_attr( $img ) . '\');"';
             endif;
           ?>
 
-          <a class="btn btn-blue" href="http://nuclearnetwork.csis/tag/directors-corner/">view all</a>   
+          <a class="btn btn-blue" href="/tag/directors-corner/">view all</a>   
           <?php endif; ?>
         </div>
       </div>
