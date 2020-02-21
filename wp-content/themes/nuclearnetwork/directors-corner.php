@@ -1,6 +1,6 @@
 <?php
 /**
- * The template for the Director's Corner
+ * The template for the Director's Corner 
  *
  * Template Name: Director's Corner
  *
@@ -9,88 +9,115 @@
  * @package Nuclear_Network
  */
 
- get_header();
+get_header();
 
-$wp_query = new WP_Query(array(
-        'author_name' => 'rebecca-hersman'
-    ));
+$img = get_option( 'nuclearnetwork_authors_archive_image' );
+$featured_img = ' style="background-image:url(\'' . esc_attr( $img ) . '\');"';
+?>
 
+<div id="primary" class="content-area">
+  <main id="main" class="site-main">
+  
+      <!-- page-header -->
+	  <header class="page-header"<?php echo $featured_img; ?>>
+      <div class="header-content">
+        <div class="archive-category"><p><?php the_field('title'); ?></p></div>
+        <h1 class="page-title"><?php the_field('name');  ?></h1>
+      </div>
+    </header>
 
- $img = get_option('nuclearnetwork_authors_archive_image');
+    <div class="content-wrapper row archive-container">
+      <div class="col-xs-12 col-md-9 archive-content"> 
+        <div class="entry-content">
+          <div class="post-wrapper">
 
+          <!-- Wordpress loop to display main content -->
+          <?php
+            while ( have_posts() ) {
+              the_post();
+              get_template_part( 'template-parts/content', 'page' );
+            } 
+          ?>
+              
+          <!-- To friends of Poni Section -->
+          <div class="director-sidebar">
+            <img src="<?php the_field('image'); ?>" alt="director's photo"/>
+            <?php
+              if ( nuclearnetwork_directors_list('Rebecca Hersman') ) :
+            ?>
+            <h4>to friends of poni</h4>
+            <p><?php the_field('community_message'); ?></p>
 
- $featured_img = ' style="background-image:url(\'' . esc_attr($img) . '\');"';
+          <?php
+            $args = array(
+              'post_type' => 'announcements',
+              'tag' => 'directors-corner',
+              'posts_per_page' => 2
+            );
+            $the_query = new WP_Query( $args );
+          ?>
+          
+          <?php
+            if ( $the_query->have_posts() ):
+              while ( $the_query->have_posts() ):
+                $the_query->the_post();
+          ?>
 
- ?>
+          <ul>
+            <li>
+              <a href="http://nuclear-network:8888/?page_id=<?php echo the_ID(); ?>&preview=true"><?php the_Title() ?></a>
+            </li>	
+          </ul>
 
- 	<div id="primary" class="content-area">
- 		<main id="main" class="site-main">
- 			<header class="page-header"<?php echo $featured_img; ?>>
- 				<div class="header-content">
- 					<?php
-                    echo '<div class="archive-category">';
-                    the_archive_top_content();
-                    echo '</div>';
-                    echo '<h1 class="page-title">Director\'s Corner </h1>';
+          <?php
+              endwhile;
+              wp_reset_postdata();
+            else:
+            endif;
+          ?>
 
+          <a class="btn btn-blue" href="http://nuclearnetwork.csis/tag/directors-corner/">view all</a>   
+          <?php endif; ?>
+        </div>
+      </div>
 
-                    ?>
- 				</div>
- 			</header><!-- .page-header -->
+      <div class="bio-wrapper"><a class="btn btn-blue" href="<?php the_field("file") ?>">full bio & headshot</a></div>
+      
+        <hr>
+        <!-- WP query to display posts by type -->
+        <?php
+          $posts = get_posts(array(
+            'post_type'			=> 'post',
+            'posts_per_page'	=> -1,
+            'order'				=> 'DESC',
+          ));
 
- 			<div class="content-wrapper row archive-container">
- 				<div class="col-xs-12 col-md-9 directors-bio">
- 				<?php the_content(); ?>
- 				</div>
+          $name = get_field('name');
+          
+          if( $posts ):
+            foreach( $posts as $post ): 
+                  
+              setup_postdata( $post );
+			        if ( nuclearnetwork_directors_list($name) ) :    ?>
+			  
+        <?php	get_template_part( 'template-parts/content', get_post_type() );?>
+				
+				<?php
+              endif;
+            endforeach;
+          wp_reset_postdata();
+        endif; ?>
+
+      </div>
+  
+      </div>
 				<div class="col-xs-12 col-md-3 archive-sidebar">
 					<?php get_sidebar(); ?>
 				</div>
-
- 			</div>
-
-			<div class="content-wrapper row archive-container">
-
-				<?php echo nuclearnetwork_archive_search(); ?>
-
-
-			<div class="col-xs-12 col-md-9 archive-content">
-			<?php
-
-            if (have_posts()) :
-
-                nuclearnetwork_post_num();
-
-                /* Start the Loop */
-                while (have_posts()) : the_post();
-
-                    /*
-                     * Include the Post-Format-specific template for the content.
-                     * If you want to override this in a child theme, then include a file
-                     * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-                     */
-                    get_template_part('template-parts/content-alumni', get_the_excerpt());
-
-                endwhile;
-
-                the_posts_pagination();
-
-            else :
-
-                get_template_part('template-parts/content', 'none');
-
-            endif;
-
-            nuclearnetwork_event_future_past_link();
-
-            ?>
-			</div>
-			<div class="col-xs-12 col-md-3 archive-sidebar">
-
-			</div>
 			</div>
 
- 		</main><!-- #main -->
- 	</div><!-- #primary -->
+		</main><!-- #main -->
+	</div><!-- #primary -->
 
- <?php
- get_footer();
+<?php
+get_footer();

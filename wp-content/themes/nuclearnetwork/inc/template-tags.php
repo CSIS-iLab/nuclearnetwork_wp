@@ -507,3 +507,24 @@ function nuclearnetwork_event_future_past_link() {
 
 	printf( '<div class="view-past"><a href="/events/%2$s" class="btn btn-blue">' . esc_html_x( 'View %1$s Events', 'nuclearnetwork' ) . '</a></div>', $label, $url ); // WPCS: XSS OK.
 }
+
+if ( ! function_exists( 'nuclearnetwork_directors_list' ) ) :
+	/**
+	 * Prints HTML with short director's list.
+	 */
+
+	function nuclearnetwork_directors_list($name) {
+		if ( function_exists( 'coauthors_posts_links' ) ) {
+			$director = '';
+			foreach ( get_coauthors() as $coauthor ) :
+				if ($coauthor->display_name=='Rebecca Hersman' && ($name=='Rebecca Hersman') ) {
+					$director = $coauthor->display_name;
+				} elseif ($coauthor->display_name=='Eric Brewer' && ($name=='Eric Brewer') ) {
+					$director = $coauthor->display_name;
+				}
+			endforeach;
+	}
+
+	return $director;
+}	 
+endif;

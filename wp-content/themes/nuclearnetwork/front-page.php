@@ -155,30 +155,19 @@ $img4 = get_option( 'nuclearnetwork_home_img_4' );
 				<div class="col-xs-12 col-sm-9">
 					<h4 class="section-header"><?php esc_html_e( 'About this Project', 'nuclearnetwork' ); ?></h4>
 					<?php echo '<p>' . esc_html( get_option( 'nuclearnetwork_home_desc_long' ) ) . '</p>'; ?>
-
-					<?php
-						$announcement_args = array(
-							'post_type' => array( 'announcements' ),
-							'posts_per_page' => 1,
-							'cache_results'          => true,
-							'meta_query' => array(
-								array(
-									'key' => '_post_is_featured',
-									'value' => 1,
-									'compare' => '=',
-								),
-							),
-						);
-
-						$announcement = new WP_Query( $announcement_args );
-						if ( $announcement->have_posts() ) {
-							while ( $announcement->have_posts() ) : $announcement->the_post();
-								get_template_part( 'template-parts/featured-announcement' );
-							endwhile;
-							wp_reset_postdata();
+				
+					<?php 
+						if ( have_posts() ) {
+							wp_reset_query();
+							setup_postdata($post); 
+							echo esc_attr(htmlentities(the_content()));
 						}
-					?>
+						// else {
+						// 	echo "There is no content to be displayed.";
+						// };
+    			?>
 
+					  
 				</div>
 				<div class="col-xs-12 col-sm-3">
 					<?php
