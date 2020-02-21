@@ -65,7 +65,7 @@ $featured_img = ' style="background-image:url(\'' . esc_attr( $img ) . '\');"';
 
           <ul>
             <li>
-              <a href="/?page_id=<?php echo the_ID(); ?>&preview=true"><?php the_Title() ?></a>
+              <a href="/?page_id=<?php echo the_ID(); ?>"><?php the_Title() ?></a>
             </li>	
           </ul>
 
