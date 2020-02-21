@@ -89,7 +89,6 @@ $featured_img = ' style="background-image:url(\'' . esc_attr( $img ) . '\');"';
           $posts = get_posts(array(
             'post_type'			=> 'post',
             'posts_per_page'	=> -1,
-            'order'				=> 'DESC',
           ));
 
           $name = get_field('name');
@@ -98,11 +97,42 @@ $featured_img = ' style="background-image:url(\'' . esc_attr( $img ) . '\');"';
             foreach( $posts as $post ): 
                   
               setup_postdata( $post );
-			        if ( nuclearnetwork_directors_list($name) ) :    ?>
-			  
-        <?php	get_template_part( 'template-parts/content', get_post_type() );?>
-				
-				<?php
+			        if ( nuclearnetwork_directors_list($name) ) :  ?>
+
+                <article id="post-<?php the_ID(); ?>" <?php post_class( 'article-card row' ); ?>>
+                <?php
+                if ( has_post_thumbnail() ) {
+                  echo '<div class="col-xs-12 col-md col-md-4 post-thumbnail"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">';
+                  the_post_thumbnail( 'medium_large' );
+                  echo '</a></div>';
+                }
+                ?>
+                <div class="col-xs-12 col-md">
+                  <header class="entry-header">
+                    <?php
+                    nuclearnetwork_post_format( $post->ID );
+                 
+                      the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
+              
+                    if ( 'post' === get_post_type() ) :
+                    ?>
+                    <div class="entry-meta">
+                      <?php
+                      nuclearnetwork_authors_list();
+                      nuclearnetwork_posted_on();
+                      nuclearnetwork_entry_categories();
+                      ?>
+                    </div><!-- .entry-meta -->
+                    <?php endif; ?>
+                  </header><!-- .entry-header -->
+              
+                  <div class="entry-content">
+                    <?php the_excerpt(); ?>
+                  </div><!-- .entry-content -->
+                </div>
+              </article><!-- #post-<?php the_ID(); ?> -->
+
+               <?php 
               endif;
             endforeach;
           wp_reset_postdata();
