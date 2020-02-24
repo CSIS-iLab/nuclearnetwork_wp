@@ -122,6 +122,10 @@ function post_build_meta_box( $post ) {
 			</p>
 		</div>
 		<div class="<?php echo esc_html( $report_class ); ?>">
+			<h3><?php esc_html_e( 'Featured:', 'nuclearnetwork' ); ?></h3>
+			<p>
+				<input type="checkbox" name="is_featured" value="1" <?php checked( $current_is_featured, '1'); ?> /> <?php esc_html_e( 'Feature Post?', 'nuclearnetwork' ); ?>
+			</p>
 			<h3><?php esc_html_e( 'View URL:', 'nuclearnetwork' ); ?></h3>
 			<p>
 				<input type="text" class="large-text" name="view_url" value="<?php echo esc_textarea( $current_view_url ); ?>" /> 
@@ -145,10 +149,6 @@ function post_build_meta_box( $post ) {
 		<h3><?php esc_html_e( 'Next Generation Perspectives:', 'nuclearnetwork' ); ?></h3>
 		<p>
 			<input type="checkbox" name="is_nextgen" value="1" <?php checked( $current_is_nextgen, '1' ); ?> /> <?php esc_html_e( 'Yes, this is a Next Generation Perspective post', 'nuclearnetwork' ); ?>
-		</p>
-		<h3><?php esc_html_e( 'Featured:', 'nuclearnetwork' ); ?></h3>
-		<p>
-			<input type="checkbox" name="is_featured" value="1" <?php checked( $current_is_featured, '1'); ?> /> <?php esc_html_e( 'Feature Post?', 'nuclearnetwork' ); ?>
 		</p>
 	</div>
 
