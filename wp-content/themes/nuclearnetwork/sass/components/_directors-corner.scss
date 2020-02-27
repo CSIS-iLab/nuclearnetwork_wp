@@ -1,10 +1,12 @@
-.entry-header {
-  div {
-    h1 {
-      display: none;
+
+article > .entry-header {
+    div {
+      h1 {
+        display: none;
+      }
     }
   }
-}
+
 
 .post-wrapper {
   display: block;
