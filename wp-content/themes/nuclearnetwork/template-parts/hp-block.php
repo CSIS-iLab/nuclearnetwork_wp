@@ -28,12 +28,15 @@ if ( 'events' === $post->featured_post->post_type ) {
 } else {
 	$date = get_the_date( '', $post->featured_post->ID );
 }
-
 ?>
 
 <div class="hp-block split-main block-<?php echo sanitize_html_class( $post->block_color ); ?>">
 	<?php
+	if ($post->title === 'Connect') {
+		the_title( '<h2 class="entry-title"><a href="' . esc_url( $post->children[0]->url ) . '" rel="bookmark">', '</a></h2>' );
+	} else {
 	the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
+	}
 	?>
 	<?php the_content(); ?>
 
