@@ -441,7 +441,7 @@ function post_save_meta_box_data( $post_id ) {
 	} else {
 		update_post_meta( $post_id, '_post_is_nextgen', '' );
 	}
-	// // Is Featured
+	// Is Featured
 	if ( isset( $_REQUEST['is_featured'] ) ) { // Input var okay.
 		update_post_meta( $post_id, '_post_is_featured', intval( wp_unslash( $_POST['is_featured'] ) ) ); // Input var okay.
 	} else {
