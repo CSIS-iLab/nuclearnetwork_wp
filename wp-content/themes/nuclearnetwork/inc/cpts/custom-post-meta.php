@@ -13,6 +13,8 @@ add_action( 'post_submitbox_misc_actions', 'nuclearnetwork_add_publish_meta_opti
  *
  * @param array $post Post information.
  */
+
+//  Add the featured post option to CPTs (not standard posts, as this is not supported by Gutenberg)
 function nuclearnetwork_add_publish_meta_options( $post ) {	
 	// Make sure the form request comes from WordPress.	
 	wp_nonce_field( basename( __FILE__ ), 'publish_meta_box_nonce' );
@@ -158,6 +160,7 @@ function post_build_meta_box( $post ) {
 		<p>
 			<input type="checkbox" name="is_nextgen" value="1" <?php checked( $current_is_nextgen, '1' ); ?> /> <?php esc_html_e( 'Yes, this is a Next Generation Perspective post', 'nuclearnetwork' ); ?>
 		</p>
+		<!-- Add featured post checkbox to standard posts, as the hook to add to the sidebar isn't compatible with Gutenberg -->
 		<h3><?php esc_html_e( 'Featured:', 'nuclearnetwork' ); ?></h3>
 		<p>
 			<input type="checkbox" name="is_featured" value="1" <?php checked( $current_is_featured, '1'); ?> /> <?php esc_html_e( 'Feature Post?', 'nuclearnetwork' ); ?>
@@ -441,7 +444,7 @@ function post_save_meta_box_data( $post_id ) {
 	} else {
 		update_post_meta( $post_id, '_post_is_nextgen', '' );
 	}
-	// Is Featured
+	// Is Featured (Add featured post to standard posts, as the hook to add to the sidebar isn't compatible with Gutenberg)
 	if ( isset( $_REQUEST['is_featured'] ) ) { // Input var okay.
 		update_post_meta( $post_id, '_post_is_featured', intval( wp_unslash( $_POST['is_featured'] ) ) ); // Input var okay.
 	} else {
