@@ -94,7 +94,7 @@ function post_build_meta_box( $post ) {
 	$current_linkedin_url = get_post_meta( $post->ID, '_post_linkedin_url', true );
 	$current_disable_disclaimer = get_post_meta( $post->ID, '_post_disable_disclaimer', true );
 	$current_is_nextgen = get_post_meta( $post->ID, '_post_is_nextgen', true );
-	// $current_is_featured = get_post_meta( $post->ID, '_post_is_featured', true );
+	$current_is_featured = get_post_meta( $post->ID, '_post_is_featured', true );
 
 	// Set default value for post format.
 	if ( empty( $current_post_format ) ) {
@@ -442,11 +442,11 @@ function post_save_meta_box_data( $post_id ) {
 		update_post_meta( $post_id, '_post_is_nextgen', '' );
 	}
 	// // Is Featured
-	// if ( isset( $_REQUEST['is_featured'] ) ) { // Input var okay.
-	// 	update_post_meta( $post_id, '_post_is_featured', intval( wp_unslash( $_POST['is_featured'] ) ) ); // Input var okay.
-	// } else {
-	// 	update_post_meta( $post_id, '_post_is_featured', '' );
-	// }
+	if ( isset( $_REQUEST['is_featured'] ) ) { // Input var okay.
+		update_post_meta( $post_id, '_post_is_featured', intval( wp_unslash( $_POST['is_featured'] ) ) ); // Input var okay.
+	} else {
+		update_post_meta( $post_id, '_post_is_featured', '' );
+	}
 	// Footer
 	if ( isset( $_REQUEST['footer'] ) ) { // Input var okay.
 		update_post_meta( $post_id, '_post_footer', wp_kses_post( wp_unslash( $_POST['footer'] ) ) ); // Input var okay.
