@@ -50,3 +50,5 @@ jobs:
         env:
           WPE_SSH_KEY_PRIVATE: ${{ secrets.WPE_SSH_KEY_PRIVATE }}
           WPE_SSH_KEY_PUBLIC: ${{ secrets.WPE_SSH_KEY_PUBLIC }}
+          WPE_GIT_INCLUDE: ".github/wpe-git-include.txt"
+          WPE_GIT_EXCLUDE: ".github/wpe-git-exclude.txt"
