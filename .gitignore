@@ -116,3 +116,13 @@ Thumbs.db
 wp-content/themes/nuclearnetwork/.sass-cache
 **/.DS_Store
 wp-content/themes/nuclearnetwork/*.css
+
+!wp-content/themes/nuclearnetwork/.eslintignore
+!wp-content/themes/nuclearnetwork/.eslintrc.js
+!wp-content/themes/nuclearnetwork/.stylelintrc.json
+
+wp-content/themes/*/**/*.css
+wp-content/themes/nuclearnetwork/assets/img
+wp-content/themes/nuclearnetwork/assets/js
+
+!.github/
