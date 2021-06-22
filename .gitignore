@@ -112,17 +112,25 @@ Thumbs.db
 !wp-content/plugins/search-filter-pro
 !wp-content/plugins/custom-menu-items.php
 !wp-content/themes/nuclearnetwork
+!wp-content/themes/csisnuclearnetwork
 
 wp-content/themes/nuclearnetwork/.sass-cache
+wp-content/themes/csisnuclearnetwork/.sass-cache
 **/.DS_Store
 wp-content/themes/nuclearnetwork/*.css
+wp-content/themes/csisnuclearnetwork/*.css
 
 !wp-content/themes/nuclearnetwork/.eslintignore
+!wp-content/themes/csisnuclearnetwork/.eslintignore
 !wp-content/themes/nuclearnetwork/.eslintrc.js
+!wp-content/themes/csisnuclearnetwork/.eslintrc.js
 !wp-content/themes/nuclearnetwork/.stylelintrc.json
+!wp-content/themes/csisnuclearnetwork/.stylelintrc.json
 
 wp-content/themes/*/**/*.css
 wp-content/themes/nuclearnetwork/assets/img
+wp-content/themes/csisnuclearnetwork/assets/img
 wp-content/themes/nuclearnetwork/assets/js
+wp-content/themes/csisnuclearnetwork/assets/js
 
 !.github/

@@ -1,0 +1,209 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+/*==============================
+=          Placeholders        =
+==============================*/
+%text-style-heading-medium {
+  @include font-size(20px);
+  font-family: $font__lato;
+  font-weight: normal;
+  line-height: 1.15;
+}
+
+%text-style-heading-large {
+  @include font-size(24px);
+  font-family: $font__lato;
+  font-weight: normal;
+  line-height: 1.15;
+}
+
+%text-style-heading-large-strong {
+  @extend %text-style-heading-large;
+  font-weight: 700;
+}
+
+%text-style-heading-large-strong-caps {
+  @extend %text-style-heading-large-strong;
+  text-transform: uppercase;
+}
+
+%text-style-heading-large-serif-bold {
+  @include font-clamp(20px, 24px);
+  font-family: $font__merriweather;
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+%text-style-heading-x-large {
+  @include font-clamp(28px, 32px);
+  font-family: $font__merriweather;
+  font-weight: normal;
+  line-height: 1.15;
+}
+%text-style-heading-x-large-strong {
+  @extend %text-style-heading-x-large;
+  font-weight: 700;
+}
+
+%text-style-heading-2-x-large {
+  @include font-clamp(32px, 42px);
+  font-family: $font__merriweather;
+  font-weight: normal;
+  line-height: 1.15;
+}
+
+%text-style-heading-2-x-large-strong {
+  @extend %text-style-heading-2-x-large;
+  font-weight: 700;
+}
+
+%text-style-heading-3-x-large {
+  @include font-clamp(34px, 48px);
+  font-family: $font__merriweather;
+  font-weight: normal;
+  line-height: 1.15;
+}
+
+%text-style-heading-3-x-large-strong {
+  @extend %text-style-heading-3-x-large;
+  font-weight: 700;
+}
+
+%text-style-label-x-small {
+  @include font-size(12px);
+  font-family: $font__lato;
+  line-height: 1.15;
+  letter-spacing: 0.02em;
+}
+
+%text-style-label-x-small-strong {
+  @extend %text-style-label-x-small;
+  font-weight: 700;
+}
+
+%text-style-label-x-small-strong-caps {
+  @extend %text-style-label-x-small-strong;
+  text-transform: uppercase;
+}
+
+%text-style-label-small {
+  @include font-size(14px);
+  font-family: $font__lato;
+  line-height: 1.15;
+  letter-spacing: 0.015em;
+}
+
+%text-style-label-small-strong {
+  @extend %text-style-label-small;
+  font-weight: 700;
+}
+
+%text-style-label-small-strong-caps {
+  @extend %text-style-label-small-strong;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+%text-style-label-medium {
+  @include font-size(16px);
+  font-family: $font__lato;
+  line-height: 1.15;
+  letter-spacing: 0.01em;
+}
+
+%text-style-label-medium-strong {
+  @extend %text-style-label-medium;
+  font-weight: 700;
+}
+
+%text-style-label-large {
+  @include font-size(18px);
+  font-family: $font__lato;
+  line-height: 1.15;
+  letter-spacing: 0.005em;
+}
+
+%text-style-label-large-strong {
+  @extend %text-style-label-large;
+  font-weight: 700;
+}
+
+%text-style-label-large-caps {
+  @extend %text-style-label-large;
+  text-transform: uppercase;
+}
+
+%text-style-label-3-x-large {
+  @include font-size(42px);
+  font-family: $font__public;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+}
+
+%text-style-paragraph-small-short {
+  @include font-size(14px);
+  font-family: $font__lato;
+  line-height: 1.3;
+}
+
+%text-style-paragraph-small-long {
+  @extend %text-style-paragraph-small-short;
+  line-height: 1.6;
+}
+
+%text-style-paragraph-medium-short {
+  @include font-clamp(14px, 16px);
+  font-family: $font__lato;
+  line-height: 1.3;
+}
+
+%text-style-paragraph-medium-short-caps {
+  @extend %text-style-paragraph-medium-short;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+%text-style-paragraph-medium-long {
+  @include font-clamp(14px, 16px);
+  font-family: $font__merriweather;
+  line-height: 1.6;
+}
+
+%text-style-paragraph-large-short {
+  @include font-size(18px);
+  font-family: $font__merriweather;
+  line-height: 1.3;
+  letter-spacing: 0.005em;
+}
+
+%text-style-paragraph-large-short-sans {
+  @include font-clamp(16px, 18px);
+  font-family: $font__lato;
+  line-height: 1.3;
+}
+
+%text-style-paragraph-large-long {
+  @extend %text-style-paragraph-large-short;
+  line-height: 1.6;
+}
+
+%text-style-paragraph-x-large-short {
+  @include font-size(22px);
+  font-family: $font__merriweather;
+  line-height: 1.3;
+}
+
+%text-style-paragraph-x-large-short-sans {
+  @include font-size(22px);
+  font-family: $font__lato;
+  font-weight: normal;
+  line-height: 1.15;
+  letter-spacing: 0.005em;
+}
+
+%text-style-paragraph-x-large-long {
+  @extend %text-style-paragraph-x-large-short;
+  line-height: 1.6;
+}

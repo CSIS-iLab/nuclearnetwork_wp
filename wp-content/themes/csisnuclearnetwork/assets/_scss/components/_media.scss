@@ -1,0 +1,91 @@
+@use '../abstracts' as *;
+
+.videoWrapper {
+  position: relative;
+  height: 0;
+  padding-bottom: 56.25%; /* 16:9 */
+  /* falls back to 16/9, but otherwise uses ratio from HTML */
+  padding-bottom: calc(var(--aspect-ratio, 0.5625) * 100%);
+
+  iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+/* Images */
+/* stylelint-disable-next-line */
+img.aligncenter,
+.wp-block-image .aligncenter img,
+.wp-block-image > img {
+  width: 100%;
+}
+
+.wp-block-image {
+  &.alignfull,
+  &.alignwide,
+  .aligncenter {
+    width: 100%;
+    margin-top: rem(40);
+    margin-bottom: rem(40);
+  }
+
+  &.alignfull,
+  &.alignwide {
+    @include breakpoint('large') {
+      margin-top: rem(56);
+      margin-bottom: rem(56);
+    }
+  }
+
+  .alignleft {
+    margin-right: var(--margin-text-side);
+    margin-left: var(--margin-gutter-side, 0);
+  }
+
+  .alignright {
+    margin-right: var(--margin-gutter-side, 0);
+    margin-left: var(--margin-text-side);
+  }
+}
+
+/* Captions */
+.wp-block-image figcaption {
+  max-width: $size__content-max-width;
+  margin: rem(12) auto 0;
+  @extend %text-style-paragraph-medium-short;
+  color: $color-black-165;
+
+  &::after {
+    content: '';
+    display: block;
+    width: rem(40);
+    height: rem(1px);
+    margin-top: rem(12);
+    background: $color-border-dark-130;
+  }
+
+  /* stylelint-disable */
+  a[href*='//']:not([class])
+  {
+    /* stylelint-enable */
+    @extend %text-style-paragraph-medium-short;
+  }
+}
+
+.wp-block-image {
+  &.alignfull figcaption,
+  &.alignwide figcaption {
+    padding-right: var(--container-padding);
+    padding-left: var(--container-padding);
+
+    // Fixes a layout issue where the caption has the padding applied when it doesn't need it. Necessary to cover screens 680px-720px wide (max width of the content + (20px of padding * 2 sides)).
+    @include breakpoint(720px) {
+      padding-right: 0;
+      padding-left: 0;
+    }
+  }
+}

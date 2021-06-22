@@ -1,0 +1,122 @@
+@use '../abstracts' as *;
+
+.btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: rem(12) rem(20);
+  color: var(--btn-color);
+  text-align: center;
+  text-transform: uppercase;
+  background: var(--btn-bg, transparent);
+  border: 1px solid var(--btn-border, transparent);
+  border-radius: 2px;
+  transition: color 0.3s ease-in-out, background 0.3s ease-in-out;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:not([disabled]) {
+    cursor: pointer;
+  }
+
+  &[disabled] {
+    cursor: not-allowed;
+  }
+
+  // Font Sizes
+  &--xsmall {
+    @extend %text-style-label-x-small-strong;
+  }
+
+  &--small {
+    @extend %text-style-label-small-strong-caps;
+  }
+
+  &--med {
+    @extend %text-style-label-medium;
+  }
+
+  // The default font size for buttons. Override by using one of the other modifier classes.
+  &:not(.btn--xsmall):not(.btn--small):not(.btn--med),
+  &--large {
+    @extend %text-style-label-large;
+  }
+
+  // Button Styles
+  &--circle {
+    width: rem(32);
+    height: rem(32);
+    padding: 0;
+    border-radius: 50%;
+  }
+
+  &--outline {
+    border-radius: 0;
+
+    &-dark {
+      --btn-color: #{$color-black-190};
+      --btn-border: #{$color-black-190};
+
+      &:hover {
+        --btn-color: #{$color-white-100};
+        --btn-bg: #{$color-link-primary-200};
+        --btn-border: #{$color-link-primary-200};
+      }
+
+      &:focus {
+        --btn-color: #{$color-black-190};
+        --btn-bg: #{$color-bg-light-300};
+        --btn-border: #{$color-bg-light-300};
+      }
+    }
+
+    &-light {
+      --btn-color: #{$color-accent-dark-primary-400};
+      --btn-border: #{$color-accent-dark-primary-400};
+
+      &:hover {
+        --btn-color: #{$color-white-100};
+        --btn-bg: #{$color-accent-dark-primary-400};
+        --btn-border: #{$color-accent-dark-primary-400};
+      }
+
+      &:focus {
+        --btn-color: #{$color-accent-light-primary-100};
+        --btn-bg: #{$color-bg-light-200};
+        --btn-border: #{$color-bg-light-200};
+      }
+    }
+  }
+
+  &--green {
+    --btn-color: #{$color-white-190};
+    --btn-bg: #{$color-link-primary-200};
+
+    &:hover {
+      --btn-color: #{$color-white-190};
+      --btn-bg: #{$color-bg-dark-200};
+    }
+
+    &:focus {
+      --btn-color: #{$color-link-primary-200};
+      --btn-bg: #{$color-bg-light-200};
+    }
+  }
+
+  &--dark {
+    --btn-color: #{$color-white-100};
+    --btn-bg: #{$color-bg-dark-300};
+
+    &:hover {
+      --btn-color: #{$color-white-100};
+      --btn-bg: #{$color-link-primary-200};
+    }
+
+    &:focus {
+      --btn-color: #{$color-link-primary-200};
+      --btn-bg: #{$color-bg-light-200};
+    }
+  }
+}

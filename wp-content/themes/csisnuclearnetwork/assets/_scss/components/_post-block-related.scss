@@ -1,0 +1,43 @@
+@use '../abstracts' as *;
+
+.post-block-related {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+
+  &__title {
+    color: $color-black-190;
+    @extend %text-style-paragraph-large-short;
+    font-weight: normal;
+  }
+
+  &__title a:hover,
+  &__img:hover ~ &__title a {
+    color: $color-link-primary-200;
+  }
+
+  &__title a:focus,
+  &__img:focus ~ &__title a {
+    background: $color-bg-light-400;
+  }
+
+  &__img {
+    display: block;
+    height: 180px;
+
+    img {
+      // width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+
+  .post-meta__date {
+    margin-top: rem(16);
+    margin-bottom: rem(4);
+    @extend %text-style-label-medium;
+    font-weight: 400;
+  }
+}

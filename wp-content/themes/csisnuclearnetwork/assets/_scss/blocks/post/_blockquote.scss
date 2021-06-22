@@ -1,0 +1,37 @@
+@use '../abstracts' as *;
+
+.wp-block-lazyblock-blockquote {
+  .csis-block--blockquote {
+    padding: rem(16) rem(16) rem(32);
+    background: $color-bg-dark-200;
+  }
+
+  .blockquote {
+    &__arrows {
+      width: 46px;
+      height: 23px;
+      margin-bottom: rem(12);
+    }
+
+    &__content {
+      margin-bottom: rem(12);
+      color: $color-white-190;
+      @extend %text-style-paragraph-large-short-sans;
+    }
+
+    &__author {
+      color: $color-white-165;
+      @extend %text-style-paragraph-medium-short-caps;
+      font-style: normal;
+    }
+  }
+
+  /*----------  Center Variation  ----------*/
+  &.aligncenter {
+    @include breakpoint('medium') {
+      max-width: rem(360);
+      margin-right: auto;
+      margin-left: auto;
+    }
+  }
+}

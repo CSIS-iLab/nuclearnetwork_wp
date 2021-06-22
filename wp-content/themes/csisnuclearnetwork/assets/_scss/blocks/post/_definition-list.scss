@@ -1,0 +1,24 @@
+@use '../abstracts' as *;
+
+.wp-block-lazyblock-definition-list {
+  margin: rem(16) 0;
+
+  .definition-list {
+    &__item {
+      + .definition-list__item {
+        margin-top: rem(32);
+      }
+    }
+
+    &__term {
+      margin-bottom: rem(8);
+      color: $color-accent-light-primary-100;
+      @extend %text-style-label-large;
+    }
+
+    &__definition {
+      color: $color-black-190;
+      @extend %text-style-paragraph-large-long;
+    }
+  }
+}

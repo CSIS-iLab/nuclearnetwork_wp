@@ -1,0 +1,176 @@
+@use 'abstracts' as *;
+
+.footer {
+  --padding-top: #{rem(32)};
+  --padding-bottom: #{rem(24)};
+
+  $gradient: linear-gradient(180deg, rgba(36, 50, 56, 0.88) 0%, #242c30 100%);
+  display: grid;
+  grid-template-areas:
+    'logo'
+    'csisdesc'
+    'newsletter'
+    'social'
+    'copyright';
+  grid-template-columns: 1fr;
+  margin-top: auto;
+  padding-top: var(--padding-top);
+  padding-bottom: var(--padding-bottom);
+  @extend %text-style-paragraph-medium-short;
+  color: $color-white-190;
+  background: $gradient;
+  @include full-width-background($gradient);
+
+  @include breakpoint('small') {
+    grid-template-areas:
+      'logo logo'
+      'csisdesc csisdesc'
+      'newsletter social'
+      'copyright copyright';
+    grid-template-columns: auto rem(188);
+  }
+
+  @include breakpoint('medium') {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @include breakpoint('large') {
+    --padding-bottom: #{rem(56)};
+    grid-template-areas:
+      'logo logo logo'
+      'csisdesc newsletter social'
+      'copyright copyright copyright';
+    grid-template-columns: 2fr 1fr 1fr;
+  }
+
+  a {
+    &:hover {
+      color: $color-white-100;
+    }
+  }
+
+  &__logo {
+    grid-area: logo;
+    max-width: rem(300);
+    margin-bottom: rem(16);
+  }
+
+  &__desc {
+    grid-area: csisdesc;
+    margin-bottom: rem(40);
+  }
+
+  .widget:first-of-type {
+    margin-bottom: rem(24);
+
+    @include breakpoint('large') {
+      position: relative;
+      margin-bottom: rem(32);
+    }
+
+    &::after {
+      @include breakpoint('large') {
+        content: '';
+        position: absolute;
+        top: calc(100% + #{rem(16)});
+        left: 0;
+        display: block;
+        width: rem(100);
+        margin-bottom: rem(16);
+        border-bottom: 1px solid $color-border-light-115;
+      }
+    }
+  }
+
+  &__desc + .widget {
+    grid-area: newsletter;
+  }
+
+  &__social {
+    display: grid;
+    grid-area: social;
+    align-content: start;
+    margin-top: rem(32);
+    padding-top: rem(24);
+    border-top: 1px solid $color-border-light-115;
+
+    @include breakpoint('small') {
+      margin-top: 0;
+      padding-top: 0;
+      padding-left: rem(16);
+      border-top: 0;
+      border-left: 1px solid $color-border-light-115;
+    }
+
+    @include breakpoint('medium') {
+      padding-left: rem(24);
+    }
+  }
+
+  &__social-icons {
+    margin-left: rem(-8);
+    color: $color-white-165;
+    @include font-size(28px);
+  }
+
+  &__copyright {
+    grid-area: copyright;
+    margin-top: rem(16);
+    color: $color-white-165;
+    text-align: left;
+
+    a {
+      color: $color-white-165;
+
+      &:hover {
+        color: $color-white-100;
+      }
+
+      &:focus {
+        color: $color-white-100;
+      }
+    }
+  }
+
+  &__newsletter {
+    @include breakpoint('small') {
+      margin-right: rem(4);
+    }
+
+    @include breakpoint('medium') {
+      margin-right: rem(24);
+    }
+
+    @include breakpoint('large') {
+      margin-left: rem(40);
+    }
+  }
+
+  &__newsletter-desc {
+    color: $color-white-165;
+  }
+
+  &__newsletter,
+  &__social {
+    text-align: center;
+
+    @include breakpoint('small') {
+      text-align: left;
+    }
+  }
+
+  &__newsletter-header,
+  &__social-header {
+    margin-bottom: rem(8);
+    font-weight: 700;
+    font-size: rem(18);
+  }
+
+  &__newsletter-desc {
+    margin-bottom: rem(24);
+  }
+
+  &__newsletter-button {
+    margin-bottom: rem(16);
+  }
+}

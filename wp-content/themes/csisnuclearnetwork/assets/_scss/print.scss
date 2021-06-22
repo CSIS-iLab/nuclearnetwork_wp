@@ -1,0 +1,75 @@
+@media print {
+  *,
+  *::before,
+  *::after {
+    color: #000 !important;
+    text-shadow: none !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    filter: none !important;
+  }
+
+  body {
+    &::before {
+      content: 'Reconnecting Asia';
+      display: block;
+      margin-bottom: 0.5cm;
+      font-size: 24pt;
+    }
+
+    &::after {
+      content: 'Printed from Reconnecting Asia, ©2021 by the Center for Strategic and International Studies. All rights reserved.';
+      margin-top: 0.5cm;
+      font-size: 12pt;
+    }
+  }
+
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+
+  img,
+  blockquote {
+    page-break-inside: avoid;
+  }
+
+  .post-block__title {
+    font-size: 30px !important;
+  }
+
+  svg,
+  aside,
+  .home__cta,
+  .home__featured-content-link,
+  .btn,
+  .btn--outline-light,
+  .btn--small,
+  .footer,
+  .home__featured-content-desc li::before,
+  .addtoany_list { /* stylelint-disable-line selector-class-pattern*/
+    display: none !important;
+  }
+
+  .single__content {
+    max-width: none;
+    margin: 5mm 0 !important;
+    padding: 0 !important;
+  }
+
+  .single__content p {
+    font-size: 16pt;
+  }
+
+  .entry-header {
+    max-width: none;
+    margin-bottom: 0.5cm;
+    padding: 0;
+  }
+
+  .entry-header .featured-media {
+    max-width: 680px;
+    max-height: auto !important;
+    margin: 0 auto;
+  }
+}

@@ -1,0 +1,40 @@
+@use '../abstracts' as *;
+
+@use '../components/entry-header';
+
+.error-404 {
+  display: flex;
+  justify-content: center;
+  margin-top: rem(40);
+  margin-bottom: rem(56);
+
+  @include breakpoint('medium') {
+    margin-top: rem(56);
+  }
+
+  &__content {
+    max-width: $size__content-max-width;
+  }
+
+  &__title {
+    color: $color-accent-light-primary-200;
+    @extend %text-style-label-3-x-large;
+  }
+
+  &__subtitle {
+    color: $color-accent-light-primary-100;
+    @extend %text-style-label-medium-strong;
+    text-transform: uppercase;
+  }
+  
+  &__text-spacing {
+    margin-top: rem(11);
+  }
+
+  .intro-text {
+    p {
+      color: $color-black-100;
+      @extend %text-style-paragraph-medium-long;
+    }
+  }
+}

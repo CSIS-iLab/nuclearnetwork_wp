@@ -1,0 +1,25 @@
+@use '../abstracts' as *;
+
+.wp-block-lazyblock-partners {
+  margin: rem(16) 0 rem(80);
+
+  .csis-block--partners {
+    display: flex;
+    flex-wrap: wrap;
+    gap: rem(40);
+    align-items: center;
+    margin: 0;
+    padding: 0;
+  }
+
+  .partners__item {
+    flex: 1 1 auto;
+    max-width: 225px;
+    padding-left: 0;
+  }
+
+  img {
+    width: auto;
+    max-height: rem(50);
+  }
+}

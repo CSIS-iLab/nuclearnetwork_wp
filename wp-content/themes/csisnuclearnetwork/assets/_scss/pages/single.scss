@@ -1,0 +1,290 @@
+@use '../abstracts' as *;
+
+@use '../blocks/post/definition-list';
+@use '../blocks/post/gray-section';
+@use '../blocks/post/interactive';
+@use '../blocks/post/members';
+@use '../blocks/post/partners';
+@use '../components/post-block-related';
+
+.single {
+  &__content {
+    p:not([class]) {
+      margin-bottom: rem(24);
+    }
+
+    p:empty {
+      display: none;
+    }
+
+    /*----------  Headings  ----------*/
+
+    h2:not(.footnotes__heading),
+    h3,
+    h4,
+    h5,
+    h6 {
+      margin-top: var(--heading-margin-top, rem(24));
+      margin-bottom: rem(8);
+    }
+
+    h2:not(.footnotes__heading) {
+      --heading-margin-top: #{rem(56)};
+      margin-bottom: rem(16);
+      @extend %text-style-heading-x-large;
+    }
+
+    h3 {
+      --heading-margin-top: #{rem(32)};
+      @extend %text-style-heading-large-strong;
+    }
+
+    h4 {
+      --heading-margin-top: #{rem(32)};
+      @extend %text-style-paragraph-x-large-short-sans;
+    }
+
+    /*----------  Paragraphs & Lists  ----------*/
+
+    p,
+    ul {
+      color: $color-black-190;
+    }
+
+    p {
+      @extend %text-style-paragraph-large-long;
+    }
+
+    ul,
+    ol:not(.footnotes__list):not(.easy-footnotes-wrapper) {
+      margin-top: rem(16);
+      padding-left: rem(52);
+      @extend %text-style-paragraph-medium-long;
+    }
+
+    li {
+      padding-left: rem(12);
+    }
+
+    li:not(.easy-footnote-single) + li {
+      margin-top: rem(8);
+    }
+
+    ol:not(.footnotes__list):not(.easy-footnotes-wrapper)::marker,
+    li::marker {
+      color: $color-link-primary-200;
+      @extend %text-style-label-large;
+    }
+
+    /*----------  Links  ----------*/
+    /* stylelint-disable */
+    a[href*='//']:not([class])
+    {
+      /* stylelint-enable */
+      color: $color-link-primary-200;
+      font-family: $font__merriweather;
+      @include font-size(18px);
+      font-weight: 400;
+      text-decoration: underline;
+
+      &:hover {
+        color: $color-accent-light-primary-100;
+        text-decoration-color: transparent;
+      }
+
+      &:focus {
+        color: $color-accent-light-primary-100;
+        text-decoration-color: transparent;
+        background: $color-bg-light-400;
+        outline: 0;
+      }
+    }
+
+    /* stylelint-disable */
+    a[href*="//"]:not([class]):not([href*="nuclearnetwork.local"]):not([href*="localhost"]):not([href*="nuclearnetwork"])
+    {
+      /* stylelint-enable */
+      &::after {
+        content: '';
+        position: relative;
+        top: 1px;
+        left: 5px;
+        display: inline-block;
+        width: 0.8em;
+        height: 0.8em;
+        margin-right: 5px;
+        background-image: url('/wp-content/themes/nuclearnetwork/assets/static/icons/arrow-external.svg');
+        background-size: 100% 100%;
+        filter: invert(38%) sepia(89%) saturate(439%) hue-rotate(133deg) brightness(86%) contrast(85%);
+        transition: filter 0.3s ease-in-out;
+      }
+
+      &:hover::after {
+        filter: invert(33%) sepia(14%) saturate(1559%) hue-rotate(131deg) brightness(95%) contrast(87%);
+      }
+    }
+
+    .entry__tags {
+      margin-top: rem(24);
+      margin-bottom: rem(24);
+    }
+  }
+
+  /*----------  Table  ----------*/
+
+  .wp-block-table {
+    color: $color-black-190;
+    word-break: normal;
+    border: 0 !important;
+
+    &.aligncenter,
+    &.alignleft,
+    &.alignright {
+      width: 100%;
+    }
+
+    &.is-style-stripes {
+      thead {
+        background-color: $color-bg-thead;
+      }
+
+      tbody {
+        /* stylelint-disable-next-line */
+        tr:nth-child(even) {
+          background-color: $color-bg-tbody;
+        }
+        /* stylelint-disable-next-line */
+        tr:nth-child(odd) {
+          background-color: $color-white-100;
+        }
+      }
+
+      th {
+        border-top: 1px solid $color-black-115;
+      }
+
+      /* stylelint-disable */
+      table td + td,
+      table th + th {
+        border-left: 1px solid $color-black-115;
+      }
+      /* stylelint-enable */
+
+      td {
+        border-bottom: 1px solid $color-black-115;
+      }
+    }
+
+    table {
+      width: 100%;
+      margin-bottom: rem(24);
+      @extend %text-style-paragraph-large-short-sans;
+      border-collapse: collapse;
+    }
+
+    thead {
+      @extend %text-style-label-large-strong;
+
+      /* stylelint-disable-next-line */
+      th {
+        text-align: left;
+        border-bottom: 1px solid $color-black-130 !important;
+      }
+    }
+
+    th,
+    td {
+      padding: rem(12);
+    }
+
+    figcaption {
+      margin-top: 0.75rem;
+      color: $color-black-165;
+      @extend %text-style-label-medium;
+
+      &::after {
+        content: '';
+        display: block;
+        width: 2.5rem;
+        height: 0.0625rem;
+        margin-top: 0.75rem;
+        background: $color-black-130;
+      }
+    }
+  }
+
+  &__content {
+    max-width: $size__content-max-width;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  &__footer {
+    margin-top: rem(40);
+    padding: rem(40) 0 rem(56);
+    background: $color-bg-light-200;
+    @include full-width-background($color-bg-light-200);
+
+    @include breakpoint('large') {
+      padding-top: rem(56);
+    }
+
+    p + p {
+      margin-top: 1rem;
+    }
+
+    &-heading {
+      display: flex;
+      gap: rem(12);
+      justify-content: center;
+      align-items: center;
+      margin-bottom: rem(24);
+      color: $color-accent-light-primary-100;
+      @extend %text-style-heading-large-strong-caps;
+
+      @include breakpoint('small') {
+        margin-bottom: rem(32);
+      }
+
+      @include breakpoint('large') {
+        margin-bottom: rem(40);
+      }
+
+      .icon {
+        height: 0.5em;
+        font-size: 2em;
+      }
+    }
+  }
+}
+
+.related-posts {
+  display: grid;
+  justify-items: center;
+  margin: 0 auto rem(40);
+  padding: 0;
+  row-gap: rem(32);
+  column-gap: rem(32);
+
+  @include breakpoint('small') {
+    --track-min-width: 160px;
+    // Sets track width, ensures that columns break in groups of 2.
+    /* stylelint-disable */
+    grid-template-columns: repeat(auto-fill, minmax(var(--track-min-width), 1fr) minmax(var(--track-min-width), 1fr));
+    /* stylelint-enable */
+  }
+
+  @include breakpoint('medium') {
+    --track-min-width: 266px;
+  }
+
+  @include breakpoint('large') {
+    display: flex;
+    justify-content: center;
+    padding: 0;
+  }
+
+  > li {
+    max-width: rem(275);
+  }
+}

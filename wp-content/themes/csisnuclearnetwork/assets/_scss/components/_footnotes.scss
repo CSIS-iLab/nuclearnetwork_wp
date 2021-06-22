@@ -1,0 +1,80 @@
+@use '../abstracts' as *;
+
+/*=================================
+=            Footnotes            =
+=================================*/
+
+.single__content {
+  .easy-footnote {
+    font-family: $font__merriweather;
+    font-size: rem(15px);
+
+    sup {
+      position: relative;
+      top: -0.6em;
+      left: 1px;
+      vertical-align: baseline;
+      transition: all 0.3s ease-in-out;
+
+      &:hover {
+        color: $color-link-primary-200;
+      }
+    }
+  }
+}
+
+.footnotes {
+  clear: both;
+  margin: rem(40px) 0;
+
+  &__heading {
+    @extend %text-style-paragraph-medium-short-caps;
+    margin-bottom: rem(12);
+    color: $color-accent-light-primary-100;
+    font-weight: 400;
+  }
+
+  &__list {
+    padding-left: 0;
+  }
+}
+
+.easy-footnotes-wrapper {
+  @extend %text-style-paragraph-medium-short;
+  padding-left: 0;
+  counter-reset: item;
+
+  li {
+    position: relative;
+    left: 8px;
+    display: block;
+    color: $color-black-190;
+
+    &:not(:last-child) {
+      margin-bottom: rem(12);
+    }
+
+    .easy-footnote-margin-adjust {
+      display: hidden;
+    }
+
+    .easy-footnote-to-top {
+      position: absolute;
+      top: 0;
+      left: -8px;
+      display: block;
+      margin-left: 0;
+
+      &::after {
+        content: counter(item) '.';
+        @extend %text-style-paragraph-medium-short;
+        color: $color-black-165;
+        counter-increment: item;
+      }
+
+      &:hover::after {
+        color: $color-link-primary-200;
+      }
+    }
+  }
+}

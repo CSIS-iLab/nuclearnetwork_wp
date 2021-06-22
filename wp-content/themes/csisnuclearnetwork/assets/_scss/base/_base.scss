@@ -1,0 +1,59 @@
+@use 'abstracts' as *;
+
+:root {
+  --scrollbar: var(--scrollbarX, 0);
+  --scrollbarHalf: calc(var(--scrollbar) / 2);
+  --logo-width: 120px;
+  --logo-height: 32px;
+  --logo-color: #{$color-black-100};
+  --site-header-height: #{rem(48)};
+
+  @include breakpoint('large') {
+    --logo-width: 175px;
+    --logo-height: 48px;
+    --site-header-height: #{rem(56)};
+  }
+}
+
+*:focus {
+  outline: 2px solid $color-link-primary-200;
+}
+
+html,
+body {
+  overflow-x: hidden;
+}
+
+.container {
+  --container-padding: #{6vw};
+
+  $padding: (
+    'small': 24,
+    'large': 48,
+    'xlarge': 64,
+  );
+
+  position: relative;
+  max-width: $size__container-max-width;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 6vw;
+  padding-right: var(--container-padding);
+  padding-left: 6vw;
+  padding-left: var(--container-padding);
+
+  @include breakpoint(xxlarge) {
+    --container-padding: #{rem(80)};
+  }
+
+  /* This will keep the footer positioned at the bottom of the page, no matter the amount of content we have. From: https://moderncss.dev/keep-the-footer-at-the-bottom-flexbox-vs-grid/ */
+  &--main-content {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+}
+
+#site-content {
+  margin-top: var(--site-header-height);
+}

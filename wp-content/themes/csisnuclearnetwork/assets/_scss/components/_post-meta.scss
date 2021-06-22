@@ -1,0 +1,79 @@
+@use 'abstracts' as *;
+
+.post-meta {
+  color: var(--post-meta);
+
+  &__label {
+    font-style: italic;
+  }
+
+  &__authors {
+    --post-meta: #{$color-black-190};
+    margin-bottom: rem(4);
+    @extend %text-style-paragraph-small-short;
+
+    a {
+      color: $color-black-190;
+
+      &::after {
+        background-image: none;
+      }
+
+      &:hover {
+        color: $color-bg-dark-100;
+      }
+
+      &:focus {
+        color: $color-bg-dark-100;
+        background: $color-bg-light-300;
+        outline: 0;
+      }
+    }
+  }
+
+  &__date {
+    --post-meta: #{$color-black-165};
+    margin-bottom: rem(8);
+
+    @extend %text-style-label-small-strong-caps;
+  }
+
+  &__categories {
+    --post-meta: #{$color-link-primary-200};
+    @extend %text-style-label-x-small-strong-caps;
+
+    ul {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 0;
+      padding: 0;
+      row-gap: rem(4);
+      list-style: none;
+    }
+
+    li {
+      display: inline-block;
+    }
+
+    li:not(:last-of-type) {
+      &::after {
+        content: '';
+        margin-right: rem(10);
+        margin-left: rem(10);
+        border-right: 1px solid $color-border-dark-130;
+      }
+    }
+
+    a {
+      &:hover {
+        color: $color-bg-dark-100;
+      }
+
+      &:focus {
+        color: $color-bg-dark-100;
+        background: $color-bg-light-300;
+        outline: 0;
+      }
+    }
+  }
+}
