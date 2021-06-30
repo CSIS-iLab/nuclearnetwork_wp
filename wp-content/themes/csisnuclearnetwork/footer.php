@@ -60,7 +60,7 @@
 
 						<div> <!--phone card -->
 							<p>Phone</p> <!-- subtitle -->
-							<p><a href="mailto:poni@csis.org">202-741-3878</a></p>
+							<p><a href="tel:12027413878">202-741-3878</a></p>
 						</div>
 
 						<!-- Social Share -->
