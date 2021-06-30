@@ -12,7 +12,7 @@ $browser-context: 16px;
     $size: $size * 1px;
   }
 
-  $rem-size: $size / $browser-context;
+  $rem-size: math.div($size, $browser-context);
   @return $rem-size * 1rem;
 }
 
@@ -28,7 +28,7 @@ $browser-context: 16px;
 @function calc-slope($min-font-size, $max-font-size) {
   $font-size-diff: $max-font-size - $min-font-size;
 
-  $result: ($font-size-diff / $container-width-diff);
+  $result: math.div($font-size-diff, $container-width-diff);
 
   @return $result;
 }
