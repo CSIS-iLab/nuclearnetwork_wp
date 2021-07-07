@@ -235,6 +235,11 @@ function nuclearnetwork_register_scripts() {
 	wp_enqueue_script( 'nuclearnetwork-js-bundle', get_template_directory_uri() . '/assets/js/bundle.min.js', array(), $theme_version, true );
 	wp_script_add_data( 'nuclearnetwork-js-bundle', 'defer', true );
 
+	if ( is_front_page() ) {
+		wp_enqueue_script( 'nuclearnetwork-js-carousel', get_template_directory_uri() . '/assets/js/carousel.min.js', array(), $theme_version, true );
+		wp_script_add_data( 'nuclearnetwork-js-carousel', 'defer', true );
+	}
+
 }
 
 add_action( 'wp_enqueue_scripts', 'nuclearnetwork_register_scripts' );
