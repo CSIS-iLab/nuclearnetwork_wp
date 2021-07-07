@@ -1,6 +1,6 @@
 <?php
 /**
- * A template partial to output pagination for the Reconnecting Asia default theme.
+ * A template partial to output pagination for the Nuclear Network default theme.
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *

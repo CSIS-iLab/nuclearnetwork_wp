@@ -176,6 +176,8 @@ function nuclearnetwork_register_styles() {
 
 	wp_enqueue_style( 'nuclearnetwork-style', get_stylesheet_directory_uri() . '/style.min.css', array(), $theme_version );
 
+	wp_enqueue_style( 'nuclearnetwork-style', get_stylesheet_directory_uri() . '/node_modules/@splidejs/splide/dist/css/splide.min.css', array(), $theme_version );
+
 	if ( is_front_page() ) {
 		wp_enqueue_style( 'nuclearnetwork-style-home', get_stylesheet_directory_uri() . '/assets/css/pages/home.min.css', array(), $theme_version );
 	}
