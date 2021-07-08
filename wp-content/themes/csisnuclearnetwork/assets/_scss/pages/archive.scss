@@ -250,11 +250,11 @@
     max-width: rem(400);
     margin: auto;
     padding: rem(24);
-    background-color: $color-bg-dark-290;
+    // background-color: $color-bg-dark-290;
     @include shadow(md);
 
     &:hover .card__title {
-      color: $color-link-primary-200;
+      // color: $color-link-primary-200;
     }
 
     &:focus .card__title {

@@ -41,7 +41,7 @@
 
     h4 {
       --heading-margin-top: #{rem(32)};
-      @extend %text-style-paragraph-x-large-short-sans;
+      // @extend %text-style-paragraph-x-large-short-sans;
     }
 
     /*----------  Paragraphs & Lists  ----------*/
@@ -52,14 +52,14 @@
     }
 
     p {
-      @extend %text-style-paragraph-large-long;
+      // @extend %text-style-paragraph-large-long;
     }
 
     ul,
     ol:not(.footnotes__list):not(.easy-footnotes-wrapper) {
       margin-top: rem(16);
       padding-left: rem(52);
-      @extend %text-style-paragraph-medium-long;
+      // @extend %text-style-paragraph-medium-long;
     }
 
     li {
@@ -72,7 +72,7 @@
 
     ol:not(.footnotes__list):not(.easy-footnotes-wrapper)::marker,
     li::marker {
-      color: $color-link-primary-200;
+      // color: $color-link-primary-200;
       @extend %text-style-label-large;
     }
 
@@ -81,19 +81,19 @@
     a[href*='//']:not([class])
     {
       /* stylelint-enable */
-      color: $color-link-primary-200;
-      font-family: $font__merriweather;
+      // color: $color-link-primary-200;
+      // font-family: $font__merriweather;
       @include font-size(18px);
       font-weight: 400;
       text-decoration: underline;
 
       &:hover {
-        color: $color-accent-light-primary-100;
+        // color: $color-accent-light-primary-100;
         text-decoration-color: transparent;
       }
 
       &:focus {
-        color: $color-accent-light-primary-100;
+        // color: $color-accent-light-primary-100;
         text-decoration-color: transparent;
         background: $color-bg-light-400;
         outline: 0;
@@ -145,13 +145,13 @@
 
     &.is-style-stripes {
       thead {
-        background-color: $color-bg-thead;
+        // background-color: $color-bg-thead;
       }
 
       tbody {
         /* stylelint-disable-next-line */
         tr:nth-child(even) {
-          background-color: $color-bg-tbody;
+          // background-color: $color-bg-tbody;
         }
         /* stylelint-disable-next-line */
         tr:nth-child(odd) {
@@ -178,12 +178,12 @@
     table {
       width: 100%;
       margin-bottom: rem(24);
-      @extend %text-style-paragraph-large-short-sans;
+      // @extend %text-style-paragraph-large-short-sans;
       border-collapse: collapse;
     }
 
     thead {
-      @extend %text-style-label-large-strong;
+      // @extend %text-style-label-large-strong;
 
       /* stylelint-disable-next-line */
       th {
@@ -239,7 +239,7 @@
       justify-content: center;
       align-items: center;
       margin-bottom: rem(24);
-      color: $color-accent-light-primary-100;
+      // color: $color-accent-light-primary-100;
       @extend %text-style-heading-large-strong-caps;
 
       @include breakpoint('small') {

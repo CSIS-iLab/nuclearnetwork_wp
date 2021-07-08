@@ -53,13 +53,13 @@
     &-label {
       display: block;
       margin-bottom: rem(8);
-      color: $color-accent-dark-primary-400;
-      @extend %text-style-label-small-strong-caps;
+      // color: $color-accent-dark-primary-400;
+      // @extend %text-style-label-small-strong-caps;
     }
   }
 
   &__desc {
     color: $color-white-190;
-    @extend %text-style-paragraph-large-short-sans;
+    // @extend %text-style-paragraph-large-short-sans;
   }
 }

@@ -172,7 +172,7 @@ function nuclearnetwork_register_styles() {
 
 	$theme_version = wp_get_theme()->get( 'Version' );
 
-	wp_enqueue_style( 'nuclearnetwork-fonts', 'https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Merriweather:wght@400;700&family=Public+Sans:wght@700&display=swap', array(), null );
+	wp_enqueue_style( 'nuclearnetwork-fonts', 'https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=PT+Sans:wght@400;700&display=swap', array(), null );
 
 	wp_enqueue_style( 'nuclearnetwork-style', get_stylesheet_directory_uri() . '/style.min.css', array(), $theme_version );
 

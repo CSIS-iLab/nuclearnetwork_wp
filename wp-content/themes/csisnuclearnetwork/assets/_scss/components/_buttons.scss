@@ -27,11 +27,11 @@
 
   // Font Sizes
   &--xsmall {
-    @extend %text-style-label-x-small-strong;
+    // @extend %text-style-label-x-small-strong;
   }
 
   &--small {
-    @extend %text-style-label-small-strong-caps;
+    // @extend %text-style-label-small-strong-caps;
   }
 
   &--med {
@@ -61,8 +61,8 @@
 
       &:hover {
         --btn-color: #{$color-white-100};
-        --btn-bg: #{$color-link-primary-200};
-        --btn-border: #{$color-link-primary-200};
+        // --btn-bg: #{$color-link-primary-200};
+        // --btn-border: #{$color-link-primary-200};
       }
 
       &:focus {
@@ -73,17 +73,17 @@
     }
 
     &-light {
-      --btn-color: #{$color-accent-dark-primary-400};
-      --btn-border: #{$color-accent-dark-primary-400};
+      // --btn-color: #{$color-accent-dark-primary-400};
+      // --btn-border: #{$color-accent-dark-primary-400};
 
       &:hover {
         --btn-color: #{$color-white-100};
-        --btn-bg: #{$color-accent-dark-primary-400};
-        --btn-border: #{$color-accent-dark-primary-400};
+        // --btn-bg: #{$color-accent-dark-primary-400};
+        // --btn-border: #{$color-accent-dark-primary-400};
       }
 
       &:focus {
-        --btn-color: #{$color-accent-light-primary-100};
+        // --btn-color: #{$color-accent-light-primary-100};
         --btn-bg: #{$color-bg-light-200};
         --btn-border: #{$color-bg-light-200};
       }
@@ -92,7 +92,7 @@
 
   &--green {
     --btn-color: #{$color-white-190};
-    --btn-bg: #{$color-link-primary-200};
+    // --btn-bg: #{$color-link-primary-200};
 
     &:hover {
       --btn-color: #{$color-white-190};
@@ -100,7 +100,7 @@
     }
 
     &:focus {
-      --btn-color: #{$color-link-primary-200};
+      // --btn-color: #{$color-link-primary-200};
       --btn-bg: #{$color-bg-light-200};
     }
   }
@@ -111,11 +111,11 @@
 
     &:hover {
       --btn-color: #{$color-white-100};
-      --btn-bg: #{$color-link-primary-200};
+      // --btn-bg: #{$color-link-primary-200};
     }
 
     &:focus {
-      --btn-color: #{$color-link-primary-200};
+      // --btn-color: #{$color-link-primary-200};
       --btn-bg: #{$color-bg-light-200};
     }
   }
