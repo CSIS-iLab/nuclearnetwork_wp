@@ -2,8 +2,6 @@
 @use '../components/home-issue-block';
 
 .home {
-  background: $color-bg-light-200 !important;
-
   #site-content {
     grid-template-areas:
       'header header'
