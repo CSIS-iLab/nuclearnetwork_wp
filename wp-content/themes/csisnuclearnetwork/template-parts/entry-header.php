@@ -10,10 +10,16 @@
 $is_archive = is_archive();
 $is_page = is_page();
 $has_thumbnail = has_post_thumbnail();
-$post_type = get_post_type();
-$is_404 = is_404();
-$is_search = is_search();
-$is_home = is_home();
+$post_type = get_post_type(); //News, updates, projects, events, programs
+$is_404 = is_404(); //404
+$is_search = is_search(); //Search
+$is_home = is_home(); //Analysis
+$is_tag = is_tag(); //Tag
+$is_series = is_tax('series'); //Series
+$is_category = is_category(); //Category
+$is_author = is_author(); //Author
+
+
 
 $template = get_page_template_slug( get_the_ID() );
 $isNoImageTemplate = false;
@@ -27,6 +33,7 @@ if ( $template === 'templates/template-no-image.php' ){
 <header class="entry-header">
 
 	<?php
+	var_dump($is_author);
 
 		if ( $is_archive ) {
 
