@@ -67,10 +67,6 @@ $color-focus-focus-100: rgba(64, 148, 254, 1);
 $color-focus-focus-200: rgba(151, 200, 247, 0.68);
 $color-focus-focus-300: rgba(171, 212, 251, 0.5);
 
-/* stylelint-disable */
-$gradient-post-header: linear-gradient(180deg, #1e2429 0%, rgba(26, 36, 40, 0.88) 100%);
-/* stylelint-enable */
-
 /*----------  Fonts  ----------*/
 $font__lato: 'Lato', sans-serif;
 $font__pt: 'PT sans', sans-serif;
@@ -113,8 +109,8 @@ $shadows: (
     0 1px 9px rgba(0, 0, 0, 0.06),
   ),
   lg: (
-    0 0 7px rgba(0, 0, 0, 0.1),
-    0 5px 20px rgba(0, 0, 0, 0.1),
+    0px 5px 20px rgba(0, 0, 0, 0.1),
+    0px 0px 7px rgba(0, 0, 0, 0.1),
   ),
 );
 
