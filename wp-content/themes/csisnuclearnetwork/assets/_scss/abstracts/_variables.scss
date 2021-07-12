@@ -70,6 +70,9 @@ $color-accent-primary-700: rgba(236, 242, 248, 1);
 $color-focus-100: rgba(64, 148, 254, 1);
 $color-focus-200: rgba(151, 200, 247, 0.68);
 $color-focus-300: rgba(171, 212, 251, 0.5);
+/* stylelint-disable */
+$gradient-archive-header: linear-gradient(0deg, rgba(2, 99, 190, 0.43), rgba(2, 99, 190, 0.43));
+/* stylelint-enable */
 
 /*----------  Fonts  ----------*/
 $font__lato: 'Lato', sans-serif;
