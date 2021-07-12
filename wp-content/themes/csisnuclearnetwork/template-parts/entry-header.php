@@ -43,8 +43,7 @@ if ( $template === 'templates/template-no-image.php' ){
 ?>
 
 
-	<?php
-	var_dump($is_author);
+<?php
 
 	if ( $is_archive ) { ?>
 
