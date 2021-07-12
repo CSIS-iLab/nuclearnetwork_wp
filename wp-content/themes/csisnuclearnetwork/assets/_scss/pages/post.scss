@@ -17,7 +17,7 @@
     @include z-index(postBG);
     display: block;
     @include csis-block-full-width-wrapper();
-    background: $gradient-post-header;
+    // background: $gradient-post-header;
   }
 
   .post-template-default & {
