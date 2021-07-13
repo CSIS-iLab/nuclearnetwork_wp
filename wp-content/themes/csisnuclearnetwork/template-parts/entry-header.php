@@ -21,6 +21,7 @@ $is_tag = is_tag(); //Tag
 $is_series = is_tax('series'); //Series
 $is_category = is_category(); //Category
 $is_author = is_author(); //Author
+$is_single = is_single();
 
 if ( $is_search || $is_tag || $is_category ) {
 	$image_URL = get_field( 'header_image', 'option' );
@@ -29,7 +30,15 @@ if ( $is_search || $is_tag || $is_category ) {
 } else {
 	$image_URL = get_archive_thumbnail_src( 'nuclearnetwork-fullscreen' );
 }
+
 $feat_image = 'style="background-image:url('. $image_URL .');"';
+
+$header = '<header class="entry-header entry-header--blue"' . $feat_image . '>';
+
+if ( $is_author || $is_single || $pagename === 'about' || $is_author ) {
+	$header = '<header class="entry-header entry-header--light">';
+}
+
 $description = get_field( 'archive_description', $object->name );
 
 
@@ -45,9 +54,11 @@ if ( $template === 'templates/template-no-image.php' ){
 
 <?php
 
-	if ( $is_series ) { ?>
+echo $header;
 
-		<header class="entry-header" <?php echo $feat_image; ?>>
+var_dump( $is_single );
+
+	if ( $is_series ) { ?>
 
 			<?php 
 			the_archive_title( '<h1 class="entry-header__title"> Analysis / <span class="entry-header__title--secondary">', '</span></h1>' ); ?>
@@ -63,11 +74,9 @@ if ( $template === 'templates/template-no-image.php' ){
 			<?php
 
 			
-	} elseif ( $is_archive ) { ?>
-
-		<header class="entry-header" <?php echo $feat_image; ?>>
-				
-				<?php 
+	} elseif ( $post_type === 'programs' ) {
+		
+	} elseif ( $is_archive ) {
 			the_archive_title( '<h1 class="entry-header__title">', '</h1>' ); ?>
 			
 			<div class="entry-header__desc"><?php echo $description; ?></div>
@@ -77,9 +86,6 @@ if ( $template === 'templates/template-no-image.php' ){
 
 		$description = get_field( 'archive_description', $page_for_posts );
 			
-		?>
-		<header class="entry-header" <?php echo $feat_image; ?>>
-			<?php
 			$post = get_page($page_for_posts);
 			setup_postdata($post); ?>
 			<h1 class="entry-header__title"><?php echo wp_kses_post( the_title() ); ?></h1>
@@ -100,7 +106,6 @@ if ( $template === 'templates/template-no-image.php' ){
 		);
 		
 		?>
-		<header class="entry-header" <?php echo $feat_image; ?>>
 				
 			<h1 class="entry-header__title"><?php echo wp_kses_post( $archive_title ); ?></h1>
 			
@@ -108,25 +113,16 @@ if ( $template === 'templates/template-no-image.php' ){
 
 	} elseif ( $is_404 ) { ?>
 
-		<header class="entry-header" <?php echo $feat_image; ?>>
 			<h1 class="entry-header__title"><?php _e( '404', 'nuclearnetwork' ); ?></h1>
 
 		<?php 
 
-	} elseif ( $is_page ) { ?>
-
-		<header class="entry-header">
-
-		<?php
+	} elseif ( $is_page ) { 
 			the_title( '<h1 class="entry-header__title">', '</h1>' );
 
 			nuclearnetwork_page_desc();
 
-	} elseif ( is_single() ) { ?>
-
-		<header class="entry-header">
-
-		<?php
+	} elseif ( $is_single ) { 
 			echo '<div class="entry-header__header-content">';
 				the_title( '<h1 class="entry-header__title">', '</h1>' );
 				nuclearnetwork_page_desc();
