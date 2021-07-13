@@ -12,13 +12,13 @@
 
     &__term {
       margin-bottom: rem(8);
-      color: $color-accent-light-primary-100;
+      // color: $color-accent-light-primary-100;
       @extend %text-style-label-large;
     }
 
     &__definition {
       color: $color-black-190;
-      @extend %text-style-paragraph-large-long;
+      // @extend %text-style-paragraph-large-long;
     }
   }
 }

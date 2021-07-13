@@ -84,7 +84,7 @@
     transition: all 0.3s ease-in-out;
 
     &:hover {
-      color: $color-accent-dark-primary-400;
+      // color: $color-accent-dark-primary-400;
     }
 
     &:focus {
@@ -122,7 +122,7 @@
     margin-left: 8px;
     padding: rem(5) rem(6.5);
     color: $color-white-100;
-    background-color: $color-accent-light-primary-200;
+    // background-color: $color-accent-light-primary-200;
     border: 0;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
@@ -132,7 +132,7 @@
     }
 
     &:focus {
-      color: $color-link-primary-200;
+      // color: $color-link-primary-200;
       background: $color-bg-light-200;
       outline: 0;
     }
@@ -259,7 +259,7 @@
 
     &:hover {
       .line {
-        background: $color-accent-dark-primary-400;
+        // background: $color-accent-dark-primary-400;
       }
     }
 
@@ -354,7 +354,7 @@
       padding: 0.75rem 0 0.75rem 2rem;
 
       &:hover {
-        color: $color-accent-dark-primary-400;
+        // color: $color-accent-dark-primary-400;
       }
 
       @include breakpoint('large') {

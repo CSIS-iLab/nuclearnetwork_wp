@@ -9,7 +9,7 @@
 
   &:not(:only-child) {
     padding-top: rem(24);
-    border-top: 1px solid $color-accent-light-primary-300;
+    // border-top: 1px solid $color-accent-light-primary-300;
   }
 
   a {
@@ -47,11 +47,9 @@
 
   .single__footer &,
   .single__content & {
-    --icon-fill: invert(31%) sepia(62%) saturate(350%) hue-rotate(131deg)
-      brightness(94%) contrast(92%);
+    --icon-fill: invert(31%) sepia(62%) saturate(350%) hue-rotate(131deg) brightness(94%) contrast(92%);
 
-    --icon-fill-hover: invert(0%) sepia(40%) saturate(1505%) hue-rotate(213deg)
-      brightness(117%) contrast(108%) #{$shadow--1};
+    --icon-fill-hover: invert(0%) sepia(40%) saturate(1505%) hue-rotate(213deg) brightness(117%) contrast(108%) #{$shadow--1};
 
     @include breakpoint('small') {
       width: fit-content;

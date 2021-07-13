@@ -6,7 +6,7 @@
 
 .single__content {
   .easy-footnote {
-    font-family: $font__merriweather;
+    // font-family: $font__merriweather;
     font-size: rem(15px);
 
     sup {
@@ -17,7 +17,7 @@
       transition: all 0.3s ease-in-out;
 
       &:hover {
-        color: $color-link-primary-200;
+        // color: $color-link-primary-200;
       }
     }
   }
@@ -30,7 +30,7 @@
   &__heading {
     @extend %text-style-paragraph-medium-short-caps;
     margin-bottom: rem(12);
-    color: $color-accent-light-primary-100;
+    // color: $color-accent-light-primary-100;
     font-weight: 400;
   }
 
@@ -73,7 +73,7 @@
       }
 
       &:hover::after {
-        color: $color-link-primary-200;
+        // color: $color-link-primary-200;
       }
     }
   }

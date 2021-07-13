@@ -8,13 +8,13 @@
 
   &__title {
     color: $color-black-190;
-    @extend %text-style-paragraph-large-short;
+    // @extend %text-style-paragraph-large-short;
     font-weight: normal;
   }
 
   &__title a:hover,
   &__img:hover ~ &__title a {
-    color: $color-link-primary-200;
+    // color: $color-link-primary-200;
   }
 
   &__title a:focus,

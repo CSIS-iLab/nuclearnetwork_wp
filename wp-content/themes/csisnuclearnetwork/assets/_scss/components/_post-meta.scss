@@ -10,7 +10,7 @@
   &__authors {
     --post-meta: #{$color-black-190};
     margin-bottom: rem(4);
-    @extend %text-style-paragraph-small-short;
+    // @extend %text-style-paragraph-small-short;
 
     a {
       color: $color-black-190;
@@ -35,12 +35,12 @@
     --post-meta: #{$color-black-165};
     margin-bottom: rem(8);
 
-    @extend %text-style-label-small-strong-caps;
+    // @extend %text-style-label-small-strong-caps;
   }
 
   &__categories {
-    --post-meta: #{$color-link-primary-200};
-    @extend %text-style-label-x-small-strong-caps;
+    // --post-meta: #{$color-link-primary-200};
+    // @extend %text-style-label-x-small-strong-caps;
 
     ul {
       display: flex;

@@ -1,7 +1,7 @@
 @use '../abstracts' as *;
 
 .entry-header {
-  --page-desc-color: #{$color-accent-dark-primary-400};
+  // --page-desc-color: #{$color-accent-dark-primary-400};
   position: relative;
   max-width: $size__content-max-width;
   margin: 0 auto rem(56);
@@ -17,7 +17,7 @@
     @include z-index(postBG);
     display: block;
     @include csis-block-full-width-wrapper();
-    background: $gradient-post-header;
+    // background: $gradient-post-header;
   }
 
   .post-template-default & {
@@ -45,7 +45,7 @@
       display: block;
       height: 1px;
       margin-top: rem(16);
-      background: $color-accent-light-primary-200;
+      // background: $color-accent-light-primary-200;
 
       @include breakpoint('large') {
         margin-top: rem(24);
@@ -84,7 +84,7 @@
   &__desc {
     margin-bottom: rem(24);
     color: var(--page-desc-color, $color-white-190);
-    @extend %text-style-paragraph-large-short-sans;
+    // @extend %text-style-paragraph-large-short-sans;
   }
 
   .post-meta__authors {
@@ -95,7 +95,7 @@
       color: $color-white-190;
 
       &:hover {
-        color: $color-accent-dark-primary-400;
+        // color: $color-accent-dark-primary-400;
       }
 
       &:focus {

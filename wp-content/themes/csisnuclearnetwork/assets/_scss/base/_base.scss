@@ -16,12 +16,16 @@
 }
 
 *:focus {
-  outline: 2px solid $color-link-primary-200;
+  outline: 2px solid $color-focus-100;
 }
 
 html,
 body {
   overflow-x: hidden;
+}
+
+body {
+  background: $color-postbg-200;
 }
 
 .container {
