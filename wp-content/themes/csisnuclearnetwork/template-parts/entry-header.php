@@ -32,15 +32,13 @@ if ( $is_search || $is_tag || $is_category ) {
 }
 
 $feat_image = 'style="background-image:url('. $image_URL .');"';
-
 $header = '<header class="entry-header entry-header--blue"' . $feat_image . '>';
-
 if ( $is_author || $is_single || $pagename === 'about' || $is_author ) {
 	$header = '<header class="entry-header entry-header--light">';
 }
-
 $description = get_field( 'archive_description', $object->name );
-
+$npn_link = get_field( 'nuclear_policy_news_link', 'option' );
+$monthly_news_link = get_field( 'monthly_newsletter_link', 'option' );
 
 $template = get_page_template_slug( get_the_ID() );
 $isNoImageTemplate = false;
@@ -56,7 +54,7 @@ if ( $template === 'templates/template-no-image.php' ){
 
 echo $header;
 
-var_dump( $is_single );
+var_dump( $monthly_news_link );
 
 	if ( $is_series ) { ?>
 
@@ -75,8 +73,26 @@ var_dump( $is_single );
 
 			
 	} elseif ( $post_type === 'programs' ) {
-		
+
+			the_archive_title( '<h1 class="entry-header__title">', '</h1>' ); ?>
+			<div class="entry-header__desc"><?php echo $description; ?></div>
+
+			<div class="entry-header__newsletter">
+				<h2>Monthly Newsletter</h2>
+				<p>Get PONI Program Updates delivered directly to your inbox by signing up for our monthly newsletter!</p>
+				<a href="<?php echo $monthly_news_link; ?>" class="btn">Subscribe</a>
+			</div>
+			<?php
+	} elseif ( $post_type === 'news' ) {
+
+		the_archive_title( '<h1 class="entry-header__title">', '</h1>' ); ?>
+		<div class="entry-header__desc"><?php echo $description; ?></div>
+
+		<a href="<?php echo $npn_link; ?>" class="btn">Subscribe to the Newsletter</a>
+		<?php
+
 	} elseif ( $is_archive ) {
+
 			the_archive_title( '<h1 class="entry-header__title">', '</h1>' ); ?>
 			
 			<div class="entry-header__desc"><?php echo $description; ?></div>
@@ -85,17 +101,17 @@ var_dump( $is_single );
 	} elseif ( $is_home ) {
 
 		$description = get_field( 'archive_description', $page_for_posts );
-			
-			$post = get_page($page_for_posts);
-			setup_postdata($post); ?>
-			<h1 class="entry-header__title"><?php echo wp_kses_post( the_title() ); ?></h1>
-			<div class="entry-header__desc"><?php echo $description; ?></div>
+		
+		$post = get_page($page_for_posts);
+		setup_postdata($post); ?>
+		<h1 class="entry-header__title"><?php echo wp_kses_post( the_title() ); ?></h1>
+		<div class="entry-header__desc"><?php echo $description; ?></div>
 
-			<div class="entry-header__write-for-us">
-				<h2>Write for us placeholder</h2>
-				<p>Become a guest author with PONI to have your analysis published on our site. </p>
-			</div>
-			<?php
+		<div class="entry-header__write-for-us">
+			<h2>Write for us placeholder</h2>
+			<p>Become a guest author with PONI to have your analysis published on our site. </p>
+		</div>
+		<?php
 
 	} elseif ( $is_search ) {
 			
@@ -103,9 +119,7 @@ var_dump( $is_single );
 			'%1$s %2$s',
 			'<span class="entry-header__title-label">' . __( 'Search results for', 'nuclearnetwork' ) . '</span>',
 			'&lsquo;' . get_search_query() . '&rsquo;'
-		);
-		
-		?>
+		); ?>
 				
 			<h1 class="entry-header__title"><?php echo wp_kses_post( $archive_title ); ?></h1>
 			
