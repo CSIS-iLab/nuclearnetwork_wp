@@ -24,6 +24,10 @@ body {
   overflow-x: hidden;
 }
 
+body {
+  background: $color-postbg-200;
+}
+
 .container {
   --container-padding: #{6vw};
 
@@ -41,7 +45,6 @@ body {
   padding-right: var(--container-padding);
   padding-left: 6vw;
   padding-left: var(--container-padding);
-  background: $color-postbg-200;
 
   @include breakpoint(xxlarge) {
     --container-padding: #{rem(80)};
