@@ -37,9 +37,9 @@ a {
 }
 
 .text--short {
-  @extend %text-style-paragraph-short;
+  @extend %text-style-short;
 }
 
 .text--long {
-  @extend %text-style-paragraph-long;
+  @extend %text-style-long;
 }
