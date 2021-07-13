@@ -14,7 +14,7 @@
 <?php $featured_projects = get_field( 'featured_projects' ); ?>
 
 <?php if ( $featured_projects ) : ?>
-  <div id="splide" class="splide">
+  <div id="splide_projects" class=" js-splide splide">
     <div class="splide__track">
       <ul class="splide__list">
 	<?php foreach ( $featured_projects as $post ) : ?>

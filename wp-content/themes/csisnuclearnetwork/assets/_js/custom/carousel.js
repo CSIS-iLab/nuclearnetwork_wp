@@ -1,6 +1,6 @@
 import Splide from '@splidejs/splide'
 
-const elms = document.getElementsByClassName('splide')
+const elms = document.getElementsByClassName('js-splide')
 for (let i = 0, len = elms.length; i < len; i++) {
   new Splide(elms[i], {
     type: 'loop',
