@@ -259,11 +259,9 @@ add_filter('excerpt_more', 'new_excerpt_more');
  */
 function nuclearnetwork_archive_titles( $title ) {
     if( is_category() ) {
-        $title = single_cat_title( '', false );
+        $title = single_cat_title( '<span class="entry-header__title-label">Category</span> ', false );
     } elseif( is_tag() ) {
         $title = single_tag_title( '<span class="entry-header__title-label">Tag</span> ', false );
-    } elseif( is_author() ) {
-        $title = '<span class="entry-header__title-label">Author</span> ' . get_the_author();
     }
     return $title;
 }
