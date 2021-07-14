@@ -67,10 +67,10 @@
     transition: all 0.3s ease-in-out;
 
     &:hover ~ .post-block__title {
-      color: $color-link-primary-200;
+      // color: $color-link-primary-200;
 
       .archive__featured & {
-        color: $color-accent-dark-primary-400;
+        // color: $color-accent-dark-primary-400;
       }
     }
   }
@@ -78,15 +78,15 @@
   &__title {
     grid-area: title;
     color: $color-black-190;
-    @extend %text-style-heading-large-serif-bold;
+    // @extend %text-style-heading-large-serif-bold;
 
     a {
       &:hover {
-        color: $color-link-primary-200;
+        // color: $color-link-primary-200;
       }
 
       &:focus {
-        color: $color-link-primary-200;
+        // color: $color-link-primary-200;
         background: $color-bg-light-400;
       }
     }
@@ -96,7 +96,7 @@
 
       a {
         &:hover {
-          color: $color-accent-dark-primary-400;
+          // color: $color-accent-dark-primary-400;
         }
 
         &:focus {
@@ -113,7 +113,7 @@
     margin-bottom: rem(16);
     color: $color-black-165;
     overflow-wrap: break-word;
-    @extend %text-style-paragraph-large-short-sans;
+    // @extend %text-style-paragraph-large-short-sans;
 
     .archive__featured & {
       color: $color-white-190;
@@ -130,7 +130,7 @@
         color: $color-white-190;
 
         &:hover {
-          color: $color-accent-dark-primary-400;
+          // color: $color-accent-dark-primary-400;
         }
 
         &:focus {
@@ -142,12 +142,12 @@
 
     a {
       &:hover {
-        color: $color-link-primary-200;
+        // color: $color-link-primary-200;
       }
 
       /* stylelint-disable-next-line */
       &:focus {
-        color: $color-link-primary-200;
+        // color: $color-link-primary-200;
         background: $color-bg-light-400;
       }
     }
@@ -165,7 +165,7 @@
     grid-area: categories;
 
     .archive__featured & {
-      --post-meta: #{$color-accent-dark-primary-400};
+      // --post-meta: #{$color-accent-dark-primary-400};
 
       li:not(:last-of-type)::after {
         border-right: 1px solid $color-border-light-130;

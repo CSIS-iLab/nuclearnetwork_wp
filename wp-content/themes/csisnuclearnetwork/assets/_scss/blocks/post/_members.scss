@@ -7,7 +7,7 @@
 
   .members__link {
     max-width: fit-content;
-    color: $color-link-primary-200;
+    // color: $color-link-primary-200;
 
     &:hover {
       color: $color-bg-dark-100;
@@ -58,7 +58,7 @@
     }
 
     .members__link {
-      @extend %text-style-label-x-small-strong-caps;
+      // @extend %text-style-label-x-small-strong-caps;
     }
 
     .members__item {
@@ -83,7 +83,7 @@
     .members__title {
       margin-bottom: rem(8);
       color: $color-black-165;
-      @extend %text-style-paragraph-small-short;
+      // @extend %text-style-paragraph-small-short;
     }
   }
 }

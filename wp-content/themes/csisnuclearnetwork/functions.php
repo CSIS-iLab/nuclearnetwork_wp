@@ -172,9 +172,11 @@ function nuclearnetwork_register_styles() {
 
 	$theme_version = wp_get_theme()->get( 'Version' );
 
-	wp_enqueue_style( 'nuclearnetwork-fonts', 'https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Merriweather:wght@400;700&family=Public+Sans:wght@700&display=swap', array(), null );
+	wp_enqueue_style( 'nuclearnetwork-fonts', 'https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=PT+Sans:wght@400;700&display=swap', array(), null );
 
 	wp_enqueue_style( 'nuclearnetwork-style', get_stylesheet_directory_uri() . '/style.min.css', array(), $theme_version );
+
+	wp_enqueue_style( 'nuclearnetwork-carousel', 'https://cdn.jsdelivr.net/npm/@splidejs/splide@2.4.21/dist/css/splide-core.min.css', array(), $theme_version );
 
 	if ( is_front_page() ) {
 		wp_enqueue_style( 'nuclearnetwork-style-home', get_stylesheet_directory_uri() . '/assets/css/pages/home.min.css', array(), $theme_version );
@@ -232,6 +234,11 @@ function nuclearnetwork_register_scripts() {
 
 	wp_enqueue_script( 'nuclearnetwork-js-bundle', get_template_directory_uri() . '/assets/js/bundle.min.js', array(), $theme_version, true );
 	wp_script_add_data( 'nuclearnetwork-js-bundle', 'defer', true );
+
+	if ( is_front_page() ) {
+		wp_enqueue_script( 'nuclearnetwork-js-carousel', get_template_directory_uri() . '/assets/js/carousel.min.js', array(), $theme_version, true );
+		wp_script_add_data( 'nuclearnetwork-js-carousel', 'async', true );
+	}
 
 }
 

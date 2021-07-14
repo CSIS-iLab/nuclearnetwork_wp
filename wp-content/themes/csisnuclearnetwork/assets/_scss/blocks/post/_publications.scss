@@ -15,17 +15,17 @@
 
     &:hover {
       .csis-block__desc {
-        color: $color-link-primary-200;
+        // color: $color-link-primary-200;
       }
 
       .btn--dark {
         color: $color-white-100;
-        background: $color-link-primary-200;
+        // background: $color-link-primary-200;
       }
 
       /* stylelint-disable-next-line */
       .csis-block__title a {
-        color: $color-link-primary-200 !important;
+        // color: $color-link-primary-200 !important;
       }
     }
 
@@ -33,7 +33,7 @@
       background: $color-bg-light-300;
 
       *:focus {
-        outline: 1px solid $color-link-primary-200;
+        // outline: 1px solid $color-link-primary-200;
       }
 
       .btn--dark {
@@ -63,7 +63,7 @@
         text-transform: unset;
         text-decoration: none;
         box-shadow: none;
-        @extend %text-style-label-large-strong;
+        // @extend %text-style-label-large-strong;
 
         &:after {
           display: none !important;

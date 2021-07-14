@@ -27,15 +27,16 @@ get_header();
 
 			setup_postdata( $post );
 			get_template_part( 'template-parts/block', get_post_type() );
-
+			
 		endforeach;
-
+		
 		wp_reset_postdata();
-
+		
 		echo '</section>';
-
+		
 	endif; 
-
+	
+	get_template_part( 'template-parts/carousel', get_post_type() );
 
 	$secondary_featured_post = get_field( 'secondary_featured_posts' );
 
