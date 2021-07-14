@@ -1,4 +1,5 @@
 @use 'abstracts' as *;
+@use 'sass:map';
 
 :root {
   --scrollbar: var(--scrollbarX, 0);
@@ -7,6 +8,10 @@
   --logo-height: 32px;
   --logo-color: #{$color-black-100};
   --site-header-height: #{rem(48)};
+
+  @each $page, $values in $page-images {
+    --page-header-#{$page}: #{map.get($values, 'image')};
+  }
 
   @include breakpoint('large') {
     --logo-width: 175px;

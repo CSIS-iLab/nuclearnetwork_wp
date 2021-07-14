@@ -32,7 +32,7 @@ if ( $is_search || $is_tag || $is_category ) {
 }
 
 $feat_image = 'style="background-image:url('. $image_URL .');"';
-$header = '<header class="entry-header entry-header--blue"' . $feat_image . '>';
+$header = '<header class="entry-header entry-header--blue">';
 if ( $is_author || $is_single || $pagename === 'about' || $is_author ) {
 	$header = '<header class="entry-header entry-header--light">';
 }
@@ -53,8 +53,6 @@ if ( $template === 'templates/template-no-image.php' ){
 <?php
 
 echo $header;
-
-var_dump( $monthly_news_link );
 
 	if ( $is_series ) { ?>
 

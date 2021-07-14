@@ -121,3 +121,45 @@ $shadows: (
 /*----------  Shadows  ----------*/
 
 $shadow--1: drop-shadow(0 3px 4px rgba(2, 3, 3, 0.03)) drop-shadow(0 3px 3px rgba(2, 3, 3, 0.02)) drop-shadow(0 1px 8px rgba(2, 3, 3, 0.04));
+
+/*----------  Page Specific Images  ----------*/
+
+/* stylelint-disable function-parentheses-space-inside */
+$page-images: (
+  'analysis': (
+    image: (
+      linear-gradient(0deg, rgba(2, 99, 190, 0.43), rgba(2, 99, 190, 0.43)),
+      url('/wp-content/themes/csisnuclearnetwork/assets/img/analysis_bg.png'),
+    ),
+  ),
+  'general': (
+    image: (
+      linear-gradient(0deg, rgba(2, 99, 190, 0.43), rgba(2, 99, 190, 0.43)),
+      url('/wp-content/themes/csisnuclearnetwork/assets/img/general_bg.png'),
+    ),
+  ),
+  'npn': (
+    image: (
+      linear-gradient(0deg, rgba(2, 99, 190, 0.43), rgba(2, 99, 190, 0.43)),
+      url('/wp-content/themes/csisnuclearnetwork/assets/img/NPN_bg.png'),
+    ),
+  ),
+  'programs': (
+    image: (
+      linear-gradient(0deg, rgba(2, 99, 190, 0.43), rgba(2, 99, 190, 0.43)),
+      url('/wp-content/themes/csisnuclearnetwork/assets/img/programs_bg.png'),
+    ),
+  ),
+  'projects': (
+    image: (
+      linear-gradient(0deg, rgba(2, 99, 190, 0.43), rgba(2, 99, 190, 0.43)),
+      url('/wp-content/themes/csisnuclearnetwork/assets/img/projects_bg.png'),
+    ),
+  ),
+  'updates': (
+    image: (
+      linear-gradient(0deg, rgba(2, 99, 190, 0.43), rgba(2, 99, 190, 0.43)),
+      url('/wp-content/themes/csisnuclearnetwork/assets/img/updates_bg.png'),
+    ),
+  ),
+);
