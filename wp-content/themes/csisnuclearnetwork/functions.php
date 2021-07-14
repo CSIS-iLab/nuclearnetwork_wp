@@ -333,15 +333,29 @@ function nuclearnetwork_sidebar_registration() {
 		)
 	);
 
-	// Social Share
+		// Social Share
 	register_sidebar(
 		array(
-				'name'        => __( 'Social Share', 'nuclearnetwork' ),
-				'id'          => 'social-share',
-				'description' => __( 'Social Share Widget', 'nuclearnetwork' ),
-				'before_widget' => '',
-				'after_widget' => ''
+				'name'        => __( 'Social Share 1', 'nuclearnetwork' ),
+				'id'          => 'social-share-1',
+				'description' => __( 'Social Share Widget 2', 'nuclearnetwork' ),
 			)
+	);
+
+	register_sidebar(
+		array(
+			'name'        => __( 'Monthly Newsletter', 'nuclearnetwork' ),
+			'id'          => 'monthly-newsletter',
+			'description' => __( 'Monthly Newsletter for Nuclear Network', 'nuclearnetwork' )
+		)
+	);
+
+	register_sidebar(
+		array(
+			'name'        => __( 'Nuclear Policy News', 'nuclearnetwork' ),
+			'id'          => 'nuclear-policy-news',
+			'description' => __( 'Nuclear Policy News', 'nuclearnetwork' )
+		)
 	);
 
 }
