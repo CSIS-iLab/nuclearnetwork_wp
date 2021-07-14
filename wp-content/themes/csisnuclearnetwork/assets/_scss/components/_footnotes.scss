@@ -7,7 +7,10 @@
 .single__content {
   .easy-footnote {
     // font-family: $font__merriweather;
-    font-size: rem(15px);
+    font-size: rem(12px);
+    text-transform: uppercase;
+    vertical-align: super;
+    
 
     sup {
       position: relative;
