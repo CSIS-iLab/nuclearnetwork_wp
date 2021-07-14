@@ -33,7 +33,7 @@ if ( $is_search || $is_tag || $is_category ) {
 
 $feat_image = 'style="background-image:url('. $image_URL .');"';
 $header = '<header class="entry-header entry-header--blue">';
-if ( $is_author || $is_single || $pagename === 'about' || $is_author ) {
+if ( $is_author || $is_single && !wp_get_post_parent_id(get_the_ID())|| $pagename === 'about' || $is_author ) {
 	$header = '<header class="entry-header entry-header--light">';
 }
 $description = get_field( 'archive_description', $object->name );
@@ -54,7 +54,7 @@ if ( $template === 'templates/template-no-image.php' ){
 
 echo $header;
 
-var_dump( $post_type );
+var_dump( wp_get_post_parent_id(get_the_ID()) );
 
 	if ( $is_series ) { ?>
 
@@ -84,17 +84,24 @@ var_dump( $post_type );
 			
 			<?php
 
-	} elseif ( $post_type === 'programs' ) {
+	} elseif ( $post_type === 'programs' && $is_archive ) {
 
 			the_archive_title( '<h1 class="entry-header__title">', '</h1>' ); ?>
 			<div class="entry-header__desc text--short"><?php echo $description; ?></div>
-
+			
 			<div class="entry-header__newsletter">
 				<h2>Monthly Newsletter</h2>
 				<p>Get PONI Program Updates delivered directly to your inbox by signing up for our monthly newsletter!</p>
 				<a href="<?php echo $monthly_news_link; ?>" class="btn">Subscribe</a>
 			</div>
 			<?php
+
+	} else if ( $post_type === 'programs' && $is_single && wp_get_post_parent_id(get_the_ID()) ) {
+
+		$parent_title = get_the_title( $post->post_parent);
+
+		the_title( '<h1 class="entry-header__title"><span class="entry-header__title-label">' . $parent_title . '</span>', '</h1>' );
+
 	} elseif ( $post_type === 'news' ) {
 
 		the_archive_title( '<h1 class="entry-header__title">', '</h1>' ); ?>
