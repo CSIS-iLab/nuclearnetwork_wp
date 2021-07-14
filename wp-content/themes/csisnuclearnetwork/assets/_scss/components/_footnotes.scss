@@ -29,20 +29,18 @@
 .footnotes {
   clear: both;
   margin: rem(40px) 0;
-  line-height: rem(21);
 
   &__heading {
-    @extend %text-style-paragraph-medium-short-caps;
+    @extend %text-style-label-large-strong-caps;
     margin-bottom: rem(24);
     color: $color-accent-primary-blue-100;
-    font-weight: 700;
-    font-size: rem(18);
   }
 
   &__list {
     padding-left: 0;
     font-size: rem(16);
     color: $color-black-190;
+    @extend %text-style-paragraph-medium-short;
   }
 }
 
