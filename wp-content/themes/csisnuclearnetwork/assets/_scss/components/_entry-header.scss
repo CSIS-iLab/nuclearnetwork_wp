@@ -14,7 +14,6 @@
   min-height: 250px;
   margin: 0 auto var(--header-margin-bottom);
   padding: rem(24) 0 calc(var(--header-padding-bottom) + var(--cutout-height));
-  text-align: center;
 
   @include breakpoint('medium') {
     --header-margin-bottom: #{rem(40)};
@@ -50,11 +49,15 @@
   }
 
   &__title {
-    color: $color-white-190;
-    @extend %text-style-heading-3-x-large;
+    @extend %text-style-heading-3-x-large-strong;
+    color: $color-accent-secondary-yellow-100;
 
     &:not(:only-child) {
       margin-bottom: rem(16);
+    }
+
+    &-secondary {
+      color: $color-white-100;
     }
 
     &-label {
@@ -66,7 +69,7 @@
   }
 
   &__desc {
+    @extend %text-style-paragraph-x-large;
     color: $color-white-190;
-    // @extend %text-style-paragraph-large-short-sans;
   }
 }
