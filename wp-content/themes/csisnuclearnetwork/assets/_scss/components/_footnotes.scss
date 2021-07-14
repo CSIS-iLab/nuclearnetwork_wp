@@ -7,7 +7,10 @@
 .single__content {
   .easy-footnote {
     // font-family: $font__merriweather;
-    font-size: rem(15px);
+    font-size: rem(12px);
+    text-transform: uppercase;
+    vertical-align: super;
+    
 
     sup {
       position: relative;
@@ -28,14 +31,16 @@
   margin: rem(40px) 0;
 
   &__heading {
-    @extend %text-style-paragraph-medium-short-caps;
-    margin-bottom: rem(12);
-    // color: $color-accent-light-primary-100;
-    font-weight: 400;
+    @extend %text-style-label-large-strong-caps;
+    margin-bottom: rem(24);
+    color: $color-accent-primary-blue-100;
   }
 
   &__list {
     padding-left: 0;
+    font-size: rem(16);
+    color: $color-black-190;
+    @extend %text-style-paragraph-medium-short;
   }
 }
 
