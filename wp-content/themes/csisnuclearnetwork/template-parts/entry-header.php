@@ -54,6 +54,8 @@ if ( $template === 'templates/template-no-image.php' ){
 
 echo $header;
 
+var_dump( $post_type );
+
 	if ( $is_series ) { ?>
 
 			<?php 
@@ -70,6 +72,18 @@ echo $header;
 			<?php
 
 			
+	} elseif ( $is_search ) {
+			
+		$archive_title = sprintf(
+			'%1$s %2$s',
+			'<span class="entry-header__title-label">' . __( 'Search results for', 'nuclearnetwork' ) . '</span>',
+			'&lsquo;' . get_search_query() . '&rsquo;'
+		); ?>
+				
+			<h1 class="entry-header__title"><?php echo wp_kses_post( $archive_title ); ?></h1>
+			
+			<?php
+
 	} elseif ( $post_type === 'programs' ) {
 
 			the_archive_title( '<h1 class="entry-header__title">', '</h1>' ); ?>
@@ -89,13 +103,6 @@ echo $header;
 		<a href="<?php echo $npn_link; ?>" class="btn">Subscribe to the Newsletter</a>
 		<?php
 
-	} elseif ( $is_archive ) {
-
-			the_archive_title( '<h1 class="entry-header__title">', '</h1>' ); ?>
-			
-			<div class="entry-header__desc text--short"><?php echo $description; ?></div>
-			<?php
-
 	} elseif ( $is_home ) {
 
 		$description = get_field( 'archive_description', $page_for_posts );
@@ -111,23 +118,18 @@ echo $header;
 		</div>
 		<?php
 
-	} elseif ( $is_search ) {
-			
-		$archive_title = sprintf(
-			'%1$s %2$s',
-			'<span class="entry-header__title-label">' . __( 'Search results for', 'nuclearnetwork' ) . '</span>',
-			'&lsquo;' . get_search_query() . '&rsquo;'
-		); ?>
-				
-			<h1 class="entry-header__title"><?php echo wp_kses_post( $archive_title ); ?></h1>
-			
-			<?php
-
 	} elseif ( $is_404 ) { ?>
 
 			<h1 class="entry-header__title"><?php _e( '404', 'nuclearnetwork' ); ?></h1>
 
 		<?php 
+
+	} elseif ( $is_archive ) {
+
+		the_archive_title( '<h1 class="entry-header__title">', '</h1>' ); ?>
+		
+		<div class="entry-header__desc text--short"><?php echo $description; ?></div>
+		<?php
 
 	} elseif ( $is_page ) { 
 			the_title( '<h1 class="entry-header__title">', '</h1>' );
