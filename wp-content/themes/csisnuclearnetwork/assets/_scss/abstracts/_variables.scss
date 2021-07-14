@@ -132,6 +132,12 @@ $page-images: (
       url('/wp-content/themes/csisnuclearnetwork/assets/img/analysis_bg.png'),
     ),
   ),
+  'events': (
+    image: (
+      linear-gradient(0deg, rgba(2, 99, 190, 0.43), rgba(2, 99, 190, 0.43)),
+      url('/wp-content/themes/csisnuclearnetwork/assets/img/events_bg.png'),
+    ),
+  ),
   'general': (
     image: (
       linear-gradient(0deg, rgba(2, 99, 190, 0.43), rgba(2, 99, 190, 0.43)),

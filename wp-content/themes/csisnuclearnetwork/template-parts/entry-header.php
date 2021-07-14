@@ -57,9 +57,9 @@ echo $header;
 	if ( $is_series ) { ?>
 
 			<?php 
-			the_archive_title( '<h1 class="entry-header__title"> Analysis / <span class="entry-header__title--secondary">', '</span></h1>' ); ?>
+			the_archive_title( '<h1 class="entry-header__title"> Analysis / <span class="entry-header__title-secondary">', '</span></h1>' ); ?>
 
-			<div class="entry-header__desc"><?php echo term_description(); ?></div>
+			<div class="entry-header__desc text--short"><?php echo term_description(); ?></div>
 
 			<a href="/analysis" class="entry-header__cta cta">All Analysis ></a>
 
@@ -73,7 +73,7 @@ echo $header;
 	} elseif ( $post_type === 'programs' ) {
 
 			the_archive_title( '<h1 class="entry-header__title">', '</h1>' ); ?>
-			<div class="entry-header__desc"><?php echo $description; ?></div>
+			<div class="entry-header__desc text--short"><?php echo $description; ?></div>
 
 			<div class="entry-header__newsletter">
 				<h2>Monthly Newsletter</h2>
@@ -84,7 +84,7 @@ echo $header;
 	} elseif ( $post_type === 'news' ) {
 
 		the_archive_title( '<h1 class="entry-header__title">', '</h1>' ); ?>
-		<div class="entry-header__desc"><?php echo $description; ?></div>
+		<div class="entry-header__desc text--short"><?php echo $description; ?></div>
 
 		<a href="<?php echo $npn_link; ?>" class="btn">Subscribe to the Newsletter</a>
 		<?php
@@ -93,7 +93,7 @@ echo $header;
 
 			the_archive_title( '<h1 class="entry-header__title">', '</h1>' ); ?>
 			
-			<div class="entry-header__desc"><?php echo $description; ?></div>
+			<div class="entry-header__desc text--short"><?php echo $description; ?></div>
 			<?php
 
 	} elseif ( $is_home ) {
@@ -103,7 +103,7 @@ echo $header;
 		$post = get_page($page_for_posts);
 		setup_postdata($post); ?>
 		<h1 class="entry-header__title"><?php echo wp_kses_post( the_title() ); ?></h1>
-		<div class="entry-header__desc"><?php echo $description; ?></div>
+		<div class="entry-header__desc text--short"><?php echo $description; ?></div>
 
 		<div class="entry-header__write-for-us">
 			<h2>Write for us placeholder</h2>
