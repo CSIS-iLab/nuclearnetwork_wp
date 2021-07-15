@@ -25,6 +25,13 @@
   }
 }
 
+.qtip-content {
+  a {
+    color: $color-accent-primary-blue-200 !important;
+    text-decoration: underline !important;
+  }
+}
+
 .footnotes {
   clear: both;
   margin: rem(40px) 0;
@@ -43,16 +50,39 @@
 .easy-footnotes-wrapper {
   @extend %text-style-paragraph-medium-short;
   padding-left: 0;
+  line-height: 1.3;
   counter-reset: item;
 
   li {
     position: relative;
     left: 8px;
     display: block;
-    color: $color-black-190;
+    padding-left: rem(16) !important;
+    color: $color-black-180;
+
+    &::after {
+      position: absolute;
+      top: 0;
+      left: -8px;
+      display: block;
+      margin-left: 0;
+      content: counter(item) '.';
+      @extend %text-style-paragraph-medium-short;
+      color: $color-black-180;
+      counter-increment: item;
+    }
 
     &:not(:last-child) {
       margin-bottom: rem(12);
+    }
+
+    a:not(.easy-footnote-to-top) {
+      color: $color-accent-primary-blue-200;
+      font-size: rem(16) !important;
+
+      &::after {
+        content: none !important;
+      }
     }
 
     .easy-footnote-margin-adjust {
@@ -60,22 +90,33 @@
     }
 
     .easy-footnote-to-top {
-      position: absolute;
-      top: 0;
-      left: -8px;
-      display: block;
-      margin-left: 0;
-
       &::after {
-        content: counter(item) '.';
-        @extend %text-style-paragraph-medium-short;
-        color: $color-black-165;
-        counter-increment: item;
-      }
-
-      &:hover::after {
-        // color: $color-link-primary-200;
+        position: absolute;
+        width: 15px;
+        height: 15px;
+        content: '';
+        margin-top: -11px;
+        background: url('/wp-content/themes/csisnuclearnetwork/assets/static/icons/reverse-arrow.svg') no-repeat;
       }
     }
+
+    // .easy-footnote-to-top {
+    //   position: absolute;
+    //   top: 0;
+    //   left: -8px;
+    //   display: block;
+    //   margin-left: 0;
+
+    //   &::after {
+    //     content: counter(item) '.';
+    //     @extend %text-style-paragraph-medium-short;
+    //     color: $color-black-165;
+    //     counter-increment: item;
+    //   }
+
+    //   &:hover::after {
+    //     // color: $color-link-primary-200;
+    //   }
+    // }
   }
 }
