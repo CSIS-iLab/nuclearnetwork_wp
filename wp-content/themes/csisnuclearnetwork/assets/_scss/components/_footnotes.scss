@@ -8,8 +8,7 @@
   .easy-footnote {
     // font-family: $font__merriweather;
     font-size: rem(12px);
-    text-transform: uppercase;
-    vertical-align: super;
+    // vertical-align: super;
     
 
     sup {
@@ -38,9 +37,6 @@
 
   &__list {
     padding-left: 0;
-    font-size: rem(16);
-    color: $color-black-190;
-    @extend %text-style-paragraph-medium-short;
   }
 }
 
