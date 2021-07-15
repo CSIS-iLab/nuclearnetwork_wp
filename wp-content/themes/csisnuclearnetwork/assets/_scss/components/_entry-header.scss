@@ -60,6 +60,10 @@
       color: $color-white-100;
     }
 
+    &-secondary {
+      color: $color-white-100;
+    }
+
     &-label {
       @extend %text-style-heading-large-strong;
       display: block;
