@@ -50,10 +50,10 @@
 
   &__title {
     @extend %text-style-heading-3-x-large-strong;
-    color: $color-accent-secondary-yellow-100;
+    color: $color-white-190;
 
-    &:not(:only-child) {
-      margin-bottom: rem(16);
+    &--yellow {
+      color: $color-accent-secondary-yellow-100;
     }
 
     &-secondary {
@@ -61,10 +61,10 @@
     }
 
     &-label {
-      display: block;
-      margin-bottom: rem(8);
-      color: $color-accent-secondary-yellow-100;
       @extend %text-style-heading-large-strong;
+      display: block;
+      margin-bottom: rem(4);
+      color: $color-accent-secondary-yellow-100;
     }
   }
 
