@@ -36,6 +36,10 @@ $header = '<header class="entry-header entry-header--blue">';
 if ( $is_author || $is_single && !wp_get_post_parent_id(get_the_ID())|| $pagename === 'about' || $is_author ) {
 	$header = '<header class="entry-header entry-header--light">';
 }
+$title_classes = 'entry-header__title entry-header__title--yellow';
+if ( $is_tag || $is_category || $is_search || $post_type === 'programs' && $is_single && wp_get_post_parent_id(get_the_ID()) ) {
+	$title_classes = 'entry-header__title';
+}
 $description = get_field( 'archive_description', $object->name );
 $npn_link = get_field( 'nuclear_policy_news_link', 'option' );
 $monthly_news_link = get_field( 'monthly_newsletter_link', 'option' );
@@ -59,7 +63,7 @@ var_dump( wp_get_post_parent_id(get_the_ID()) );
 	if ( $is_series ) { ?>
 
 			<?php 
-			the_archive_title( '<h1 class="entry-header__title"> Analysis / <span class="entry-header__title-secondary">', '</span></h1>' ); ?>
+			the_archive_title( '<h1 class="' . $title_classes . '"> Analysis / <span class="entry-header__title-secondary">', '</span></h1>' ); ?>
 
 			<div class="entry-header__desc text--short"><?php echo term_description(); ?></div>
 
@@ -80,13 +84,13 @@ var_dump( wp_get_post_parent_id(get_the_ID()) );
 			'&lsquo;' . get_search_query() . '&rsquo;'
 		); ?>
 				
-			<h1 class="entry-header__title"><?php echo wp_kses_post( $archive_title ); ?></h1>
+			<h1 class="<?php echo $title_classes; ?>"><?php echo wp_kses_post( $archive_title ); ?></h1>
 			
 			<?php
 
 	} elseif ( $post_type === 'programs' && $is_archive ) {
 
-			the_archive_title( '<h1 class="entry-header__title">', '</h1>' ); ?>
+			the_archive_title( '<h1 class="' . $title_classes . '">', '</h1>' ); ?>
 			<div class="entry-header__desc text--short"><?php echo $description; ?></div>
 			
 			<div class="entry-header__newsletter">
@@ -100,11 +104,11 @@ var_dump( wp_get_post_parent_id(get_the_ID()) );
 
 		$parent_title = get_the_title( $post->post_parent);
 
-		the_title( '<h1 class="entry-header__title"><span class="entry-header__title-label">' . $parent_title . '</span>', '</h1>' );
+		the_title( '<h1 class="' . $title_classes . '"><span class="entry-header__title-label">' . $parent_title . '</span>', '</h1>' );
 
 	} elseif ( $post_type === 'news' ) {
 
-		the_archive_title( '<h1 class="entry-header__title">', '</h1>' ); ?>
+		the_archive_title( '<h1 class="' . $title_classes . '">', '</h1>' ); ?>
 		<div class="entry-header__desc text--short"><?php echo $description; ?></div>
 
 		<a href="<?php echo $npn_link; ?>" class="btn">Subscribe to the Newsletter</a>
@@ -116,7 +120,7 @@ var_dump( wp_get_post_parent_id(get_the_ID()) );
 		
 		$post = get_page($page_for_posts);
 		setup_postdata($post); ?>
-		<h1 class="entry-header__title"><?php echo wp_kses_post( the_title() ); ?></h1>
+		<h1 class="<?php echo $title_classes; ?>"><?php echo wp_kses_post( the_title() ); ?></h1>
 		<div class="entry-header__desc text--short"><?php echo $description; ?></div>
 
 		<div class="entry-header__write-for-us">
@@ -125,15 +129,22 @@ var_dump( wp_get_post_parent_id(get_the_ID()) );
 		</div>
 		<?php
 
+	} elseif ( $is_category || $is_tag ) {
+
+		the_archive_title( '<h1 class="' . $title_classes . '">', '</h1>' ); ?>
+		
+		<div class="entry-header__desc text--short"><?php echo $description; ?></div>
+		<?php
+
 	} elseif ( $is_404 ) { ?>
 
-			<h1 class="entry-header__title"><?php _e( '404', 'nuclearnetwork' ); ?></h1>
+			<h1 class="<?php echo $title_classes; ?>"><?php _e( '404', 'nuclearnetwork' ); ?></h1>
 
 		<?php 
 
 	} elseif ( $is_archive ) {
 
-		the_archive_title( '<h1 class="entry-header__title">', '</h1>' ); ?>
+		the_archive_title( '<h1 class="' . $title_classes . '">', '</h1>' ); ?>
 		
 		<div class="entry-header__desc text--short"><?php echo $description; ?></div>
 		<?php

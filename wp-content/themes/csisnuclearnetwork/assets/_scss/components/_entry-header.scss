@@ -63,8 +63,8 @@
     &-label {
       display: block;
       margin-bottom: rem(8);
-      // color: $color-accent-dark-primary-400;
-      // @extend %text-style-label-small-strong-caps;
+      color: $color-accent-secondary-yellow-100;
+      @extend %text-style-heading-large-strong;
     }
   }
 
