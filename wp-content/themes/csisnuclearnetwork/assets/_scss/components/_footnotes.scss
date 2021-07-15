@@ -8,8 +8,6 @@
   .easy-footnote {
     // font-family: $font__merriweather;
     font-size: rem(12px);
-    // vertical-align: super;
-    
 
     sup {
       position: relative;
@@ -99,24 +97,5 @@
         background: url('/wp-content/themes/csisnuclearnetwork/assets/static/icons/reverse-arrow.svg') no-repeat;
       }
     }
-
-    // .easy-footnote-to-top {
-    //   position: absolute;
-    //   top: 0;
-    //   left: -8px;
-    //   display: block;
-    //   margin-left: 0;
-
-    //   &::after {
-    //     content: counter(item) '.';
-    //     @extend %text-style-paragraph-medium-short;
-    //     color: $color-black-165;
-    //     counter-increment: item;
-    //   }
-
-    //   &:hover::after {
-    //     // color: $color-link-primary-200;
-    //   }
-    // }
   }
 }
