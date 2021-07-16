@@ -86,7 +86,7 @@
       }
 
       &:hover::after {
-        filter: grayscale(1);
+        filter: invert(0%) sepia(96%) saturate(16%) hue-rotate(282deg) brightness(8%) contrast(104%) opacity(0.8);
       }
     }
   }
