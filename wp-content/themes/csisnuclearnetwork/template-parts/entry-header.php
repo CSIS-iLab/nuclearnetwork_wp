@@ -100,9 +100,16 @@ echo $header;
 
 	} else if ( $post_type === 'programs' && $is_single && wp_get_post_parent_id(get_the_ID()) ) {
 
-		$parent_title = get_the_title( $post->post_parent);
+		$parent = $post->post_parent;
+
+		$parent_title = get_the_title( $parent);
+		$parent_url = get_permalink( $parent );
 
 		the_title( '<h1 class="' . $title_classes . '"><span class="entry-header__title-label">' . $parent_title . '</span>', '</h1>' );
+		?>
+		<a href="<?php echo $parent_url; ?>" class="entry-header__cta cta">Back to <?php echo $parent_title; ?> ></a>
+
+		<?php
 
 	} elseif ( $post_type === 'news' ) {
 
