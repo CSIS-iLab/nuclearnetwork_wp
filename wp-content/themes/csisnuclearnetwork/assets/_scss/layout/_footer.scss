@@ -1,8 +1,8 @@
 @use 'abstracts' as *;
 
 .footer {
-  --padding-top: #{rem(32)};
-  --padding-bottom: #{rem(24)};
+  --padding-container: #{rem(40) 0 rem(40) 0};
+  // --row-gap: #{rem}
 
   $gradient: linear-gradient(180deg, rgba(36, 50, 56, 0.88) 0%, #242c30 100%);
   display: grid;
@@ -14,14 +14,14 @@
     'copyright';
   grid-template-columns: 1fr;
   margin-top: auto;
-  padding-top: var(--padding-top);
-  padding-bottom: var(--padding-bottom);
+  padding: var(--padding-container);
   @extend %text-style-paragraph-medium-short;
   color: $color-white-190;
   background: $gradient;
   @include full-width-background($gradient);
 
   @include breakpoint('small') {
+    --padding-container: #{rem(32) 0 rem(32) 0};
     grid-template-areas:
       'logo logo'
       'csisdesc csisdesc'
@@ -35,12 +35,31 @@
   }
 
   @include breakpoint('large') {
-    --padding-bottom: #{rem(56)};
+    --padding-container: #{rem(24) 0 rem(24) 0};
     grid-template-areas:
       'logo logo logo'
       'csisdesc newsletter social'
       'copyright copyright copyright';
     grid-template-columns: 2fr 1fr 1fr;
+  }
+
+  &__description {
+    .widget {
+      margin-bottom: rem(12);
+      &:first-of-type {
+        margin-bottom: rem(16);
+        &::after {
+          content: '';
+          display: block;
+          width: rem(100);
+          padding-top: rem(15);
+          border-bottom: 1px solid $color-border-light-115;
+        }
+      }
+      &:last-of-type {
+        margin: 0;
+      }
+    }
   }
 
   a {
@@ -60,27 +79,27 @@
     margin-bottom: rem(40);
   }
 
-  .widget:first-of-type {
-    margin-bottom: rem(24);
+  // .widget {
+  //   margin-bottom: rem(24);
 
-    @include breakpoint('large') {
-      position: relative;
-      margin-bottom: rem(32);
-    }
+  //   @include breakpoint('large') {
+  //     position: relative;
+  //     margin-bottom: rem(32);
+  //   }
 
-    &::after {
-      @include breakpoint('large') {
-        content: '';
-        position: absolute;
-        top: calc(100% + #{rem(16)});
-        left: 0;
-        display: block;
-        width: rem(100);
-        margin-bottom: rem(16);
-        border-bottom: 1px solid $color-border-light-115;
-      }
-    }
-  }
+  //   &::after {
+  //     @include breakpoint('large') {
+  //       content: '';
+  //       position: absolute;
+  //       top: calc(100% + #{rem(16)});
+  //       left: 0;
+  //       display: block;
+  //       width: rem(100);
+  //       margin-bottom: rem(16);
+  //       border-bottom: 1px solid $color-border-light-115;
+  //     }
+  //   }
+  // }
 
   &__desc + .widget {
     grid-area: newsletter;

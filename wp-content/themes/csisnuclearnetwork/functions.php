@@ -295,7 +295,7 @@ function nuclearnetwork_sidebar_registration() {
 		array_merge(
 			$footer_shared_args,
 			array(
-				'name'        => __( 'Footer #1', 'nuclearnetwork' ),
+				'name'        => __( 'Footer Description', 'nuclearnetwork' ),
 				'id'          => 'sidebar-1',
 				'description' => __( 'Widgets in this area will be displayed in the first column in the footer.', 'nuclearnetwork' ),
 			)
