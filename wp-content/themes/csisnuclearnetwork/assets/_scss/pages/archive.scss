@@ -1,36 +1,5 @@
 @use '../abstracts' as *;
 
-.blog,
-.tax-series {
-  --page-header-bg: var(--page-header-analysis);
-}
-
-.post-type-archive-events {
-  --page-header-bg: var(--page-header-events);
-}
-
-.post-type-archive-programs {
-  --page-header-bg: var(--page-header-programs);
-}
-
-.post-type-archive-projects {
-  --page-header-bg: var(--page-header-projects);
-}
-
-.post-type-archive-news {
-  --page-header-bg: var(--page-header-npn);
-}
-
-.post-type-archive-updates {
-  --page-header-bg: var(--page-header-updates);
-}
-
-.search,
-.category,
-.tag {
-  --page-header-bg: var(--page-header-general);
-}
-
 .archive {
   background: $color-bg-light-200;
 

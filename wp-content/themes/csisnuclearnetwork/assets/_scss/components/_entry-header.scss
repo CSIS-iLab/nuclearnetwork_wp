@@ -1,5 +1,40 @@
 @use '../abstracts' as *;
 
+.blog,
+.tax-series {
+  --page-header-bg: var(--page-header-analysis);
+}
+
+.post-type-archive-events {
+  --page-header-bg: var(--page-header-events);
+}
+
+.post-type-archive-programs {
+  --page-header-bg: var(--page-header-programs);
+}
+
+.post-type-archive-projects {
+  --page-header-bg: var(--page-header-projects);
+}
+
+.post-type-archive-news {
+  --page-header-bg: var(--page-header-npn);
+}
+
+.post-type-archive-updates {
+  --page-header-bg: var(--page-header-updates);
+}
+
+.single-programs {
+  --page-header-bg: var(--page-header-programs);
+}
+
+.search,
+.category,
+.tag {
+  --page-header-bg: var(--page-header-general);
+}
+
 .entry-header {
   position: relative;
   display: flex;
@@ -30,7 +65,7 @@
     display: block;
     @include csis-block-full-width-wrapper();
     // background: linear-gradient(180deg, #1e2429 2.5%, transparent 100%), url('../../img/geo_bg.png'), linear-gradient(180deg, #1e2429 0%, rgba(26, 36, 40, 0.88) 100%);
-    background-repeat: repeat;
+    background-repeat: no-repeat;
     background-size: cover;
   }
 
