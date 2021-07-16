@@ -63,12 +63,15 @@ echo $header;
 			<?php 
 			the_archive_title( '<h1 class="' . $title_classes . '"> Analysis / <span class="entry-header__title-secondary">', '</span></h1>' ); ?>
 
-			<div class="entry-header__desc text--short"><?php echo term_description(); ?></div>
+			<div class="entry-header__grid">
 
-			<a href="/analysis" class="entry-header__cta cta">All Analysis ></a>
-
-			<div class="entry-header__write-for-us desktop-only">
-			<?php dynamic_sidebar( 'write-for-us' ); ?>
+				<div class="entry-header__desc text--short"><?php echo term_description(); ?></div>
+				
+				<a href="/analysis" class="entry-header__cta cta">All Analysis ></a>
+				
+				<div class="entry-header__write-for-us desktop-only">
+					<?php dynamic_sidebar( 'write-for-us' ); ?>
+				</div>
 			</div>
 			<?php
 
@@ -88,6 +91,8 @@ echo $header;
 	} elseif ( $post_type === 'updates' && $is_archive ) {
 
 			the_archive_title( '<h1 class="' . $title_classes . '">', '</h1>' ); ?>
+
+		<div class="entry-header__grid">
 			<div class="entry-header__desc text--short"><?php echo $description; ?></div>
 			
 			<div class="entry-header__newsletter desktop-only">
@@ -95,7 +100,8 @@ echo $header;
 				<p>Get PONI Program Updates delivered directly to your inbox by signing up for our monthly newsletter!</p>
 				<a href="<?php echo $monthly_news_link; ?>" class="btn">Subscribe</a>
 			</div>
-			<?php
+		</div>
+		<?php
 
 	} else if ( $post_type === 'programs' && $is_single && wp_get_post_parent_id(get_the_ID()) ) {
 
@@ -125,10 +131,13 @@ echo $header;
 		$post = get_page($page_for_posts);
 		setup_postdata($post); ?>
 		<h1 class="<?php echo $title_classes; ?>"><?php echo wp_kses_post( the_title() ); ?></h1>
-		<div class="entry-header__desc text--short"><?php echo $description; ?></div>
 
-		<div class="entry-header__write-for-us desktop-only">
-		<?php dynamic_sidebar( 'write-for-us' ); ?>
+		<div class="entry-header__grid">
+			<div class="entry-header__desc text--short"><?php echo $description; ?></div>
+
+			<div class="entry-header__write-for-us desktop-only">
+			<?php dynamic_sidebar( 'write-for-us' ); ?>
+			</div>
 		</div>
 		<?php
 

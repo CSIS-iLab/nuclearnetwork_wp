@@ -102,11 +102,14 @@
 
   &__desc {
     @extend %text-style-paragraph-x-large;
+    grid-column: 1;
+    max-width: $size__content-max-width;
     color: $color-white-190;
   }
 
   &__cta {
     @extend %text-style-label-medium;
+    grid-column: 1;
     margin-top: rem(24);
     color: $color-white-180;
   }
@@ -121,22 +124,41 @@
 
     @include breakpoint('large') {
       display: block;
+      padding-left: rem(56);
+      border-left: rgba(45, 156, 219, 0.15) solid 1px;
     }
   }
 
-  .write-for-us {
-    &__title,
-    .icon {
-      color: $color-accent-secondary-yellow-100;
-    }
+  &__write-for-us {
+    grid-column: 2;
+    grid-row: 1 / span 2;
 
-    &__desc {
-      color: $color-white-100;
-    }
+    .write-for-us {
+      &__title,
+      .icon {
+        color: $color-accent-secondary-yellow-100;
+      }
 
-    &__link {
-      color: $color-white-100;
-      font-weight: 700;
+      &__desc {
+        color: $color-white-100;
+      }
+
+      &__link {
+        color: $color-white-100;
+        font-weight: 700;
+      }
+    }
+  }
+
+  &__grid {
+    @include breakpoint('large') {
+      display: grid;
+      grid-template-columns: minmax(50%, 680px) rem(380);
+      justify-content: stretch;
+
+      .entry-header__desc {
+        margin-right: rem(40);
+      }
     }
   }
 }
