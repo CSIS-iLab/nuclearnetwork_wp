@@ -1,10 +1,13 @@
 @use 'abstracts' as *;
 
 .footer {
-  --padding-container: #{rem(40) 0 rem(40) 0};
-  // --row-gap: #{rem}
+  --padding-container: #{rem(40) 0};
 
-  $gradient: linear-gradient(180deg, rgba(36, 50, 56, 0.88) 0%, #242c30 100%);
+  $gradient: linear-gradient(180deg, rgba(0, 50, 99, 0) 0%, rgba(0, 50, 99, 0.64) 76.2%), linear-gradient(180deg, rgba(30, 58, 85, 0.68) 0%, rgba(53, 110, 163, 0.0966914) 30.95%, rgba(56, 115, 171, 0) 100%);
+  border: none;
+  background: linear-gradient(91.1deg, #0B2C4D 0.76%, #0D3357 100.12%);
+  box-sizing: border-box;
+  backdrop-filter: blur(124px);
   display: grid;
   grid-template-areas:
     'logo'
@@ -21,13 +24,13 @@
   @include full-width-background($gradient);
 
   @include breakpoint('small') {
-    --padding-container: #{rem(32) 0 rem(32) 0};
+    --padding-container: #{rem(32) 0};
     grid-template-areas:
       'logo logo'
       'csisdesc csisdesc'
       'newsletter social'
       'copyright copyright';
-    grid-template-columns: auto rem(188);
+    grid-template-columns: auto;
   }
 
   @include breakpoint('medium') {
@@ -35,7 +38,7 @@
   }
 
   @include breakpoint('large') {
-    --padding-container: #{rem(24) 0 rem(24) 0};
+    --padding-container: #{rem(24) 0};
     grid-template-areas:
       'logo logo logo'
       'csisdesc newsletter social'
@@ -46,8 +49,10 @@
   &__description {
     .widget {
       margin-bottom: rem(12);
+
       &:first-of-type {
         margin-bottom: rem(16);
+
         &::after {
           content: '';
           display: block;
@@ -56,6 +61,7 @@
           border-bottom: 1px solid $color-border-light-115;
         }
       }
+
       &:last-of-type {
         margin: 0;
       }
@@ -151,45 +157,91 @@
     }
   }
 
+  // .newsletter-block {
+
+  // }
+
   &__newsletter {
-    @include breakpoint('small') {
-      margin-right: rem(4);
+    margin: rem(32) 0;
+
+    h2 {
+      @extend %text-style-label-large-caps;
     }
 
-    @include breakpoint('medium') {
-      margin-right: rem(24);
+    .widget {
+      div div {
+        heading, p {
+          display: block;
+          margin-top: rem(8);
+        }
+
+        heading {
+          color: $color-accent-secondary-yellow-100;
+          @extend %text-style-label-medium;
+        }
+
+        heading.daily{
+          margin-top: rem(24);
+        }
+
+        a {
+          --buttonheight: #{rem(45)};
+          @extend %text-style-label-large;
+          display: block;
+          width: 116px;
+          height: var(--buttonheight);
+          margin-top: rem(12);
+          font-size: 18px;
+          line-height: var(--buttonheight);
+          text-align: center;
+          background-color: #0f609d;
+          border-radius: 2px;
+        }
+
+      }
+
     }
-
-    @include breakpoint('large') {
-      margin-left: rem(40);
-    }
   }
 
-  &__newsletter-desc {
-    color: $color-white-165;
-  }
+  // &__newsletter {
+  //   @include breakpoint('small') {
+  //     margin-right: rem(4);
+  //   }
 
-  &__newsletter,
-  &__social {
-    text-align: center;
+  //   @include breakpoint('medium') {
+  //     margin-right: rem(24);
+  //   }
 
-    @include breakpoint('small') {
-      text-align: left;
-    }
-  }
+  //   @include breakpoint('large') {
+  //     margin-left: rem(40);
+  //   }
+  // }
 
-  &__newsletter-header,
-  &__social-header {
-    margin-bottom: rem(8);
-    font-weight: 700;
-    font-size: rem(18);
-  }
+  // &__newsletter-desc {
+  //   color: $color-white-165;
+  // }
 
-  &__newsletter-desc {
-    margin-bottom: rem(24);
-  }
+  // &__newsletter,
+  // &__social {
+  //   text-align: center;
 
-  &__newsletter-button {
-    margin-bottom: rem(16);
-  }
+  //   @include breakpoint('small') {
+  //     text-align: left;
+  //   }
+  // }
+
+  // &__newsletter-header,
+  // &__social-header {
+  //   margin-bottom: rem(8);
+  //   font-weight: 700;
+  //   font-size: rem(18);
+  // }
+
+  // &__newsletter-desc {
+  //   margin-bottom: rem(24);
+  // }
+
+  // &__newsletter-button {
+  //   margin-bottom: rem(16);
+  // }
 }

@@ -343,10 +343,13 @@ function nuclearnetwork_sidebar_registration() {
 	);
 
 	register_sidebar(
-		array(
-			'name'        => __( 'Monthly Newsletter', 'nuclearnetwork' ),
-			'id'          => 'monthly-newsletter',
-			'description' => __( 'Monthly Newsletter for Nuclear Network', 'nuclearnetwork' )
+		array_merge(
+			$footer_shared_args,
+			array(
+			'name'        => __( 'Newsletters', 'nuclearnetwork' ),
+			'id'          => 'newsletters',
+			'description' => __( 'Newsletters for Nuclear Network', 'nuclearnetwork' )
+			)
 		)
 	);
 
