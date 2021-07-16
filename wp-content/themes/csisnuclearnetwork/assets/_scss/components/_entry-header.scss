@@ -123,4 +123,20 @@
       display: block;
     }
   }
+
+  .write-for-us {
+    &__title,
+    .icon {
+      color: $color-accent-secondary-yellow-100;
+    }
+
+    &__desc {
+      color: $color-white-100;
+    }
+
+    &__link {
+      color: $color-white-100;
+      font-weight: 700;
+    }
+  }
 }

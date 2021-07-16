@@ -1,0 +1,13 @@
+@use 'abstracts' as *;
+
+.write-for-us {
+  &__title {
+    @extend %text-style-label-large-strong-caps;
+    margin-bottom: rem(4);
+  }
+
+  &__desc,
+  &__link {
+    @extend %text-style-paragraph-medium-short;
+  }
+}
