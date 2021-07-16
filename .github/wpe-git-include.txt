@@ -1,2 +1,2 @@
-wp-content/themes/nuclearnetwork/*.css
-wp-content/themes/nuclearnetwork/assets
+wp-content/themes/csisnuclearnetwork/*.css
+wp-content/themes/csisnuclearnetwork/assets
