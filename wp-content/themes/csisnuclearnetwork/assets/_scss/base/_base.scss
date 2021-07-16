@@ -66,3 +66,7 @@ body {
 #site-content {
   margin-top: var(--site-header-height);
 }
+
+li.widget {
+  list-style: none;
+}

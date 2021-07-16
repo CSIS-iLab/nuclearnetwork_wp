@@ -67,9 +67,8 @@ echo $header;
 
 			<a href="/analysis" class="entry-header__cta cta">All Analysis ></a>
 
-			<div class="entry-header__write-for-us">
-				<h2>Write for us placeholder</h2>
-				<p>Become a guest author with PONI to have your analysis published on our site. </p>
+			<div class="entry-header__write-for-us desktop-only">
+			<?php dynamic_sidebar( 'write-for-us' ); ?>
 			</div>
 			<?php
 
@@ -86,12 +85,12 @@ echo $header;
 			
 			<?php
 
-	} elseif ( $post_type === 'programs' && $is_archive ) {
+	} elseif ( $post_type === 'updates' && $is_archive ) {
 
 			the_archive_title( '<h1 class="' . $title_classes . '">', '</h1>' ); ?>
 			<div class="entry-header__desc text--short"><?php echo $description; ?></div>
 			
-			<div class="entry-header__newsletter">
+			<div class="entry-header__newsletter desktop-only">
 				<h2>Monthly Newsletter</h2>
 				<p>Get PONI Program Updates delivered directly to your inbox by signing up for our monthly newsletter!</p>
 				<a href="<?php echo $monthly_news_link; ?>" class="btn">Subscribe</a>
@@ -116,7 +115,7 @@ echo $header;
 		the_archive_title( '<h1 class="' . $title_classes . '">', '</h1>' ); ?>
 		<div class="entry-header__desc text--short"><?php echo $description; ?></div>
 
-		<a href="<?php echo $npn_link; ?>" class="btn">Subscribe to the Newsletter</a>
+		<a href="<?php echo $npn_link; ?>" class="btn entry-header__news-btn">Subscribe to the Newsletter</a>
 		<?php
 
 	} elseif ( $is_home ) {
@@ -128,9 +127,8 @@ echo $header;
 		<h1 class="<?php echo $title_classes; ?>"><?php echo wp_kses_post( the_title() ); ?></h1>
 		<div class="entry-header__desc text--short"><?php echo $description; ?></div>
 
-		<div class="entry-header__write-for-us">
-			<h2>Write for us placeholder</h2>
-			<p>Become a guest author with PONI to have your analysis published on our site. </p>
+		<div class="entry-header__write-for-us desktop-only">
+		<?php dynamic_sidebar( 'write-for-us' ); ?>
 		</div>
 		<?php
 

@@ -107,6 +107,20 @@
 
   &__cta {
     @extend %text-style-label-medium;
+    margin-top: rem(24);
     color: $color-white-180;
+  }
+
+  &__news-btn {
+    width: fit-content;
+    margin-top: rem(24);
+  }
+
+  .desktop-only {
+    display: none;
+
+    @include breakpoint('large') {
+      display: block;
+    }
   }
 }
