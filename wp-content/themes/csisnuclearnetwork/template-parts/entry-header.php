@@ -58,8 +58,6 @@ if ( $template === 'templates/template-no-image.php' ){
 
 echo $header;
 
-var_dump( wp_get_post_parent_id(get_the_ID()) );
-
 	if ( $is_series ) { ?>
 
 			<?php 

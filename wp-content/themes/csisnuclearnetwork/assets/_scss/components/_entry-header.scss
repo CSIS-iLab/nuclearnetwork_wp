@@ -1,28 +1,23 @@
 @use '../abstracts' as *;
 
 .entry-header {
-  --header-margin-bottom: #{rem(32)};
-  --header-padding-bottom: #{rem(48)};
-  --cutout-width: #{rem(36)};
-  --cutout-height: #{rem(24)};
-
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  max-width: $size__content-max-width;
   min-height: 250px;
-  margin: 0 auto var(--header-margin-bottom);
-  padding: rem(24) 0 calc(var(--header-padding-bottom) + var(--cutout-height));
+  margin: 0 auto rem(24);
+  padding: rem(24) 0 rem(48);
 
-  @include breakpoint('medium') {
-    --header-margin-bottom: #{rem(40)};
+  @include breakpoint('small') {
+    margin-bottom: rem(40);
   }
 
   @include breakpoint('large') {
-    --cutout-width: #{rem(45)};
-    --cutout-height: #{rem(30)};
-    padding-top: rem(16);
+    margin-bottom: rem(64);
+  }
+
+  @include breakpoint('xlarge') {
+    margin-bottom: rem(80);
   }
 
   &::before {
@@ -37,8 +32,6 @@
     // background: linear-gradient(180deg, #1e2429 2.5%, transparent 100%), url('../../img/geo_bg.png'), linear-gradient(180deg, #1e2429 0%, rgba(26, 36, 40, 0.88) 100%);
     background-repeat: repeat;
     background-size: cover;
-    // Creates triangle cutout
-    clip-path: polygon(0% 0%, 100% 0%, 100% calc(100% - var(--cutout-height)), calc(50% + var(--cutout-width) / 2) calc(100% - var(--cutout-height)), 50% 100%, calc(50% - var(--cutout-width) / 2) calc(100% - var(--cutout-height)), 0% calc(100% - var(--cutout-height)));
   }
 
   &--blue {
@@ -51,6 +44,10 @@
   &__title {
     @extend %text-style-heading-3-x-large-strong;
     color: $color-white-190;
+
+    &:not(:only-child) {
+      margin-bottom: rem(12);
+    }
 
     &--yellow {
       color: $color-accent-secondary-yellow-100;
