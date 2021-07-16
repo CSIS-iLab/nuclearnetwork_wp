@@ -104,4 +104,9 @@
     @extend %text-style-paragraph-x-large;
     color: $color-white-190;
   }
+
+  &__cta {
+    @extend %text-style-label-medium;
+    color: $color-white-180;
+  }
 }

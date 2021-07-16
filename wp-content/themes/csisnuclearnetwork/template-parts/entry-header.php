@@ -107,7 +107,7 @@ echo $header;
 
 		the_title( '<h1 class="' . $title_classes . '"><span class="entry-header__title-label">' . $parent_title . '</span>', '</h1>' );
 		?>
-		<a href="<?php echo $parent_url; ?>" class="entry-header__cta cta">Back to <?php echo $parent_title; ?> ></a>
+		<a href="<?php echo $parent_url; ?>" class="entry-header__cta cta">< Back to <?php echo $parent_title; ?></a>
 
 		<?php
 
