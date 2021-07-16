@@ -24,8 +24,12 @@
 
 				<!-- Newsletter Block -->
 				<div class="footer__newsletter">
+<<<<<<< HEAD
 					<h2>Stay Up to Date</h2>
 					<?php dynamic_sidebar( 'Newsletters' ); ?>
+=======
+					<?php dynamic_sidebar( 'footer-1' ); ?>
+>>>>>>> 89564017f93142dafe337fb55fcccb43ad6013b0
 				</div>
 
 				<!-- 2nd column -->
