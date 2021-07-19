@@ -15,7 +15,10 @@
 			<footer id="site-footer" class="footer" role="contentinfo">
 				<!-- div for the row -->
 				<!-- 1st column -->
-				<a href="https://www.csis.org" class="footer__logo"><?php include( get_template_directory() . '/assets/static/csis-logo.svg'); ?></a>
+				<div class="footer__logo">
+					<a href="https://www.csis.org" class="footer__logo__small"><?php include( get_template_directory() . '/assets/static/csis-poni-logo.svg'); ?></a>
+					<a href="https://www.csis.org" class="footer__logo__medium"><?php include( get_template_directory() . '/assets/static/csis-logo-poni-full.svg'); ?></a>
+				</div>
 
 				<!-- description block -->
 				<div class="footer__description">
@@ -24,53 +27,14 @@
 
 				<!-- Newsletter Block -->
 				<div class="footer__newsletter">
-<<<<<<< HEAD
 					<h2>Stay Up to Date</h2>
 					<?php dynamic_sidebar( 'Newsletters' ); ?>
-=======
-					<?php dynamic_sidebar( 'footer-1' ); ?>
->>>>>>> 89564017f93142dafe337fb55fcccb43ad6013b0
 				</div>
 
-				<!-- 2nd column -->
-				<div>
-					<h2>Stay Up to Date</h2>
-
-					<div> <!--newsletter card -->
-						<p>Monthly PONI Newsletter</p> <!-- subtitle -->
-						<p>Get monthly updates with major news, events, and analysis.</p>
-						<a href="https://www.csis.org/subscribe#edit-program-newsletters-poni-newsletter">Suscribe</a>
-					</div>
-
-					<div> <!--newsletter card -->
-						<p>Daily PONI Newsletter</p> <!-- subtitle -->
-						<p>Receive our recap of nuclear news from around the globe.</p>
-						<a href="https://www.csis.org/subscribe#edit-program-newsletters-nuclear-policy-news">Suscribe</a>
-					</div>
-				</div>
-
-				<!-- 3rd column -->
-				<div>
+				<div class="footer__contact">
 					<h2>Contact Us</h2>
-
-					<div> <!--address card -->
-						<p>Address</p> <!-- subtitle -->
-						<p>1616 Rhode Island Avenue NW Washington, DC 20036</p>
-						<a href="https://www.csis.org/subscribe#edit-program-newsletters-poni-newsletter">Suscribe</a>
-					</div>
-
-					<div> <!--email card -->
-						<p>Email</p> <!-- subtitle -->
-						<p><a href="mailto:poni@csis.org">poni@csis.org</a></p>
-					</div>
-
-					<div> <!--phone card -->
-						<p>Phone</p> <!-- subtitle -->
-						<p><a href="tel:12027413878">202-741-3878</a></p>
-					</div>
-
-					<!-- Social Share -->
-					<div class="footer__social">
+					<?php dynamic_sidebar( 'Social-Share-1' ); ?>
+					<div>
 						<div class="footer__social-icons">
 							<a href="https://www.facebook.com/reconnasia/" class="footer__facebook-icon" aria-label="Visit the Reconnecting Asia Facebook page"><?php echo nuclearnetwork_get_svg( 'facebook' ); ?></a>
 							<a href="https://twitter.com/NuclearNetwork" class="footer__twitter-icon" aria-label="Visit the Reconnecting Asia Twitter page"><?php echo nuclearnetwork_get_svg( 'twitter' ); ?></a>
@@ -80,7 +44,7 @@
 						</div>
 					</div>
 				</div>
-				
+
 				<p class="footer__copyright">Copyright &copy;
 					<?php
 					echo date_i18n(

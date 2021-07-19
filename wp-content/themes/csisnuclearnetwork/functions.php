@@ -335,11 +335,14 @@ function nuclearnetwork_sidebar_registration() {
 
 		// Social Share
 	register_sidebar(
-		array(
-				'name'        => __( 'Social Share 1', 'nuclearnetwork' ),
-				'id'          => 'social-share-1',
-				'description' => __( 'Social Share Widget 2', 'nuclearnetwork' ),
+		array_merge(
+			$footer_shared_args,
+			array(
+			'name'        => __( 'Social Share 1', 'nuclearnetwork' ),
+			'id'          => 'social-share-1',
+			'description' => __( 'Social Share Widget', 'nuclearnetwork' )
 			)
+		)
 	);
 
 	register_sidebar(

@@ -2,8 +2,10 @@
 
 .footer {
   --padding-container: #{rem(40) 0};
+  --margin-news-social-block: #{rem(32) 0};
 
-  $gradient: linear-gradient(180deg, rgba(0, 50, 99, 0) 0%, rgba(0, 50, 99, 0.64) 76.2%), linear-gradient(180deg, rgba(30, 58, 85, 0.68) 0%, rgba(53, 110, 163, 0.0966914) 30.95%, rgba(56, 115, 171, 0) 100%);
+  // $gradient: linear-gradient(180deg, rgba(0, 50, 99, 0) 0%, rgba(0, 50, 99, 0.64) 76.2%), linear-gradient(180deg, rgba(30, 58, 85, 0.68) 0%, rgba(53, 110, 163, 0.0966914) 30.95%, rgba(56, 115, 171, 0) 100%);
+  $gradient: linear-gradient(91.1deg, #0B2C4D 0.76%, #0D3357 100.12%);
   border: none;
   background: linear-gradient(91.1deg, #0B2C4D 0.76%, #0D3357 100.12%);
   box-sizing: border-box;
@@ -20,11 +22,13 @@
   padding: var(--padding-container);
   @extend %text-style-paragraph-medium-short;
   color: $color-white-190;
-  background: $gradient;
+  // background: $gradient;
+  // column-gap: rem(40);
   @include full-width-background($gradient);
 
   @include breakpoint('small') {
     --padding-container: #{rem(32) 0};
+    --margin-news-social-block: #{rem(24) 0};
     grid-template-areas:
       'logo logo'
       'csisdesc csisdesc'
@@ -35,18 +39,25 @@
 
   @include breakpoint('medium') {
     grid-template-columns: 1fr 1fr;
+    --margin-news-social-block: #{rem(24) 0 rem(16) 0};
   }
 
   @include breakpoint('large') {
     --padding-container: #{rem(24) 0};
+    --margin-news-social-block: #{rem(8) 0 rem(16) 0};
     grid-template-areas:
       'logo logo logo'
       'csisdesc newsletter social'
       'copyright copyright copyright';
-    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-columns: 1.8fr 1fr 1fr;
+  }
+
+  @include breakpoint('xlarge') {
+    grid-template-columns: 2.5fr 1fr 1fr;
   }
 
   &__description {
+    grid-area: csisdesc;
     .widget {
       margin-bottom: rem(12);
 
@@ -65,6 +76,11 @@
         margin: 0;
       }
     }
+
+    @include breakpoint('large') {
+      margin: var(--margin-news-social-block);
+      margin-right: rem(40);
+    }
   }
 
   a {
@@ -77,6 +93,17 @@
     grid-area: logo;
     max-width: rem(300);
     margin-bottom: rem(16);
+    &__medium {
+      display: none;
+      @include breakpoint('medium') {
+        display: block;
+      }
+    }
+    &__small {
+      @include breakpoint('medium') {
+        display: none;
+      }
+    }
   }
 
   &__desc {
@@ -135,11 +162,13 @@
     margin-left: rem(-8);
     color: $color-white-165;
     @include font-size(28px);
+    a:nth-of-type(4){
+      padding-right: rem(5);
+    }
   }
 
   &__copyright {
     grid-area: copyright;
-    margin-top: rem(16);
     color: $color-white-165;
     text-align: left;
 
@@ -156,49 +185,66 @@
     }
   }
 
-  // .newsletter-block {
+  .newsletter-block {
+    heading, p {
+          display: block;
+          margin-top: rem(8);
+        }
 
-  // }
+    heading {
+      color: $color-accent-secondary-yellow-100;
+      @extend %text-style-label-medium;
+    }
+
+    heading.daily{
+      margin-top: rem(24);
+    }
+
+    a {
+      --buttonheight: #{rem(45)};
+      @extend %text-style-label-large;
+      display: block;
+      width: 116px;
+      height: var(--buttonheight);
+      margin-top: rem(12);
+      font-size: 18px;
+      line-height: var(--buttonheight);
+      text-align: center;
+      background-color: #0f609d;
+      border-radius: 2px;
+    }
+  }
 
   &__newsletter {
-    margin: rem(32) 0;
+    grid-area: newsletter;
+    margin: var(--margin-news-social-block);
+
+    h2 {
+      @extend %text-style-label-large-caps;
+    }
+
+    @include breakpoint('small'){
+      padding-right: rem(24);
+      border-right: 1px $color-border-light-115 solid;
+    }
+  }
+
+  &__contact {
+    grid-area: social;
+    margin: var(--margin-news-social-block);
+    margin-top: 0;
 
     h2 {
       @extend %text-style-label-large-caps;
     }
 
     .widget {
-      div div {
-        heading, p {
-          display: block;
-          margin-top: rem(8);
-        }
+      margin-bottom: rem(24);
+    }
 
-        heading {
-          color: $color-accent-secondary-yellow-100;
-          @extend %text-style-label-medium;
-        }
-
-        heading.daily{
-          margin-top: rem(24);
-        }
-
-        a {
-          --buttonheight: #{rem(45)};
-          @extend %text-style-label-large;
-          display: block;
-          width: 116px;
-          height: var(--buttonheight);
-          margin-top: rem(12);
-          font-size: 18px;
-          line-height: var(--buttonheight);
-          text-align: center;
-          background-color: #0f609d;
-          border-radius: 2px;
-        }
-
-      }
-
+    @include breakpoint('small'){
+      margin: var(--margin-news-social-block);
+      padding-left: rem(24);
     }
   }
 
