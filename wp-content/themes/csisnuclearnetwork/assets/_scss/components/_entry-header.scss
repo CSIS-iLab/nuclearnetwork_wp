@@ -3,45 +3,84 @@
 .blog,
 .tax-series {
   --page-header-bg: var(--page-header-analysis);
+  --page-header-padding-bottom: #{rem(40)};
+
+  @include breakpoint('large') {
+    --page-header-padding-bottom: #{rem(64)};
+  }
 }
 
 .post-type-archive-events {
   --page-header-bg: var(--page-header-events);
+  --page-header-padding-bottom: #{rem(48)};
+
+  @include breakpoint('large') {
+    --page-header-padding-bottom: #{rem(80)};
+  }
 }
 
 .post-type-archive-programs {
   --page-header-bg: var(--page-header-programs);
+  --page-header-padding-bottom: #{rem(48)};
+
+  @include breakpoint('large') {
+    --page-header-padding-bottom: #{rem(136)};
+  }
 }
 
 .post-type-archive-projects {
   --page-header-bg: var(--page-header-projects);
+  --page-header-padding-bottom: #{rem(48)};
+
+  @include breakpoint('large') {
+    --page-header-padding-bottom: #{rem(136)};
+  }
 }
 
 .post-type-archive-news {
   --page-header-bg: var(--page-header-npn);
+  --page-header-padding-bottom: #{rem(48)};
+
+  @include breakpoint('large') {
+    --page-header-padding-bottom: #{rem(80)};
+  }
 }
 
 .post-type-archive-updates {
   --page-header-bg: var(--page-header-updates);
+  --page-header-padding-bottom: #{rem(40)};
+
+  @include breakpoint('large') {
+    --page-header-padding-bottom: #{rem(64)};
+  }
 }
 
 .single-programs {
   --page-header-bg: var(--page-header-programs);
+  --page-header-padding-bottom: #{rem(48)};
+
+  @include breakpoint('large') {
+    --page-header-padding-bottom: #{rem(136)};
+  }
 }
 
 .search,
 .category,
 .tag {
   --page-header-bg: var(--page-header-general);
+  --page-header-padding-bottom: #{rem(48)};
+
+  @include breakpoint('large') {
+    --page-header-padding-bottom: #{rem(80)};
+  }
 }
 
 .entry-header {
   position: relative;
   display: flex;
   flex-direction: column;
-  min-height: 250px;
   margin: 0 auto rem(24);
-  padding: rem(24) 0 rem(48);
+  padding: calc(#{rem(24)} + var(--site-header-height)) 0 var(--page-header-padding-bottom); // Top padding includes 56px for the site header
 
   @include breakpoint('small') {
     margin-bottom: rem(40);
@@ -49,6 +88,7 @@
 
   @include breakpoint('large') {
     margin-bottom: rem(64);
+    padding-top: calc(#{rem(56)} + var(--site-header-height));
   }
 
   @include breakpoint('xlarge') {
