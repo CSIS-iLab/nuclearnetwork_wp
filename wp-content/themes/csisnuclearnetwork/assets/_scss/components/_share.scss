@@ -7,11 +7,6 @@
   justify-content: center;
   align-items: center;
 
-  &:not(:only-child) {
-    padding-top: rem(24);
-    // border-top: 1px solid $color-accent-light-primary-300;
-  }
-
   a {
     display: flex !important;
     align-items: center;
@@ -30,7 +25,7 @@
     }
 
     &:focus {
-      background: $color-bg-light-200;
+      background: $color-bg-light-300;
     }
 
     img {
@@ -39,32 +34,32 @@
     }
   }
 
-  /* stylelint-disable-next-line */
-  .a2a_button_email {
+  /* stylelint-disable */
+  .a2a_button_facebook {
     position: relative;
-    top: 2px;
+    top: -2px;
   }
 
+  .a2a_button_linkedin {
+    position: relative;
+    top: -2px;
+  }
+
+  /* stylelint-enable */
   .single__footer &,
   .single__content & {
-    --icon-fill: invert(31%) sepia(62%) saturate(350%) hue-rotate(131deg) brightness(94%) contrast(92%);
+    --icon-fill: invert(13%) sepia(100%) saturate(2787%) hue-rotate(189deg) brightness(98%) contrast(101%);
 
-    --icon-fill-hover: invert(0%) sepia(40%) saturate(1505%) hue-rotate(213deg) brightness(117%) contrast(108%) #{$shadow--1};
-
-    @include breakpoint('small') {
-      width: fit-content;
-      margin-right: auto;
-      margin-left: auto;
-    }
+    --icon-fill-hover: invert(14%) sepia(10%) saturate(7274%) hue-rotate(181deg) brightness(95%) contrast(87%) #{$shadow--1};
 
     &::before {
       content: 'Share';
       margin-right: rem(12);
       font-weight: 600;
       text-transform: uppercase;
-      opacity: 0.8;
+      opacity: 0.7;
       filter: var(--icon-fill);
-      @extend %text-style-label-large;
+      @extend %text-style-label-small;
     }
   }
 }
