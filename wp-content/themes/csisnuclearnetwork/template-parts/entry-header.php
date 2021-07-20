@@ -65,6 +65,7 @@ if ( $template === 'templates/template-no-image.php' ){
 
 		elseif ( is_single() ) {
 			echo '<div class="entry-header__header-content">';
+				nuclearnetwork_display_subtypes();
 				the_title( '<h1 class="entry-header__title">', '</h1>' );
 				nuclearnetwork_page_desc();
 				nuclearnetwork_authors();
