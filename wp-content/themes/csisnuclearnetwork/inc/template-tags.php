@@ -377,3 +377,38 @@ if ( ! function_exists( 'nuclearnetwork_display_footnotes' ) ) :
 		}
 	}
 endif;
+
+/**
+ * Displays the post's type and subtypes.
+ *
+ *
+ * @return string $html The subtypes.
+ */
+if (! function_exists('nuclearnetwork_display_subtypes')) :
+	function nuclearnetwork_display_subtypes() {
+
+		
+		$post_type = get_post_type();
+		global $post;
+		
+		if ( $post_type === 'events' ) {
+			$post_type_name = 'Event';
+			$tax_name = 'event_type';
+			$slug = $post_type;
+		} elseif ($post_type === 'updates' ) {
+			$post_type_name = 'Program Update';
+			$tax_name = '';
+			$slug = 'updates';
+		} elseif ($post_type === 'programs' && is_single() ) {
+			$post_type_name = 'Program';
+			$tax_name = '';
+			$slug = $post_type;
+		} elseif ($post_type === 'post' ) {
+			$post_type_name = 'Analysis';
+			$tax_name = 'analysis_subtype';
+			$slug = 'analysis';
+		}
+		
+		echo '<div class="post-terms"><a href="/' . $slug . '" class="post-terms__type">' . $post_type_name . get_the_term_list( $post->ID, $tax_name, ' / </a>', ', ') . '</div>';
+	}
+endif;

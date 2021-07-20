@@ -36,7 +36,7 @@ get_header();
 						// Setup this post for WP functions (variable must be named $post).
 						setup_postdata($post);
 						// get_template_part( 'template-parts/block-post-featured' );
-						get_template_part( 'template-parts/block', get_post_type() );
+						get_template_part( 'template-parts/block-post', get_post_type() );
 					endforeach;
 				echo "</section>";
 				// Reset the global post object so that the rest of the page works correctly.
@@ -48,7 +48,7 @@ get_header();
 			echo '<section class="archive__base">';
 			while ( have_posts() ) {
 				the_post();
-				get_template_part( 'template-parts/block', get_post_type() );
+				get_template_part( 'template-parts/block-post', get_post_type() );
 			}
 			echo "</section>";
 			wp_reset_postdata();
