@@ -33,6 +33,13 @@ if ( $template === 'templates/template-no-image.php' ){
 			the_archive_title( '<h1 class="entry-header__title">', '</h1>' );
 
 			the_archive_description('<div class="entry-header__desc">', '</div>');
+			?>
+			<div class="entry-header__desc">The Project on Nuclear Issues (PONI) at the Center for Strategic and International Studies aims to develop the next generation of policy, technical, and operational nuclear professionals through outreach, mentorship, research, and debate.</div>
+			<div class="entry-header__widget">
+				<!-- <h3>Monthly Newsletter</h3> -->
+				<?php dynamic_sidebar( 'monthly-newsletter' ); ?>
+			</div>
+			<?php
 
 		} elseif ( $is_home ) {
 			$title = get_queried_object()->post_title;

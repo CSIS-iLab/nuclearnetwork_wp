@@ -1,20 +1,22 @@
 @use '../abstracts' as *;
+@import './newsletter-block-widget';
 
 .entry-header {
   --header-margin-bottom: #{rem(32)};
   --header-padding-bottom: #{rem(32)};
   --cutout-width: #{rem(36)};
   --cutout-height: #{rem(24)};
-
   position: relative;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  max-width: $size__content-max-width;
+  flex-direction: row;
+  flex-wrap: wrap;
+  // max-width: $size__content-max-width;
   min-height: 250px;
   margin: 0 auto var(--header-margin-bottom);
   padding: rem(24) 0 calc(var(--header-padding-bottom) + var(--cutout-height));
-  text-align: center;
+
+  color: $color-white-190;
+  text-align: left;
 
   @include breakpoint('medium') {
     --header-margin-bottom: #{rem(40)};
@@ -27,23 +29,46 @@
   }
 
   &::before {
-    content: '';
     position: absolute;
     top: 0;
     bottom: 0;
     left: 0;
-    @include z-index(postBG);
     display: block;
-    @include csis-block-full-width-wrapper();
     background: linear-gradient(180deg, #1e2429 2.5%, transparent 100%), url('../../img/geo_bg.png'), linear-gradient(180deg, #1e2429 0%, rgba(26, 36, 40, 0.88) 100%);
     background-repeat: repeat;
     background-size: cover;
     // Creates triangle cutout
     clip-path: polygon(0% 0%, 100% 0%, 100% calc(100% - var(--cutout-height)), calc(50% + var(--cutout-width) / 2) calc(100% - var(--cutout-height)), 50% 100%, calc(50% - var(--cutout-width) / 2) calc(100% - var(--cutout-height)), 0% calc(100% - var(--cutout-height)));
+    content: '';
+    @include z-index(postBG);
+    @include csis-block-full-width-wrapper();
+  }
+
+  &__widget {
+    display: none;
+
+    @include breakpoint('large') {
+      display: block;
+      width: 40%;
+      padding-left: rem(56);
+    }
+  }
+
+  .newsletter-block {
+    heading {
+      color: $color-white-190;
+      @extend %text-style-heading-large-strong;
+    }
+
+    @extend %text-style-paragraph-large-short;
+
+    &:nth-of-type(2) {
+      display: none;
+    }
   }
 
   &__title {
-    color: $color-white-190;
+    color: $color-accent-secondary-yellow-100;
     @extend %text-style-heading-3-x-large;
 
     &:not(:only-child) {
@@ -59,7 +84,11 @@
   }
 
   &__desc {
-    color: $color-white-190;
-    @extend %text-style-paragraph-large-short-sans;
+    // color: $color-white-190;
+    @extend %text-style-paragraph-x-large-short;
+    @include breakpoint('large') {
+      width: 60%;
+      padding-right: rem(40);
+    }
   }
 }

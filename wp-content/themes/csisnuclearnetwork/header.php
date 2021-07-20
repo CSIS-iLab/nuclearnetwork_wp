@@ -31,7 +31,7 @@
 
 	<header class="header" role="banner">
 		<div class="container header__inner">
-      <a href="<?php echo get_home_url(); ?>" class="header__logo" title="Go home"><?php include( get_template_directory() . '/assets/static/nuclearnetwork-logo.svg'); ?></a>
+      <!-- <a href="<?php echo get_home_url(); ?>" class="header__logo" title="Go home"><?php include( get_template_directory() . '/assets/static/nuclearnetwork-logo.svg'); ?></a> -->
       <div class="spacer"></div>
 
       <?php get_template_part( 'template-parts/site-nav' );?>
