@@ -1,0 +1,16 @@
+@use 'abstracts' as *;
+
+.newsletter-block {
+    heading,
+    p {
+      display: block;
+      margin-top: rem(8);
+    }
+    heading {
+      color: $color-accent-secondary-yellow-100;
+      @extend %text-style-label-medium;
+    }
+    heading.daily {
+      margin-top: rem(24);
+    }
+}
