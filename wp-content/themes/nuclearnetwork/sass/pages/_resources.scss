@@ -1,0 +1,42 @@
+/*=================================
+=            Resources            =
+=================================*/
+
+.archive .resources,
+.search .resources {
+	.resource-authors,
+	.post-publication-date {
+		margin-bottom: 0rem;
+		line-height: 1.5rem;
+
+		.meta-label {
+			display: inline;
+		}
+	}
+
+	.entry-content {
+		margin-top: 1rem;
+	}
+
+	.post-info-url {
+		margin: 0;
+
+		a {
+			background-color: transparent;
+			text-transform: none;
+			color: $primary-blue;
+			margin: 0;
+			padding: 0;
+
+			&::after {
+				content: " \f39c";
+				font-family: 'poni';
+				@include fontSize(14px);
+			}
+
+			&:hover {
+				color: $secondary-blue;
+			}
+		}
+	}
+}

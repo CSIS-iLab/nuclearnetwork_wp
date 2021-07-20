@@ -1,0 +1,145 @@
+// Rem output with px fallback
+$browser-context: 16px;
+@function calculateRem($size) {
+    $remSize: $size / $browser-context;
+    @return #{$remSize}rem;
+}
+
+@mixin fontSize($size) {
+    font-size: $size; //Fallback in px
+    font-size: calculateRem($size);
+}
+
+// Center block
+@mixin center-block {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+// Clearfix
+@mixin clearfix() {
+    content: "";
+    display: table;
+    table-layout: fixed;
+}
+
+// Clear after (not all clearfix need this also)
+@mixin clearfix-after() {
+    clear: both;
+}
+
+// Breakpoints
+$breakpoint-xlarge: 90em;
+$breakpoint-large: 62em;
+$breakpoing-medium: 48em;
+$breakpoing-small: 36em;
+$breakpoint-xsmall: 25em;
+
+@mixin breakpoint($break) {
+    @if $break==xlarge {
+        @media screen and (min-width: $breakpoint-xlarge) {
+            @content;
+        }
+    }
+    @else if $break==large {
+        @media screen and (min-width: $breakpoint-large) {
+            @content;
+        }
+    }
+    @else if $break==medium {
+        @media screen and (min-width: $breakpoing-medium) {
+            @content;
+        }
+    }
+    @else if $break==small {
+        @media screen and (min-width: $breakpoing-small) {
+            @content;
+        }
+    }
+    @else if $break==xsmall {
+        @media screen and (max-width: $breakpoint-xsmall) {
+            @content;
+        }
+    }
+    @else {
+        @media screen and (min-width: $break) {
+            @content;
+        }
+    }
+}
+
+// Transitions
+@mixin transition($args...) {
+    -webkit-transition: $args;
+    -moz-transition: $args;
+    -ms-transition: $args;
+    -o-transition: $args;
+    transition: $args;
+}
+
+// Placeholder
+@mixin optional-at-root($sel) {
+    @at-root #{if(not &, $sel, selector-append(&, $sel))} {
+        @content;
+    }
+}
+
+@mixin placeholder {
+    @include optional-at-root('::-webkit-input-placeholder') {
+        @content;
+    }
+
+    @include optional-at-root(':-moz-placeholder') {
+        @content;
+    }
+
+    @include optional-at-root('::-moz-placeholder') {
+        @content;
+    }
+
+    @include optional-at-root(':-ms-input-placeholder') {
+        @content;
+    }
+}
+
+// Box Shadow
+
+/* @include box-shadow(1px,1px,1px,0, #fff, true); */
+
+@mixin box-shadow($top, $left, $blur, $size, $color, $inset: false) {
+    @if $inset {
+        -webkit-box-shadow: inset $top $left $blur $size $color;
+        -moz-box-shadow: inset $top $left $blur $size $color;
+        box-shadow: inset $top $left $blur $size $color;
+    }
+    @else {
+        -webkit-box-shadow: $top $left $blur $size $color;
+        -moz-box-shadow: $top $left $blur $size $color;
+        box-shadow: $top $left $blur $size $color;
+    }
+}
+
+
+//Header Animation 
+@mixin animation($name, $direction) {
+    
+    transform-origin: 50% 50%;
+    animation: $name .5s ease-in 0s both 1 $direction;
+    @-moz-document url-prefix() {
+        transform-origin: 50px 50px;
+    }
+    -webkit-transform-origin: 50px 50px;
+   
+}
+
+@mixin animationrev($name, $direction) {
+
+    transform-origin: 50% 50%;
+    animation: $name .5s ease-out .3s both 1 $direction;
+    @-moz-document url-prefix() {
+        transform-origin: 50px 50px;
+    }
+      -webkit-transform-origin: 50px 50px;
+  
+}

@@ -1,0 +1,124 @@
+/*=========================================
+=            Print Stylesheets            =
+=========================================*/
+
+    @media print {
+        *,
+        *:before,
+        *:after {
+            background: transparent !important;
+            color: #000 !important; // Black prints faster: h5bp.com/s
+            box-shadow: none !important;
+            text-shadow: none !important;
+            filter: none !important;
+            -ms-filter: none !important;
+        }
+        body {
+        	padding: 0px !important;
+            font-size: 12pt;
+            margin: 25mm 25mm 25mm 25mm;
+
+            &:before {
+            	content: 'ChinaPower Project';
+            	margin-bottom: 1cm;
+            	font-size: 24pt;
+            	display: block;
+            }
+
+            &:after {
+
+            	content: 'Printed from Next Generation Nuclear Network, ©2019 by the Center for Strategic and International Studies. All rights reserved.';
+            	margin-top: 1cm;
+            	font-size: 12pt;
+            }
+        }
+
+        h2,
+        h3 {
+            page-break-after: avoid;
+        }
+
+        article {
+
+        }
+
+        img,
+        blockquote {
+            page-break-inside: avoid;
+        }
+
+        h1.entry-title,
+        h1.page-title
+        {
+        	font-size: 30px !important;
+        }
+
+        .site-header,
+        .post-nav,
+        .site-footer,
+        .header-searchFormContainer,
+        .header-navOverlay,
+        .sharing-inline,
+        .img-cpp,
+        .tags-heading:before,
+        #btn-copy,
+        .relatedContent-img,
+        aside {
+            display: none !important;
+        }
+
+        .entry-header .featureImg {
+            background: transparent !important;
+            height: auto !important;
+
+        }
+
+        .entry-header .featureImg .entry-title {
+            text-align: left !important;
+            padding: 0 !important;
+            margin: 0 !important;
+        }
+
+        .single-post article.post .entry-content {
+            padding: 0 !important;
+        }
+
+        table th,
+        td
+        {
+            display: table-cell !important;
+        }
+
+        table th,
+        table thead
+        {
+            border: 0 !important;
+        }
+
+        blockquote {
+            border-top-color: $black;
+            border-bottom-color: $black;
+            width: 85%;
+        }
+
+        article a[href^=http].sourceLink:after {
+            content: " <" attr(href) "> ";
+        }
+
+        .content-wrapper {
+            max-width: initial !important;
+            margin: 0 auto !important;
+            padding: 0 !important;
+        }
+
+        .entry-footer .col-xs-12 {
+            padding-left: 0 !important;
+            padding-right: 0 !important;
+        }
+
+        .post-dataSources-container {
+            margin: 0 !important;
+        }
+
+
+    }

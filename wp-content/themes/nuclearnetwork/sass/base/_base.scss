@@ -1,0 +1,63 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  /* Inherit box-sizing to make it easier to change the property for components that leverage other behavior; see http://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
+  box-sizing: inherit;
+}
+
+body {
+  background: $color__background-body; /* Fallback for when there is no custom background color defined. */
+
+  @include breakpoint('xsmall') {
+    &.toggled {
+      position: fixed;
+    }
+  }
+}
+
+.site-content {
+  overflow-x: hidden;
+  margin-top: $size__header-bottom-height-mobile;
+
+  @include breakpoint('medium') {
+    margin-top: $size__header-top-height + $size__header-bottom-height;
+    overflow-x: hidden;
+  }
+
+  &.is-minimal {
+    margin-top: $size__header-bottom-height-mobile;
+  }
+}
+
+.content-wrapper {
+  max-width: $size__container-max-width;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 1rem;
+
+  @include breakpoint($size__container-max-width) {
+    padding: 0;
+  }
+
+  &.row {
+    margin: 0 auto;
+  }
+}
+
+.content-wrapper-narrow {
+  padding: 0 1rem;
+
+  @include breakpoint($size__content-max-width) {
+    max-width: $size__content-max-width;
+    margin: 0 auto;
+    padding: 0;
+
+    &.row {
+      margin: 0 auto;
+    }
+  }
+}

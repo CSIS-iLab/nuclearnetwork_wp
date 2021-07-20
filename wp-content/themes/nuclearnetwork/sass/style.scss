@@ -1,0 +1,135 @@
+/*!
+Theme Name: Nuclear Network
+Theme URI: https://github.com/CSIS-iLab/nuclearnetwork_wp
+Author: CSIS iDeas Lab
+Author URI: https://github.com/CSIS-iLab/
+Description: WordPress theme for CSIS Next Generation Nuclear Network site.
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: nuclearnetwork
+Tags:
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+
+nuclearnetwork is based on Underscores http://underscores.me/, (C) 2012-2016 Automattic, Inc.
+Underscores is distributed under the terms of the GNU GPL v2 or later.
+
+Normalizing styles have been helped along thanks to the fine work of
+Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
+*/
+
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+# Abstracts
+	## Variables
+	## Mixins
+# Base
+	## Normalize
+	## Typography
+	## Base Styles
+# Modules
+	## Accessibility
+	## Alignments
+	## Clearings
+	## Infinite Scroll
+# Components
+	## Buttons
+	## Fields
+	## Lists
+	## Media
+	## Tables
+  ## Social Share
+  ## Pagination
+  ## Related Posts
+  ## Autocomplete
+  ## Related Content
+  ## Footnotes
+  ## Calendar
+  ## Table of Contents
+  ## APP Forms
+# Layout
+	## Header
+	## Footer
+	## Posts and Pages
+	## Widgets
+# Pages
+  ## Home
+  ## Posts
+  ## Archives
+  ## 404
+  ## News
+  ## Events
+  ## Opportunities
+  ## Resources
+  ## Alumni
+  ## Announcements
+# Vendors
+--------------------------------------------------------------*/
+
+/*----------  Abstracts: Configuration and Helpers  ----------*/
+@import
+  'abstracts/variables',
+  'abstracts/mixins';
+
+/*----------  Base  ----------*/
+@import
+  'base/normalize',
+  'base/base',
+  'base/typography';
+
+/*----------  Modules  ----------*/
+@import
+  'modules/accessibility',
+  'modules/alignments',
+  'modules/clearings',
+  'modules/infinite-scroll';
+
+/*----------  Components  ----------*/
+@import
+  'components/buttons',
+  'components/fields',
+  'components/lists',
+  'components/media',
+  'components/tables',
+  'components/social-share',
+  'components/pagination',
+  'components/autocomplete',
+  'components/related-content',
+  'components/post-meta',
+  'components/post-feature-img',
+  'components/footnotes',
+  'components/sidebar-left',
+  'components/post-header',
+  'components/icons',
+  'components/calendar',
+  'components/table-of-contents',
+  'components/app-forms',
+  'components/directors-corner';
+
+/*----------  Layout  ----------*/
+@import
+  'layout/header',
+  'layout/footer',
+  'layout/widgets';
+
+/*----------  Pages  ----------*/
+@import
+  'pages/home',
+  'pages/posts',
+  'pages/archives',
+  'pages/404',
+  'pages/news',
+  'pages/events',
+  'pages/opportunities',
+  'pages/resources',
+  'pages/alumni',
+  'pages/announcements';
+
+/*----------  Vendors  ----------*/
+@import
+  'vendors/flexbox/flexbox-main',
+  'vendors/flexbox/flexbox-helpers',
+  'vendors/fontello/fontello';
