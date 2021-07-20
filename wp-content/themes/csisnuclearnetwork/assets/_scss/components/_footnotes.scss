@@ -83,6 +83,7 @@
         content: '';
         margin-top: -11px;
         background: url('/wp-content/themes/csisnuclearnetwork/assets/static/icons/reverse-arrow.svg') no-repeat;
+        transition: all 0.3s ease-in-out;
       }
 
       &:hover::after {
