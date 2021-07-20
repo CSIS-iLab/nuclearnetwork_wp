@@ -106,7 +106,7 @@
 }
 
 %text-style-paragraph-large {
-  @include font-size(18px);
+  @include font-clamp(16px, 18px);
   letter-spacing: 0.005em;
 }
 
