@@ -164,7 +164,7 @@ function nuclearnetwork_posted_on( $date_format = null ) {
 		$date = $date_format;
 	}
 
-	echo '<div class="post-meta post-meta__date">' . get_the_time( $date ) . '</div>';
+	echo '<div class="post-meta post-meta__date"><span class="post-meta__date-label">Published </span>' . get_the_time( $date ) . '</div>';
 }
 
 /**
@@ -410,5 +410,20 @@ if (! function_exists('nuclearnetwork_display_subtypes')) :
 		}
 		
 		echo '<div class="post-terms"><a href="/' . $slug . '" class="post-terms__type">' . $post_type_name . get_the_term_list( $post->ID, $tax_name, ' / </a>', ', ') . '</div>';
+	}
+endif;
+
+/**
+ * Displays the post's series.
+ *
+ *
+ * @return string $html The series.
+ */
+if (! function_exists('nuclearnetwork_display_series')) :
+	function nuclearnetwork_display_series() {
+
+		global $post;
+		
+		echo get_the_term_list( $post->ID, 'series', '<div class="post-series"><span class="post-series__label">Series </span>', ', ', '</div>');
 	}
 endif;
