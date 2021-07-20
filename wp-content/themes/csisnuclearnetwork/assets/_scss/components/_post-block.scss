@@ -5,20 +5,22 @@
 
 .post-block {
   position: relative;
-  display: grid;
-  grid-template-areas:
-    'img'
-    'title'
-    'excerpt'
-    'authors'
-    'date'
-    'categories';
-  grid-template-columns: 1fr;
+  // display: grid;
+  // grid-template-areas:
+  //   'img'
+  //   'types'
+  //   'title'
+  //   'authors'
+  //   'date'
+  //   'excerpt'
+  //   'series';
+  // grid-template-columns: 1fr;
   margin-right: auto;
   margin-left: auto;
   padding-top: rem(40);
   color: var(--post-meta);
   background: $color-white-100;
+  clear: both;
   @include full-width-background($color-white-100);
 
   @include breakpoint('small') {
@@ -49,15 +51,16 @@
 
   &.has-post-thumbnail {
     @include breakpoint('medium') {
-      grid-template-areas:
-        'title img'
-        'excerpt img'
-        'authors img'
-        'date img'
-        'categories img';
-      grid-template-columns: 2fr 1fr;
-      grid-template-rows: max-content max-content max-content max-content auto;
-      column-gap: rem(32);
+      // grid-template-areas:
+      //   'types img'
+      //   'title img'
+      //   'authors img'
+      //   'date img'
+      //   'excerpt img'
+      //   'series series';
+      // grid-template-columns: 2fr 1fr;
+      // grid-template-rows: max-content max-content max-content max-content auto;
+      // column-gap: rem(32);
     }
   }
 
@@ -65,6 +68,11 @@
     grid-area: img;
     margin-bottom: rem(24);
     transition: all 0.3s ease-in-out;
+    max-width: rem(175);
+
+    @include breakpoint('medium') {
+      float: right;
+    }
 
     &:hover ~ .post-block__title {
       // color: $color-link-primary-200;
@@ -161,8 +169,8 @@
     }
   }
 
-  .post-meta__categories {
-    grid-area: categories;
+  .post-meta__terms {
+    grid-area: types;
 
     .archive__featured & {
       // --post-meta: #{$color-accent-dark-primary-400};

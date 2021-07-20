@@ -409,7 +409,7 @@ if (! function_exists('nuclearnetwork_display_subtypes')) :
 			$slug = 'analysis';
 		}
 		
-		echo '<div class="post-terms"><a href="/' . $slug . '" class="post-terms__type">' . $post_type_name . get_the_term_list( $post->ID, $tax_name, ' / </a>', ', ') . '</div>';
+		echo '<div class="post-meta__terms"><a href="/' . $slug . '" class="post-meta__terms-type">' . $post_type_name . get_the_term_list( $post->ID, $tax_name, ' / </a>', ', ') . '</div>';
 	}
 endif;
 
@@ -424,6 +424,6 @@ if (! function_exists('nuclearnetwork_display_series')) :
 
 		global $post;
 		
-		echo get_the_term_list( $post->ID, 'series', '<div class="post-series"><span class="post-series__label">Series </span>', ', ', '</div>');
+		echo get_the_term_list( $post->ID, 'series', '<div class="post-meta__series"><span class="post-meta__series-label">Series </span>', ', ', '</div>');
 	}
 endif;
