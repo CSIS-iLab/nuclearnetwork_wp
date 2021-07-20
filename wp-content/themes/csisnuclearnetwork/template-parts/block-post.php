@@ -26,13 +26,11 @@ if ( $post_type === 'events' ) {
 		<?php endif; ?>
 
 	<?php
-	// var_dump( get_post_type() );
-		// echo get_the_term_list( $post->ID, 'analysis_subtype', '<span>Analysis / </span>', ', ');
 		nuclearnetwork_display_subtypes();
 		the_title( '<h3 class="post-block__title"><a href="' . esc_url( get_permalink() ) . '">', '</a></h3>' );
 		the_excerpt();			
 		nuclearnetwork_authors();
 		nuclearnetwork_posted_on('M j, Y');
-		nuclearnetwork_display_categories();
+		nuclearnetwork_display_series();
 	?>
 </article><!-- .post -->
