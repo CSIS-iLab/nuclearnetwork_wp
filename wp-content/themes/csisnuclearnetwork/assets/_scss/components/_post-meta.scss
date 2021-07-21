@@ -1,14 +1,16 @@
 @use 'abstracts' as *;
 
 .post-meta {
+  @extend %text-style-label-medium;
   color: var(--post-meta);
 
   &__label {
-    font-style: italic;
+    margin-right: rem(8);
+    color: $color-black-165;
   }
 
   &__authors {
-    --post-meta: #{$color-black-190};
+    --post-meta: #{$color-accent-primary-blue-200};
     margin-bottom: rem(4);
     // @extend %text-style-paragraph-small-short;
 
@@ -32,7 +34,7 @@
   }
 
   &__date {
-    --post-meta: #{$color-black-165};
+    --post-meta: #{$color-black-190};
     margin-bottom: rem(8);
 
     // @extend %text-style-label-small-strong-caps;
@@ -75,5 +77,11 @@
         outline: 0;
       }
     }
+  }
+
+  &__terms {
+    @extend %text-style-label-small-caps;
+    margin-bottom: rem(4);
+    --post-meta: #{$color-accent-primary-blue-200};
   }
 }

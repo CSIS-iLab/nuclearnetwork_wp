@@ -87,11 +87,19 @@
 %text-style-label-medium {
   @include font-size(16px);
   font-family: $font__pt;
+  letter-spacing: 0.01em;
 }
 
 %text-style-label-small {
   @include font-size(14px);
   font-family: $font__pt;
+  letter-spacing: 0.015em;
+}
+
+%text-style-label-small-caps {
+  @extend %text-style-label-small;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
 }
 
 /*----------  Paragraphs  ----------*/
