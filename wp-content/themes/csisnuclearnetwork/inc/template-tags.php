@@ -167,6 +167,8 @@ function nuclearnetwork_posted_on( $date_format = null ) {
 
 	if ( $post_type === 'news' ) {
 		echo '<div class="post-meta post-meta__date">' . get_the_time( $date ) . '</div>';
+	} elseif ( $post_type === 'events' || $post_type === 'programs' || $post_type === 'projects' ) {
+		return;
 	} else {
 		echo '<div class="post-meta post-meta__date"><span class="post-meta__date-label">Published </span>' . get_the_time( $date ) . '</div>';
 	}
@@ -210,7 +212,9 @@ function nuclearnetwork_authors() {
 		$authors = the_author_posts_link();
 	}
 
-	if ( !$authors ) {
+	$post_type = get_post_type();
+
+	if ( !$authors || $post_type === 'events' || $post_type === 'programs' || $post_type === 'projects' ) {
 		return;
 	}
 
