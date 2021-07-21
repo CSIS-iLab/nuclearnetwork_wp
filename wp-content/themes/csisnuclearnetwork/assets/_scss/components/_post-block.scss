@@ -15,12 +15,12 @@
   //   'excerpt'
   //   'series';
   // grid-template-columns: 1fr;
+  clear: both;
   margin-right: auto;
   margin-left: auto;
   padding-top: rem(40);
   color: var(--post-meta);
   background: $color-white-100;
-  clear: both;
   @include full-width-background($color-white-100);
 
   @include breakpoint('small') {
@@ -66,9 +66,9 @@
 
   &__img {
     grid-area: img;
+    max-width: rem(175);
     margin-bottom: rem(24);
     transition: all 0.3s ease-in-out;
-    max-width: rem(175);
 
     @include breakpoint('medium') {
       float: right;

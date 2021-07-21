@@ -11,9 +11,12 @@
  * @since 1.0.0
  */
 
+$post_type = get_post_type();
+$classes = 'post-block post-block--post ' . $post_type;
+
 ?>
-<article <?php post_class('post-block post-block--post'); ?> id="post-<?php the_ID(); ?>">	
-		<?php if ( has_post_thumbnail() ) : ?>
+<article <?php post_class( $classes ); ?> id="post-<?php the_ID(); ?>">	
+		<?php if ( has_post_thumbnail() && $post_type != 'events' ) : ?>
 			<a href="<?php the_permalink(); ?>" class="post-block__img" title="<?php the_title_attribute(); ?>">
 				<?php the_post_thumbnail( 'large' ); ?>
 			</a>
