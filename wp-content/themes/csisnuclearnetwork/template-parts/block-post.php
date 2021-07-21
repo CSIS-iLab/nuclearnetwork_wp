@@ -55,9 +55,7 @@ if ( $event_info['event_start_time'] && $event_info['event_end_time'] ) {
 		nuclearnetwork_display_subtypes();
 		the_title( '<h3 class="post-block__title"><a href="' . esc_url( get_permalink() ) . '">', '</a></h3>' );
 		nuclearnetwork_authors();
-		if ( $post_type != 'events' || $post_type !== 'programs' || $post_type !== 'projects' ) {
-			nuclearnetwork_posted_on('M j, Y');
-		}
+		nuclearnetwork_posted_on('M j, Y');
 		the_excerpt();
 		nuclearnetwork_display_series();
 		if ( $event_info ) { ?>
