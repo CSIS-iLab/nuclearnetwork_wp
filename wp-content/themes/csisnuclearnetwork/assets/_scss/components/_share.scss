@@ -6,20 +6,19 @@
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  transition: filter 0.3s ease-in-out;
 
   a {
     display: flex !important;
     align-items: center;
-    color: var(--icon-fill);
 
     &:first-of-type {
       margin-left: -4px;
     }
 
     &:hover {
-      --icon-fill: var(--icon-fill-hover);
-
       img {
+        --icon-fill: var(--icon-fill-hover);
         opacity: 0.9 !important;
       }
     }
@@ -30,7 +29,6 @@
 
     img {
       filter: var(--icon-fill);
-      transition: filter 0.3s ease-in-out;
     }
   }
 
@@ -57,8 +55,8 @@
       margin-right: rem(12);
       font-weight: 600;
       text-transform: uppercase;
-      opacity: 0.7;
-      filter: var(--icon-fill);
+      opacity: 0.8;
+      filter: invert(39%) sepia(98%) saturate(353%) hue-rotate(167deg) brightness(86%) contrast(90%);
       @extend %text-style-label-small;
     }
   }
