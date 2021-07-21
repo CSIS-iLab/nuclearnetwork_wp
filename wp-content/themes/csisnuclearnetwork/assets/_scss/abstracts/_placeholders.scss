@@ -106,7 +106,7 @@
 }
 
 %text-style-paragraph-large {
-  @include font-size(18px);
+  @include font-clamp(16px, 18px);
   letter-spacing: 0.005em;
 }
 
@@ -116,11 +116,13 @@
 
 %text-style-paragraph-medium-short {
   @extend %text-style-paragraph-medium;
+  line-height: 1.3;
   letter-spacing: 0.005em;
 }
 
 %text-style-paragraph-medium-short-caps {
   @extend %text-style-paragraph-medium;
+  line-height: 1.3;
   letter-spacing: 0.03em;
   text-transform: uppercase;
 }

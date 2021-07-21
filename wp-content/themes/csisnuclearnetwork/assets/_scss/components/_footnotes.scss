@@ -6,8 +6,7 @@
 
 .single__content {
   .easy-footnote {
-    // font-family: $font__merriweather;
-    font-size: rem(15px);
+    font-size: rem(12px);
 
     sup {
       position: relative;
@@ -15,26 +14,22 @@
       left: 1px;
       vertical-align: baseline;
       transition: all 0.3s ease-in-out;
-
-      &:hover {
-        // color: $color-link-primary-200;
-      }
     }
   }
 }
 
 .footnotes {
   clear: both;
-  margin: rem(40px) 0;
+  margin: rem(56px) 0 rem(48px) 0;
 
   &__heading {
-    @extend %text-style-paragraph-medium-short-caps;
-    margin-bottom: rem(12);
-    // color: $color-accent-light-primary-100;
-    font-weight: 400;
+    @extend %text-style-label-large-strong-caps;
+    margin-bottom: rem(24);
+    color: $color-accent-primary-blue-100;
   }
 
   &__list {
+    margin-bottom: rem(24);
     padding-left: 0;
   }
 }
@@ -42,16 +37,38 @@
 .easy-footnotes-wrapper {
   @extend %text-style-paragraph-medium-short;
   padding-left: 0;
+  line-height: 1.3;
   counter-reset: item;
 
   li {
     position: relative;
     left: 8px;
     display: block;
-    color: $color-black-190;
+    padding-left: rem(16) !important;
+    color: $color-black-180;
+
+    &::after {
+      position: absolute;
+      top: 0;
+      left: -8px;
+      display: block;
+      margin-left: 0;
+      content: counter(item) '.';
+      @extend %text-style-paragraph-medium-short;
+      color: $color-black-180;
+      counter-increment: item;
+    }
 
     &:not(:last-child) {
-      margin-bottom: rem(12);
+      margin-bottom: rem(4);
+    }
+
+    a:not(.easy-footnote-to-top) {
+      font-size: rem(16) !important;
+
+      &::after {
+        content: none !important;
+      }
     }
 
     .easy-footnote-margin-adjust {
@@ -59,21 +76,18 @@
     }
 
     .easy-footnote-to-top {
-      position: absolute;
-      top: 0;
-      left: -8px;
-      display: block;
-      margin-left: 0;
-
       &::after {
-        content: counter(item) '.';
-        @extend %text-style-paragraph-medium-short;
-        color: $color-black-165;
-        counter-increment: item;
+        position: absolute;
+        width: 15px;
+        height: 15px;
+        content: '';
+        margin-top: -11px;
+        background: url('/wp-content/themes/csisnuclearnetwork/assets/static/icons/reverse-arrow.svg') no-repeat;
+        transition: all 0.3s ease-in-out;
       }
 
       &:hover::after {
-        // color: $color-link-primary-200;
+        filter: invert(0%) sepia(96%) saturate(16%) hue-rotate(282deg) brightness(8%) contrast(104%) opacity(0.8);
       }
     }
   }
