@@ -64,11 +64,11 @@ if ( $event_info['event_start_time'] && $event_info['event_end_time'] ) {
 			<div class="post-block__event-meta">
 				<?php
 				if ( $event_info['event_start_time'] ) { ?>
-					<div class="post-block__event-time"><span class="post-block__event-time-label">Time</span><?php echo $event_time; ?></div>
+					<div class="post-block__event-time"><span class="post-block__event-meta-label">Time</span><?php echo $event_time; ?></div>
 					<?php
 				}
 				?>
-				<div class="post-block__event-location"><?php echo $event_info['event_location']; ?></div>
+				<div class="post-block__event-location"><span class="post-block__event-meta-label">Location</span><?php echo $event_info['event_location']; ?></div>
 			</div>
 			<?php
 		}
