@@ -159,12 +159,17 @@ function nuclearnetwork_posted_on( $date_format = null ) {
 	}
 
 	$date = get_option( 'date_format' );
+	$post_type = get_post_type();
 
 	if  ( $date_format ) {
 		$date = $date_format;
 	}
 
-	echo '<div class="post-meta post-meta__date"><span class="post-meta__date-label">Published </span>' . get_the_time( $date ) . '</div>';
+	if ( $post_type === 'news' ) {
+		echo '<div class="post-meta post-meta__date">' . get_the_time( $date ) . '</div>';
+	} else {
+		echo '<div class="post-meta post-meta__date"><span class="post-meta__date-label">Published </span>' . get_the_time( $date ) . '</div>';
+	}
 }
 
 /**
