@@ -1,10 +1,10 @@
 @use 'abstracts' as *;
+@import '../components/communication-block-widget';
 
 .footer {
   --padding-container: #{rem(40) 0};
   --margin-news-social-block: #{rem(32) 0};
 
-  // $gradient: linear-gradient(180deg, rgba(0, 50, 99, 0) 0%, rgba(0, 50, 99, 0.64) 76.2%), linear-gradient(180deg, rgba(30, 58, 85, 0.68) 0%, rgba(53, 110, 163, 0.0966914) 30.95%, rgba(56, 115, 171, 0) 100%);
   $gradient: linear-gradient(91.1deg, #0b2c4d 0.76%, #0d3357 100.12%);
   display: grid;
   grid-template-areas:
@@ -13,13 +13,8 @@
     'newsletter'
     'social'
     'copyright';
-  grid-template-columns: 1fr;
-  box-sizing: border-box;
-  margin-top: auto;
   padding: var(--padding-container);
   color: $color-white-190;
-  // background: $gradient;
-  // @include full-width-background($gradient);
   background: $color-accent-primary-blue-100;
   backdrop-filter: blur(124px);
   @extend %text-style-paragraph-medium-short;
@@ -33,12 +28,10 @@
       'csisdesc csisdesc'
       'newsletter social'
       'copyright copyright';
-    grid-template-columns: auto;
   }
 
   @include breakpoint('medium') {
     --margin-news-social-block: #{rem(24) 0 rem(16) 0};
-    grid-template-columns: 1fr 1fr;
   }
 
   @include breakpoint('large') {
@@ -48,11 +41,11 @@
       'logo logo logo'
       'csisdesc newsletter social'
       'copyright copyright copyright';
-    grid-template-columns: 1.8fr 1fr 1fr;
+    grid-template-columns: auto rem(252) rem(185);
   }
 
   @include breakpoint('xlarge') {
-    grid-template-columns: 2.5fr 1fr 1fr;
+    grid-template-columns: auto rem(252) rem(232);
   }
 
   &__description {
@@ -61,20 +54,22 @@
     .widget {
       margin-bottom: rem(12);
 
+      /* stylelint-disable */
+      &:first-of-type {
+        margin-bottom: rem(16);
+
+        &::after {
+          display: block;
+          width: rem(96);
+          padding-top: rem(15);
+          border-bottom: 1px solid $color-border-light-115;
+          content: '';
+        }
+      }
+      /* stylelint-disable */
+
       &:last-of-type {
         margin: 0;
-      }
-    }
-
-    .widget:first-of-type {
-      margin-bottom: rem(16);
-
-      &::after {
-        display: block;
-        width: rem(100);
-        padding-top: rem(15);
-        border-bottom: 1px solid $color-border-light-115;
-        content: '';
       }
     }
 
@@ -92,50 +87,21 @@
 
   &__logo {
     grid-area: logo;
-    max-width: rem(300);
     margin-bottom: rem(16);
 
     &__medium {
       display: none;
       @include breakpoint('medium') {
+        max-width: rem(434);
         display: block;
       }
     }
 
     &__small {
+      max-width: rem(210);
       @include breakpoint('medium') {
         display: none;
       }
-    }
-  }
-
-  &__desc {
-    grid-area: csisdesc;
-    margin-bottom: rem(40);
-  }
-
-  &__desc + .widget {
-    grid-area: newsletter;
-  }
-
-  &__social {
-    display: grid;
-    grid-area: social;
-    align-content: start;
-    margin-top: rem(32);
-    padding-top: rem(24);
-    border-top: 1px solid $color-border-light-115;
-
-    @include breakpoint('small') {
-      margin-top: 0;
-      padding-top: 0;
-      padding-left: rem(16);
-      border-top: 0;
-      border-left: 1px solid $color-border-light-115;
-    }
-
-    @include breakpoint('medium') {
-      padding-left: rem(24);
     }
   }
 
@@ -156,32 +122,11 @@
 
     a {
       color: $color-white-165;
-
-      &:hover {
-        color: $color-white-100;
-      }
-
-      &:focus {
-        color: $color-white-100;
-      }
+      text-decoration: underline;
     }
   }
 
-  .newsletter-block {
-    heading,
-    p {
-      display: block;
-      margin-top: rem(8);
-    }
-
-    heading {
-      color: $color-accent-secondary-yellow-100;
-      @extend %text-style-label-medium;
-    }
-
-    heading.daily {
-      margin-top: rem(24);
-    }
+  .communication-block {
 
     a {
       --buttonheight: #{rem(45)};
