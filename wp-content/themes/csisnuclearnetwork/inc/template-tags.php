@@ -418,7 +418,7 @@ if (! function_exists('nuclearnetwork_display_subtypes')) :
 			$slug = 'analysis';
 		}
 		
-		echo '<div class="post-meta__terms"><a href="/' . $slug . '" class="post-meta__terms-type">' . $post_type_name . get_the_term_list( $post->ID, $tax_name, ' / </a>', ', ') . '</div>';
+		echo '<div class="post-meta__terms text--caps"><a href="/' . $slug . '" class="post-meta__terms-type text--bold">' . $post_type_name . get_the_term_list( $post->ID, $tax_name, ' / </a>', ', ') . '</div>';
 	}
 endif;
 
