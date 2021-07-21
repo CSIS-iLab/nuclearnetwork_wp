@@ -393,7 +393,7 @@ if (! function_exists('nuclearnetwork_display_subtypes')) :
 		
 		if ( $post_type === 'events' ) {
 			$post_type_name = 'Event';
-			$tax_name = 'event_type';
+			$tax_name = 'event_types';
 			$slug = $post_type;
 		} elseif ($post_type === 'updates' ) {
 			$post_type_name = 'Program Update';
