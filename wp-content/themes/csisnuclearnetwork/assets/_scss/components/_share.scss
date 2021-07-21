@@ -6,7 +6,6 @@
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  transition: filter 0.3s ease-in-out;
 
   a {
     display: flex !important;
@@ -17,18 +16,21 @@
     }
 
     &:hover {
+      --icon-fill: var(--icon-fill-hover);
+
       img {
-        --icon-fill: var(--icon-fill-hover);
-        opacity: 0.9 !important;
+        opacity: 1 !important;
       }
     }
 
     &:focus {
+      --icon-fill: var(--icon-fill-hover);
       background: $color-bg-light-300;
     }
 
     img {
       filter: var(--icon-fill);
+      transition: all 0.3s ease-in-out;
     }
   }
 
@@ -48,7 +50,7 @@
   .single__content & {
     --icon-fill: invert(13%) sepia(100%) saturate(2787%) hue-rotate(189deg) brightness(98%) contrast(101%);
 
-    --icon-fill-hover: invert(14%) sepia(10%) saturate(7274%) hue-rotate(181deg) brightness(95%) contrast(87%) #{$shadow--1};
+    --icon-fill-hover: invert(19%) sepia(12%) saturate(2648%) hue-rotate(169deg) brightness(91%) contrast(97%);
 
     &::before {
       content: 'Share';
