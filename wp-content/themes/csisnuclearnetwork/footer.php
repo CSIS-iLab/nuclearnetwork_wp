@@ -16,8 +16,8 @@
 				<!-- div for the row -->
 				<!-- 1st column -->
 				<div class="footer__logo">
-					<a href="https://www.csis.org" class="footer__logo__small"><?php include( get_template_directory() . '/assets/static/csis-poni-logo.svg'); ?></a>
-					<a href="https://www.csis.org" class="footer__logo__medium"><?php include( get_template_directory() . '/assets/static/csis-logo-poni-full.svg'); ?></a>
+					<a href="https://www.csis.org" class="footer__logo--small"><?php include( get_template_directory() . '/assets/static/csis-poni-logo.svg'); ?></a>
+					<a href="https://www.csis.org" class="footer__logo--medium"><?php include( get_template_directory() . '/assets/static/csis-logo-poni-full.svg'); ?></a>
 				</div>
 
 				<!-- description block -->

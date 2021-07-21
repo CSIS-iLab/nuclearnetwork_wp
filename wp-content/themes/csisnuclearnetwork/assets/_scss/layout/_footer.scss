@@ -89,7 +89,7 @@
     grid-area: logo;
     margin-bottom: rem(16);
 
-    &__medium {
+    &--medium {
       display: none;
       @include breakpoint('medium') {
         max-width: rem(434);
@@ -97,7 +97,7 @@
       }
     }
 
-    &__small {
+    &--small {
       max-width: rem(210);
       @include breakpoint('medium') {
         display: none;
