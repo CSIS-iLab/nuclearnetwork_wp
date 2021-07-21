@@ -170,7 +170,7 @@ function nuclearnetwork_posted_on( $date_format = null ) {
 	} elseif ( $post_type === 'events' || $post_type === 'programs' || $post_type === 'projects' ) {
 		return;
 	} else {
-		echo '<div class="post-meta post-meta__date"><span class="post-meta__date-label">Published </span>' . get_the_time( $date ) . '</div>';
+		echo '<div class="post-meta post-meta__date"><span class="post-meta__label">Published </span>' . get_the_time( $date ) . '</div>';
 	}
 }
 
@@ -218,7 +218,7 @@ function nuclearnetwork_authors() {
 		return;
 	}
 
-	echo '<div class="post-meta post-meta__authors">By ' . $authors . '</div>';
+	echo '<div class="post-meta post-meta__authors"><span class="post-meta__label">By</span>' . $authors . '</div>';
 }
 
 if (! function_exists('nuclearnetwork_authors_list_extended')) :
@@ -418,7 +418,7 @@ if (! function_exists('nuclearnetwork_display_subtypes')) :
 			$slug = 'analysis';
 		}
 		
-		echo '<div class="post-meta__terms text--caps"><a href="/' . $slug . '" class="post-meta__terms-type text--bold">' . $post_type_name . get_the_term_list( $post->ID, $tax_name, ' / </a>', ', ') . '</div>';
+		echo '<div class="post-meta post-meta__terms"><a href="/' . $slug . '" class="post-meta__terms-type text--bold">' . $post_type_name . get_the_term_list( $post->ID, $tax_name, ' / </a>', ', ') . '</div>';
 	}
 endif;
 
