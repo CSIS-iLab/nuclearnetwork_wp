@@ -29,9 +29,8 @@ if ( $is_monthly_newsletter ) {
 var_dump($event_info['event_start_time']);
 if ( $event_info['event_start_time'] && $event_info['event_end_time'] ) {
 	$start_time = wp_date('g:i', strtotime($event_info['event_start_time']));
-	$end_time = wp_date('g:i A', strtotime($event_info['event_end_time']));
-	$timezone = current_time('T');
-	$event_time = $start_time . ' - ' . $end_time . ' ' . $timezone;
+	$end_time = wp_date('g:i A T', strtotime($event_info['event_end_time']));
+	$event_time = $start_time . ' - ' . $end_time;
 } elseif ( $event_info['event_start_time'] ) {
 	$event_time = date('g:i A', strtotime($event_info['event_end_time']));
 }
