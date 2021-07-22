@@ -133,16 +133,22 @@
 
 .post {
   &__authors {
+    --padding-top-authors: #{rem(56)};
     margin-top: rem(24);
     margin-bottom: rem(32);
-    padding-top: rem(56);
+    padding-top: var(--padding-top-authors);
+    max-width: rem(500);
+
+    @include breakpoint('large') {
+      --padding-top-authors: #{rem(32)};
+    }
 
     &::before {
       content: '';
       position: relative;
-      width: 100%;
-      padding: 56px 100%;
-      border-top: 1px solid $color-accent-primary-blue-100;
+      width: 100%;  
+      padding: var(--padding-top-authors) 100%;
+      border-top: 1px solid $color-border-dark-130;
     }
 
     &-heading {
@@ -177,7 +183,7 @@
       @extend %text-style-paragraph-large-strong;
 
       span {
-        font-weight: 500;
+        font-weight: 400;
       }
     }
 
