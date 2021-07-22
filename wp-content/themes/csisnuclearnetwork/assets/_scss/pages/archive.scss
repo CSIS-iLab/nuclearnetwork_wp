@@ -68,40 +68,20 @@
 
 .pagination__wrapper {
   display: flex;
-  gap: rem(16);
+  gap: rem(12);
   justify-content: flex-start;
   align-items: center;
   color: $color-black-165;
-
-  @include breakpoint('small') {
-    gap: rem(20);
-  }
-
-  @include breakpoint('medium') {
-    gap: rem(24);
-  }
 
   .pagination {
     @extend %text-style-label-medium;
     font-weight: normal;
   }
 
-  .current {
-    position: relative;
-    color: $color-white-190;
-    background: $color-accent-primary-blue-300;
-
-    &:hover {
-      color: $color-white-190 !important;
-      background: $color-accent-primary-blue-300 !important;
-    }
-  }
-
   .page-numbers {
     padding-top: rem(4);
     padding-bottom: rem(4);
     border-radius: 2px;
-    @extend %text-style-label-medium;
 
     &:hover {
       color: $color-accent-primary-blue-300;
@@ -116,6 +96,17 @@
     &:not(.prev):not(.next):not(.dots) {
       padding-right: rem(10);
       padding-left: rem(10);
+    }
+  }
+
+  .current {
+    position: relative;
+    color: $color-white-190;
+    background: $color-accent-primary-blue-200;
+
+    &:hover {
+      color: $color-white-190;
+      background: $color-accent-primary-blue-300;
     }
   }
 
