@@ -107,6 +107,19 @@
 
 %text-style-paragraph-large {
   @include font-clamp(16px, 18px);
+  line-height: 1.3;
+  letter-spacing: 0.005em;
+}
+
+%text-style-paragraph-large-strong {
+  @include font-clamp(16px, 18px);
+  font-weight: bold;
+  line-height: 1.3;
+  letter-spacing: 0.005em;
+}
+
+%text-style-paragraph-large-short {
+  @include font-clamp(16px, 18px);
   letter-spacing: 0.005em;
 }
 

@@ -212,53 +212,6 @@ function nuclearnetwork_authors() {
 	echo '<div class="post-meta post-meta__authors">By ' . $authors . '</div>';
 }
 
-function nuclearnetwork_authors_extended(){
-	/*
-	* This will show or not the author information. If ACF hide_author_info is checked won't show the author.
-	*/
-	if ( class_exists('ACF') ) {
-		$hide_author_info = get_field('hide_author_info');
-		if( $hide_author_info ) {
-			return;
-		}
-	}
-
-	if ( function_exists( 'coauthors' ) ) {
-		$authors = coauthors_posts_links( ', ', ' and ', null, null, false );
-		$coauthors = get_coauthors();
-		foreach ($coauthors as $coauthor){
-			var_dump($coauthor);
-			$bio = get_field_objects();
-			var_dump($bio);
-
-			$coauthor->ID;
-			$coauthor->display_name;
-			$coauthor->data->user_email;
-			echo '<div id="authorboxsingle" class="authorboxsingle"><p><span class="authorboxsinglename">' . $coauthor->data->display_name . '</span></p> <p class="authorboxsinglebio">' . $authorss . '</p></div>';
-		}
-
-		// foreach ( $coauthors as $coauthor ) {
-		// 	echo
-		// 	'<div id="authorboxsingle" class="authorboxsingle"><p><span class="authorboxsinglename">' ( $coauthor->display_name ); '</span></p> 
-		// 	<p class="authorboxsinglebio">'( $coauthor->user_description ); '</p>
-		// 	</div>'
-		// }
-		// treat author output normally
-
-	} else {
-		$authors = the_author_posts_link();
-	}
-
-	if ( !$authors ) {
-		return;
-	}
-
-	// for author in authors
-
-	// echo '<div id="authorboxsingle" class="authorboxsingle"><p><span class="authorboxsinglename"> Hello' . $coauthor->$display_name . '</span></p> <p class="authorboxsinglebio">' . $authors->user_description . '</p></div>';
-	// echo '<div class="post-meta post-meta__authors">' . $authors . '</div>';
-}
-
 if (! function_exists('nuclearnetwork_authors_list_extended')) :
 	/**
 	 * Prints HTML with short author list.
@@ -272,26 +225,25 @@ if (! function_exists('nuclearnetwork_authors_list_extended')) :
 		}
 
 		if (function_exists('coauthors_posts_links')) {
-			$authors = '<h2 class="section__heading">Authors</h2>';
+			$authors = '<h2 class="section__heading post__authors-heading">Authors</h2>';
+			$authors .= '<p class="text--italic post__authors-disclaimer">The views expressed above are the author’s and do not necessarily reflect those of the Center for Strategic and International Studies or the Project on Nuclear Issues.</p>';
 
 			foreach (get_coauthors() as $coauthor) {
 				$name = $coauthor->display_name;
 				$title = $coauthor->title;
-				var_dump($coauthor->title);
+				if ($coauthor->short_bio) {
+					$bio = $coauthor->short_bio;
+				} else {
+					$bio = $coauthor->description;
+				}
 
 
-				$authors .= '<div class="post__authors-author"><h3 class="post__authors-author-name">' . $name . ' - <span class="post__authors-author-title">' . $title . '</span></h3><p class="post__authors-author-bio">' . $coauthor->short_bio . '</p>';
-
-				// if ( $coauthor->website ) {
-				// 	$authors .= '<a href="' . $coauthor->website . '" class="post__authors-author-link">Learn More ' . nuclearnetwork_get_svg( 'arrow-external' ) .'</a></div>';
-				// } else {
-				// 	$authors .= '</div>';
-				// }
+				$authors .= '<div class="post__authors-author"><h3 class="post__authors-author-name">' . $name . '<span class="post__authors-author-title"> - ' . $title . '</span></h3><hr class="divider divider--thicc page__header-divider"><p class="post__authors-author-bio">' . $bio . '</p></div>';
 			}
 		} else {
 			$authors = the_author_posts_link();
 		}
-		echo '<div class="post__authors"><hr class="post__authors-divider alignfull">' . $authors . '</div>';
+		echo '<div class="post__authors">' . $authors . '</div>';
 	}
 endif;
 

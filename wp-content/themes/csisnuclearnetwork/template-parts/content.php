@@ -32,7 +32,6 @@
 	<?php if ( is_single() ) { ?>
 	<footer class="single__footer">
 		<?php
-			// nuclearnetwork_authors_extended();
 			nuclearnetwork_authors_list_extended();
 			echo do_shortcode( '[jprel]' );
 			if ( function_exists( 'ADDTOANY_SHARE_SAVE_KIT' ) ) { ADDTOANY_SHARE_SAVE_KIT(); }

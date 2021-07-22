@@ -133,10 +133,58 @@
 
 .post {
   &__authors {
-    margin-top: rem(48);
+    margin-top: rem(24);
     margin-bottom: rem(32);
-    padding-top: rem(24);
-    border-top: 1px solid $color-black-130;
+    padding-top: rem(56);
+
+    &::before {
+      content: '';
+      position: relative;
+      width: 100%;
+      padding: 56px 100%;
+      border-top: 1px solid $color-accent-primary-blue-100;
+    }
+
+    &-heading {
+      margin-bottom: rem(16);
+      color: $color-accent-primary-blue-100;
+      @extend %text-style-label-large-strong-caps;
+    }
+
+    &-disclaimer {
+      margin-bottom: rem(32);
+      color: $color-black-190;
+    }
+
+    &-author {
+      margin-bottom: rem(24);
+
+      &:last-of-type {
+        margin: 0;
+      }
+
+      hr {
+        width: rem(40);
+        height: rem(4);
+        margin: rem(4) 0 rem(8) 0;
+        background-color: $color-accent-secondary-yellow-100;
+        border: 0;
+      }
+    }
+
+    &-author-name {
+      color: $color-accent-primary-blue-200;
+      @extend %text-style-paragraph-large-strong;
+
+      span {
+        font-weight: 500;
+      }
+    }
+
+    &-author-bio {
+      color: $color-black-190;
+      @extend %text-style-paragraph-medium-short;
+    }
   }
 
   .entry__tags {
