@@ -72,13 +72,13 @@ if ( $posts_pagination ) { ?>
 		} 
 
 		if ( $paged != 1 ) {
-			echo "<a href='".get_pagenum_link(1)."' class='yo'>$first_text</a>";
+			echo "<a href='".get_pagenum_link(1)."' class='first page-numbers'>$first_text</a>";
 		}
 
 		echo $posts_pagination; //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- already escaped during generation.
 		
 		if ($paged != $pages) {
-			echo "<a href='".get_pagenum_link($pages)."' class='yo'>$last_text</a>";  
+			echo "<a href='".get_pagenum_link($pages)."' class='last page-numbers'>$last_text</a>";  
 		}
 	?>
 	</div><!-- .pagination-wrapper -->
