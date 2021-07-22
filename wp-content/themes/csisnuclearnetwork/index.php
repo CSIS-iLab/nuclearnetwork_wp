@@ -26,11 +26,14 @@ get_header();
 	?>
 
 	<div class='archive__content'>
-
 	<?php
 		if ( have_posts() ) {
 			nuclearnetwork_pagination_number_of_posts();
 		}
+		echo facetwp_display( 'facet', 'analysis_subtypes' ); 
+		echo facetwp_display( 'facet', 'author' ); 
+		echo facetwp_display( 'facet', 'series' ); 
+		echo facetwp_display( 'facet', 'topics' ); 
 
 		if (class_exists('ACF') && !is_paged()) {
 			// vars
