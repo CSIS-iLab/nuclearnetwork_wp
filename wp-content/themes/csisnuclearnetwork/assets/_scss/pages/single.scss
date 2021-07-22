@@ -239,7 +239,6 @@
       justify-content: center;
       align-items: center;
       margin-bottom: rem(24);
-      // color: $color-accent-light-primary-100;
       @extend %text-style-heading-large-strong-caps;
 
       @include breakpoint('small') {
@@ -254,6 +253,57 @@
         height: 0.5em;
         font-size: 2em;
       }
+    }
+  }
+
+  /* stylelint-disable-next-line */
+  h2.cite__heading {
+    color: $color-accent-primary-blue-100;
+    font-weight: 800;
+    text-transform: uppercase;
+    @extend %text-style-label-medium; 
+  }
+
+  .cite__container {
+    @extend %text-style-paragraph-small;
+    @extend %text-style-short;
+    color: $color-black-165;
+  }
+
+  .cite__citation {
+    display: block;
+    margin: rem(8) 0 rem(16) 0;
+  }
+
+  #btn-copy {
+    color: $color-black-190;
+    text-transform: unset;
+    background: transparent;
+    border: 2px solid $color-black-190;
+    transition: all ease 0.3s;
+
+    &:hover {
+      color: $color-white-100;
+      background: $color-blue-400-button-blue;
+      border: unset;
+
+      svg {
+        color: $color-white-100;
+      }
+    }
+
+    &:focus {
+      color: $color-accent-primary-blue-200;
+      background: $color-bg-light-300;
+
+      svg {
+        color: $color-accent-primary-blue-200;
+      }
+    }
+
+    svg {
+      margin-right: rem(8);
+      color: $color-black-165;
     }
   }
 }
