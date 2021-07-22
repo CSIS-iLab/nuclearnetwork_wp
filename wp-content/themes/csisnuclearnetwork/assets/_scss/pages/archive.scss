@@ -50,6 +50,12 @@
     font-weight: normal;
   }
 
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
   &__results {
     margin-bottom: rem(40);
     padding-bottom: rem(8);
@@ -79,31 +85,44 @@
 
   .current {
     position: relative;
-    color: $color-black-100;
+    color: $color-white-190;
+    background: $color-accent-primary-blue-300;
 
-    &::before {
-      content: '';
-      position: absolute;
-      bottom: 100%;
-      left: 0;
-      display: block;
-      width: 100%;
-      height: 4px;
-      background: $color-bg-dark-200;
+    &:hover {
+      color: $color-white-190 !important;
+      background: $color-accent-primary-blue-300 !important;
     }
+    // &::before {
+    //   content: '';
+    //   position: absolute;
+    //   bottom: 100%;
+    //   left: 0;
+    //   display: block;
+    //   width: 100%;
+    //   height: 4px;
+    //   background: $color-bg-dark-200;
+    // }
   }
 
   .page-numbers {
-    padding-top: rem(10);
-    padding-bottom: rem(10);
+    padding-top: rem(6);
+    padding-bottom: rem(6);
+    border-radius: 2px;
+    @extend %text-style-label-medium;
 
     &:hover {
-      color: $color-black-100;
+      color: $color-accent-primary-blue-300;
+      background: $color-bg-light-200;
+    }
+
+    &:focus {
+      color: $color-black-165;
+      background: $color-focus-300;
     }
 
     &:not(.prev):not(.next):not(.dots) {
-      padding-right: rem(8);
-      padding-left: rem(8);
+      padding-right: rem(10);
+      padding-left: rem(10);
     }
   }
 
@@ -111,7 +130,7 @@
   .next {
     position: relative;
     top: rem(2); // vertically center arrows
-    color: $color-black-150;
+    color: $color-black-140;
     font-size: 0.75em;
   }
 
