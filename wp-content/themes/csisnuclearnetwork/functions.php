@@ -358,6 +358,15 @@ function nuclearnetwork_sidebar_registration() {
 		)
 	);
 
+
+	register_sidebar(
+		array(
+			'name'        => __( 'Write for us', 'nuclearnetwork' ),
+			'id'          => 'write-for-us',
+			'description' => __( 'Write for us', 'nuclearnetwork' )
+		)
+	);
+
 }
 
 add_action( 'widgets_init', 'nuclearnetwork_sidebar_registration' );

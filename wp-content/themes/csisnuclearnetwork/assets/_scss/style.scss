@@ -5,6 +5,7 @@
 @use 'base/typography';
 @use 'base/utilities';
 @use 'components/buttons';
+@use 'components/entry-header';
 @use 'components/footnotes';
 @use 'components/home-issue-block';
 @use 'components/media';
@@ -12,5 +13,6 @@
 @use 'components/post-meta';
 @use 'components/share';
 @use 'components/search';
+@use 'components/write-for-us';
 @use 'layout/header';
 @use 'layout/footer';
