@@ -186,6 +186,7 @@
       color: $color-accent-primary-blue-200;
       @extend %text-style-paragraph-large;
       font-weight: 700;
+      @extend %text-style-short;
 
       span {
         font-weight: 400;
