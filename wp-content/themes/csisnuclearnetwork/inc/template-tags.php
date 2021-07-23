@@ -377,3 +377,26 @@ if ( ! function_exists( 'nuclearnetwork_display_footnotes' ) ) :
 		}
 	}
 endif;
+
+if ( ! function_exists( 'nuclearnetwork_citation' ) ) :
+	/**
+	 * Returns HTML with post citation.
+	 *
+	 * @param int $id Post ID.
+	 */
+	function nuclearnetwork_citation() {
+		$authors = coauthors( ', ', null, null, null, false );
+
+		$modified_date = null;
+		if ( get_the_modified_date() ) {
+			$modified_date = 'last modified ' . get_the_modified_date() . ', ';
+		}
+
+		$title = get_the_title();
+		if ( is_tax() ) {
+			$title = get_the_archive_title();
+		}
+
+		printf( '<h2 class="cite__heading text--bold text--caps">Cite this Page</h2><p class="cite__container text--short"><span class="cite__citation">' . esc_html( '%1$s, "%2$s,"', 'nuclearnetwork' ) . ' <em>%3$s</em>' . esc_html( ', Center for Strategic and International Studies, %4$s, %5$s%6$s.', 'nuclearnetwork') . '</span><button id="btn-copy" class="btn btn--dark btn--icon btn--short" data-clipboard-target=".cite__citation" aria-label="Copied!">' . nuclearnetwork_get_svg( 'copy' ) . 'Copy Citation</button></p>', $authors, $title, get_bloginfo( 'name' ), get_the_date(), $modified_date, get_the_permalink() ); // WPCS: XSS OK.
+	}
+endif;
