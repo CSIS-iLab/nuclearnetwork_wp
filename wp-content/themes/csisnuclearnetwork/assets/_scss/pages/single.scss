@@ -19,7 +19,7 @@
 
     /*----------  Headings  ----------*/
 
-    h2:not(.footnotes__heading),
+    h2:not(.footnotes__heading):not(.cite__heading),
     h3,
     h4,
     h5,
@@ -28,7 +28,7 @@
       margin-bottom: rem(8);
     }
 
-    h2:not(.footnotes__heading) {
+    h2:not(.footnotes__heading):not(.cite__heading) {
       --heading-margin-top: #{rem(56)};
       margin-bottom: rem(16);
       @extend %text-style-heading-x-large;
