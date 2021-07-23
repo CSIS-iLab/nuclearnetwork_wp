@@ -259,7 +259,7 @@ add_filter('excerpt_more', 'new_excerpt_more');
  */
 function nuclearnetwork_archive_titles( $title ) {
     if( is_category() ) {
-        $title = single_cat_title( '<span class="entry-header__title-label">Category</span> ', false );
+        $title = single_cat_title( '<span class="entry-header__title-label">Topic</span> ', false );
     } elseif( is_tag() ) {
         $title = single_tag_title( '<span class="entry-header__title-label">Tag</span> ', false );
     } elseif ( is_tax() ) { //for custom post types
