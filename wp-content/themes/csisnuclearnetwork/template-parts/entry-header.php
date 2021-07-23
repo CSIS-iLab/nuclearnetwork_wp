@@ -22,6 +22,7 @@ $is_series = is_tax('series'); //Series
 $is_category = is_category(); //Category
 $is_author = is_author(); //Author
 $is_single = is_single();
+$post_parent_id = wp_get_post_parent_id(get_the_ID());
 
 if ( $is_search || $is_tag || $is_category ) {
 	$image_URL = get_field( 'header_image', 'option' );
@@ -33,11 +34,11 @@ if ( $is_search || $is_tag || $is_category ) {
 
 $feat_image = 'style="background-image:url('. $image_URL .');"';
 $headerClasses = 'entry-header--blue';
-if ( $is_author || $is_single && !wp_get_post_parent_id(get_the_ID())|| is_singular( 'page' ) ) {
+if ( $is_author || $is_single && !$post_parent_id || is_singular( 'page' ) ) {
   $headerClasses = 'entry-header--light';
 }
 $title_classes = 'entry-header__title entry-header__title--yellow';
-if ( $is_tag || $is_category || $is_search || $post_type === 'programs' && $is_single && wp_get_post_parent_id(get_the_ID()) ) {
+if ( $is_tag || $is_category || $is_search || $post_type === 'programs' && $is_single && $post_parent_id ) {
 	$title_classes = 'entry-header__title';
 }
 $description = get_field( 'archive_description', $object->name );
@@ -102,7 +103,7 @@ if ( $template === 'templates/template-no-image.php' ){
 		</div>
 		<?php
 
-	} else if ( $post_type === 'programs' && $is_single && wp_get_post_parent_id(get_the_ID()) ) {
+	} else if ( $post_type === 'programs' && $is_single && $post_parent_id ) {
 
 		$parent = $post->post_parent;
 

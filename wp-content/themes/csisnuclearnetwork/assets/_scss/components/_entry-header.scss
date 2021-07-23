@@ -164,7 +164,9 @@
     }
 
     .icon {
-      margin-left: rem(8);
+      &-chevron-right {
+        margin-left: rem(8);
+      }
     }
   }
 
