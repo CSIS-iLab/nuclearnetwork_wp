@@ -66,7 +66,7 @@
           content: '';
         }
       }
-      /* stylelint-disable */
+      /* stylelint-enable */
 
       &:last-of-type {
         margin: 0;
@@ -125,7 +125,6 @@
   }
 
   .communication-block {
-
     a {
       --buttonheight: #{rem(45)};
       @extend %text-style-label-large;
