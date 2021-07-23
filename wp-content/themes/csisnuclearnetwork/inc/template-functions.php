@@ -365,9 +365,9 @@ function nuclearnetwork_remove_selected_categories( $categories ) {
 	$excluded_topics = get_field( 'excluded_topic', 'option' );
 	$excluded_topic_names = array();
 	
-	foreach ( $excluded_topics as $topic ) {
-		$excluded_topic_names[] = $topic->slug;
-	}
+	// foreach ( $excluded_topics as $topic ) {
+	// 	$excluded_topic_names[] = $topic->slug;
+	// }
 
 	foreach ( $categories as $index => $single_cat ) {
 		if ( in_array( $single_cat->slug, $excluded_topic_names ) ) {
