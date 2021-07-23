@@ -141,6 +141,7 @@
 
     @include breakpoint('large') {
       --padding-top-authors: #{rem(32)};
+      margin-bottom: rem(48);
     }
 
     &::before {
@@ -155,6 +156,9 @@
       margin-bottom: rem(16);
       color: $color-accent-primary-blue-100;
       @extend %text-style-label-large-strong-caps;
+      @include breakpoint('large') {
+        margin-bottom: rem(32);
+      }
     }
 
     &-disclaimer {
@@ -180,7 +184,8 @@
 
     &-author-name {
       color: $color-accent-primary-blue-200;
-      @extend %text-style-paragraph-large-strong;
+      @extend %text-style-paragraph-large;
+      font-weight: 700;
 
       span {
         font-weight: 400;

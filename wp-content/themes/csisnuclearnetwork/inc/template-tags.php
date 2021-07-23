@@ -225,8 +225,7 @@ if (! function_exists('nuclearnetwork_authors_list_extended')) :
 		}
 
 		if (function_exists('coauthors_posts_links')) {
-			$authors = '<h2 class="section__heading post__authors-heading">Authors</h2>';
-			$authors .= '<p class="text--italic post__authors-disclaimer">The views expressed above are the author’s and do not necessarily reflect those of the Center for Strategic and International Studies or the Project on Nuclear Issues.</p>';
+			$authors = '<h2 class="section__heading post__authors-heading">Authors</h2><p class="text--italic post__authors-disclaimer">The views expressed above are the author’s and do not necessarily reflect those of the Center for Strategic and International Studies or the Project on Nuclear Issues.</p>';
 
 			foreach (get_coauthors() as $coauthor) {
 				$name = $coauthor->display_name;
