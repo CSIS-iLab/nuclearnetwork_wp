@@ -32,9 +32,9 @@ if ( $is_search || $is_tag || $is_category ) {
 }
 
 $feat_image = 'style="background-image:url('. $image_URL .');"';
-$header = '<header class="entry-header entry-header--blue">';
-if ( $is_author || $is_single && !wp_get_post_parent_id(get_the_ID())|| $pagename === 'about' || $is_author ) {
-	$header = '<header class="entry-header entry-header--light">';
+$headerClasses = 'entry-header--blue';
+if ( $is_author || $is_single && !wp_get_post_parent_id(get_the_ID())|| is_singular( 'page' ) ) {
+  $headerClasses = 'entry-header--light';
 }
 $title_classes = 'entry-header__title entry-header__title--yellow';
 if ( $is_tag || $is_category || $is_search || $post_type === 'programs' && $is_single && wp_get_post_parent_id(get_the_ID()) ) {
@@ -53,10 +53,9 @@ if ( $template === 'templates/template-no-image.php' ){
 
 ?>
 
+<header class="entry-header <?php echo $headerClasses; ?>">
 
 <?php
-
-echo $header;
 
 	if ( $is_series ) { ?>
 
