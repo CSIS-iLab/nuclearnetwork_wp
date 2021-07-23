@@ -30,6 +30,7 @@ get_header();
 		if ( have_posts() ) {
 			nuclearnetwork_pagination_number_of_posts();
 		}
+		
 		echo facetwp_display( 'facet', 'analysis_subtypes' ); 
 		echo facetwp_display( 'facet', 'author' ); 
 		echo facetwp_display( 'facet', 'series' ); 

@@ -377,3 +377,21 @@ if ( ! function_exists( 'nuclearnetwork_display_footnotes' ) ) :
 		}
 	}
 endif;
+
+/**
+ * Modify the assets that are loaded on pages that use facets.
+ */
+add_filter( 'facetwp_assets', function( $assets ) {
+	if ( !is_front_page() ) {
+		$assets['custom.js'] = '/wp-content/themes/csisnuclearnetwork/assets/plugins/facets.js';
+	}
+
+	unset( $assets['fSelect.css'] );
+
+	return $assets;
+});
+
+/**
+* Add accessibility JS for facets.
+*/
+add_filter( 'facetwp_load_a11y', '__return_true' );
