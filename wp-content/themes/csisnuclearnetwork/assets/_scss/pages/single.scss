@@ -259,14 +259,11 @@
   /* stylelint-disable-next-line */
   h2.cite__heading {
     color: $color-accent-primary-blue-100;
-    font-weight: 800;
-    text-transform: uppercase;
     @extend %text-style-label-medium; 
   }
 
   .cite__container {
     @extend %text-style-paragraph-small;
-    @extend %text-style-short;
     color: $color-black-165;
   }
 
