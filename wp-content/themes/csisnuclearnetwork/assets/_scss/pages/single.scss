@@ -32,16 +32,19 @@
       --heading-margin-top: #{rem(56)};
       margin-bottom: rem(16);
       @extend %text-style-heading-x-large;
+      color: $color-accent-primary-blue-300;
     }
 
     h3 {
       --heading-margin-top: #{rem(32)};
       @extend %text-style-heading-large-strong;
+      color: $color-accent-primary-blue-200;
     }
 
     h4 {
       --heading-margin-top: #{rem(32)};
-      // @extend %text-style-paragraph-x-large-short-sans;
+      @extend %text-style-heading-medium;
+      color: $color-accent-primary-blue-100;
     }
 
     /*----------  Paragraphs & Lists  ----------*/
@@ -52,27 +55,31 @@
     }
 
     p {
-      // @extend %text-style-paragraph-large-long;
+      @extend %text-style-paragraph-large;
+      @extend %text-style-long;
     }
 
     ul,
     ol:not(.footnotes__list):not(.easy-footnotes-wrapper) {
-      margin-top: rem(16);
-      padding-left: rem(52);
-      // @extend %text-style-paragraph-medium-long;
+      margin-top: rem(16px);
+      padding-left: rem(42px);
+      // padding-left: 42px;
+      @extend %text-style-paragraph-large;
+      @extend %text-style-long;
+      color: $color-gray-190;
     }
 
     li {
-      padding-left: rem(12);
+      padding-left: rem(18px);
     }
 
     li:not(.easy-footnote-single) + li {
-      margin-top: rem(8);
+      margin-top: rem(12px);
     }
 
     ol:not(.footnotes__list):not(.easy-footnotes-wrapper)::marker,
     li::marker {
-      // color: $color-link-primary-200;
+      color: $color-accent-secondary-yellow-100;
       @extend %text-style-label-large;
     }
 
@@ -81,19 +88,24 @@
     a[href*='//']:not([class])
     {
       /* stylelint-enable */
-      // color: $color-link-primary-200;
-      // font-family: $font__merriweather;
-      @include font-size(18px);
+      color: $color-accent-primary-blue-200;
+      // @include font-size(18px);
       font-weight: 400;
       text-decoration: underline;
 
+      &:visited {
+        color: $color-bg-dark-400;
+        text-decoration-color: transparent;
+      }
+
       &:hover {
-        // color: $color-accent-light-primary-100;
+        color: $color-accent-primary-blue-100;
+        // text-decoration: none;
         text-decoration-color: transparent;
       }
 
       &:focus {
-        // color: $color-accent-light-primary-100;
+        color: $color-accent-primary-blue-100;
         text-decoration-color: transparent;
         background: $color-bg-light-400;
         outline: 0;
@@ -101,28 +113,28 @@
     }
 
     /* stylelint-disable */
-    a[href*="//"]:not([class]):not([href*="nuclearnetwork.local"]):not([href*="localhost"]):not([href*="nuclearnetwork"])
-    {
-      /* stylelint-enable */
-      &::after {
-        content: '';
-        position: relative;
-        top: 1px;
-        left: 5px;
-        display: inline-block;
-        width: 0.8em;
-        height: 0.8em;
-        margin-right: 5px;
-        background-image: url('/wp-content/themes/nuclearnetwork/assets/static/icons/arrow-external.svg');
-        background-size: 100% 100%;
-        filter: invert(38%) sepia(89%) saturate(439%) hue-rotate(133deg) brightness(86%) contrast(85%);
-        transition: filter 0.3s ease-in-out;
-      }
+    // a[href*="//"]:not([class]):not([href*="nuclearnetwork.local"]):not([href*="localhost"]):not([href*="nuclearnetwork"])
+    // {
+    //   /* stylelint-enable */
+    //   &::after {
+    //     content: '';
+    //     position: relative;
+    //     top: 1px;
+    //     left: 5px;
+    //     display: inline-block;
+    //     width: 0.8em;
+    //     height: 0.8em;
+    //     margin-right: 5px;
+    //     background-image: url('/wp-content/themes/nuclearnetwork/assets/static/icons/arrow-external.svg');
+    //     background-size: 100% 100%;
+    //     filter: invert(38%) sepia(89%) saturate(439%) hue-rotate(133deg) brightness(86%) contrast(85%);
+    //     transition: filter 0.3s ease-in-out;
+    //   }
 
-      &:hover::after {
-        filter: invert(33%) sepia(14%) saturate(1559%) hue-rotate(131deg) brightness(95%) contrast(87%);
-      }
-    }
+    //   &:hover::after {
+    //     filter: invert(33%) sepia(14%) saturate(1559%) hue-rotate(131deg) brightness(95%) contrast(87%);
+    //   }
+    // }
 
     .entry__tags {
       margin-top: rem(24);
