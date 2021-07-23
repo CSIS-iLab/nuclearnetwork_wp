@@ -8,6 +8,10 @@
 <title>chevron-right</title>
 <path d="M22.275 15.951l-11.219 11.219-1.886-1.886 9.333-9.333-9.333-9.333 1.886-1.886 11.219 11.219z"></path>
 </symbol>
+<symbol id="icon-chevron-left" viewBox="0 0 21 32">
+<title>chevron-left</title>
+<path d="M1.995 15.677l14.959-14.959 2.514 2.514-12.444 12.444 12.444 12.445-2.514 2.514-14.959-14.959z"></path>
+</symbol>
 <symbol id="icon-copy" viewBox="0 0 32 32">
 <title>copy</title>
 <path d="M24 2.667h-21.333v21.333h2.667v-18.667h18.667v-2.667z"></path>

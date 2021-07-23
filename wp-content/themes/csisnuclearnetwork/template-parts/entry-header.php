@@ -112,7 +112,7 @@ if ( $template === 'templates/template-no-image.php' ){
 
 		the_title( '<h1 class="' . $title_classes . '"><span class="entry-header__title-label">' . $parent_title . '</span>', '</h1>' );
 		?>
-		<a href="<?php echo $parent_url; ?>" class="entry-header__cta cta">< Back to <?php echo $parent_title; ?></a>
+		<a href="<?php echo $parent_url; ?>" class="entry-header__cta cta"><?php echo nuclearnetwork_get_svg( 'chevron-left' ); ?> Back to <?php echo $parent_title; ?></a>
 
 		<?php
 
