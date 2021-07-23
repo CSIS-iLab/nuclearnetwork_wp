@@ -112,7 +112,10 @@
   &--blue {
     &::before {
       background: var(--page-header-bg);
+      background-color: $color-blue-000;
+      background-repeat: no-repeat;
       background-position: center;
+      background-size: cover;
     }
   }
 
@@ -150,6 +153,7 @@
   &__cta {
     grid-column: 1;
     justify-self: flex-start;
+    max-width: fit-content;
     margin-top: rem(24);
     color: $color-white-180;
     text-transform: unset;
