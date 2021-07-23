@@ -148,10 +148,24 @@
   }
 
   &__cta {
-    @extend %text-style-label-medium;
     grid-column: 1;
+    justify-self: flex-start;
     margin-top: rem(24);
     color: $color-white-180;
+    text-transform: unset;
+
+    &:hover {
+      color: $color-white-100;
+    }
+
+    &:focus {
+      color: $color-white-100;
+      background-color: $color-accent-primary-blue-100;
+    }
+
+    .icon {
+      margin-left: rem(8);
+    }
   }
 
   &__news-btn {

@@ -66,7 +66,7 @@ if ( $template === 'templates/template-no-image.php' ){
 
 				<div class="entry-header__desc text--short"><?php echo term_description(); ?></div>
 				
-				<a href="/analysis" class="entry-header__cta cta">All Analysis ></a>
+				<a href="/analysis" class="entry-header__cta cta btn btn--med">All Analysis <?php echo nuclearnetwork_get_svg( 'chevron-right' ); ?></a>
 				
 				<div class="entry-header__write-for-us desktop-only">
 					<?php dynamic_sidebar( 'write-for-us' ); ?>
