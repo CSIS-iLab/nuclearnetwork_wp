@@ -92,13 +92,11 @@
     &--medium {
       display: none;
       @include breakpoint('medium') {
-        max-width: rem(434);
         display: block;
       }
     }
 
     &--small {
-      max-width: rem(210);
       @include breakpoint('medium') {
         display: none;
       }

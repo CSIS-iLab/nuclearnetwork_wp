@@ -36,8 +36,8 @@
 					<?php dynamic_sidebar( 'Social-Share-1' ); ?>
 					<div>
 						<div class="footer__social-icons">
-							<a href="https://www.facebook.com/csisponi/" class="footer__facebook-icon" aria-label="Visit the Reconnecting Asia Facebook page"><?php echo nuclearnetwork_get_svg( 'facebook' ); ?></a>
-							<a href="https://twitter.com/NuclearNetwork" class="footer__twitter-icon" aria-label="Visit the Reconnecting Asia Twitter page"><?php echo nuclearnetwork_get_svg( 'twitter' ); ?></a>
+							<a href="https://www.facebook.com/csisponi/" class="footer__facebook-icon" aria-label="Visit the Nuclear Network Facebook page"><?php echo nuclearnetwork_get_svg( 'facebook' ); ?></a>
+							<a href="https://twitter.com/NuclearNetwork" class="footer__twitter-icon" aria-label="Visit the Nuclear Network Twitter page"><?php echo nuclearnetwork_get_svg( 'twitter' ); ?></a>
 							<a href="https://www.linkedin.com/company/csis/" class="footer__linkedin-icon" aria-label="Visit the CSIS LinkedIn page"><?php echo nuclearnetwork_get_svg( 'linkedin' ); ?></a>
 							<a href="https://www.instagram.com/csis/" class="footer__instagram-icon" aria-label="Visit the CSIS Instagram page"><?php echo nuclearnetwork_get_svg( 'instagram' ); ?></a>
 							<a href="https://www.youtube.com/channel/UCr5jq6MC_VCe1c5ciIZtk_w" class="footer__youtube-icon" aria-label="Visit the CSIS YouTube page"><?php echo nuclearnetwork_get_svg( 'youtube' ); ?></a>
