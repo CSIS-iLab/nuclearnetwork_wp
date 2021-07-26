@@ -7,37 +7,43 @@
   &__label {
     margin-right: rem(8);
     color: $color-black-165;
+    font-style: normal;
   }
 
-  &__authors {
-    --post-meta: #{$color-accent-primary-blue-200};
-    margin-bottom: rem(4);
-    // @extend %text-style-paragraph-small-short;
-
+  &__authors,
+  &__terms,
+  &__series {
     a {
-      color: $color-black-190;
+      color: $color-accent-primary-blue-200;
 
       &::after {
         background-image: none;
       }
 
       &:hover {
-        color: $color-bg-dark-100;
+        color: $color-accent-primary-blue-100;
       }
 
       &:focus {
-        color: $color-bg-dark-100;
+        color: $color-accent-primary-blue-100;
         background: $color-bg-light-300;
         outline: 0;
       }
     }
   }
 
+  &__authors {
+    --post-meta: #{$color-black-165};
+    margin-bottom: rem(4);
+  }
+
   &__date {
     --post-meta: #{$color-black-190};
-    margin-bottom: rem(8);
+    margin-bottom: rem(12);
 
-    // @extend %text-style-label-small-strong-caps;
+    @include breakpoint('small') {
+      margin-bottom: rem(16);
+    }
   }
 
   &__categories {
@@ -80,8 +86,8 @@
   }
 
   &__terms {
+    --post-meta: #{$color-accent-primary-blue-200};
     @extend %text-style-label-small-caps;
     margin-bottom: rem(4);
-    --post-meta: #{$color-accent-primary-blue-200};
   }
 }

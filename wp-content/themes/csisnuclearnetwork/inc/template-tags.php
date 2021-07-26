@@ -433,6 +433,6 @@ if (! function_exists('nuclearnetwork_display_series')) :
 
 		global $post;
 		
-		echo get_the_term_list( $post->ID, 'series', '<div class="post-meta__series"><span class="post-meta__series-label">Series </span>', ', ', '</div>');
+		echo get_the_term_list( $post->ID, 'series', '<div class="post-meta__series text--italic"><span class="post-meta__label">Series </span>', ', ', '</div>');
 	}
 endif;

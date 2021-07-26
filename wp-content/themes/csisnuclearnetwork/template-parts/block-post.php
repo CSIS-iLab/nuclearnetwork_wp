@@ -46,14 +46,14 @@ if ( $event_info['event_start_time'] && $event_info['event_end_time'] ) {
 
 	if ( $is_monthly_newsletter ) {
 		nuclearnetwork_display_subtypes();
-		the_title( '<h3 class="post-block__title"><a href="' . esc_url( get_permalink() ) . '">', '</a></h3>' );
+		the_title( '<h3 class="post-block__title text--bold"><a href="' . esc_url( get_permalink() ) . '">', '</a></h3>' );
 		nuclearnetwork_posted_on('M j, Y');
 	} elseif ( $post_type === 'news' ) {
-		the_title( '<h3 class="post-block__title"><a href="' . esc_url( get_permalink() ) . '">', '</a></h3>' );
+		the_title( '<h3 class="post-block__title text--bold"><a href="' . esc_url( get_permalink() ) . '">', '</a></h3>' );
 		nuclearnetwork_posted_on('Y');
 	} else {
 		nuclearnetwork_display_subtypes();
-		the_title( '<h3 class="post-block__title"><a href="' . esc_url( get_permalink() ) . '">', '</a></h3>' );
+		the_title( '<h3 class="post-block__title text--bold"><a href="' . esc_url( get_permalink() ) . '">', '</a></h3>' );
 		nuclearnetwork_authors();
 		nuclearnetwork_posted_on('M j, Y');
 		the_excerpt();

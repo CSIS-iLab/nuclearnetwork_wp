@@ -19,35 +19,17 @@
   margin-right: auto;
   margin-bottom: rem(24);
   margin-left: auto;
-  padding-top: rem(40);
+  padding: rem(24) rem(24) rem(32);
   color: var(--post-meta);
   background: $color-white-100;
-  @include full-width-background($color-white-100);
 
   @include breakpoint('small') {
-    @include full-width-background(transparent);
-    padding-right: rem(24);
-    padding-bottom: rem(24);
-    padding-left: rem(24);
-
-    &:not(:last-child)::after {
-      top: unset;
-      bottom: 0;
-      left: rem(24);
-      width: calc(100% - 48px);
-      height: 1px;
-      background: $color-black-200;
-    }
+    padding: rem(32);
   }
 
   @include breakpoint('large') {
     padding-right: rem(48);
     padding-left: rem(48);
-
-    &:not(:last-child)::after {
-      left: rem(48);
-      width: calc(100% - 94px);
-    }
   }
 
   &.has-post-thumbnail {
@@ -66,13 +48,14 @@
   }
 
   &__img {
-    grid-area: img;
-    max-width: rem(175);
+    float: right;
+    width: 100%;
     margin-bottom: rem(24);
     transition: all 0.3s ease-in-out;
 
     @include breakpoint('medium') {
-      float: right;
+      max-width: rem(175);
+      margin-left: rem(24);
     }
 
     &:hover ~ .post-block__title {
@@ -85,18 +68,19 @@
   }
 
   &__title {
+    @extend %text-style-heading-medium;
     grid-area: title;
-    color: $color-black-190;
-    // @extend %text-style-heading-large-serif-bold;
+    margin-bottom: rem(12);
+    color: $color-black-100;
 
     a {
       &:hover {
-        // color: $color-link-primary-200;
+        color: $color-accent-primary-blue-200;
       }
 
       &:focus {
-        // color: $color-link-primary-200;
-        background: $color-bg-light-400;
+        background: $color-bg-light-300;
+        outline: 0;
       }
     }
 
@@ -117,12 +101,10 @@
   }
 
   &__excerpt {
+    @extend %text-style-paragraph-medium-short;
     grid-area: excerpt;
-    margin-top: rem(8);
-    margin-bottom: rem(16);
-    color: $color-black-165;
+    color: $color-black-190;
     overflow-wrap: break-word;
-    // @extend %text-style-paragraph-large-short-sans;
 
     .archive__featured & {
       color: $color-white-190;
@@ -193,19 +175,13 @@
     }
   }
 
-  &--post {
-    padding-bottom: rem(32);
+  .post-meta__series {
+    margin-top: rem(24);
+    padding-top: rem(16);
+    border-top: 1px solid $color-border-dark-130;
 
     @include breakpoint('small') {
-      padding-bottom: rem(24);
-
-      &:not(:last-of-type) {
-        border-bottom: 0;
-      }
-    }
-
-    @include breakpoint('large') {
-      padding-bottom: rem(32);
+      padding-top: rem(24);
     }
   }
 
