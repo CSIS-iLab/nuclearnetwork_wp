@@ -15,13 +15,18 @@
   //   'excerpt'
   //   'series';
   // grid-template-columns: 1fr;
-  clear: both;
   margin-right: auto;
   margin-bottom: rem(24);
   margin-left: auto;
   padding: rem(24) rem(24) rem(32);
   color: var(--post-meta);
   background: $color-white-100;
+
+  &::after {
+    content: '';
+    display: table;
+    clear: both;
+  }
 
   @include breakpoint('small') {
     padding: rem(32);
@@ -30,6 +35,10 @@
   @include breakpoint('large') {
     padding-right: rem(48);
     padding-left: rem(48);
+  }
+
+  &:hover {
+    @include shadow('lg');
   }
 
   &.has-post-thumbnail {
@@ -50,12 +59,12 @@
   &__img {
     float: right;
     width: 100%;
-    margin-bottom: rem(24);
+    padding-bottom: rem(24);
     transition: all 0.3s ease-in-out;
 
     @include breakpoint('medium') {
       max-width: rem(175);
-      margin-left: rem(24);
+      padding-left: rem(24);
     }
 
     &:hover ~ .post-block__title {
@@ -192,5 +201,61 @@
 
   .featured-media a {
     display: block;
+  }
+
+  &.projects,
+  &.programs {
+    .post-block__title {
+      @extend %text-style-heading-large-strong;
+      color: $color-accent-primary-blue-200;
+
+      a {
+        transition: all 0.3s ease-in-out;
+
+        &:hover {
+          color: $color-accent-primary-blue-100;
+        }
+
+        &:focus {
+          color: $color-accent-primary-blue-100;
+          background: $color-bg-light-300;
+          outline: 0;
+        }
+      }
+
+      &::after {
+        content: '';
+        display: block;
+        width: rem(56);
+        height: rem(4);
+        margin-top: rem(4);
+        background-color: $color-accent-secondary-yellow-100;
+      }
+
+      /* stylelint-disable */
+      a[href*="//"]:not([class]):not([href*="nuclearnetwork.local"]):not([href*="localhost"]):not([href*="nuclearnetwork"])
+      {
+        /* stylelint-enable */
+        &::after {
+          content: '';
+          display: inline-block;
+          width: 0.7em;
+          height: 0.7em;
+          margin-left: rem(8);
+          background-image: url('/wp-content/themes/csisnuclearnetwork/assets/static/icons/arrow-external.svg');
+          background-size: 100% 100%;
+          filter: invert(26%) sepia(69%) saturate(1514%) hue-rotate(187deg) brightness(85%) contrast(80%);
+          transition: filter 0.3s ease-in-out;
+        }
+
+        &:hover::after {
+          filter: invert(12%) sepia(88%) saturate(853%) hue-rotate(180deg) brightness(102%) contrast(89%);
+        }
+
+        &:focus::after {
+          filter: invert(12%) sepia(88%) saturate(853%) hue-rotate(180deg) brightness(102%) contrast(89%);
+        }
+      }
+    }
   }
 }
