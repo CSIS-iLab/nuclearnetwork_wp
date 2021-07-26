@@ -3,15 +3,15 @@
 .wp-block-lazyblock-report-block {
   --margin-text-side: auto;
   --margin-gutter-side: auto;
-  margin: 0 auto;
   max-width: 240px !important; // Override the alignment max-width
+  margin: 0 auto;
 
-  @include breakpoint('large'){
+  @include breakpoint('large') {
     --margin-text-side: rem(48);
     --margin-gutter-side: 6vw;
   }
 
-  @include breakpoint('xxlarge'){
+  @include breakpoint('xxlarge') {
     --margin-gutter-side: rem(80);
   }
 
@@ -29,8 +29,8 @@
 
     figcaption {
       @extend %text-style-label-large;
-      font-weight: 700;
       color: $color-black-190;
+      font-weight: 700;
     }
   }
 }
