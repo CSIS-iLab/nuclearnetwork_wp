@@ -17,6 +17,7 @@
   // grid-template-columns: 1fr;
   clear: both;
   margin-right: auto;
+  margin-bottom: rem(24);
   margin-left: auto;
   padding-top: rem(40);
   color: var(--post-meta);
@@ -194,10 +195,6 @@
 
   &--post {
     padding-bottom: rem(32);
-
-    &:not(:last-of-type) {
-      border-bottom: 1px solid $color-black-200;
-    }
 
     @include breakpoint('small') {
       padding-bottom: rem(24);

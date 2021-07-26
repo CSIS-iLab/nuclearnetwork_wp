@@ -101,8 +101,6 @@
   }
 
   &__base {
-    @include shadow('lg');
-
     @include breakpoint('small') {
       margin-top: rem(32);
     }
