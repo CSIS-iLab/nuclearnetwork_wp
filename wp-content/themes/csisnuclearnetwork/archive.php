@@ -27,9 +27,8 @@ get_header();
 
 		if (class_exists('ACF') && !is_paged()) {
 			// vars
-			$featured_post = get_field('featured_post', $term);
+			$featured_post = get_field('featured_post', $term->name);
 			if ( $featured_post ) {
-
 				echo '<section class="archive__featured">';
 					echo '<h2 class="archive__featured-label">Featured</h2>';
 					foreach( $featured_post as $post ):
