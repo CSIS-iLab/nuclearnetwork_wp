@@ -26,6 +26,7 @@
       the_content( __( 'Continue reading', 'nuclearnetwork' ) );
       nuclearnetwork_display_footnotes();
 			get_template_part( 'template-parts/featured-image-caption' );
+			nuclearnetwork_citation();
     ?>
 	</div><!-- .post-inner -->
 

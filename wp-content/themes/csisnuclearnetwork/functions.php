@@ -240,6 +240,16 @@ function nuclearnetwork_register_scripts() {
 		wp_script_add_data( 'nuclearnetwork-js-carousel', 'async', true );
 	}
 
+	if ( is_single() ) {
+		wp_enqueue_script('nuclearnetwork-clipboard', 'https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js', array(), '20170713', true );
+		wp_add_inline_script('nuclearnetwork-clipboard', "var clipboard = new ClipboardJS('#btn-copy');
+			clipboard.on('success', function(e) {
+					var d = document.getElementById('btn-copy');
+				d.className += ' tooltipped tooltipped-n tooltipped-no-delay';
+			});
+		");
+	}
+
 }
 
 add_action( 'wp_enqueue_scripts', 'nuclearnetwork_register_scripts' );
@@ -355,6 +365,15 @@ function nuclearnetwork_sidebar_registration() {
 			'name'        => __( 'Nuclear Policy News', 'nuclearnetwork' ),
 			'id'          => 'nuclear-policy-news',
 			'description' => __( 'Nuclear Policy News', 'nuclearnetwork' )
+		)
+	);
+
+
+	register_sidebar(
+		array(
+			'name'        => __( 'Write for us', 'nuclearnetwork' ),
+			'id'          => 'write-for-us',
+			'description' => __( 'Write for us', 'nuclearnetwork' )
 		)
 	);
 
