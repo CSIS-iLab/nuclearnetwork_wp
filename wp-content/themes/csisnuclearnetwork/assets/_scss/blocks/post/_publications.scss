@@ -1,81 +1,36 @@
 @use '../abstracts' as *;
 
-.wp-block-lazyblock-post-publication {
+.wp-block-lazyblock-report-block {
   --margin-text-side: auto;
   --margin-gutter-side: auto;
+  margin: 0 auto;
   max-width: 240px !important; // Override the alignment max-width
+
+  @include breakpoint('large'){
+    --margin-text-side: rem(48);
+    --margin-gutter-side: 6vw;
+  }
+
+  @include breakpoint('xxlarge'){
+    --margin-gutter-side: rem(80);
+  }
+
 
   .csis-block--publication {
     display: grid;
-    grid-column-gap: rem(16);
-    grid-row-gap: 0;
-    grid-template-columns: min-content auto;
-    padding-bottom: rem(16);
+    grid-column-gap: 0;
+    grid-row-gap: rem(12);
+    padding-bottom: rem(32);
     transition: background 0.3s ease-in-out;
 
-    &:hover {
-      .csis-block__desc {
-        // color: $color-link-primary-200;
-      }
-
-      .btn--dark {
-        color: $color-white-100;
-        // background: $color-link-primary-200;
-      }
-
-      /* stylelint-disable-next-line */
-      .csis-block__title a {
-        // color: $color-link-primary-200 !important;
-      }
+    .btn {
+      width: rem(184);
     }
 
-    &:focus-within {
-      background: $color-bg-light-300;
-
-      *:focus {
-        // outline: 1px solid $color-link-primary-200;
-      }
-
-      .btn--dark {
-        --btn-color: #{$color-black-165};
-        --btn-bg: transparent;
-      }
-    }
-  }
-
-  .csis-block {
-    &__img {
-      grid-column: 1 / -1;
-      justify-self: center;
-      margin-bottom: rem(12);
-    }
-
-    &__pdf {
-      grid-row: span 2;
-    }
-
-    &__title {
-      margin-bottom: rem(4);
-
-      /* stylelint-disable */
-      a:not([class]) {
-        color: $color-black-190;
-        text-transform: unset;
-        text-decoration: none;
-        box-shadow: none;
-        // @extend %text-style-label-large-strong;
-
-        &:after {
-          display: none !important;
-        }
-      }
-    }
-
-    &__desc {
-      grid-column: 2;
-      color: $color-black-165;
-      @extend %text-style-label-medium;
-      transition: 0.3s ease-in-out;
+    figcaption {
+      @extend %text-style-label-large;
+      font-weight: 700;
+      color: $color-black-190;
     }
   }
 }
