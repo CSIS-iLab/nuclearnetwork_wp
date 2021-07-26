@@ -146,6 +146,11 @@
 
   .post-meta__date {
     grid-area: date;
+    margin-bottom: rem(12);
+
+    @include breakpoint('small') {
+      margin-bottom: rem(16);
+    }
 
     .archive__featured & {
       --post-meta: #{$color-white-165};
