@@ -63,7 +63,6 @@
     ol:not(.footnotes__list):not(.easy-footnotes-wrapper) {
       margin-top: rem(16px);
       padding-left: rem(42px);
-      // padding-left: 42px;
       @extend %text-style-paragraph-large;
       @extend %text-style-long;
       color: $color-gray-190;
@@ -89,18 +88,16 @@
     {
       /* stylelint-enable */
       color: $color-accent-primary-blue-200;
-      // @include font-size(18px);
       font-weight: 400;
       text-decoration: underline;
 
-      // &:visited {
-      //   color: $color-bg-dark-400;
-      //   text-decoration-color: transparent;
-      // }
+      &:visited {
+        color: $color-bg-dark-400;
+        text-decoration-color: transparent;
+      }
 
       &:hover {
         color: $color-accent-primary-blue-100;
-        // text-decoration: none;
         text-decoration-color: transparent;
       }
 
