@@ -93,10 +93,10 @@
       font-weight: 400;
       text-decoration: underline;
 
-      &:visited {
-        color: $color-bg-dark-400;
-        text-decoration-color: transparent;
-      }
+      // &:visited {
+      //   color: $color-bg-dark-400;
+      //   text-decoration-color: transparent;
+      // }
 
       &:hover {
         color: $color-accent-primary-blue-100;
@@ -113,28 +113,28 @@
     }
 
     /* stylelint-disable */
-    // a[href*="//"]:not([class]):not([href*="nuclearnetwork.local"]):not([href*="localhost"]):not([href*="nuclearnetwork"])
-    // {
+    a[href*="//"]:not([class]):not([href*="nuclearnetwork.local"]):not([href*="localhost"]):not([href*="nuclearnetwork"])
+    {
       /* stylelint-enable */
-    //   &::after {
-    //     content: '';
-    //     position: relative;
-    //     top: 1px;
-    //     left: 5px;
-    //     display: inline-block;
-    //     width: 0.8em;
-    //     height: 0.8em;
-    //     margin-right: 5px;
-    //     background-image: url('/wp-content/themes/nuclearnetwork/assets/static/icons/arrow-external.svg');
-    //     background-size: 100% 100%;
-    //     filter: invert(38%) sepia(89%) saturate(439%) hue-rotate(133deg) brightness(86%) contrast(85%);
-    //     transition: filter 0.3s ease-in-out;
-    //   }
+      &::after {
+        content: '';
+        position: relative;
+        top: 1px;
+        left: 5px;
+        display: inline-block;
+        width: rem(14);
+        height: rem(14);
+        margin-right: 5px;
+        background-image: url('/wp-content/themes/csisnuclearnetwork/assets/static/icons/arrow-external.svg');
+        background-size: 100% 100%;
+        filter: invert(22%) sepia(87%) saturate(1176%) hue-rotate(186deg) brightness(101%) contrast(85%);
+        transition: filter 0.3s ease-in-out;
+      }
 
-    //   &:hover::after {
-    //     filter: invert(33%) sepia(14%) saturate(1559%) hue-rotate(131deg) brightness(95%) contrast(87%);
-    //   }
-    // }
+      &:hover::after {
+        filter: invert(14%) sepia(55%) saturate(817%) hue-rotate(170deg) brightness(102%) contrast(92%);
+      }
+    }
 
     .entry__tags {
       margin-top: rem(24);
