@@ -1,10 +1,11 @@
 @use 'abstracts' as *;
+@import '../components/communication-block-widget';
 
 .footer {
-  --padding-top: #{rem(32)};
-  --padding-bottom: #{rem(24)};
+  --padding-container: #{rem(40) 0};
+  --margin-news-social-block: #{rem(32) 0};
 
-  $gradient: linear-gradient(180deg, rgba(36, 50, 56, 0.88) 0%, #242c30 100%);
+  $gradient: linear-gradient(91.1deg, #0b2c4d 0.76%, #0d3357 100.12%);
   display: grid;
   grid-template-areas:
     'logo'
@@ -12,35 +13,70 @@
     'newsletter'
     'social'
     'copyright';
-  grid-template-columns: 1fr;
-  margin-top: auto;
-  padding-top: var(--padding-top);
-  padding-bottom: var(--padding-bottom);
-  @extend %text-style-paragraph-medium-short;
+  padding: var(--padding-container);
   color: $color-white-190;
-  background: $gradient;
-  @include full-width-background($gradient);
+  background: $color-accent-primary-blue-100;
+  backdrop-filter: blur(124px);
+  @extend %text-style-paragraph-medium-short;
+  @include full-width-background($color-accent-primary-blue-100);
 
   @include breakpoint('small') {
+    --padding-container: #{rem(32) 0};
+    --margin-news-social-block: #{rem(24) 0};
     grid-template-areas:
       'logo logo'
       'csisdesc csisdesc'
       'newsletter social'
       'copyright copyright';
-    grid-template-columns: auto rem(188);
   }
 
   @include breakpoint('medium') {
-    grid-template-columns: 1fr 1fr;
+    --margin-news-social-block: #{rem(24) 0 rem(16) 0};
   }
 
   @include breakpoint('large') {
-    --padding-bottom: #{rem(56)};
+    --padding-container: #{rem(24) 0};
+    --margin-news-social-block: #{rem(8) 0 rem(16) 0};
     grid-template-areas:
       'logo logo logo'
       'csisdesc newsletter social'
       'copyright copyright copyright';
-    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-columns: auto rem(252) rem(185);
+  }
+
+  @include breakpoint('xlarge') {
+    grid-template-columns: auto rem(252) rem(232);
+  }
+
+  &__description {
+    grid-area: csisdesc;
+
+    .widget {
+      margin-bottom: rem(12);
+
+      /* stylelint-disable */
+      &:first-of-type {
+        margin-bottom: rem(16);
+
+        &::after {
+          display: block;
+          width: rem(96);
+          padding-top: rem(15);
+          border-bottom: 1px solid $color-border-light-115;
+          content: '';
+        }
+      }
+      /* stylelint-enable */
+
+      &:last-of-type {
+        margin: 0;
+      }
+    }
+
+    @include breakpoint('large') {
+      margin: var(--margin-news-social-block);
+      margin-right: rem(40);
+    }
   }
 
   a {
@@ -51,59 +87,19 @@
 
   &__logo {
     grid-area: logo;
-    max-width: rem(300);
     margin-bottom: rem(16);
-  }
 
-  &__desc {
-    grid-area: csisdesc;
-    margin-bottom: rem(40);
-  }
-
-  .widget:first-of-type {
-    margin-bottom: rem(24);
-
-    @include breakpoint('large') {
-      position: relative;
-      margin-bottom: rem(32);
-    }
-
-    &::after {
-      @include breakpoint('large') {
-        content: '';
-        position: absolute;
-        top: calc(100% + #{rem(16)});
-        left: 0;
+    &--medium {
+      display: none;
+      @include breakpoint('medium') {
         display: block;
-        width: rem(100);
-        margin-bottom: rem(16);
-        border-bottom: 1px solid $color-border-light-115;
       }
     }
-  }
 
-  &__desc + .widget {
-    grid-area: newsletter;
-  }
-
-  &__social {
-    display: grid;
-    grid-area: social;
-    align-content: start;
-    margin-top: rem(32);
-    padding-top: rem(24);
-    border-top: 1px solid $color-border-light-115;
-
-    @include breakpoint('small') {
-      margin-top: 0;
-      padding-top: 0;
-      padding-left: rem(16);
-      border-top: 0;
-      border-left: 1px solid $color-border-light-115;
-    }
-
-    @include breakpoint('medium') {
-      padding-left: rem(24);
+    &--small {
+      @include breakpoint('medium') {
+        display: none;
+      }
     }
   }
 
@@ -111,66 +107,69 @@
     margin-left: rem(-8);
     color: $color-white-165;
     @include font-size(28px);
+
+    a:nth-of-type(4) {
+      padding-right: rem(5);
+    }
   }
 
   &__copyright {
     grid-area: copyright;
-    margin-top: rem(16);
     color: $color-white-165;
     text-align: left;
 
     a {
       color: $color-white-165;
+      text-decoration: underline;
+    }
+  }
 
-      &:hover {
-        color: $color-white-100;
-      }
-
-      &:focus {
-        color: $color-white-100;
-      }
+  .communication-block {
+    a {
+      --buttonheight: #{rem(45)};
+      @extend %text-style-label-large;
+      display: block;
+      width: 116px;
+      height: var(--buttonheight);
+      margin-top: rem(12);
+      font-size: 18px;
+      line-height: var(--buttonheight);
+      text-align: center;
+      background-color: #0f609d;
+      border-radius: 2px;
     }
   }
 
   &__newsletter {
-    @include breakpoint('small') {
-      margin-right: rem(4);
+    grid-area: newsletter;
+    margin: var(--margin-news-social-block);
+
+    h2 {
+      @extend %text-style-label-large-caps;
     }
-
-    @include breakpoint('medium') {
-      margin-right: rem(24);
-    }
-
-    @include breakpoint('large') {
-      margin-left: rem(40);
-    }
-  }
-
-  &__newsletter-desc {
-    color: $color-white-165;
-  }
-
-  &__newsletter,
-  &__social {
-    text-align: center;
 
     @include breakpoint('small') {
-      text-align: left;
+      padding-right: rem(24);
+      border-right: 1px $color-border-light-115 solid;
     }
   }
 
-  &__newsletter-header,
-  &__social-header {
-    margin-bottom: rem(8);
-    font-weight: 700;
-    font-size: rem(18);
-  }
+  &__contact {
+    grid-area: social;
+    margin: var(--margin-news-social-block);
+    margin-top: 0;
 
-  &__newsletter-desc {
-    margin-bottom: rem(24);
-  }
+    h2 {
+      @extend %text-style-label-large-caps;
+    }
 
-  &__newsletter-button {
-    margin-bottom: rem(16);
+    .widget {
+      margin-bottom: rem(24);
+    }
+
+    @include breakpoint('small') {
+      margin: var(--margin-news-social-block);
+      padding-left: rem(24);
+    }
   }
 }
