@@ -93,6 +93,32 @@
       }
     }
 
+    /* stylelint-disable */
+    a[href*="//"]:not([class]):not([href*="nuclearnetwork.local"]):not([href*="localhost"]):not([href*="nuclearnetwork"])
+    {
+      /* stylelint-enable */
+      &::after {
+        content: '';
+        display: inline-block;
+        width: 0.7em;
+        height: 0.7em;
+        margin-left: rem(8);
+        background-image: url('/wp-content/themes/csisnuclearnetwork/assets/static/icons/arrow-external.svg');
+        background-size: 100% 100%;
+        opacity: 0.9;
+        transition: all 0.3s ease-in-out;
+      }
+
+      &:hover::after {
+        opacity: 1;
+        filter: invert(26%) sepia(69%) saturate(1514%) hue-rotate(187deg) brightness(85%) contrast(80%);
+      }
+
+      &:focus::after {
+        // filter: invert(12%) sepia(88%) saturate(853%) hue-rotate(180deg) brightness(102%) contrast(89%);
+      }
+    }
+
     .archive__featured & {
       color: $color-white-190;
 
@@ -204,7 +230,8 @@
   }
 
   &.projects,
-  &.programs {
+  &.programs,
+  &.news {
     .post-block__title {
       @extend %text-style-heading-large-strong;
       color: $color-accent-primary-blue-200;
@@ -221,15 +248,6 @@
           background: $color-bg-light-300;
           outline: 0;
         }
-      }
-
-      &::after {
-        content: '';
-        display: block;
-        width: rem(56);
-        height: rem(4);
-        margin-top: rem(4);
-        background-color: $color-accent-secondary-yellow-100;
       }
 
       /* stylelint-disable */
@@ -256,6 +274,18 @@
           filter: invert(12%) sepia(88%) saturate(853%) hue-rotate(180deg) brightness(102%) contrast(89%);
         }
       }
+    }
+  }
+
+  &.projects,
+  &.programs {
+    .post-block__title::after {
+      content: '';
+      display: block;
+      width: rem(56);
+      height: rem(4);
+      margin-top: rem(4);
+      background-color: $color-accent-secondary-yellow-100;
     }
   }
 }
