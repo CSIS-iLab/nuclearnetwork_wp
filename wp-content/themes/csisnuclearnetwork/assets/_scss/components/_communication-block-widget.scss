@@ -12,8 +12,9 @@
     @extend %text-style-label-medium;
   }
 
-  /* stylelint-disable-next-line */
+  /* stylelint-disable */
   h3.daily {
     margin-top: rem(24);
   }
+  /* stylelint-enable */
 }
