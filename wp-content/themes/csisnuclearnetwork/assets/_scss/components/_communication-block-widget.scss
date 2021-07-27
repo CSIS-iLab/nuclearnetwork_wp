@@ -12,7 +12,8 @@
     @extend %text-style-label-medium;
   }
 
-  h3 .daily {
+  /* stylelint-disable-next-line */
+  h3.daily {
     margin-top: rem(24);
   }
 }
