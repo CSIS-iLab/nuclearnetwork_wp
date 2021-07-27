@@ -118,6 +118,27 @@
   }
 }
 
+@mixin full-width-bg-2(
+  $background,
+  $direction: '',
+  $includeMargins: true
+) {
+  $width_forumula: calc((100vw - 100%) / 2);
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: calc(-1 * calc((100vw - 100%) / 2));
+    z-index: -2;
+    display: block;
+    width: calc(100% + calc(100vw - 100%));
+    height: 100%;
+    background: $background;
+  }
+}
+
 // Box shadow underline for links
 @mixin link-underline($color, $thickness: -1px, $hideOnHover: true) {
   box-shadow: inset 0 $thickness 0 0 $color;
