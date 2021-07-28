@@ -288,4 +288,16 @@
   .featured-media a {
     display: block;
   }
+
+  &.post-block__monthly-newsletter {
+    .post-meta__date {
+      margin-bottom: 0;
+      padding-top: rem(24);
+      border-top: 1px solid $color-border-dark-130;
+
+      .post-meta__label {
+        display: none;
+      }
+    }
+  }
 }
