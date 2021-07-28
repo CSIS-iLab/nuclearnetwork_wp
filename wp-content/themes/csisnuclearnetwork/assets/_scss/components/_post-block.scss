@@ -204,6 +204,10 @@
     .archive__featured & {
       color: $color-white-190;
     }
+
+    .post-block.events & {
+      margin-bottom: rem(12);
+    }
   }
 
   .post-meta__authors {
@@ -297,6 +301,22 @@
 
       .post-meta__label {
         display: none;
+      }
+    }
+  }
+
+  &.events {
+    .post-block__event {
+      &-content {
+        @include breakpoint('small') {
+          clear: both;
+        }
+      }
+
+      &-date {
+        @include breakpoint('small') {
+          float: left;
+        }
       }
     }
   }
