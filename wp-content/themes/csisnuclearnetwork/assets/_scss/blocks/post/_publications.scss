@@ -6,14 +6,30 @@
   max-width: 240px !important; // Override the alignment max-width
   margin: 0 var(--margin-gutter-side) 0 var(--margin-text-side);
 
+  @include breakpoint('small') {
+    --margin-text-side: auto;
+    --margin-gutter-side: auto;
+  }
+
+  @include breakpoint('medium') {
+    --margin-text-side: auto;
+    --margin-gutter-side: auto;
+  }
+
   @include breakpoint('large') {
-    --margin-text-side: rem(48);
-    --margin-gutter-side: 6vw;
-    display: inline-block;
+    --margin-text-side: #{-6vw};
+    --margin-gutter-side: #{rem(48)};
+    float: left;
+    
+    .alignleft,
+    .alignright {
+      --margin-text-side: #{rem(48)};
+      --margin-gutter-side: #{6vw};
+    }
   }
 
   @include breakpoint('xxlarge') {
-    --margin-gutter-side: rem(80);
+    --margin-gutter-side: #{rem(80)};
   }
 
   .csis-block--publication {
