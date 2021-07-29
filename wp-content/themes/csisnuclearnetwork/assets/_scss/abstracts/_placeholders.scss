@@ -95,6 +95,12 @@
   font-family: $font__pt;
 }
 
+%text-style-label-small-strong-caps {
+  @extend %text-style-label-small;
+  font-weight: bold;
+  letter-spacing: 0.035em;
+}
+
 /*----------  Paragraphs  ----------*/
 
 %text-style-paragraph-x-large {
