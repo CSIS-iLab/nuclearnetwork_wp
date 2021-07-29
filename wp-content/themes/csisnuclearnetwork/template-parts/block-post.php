@@ -17,6 +17,8 @@ $page_for_posts = get_option( 'page_for_posts' );
 $featured_post = get_field( 'featured_post' );
 $is_monthly_newsletter = get_field( 'newsletter');
 $event_info = get_field( 'event_post_info' );
+$event_start_date = $event_info['event_start_date'];
+$event_start_time = $event_info['event_start_time'];
 
 $classes = ' post-block post-block--post ' . $post_type;
 
@@ -26,20 +28,27 @@ if ( $is_monthly_newsletter ) {
 	$classes .= ' post-block__featured';
 }
 
-if ( $event_info['event_start_date'] ) {
-	$event_day = wp_date('d', strtotime($event_info['event_start_date']));
-	$event_month = wp_date('M', strtotime($event_info['event_start_date']));
-	$event_year = wp_date('Y', strtotime($event_info['event_start_date']));
-
+if ( $event_start_date ) {
+	$event_day = date_i18n('d', strtotime($event_start_date));
+	$event_month = date_i18n('M', strtotime($event_start_date));
+	$event_year = date_i18n('Y', strtotime($event_start_date));
+	
 	$event_date = '<span class="post-block__event-month text--caps">' . $event_month . '</span><span class="post-block__event-day">' . $event_day . '</span><span class="post-block__event-year text--short">' . $event_year . '</span>';
 }
 
-if ( $event_info['event_start_time'] && $event_info['event_end_time'] ) {
-	$start_time = wp_date('g:i', strtotime($event_info['event_start_time']));
+$event_full_date = date_i18n( strtotime("$event_start_date $event_start_time"));
+$yesterday = strtotime('now');
+
+if ( $event_full_date >= $yesterday ) {
+	$is_future_event = true;
+}
+
+if ( $event_start_time && $event_info['event_end_time'] ) {
+	$start_time = wp_date('g:i', strtotime($event_start_time));
 	$end_time = wp_date('g:i A T', strtotime($event_info['event_end_time']));
 	$event_time = $start_time . ' - ' . $end_time;
-} elseif ( $event_info['event_start_time'] ) {
-	$event_time = wp_date('g:i A T', strtotime($event_info['event_start_time']));
+} elseif ( $event_start_time ) {
+	$event_time = wp_date('g:i A T', strtotime($event_start_time));
 }
 
 ?>
@@ -62,20 +71,23 @@ if ( $event_info['event_start_time'] && $event_info['event_end_time'] ) {
 	} elseif ( $post_type === 'events' ) { ?>
 	<div class="post-block__event-content">
 		<?php
-		if ( $event_info['event_start_date'] ) { ?>
+		if ( $event_start_date ) { ?>
 		<div class="post-block__event-date"><?php echo $event_date; ?></div>
 		<?php
 		}
 		nuclearnetwork_display_subtypes();
 		the_title( '<h3 class="post-block__title text--bold"><a href="' . esc_url( get_permalink() ) . '">', '</a></h3>' );
-		the_excerpt(); ?>
+		the_excerpt(); 
+		if ( $is_future_event ) { ?>
 		<a href="<?php echo esc_url( $event_info['event_registration_link'] ); ?>" class="post-block__register btn btn--outline-blue">Register<?php echo nuclearnetwork_get_svg( 'arrow-external' ); ?></a>
+		<?php
+		} ?>
 	</div>
 	<?php
-	if ( $event_info['event_start_time'] || $event_info['event_location'] ) { ?>
+	if ( $event_start_date || $event_info['event_location'] ) { ?>
 	<div class="post-block__event-meta">
 		<?php
-		if ( $event_info['event_start_time'] ) { ?>
+		if ( $event_start_time ) { ?>
 		<div class="post-meta post-meta__event"><span class="post-meta__label">Time</span><?php echo $event_time; ?></div>
 		<?php
 		}
