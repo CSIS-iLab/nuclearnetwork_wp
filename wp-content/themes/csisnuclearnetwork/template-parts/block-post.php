@@ -20,6 +20,11 @@ $event_info = get_field( 'event_post_info' );
 $event_start_date = $event_info['event_start_date'];
 $event_start_time = $event_info['event_start_time'];
 $legacy_event_date = get_post_meta( $id, '_post_start_date', true );
+$event_location = $event_info['event_location'];
+
+if ( get_post_meta( $id, '_post_location', true ) ) {
+	$event_location = get_post_meta( $id, '_post_location', true );
+}
 
 $classes = ' post-block post-block--post ' . $post_type;
 
@@ -60,6 +65,7 @@ if ( $event_start_time && $event_info['event_end_time'] ) {
 	$event_time = wp_date('g:i A T', strtotime($event_start_time));
 }
 
+
 ?>
 <article <?php post_class( $classes ); ?> id="post-<?php the_ID(); ?>">	
 		<?php if ( has_post_thumbnail() && $post_type != 'events' && !$is_monthly_newsletter ) : ?>
@@ -93,15 +99,15 @@ if ( $event_start_time && $event_info['event_end_time'] ) {
 		} ?>
 	</div>
 	<?php
-	if ( $event_start_date || $event_info['event_location'] ) { ?>
+	if ( $event_start_date || $event_location ) { ?>
 	<div class="post-block__event-meta">
 		<?php
 		if ( $event_start_time ) { ?>
 		<div class="post-meta post-meta__event"><span class="post-meta__label">Time</span><?php echo $event_time; ?></div>
 		<?php
 		}
-		if ( $event_info['event_location'] ) { ?>
-		<div class="post-meta post-meta__event"><span class="post-meta__label">Location</span><?php echo $event_info['event_location']; ?></div>
+		if ( $event_location ) { ?>
+		<div class="post-meta post-meta__event"><span class="post-meta__label">Location</span><?php echo $event_location; ?></div>
 		<?php
 		} ?>
 	</div>
