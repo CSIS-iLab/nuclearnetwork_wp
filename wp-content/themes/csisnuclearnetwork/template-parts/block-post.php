@@ -19,6 +19,7 @@ $is_monthly_newsletter = get_field( 'newsletter');
 $event_info = get_field( 'event_post_info' );
 $event_start_date = $event_info['event_start_date'];
 $event_start_time = $event_info['event_start_time'];
+$legacy_event_date = get_post_meta( $id, '_post_start_date', true );
 
 $classes = ' post-block post-block--post ' . $post_type;
 
@@ -32,6 +33,14 @@ if ( $event_start_date ) {
 	$event_day = date_i18n('d', strtotime($event_start_date));
 	$event_month = date_i18n('M', strtotime($event_start_date));
 	$event_year = date_i18n('Y', strtotime($event_start_date));
+	
+	$event_date = '<span class="post-block__event-month text--caps">' . $event_month . '</span><span class="post-block__event-day">' . $event_day . '</span><span class="post-block__event-year text--short">' . $event_year . '</span>';
+}
+
+if ( $legacy_event_date ) {
+	$event_day = date_i18n('d', strtotime($legacy_event_date));
+	$event_month = date_i18n('M', strtotime($legacy_event_date));
+	$event_year = date_i18n('Y', strtotime($legacy_event_date));
 	
 	$event_date = '<span class="post-block__event-month text--caps">' . $event_month . '</span><span class="post-block__event-day">' . $event_day . '</span><span class="post-block__event-year text--short">' . $event_year . '</span>';
 }
@@ -71,7 +80,7 @@ if ( $event_start_time && $event_info['event_end_time'] ) {
 	} elseif ( $post_type === 'events' ) { ?>
 	<div class="post-block__event-content">
 		<?php
-		if ( $event_start_date ) { ?>
+		if ( $event_date ) { ?>
 		<div class="post-block__event-date"><?php echo $event_date; ?></div>
 		<?php
 		}
