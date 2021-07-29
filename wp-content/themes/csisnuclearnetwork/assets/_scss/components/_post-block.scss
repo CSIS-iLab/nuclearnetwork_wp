@@ -352,32 +352,32 @@
 
       &-month {
         @extend %text-style-paragraph-medium-short;
-        // flex-grow: 1;
-        // align-self: flex-end;
 
-        // @include breakpoint('large') {
-        //   @extend %text-style-heading-large-strong-caps;
-        // }
+        @include breakpoint('large') {
+          @include font-clamp(21px, 24px);
+          line-height: 1.33;
+          letter-spacing: 0.03em;
+        }
       }
 
       &-day {
         @extend %text-style-heading-x-large;
-        // align-self: flex-end;
         line-height: 0.8;
 
-        // @include breakpoint('large') {
-        //   @extend %text-style-heading-2-x-large;
-        // }
+        @include breakpoint('large') {
+          @include font-size(42px);
+          font-weight: normal;
+        }
       }
 
       &-year {
         @extend %text-style-paragraph-small;
-        // align-self: flex-end;
 
-        // @include breakpoint('large') {
-        //   @extend %text-style-paragraph-medium-short;
-        //   font-weight: 700;
-        // }
+        @include breakpoint('large') {
+          @include font-size(16px);
+          font-weight: 700;
+          letter-spacing: 0.005em;
+        }
       }
     }
   }
