@@ -95,10 +95,10 @@
   font-family: $font__pt;
 }
 
-%text-style-label-small-strong-caps {
+%text-style-label-small-strong {
   @extend %text-style-label-small;
   font-weight: bold;
-  letter-spacing: 0.035em;
+  letter-spacing: 0.03em;
 }
 
 /*----------  Paragraphs  ----------*/

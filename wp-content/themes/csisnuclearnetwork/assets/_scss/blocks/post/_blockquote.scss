@@ -4,11 +4,14 @@
   .csis-block--blockquote {
     max-width: 340px;
     margin: auto;
-    background: transparent;
+  }
 
+  &.alignleft,
+  &.alignright {
+    margin-top: 0;
     @include breakpoint('large') {
-      float: right;
-      margin: auto 0 rem(20) rem(48);
+      --margin-text-side: #{rem(48)};
+      --margin-gutter-side: 0;
     }
   }
 
@@ -17,12 +20,11 @@
       margin: rem(8) 0 rem(24);
       @extend %text-style-paragraph-x-large-short;
       color: $color-black-190;
-      font-weight: 400;
     }
 
     &__author {
       margin: rem(12) 0 rem(32) 0;
-      @extend %text-style-paragraph-medium-short-caps;
+      @extend %text-style-label-small-strong;
       color: $color-black-165;
       font-style: normal;
     }
@@ -36,7 +38,6 @@
     }
 
     &__separator {
-      max-width: 319px;
       height: 1px;
       margin-left: 0;
       color: $color-black-130;
