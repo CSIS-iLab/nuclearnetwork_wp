@@ -301,10 +301,20 @@
     }
   }
 
+  &__register {
+    margin-bottom: rem(16);
+
+    @include breakpoint('small') {
+      margin-bottom: rem(24);
+    }
+  }
+
   &.events {
     .post-block__event {
-      &-content {
+      &-content::after {
         @include breakpoint('small') {
+          content: '';
+          display: table;
           clear: both;
         }
       }
@@ -322,6 +332,7 @@
         width: var(--date-width);
         height: var(--date-height);
         margin-right: rem(24);
+        margin-bottom: rem(24);
         padding-top: var(--calendar-top-padding);
         padding-bottom: rem(10);
         color: var(--calendar-color);

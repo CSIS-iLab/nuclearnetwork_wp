@@ -66,8 +66,8 @@ if ( $event_info['event_start_time'] && $event_info['event_end_time'] ) {
 		nuclearnetwork_display_subtypes();
 		the_title( '<h3 class="post-block__title text--bold"><a href="' . esc_url( get_permalink() ) . '">', '</a></h3>' );
 		the_excerpt(); ?>
-	</div>
 		<a href="<?php echo esc_url( $event_info['event_registration_link'] ); ?>" class="post-block__register btn btn--outline-blue">Register<?php echo nuclearnetwork_get_svg( 'arrow-external' ); ?></a>
+	</div>
 		<div class="post-block__event-meta">
 			<?php
 			if ( $event_info['event_start_time'] ) { ?>
