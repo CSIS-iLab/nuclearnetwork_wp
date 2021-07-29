@@ -126,10 +126,6 @@
         opacity: 1;
         filter: invert(26%) sepia(69%) saturate(1514%) hue-rotate(187deg) brightness(85%) contrast(80%);
       }
-
-      &:focus::after {
-        // filter: invert(12%) sepia(88%) saturate(853%) hue-rotate(180deg) brightness(102%) contrast(89%);
-      }
     }
 
     .archive__featured & {
@@ -314,9 +310,74 @@
       }
 
       &-date {
+        --date-width: #{rem(90)};
+        --date-height: #{rem(111)};
+        --calendar-top-padding: #{rem(21)};
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        width: var(--date-width);
+        height: var(--date-height);
+        padding-top: var(--calendar-top-padding);
+        padding-bottom: rem(10);
+        color: $color-accent-primary-300;
+        text-align: center;
+        border: 4px solid $color-accent-primary-300;
+        border-radius: 3px;
+
+        &::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: -4px;
+          width: var(--date-width);
+          height: var(--calendar-top-padding);
+          background-color: $color-accent-primary-300;
+
+          @include breakpoint('large') {
+            --calendar-top-padding: #{rem(25)}; // 21px for the height of the box and 4px for the height of the bottom border
+          }
+        }
+
         @include breakpoint('small') {
           float: left;
         }
+
+        @include breakpoint('large') {
+          --date-width: #{rem(108)};
+          --date-height: #{rem(135)};
+        }
+      }
+
+      &-month {
+        @extend %text-style-paragraph-medium-short;
+        // flex-grow: 1;
+        // align-self: flex-end;
+
+        // @include breakpoint('large') {
+        //   @extend %text-style-heading-large-strong-caps;
+        // }
+      }
+
+      &-day {
+        @extend %text-style-heading-x-large;
+        // align-self: flex-end;
+        line-height: 0.8;
+
+        // @include breakpoint('large') {
+        //   @extend %text-style-heading-2-x-large;
+        // }
+      }
+
+      &-year {
+        @extend %text-style-paragraph-small;
+        // align-self: flex-end;
+
+        // @include breakpoint('large') {
+        //   @extend %text-style-paragraph-medium-short;
+        //   font-weight: 700;
+        // }
       }
     }
   }

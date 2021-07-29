@@ -31,7 +31,7 @@ if ( $event_info['event_start_date'] ) {
 	$event_month = wp_date('M', strtotime($event_info['event_start_date']));
 	$event_year = wp_date('Y', strtotime($event_info['event_start_date']));
 
-	$event_date = '<span class="post-block__event-month">' . $event_month . '</span></br><span class="post-block__event-day">' . $event_day . '</span></br><span class="post-block__event-year">' . $event_year . '</span>';
+	$event_date = '<span class="post-block__event-month text--caps">' . $event_month . '</span><span class="post-block__event-day">' . $event_day . '</span><span class="post-block__event-year text--short">' . $event_year . '</span>';
 }
 
 if ( $event_info['event_start_time'] && $event_info['event_end_time'] ) {
