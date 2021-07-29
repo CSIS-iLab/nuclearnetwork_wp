@@ -310,6 +310,32 @@
       margin-top: rem(24);
       padding-top: rem(24);
     }
+
+    @include breakpoint('medium') {
+      display: flex;
+    }
+
+    .post-meta__event {
+      display: flex;
+
+      &:first-child:not(:only-child) {
+        margin-bottom: rem(4);
+      }
+
+      @include breakpoint('medium') {
+        &:first-child:not(:only-child) {
+          margin-bottom: 0;
+          padding-right: rem(24);
+          flex-shrink: 0;
+          border-right: 1px solid $color-border-dark-130;
+        }
+
+        &:last-child:not(:only-child) {
+          padding-left: rem(24);
+          flex-shrink: 1;
+        }
+      }
+    }
   }
 
   &.events {
