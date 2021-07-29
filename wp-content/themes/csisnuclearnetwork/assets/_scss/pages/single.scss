@@ -79,7 +79,6 @@
     ol:not(.footnotes__list):not(.easy-footnotes-wrapper)::marker,
     li::marker {
       color: $color-accent-secondary-yellow-100;
-      @extend %text-style-label-large;
     }
 
     /*----------  Links  ----------*/
@@ -88,7 +87,6 @@
     {
       /* stylelint-enable */
       color: $color-accent-primary-blue-200;
-      font-weight: 400;
       text-decoration: underline;
 
       &:visited {
