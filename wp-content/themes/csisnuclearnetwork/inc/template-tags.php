@@ -229,11 +229,17 @@ if (! function_exists('nuclearnetwork_authors_list_extended')) :
 
 			foreach (get_coauthors() as $coauthor) {
 				$name = $coauthor->display_name;
-				$title = $coauthor->title;
-				if ($coauthor->short_bio) {
-					$bio = $coauthor->short_bio;
+
+				$title = get_field('title', $coauthor->ID);
+				$short_bio = get_field('short_bio', $coauthor->ID);
+				if ( $short_bio ) {
+					$bio = $short_bio;
 				} else {
-					$bio = $coauthor->description;
+					$bio = $coauthor->short_bio;
+				}
+
+				if ( $title == null ){
+					$title = $coauthor->title;
 				}
 
 
