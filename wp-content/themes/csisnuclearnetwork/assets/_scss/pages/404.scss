@@ -3,38 +3,65 @@
 @use '../components/entry-header';
 
 .error-404 {
-  display: flex;
-  justify-content: center;
-  margin-top: rem(40);
-  margin-bottom: rem(56);
+  max-width: rem(680);
+  display: contents;
+  color: $color-black-190;
 
-  @include breakpoint('medium') {
-    margin-top: rem(56);
+  @include breakpoint('small') {
+    margin-bottom: rem(48);
   }
 
   &__content {
     max-width: $size__content-max-width;
+    margin: auto;
+    padding-top: rem(24);
+    padding-bottom: rem(80);
+    @include breakpoint('small') {
+      padding-top: rem(16);
+    }
+    @include breakpoint('medium') {
+      padding-top: rem(44);
+    }
+    @include breakpoint('large') {
+      padding-top: rem(40);
+    }
   }
 
-  &__title {
-    // color: $color-accent-light-primary-200;
-    // @extend %text-style-label-3-x-large;
+  &__img {
+    margin: auto;
+    @include breakpoint('large') {
+      width: rem(240);
+    }
   }
+
+  // &__title {
+  //   text-align: left;
+  //   border-bottom: 1px black solid;
+  //   padding: rem(32) 0 rem(24) 0;
+  //   @include breakpoint('small') {
+  //     padding: 6vw 0 rem(32) 0;
+  //   }
+  //   @include breakpoint('medium') {
+  //     padding: rem(40) 0 rem(24) 0;
+  //   }
+  //   @include breakpoint('large') {
+  //     padding-top: rem(64);
+  //   }
+  // }
 
   &__subtitle {
-    // color: $color-accent-light-primary-100;
-    // @extend %text-style-label-medium-strong;
-    text-transform: uppercase;
-  }
-
-  &__text-spacing {
-    margin-top: rem(11);
+    @extend %text-style-label-large-strong-caps;
+    padding: rem(32) 0 rem(8) 0;
   }
 
   .intro-text {
     p {
-      color: $color-black-100;
-      // @extend %text-style-paragraph-medium-long;
+      @extend %text-style-paragraph-large;
+      @extend %text-style-long;
+
+      &:first-of-type {
+        padding-bottom: rem(20);
+      }
     }
   }
 }
