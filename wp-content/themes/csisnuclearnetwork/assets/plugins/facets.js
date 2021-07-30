@@ -4,21 +4,9 @@
   let hasRun = false
 
 
-  // $(document).on('facetwp-refresh', function () {
-  //   if (FWP.soft_refresh == true) {
-  //     FWP.enable_scroll = true
-  //   } else {
-  //     FWP.enable_scroll = false
-  //   }
-  // })
-
   $(document).on('facetwp-loaded', function () {
-    // if (FWP.enable_scroll == true) {
-    //   const top = $('.archive__content').offset().top - 100
-    //   $(window).scrollTop(top)
-    // }
-
     modifyFSelectFacet()
+    modifySelectLabels()
     hasRun = true
   })
 
@@ -49,9 +37,23 @@
       label.classList.add('fs-label-field')
       label.innerHTML = facet_label
 
-      this.querySelector('.fs-label-wrap').prepend(label)
+      const wrap = this.querySelector('.fs-label-wrap')
+      wrap.prepend(label) 
+      wrap.classList.add('default-label')
     })
   }
 
+  function modifySelectLabels() {
+      $(document).on('change', '.facetwp-dropdown', function () {
+        const wrap = $('.fs-label-wrap')[0]
+        const placeholder = $('.fs-label')[0] 
 
+        if (placeholder.innerText === 'All Topics') {
+          wrap.classList.add('default-label')
+        } else {
+          wrap.classList.remove('default-label')
+        }
+      }
+    )
+  }
 })(jQuery)

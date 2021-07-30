@@ -1,13 +1,29 @@
 @use '../abstracts' as *;
 
-/*----------  Facet: dropdown  ----------*/
-
 .facetwp {
   // Hides counters next to items
   &-counter {
     display: none;
   }
 }
+
+.facetwp-type-dropdown {
+  // --input-background: #{$color-accent-primary-200};
+  // --input-border: var(--input-background);
+  // --arrow-color: #{$color-white-190};
+  // position: relative;
+  // // display: inline-block;
+  // max-width: 350px;
+  // line-height: 1;
+  // cursor: pointer;
+
+  // &:hover {
+  //   --input-border: #{$color-accent-primary-blue-100};
+  //   --input-background: #{$color-accent-primary-blue-100};
+  // }
+}
+
+/*----------  Facet: fselect  ----------*/
 
 .fs {
   &-wrap {
@@ -16,12 +32,13 @@
     --arrow-color: #{$color-white-190};
     position: relative;
     display: inline-block;
+    max-width: 350px;
     line-height: 1;
     cursor: pointer;
 
     &:hover {
-      // --input-border: #{$color-primary-blue-300};
-      // --input-background: #{$color-accent-primary-100};
+      --input-border: #{$color-accent-primary-blue-100};
+      --input-background: #{$color-accent-primary-blue-100};
     }
 
     &.fs-default {
@@ -29,9 +46,9 @@
       --input-border: #{$color-border-dark-115};
       --arrow-color: #{$color-black-190};
 
-      &:hover {
-        // --input-border: #{$color-primary-blue-700};
-      }
+      // &:hover {
+      //   --input-border: #{$color-border-dark-120};
+      // }
     }
 
     .hidden {
@@ -56,6 +73,19 @@
     &:hover {
       filter: $shadow--2;
     }
+
+  &.default-label {
+
+      .fs-label-field {
+        display: none;
+      }
+  
+      .fs-label {
+        display: block;
+        color: $color-black-190;
+        margin: rem(8) 0;
+      }
+    }
   }
 
   &-label-wrap,
@@ -69,7 +99,7 @@
     left: rem(16);
     z-index: 1;
     margin: 0;
-    // padding: rem(0) 0 rem(8) 0;
+    padding: rem(0) 0 rem(8) 0;
     color: $color-white-190;
     @extend %text-style-label-small;
     font-weight: normal;
@@ -91,14 +121,10 @@
     padding: rem(12) rem(16) rem(8) rem(16);
     overflow: hidden;
     color: $color-white-100;
-    // @extend %font-ui-text-lg-bold;
+    @extend %text-style-label-large;
     white-space: nowrap;
     text-overflow: ellipsis;
     word-break: break-word;
-
-    @media screen and (min-height: 1000px) {
-      @include font-size(16px);
-    }
 
     .fs-default & {
       top: unset;
@@ -169,9 +195,9 @@
     cursor: pointer;
 
     &:hover {
-      // --checkbox-bg: #{$color-primary-blue-800};
-      // --checkbox-border: #{$color-primary-blue-700};
-      // background: $color-gray-field;
+      // --checkbox-bg: #{$color-postbg-100};
+      // --checkbox-border: #{$color-border-dark-115};
+      background: $color-bg-light-200;
 
       i {
         border-width: 2px;
@@ -251,3 +277,5 @@
     cursor: default;
   }
 }
+
+/*----------  Facet: dropdown  ----------*/
