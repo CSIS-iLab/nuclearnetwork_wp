@@ -229,17 +229,27 @@ if (! function_exists('nuclearnetwork_authors_list_extended')) :
 
 			foreach (get_coauthors() as $coauthor) {
 				$name = $coauthor->display_name;
+				$username = $coauthor->linked_account;
+				$user = get_user_by( 'login', $username );
 
-				$title = get_field('title', $coauthor->ID);
-				$short_bio = get_field('short_bio', $coauthor->ID);
+				$title = get_field( 'title', $coauthor->ID );
+				$short_bio = get_field( 'short_bio', $coauthor->ID );
+				$user_bio = get_field( 'short_bio', 'user_' . $user->ID );
+				$guest_description = $coauthor->description;
+				$user_description = get_user_meta( $user->ID, 'description', true );
+
 				if ( $short_bio ) {
 					$bio = $short_bio;
+				} elseif ( $user_bio ) {
+					$bio = $user_bio;
+				} elseif ( $guest_description ) {
+					$bio = $guest_description;
 				} else {
-					$bio = $coauthor->short_bio;
+					$bio = $user_description;
 				}
 
 				if ( $title == null ){
-					$title = $coauthor->title;
+					$title = get_field( 'title', 'user_' . $user->ID );
 				}
 
 
