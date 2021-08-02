@@ -114,6 +114,7 @@ get_header();
 	endif;
 
 	?>
+	<?php get_template_part( 'template-parts/about-poni', get_post_type() ); ?>
 
 </main><!-- #site-content -->
 
