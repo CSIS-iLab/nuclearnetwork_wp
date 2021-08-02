@@ -20,31 +20,13 @@
             <hr>
 			<p class="home__about-description">The Project on Nuclear Issues (PONI) at the Center for Strategic and International Studies aims to develop the next generation of policy, technical, and operational nuclear professionals through outreach, mentorship, research, and debate.</p>
 			<div class="home__about-directorblock">
-				<img src="<?php esc_url( wp_get_attachment_image_src( $img->avatar, 'large' ) ); ?>" alt="">
-				<img src="<?php echo get_avatar_url($img); ?>" alt="">
 				<?php 
-				// working
+				global $coauthors_plus;
 				$info = get_field('director_and_deputy_director')[0];
 				$name = $info->post_title;
 				$bio = $info->short_bio;
-				// not working
-				$authorid = $info->ID;
-				$coauthors = get_coauthors();
-				foreach( $coauthors as $coauthor ) {
-					// var_dump($coauthor);
-					if ($coauthor->id == $authorid) {
-						var_dump($authorid);
-					} else {
-						print_r("not working");
-					};
-					echo $coauthor->ID;
-					echo $authorid;
-					echo coauthors_get_avatar(get_the_author_meta( $coauthor->ID ));
-				}
-				$img = $info->post_author;
-				$avatar = coauthors_get_avatar( get_the_author_meta($img), 150 );
-				// var_dump($info);
-				// var_dump($info->avatar);
+				$coauthor_data = $coauthors_plus->get_coauthor_by( 'id', $info->ID );
+				echo coauthors_get_avatar( $coauthor_data, "100" );
 				?>
 				<div>
 					<h4><?php echo esc_html( $name ); ?></h4>
@@ -53,13 +35,13 @@
 			</div>
 			<div class="home__about-directorblock">
 				<?php 
+				global $coauthors_plus;
 				$info2 = get_field('director_and_deputy_director')[1];
 				$name2 = $info2->post_title;
 				$bio2 = $info2->short_bio;
-				$img2 = $info2->ID;
+				$coauthor_data = $coauthors_plus->get_coauthor_by( 'id', $info2->ID );
+				echo coauthors_get_avatar( $coauthor_data, "100" );
 				?>
-				<img src="/wp-content/themes/csisnuclearnetwork/assets/img/image-404.jpg" alt="">
-				<?php echo get_avatar(get_the_author_meta( $img2 ), 100); ?>
 				<div>
 					<h4><?php echo esc_html( $name2 ); ?></h4>
 					<p><?php echo esc_html( $bio2 ); ?></p>
@@ -67,8 +49,13 @@
 			</div>
 		</div>
 		<div class="home__about-item">
-			<img class="home__about-familyphoto" src="wp-content/themes/csisnuclearnetwork/assets/img/staff.png" alt="">
-			<caption>Photo Caption</caption>
+			<figure>
+				<?php 
+				$staffimg = get_field('staff_image');
+				?>
+				<img class="home__about-familyphoto" src="<?php echo esc_url($staffimg['url']);?>" alt="<?php echo $staffimg['alt'] ?>">
+				<figcaption><?php echo $staffimg['caption'];?></figcaption>
+			</figure>
 		</div>
 	</div>
 </section>

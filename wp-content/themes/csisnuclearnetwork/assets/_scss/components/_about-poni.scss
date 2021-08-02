@@ -6,33 +6,46 @@
     background-color: $color-blue-000;
     @include full-width-background($color-blue-000);
 
-    &::before{
+    &::before {
       z-index: -1;
     }
 
     &::after {
-        z-index: -1;
+      z-index: -1;
     }
         
     &-container {
-      flex: auto;
+      display: flex;
       flex-direction: row;
+      flex-wrap: wrap;
+      @include breakpoint('large') {
+        flex-wrap: nowrap;
+        gap: 32px;
+      }
     }
 
     &-item {
-        caption {
-            padding-bottom: rem(72);
-            @extend %text-style-paragraph-medium-short;
-            color: $color-white-165;
-        }
+      width: 100%;
+      @include breakpoint('large') {
+        width: 50%;
+      }
+
+      figcaption {
+        padding-bottom: rem(72);
+        @extend %text-style-paragraph-medium-short;
+        color: $color-white-165;
+      }
     }
 
     &-item:first-of-type {
+      display: flex;
+      flex-wrap: wrap;
       padding: rem(40) 0;
     }
 
     &-title {
       @extend %text-style-heading-x-large-strong;
+      width: 100%;
       padding-bottom: rem(12);
     }
 
@@ -42,7 +55,7 @@
       margin: 0;
       margin-bottom: rem(16);
       background-color: $color-accent-secondary-yellow-100;
-      border: none;
+      border: 0;
     }
 
     &-description {
@@ -56,6 +69,28 @@
       display: flex;
       flex: auto;
       flex-direction: row;
+      @include breakpoint('medium') {
+        width: 50%;
+
+        &:last-of-type {
+          padding-left: rem(20);
+        }
+      }
+      @include breakpoint('large') {
+        width: 100%;
+
+        &:last-of-type {
+          padding-left: 0;
+        }
+      }
+
+      @include breakpoint('xlarge') {
+        width: 50%;
+
+        &:last-of-type {
+          padding-left: rem(20);
+        }
+      }
 
       &:first-of-type {
         padding-bottom: rem(24);
@@ -63,6 +98,8 @@
 
       img {
         width: rem(100);
+        height: rem(130);
+        object-fit: cover;
       }
 
       div {
@@ -70,6 +107,7 @@
         color: $color-white-165;
         @extend %text-style-label-small;
 
+        /* stylelint-disable-next-line */
         h4 {
           padding-bottom: rem(4);
           color: $color-white-100;
@@ -84,6 +122,15 @@
       max-width: unset;
       margin-left: -6vw;
       padding-bottom: rem(8);
+
+      @include breakpoint('large') {
+        width: calc(100% + 6vw);
+        margin-left: 0;
+      }
+
+      @include breakpoint('xxlarge') {
+        width: 100%;
+      }
     }
 
   }
