@@ -68,11 +68,12 @@
     }
 
     &:hover ~ .post-block__title {
-      // color: $color-link-primary-200;
+      color: $color-accent-primary-blue-200;
+    }
 
-      .archive__featured & {
-        // color: $color-accent-dark-primary-400;
-      }
+    &:focus ~ .post-block__title a {
+      background: $color-bg-light-300;
+      outline: 0;
     }
 
     .post-block.programs &,
@@ -324,15 +325,15 @@
 
       @include breakpoint('medium') {
         &:first-child:not(:only-child) {
+          flex-shrink: 0;
           margin-bottom: 0;
           padding-right: rem(24);
-          flex-shrink: 0;
           border-right: 1px solid $color-border-dark-130;
         }
 
         &:last-child:not(:only-child) {
-          padding-left: rem(24);
           flex-shrink: 1;
+          padding-left: rem(24);
         }
       }
     }
