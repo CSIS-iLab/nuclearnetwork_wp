@@ -335,6 +335,17 @@
           --date-width: #{rem(108)};
           --date-height: #{rem(135)};
         }
+
+        .archive__featured & {
+          color: $color-bg-light-100;
+          background-color: var(--calendar-color);
+
+          &::before {
+            background-color: $color-bg-light-100;
+            border-right: 4px solid var(--calendar-color);
+            border-left: 4px solid var(--calendar-color);
+          }
+        }
       }
 
       &-month {
