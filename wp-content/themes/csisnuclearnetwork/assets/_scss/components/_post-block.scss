@@ -380,4 +380,26 @@
       }
     }
   }
+
+  &.news {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .post-block__title {
+      flex-grow: 1;
+      margin-bottom: 0;
+    }
+
+    .post-meta__date {
+      --post-meta: #{$color-accent-primary-blue-100};
+      @extend %text-style-label-large;
+      display: none;
+      margin-bottom: 0;
+
+      @include breakpoint('small') {
+        display: inline;
+      }
+    }
+  }
 }
