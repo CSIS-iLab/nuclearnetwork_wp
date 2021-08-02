@@ -32,11 +32,6 @@
     padding: rem(32);
   }
 
-  @include breakpoint('large') {
-    padding-right: rem(48);
-    padding-left: rem(48);
-  }
-
   &:hover {
     @include shadow('lg');
   }
@@ -65,6 +60,16 @@
     @include breakpoint('medium') {
       max-width: rem(175);
       margin-left: rem(24);
+
+      .archive__featured & {
+        margin-left: rem(32);
+      }
+    }
+
+    @include breakpoint('large') {
+      .archive__featured & {
+        margin-bottom: rem(32);
+      }
     }
 
     &:hover ~ .post-block__title {
@@ -129,21 +134,6 @@
       }
     }
 
-    .archive__featured & {
-      color: $color-white-190;
-
-      a {
-        &:hover {
-          // color: $color-accent-dark-primary-400;
-        }
-
-        &:focus {
-          color: $color-white-100;
-          background: $color-border-light-130;
-        }
-      }
-    }
-
     .post-block.projects &,
     .post-block.programs &,
     .post-block.news & {
@@ -198,10 +188,6 @@
     color: $color-black-190;
     overflow-wrap: break-word;
 
-    .archive__featured & {
-      color: $color-white-190;
-    }
-
     .post-block.events & {
       margin-bottom: rem(12);
     }
@@ -209,35 +195,7 @@
 
   .post-meta__authors {
     grid-area: authors;
-
-    .archive__featured & {
-      --post-meta: #{$color-white-190};
-
-      a {
-        color: $color-white-190;
-
-        &:hover {
-          // color: $color-accent-dark-primary-400;
-        }
-
-        &:focus {
-          color: $color-white-100;
-          background: $color-bg-dark-400;
-        }
-      }
-    }
-
-    a {
-      &:hover {
-        // color: $color-link-primary-200;
-      }
-
-      /* stylelint-disable-next-line */
-      &:focus {
-        // color: $color-link-primary-200;
-        background: $color-bg-light-400;
-      }
-    }
+    margin-bottom: rem(4);
   }
 
   .post-meta__date {
@@ -248,32 +206,15 @@
       margin-bottom: rem(16);
     }
 
-    .archive__featured & {
-      --post-meta: #{$color-white-165};
+    @include breakpoint('medium') {
+      .archive__featured & {
+        margin-bottom: rem(24);
+      }
     }
   }
 
   .post-meta__terms {
     grid-area: types;
-
-    .archive__featured & {
-      // --post-meta: #{$color-accent-dark-primary-400};
-
-      li:not(:last-of-type)::after {
-        border-right: 1px solid $color-border-light-130;
-      }
-
-      a {
-        &:hover {
-          color: $color-white-100;
-        }
-
-        &:focus {
-          color: $color-white-100;
-          background: $color-bg-dark-400;
-        }
-      }
-    }
   }
 
   .post-meta__series {

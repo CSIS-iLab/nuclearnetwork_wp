@@ -14,7 +14,6 @@
 $post_type = get_post_type();
 $page_for_posts = get_option( 'page_for_posts' );
 
-$featured_post = get_field( 'featured_post' );
 $is_monthly_newsletter = get_field( 'newsletter');
 $event_info = get_field( 'event_post_info' );
 $event_start_date = $event_info['event_start_date'];
@@ -30,8 +29,6 @@ $classes = ' post-block post-block--post ' . $post_type;
 
 if ( $is_monthly_newsletter ) {
 	$classes .= ' post-block__monthly-newsletter';
-} elseif ( $featured_post ) {
-	$classes .= ' post-block__featured';
 }
 
 if ( $event_start_date ) {

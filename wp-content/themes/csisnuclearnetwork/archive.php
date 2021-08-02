@@ -30,7 +30,6 @@ get_header();
 			$featured_post = get_field('featured_post', $term->name);
 			if ( $featured_post ) {
 				echo '<section class="archive__featured">';
-					echo '<h2 class="archive__featured-label">Featured</h2>';
 					foreach( $featured_post as $post ):
 						// Setup this post for WP functions (variable must be named $post).
 						setup_postdata($post);
