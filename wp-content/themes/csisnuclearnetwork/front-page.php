@@ -12,7 +12,7 @@
 get_header();
 ?>
 
-<main id="site-content" role="main">
+<main id="site-conten" role="main">
 	<?php
 	$excluded_featured_post_ids_from_recent = array();
 	$featured_primary_post = get_field( 'primary_featured_post' );
@@ -111,6 +111,25 @@ get_header();
 	endif;
 
 	?>
+<!-- <section class="home__about">
+	<div class="home__about-container">
+		<div class="home__about-item">
+			<h3>About PONI</h3>
+			<p>The Project on Nuclear Issues (PONI) at the Center for Strategic and International Studies aims to develop the next generation of policy, technical, and operational nuclear professionals through outreach, mentorship, research, and debate.</p>
+			<div class="home__about-directorblock">
+				<img src="" alt="">
+			</div>
+			<div class="home__about-directorblock">
+				
+			</div>
+		</div>
+		<div class="home__about-item">
+			
+		</div>
+	</div>
+</section> -->
+
+<?php get_template_part( 'template-parts/about-poni', get_post_type() ); ?>
 
 </main><!-- #site-content -->
 
