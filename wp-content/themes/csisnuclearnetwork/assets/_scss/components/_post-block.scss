@@ -233,6 +233,7 @@
 
   &.post-block__monthly-newsletter {
     .post-meta__date {
+      --post-meta: #{$color-black-165};
       margin-bottom: 0;
       padding-top: rem(24);
       border-top: 1px solid $color-border-dark-130;
