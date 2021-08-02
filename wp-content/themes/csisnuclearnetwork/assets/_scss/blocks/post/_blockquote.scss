@@ -2,13 +2,15 @@
 
 .wp-block-lazyblock-blockquote {
   .csis-block--blockquote {
-    max-width: 340px;
+    max-width: rem(340px);
     margin: auto;
   }
 
   &.alignleft,
   &.alignright {
+    max-width: rem(340px);
     margin-top: 0;
+
     @include breakpoint('large') {
       --margin-text-side: #{rem(48)};
       --margin-gutter-side: 0;
