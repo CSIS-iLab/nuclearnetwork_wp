@@ -85,6 +85,10 @@
 
 /*----------  Facet: fselect  ----------*/
 
+.facetwp-dropdown {
+  display: none;
+}
+
 .fs {
   &-wrap {
     --input-background: #{$color-accent-primary-200};
@@ -106,9 +110,9 @@
       --input-border: #{$color-border-dark-115};
       --arrow-color: #{$color-black-190};
 
-      // &:hover {
-      //   --input-border: #{$color-border-dark-120};
-      // }
+      &:hover {
+        --input-border: #{$color-border-dark-130};
+      }
     }
 
     .hidden {

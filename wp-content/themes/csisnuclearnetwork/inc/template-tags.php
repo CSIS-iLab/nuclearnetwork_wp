@@ -382,9 +382,6 @@ endif;
  * Modify the assets that are loaded on pages that use facets.
  */
 add_filter( 'facetwp_assets', function( $assets ) {
-	if ( !is_front_page() ) {
-		$assets['custom.js'] = '/wp-content/themes/csisnuclearnetwork/assets/plugins/facets.js';
-	}
 
 	unset( $assets['fSelect.css'] );
 	unset( $assets['front.css'] );
