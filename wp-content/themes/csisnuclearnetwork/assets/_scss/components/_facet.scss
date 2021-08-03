@@ -5,7 +5,23 @@
   &-counter {
     display: none;
   }
+
+  // Override base styles
+  &-facet {
+    margin-bottom: rem(16) !important;
+  }
+
+  &-facet:last-of-type {
+    margin-bottom: rem(40) !important;
+  }
 }
+
+.facet-headings {
+  margin-bottom: rem(4);
+  color: $color-black-180;
+  @extend %text-style-label-small;
+}
+
 
 /*----------  Facet: fselect  ----------*/
 
@@ -57,52 +73,16 @@
     &:hover {
       filter: $shadow--2;
     }
-
-  &.default-label {
-
-      .fs-label-field {
-        display: none;
-      }
-  
-      .fs-label {
-        display: block;
-        color: $color-black-190;
-        margin: rem(8) 0;
-      }
-    }
   }
-
   &-label-wrap,
   &-dropdown {
     user-select: none;
   }
 
-  &-label-field {
-    position: absolute;
-    top: 50%;
-    left: rem(16);
-    z-index: 1;
-    margin: 0;
-    padding: rem(0) 0 rem(8) 0;
-    color: $color-white-190;
-    @extend %text-style-label-small;
-    font-weight: normal;
-    transform: translate(0, -100%) scale(0.85);
-    transform-origin: left center;
-    pointer-events: none;
-
-    .fs-default & {
-      color: $color-black-190;
-      transform: translate(0, -50%) scale(1);
-    }
-  }
-
   &-label {
     position: relative;
-    top: 36%;
     height: 100%;
-    margin-top: rem(12);
-    padding: rem(12) rem(16) rem(8) rem(16);
+    padding: rem(16);
     overflow: hidden;
     color: $color-white-100;
     @extend %text-style-label-large;
@@ -111,8 +91,13 @@
     word-break: break-word;
 
     .fs-default & {
-      top: unset;
+      color: $color-black-100;
     }
+  }
+
+  .fs-label {
+    @extend %text-style-label-large;
+    color: $color-black-190;
   }
 
   &-arrow {
@@ -179,8 +164,6 @@
     cursor: pointer;
 
     &:hover {
-      // --checkbox-bg: #{$color-postbg-100};
-      // --checkbox-border: #{$color-border-dark-115};
       background: $color-bg-light-200;
 
       i {
@@ -239,20 +222,20 @@
     background-color: #f8f8f8;
   }
 
-  &-checkbox {
-    display: block;
+  // &-checkbox {
+  //   display: block;
 
-    i {
-      position: relative;
-      display: block;
-      width: 1.2em;
-      height: 1.2em;
-      margin: auto;
-      background-color: var(--checkbox-bg);
-      border: 1px solid var(--checkbox-border);
-      border-radius: 4px;
-    }
-  }
+  //   i {
+  //     position: relative;
+  //     display: block;
+  //     width: 1.2em;
+  //     height: 1.2em;
+  //     margin: auto;
+  //     background-color: var(--checkbox-bg);
+  //     border: 1px solid var(--checkbox-border);
+  //     border-radius: 4px;
+  //   }
+  // }
 
   &-fselect-apply {
     padding: rem(8) rem(16);
@@ -262,4 +245,64 @@
   }
 }
 
-/*----------  Facet: dropdown  ----------*/
+/*----------  Facet: checkboxes  ----------*/
+
+.facetwp {
+
+  &-checkbox {
+    display: flex;
+    margin-left: rem(24);
+    padding: rem(8) 0;
+    align-items: top;
+    color: $color-black-190;
+    @extend %text-style-label-large;
+
+    .fs-checkbox {
+      display: block;
+      --checkbox-bg: #{$color-postbg-200};
+      --checkbox-border: #{$color-border-dark-115};
+      i {
+        position: relative;
+        display: block;
+        left: rem(-8);
+        width: 1.2em;
+        height: 1.2em;
+        background-color: var(--checkbox-bg);
+        border: 1px solid var(--checkbox-border);
+        border-radius: 4px;
+      }
+
+      &:hover {
+        background: $color-bg-light-200;
+  
+        i {
+          border-width: 2px;
+        }
+      }
+    }
+  }
+
+  &-checkbox.checked {
+    .fs-checkbox {   
+      --checkbox-bg: #{$color-accent-primary-blue-200};
+      --checkbox-border: #{$color-border-light-115};
+
+      i::before {
+        --borderWidth: 2px;
+        --height: 10px;
+        --width: 5px;
+        --borderColor: #{$color-white-190};
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        display: block;
+        width: var(--width);
+        height: var(--height);
+        border-right: var(--borderWidth) solid var(--borderColor);
+        border-bottom: var(--borderWidth) solid var(--borderColor);
+        transform: translate(-50%, -60%) rotate(45deg);
+      }
+    }
+  } 
+}

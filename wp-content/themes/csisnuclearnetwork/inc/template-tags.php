@@ -387,6 +387,7 @@ add_filter( 'facetwp_assets', function( $assets ) {
 	}
 
 	unset( $assets['fSelect.css'] );
+	unset( $assets['front.css'] );
 
 	return $assets;
 });

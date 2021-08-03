@@ -30,11 +30,23 @@ get_header();
 		if ( have_posts() ) {
 			nuclearnetwork_pagination_number_of_posts();
 		}
-		
-		echo facetwp_display( 'facet', 'analysis_subtypes' ); 
-		echo facetwp_display( 'facet', 'author' ); 
-		echo facetwp_display( 'facet', 'series' ); 
-		echo facetwp_display( 'facet', 'topics' ); 
+		?>
+
+		<div class="archive-filters">
+			<p class="facet-headings text--caps">Filter By Analaysis Type</p>
+			<?php echo facetwp_display( 'facet', 'analysis_subtypes' ); ?>
+
+			<p class="facet-headings text--caps">Author</p>
+			<?php echo facetwp_display( 'facet', 'author' ); ?>
+
+			<p class="facet-headings text--caps">Series</p> 
+			<?php echo facetwp_display( 'facet', 'series' ); ?>
+
+			<p class="facet-headings text--caps">Topics</p>
+			<?php echo facetwp_display( 'facet', 'topics' );?>
+		</div>
+
+		<?php
 
 		if (class_exists('ACF') && !is_paged()) {
 			// vars
