@@ -25,7 +25,7 @@ if ( get_post_meta( $id, '_post_location', true ) ) {
 	$event_location = get_post_meta( $id, '_post_location', true );
 }
 
-$classes = ' post-block post-block--post ' . $post_type;
+$classes = 'post-block post-block--post ' . $post_type;
 
 if ( $is_monthly_newsletter ) {
 	$classes .= ' post-block__monthly-newsletter';
@@ -69,9 +69,7 @@ if ( $event_start_time && $event_info['event_end_time'] ) {
 			<a href="<?php the_permalink(); ?>" class="post-block__img" title="<?php the_title_attribute(); ?>">
 				<?php the_post_thumbnail( 'large' ); ?>
 			</a>
-		<?php endif; ?>
-
-<?php
+		<?php endif; 
 
 if ( $is_monthly_newsletter ) {
 	nuclearnetwork_display_subtypes();
@@ -94,7 +92,7 @@ if ( $is_monthly_newsletter ) {
 			nuclearnetwork_display_subtypes();
 			the_title( '<h3 class="post-block__title text--bold"><a href="' . esc_url( get_permalink() ) . '">', '</a></h3>' );
 			the_excerpt(); 
-			if ( $event_info['event_registration_link'] && $is_future_event && !$legacy_event_date ) { ?>
+			if ( isset($event_info['event_registration_link']) && !empty($event_info['event_registration_link']) && $is_future_event && !$legacy_event_date ) { ?>
 			<a href="<?php echo esc_url( $event_info['event_registration_link'] ); ?>" class="post-block__register btn btn--outline-blue">Register<?php echo nuclearnetwork_get_svg( 'arrow-external' ); ?></a>
 			<?php
 			} ?>
