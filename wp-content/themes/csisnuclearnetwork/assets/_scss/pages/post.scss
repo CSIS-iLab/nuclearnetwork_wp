@@ -163,13 +163,12 @@
     &-disclaimer {
       margin-bottom: rem(32);
       color: $color-black-190;
-      line-height: 1.3;
       letter-spacing: 0.0005em;
     }
 
     &-author {
-      max-width: rem(500);
       margin-bottom: rem(24);
+      max-width: rem(500);
 
       &:last-of-type {
         margin: 0;
