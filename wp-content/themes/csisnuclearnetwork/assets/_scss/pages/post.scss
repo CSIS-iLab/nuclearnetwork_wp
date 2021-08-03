@@ -134,6 +134,7 @@
 .post {
   &__authors {
     --padding-top-authors: #{rem(56)};
+    max-width: rem(700);
     margin-top: rem(24);
     margin-bottom: rem(32);
     padding-top: var(--padding-top-authors);
@@ -167,8 +168,8 @@
     }
 
     &-author {
-      margin-bottom: rem(24);
       max-width: rem(500);
+      margin-bottom: rem(24);
 
       &:last-of-type {
         margin: 0;
