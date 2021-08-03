@@ -14,6 +14,66 @@
   &-facet:last-of-type {
     margin-bottom: rem(40) !important;
   }
+
+  /*----------  Facet: checkboxes  ----------*/
+
+  &-checkbox {
+    display: flex;
+    margin-left: rem(24);
+    padding: rem(8) 0;
+    align-items: top;
+    color: $color-black-190;
+    @extend %text-style-label-large;
+    cursor: pointer;
+
+    .fs-checkbox {
+      display: block;
+      --checkbox-bg: #{$color-postbg-200};
+      --checkbox-border: #{$color-border-dark-115};
+      i {
+        position: relative;
+        display: block;
+        left: rem(-8);
+        width: 1.2em;
+        height: 1.2em;
+        background-color: var(--checkbox-bg);
+        border: 1px solid var(--checkbox-border);
+        border-radius: 4px;
+      }
+
+      &:hover {
+        background: $color-bg-light-200;
+
+        i {
+          border-width: 2px;
+        }
+      }
+    }
+  }
+
+  &-checkbox.checked {
+    .fs-checkbox {   
+      --checkbox-bg: #{$color-accent-primary-blue-200};
+      --checkbox-border: #{$color-border-light-115};
+
+      i::before {
+        --borderWidth: 2px;
+        --height: 10px;
+        --width: 5px;
+        --borderColor: #{$color-white-190};
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        display: block;
+        width: var(--width);
+        height: var(--height);
+        border-right: var(--borderWidth) solid var(--borderColor);
+        border-bottom: var(--borderWidth) solid var(--borderColor);
+        transform: translate(-50%, -60%) rotate(45deg);
+      }
+    }
+  } 
 }
 
 .facet-headings {
@@ -222,20 +282,20 @@
     background-color: #f8f8f8;
   }
 
-  // &-checkbox {
-  //   display: block;
+  &-checkbox {
+    display: block;
 
-  //   i {
-  //     position: relative;
-  //     display: block;
-  //     width: 1.2em;
-  //     height: 1.2em;
-  //     margin: auto;
-  //     background-color: var(--checkbox-bg);
-  //     border: 1px solid var(--checkbox-border);
-  //     border-radius: 4px;
-  //   }
-  // }
+    i {
+      position: relative;
+      display: block;
+      width: 1.2em;
+      height: 1.2em;
+      margin: auto;
+      background-color: var(--checkbox-bg);
+      border: 1px solid var(--checkbox-border);
+      border-radius: 4px;
+    }
+  }
 
   &-fselect-apply {
     padding: rem(8) rem(16);
@@ -243,66 +303,4 @@
     // border-top: 1px solid $color-gray-200;
     cursor: default;
   }
-}
-
-/*----------  Facet: checkboxes  ----------*/
-
-.facetwp {
-
-  &-checkbox {
-    display: flex;
-    margin-left: rem(24);
-    padding: rem(8) 0;
-    align-items: top;
-    color: $color-black-190;
-    @extend %text-style-label-large;
-
-    .fs-checkbox {
-      display: block;
-      --checkbox-bg: #{$color-postbg-200};
-      --checkbox-border: #{$color-border-dark-115};
-      i {
-        position: relative;
-        display: block;
-        left: rem(-8);
-        width: 1.2em;
-        height: 1.2em;
-        background-color: var(--checkbox-bg);
-        border: 1px solid var(--checkbox-border);
-        border-radius: 4px;
-      }
-
-      &:hover {
-        background: $color-bg-light-200;
-  
-        i {
-          border-width: 2px;
-        }
-      }
-    }
-  }
-
-  &-checkbox.checked {
-    .fs-checkbox {   
-      --checkbox-bg: #{$color-accent-primary-blue-200};
-      --checkbox-border: #{$color-border-light-115};
-
-      i::before {
-        --borderWidth: 2px;
-        --height: 10px;
-        --width: 5px;
-        --borderColor: #{$color-white-190};
-        content: '';
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        display: block;
-        width: var(--width);
-        height: var(--height);
-        border-right: var(--borderWidth) solid var(--borderColor);
-        border-bottom: var(--borderWidth) solid var(--borderColor);
-        transform: translate(-50%, -60%) rotate(45deg);
-      }
-    }
-  } 
 }

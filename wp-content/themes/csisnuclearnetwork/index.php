@@ -32,7 +32,7 @@ get_header();
 		}
 		?>
 
-		<div class="archive-filters">
+		<div class="archive__filters">
 			<p class="facet-headings text--caps">Filter By Analaysis Type</p>
 			<?php echo facetwp_display( 'facet', 'analysis_subtypes' ); ?>
 
