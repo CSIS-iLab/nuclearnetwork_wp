@@ -56,13 +56,6 @@ if ( $template === 'templates/template-no-image.php' ){
 
 		<?php 
 
-	} elseif ( $is_archive ) {
-
-		the_archive_title( '<h1 class="' . $title_classes . '">', '</h1>' ); ?>
-		
-		<div class="entry-header__desc text--short"><?php echo $description; ?></div>
-		<?php
-
 	} elseif ( $is_page ) { 
 			the_title( '<h1 class="entry-header__title">', '</h1>' );
 
