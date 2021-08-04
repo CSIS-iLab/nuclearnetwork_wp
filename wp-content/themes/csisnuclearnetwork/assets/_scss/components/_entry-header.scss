@@ -1,29 +1,98 @@
 @use '../abstracts' as *;
 
-.entry-header {
-  --header-margin-bottom: #{rem(32)};
-  --header-padding-bottom: #{rem(32)};
-  --cutout-width: #{rem(36)};
-  --cutout-height: #{rem(24)};
+.blog,
+.tax-series {
+  --page-header-bg: var(--page-header-analysis);
+  --page-header-padding-bottom: #{rem(40)};
 
+  @include breakpoint('large') {
+    --page-header-padding-bottom: #{rem(64)};
+  }
+}
+
+.post-type-archive-events {
+  --page-header-bg: var(--page-header-events);
+  --page-header-padding-bottom: #{rem(48)};
+
+  @include breakpoint('large') {
+    --page-header-padding-bottom: #{rem(80)};
+  }
+}
+
+.post-type-archive-programs {
+  --page-header-bg: var(--page-header-programs);
+  --page-header-padding-bottom: #{rem(48)};
+
+  @include breakpoint('large') {
+    --page-header-padding-bottom: #{rem(136)};
+  }
+}
+
+.post-type-archive-projects {
+  --page-header-bg: var(--page-header-projects);
+  --page-header-padding-bottom: #{rem(48)};
+
+  @include breakpoint('large') {
+    --page-header-padding-bottom: #{rem(136)};
+  }
+}
+
+.post-type-archive-news {
+  --page-header-bg: var(--page-header-npn);
+  --page-header-padding-bottom: #{rem(48)};
+
+  @include breakpoint('large') {
+    --page-header-padding-bottom: #{rem(80)};
+  }
+}
+
+.post-type-archive-updates {
+  --page-header-bg: var(--page-header-updates);
+  --page-header-padding-bottom: #{rem(40)};
+
+  @include breakpoint('large') {
+    --page-header-padding-bottom: #{rem(64)};
+  }
+}
+
+.single-programs {
+  --page-header-bg: var(--page-header-programs);
+  --page-header-padding-bottom: #{rem(48)};
+
+  @include breakpoint('large') {
+    --page-header-padding-bottom: #{rem(136)};
+  }
+}
+
+.search,
+.category,
+.tag {
+  --page-header-bg: var(--page-header-general);
+  --page-header-padding-bottom: #{rem(48)};
+
+  @include breakpoint('large') {
+    --page-header-padding-bottom: #{rem(80)};
+  }
+}
+
+.entry-header {
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  max-width: $size__content-max-width;
-  min-height: 250px;
-  margin: 0 auto var(--header-margin-bottom);
-  padding: rem(24) 0 calc(var(--header-padding-bottom) + var(--cutout-height));
-  text-align: center;
+  margin: 0 auto rem(24);
+  padding: calc(#{rem(24)} + var(--site-header-height)) 0 var(--page-header-padding-bottom); // Top padding includes 56px for the site header
 
-  @include breakpoint('medium') {
-    --header-margin-bottom: #{rem(40)};
+  @include breakpoint('small') {
+    margin-bottom: rem(40);
   }
 
   @include breakpoint('large') {
-    --cutout-width: #{rem(45)};
-    --cutout-height: #{rem(30)};
-    padding-top: rem(16);
+    margin-bottom: rem(64);
+    padding-top: calc(#{rem(56)} + var(--site-header-height));
+  }
+
+  @include breakpoint('xlarge') {
+    margin-bottom: rem(80);
   }
 
   &::before {
@@ -35,31 +104,127 @@
     @include z-index(postBG);
     display: block;
     @include csis-block-full-width-wrapper();
-    background: linear-gradient(180deg, #1e2429 2.5%, transparent 100%), url('../../img/geo_bg.png'), linear-gradient(180deg, #1e2429 0%, rgba(26, 36, 40, 0.88) 100%);
-    background-repeat: repeat;
+    // background: linear-gradient(180deg, #1e2429 2.5%, transparent 100%), url('../../img/geo_bg.png'), linear-gradient(180deg, #1e2429 0%, rgba(26, 36, 40, 0.88) 100%);
+    background-repeat: no-repeat;
     background-size: cover;
-    // Creates triangle cutout
-    clip-path: polygon(0% 0%, 100% 0%, 100% calc(100% - var(--cutout-height)), calc(50% + var(--cutout-width) / 2) calc(100% - var(--cutout-height)), 50% 100%, calc(50% - var(--cutout-width) / 2) calc(100% - var(--cutout-height)), 0% calc(100% - var(--cutout-height)));
+  }
+
+  &--blue {
+    &::before {
+      background: var(--page-header-bg);
+      background-color: $color-blue-000;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
   }
 
   &__title {
+    @extend %text-style-heading-3-x-large-strong;
     color: $color-white-190;
-    @extend %text-style-heading-3-x-large;
 
     &:not(:only-child) {
-      margin-bottom: rem(16);
+      margin-bottom: rem(12);
+    }
+
+    &--yellow {
+      color: $color-accent-secondary-yellow-100;
+    }
+
+    &-secondary {
+      color: $color-white-100;
     }
 
     &-label {
+      @extend %text-style-heading-large-strong;
       display: block;
-      margin-bottom: rem(8);
-      // color: $color-accent-dark-primary-400;
-      // @extend %text-style-label-small-strong-caps;
+      margin-bottom: rem(4);
+      color: $color-accent-secondary-yellow-100;
     }
   }
 
   &__desc {
+    @extend %text-style-paragraph-x-large;
+    grid-column: 1;
+    max-width: $size__content-max-width;
     color: $color-white-190;
-    // @extend %text-style-paragraph-large-short-sans;
+  }
+
+  &__cta {
+    grid-column: 1;
+    justify-self: flex-start;
+    max-width: fit-content;
+    margin-top: rem(24);
+    color: $color-white-180;
+    text-transform: unset;
+
+    &:hover {
+      color: $color-white-100;
+    }
+
+    &:focus {
+      color: $color-white-100;
+      background-color: $color-accent-primary-blue-100;
+    }
+
+    .icon {
+      &-chevron-right {
+        margin-left: rem(8);
+      }
+
+      &-chevron-left {
+        width: rem(7.88);
+        height: rem(13.51);
+        margin-right: rem(8);
+      }
+    }
+  }
+
+  &__news-btn {
+    width: fit-content;
+    margin-top: rem(24);
+  }
+
+  .desktop-only {
+    display: none;
+
+    @include breakpoint('large') {
+      display: block;
+      padding-left: rem(56);
+      border-left: rgba(45, 156, 219, 0.15) solid 1px;
+    }
+  }
+
+  &__write-for-us {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+
+    .write-for-us {
+      &__title,
+      .icon {
+        color: $color-accent-secondary-yellow-100;
+      }
+
+      &__desc {
+        color: $color-white-100;
+      }
+
+      &__link {
+        color: $color-white-100;
+        font-weight: 700;
+      }
+    }
+  }
+
+  &__grid {
+    @include breakpoint('large') {
+      display: grid;
+      grid-template-columns: minmax(50%, 680px) rem(380);
+      justify-content: stretch;
+
+      .entry-header__desc {
+        margin-right: rem(40);
+      }
+    }
   }
 }

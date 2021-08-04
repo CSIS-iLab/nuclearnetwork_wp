@@ -4,8 +4,12 @@
 .footer {
   --padding-container: #{rem(40) 0};
   --margin-news-social-block: #{rem(32) 0};
-
-  $gradient: linear-gradient(91.1deg, #0b2c4d 0.76%, #0d3357 100.12%);
+  /* stylelint-disable-next-line */
+  $footerBubbles: '/wp-content/themes/csisnuclearnetwork/assets/static/footer-background.svg';
+  /* stylelint-disable-next-line */
+  $gradient: url($footerBubbles), linear-gradient(180deg, rgba(16, 48, 79, 0.68) 0%, rgba(53, 110, 163, 0.0966914) 30.95%, rgba(56, 115, 171, 0) 100%), linear-gradient(180.1deg, #1C4973 0.76%, #08223A 100.12%);
+  
+  position: relative;
   display: grid;
   grid-template-areas:
     'logo'
@@ -18,7 +22,18 @@
   background: $color-accent-primary-blue-100;
   backdrop-filter: blur(124px);
   @extend %text-style-paragraph-medium-short;
-  @include full-width-background($color-accent-primary-blue-100);
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: calc(-1 * calc((100vw - 100%) / 2));
+    z-index: -2;
+    display: block;
+    width: calc(100% + calc(100vw - 100%));
+    height: 100%;
+    background: $gradient;
+  }
 
   @include breakpoint('small') {
     --padding-container: #{rem(32) 0};
