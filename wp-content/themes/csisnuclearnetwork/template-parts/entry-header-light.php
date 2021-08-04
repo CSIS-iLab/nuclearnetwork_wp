@@ -49,6 +49,7 @@ if ( $template === 'templates/template-no-image.php' ){
 <header class="entry-header <?php echo $headerClasses; ?>">
 
 <?php
+var_dump($is_author);
 
 	if ( $is_404 ) { ?>
 
