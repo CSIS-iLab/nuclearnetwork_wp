@@ -35,7 +35,6 @@ if ( $is_search || $is_tag || $is_category ) {
 }
 
 $feat_image = 'style="background-image:url('. $image_URL .');"';
-
 $title_classes = 'entry-header__title entry-header__title--yellow';
 if ( $is_tag || $is_category || $is_search || $post_type === 'programs' && $is_single && $post_parent_id ) {
 	$title_classes = 'entry-header__title';
