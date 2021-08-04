@@ -102,11 +102,11 @@ if ( $is_monthly_newsletter ) {
 		<div class="post-block__event-meta">
 			<?php
 			if ( $event_start_time ) { ?>
-			<div class="post-meta post-meta__event"><span class="post-meta__label">Time</span><?php echo $event_time; ?></div>
+			<dl class="post-meta post-meta__event"><dt class="post-meta__label">Time</dt><dd><?php echo $event_time; ?></dd></dl>
 			<?php
 			}
 			if ( $event_location ) { ?>
-			<div class="post-meta post-meta__event"><span class="post-meta__label">Location</span><?php echo $event_location; ?></div>
+			<dl class="post-meta post-meta__event"><dt class="post-meta__label">Location</dt><dd><?php echo $event_location; ?></dd></dl>
 			<?php
 			} ?>
 		</div>

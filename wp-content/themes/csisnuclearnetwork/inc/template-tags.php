@@ -170,7 +170,7 @@ function nuclearnetwork_posted_on( $date_format = null ) {
 	} elseif ( $post_type === 'events' || $post_type === 'programs' || $post_type === 'projects' ) {
 		return;
 	} else {
-		echo '<div class="post-meta post-meta__date"><span class="post-meta__label">Published </span>' . get_the_time( $date ) . '</div>';
+		echo '<dl class="post-meta post-meta__date"><dt class="post-meta__label">Published </dt><dd>' . get_the_time( $date ) . '</dd></dl>';
 	}
 }
 
@@ -187,7 +187,7 @@ function nuclearnetwork_last_updated() {
 		return;
 	}
 
-	echo '<div class="post-meta post-meta__date"><span class="post-meta__label">Last Updated</span> ' . get_the_modified_time( get_option( 'date_format' ) ) . '</div>';
+	echo '<dl class="post-meta post-meta__date"><dt class="post-meta__label">Last Updated</dt> <dd>' . get_the_modified_time( get_option( 'date_format' ) ) . '</dd></dl>';
 }
 
 /**
@@ -218,7 +218,7 @@ function nuclearnetwork_authors() {
 		return;
 	}
 
-	echo '<div class="post-meta post-meta__authors"><span class="post-meta__label">By</span>' . $authors . '</div>';
+	echo '<dl class="post-meta post-meta__authors"><dt class="post-meta__label">By</dt><dd>' . $authors . '</dd></dl>';
 }
 
 if (! function_exists('nuclearnetwork_authors_list_extended')) :
@@ -433,6 +433,6 @@ if (! function_exists('nuclearnetwork_display_series')) :
 
 		global $post;
 		
-		echo get_the_term_list( $post->ID, 'series', '<div class="post-meta__series text--italic"><span class="post-meta__label">Series </span>', ', ', '</div>');
+		echo get_the_term_list( $post->ID, 'series', '<dl class="post-meta post-meta__series text--italic"><dt class="post-meta__label">Series </dt><dd>', ', ', '</dd></dl>');
 	}
 endif;

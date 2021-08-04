@@ -2,6 +2,7 @@
 
 .post-meta {
   @extend %text-style-label-medium;
+  display: flex;
   color: var(--post-meta);
 
   &__label {
