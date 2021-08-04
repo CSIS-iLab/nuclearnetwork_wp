@@ -55,7 +55,7 @@ if ( $template === 'templates/template-no-image.php' ){
 
 		} elseif ( $is_404 ) { ?>
 
-			<h1 class="error-404__title"><?php _e( '404', 'nuclearnetwork' ); ?></h1>
+			<h1 class="entry-header__title"><?php _e( '404', 'nuclearnetwork' ); ?></h1>
 
 		<?php } elseif ( $is_page ) {
 			the_title( '<h1 class="entry-header__title">', '</h1>' );
