@@ -120,9 +120,9 @@
         transition: filter 0.3s ease-in-out;
       }
 
-      &:focus:after {
+      &:focus::after {
+        background-color: $color-bg-light-400;
         filter: invert(14%) sepia(55%) saturate(817%) hue-rotate(170deg) brightness(102%) contrast(92%);
-        background-color: $color-bg-light-300;
       }
 
       &:hover::after {
