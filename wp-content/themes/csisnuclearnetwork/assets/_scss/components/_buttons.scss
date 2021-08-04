@@ -8,7 +8,7 @@
   color: var(--btn-color);
   text-align: center;
   background: var(--btn-bg, transparent);
-  border: 1px solid var(--btn-border, transparent);
+  border: 10px solid var(--btn-border, transparent);
   border-radius: 2px;
   transition: all 0.3s ease-in-out;
 
@@ -56,8 +56,8 @@
 
   &--outline {
     &-dark {
-      --btn-color: #{$color-black-190};
-      --btn-border: #{$color-black-190};
+      --btn-color: #{$color-black-165};
+      --btn-border: #{$color-black-165};
     }
 
     &-blue {
