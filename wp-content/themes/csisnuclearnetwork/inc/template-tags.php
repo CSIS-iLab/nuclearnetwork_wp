@@ -167,7 +167,7 @@ function nuclearnetwork_posted_on( $date_format = null ) {
 
 	if ( $post_type === 'news' ) {
 		echo '<div class="post-meta post-meta__date">' . get_the_time( $date ) . '</div>';
-	} elseif ( $post_type === 'events' || $post_type === 'programs' || $post_type === 'projects' ) {
+	} elseif ( in_array( $post_type, array( 'events', 'programs', 'projects' ) ) ) {
 		return;
 	} else {
 		echo '<dl class="post-meta post-meta__date"><dt class="post-meta__label">Published </dt><dd>' . get_the_time( $date ) . '</dd></dl>';
