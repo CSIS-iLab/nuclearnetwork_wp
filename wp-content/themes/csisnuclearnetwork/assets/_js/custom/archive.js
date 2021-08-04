@@ -1,6 +1,7 @@
 document.addEventListener('facetwp-loaded', function () {
   modifyCheckboxes()
   modifyFSelect()
+  modifyFSelectOptions()
 })
 
 const modifyCheckboxes = () => {
@@ -25,4 +26,12 @@ const modifyFSelect = () => {
       wrap[i].classList.remove('fs-default')
     }
   }
+}
+
+const modifyFSelectOptions = () => {
+  const counter = document.querySelectorAll('.fs-option-label')
+  Array.from(counter).forEach((t) => {
+    const splitText = t.innerText.split(' ')
+    t.innerText = splitText.slice(0, splitText.length - 1).join(' ')
+  })
 }
