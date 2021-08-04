@@ -19,14 +19,13 @@
 
   &__featured {
     .post-block {
-      position: relative;
       padding-top: rem(34);
 
       @include breakpoint('small') {
         padding: rem(40) rem(40) rem(40) rem(50);
       }
 
-      &::before {
+      &::after {
         content: '';
         position: absolute;
         top: 0;
