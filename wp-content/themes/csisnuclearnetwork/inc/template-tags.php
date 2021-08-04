@@ -214,7 +214,7 @@ function nuclearnetwork_authors() {
 
 	$post_type = get_post_type();
 
-	if ( !$authors || $post_type === 'events' || $post_type === 'programs' || $post_type === 'projects' ) {
+	if ( !$authors || in_array( $post_type, array( 'events', 'programs', 'projects' ) ) ) {
 		return;
 	}
 
