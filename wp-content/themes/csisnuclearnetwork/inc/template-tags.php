@@ -397,28 +397,19 @@ if (! function_exists('nuclearnetwork_display_subtypes')) :
 	function nuclearnetwork_display_subtypes() {
 
 		
-		$post_type = get_post_type();
+		// $post_type = get_post_type();
+		$post_type = get_post_type_object(get_post_type());
 		global $post;
 		
-		if ( $post_type === 'events' ) {
-			$post_type_name = 'Event';
-			$tax_name = 'event_types';
-			$slug = $post_type;
-		} elseif ($post_type === 'updates' ) {
-			$post_type_name = 'Program Update';
-			$tax_name = '';
-			$slug = 'updates';
-		} elseif ($post_type === 'programs' && is_single() ) {
-			$post_type_name = 'Program';
-			$tax_name = '';
-			$slug = $post_type;
-		} elseif ($post_type === 'post' ) {
-			$post_type_name = 'Analysis';
+		if ( in_array( $post_type->name, array( 'events', 'updates' ) ) || ( $post_type->name === 'programs' && is_single() ) ) {
+			$post_type_name = $post_type->labels->singular_name;
+			$tax_name = $post_type->taxonomies[0];
+		} elseif ($post_type->name === 'post' ) {
+			$post_type_name = get_the_title( get_option( 'page_for_posts' ) );
 			$tax_name = 'analysis_subtype';
-			$slug = 'analysis';
 		}
 		
-		echo '<div class="post-meta post-meta__terms"><a href="/' . $slug . '" class="post-meta__terms-type text--bold">' . $post_type_name . get_the_term_list( $post->ID, $tax_name, ' / </a>', ', ') . '</div>';
+		echo '<div class="post-meta post-meta__terms"><a href="' . get_post_type_archive_link( $post_type ) . '" class="post-meta__terms-type text--bold">' . $post_type_name . get_the_term_list( $post->ID, $tax_name, ' /&nbsp</a>', ',&nbsp') . '</div>';
 	}
 endif;
 
