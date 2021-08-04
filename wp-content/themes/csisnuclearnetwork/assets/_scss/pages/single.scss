@@ -19,7 +19,7 @@
 
     /*----------  Headings  ----------*/
 
-    h2:not(.footnotes__heading),
+    h2:not(.footnotes__heading):not(.cite__heading),
     h3,
     h4,
     h5,
@@ -28,52 +28,56 @@
       margin-bottom: rem(8);
     }
 
-    h2:not(.footnotes__heading) {
+    h2:not(.footnotes__heading):not(.cite__heading) {
       --heading-margin-top: #{rem(56)};
       margin-bottom: rem(16);
       @extend %text-style-heading-x-large;
+      color: $color-accent-primary-blue-300;
     }
 
     h3 {
       --heading-margin-top: #{rem(32)};
       @extend %text-style-heading-large-strong;
+      color: $color-accent-primary-blue-200;
     }
 
     h4 {
       --heading-margin-top: #{rem(32)};
-      // @extend %text-style-paragraph-x-large-short-sans;
+      @extend %text-style-heading-medium;
+      color: $color-accent-primary-blue-100;
     }
 
     /*----------  Paragraphs & Lists  ----------*/
 
-    p,
-    ul {
+    p {
       color: $color-black-190;
     }
 
     p {
-      // @extend %text-style-paragraph-large-long;
+      @extend %text-style-paragraph-large;
+      @extend %text-style-long;
     }
 
     ul,
     ol:not(.footnotes__list):not(.easy-footnotes-wrapper) {
-      margin-top: rem(16);
-      padding-left: rem(52);
-      // @extend %text-style-paragraph-medium-long;
+      margin-top: rem(16px);
+      padding-left: rem(42px);
+      @extend %text-style-paragraph-large;
+      @extend %text-style-long;
+      color: $color-gray-190;
     }
 
     li {
-      padding-left: rem(12);
+      padding-left: rem(18px);
     }
 
     li:not(.easy-footnote-single) + li {
-      margin-top: rem(8);
+      margin-top: rem(12px);
     }
 
     ol:not(.footnotes__list):not(.easy-footnotes-wrapper)::marker,
     li::marker {
-      // color: $color-link-primary-200;
-      @extend %text-style-label-large;
+      color: $color-accent-secondary-yellow-100;
     }
 
     /*----------  Links  ----------*/
@@ -81,19 +85,16 @@
     a[href*='//']:not([class])
     {
       /* stylelint-enable */
-      // color: $color-link-primary-200;
-      // font-family: $font__merriweather;
-      @include font-size(18px);
-      font-weight: 400;
+      color: $color-accent-primary-blue-200;
       text-decoration: underline;
 
       &:hover {
-        // color: $color-accent-light-primary-100;
+        color: $color-accent-primary-blue-100;
         text-decoration-color: transparent;
       }
 
       &:focus {
-        // color: $color-accent-light-primary-100;
+        color: $color-accent-primary-blue-100;
         text-decoration-color: transparent;
         background: $color-bg-light-400;
         outline: 0;
@@ -110,17 +111,22 @@
         top: 1px;
         left: 5px;
         display: inline-block;
-        width: 0.8em;
-        height: 0.8em;
+        width: rem(14);
+        height: rem(14);
         margin-right: 5px;
         background-image: url('/wp-content/themes/csisnuclearnetwork/assets/static/icons/arrow-external.svg');
         background-size: 100% 100%;
-        filter: invert(38%) sepia(89%) saturate(439%) hue-rotate(133deg) brightness(86%) contrast(85%);
+        filter: invert(22%) sepia(87%) saturate(1176%) hue-rotate(186deg) brightness(101%) contrast(85%);
         transition: filter 0.3s ease-in-out;
       }
 
+      &:focus::after {
+        background-color: $color-bg-light-400;
+        filter: invert(14%) sepia(55%) saturate(817%) hue-rotate(170deg) brightness(102%) contrast(92%);
+      }
+
       &:hover::after {
-        filter: invert(33%) sepia(14%) saturate(1559%) hue-rotate(131deg) brightness(95%) contrast(87%);
+        filter: invert(14%) sepia(55%) saturate(817%) hue-rotate(170deg) brightness(102%) contrast(92%);
       }
     }
 
@@ -239,7 +245,6 @@
       justify-content: center;
       align-items: center;
       margin-bottom: rem(24);
-      // color: $color-accent-light-primary-100;
       @extend %text-style-heading-large-strong-caps;
 
       @include breakpoint('small') {
@@ -254,6 +259,54 @@
         height: 0.5em;
         font-size: 2em;
       }
+    }
+  }
+
+  /* stylelint-disable-next-line */
+  h2.cite__heading {
+    color: $color-accent-primary-blue-100;
+    @extend %text-style-label-medium; 
+  }
+
+  .cite__container {
+    @extend %text-style-paragraph-small;
+    color: $color-black-165;
+  }
+
+  .cite__citation {
+    display: block;
+    margin: rem(8) 0 rem(16) 0;
+  }
+
+  #btn-copy {
+    color: $color-black-190;
+    text-transform: unset;
+    background: transparent;
+    border: 2px solid $color-black-190;
+    transition: all ease 0.3s;
+
+    &:hover {
+      color: $color-white-100;
+      background: $color-blue-400-button-blue;
+      border: unset;
+
+      svg {
+        color: $color-white-100;
+      }
+    }
+
+    &:focus {
+      color: $color-accent-primary-blue-200;
+      background: $color-bg-light-300;
+
+      svg {
+        color: $color-accent-primary-blue-200;
+      }
+    }
+
+    svg {
+      margin-right: rem(8);
+      color: $color-black-165;
     }
   }
 }

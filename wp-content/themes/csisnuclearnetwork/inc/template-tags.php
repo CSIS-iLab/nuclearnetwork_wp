@@ -234,23 +234,40 @@ if (! function_exists('nuclearnetwork_authors_list_extended')) :
 		}
 
 		if (function_exists('coauthors_posts_links')) {
-			$authors = '<h2 class="section__heading">Authors</h2>';
+			$authors = '<h2 class="section__heading post__authors-heading">Authors</h2><p class="text--italic text--short post__authors-disclaimer">The views expressed above are the author’s and do not necessarily reflect those of the Center for Strategic and International Studies or the Project on Nuclear Issues.</p>';
 
 			foreach (get_coauthors() as $coauthor) {
 				$name = $coauthor->display_name;
+				$username = $coauthor->linked_account;
+				$user = get_user_by( 'login', $username );
 
-				$authors .= '<div class="post__authors-author"><h3 class="post__authors-author-name">' . $name . '</h3><p class="post__authors-author-bio">' . $name . ' ' . $coauthor->description . '</p>';
+				$title = get_field( 'title', $coauthor->ID );
+				$short_bio = get_field( 'short_bio', $coauthor->ID );
+				$user_bio = get_field( 'short_bio', 'user_' . $user->ID );
+				$guest_description = $coauthor->description;
+				$user_description = get_user_meta( $user->ID, 'description', true );
 
-				if ( $coauthor->website ) {
-					$authors .= '<a href="' . $coauthor->website . '" class="post__authors-author-link">Learn More ' . nuclearnetwork_get_svg( 'arrow-external' ) .'</a></div>';
+				if ( $short_bio ) {
+					$bio = $short_bio;
+				} elseif ( $user_bio ) {
+					$bio = $user_bio;
+				} elseif ( $guest_description ) {
+					$bio = $guest_description;
 				} else {
-					$authors .= '</div>';
+					$bio = $user_description;
 				}
+
+				if ( $title == null ){
+					$title = get_field( 'title', 'user_' . $user->ID );
+				}
+
+
+				$authors .= '<div class="post__authors-author"><h3 class="text--bold text--short post__authors-author-name">' . $name . '<span class="post__authors-author-title"> - ' . $title . '</span></h3><hr class="divider divider--thicc page__header-divider"><p class="post__authors-author-bio">' . $bio . '</p></div>';
 			}
 		} else {
 			$authors = the_author_posts_link();
 		}
-		return '<div class="post__authors"><hr class="post__authors-divider alignfull">' . $authors . '</div>';
+		echo '<div class="post__authors">' . $authors . '</div>';
 	}
 endif;
 
@@ -425,5 +442,26 @@ if (! function_exists('nuclearnetwork_display_series')) :
 		global $post;
 		
 		echo get_the_term_list( $post->ID, 'series', '<dl class="post-meta post-meta__series text--italic"><dt class="post-meta__label">Series </dt><dd>', ', ', '</dd></dl>');
+
+if ( ! function_exists( 'nuclearnetwork_citation' ) ) :
+	/**
+	 * Returns HTML with post citation.
+	 *
+	 * @param int $id Post ID.
+	 */
+	function nuclearnetwork_citation() {
+		$authors = coauthors( ', ', null, null, null, false );
+
+		$modified_date = null;
+		if ( get_the_modified_date() ) {
+			$modified_date = 'last modified ' . get_the_modified_date() . ', ';
+		}
+
+		$title = get_the_title();
+		if ( is_tax() ) {
+			$title = get_the_archive_title();
+		}
+
+		printf( '<h2 class="cite__heading text--bold text--caps">Cite this Page</h2><p class="cite__container text--short"><span class="cite__citation">' . esc_html( '%1$s, "%2$s,"', 'nuclearnetwork' ) . ' <em>%3$s</em>' . esc_html( ', Center for Strategic and International Studies, %4$s, %5$s%6$s.', 'nuclearnetwork') . '</span><button id="btn-copy" class="btn btn--dark btn--icon btn--short" data-clipboard-target=".cite__citation" aria-label="Copied!">' . nuclearnetwork_get_svg( 'copy' ) . 'Copy Citation</button></p>', $authors, $title, get_bloginfo( 'name' ), get_the_date(), $modified_date, get_the_permalink() ); // WPCS: XSS OK.
 	}
 endif;

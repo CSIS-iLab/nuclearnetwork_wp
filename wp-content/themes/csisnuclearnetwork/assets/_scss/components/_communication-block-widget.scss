@@ -1,0 +1,20 @@
+@use '../abstracts' as *;
+
+.communication-block {
+  h3,
+  p {
+    display: block;
+    margin-top: rem(8);
+  }
+
+  h3 {
+    color: $color-accent-secondary-yellow-100;
+    @extend %text-style-label-medium;
+  }
+
+  /* stylelint-disable-next-line */
+  h3.daily {
+    margin-top: rem(24);
+  }
+  /* stylelint-enable */
+}

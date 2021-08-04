@@ -240,6 +240,16 @@ function nuclearnetwork_register_scripts() {
 		wp_script_add_data( 'nuclearnetwork-js-carousel', 'async', true );
 	}
 
+	if ( is_single() ) {
+		wp_enqueue_script('nuclearnetwork-clipboard', 'https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js', array(), '20170713', true );
+		wp_add_inline_script('nuclearnetwork-clipboard', "var clipboard = new ClipboardJS('#btn-copy');
+			clipboard.on('success', function(e) {
+					var d = document.getElementById('btn-copy');
+				d.className += ' tooltipped tooltipped-n tooltipped-no-delay';
+			});
+		");
+	}
+
 }
 
 add_action( 'wp_enqueue_scripts', 'nuclearnetwork_register_scripts' );
@@ -302,7 +312,7 @@ function nuclearnetwork_sidebar_registration() {
 		array_merge(
 			$footer_shared_args,
 			array(
-				'name'        => __( 'Footer #1', 'nuclearnetwork' ),
+				'name'        => __( 'Footer Description', 'nuclearnetwork' ),
 				'id'          => 'sidebar-1',
 				'description' => __( 'Widgets in this area will be displayed in the first column in the footer.', 'nuclearnetwork' ),
 			)
@@ -314,7 +324,7 @@ function nuclearnetwork_sidebar_registration() {
 		array_merge(
 			$footer_shared_args,
 			array(
-				'name'        => __( 'Footer #2', 'nuclearnetwork' ),
+				'name'        => __( 'Descrption Footer Component', 'nuclearnetwork' ),
 				'id'          => 'sidebar-2',
 				'description' => __( 'Widgets in this area will be displayed in the second column in the footer.', 'nuclearnetwork' ),
 			)
@@ -335,18 +345,24 @@ function nuclearnetwork_sidebar_registration() {
 
 		// Social Share
 	register_sidebar(
-		array(
-				'name'        => __( 'Social Share 1', 'nuclearnetwork' ),
-				'id'          => 'social-share-1',
-				'description' => __( 'Social Share Widget 2', 'nuclearnetwork' ),
+		array_merge(
+			$footer_shared_args,
+			array(
+			'name'        => __( 'Social Share 1', 'nuclearnetwork' ),
+			'id'          => 'social-share-1',
+			'description' => __( 'Social Share Widget', 'nuclearnetwork' )
 			)
+		)
 	);
 
 	register_sidebar(
-		array(
-			'name'        => __( 'Monthly Newsletter', 'nuclearnetwork' ),
-			'id'          => 'monthly-newsletter',
-			'description' => __( 'Monthly Newsletter for Nuclear Network', 'nuclearnetwork' )
+		array_merge(
+			$footer_shared_args,
+			array(
+			'name'        => __( 'Newsletters', 'nuclearnetwork' ),
+			'id'          => 'newsletters',
+			'description' => __( 'Newsletters for Nuclear Network', 'nuclearnetwork' )
+			)
 		)
 	);
 
