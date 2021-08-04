@@ -6,7 +6,7 @@
   color: $color-black-190;
   background-color: $color-white-190;
 
-  @include breakpoint('small', 'max-width'){
+  @include breakpoint('small', 'max-width') {
     @include full-width-background($color-white-190);
   }
 
@@ -19,6 +19,10 @@
     text-decoration: underline;
     text-underline-position: under;
 
+    &:visited {
+      color: $color-bg-dark-400;
+    }
+
     &:hover {
       color: $color-accent-primary-blue-100;
       text-decoration: none;
@@ -26,11 +30,9 @@
 
     &:focus {
       color: $color-accent-primary-blue-100;
+      text-decoration: none;
       background-color: $color-bg-light-400;
-    }
-
-    &:visited {
-      color: $color-bg-dark-400;
+      outline: 0;
     }
   }
 
