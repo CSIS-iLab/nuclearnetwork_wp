@@ -19,7 +19,8 @@
     'copyright';
   padding: var(--padding-container);
   color: $color-white-190;
-  background: transparent;
+  background: $color-accent-primary-blue-100;
+  backdrop-filter: blur(124px);
   @extend %text-style-paragraph-medium-short;
 
   &::before {
