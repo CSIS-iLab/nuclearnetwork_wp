@@ -18,7 +18,10 @@
 		<div class="home__about-item">
 			<h3 class="home__about-title">About PONI</h3>
             <hr>
-			<p class="home__about-description">The Project on Nuclear Issues (PONI) at the Center for Strategic and International Studies aims to develop the next generation of policy, technical, and operational nuclear professionals through outreach, mentorship, research, and debate.</p>
+			<?php 
+				$poni_description = get_field('poni_description');
+			?>
+			<p class="home__about-description"><?php echo esc_html( $poni_description ) ?></p>
 			<div class="home__about-directorblock">
 				<?php 
 				global $coauthors_plus;
@@ -51,10 +54,10 @@
 		<div class="home__about-item">
 			<figure>
 				<?php 
-				$staffimg = get_field('staff_image');
+				$team_photo = get_field('team_photo');
 				?>
-				<img class="home__about-familyphoto" src="<?php echo esc_url($staffimg['url']);?>" alt="<?php echo $staffimg['alt'] ?>">
-				<figcaption><?php echo $staffimg['caption'];?></figcaption>
+				<img class="home__about-familyphoto" src="<?php echo esc_url($team_photo['url']);?>" alt="<?php echo $team_photo['alt'] ?>">
+				<figcaption><?php echo $team_photo['caption'];?></figcaption>
 			</figure>
 		</div>
 	</div>
