@@ -1,0 +1,143 @@
+@use '../abstracts' as *;
+
+.home {
+  &__about {
+    color: $color-white-100;
+    background-color: $color-blue-000;
+    @include full-width-background($color-blue-000);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding-top: rem(40);
+
+    @include breakpoint('large') {
+      flex-wrap: nowrap;
+      gap: rem(32px);
+    }
+
+    &::before,
+    &::after {
+      @include z-index('postBG');
+    }
+
+    &-content {
+      width: 100%;
+    }
+
+    .home__subtitle {
+      --home-subtitle-color: #{$color-white-100};
+    }
+
+    &-description {
+      @extend %text-style-paragraph-large;
+      padding-bottom: rem(24);
+      color: $color-white-190;
+    }
+
+    &-people {
+      display: flex;
+      flex: auto;
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+
+    &-person {
+      // This is where you would style the individual items in the definition list
+      display: grid;
+      grid-template-columns: 100px auto;
+      grid-template-rows: min-content auto;
+      grid-template-areas: 
+      "image title"
+      "image bio";
+      column-gap: rem(16);
+      row-gap: rem(4);
+
+      @include breakpoint('medium') {
+        width: 50%;
+      }
+
+      @include breakpoint('large') {
+        width: 100%;
+      }
+
+      @include breakpoint('xlarge') {
+        width: 50%;
+      }
+
+
+      &:last-of-type {
+        padding-bottom: rem(40);
+
+        @include breakpoint('medium') {
+          padding-left: rem(20);
+        }
+
+        @include breakpoint('large'){
+          padding-left: 0;
+        }
+
+        @include breakpoint('xlarge') {
+          padding-left: rem(20);
+        }
+      }
+
+      &:first-of-type {
+        padding-bottom: rem(24);
+      }
+      
+      &-image {
+        grid-area: image;
+
+        img {
+          width: rem(100);
+          height: rem(130);
+          object-fit: cover;
+        }
+      }
+
+      &-title {
+        grid-area: title;
+        color: $color-white-100;
+        @extend %text-style-heading-medium;
+      }
+
+      &-bio {
+        grid-area: bio;
+        color: $color-white-165;
+        @extend %text-style-label-small;
+      }
+    }
+
+    figure {
+
+    }
+
+    &-familyphoto {
+      // NOT WORKING
+      @include csis-block-full-width-wrapper;
+      // margin-left: calc(0 - (var(--container-padding)));
+      padding-bottom: rem(8);
+      
+      img {
+        max-width: unset;
+        width: calc(100% + 6vw);
+      }
+
+      figcaption {
+        padding-bottom: rem(72);
+        @extend %text-style-paragraph-medium-short;
+        color: $color-white-165;
+      }
+
+      @include breakpoint('large') {
+        width: calc(100% + var(--container-padding));
+
+        margin-left: 0;
+      }
+
+      @include breakpoint('xxlarge') {
+        width: 100%;
+      }
+    }
+  }
+}

@@ -1,6 +1,6 @@
 @use '../abstracts' as *;
 @use '../components/home-issue-block';
-@use '../components/about-poni';
+@use '../components/home-about-poni';
 
 .home {
   #site-content {
@@ -20,6 +20,24 @@
 
     @include breakpoint('xlarge') {
       margin-top: rem(32);
+    }
+  }
+
+  &__subtitle {
+    --home-subtitle-color: #{$color-black-190};
+    --home-subtitle-border: #{$color-accent-secondary-yellow-100};
+    @extend %text-style-heading-x-large-strong;
+    color: var(--home-subtitle-color);
+
+    &--border {
+      &:after{
+        content: '';
+        display: block;
+        width: rem(45);
+        height: rem(4);
+        margin: rem(16) 0;
+        background-color: var(--home-subtitle-border);
+      }
     }
   }
 
