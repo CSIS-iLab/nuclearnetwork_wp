@@ -52,26 +52,6 @@
       flex: 1 1 calc(50% - #{rem(24)});
       column-gap: rem(16);
       row-gap: rem(4);
-
-      &:last-of-type {
-        padding-bottom: rem(40);
-
-        @include breakpoint('medium') {
-          padding-left: rem(20);
-        }
-
-        @include breakpoint('large') {
-          padding-left: 0;
-        }
-
-        @include breakpoint('xlarge') {
-          padding-left: rem(20);
-        }
-      }
-
-      &:first-of-type {
-        padding-bottom: rem(24);
-      }
       
       &-image {
         grid-area: image;
