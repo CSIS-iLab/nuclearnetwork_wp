@@ -53,19 +53,6 @@
       column-gap: rem(16);
       row-gap: rem(4);
 
-      @include breakpoint('medium') {
-        width: 50%;
-      }
-
-      @include breakpoint('large') {
-        width: 100%;
-      }
-
-      @include breakpoint('xlarge') {
-        width: 50%;
-      }
-
-
       &:last-of-type {
         padding-bottom: rem(40);
 
