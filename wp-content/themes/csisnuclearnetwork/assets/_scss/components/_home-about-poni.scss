@@ -44,12 +44,12 @@
     &-person {
       // This is where you would style the individual items in the definition list
       display: grid;
+      flex: 1 1 calc(50% - #{rem(24)});
       grid-template-areas: 
         'image title'
         'image bio';
       grid-template-columns: 100px auto;
-      grid-template-rows: min-content auto;
-      flex: 1 1 calc(50% - #{rem(24)});
+      grid-template-rows: max-content auto;
       column-gap: rem(16);
       row-gap: rem(4);
       
