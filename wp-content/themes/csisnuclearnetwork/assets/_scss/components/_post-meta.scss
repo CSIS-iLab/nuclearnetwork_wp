@@ -1,41 +1,44 @@
 @use 'abstracts' as *;
 
 .post-meta {
+  @extend %text-style-label-medium;
+  display: flex;
   color: var(--post-meta);
 
   &__label {
-    font-style: italic;
+    margin-right: rem(8);
+    color: $color-black-165;
+    font-style: normal;
   }
 
-  &__authors {
-    --post-meta: #{$color-black-190};
-    margin-bottom: rem(4);
-    // @extend %text-style-paragraph-small-short;
-
+  &__authors,
+  &__terms,
+  &__series {
     a {
-      color: $color-black-190;
+      color: $color-accent-primary-blue-200;
 
       &::after {
         background-image: none;
       }
 
       &:hover {
-        color: $color-bg-dark-100;
+        color: $color-accent-primary-blue-100;
       }
 
       &:focus {
-        color: $color-bg-dark-100;
+        color: $color-accent-primary-blue-100;
         background: $color-bg-light-300;
         outline: 0;
       }
     }
   }
 
-  &__date {
+  &__authors {
     --post-meta: #{$color-black-165};
-    margin-bottom: rem(8);
+  }
 
-    // @extend %text-style-label-small-strong-caps;
+  &__date {
+    --post-meta: #{$color-black-190};
   }
 
   &__categories {
@@ -75,5 +78,11 @@
         outline: 0;
       }
     }
+  }
+
+  &__terms {
+    --post-meta: #{$color-accent-primary-blue-200};
+    @extend %text-style-label-small-caps;
+    margin-bottom: rem(4);
   }
 }

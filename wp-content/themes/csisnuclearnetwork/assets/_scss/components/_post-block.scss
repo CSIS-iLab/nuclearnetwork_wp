@@ -5,206 +5,469 @@
 
 .post-block {
   position: relative;
-  display: grid;
-  grid-template-areas:
-    'img'
-    'title'
-    'excerpt'
-    'authors'
-    'date'
-    'categories';
-  grid-template-columns: 1fr;
+  // display: grid;
+  // grid-template-areas:
+  //   'img'
+  //   'types'
+  //   'title'
+  //   'authors'
+  //   'date'
+  //   'excerpt'
+  //   'series';
+  // grid-template-columns: 1fr;
   margin-right: auto;
+  margin-bottom: rem(24);
   margin-left: auto;
-  padding-top: rem(40);
+  padding: rem(24) rem(24) rem(32);
   color: var(--post-meta);
   background: $color-white-100;
-  @include full-width-background($color-white-100);
 
-  @include breakpoint('small') {
-    @include full-width-background(transparent);
-    padding-right: rem(24);
-    padding-bottom: rem(24);
-    padding-left: rem(24);
-
-    &:not(:last-child)::after {
-      top: unset;
-      bottom: 0;
-      left: rem(24);
-      width: calc(100% - 48px);
-      height: 1px;
-      background: $color-black-200;
-    }
+  &::before {
+    @include shadow('lg');
+    content: ' ';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
   }
 
-  @include breakpoint('large') {
-    padding-right: rem(48);
-    padding-left: rem(48);
+  &:hover::before {
+    opacity: 1;
+  }
 
-    &:not(:last-child)::after {
-      left: rem(48);
-      width: calc(100% - 94px);
-    }
+  &::after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+
+  @include breakpoint('small') {
+    padding: rem(32);
   }
 
   &.has-post-thumbnail {
     @include breakpoint('medium') {
-      grid-template-areas:
-        'title img'
-        'excerpt img'
-        'authors img'
-        'date img'
-        'categories img';
-      grid-template-columns: 2fr 1fr;
-      grid-template-rows: max-content max-content max-content max-content auto;
-      column-gap: rem(32);
+      // grid-template-areas:
+      //   'types img'
+      //   'title img'
+      //   'authors img'
+      //   'date img'
+      //   'excerpt img'
+      //   'series series';
+      // grid-template-columns: 2fr 1fr;
+      // grid-template-rows: max-content max-content max-content max-content auto;
+      // column-gap: rem(32);
     }
   }
 
   &__img {
-    grid-area: img;
+    float: right;
+    width: 100%;
     margin-bottom: rem(24);
     transition: all 0.3s ease-in-out;
 
-    &:hover ~ .post-block__title {
-      // color: $color-link-primary-200;
+    @include breakpoint('medium') {
+      max-width: rem(175);
+      margin-left: rem(24);
 
       .archive__featured & {
-        // color: $color-accent-dark-primary-400;
+        margin-left: rem(32);
+      }
+    }
+
+    @include breakpoint('large') {
+      .archive__featured & {
+        margin-bottom: rem(32);
+      }
+    }
+
+    &:hover ~ .post-block__title {
+      color: $color-accent-primary-blue-200;
+    }
+
+    &:focus ~ .post-block__title a {
+      background: $color-bg-light-300;
+      outline: 0;
+    }
+
+    .post-block.programs &,
+    .archive__featured & {
+      @include breakpoint('medium') {
+        max-width: rem(280);
+      }
+    }
+
+    .post-block.programs & {
+      @include breakpoint('large') {
+        max-width: rem(350);
       }
     }
   }
 
   &__title {
+    @extend %text-style-heading-medium;
     grid-area: title;
-    color: $color-black-190;
-    // @extend %text-style-heading-large-serif-bold;
+    margin-bottom: rem(12);
+    color: $color-black-100;
 
     a {
       &:hover {
-        // color: $color-link-primary-200;
+        color: $color-accent-primary-blue-200;
       }
 
       &:focus {
-        // color: $color-link-primary-200;
-        background: $color-bg-light-400;
+        background: $color-bg-light-300;
+        outline: 0;
       }
     }
 
-    .archive__featured & {
-      color: $color-white-190;
+    /* stylelint-disable */
+    a[href*="//"]:not([class]):not([href*="nuclearnetwork.local"]):not([href*="localhost"]):not([href*="nuclearnetwork"]),
+    a[href*="//"]:not([href*="nuclearnetwork.local"]):not([href*="localhost"]):not([href*="nuclearnetwork"]).post-block__news-link h3
+    {
+      /* stylelint-enable */
+      &::after {
+        content: '';
+        display: inline-block;
+        width: 0.7em;
+        height: 0.7em;
+        margin-left: rem(8);
+        background-image: url('/wp-content/themes/csisnuclearnetwork/assets/static/icons/arrow-external.svg');
+        background-size: 100% 100%;
+        opacity: 0.9;
+        transition: all 0.3s ease-in-out;
+      }
+
+      &:hover::after {
+        opacity: 1;
+        filter: invert(26%) sepia(69%) saturate(1514%) hue-rotate(187deg) brightness(85%) contrast(80%);
+      }
+    }
+
+    .post-block.projects &,
+    .post-block.programs &,
+    .post-block.news & {
+      @extend %text-style-heading-large-strong;
+      color: $color-accent-primary-blue-200;
 
       a {
         &:hover {
-          // color: $color-accent-dark-primary-400;
+          color: $color-accent-primary-blue-100;
         }
 
         &:focus {
-          color: $color-white-100;
-          background: $color-border-light-130;
+          color: $color-accent-primary-blue-100;
         }
+      }
+
+      /* stylelint-disable */
+      a[href*="//"]:not([class]):not([href*="nuclearnetwork.local"]):not([href*="localhost"]):not([href*="nuclearnetwork"])
+      {
+        /* stylelint-enable */
+        &::after {
+          opacity: 1;
+          filter: invert(26%) sepia(69%) saturate(1514%) hue-rotate(187deg) brightness(85%) contrast(80%);
+        }
+
+        &:hover::after {
+          filter: invert(12%) sepia(88%) saturate(853%) hue-rotate(180deg) brightness(102%) contrast(89%);
+        }
+
+        &:focus::after {
+          filter: invert(12%) sepia(88%) saturate(853%) hue-rotate(180deg) brightness(102%) contrast(89%);
+        }
+      }
+    }
+
+    .post-block.projects &,
+    .post-block.programs & {
+      &::after {
+        content: '';
+        display: block;
+        width: rem(56);
+        height: rem(4);
+        margin-top: rem(4);
+        background-color: $color-accent-secondary-yellow-100;
       }
     }
   }
 
   &__excerpt {
+    @extend %text-style-paragraph-medium-short;
     grid-area: excerpt;
-    margin-top: rem(8);
-    margin-bottom: rem(16);
-    color: $color-black-165;
+    color: $color-black-190;
     overflow-wrap: break-word;
-    // @extend %text-style-paragraph-large-short-sans;
 
-    .archive__featured & {
-      color: $color-white-190;
+    .post-block.events & {
+      margin-bottom: rem(12);
     }
   }
 
   .post-meta__authors {
     grid-area: authors;
-
-    .archive__featured & {
-      --post-meta: #{$color-white-190};
-
-      a {
-        color: $color-white-190;
-
-        &:hover {
-          // color: $color-accent-dark-primary-400;
-        }
-
-        &:focus {
-          color: $color-white-100;
-          background: $color-bg-dark-400;
-        }
-      }
-    }
-
-    a {
-      &:hover {
-        // color: $color-link-primary-200;
-      }
-
-      /* stylelint-disable-next-line */
-      &:focus {
-        // color: $color-link-primary-200;
-        background: $color-bg-light-400;
-      }
-    }
+    margin-bottom: rem(4);
   }
 
   .post-meta__date {
     grid-area: date;
-
-    .archive__featured & {
-      --post-meta: #{$color-white-165};
-    }
-  }
-
-  .post-meta__categories {
-    grid-area: categories;
-
-    .archive__featured & {
-      // --post-meta: #{$color-accent-dark-primary-400};
-
-      li:not(:last-of-type)::after {
-        border-right: 1px solid $color-border-light-130;
-      }
-
-      a {
-        &:hover {
-          color: $color-white-100;
-        }
-
-        &:focus {
-          color: $color-white-100;
-          background: $color-bg-dark-400;
-        }
-      }
-    }
-  }
-
-  &--post {
-    padding-bottom: rem(32);
-
-    &:not(:last-of-type) {
-      border-bottom: 1px solid $color-black-200;
-    }
+    margin-bottom: rem(12);
 
     @include breakpoint('small') {
-      padding-bottom: rem(24);
-
-      &:not(:last-of-type) {
-        border-bottom: 0;
-      }
+      margin-bottom: rem(16);
     }
 
-    @include breakpoint('large') {
-      padding-bottom: rem(32);
+    @include breakpoint('medium') {
+      .archive__featured & {
+        margin-bottom: rem(24);
+      }
+    }
+  }
+
+  .post-meta__terms {
+    grid-area: types;
+  }
+
+  .post-meta__series {
+    margin-top: rem(24);
+    padding-top: rem(16);
+    border-top: 1px solid $color-border-dark-130;
+
+    @include breakpoint('small') {
+      padding-top: rem(24);
     }
   }
 
   .featured-media a {
     display: block;
+  }
+
+  &.post-block__monthly-newsletter {
+    .post-meta__date {
+      --post-meta: #{$color-black-165};
+      margin-bottom: 0;
+      padding-top: rem(24);
+      border-top: 1px solid $color-border-dark-130;
+
+      .post-meta__label {
+        display: none;
+      }
+    }
+  }
+
+  &__event-meta {
+    margin-top: rem(16);
+    padding-top: rem(16);
+    border-top: 1px solid $color-border-dark-130;
+
+    @include breakpoint('small') {
+      margin-top: rem(24);
+      padding-top: rem(24);
+    }
+
+    @include breakpoint('medium') {
+      display: flex;
+    }
+
+    .post-meta__event {
+      display: flex;
+
+      &:first-child:not(:only-child) {
+        margin-bottom: rem(4);
+      }
+
+      @include breakpoint('medium') {
+        &:first-child:not(:only-child) {
+          flex-shrink: 0;
+          margin-bottom: 0;
+          padding-right: rem(24);
+          border-right: 1px solid $color-border-dark-130;
+        }
+
+        &:last-child:not(:only-child) {
+          flex-shrink: 1;
+          padding-left: rem(24);
+        }
+      }
+    }
+  }
+
+  &.events {
+    .post-block__event {
+      &-content {
+        &::after {
+          @include breakpoint('small') {
+            content: '';
+            display: table;
+            clear: both;
+          }
+        }
+      }
+
+      &-date {
+        --date-width: #{rem(90)};
+        --date-height: #{rem(111)};
+        --calendar-top-padding: #{rem(21)};
+        --calendar-color: #{$color-accent-primary-300};
+
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        width: var(--date-width);
+        height: var(--date-height);
+        margin-right: rem(24);
+        margin-bottom: rem(24);
+        padding-top: var(--calendar-top-padding);
+        padding-bottom: rem(10);
+        color: var(--calendar-color);
+        text-align: center;
+        border: 4px solid var(--calendar-color);
+        border-radius: 3px;
+
+        &::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: -4px;
+          width: var(--date-width);
+          height: var(--calendar-top-padding);
+          background-color: var(--calendar-color);
+
+          @include breakpoint('large') {
+            --calendar-top-padding: #{rem(25)}; // 21px for the height of the box and 4px for the height of the bottom border
+          }
+        }
+
+        @include breakpoint('small') {
+          float: left;
+        }
+
+        @include breakpoint('large') {
+          --date-width: #{rem(108)};
+          --date-height: #{rem(135)};
+        }
+
+        .archive__featured & {
+          color: $color-bg-light-100;
+          background-color: var(--calendar-color);
+
+          &::before {
+            background-color: $color-bg-light-100;
+            border-right: 4px solid var(--calendar-color);
+            border-left: 4px solid var(--calendar-color);
+          }
+        }
+      }
+
+      &-month {
+        @extend %text-style-paragraph-medium-short;
+
+        @include breakpoint('large') {
+          @include font-clamp(21px, 24px);
+          line-height: 1.33;
+          letter-spacing: 0.03em;
+        }
+      }
+
+      &-day {
+        @extend %text-style-heading-x-large;
+        line-height: 0.8;
+
+        @include breakpoint('large') {
+          @include font-size(42px);
+          font-weight: normal;
+        }
+      }
+
+      &-year {
+        @extend %text-style-paragraph-small;
+
+        @include breakpoint('large') {
+          @include font-size(16px);
+          font-weight: 700;
+          letter-spacing: 0.005em;
+        }
+      }
+    }
+  }
+
+  &.news {
+    padding: 0;
+
+    .post-block__title {
+      flex-grow: 1;
+      margin-bottom: 0;
+    }
+
+    .post-meta__date {
+      --post-meta: #{$color-accent-primary-blue-100};
+      @extend %text-style-label-large;
+      display: none;
+      margin-bottom: 0;
+
+      @include breakpoint('small') {
+        display: inline;
+      }
+    }
+  }
+
+  &__news-link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: rem(24) rem(24) rem(32);
+    transition: all 0.3s ease-in-out;
+
+    @include breakpoint('small') {
+      padding: rem(32);
+    }
+
+    &:hover {
+      .post-block__title {
+        color: $color-accent-primary-blue-100;
+      }
+    }
+
+    &:focus {
+      background: $color-bg-light-300;
+      outline: 0;
+
+      .post-block__title {
+        color: $color-accent-primary-blue-100;
+        outline: 0;
+      }
+    }
+
+    /* stylelint-disable */
+    &[href*="//"]:not([href*="nuclearnetwork.local"]):not([href*="localhost"]):not([href*="nuclearnetwork"])
+    {
+      /* stylelint-enable */
+      h3::after {
+        content: '';
+        display: inline-block;
+        width: 0.7em;
+        height: 0.7em;
+        margin-left: rem(8);
+        background-image: url('/wp-content/themes/csisnuclearnetwork/assets/static/icons/arrow-external.svg');
+        background-size: 100% 100%;
+        opacity: 1;
+        filter: invert(26%) sepia(69%) saturate(1514%) hue-rotate(187deg) brightness(85%) contrast(80%);
+        transition: all 0.3s ease-in-out;
+      }
+
+      &:hover h3::after {
+        filter: invert(12%) sepia(88%) saturate(853%) hue-rotate(180deg) brightness(102%) contrast(89%);
+      }
+
+      &:focus h3::after {
+        filter: invert(12%) sepia(88%) saturate(853%) hue-rotate(180deg) brightness(102%) contrast(89%);
+      }
+    }
   }
 }

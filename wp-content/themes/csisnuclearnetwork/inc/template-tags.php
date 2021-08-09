@@ -159,12 +159,19 @@ function nuclearnetwork_posted_on( $date_format = null ) {
 	}
 
 	$date = get_option( 'date_format' );
+	$post_type = get_post_type();
 
 	if  ( $date_format ) {
 		$date = $date_format;
 	}
 
-	echo '<div class="post-meta post-meta__date">' . get_the_time( $date ) . '</div>';
+	if ( $post_type === 'news' ) {
+		echo '<div class="post-meta post-meta__date">' . get_the_time( $date ) . '</div>';
+	} elseif ( in_array( $post_type, array( 'events', 'programs', 'projects' ) ) ) {
+		return;
+	} else {
+		echo '<dl class="post-meta post-meta__date"><dt class="post-meta__label">Published </dt><dd>' . get_the_time( $date ) . '</dd></dl>';
+	}
 }
 
 /**
@@ -180,7 +187,7 @@ function nuclearnetwork_last_updated() {
 		return;
 	}
 
-	echo '<div class="post-meta post-meta__date"><span class="post-meta__label">Last Updated</span> ' . get_the_modified_time( get_option( 'date_format' ) ) . '</div>';
+	echo '<dl class="post-meta post-meta__date"><dt class="post-meta__label">Last Updated</dt> <dd>' . get_the_modified_time( get_option( 'date_format' ) ) . '</dd></dl>';
 }
 
 /**
@@ -205,11 +212,13 @@ function nuclearnetwork_authors() {
 		$authors = the_author_posts_link();
 	}
 
-	if ( !$authors ) {
+	$post_type = get_post_type();
+
+	if ( !$authors || in_array( $post_type, array( 'events', 'programs', 'projects' ) ) ) {
 		return;
 	}
 
-	echo '<div class="post-meta post-meta__authors">By ' . $authors . '</div>';
+	echo '<dl class="post-meta post-meta__authors"><dt class="post-meta__label">By</dt><dd>' . $authors . '</dd></dl>';
 }
 
 if (! function_exists('nuclearnetwork_authors_list_extended')) :
@@ -392,6 +401,47 @@ if ( ! function_exists( 'nuclearnetwork_display_footnotes' ) ) :
 				printf( '<div class="footnotes"><h2 class="footnotes__heading">' . esc_html( 'Footnotes', 'reconaisa') . '</h2><ol class="footnotes__list">%1$s</ol></div>', $footnotes ); // WPCS: XSS OK.
 				}
 		}
+	}
+endif;
+
+/**
+ * Displays the post's type and subtypes.
+ *
+ *
+ * @return string $html The subtypes.
+ */
+if (! function_exists('nuclearnetwork_display_subtypes')) :
+	function nuclearnetwork_display_subtypes() {
+
+		
+		// $post_type = get_post_type();
+		$post_type = get_post_type_object(get_post_type());
+		global $post;
+		
+		if ( in_array( $post_type->name, array( 'events', 'updates' ) ) || ( $post_type->name === 'programs' && is_single() ) ) {
+			$post_type_name = $post_type->labels->singular_name;
+			$tax_name = $post_type->taxonomies[0];
+		} elseif ($post_type->name === 'post' ) {
+			$post_type_name = get_the_title( get_option( 'page_for_posts' ) );
+			$tax_name = 'analysis_subtype';
+		}
+		
+		echo '<div class="post-meta post-meta__terms"><a href="' . get_post_type_archive_link( $post_type ) . '" class="post-meta__terms-type text--bold">' . $post_type_name . get_the_term_list( $post->ID, $tax_name, ' /&nbsp</a>', ',&nbsp') . '</div>';
+	}
+endif;
+
+/**
+ * Displays the post's series.
+ *
+ *
+ * @return string $html The series.
+ */
+if (! function_exists('nuclearnetwork_display_series')) :
+	function nuclearnetwork_display_series() {
+
+		global $post;
+		
+		echo get_the_term_list( $post->ID, 'series', '<dl class="post-meta post-meta__series text--italic"><dt class="post-meta__label">Series </dt><dd>', ', ', '</dd></dl>');
 	}
 endif;
 
