@@ -442,6 +442,8 @@ if (! function_exists('nuclearnetwork_display_series')) :
 		global $post;
 		
 		echo get_the_term_list( $post->ID, 'series', '<dl class="post-meta post-meta__series text--italic"><dt class="post-meta__label">Series </dt><dd>', ', ', '</dd></dl>');
+	}
+endif;
 
 if ( ! function_exists( 'nuclearnetwork_citation' ) ) :
 	/**
