@@ -36,6 +36,9 @@ if ( $template === 'templates/template-no-image.php' ){
 <div class="entry-header__header-content">
 	<div class="home__subtitle--border"></div>
 
+<div class="entry-header__header-content">
+	<div class="home__subtitle--border"></div>
+
 <?php
 // var_dump($object);
 	if ( !$is_author ) { 
