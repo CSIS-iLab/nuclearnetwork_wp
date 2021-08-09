@@ -34,7 +34,7 @@ $title_classes = 'entry-header__title entry-header__title--yellow';
 if ( $is_tag || $is_category || $is_search || $post_type === 'programs' && $is_single && $post_parent_id ) {
 	$title_classes = 'entry-header__title';
 }
-$description = get_field( 'archive_description', $object->name );
+$description = get_the_excerpt();
 $monthly_news_link = get_field( 'monthly_newsletter_link', 'option' );
 
 $template = get_page_template_slug( get_the_ID() );
@@ -48,8 +48,14 @@ if ( $template === 'templates/template-no-image.php' ){
 
 <header class="entry-header <?php echo $headerClasses; ?>">
 
+<div class="entry-header__header-content">
+	<div class="home__subtitle--border"></div>
+
 <?php
-var_dump($is_author);
+var_dump($pagename);
+	if ( !$is_author ) { nuclearnetwork_display_subtypes(); }
+	if ( $is_author || $pagename === 'about' ) { echo '<div class="post-meta post-meta__terms"><a href="' . site_url( "/about/" ) . '" class="post-meta__terms-type text--bold">About</a></div>';}
+	the_title( '<h1 class="entry-header__title">', '</h1>' );
 
 	if ( $is_404 ) { ?>
 
@@ -57,22 +63,21 @@ var_dump($is_author);
 
 		<?php 
 
-	} elseif ( $is_page ) { 
-			the_title( '<h1 class="entry-header__title">', '</h1>' );
-
-			nuclearnetwork_page_desc();
+	} elseif ( $post_type === 'events' && $is_single ) {
+		// echo '<div class="entry-header__header-content">';
 
 	} elseif ( $is_single ) { 
-			echo '<div class="entry-header__header-content">';
-				the_title( '<h1 class="entry-header__title">', '</h1>' );
-				nuclearnetwork_page_desc();
-				nuclearnetwork_authors();
-				nuclearnetwork_posted_on();
-			echo '</div>';
-			if ( !$isNoImageTemplate ) {
-				get_template_part( 'template-parts/featured-image' );
-			}
+		nuclearnetwork_display_series();
+		the_excerpt();
+		nuclearnetwork_posted_on();
+		nuclearnetwork_authors();
+		if ( function_exists( 'ADDTOANY_SHARE_SAVE_KIT' ) ) { ADDTOANY_SHARE_SAVE_KIT(); }
+		
+	}
 
+	echo '</div>';
+	if ( !$isNoImageTemplate ) {
+		get_template_part( 'template-parts/featured-image' );
 	}
 	?>
 

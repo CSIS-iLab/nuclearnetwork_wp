@@ -5,18 +5,18 @@
   position: relative;
   max-width: $size__content-max-width;
   margin: 0 auto rem(56);
-  padding: rem(40) 0;
+  // padding: rem(40) 0;
   text-align: center;
 
   &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    @include z-index(postBG);
-    display: block;
-    @include csis-block-full-width-wrapper();
+    // content: '';
+    // position: absolute;
+    // top: 0;
+    // bottom: 0;
+    // left: 0;
+    // @include z-index(postBG);
+    // display: block;
+    // @include csis-block-full-width-wrapper();
     // background: $gradient-post-header;
   }
 

@@ -103,14 +103,15 @@
     left: 0;
     @include z-index(postBG);
     display: block;
-    @include csis-block-full-width-wrapper();
-    // background: linear-gradient(180deg, #1e2429 2.5%, transparent 100%), url('../../img/geo_bg.png'), linear-gradient(180deg, #1e2429 0%, rgba(26, 36, 40, 0.88) 100%);
     background-repeat: no-repeat;
     background-size: cover;
   }
 
   &--blue {
+    --page-header-title-color: #{$color-white-190};
+
     &::before {
+      @include csis-block-full-width-wrapper();
       background: var(--page-header-bg);
       background-color: $color-blue-000;
       background-position: center;
@@ -118,22 +119,28 @@
   }
 
   &--light {
+    --page-header-title-color: #{$color-accent-primary-blue-100};
     /* stylelint-disable-next-line */
     $headerCircles: '/wp-content/themes/csisnuclearnetwork/assets/static/page-header-circles.svg';
     /* stylelint-disable-next-line */
     $gradient: url($headerCircles), linear-gradient(180deg, rgba(16, 48, 79, 0.68) 0%, rgba(53, 110, 163, 0.0966914) 30.95%, rgba(56, 115, 171, 0) 100%), linear-gradient(90.1deg, #1c4973 0.76%, #08223a 100.12%);
+    background-color: $color-bg-light-100;
 
     &::before {
-      right: calc(-1 * calc((100vw - 100%) / 2));
-      width: calc(100% + calc(100vw - 100%));
       height: 100%;
       background: $gradient;
+
+      @include breakpoint('small') {
+        @include csis-block-full-width-wrapper();
+        right: calc(-1 * calc((100vw - 100%) / 2));
+        width: calc(100% + calc(100vw - 100%));
+      }
     }
   }
 
   &__title {
     @extend %text-style-heading-3-x-large-strong;
-    color: $color-white-190;
+    color: var(--page-header-title-color);
 
     &:not(:only-child) {
       margin-bottom: rem(12);
