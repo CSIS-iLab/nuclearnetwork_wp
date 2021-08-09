@@ -308,7 +308,7 @@ if ( class_exists( 'easyFootnotes' ) ) {
 }
 
 /**
- * Update Recon Asia archive to exclude any of the related/featured posts from showing up in the main loop.
+ * Update Nuclear Network archive to exclude any of the related/featured posts from showing up in the main loop.
  *
  * @param  array $query Query object.
  */
@@ -317,7 +317,7 @@ function nuclearnetwork_exclude_related__posts_from_archive( $query ) {
 
 	if ( $query->is_main_query() && ! is_admin() && is_archive() ) {
         $term = get_queried_object();
-		$featured_post = get_field( 'featured_post', $term );
+		$featured_post = get_field( 'featured_post', $term->name );
 
 		if ( $featured_post ) {
 				$excluded_post_ids = array();
@@ -363,20 +363,20 @@ function jetpackme_more_related_posts( $options ) {
  * @return array $categories filtered categories
  * Adapted from https://developer.wordpress.org/reference/hooks/get_the_categories/#user-contributed-notes
  */
-function nuclearnetwork_remove_selected_categories( $categories ) {
-	$excluded_topics = get_field( 'excluded_topic', 'option' );
-	$excluded_topic_names = array();
+// function nuclearnetwork_remove_selected_categories( $categories ) {
+// 	$excluded_topics = get_field( 'excluded_topic', 'option' );
+// 	$excluded_topic_names = array();
 	
-	// foreach ( $excluded_topics as $topic ) {
-	// 	$excluded_topic_names[] = $topic->slug;
-	// }
+// 	foreach ( $excluded_topics as $topic ) {
+// 		$excluded_topic_names[] = $topic->slug;
+// 	}
 
-	foreach ( $categories as $index => $single_cat ) {
-		if ( in_array( $single_cat->slug, $excluded_topic_names ) ) {
-				unset( $categories[ $index ] ); // Remove the category.
-		}
-	}
+// 	foreach ( $categories as $index => $single_cat ) {
+// 		if ( in_array( $single_cat->slug, $excluded_topic_names ) ) {
+// 				unset( $categories[ $index ] ); // Remove the category.
+// 		}
+// 	}
 
-	return $categories;
-}
-add_filter( 'get_the_categories', 'nuclearnetwork_remove_selected_categories' );
+// 	return $categories;
+// }
+// add_filter( 'get_the_categories', 'nuclearnetwork_remove_selected_categories' );

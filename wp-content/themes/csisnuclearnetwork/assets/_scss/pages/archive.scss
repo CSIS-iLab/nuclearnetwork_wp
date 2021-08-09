@@ -18,101 +18,27 @@
   }
 
   &__featured {
-    position: relative;
-    margin: 0 calc(var(--container-padding) * -1);
-    padding: 0 var(--container-padding);
-    background: $color-bg-dark-200;
-    @include shadow('lg');
-
-    @include breakpoint('small') {
-      margin: 0 auto;
-      padding: 0;
-    }
-
-    @include breakpoint('medium') {
-      background: transparent;
-      box-shadow: none;
-    }
-
-    &::after {
-      content: '';
-      position: absolute;
-      top: -20px;
-      right: calc(var(--container-padding) * -1);
-      width: calc(100% - var(--container-padding));
-      height: 50px;
-      background: $color-bg-light-200;
-    }
-
-    &-label {
-      position: relative;
-      z-index: 1;
-      display: flex;
-      align-items: flex-end;
-      width: fit-content;
-      height: rem(30);
-      margin-left: 0;
-      padding: rem(12) rem(32) 0 0;
-      color: $color-white-190;
-      @extend %text-style-label-small;
-      font-weight: 400;
-      text-transform: uppercase;
-      background-color: $color-bg-dark-200;
-      @include shadow('lg');
-      clip-path: polygon(0 0, 85% 0, 100% 101%, 0% 101%);
+    .post-block {
+      padding-top: rem(34);
 
       @include breakpoint('small') {
-        padding-left: rem(24);
+        padding: rem(40) rem(40) rem(40) rem(50);
       }
-    }
 
-    .post-block {
-      position: unset;
-      margin-top: rem(0);
-      margin-bottom: rem(16);
-      padding-top: rem(16);
-      background: $color-bg-dark-200;
-      border-bottom: 0 !important;
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: rem(10);
+        background-color: $color-accent-secondary-yellow-100;
 
-      &.has-post-thumbnail {
-        @include breakpoint('medium') {
-          grid-template-areas:
-            'img title'
-            'img excerpt'
-            'img authors'
-            'img date'
-            'img categories';
-          grid-template-columns: 1fr 2fr;
-          grid-template-rows: max-content max-content max-content max-content auto;
-          column-gap: rem(32);
+        @include breakpoint('small') {
+          width: rem(10);
+          height: 100%;
         }
       }
-
-      @include breakpoint('medium') {
-        @include shadow('lg');
-      }
-
-      @include breakpoint('large') {
-        margin-bottom: rem(8);
-        padding: rem(48);
-        column-gap: rem(40);
-      }
-    }
-  }
-
-  &__base {
-    @include shadow('lg');
-
-    @include breakpoint('small') {
-      margin-top: rem(32);
-    }
-
-    @include breakpoint('medium') {
-      margin-top: rem(40);
-    }
-
-    @include breakpoint('large') {
-      margin-top: rem(56);
     }
   }
 }
