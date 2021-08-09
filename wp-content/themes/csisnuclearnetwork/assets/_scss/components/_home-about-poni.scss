@@ -46,8 +46,8 @@
       display: grid;
       flex: 1 1 calc(50% - #{rem(24)});
       grid-template-areas: 
-        'image title'
-        'image bio';
+        'image name'
+        'image title';
       grid-template-columns: 100px auto;
       grid-template-rows: max-content auto;
       column-gap: rem(16);
@@ -64,14 +64,14 @@
         }
       }
 
-      &-title {
-        grid-area: title;
+      &-name {
+        grid-area: name;
         color: $color-white-100;
         @extend %text-style-heading-medium;
       }
 
-      &-bio {
-        grid-area: bio;
+      &-title {
+        grid-area: title;
         color: $color-white-165;
         @extend %text-style-label-small;
       }
