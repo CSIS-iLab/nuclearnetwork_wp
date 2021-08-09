@@ -426,7 +426,7 @@ if (! function_exists('nuclearnetwork_display_subtypes')) :
 			$tax_name = 'analysis_subtype';
 		}
 		
-		echo '<div class="post-meta post-meta__terms"><a href="' . get_post_type_archive_link( $post_type ) . '" class="post-meta__terms-type text--bold">' . $post_type_name . get_the_term_list( $post->ID, $tax_name, ' /&nbsp</a>', ',&nbsp') . '</div>';
+		echo '<div class="post-meta post-meta__terms"><a href="' . get_post_type_archive_link( $post->post_type ) . '" class="post-meta__terms-type text--bold">' . $post_type_name . get_the_term_list( $post->ID, $tax_name, ' /&nbsp</a>', ',&nbsp') . '</div>';
 	}
 endif;
 
