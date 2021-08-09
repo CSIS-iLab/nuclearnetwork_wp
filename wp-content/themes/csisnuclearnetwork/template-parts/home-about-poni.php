@@ -31,8 +31,8 @@
 
 				?>
 				<div class='home__about-person'>
-					<dt class="home__about-person-title text--bold"><?php the_title(); ?></dt>
-					<dd class="home__about-person-bio"><?php the_field( 'short_bio' ); ?></dd>
+					<dt class="home__about-person-name text--bold"><?php the_title(); ?></dt>
+					<dd class="home__about-person-title"><?php the_field( 'title' ); ?></dd>
 					<dd class="home__about-person-image"><?php echo coauthors_get_avatar( $coauthor_data, "100" ); ?></dd>
 				</div>
 				<?php 
