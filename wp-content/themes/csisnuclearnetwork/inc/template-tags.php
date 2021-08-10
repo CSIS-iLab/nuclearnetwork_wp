@@ -476,46 +476,31 @@ endif;
 if (! function_exists('nuclearnetwork_display_event_date')) :
 	function nuclearnetwork_display_event_date() {
 
-		global $post;
-		
-
 		$event_info = get_field( 'event_post_info' );
 		$event_start_date = $event_info['event_start_date'];
-		$event_start_time = $event_info['event_start_time'];
+		$event_end_date = $event_info['event_end_date'];
 		$legacy_event_date = get_post_meta( $id, '_post_start_date', true );
-		$event_location = $event_info['event_location'];
-
-		if ( $event_start_date ) {
-			$event_day = date_i18n('d', strtotime($event_start_date));
-			$event_month = date_i18n('M', strtotime($event_start_date));
-			$event_year = date_i18n('Y', strtotime($event_start_date));
-			
-			$event_date = '<span class="post-block__event-month text--caps">' . $event_month . '</span><span class="post-block__event-day">' . $event_day . '</span><span class="post-block__event-year text--short">' . $event_year . '</span>';
+		$event_start_time = $event_info['event_start_time'];
+		$event_end_time = $event_info['event_end_time'];
+		
+		if ( $event_start_date && $event_end_date ) {
+			$start_date = date_i18n('M. d, Y', strtotime($event_start_date));
+			$end_date = date_i18n('M. d, Y', strtotime($event_end_date));
+			$event_date = $start_date . ' - ' . $end_date;
+		} elseif ( $event_start_date ) {
+			$event_date = date_i18n('M. d, Y', strtotime($event_start_date));
+		} elseif ( $legacy_event_date ) {
+			$event_date = date_i18n('M. d, Y', strtotime($legacy_event_date));
 		}
-
-		if ( $legacy_event_date ) {
-			$event_day = date_i18n('d', strtotime($legacy_event_date));
-			$event_month = date_i18n('M', strtotime($legacy_event_date));
-			$event_year = date_i18n('Y', strtotime($legacy_event_date));
-			
-			$event_date = '<span class="post-block__event-month text--caps">' . $event_month . '</span><span class="post-block__event-day">' . $event_day . '</span><span class="post-block__event-year text--short">' . $event_year . '</span>';
-		}
-
-		$event_full_date = date_i18n( strtotime("$event_start_date $event_start_time"));
-		$yesterday = strtotime('now');
-
-		if ( $event_full_date >= $yesterday ) {
-			$is_future_event = true;
-		}
-
-		if ( $event_start_time && $event_info['event_end_time'] ) {
-			$start_time = wp_date('g:i', strtotime($event_start_time));
-			$end_time = wp_date('g:i A T', strtotime($event_info['event_end_time']));
+		
+		if ( $event_start_time && $event_end_time ) {
+			$start_time = wp_date('g:i A T', strtotime($event_start_time));
+			$end_time = wp_date('g:i A T', strtotime($event_end_time));
 			$event_time = $start_time . ' - ' . $end_time;
 		} elseif ( $event_start_time ) {
 			$event_time = wp_date('g:i A T', strtotime($event_start_time));
 		}
 
-		echo get_the_term_list( $post->ID, 'series', '<dl class="post-meta post-meta__series text--italic"><dt class="post-meta__label">Series </dt><dd>', ', ', '</dd></dl>');
+		echo '<dl class="event-meta"><dt class="event-meta__label text--bold text--caps">When</dt><dd class="event-meta__datetime">' . $event_date . '</br>' . $event_time . '</dd></dl>';
 	}
 endif;
