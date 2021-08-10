@@ -30,10 +30,6 @@ if ( $is_search || $is_tag || $is_category ) {
 $feat_image = 'style="background-image:url('. $image_URL .');"';
 $headerClasses = 'entry-header--light';
 
-$title_classes = 'entry-header__title entry-header__title--yellow';
-if ( $is_tag || $is_category || $is_search || $post_type === 'programs' && $is_single && $post_parent_id ) {
-	$title_classes = 'entry-header__title';
-}
 $description = get_the_excerpt();
 $monthly_news_link = get_field( 'monthly_newsletter_link', 'option' );
 
@@ -52,14 +48,19 @@ if ( $template === 'templates/template-no-image.php' ){
 	<div class="home__subtitle--border"></div>
 
 <?php
-var_dump($pagename);
-	if ( !$is_author ) { nuclearnetwork_display_subtypes(); }
+	if ( !$is_author ) { 
+		nuclearnetwork_display_subtypes(); 
+	}
 	if ( $is_author || $pagename === 'about' ) { echo '<div class="post-meta post-meta__terms"><a href="' . site_url( "/about/" ) . '" class="post-meta__terms-type text--bold">About</a></div>';}
-	the_title( '<h1 class="entry-header__title">', '</h1>' );
+	if ( $is_author ) {
+		the_archive_title( '<h1 class="entry-header__title">', '</h1>' );
+	} else {
+		the_title( '<h1 class="entry-header__title">', '</h1>' );
+	}
 
 	if ( $is_404 ) { ?>
 
-			<h1 class="<?php echo $title_classes; ?>"><?php _e( '404', 'nuclearnetwork' ); ?></h1>
+			<h1 class="entry-header__title"><?php _e( '404', 'nuclearnetwork' ); ?></h1>
 
 		<?php 
 

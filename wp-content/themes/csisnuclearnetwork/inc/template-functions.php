@@ -266,6 +266,8 @@ function nuclearnetwork_archive_titles( $title ) {
 			$title = sprintf( __( '%1$s' ), single_term_title( '', false ) );
 		} elseif (is_post_type_archive()) {
 				$title = post_type_archive_title( '', false );
+		} elseif ( is_author() ) {
+			$title = get_the_author();
 		}
     return $title;
 }
