@@ -13,22 +13,25 @@
 
     .post-meta__date {
       &::after {
-        content: "";
-        border-right: 1px solid $color-black-130;
         position: absolute;
         left: rem(8);
         padding-right: rem(8);
+        border-right: 1px solid $color-black-130;
+        content: '';
       }
     }
 
   }
+
   &__title {
+    margin: rem(4) 0 rem(12) 0;
     color: $color-black-100;
-    @extend %text-style-heading-medium;
-    margin: rem(4) 0 rem(12) 0; 
+    @extend %text-style-heading-medium; 
+
     &:hover {
       color: $color-accent-primary-blue-200;
     }
+
     &:focus {
       background: $color-bg-light-300;
     }
