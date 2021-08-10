@@ -69,8 +69,8 @@
 
   &__title {
     margin-bottom: rem(8);
-    color: $color-white-100;
-    @extend %text-style-heading-3-x-large-strong;
+    // color: $color-white-100;
+    // @extend %text-style-heading-3-x-large-strong;
 
     @include breakpoint('medium') {
       margin-bottom: rem(16);

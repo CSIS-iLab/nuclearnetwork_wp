@@ -36,7 +36,6 @@ if ( $template === 'templates/template-no-image.php' ){
 	<div class="home__subtitle--border"></div>
 
 <?php
-var_dump($post);
 	if ( !$is_author ) { 
 		nuclearnetwork_display_subtypes(); 
 	}
@@ -61,11 +60,13 @@ var_dump($post);
 		the_excerpt();
 		nuclearnetwork_posted_on();
 		nuclearnetwork_authors();
-		if ( function_exists( 'ADDTOANY_SHARE_SAVE_KIT' ) ) { ADDTOANY_SHARE_SAVE_KIT(); }
-		
-	}
+	} 
 
-	echo '</div>';
+	if ( function_exists( 'ADDTOANY_SHARE_SAVE_KIT' ) ) { ADDTOANY_SHARE_SAVE_KIT(); }
+	?>
+
+</div><!-- .entry-header__header-content -->
+	<?php
 	if ( !$isNoImageTemplate ) {
 		get_template_part( 'template-parts/featured-image' );
 	}
