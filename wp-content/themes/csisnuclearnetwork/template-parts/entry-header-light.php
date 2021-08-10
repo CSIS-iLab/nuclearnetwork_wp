@@ -19,19 +19,7 @@ $is_author = is_author(); //Author
 $is_single = is_single();
 $post_parent_id = wp_get_post_parent_id(get_the_ID());
 
-if ( $is_search || $is_tag || $is_category ) {
-	$image_URL = get_field( 'header_image', 'option' );
-} elseif ( $is_home || $is_series) {
-	$image_URL = get_the_post_thumbnail_url( $page_for_posts );
-} else {
-	$image_URL = get_archive_thumbnail_src( 'nuclearnetwork-fullscreen' );
-}
-
-$feat_image = 'style="background-image:url('. $image_URL .');"';
-$headerClasses = 'entry-header--light';
-
 $description = get_the_excerpt();
-$monthly_news_link = get_field( 'monthly_newsletter_link', 'option' );
 
 $template = get_page_template_slug( get_the_ID() );
 $isNoImageTemplate = false;
@@ -42,12 +30,13 @@ if ( $template === 'templates/template-no-image.php' ){
 
 ?>
 
-<header class="entry-header <?php echo $headerClasses; ?>">
+<header class="entry-header entry-header--light">
 
 <div class="entry-header__header-content">
 	<div class="home__subtitle--border"></div>
 
 <?php
+var_dump($post);
 	if ( !$is_author ) { 
 		nuclearnetwork_display_subtypes(); 
 	}

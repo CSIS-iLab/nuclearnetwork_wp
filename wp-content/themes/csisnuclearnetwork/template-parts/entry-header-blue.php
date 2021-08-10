@@ -33,10 +33,7 @@ if ( $is_search || $is_tag || $is_category ) {
 }
 
 $feat_image = 'style="background-image:url('. $image_URL .');"';
-$headerClasses = 'entry-header--blue';
-if ( $is_author || $is_single && !$post_parent_id || is_singular( 'page' ) ) {
-  $headerClasses = 'entry-header--light';
-}
+
 $title_classes = 'entry-header__title entry-header__title--yellow';
 if ( $is_tag || $is_category || $is_search || $post_type === 'programs' && $is_single && $post_parent_id ) {
 	$title_classes = 'entry-header__title';
@@ -54,7 +51,7 @@ if ( $template === 'templates/template-no-image.php' ){
 
 ?>
 
-<header class="entry-header <?php echo $headerClasses; ?>">
+<header class="entry-header entry-header--blue">
 
 <?php
 
