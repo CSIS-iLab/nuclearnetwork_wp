@@ -6,25 +6,26 @@
   margin-left: auto;
   text-align: center;
 
-  &__subtitle {
-    text-transform: uppercase;
-    a {
-      color: $color-accent-primary-200;
+  &__byline {
+    .post-meta__authors {
+      padding-left: rem(8);
     }
-  }
 
-
-
-  &__byline{
-    &-divider {
-      color: $color-black-130;
-      padding: 0 rem(8);
+    .post-meta__date {
+      &::after {
+        content: "";
+        border-right: 1px solid $color-black-130;
+        position: absolute;
+        left: rem(8);
+        padding-right: rem(8);
+      }
     }
 
   }
   &__title {
-    color: $color-black-190;
+    color: $color-black-100;
     @extend %text-style-heading-medium;
+    margin: rem(4) 0 rem(12) 0; 
   }
 
   &__title a:hover,
@@ -35,24 +36,5 @@
   &__title a:focus,
   &__img:focus ~ &__title a {
     background: $color-bg-light-400;
-  }
-
-  &__img {
-    display: block;
-    height: 180px;
-
-    img {
-      // width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
-    }
-  }
-
-  .post-meta__date {
-    margin-top: rem(16);
-    margin-bottom: rem(4);
-    @extend %text-style-label-medium;
-    color: $color-black-165;
   }
 }

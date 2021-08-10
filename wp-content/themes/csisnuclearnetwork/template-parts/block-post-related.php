@@ -13,21 +13,14 @@
 
 ?>
 <article <?php post_class('post-block-related'); ?> id="post-<?php the_ID(); ?>">	
-	<h4 class='post-block-related__subtitle'><a class="text-strong">ANALYSIS/</a><span><?php nuclearnetwork_display_categories() ?></span></h4>
+	<?php nuclearnetwork_display_subtypes(); ?>
 	<?php
-		the_title( '<h3 class="post-block-related__title text-stong"><a class="post-block-related__title" href="' . esc_url( get_permalink() ) . '">', '</a></h3>' );
+		the_title( '<h3 class="post-block-related__title text--bold"><a class="post-block-related__title" href="' . esc_url( get_permalink() ) . '">', '</a></h3>' );
 	?>
 	<div class='post-block-related__byline'>
-		<span class="post-block-related__byline-date"> 
-			<?php nuclearnetwork_posted_on('M j, Y') ?> 
-		</span>
-		<span class="post-block-related__byline-divider">|</span>
+		<?php nuclearnetwork_posted_on('M j, Y') ?> 
 		By 
-		<span class="post-block-related__byline-authors">
-		<?php 
-			nuclearnetwork_authors();
-		?>
-		</span>
+		<?php nuclearnetwork_authors(); ?>
 	</div>
 
 </article><!-- .post-block-related -->
