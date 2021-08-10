@@ -501,6 +501,25 @@ if (! function_exists('nuclearnetwork_display_event_date')) :
 			$event_time = wp_date('g:i A T', strtotime($event_start_time));
 		}
 
-		echo '<dl class="event-meta"><dt class="event-meta__label text--bold text--caps">When</dt><dd class="event-meta__datetime">' . $event_date . '</br>' . $event_time . '</dd></dl>';
+		echo '<dl class="post-meta post-meta__event"><dt class="post-meta__label--small text--bold text--caps">When</dt><dd class="event-meta__datetime">' . $event_date . '</br>' . $event_time . '</dd></dl>';
+	}
+endif;
+
+/**
+ * Displays the event's location.
+ *
+ *
+ * @return string $html The event location.
+ */
+if (! function_exists('nuclearnetwork_display_event_location')) :
+	function nuclearnetwork_display_event_location() {
+
+		$event_info = get_field( 'event_post_info' );
+		$event_location = $event_info['event_location'];
+
+		if ( $event_location ) { ?>
+			<dl class="post-meta post-meta__event"><dt class="post-meta__label--small text--bold text--caps">Where</dt><dd><?php echo $event_location; ?></dd></dl>
+		<?php
+		}
 	}
 endif;
