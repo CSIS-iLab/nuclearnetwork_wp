@@ -1,8 +1,10 @@
 @use '../abstracts' as *;
 
+/* stylelint-disable */
 .blog,
 .tax-series,
 .tax-analysis_subtype {
+  /* stylelint-enable */
   --page-header-bg: var(--page-header-analysis);
   --page-header-padding-bottom: #{rem(40)};
 
@@ -11,7 +13,10 @@
   }
 }
 
-.post-type-archive-events {
+/* stylelint-disable */
+.post-type-archive-events,
+.tax-event_types {
+  /* stylelint-enable */
   --page-header-bg: var(--page-header-events);
   --page-header-padding-bottom: #{rem(48)};
 

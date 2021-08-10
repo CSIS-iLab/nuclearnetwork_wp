@@ -19,7 +19,8 @@ $is_home = is_home(); //Analysis
 $page_for_posts = get_option( 'page_for_posts' );
 $is_tag = is_tag(); //Tag
 $is_series = is_tax('series'); //Series
-$is_subtype = is_tax('analysis_subtype');
+$is_analysis_subtype = is_tax('analysis_subtype');
+$is_event_subtype = is_tax('event_types');
 $is_category = is_category(); //Category
 $is_author = is_author(); //Author
 $is_single = is_single();
@@ -27,7 +28,7 @@ $post_parent_id = wp_get_post_parent_id(get_the_ID());
 
 if ( $is_search || $is_tag || $is_category ) {
 	$image_URL = get_field( 'header_image', 'option' );
-} elseif ( $is_home || $is_series || $is_subtype ) {
+} elseif ( $is_home || $is_series || $is_analysis_subtype ) {
 	$image_URL = get_the_post_thumbnail_url( $page_for_posts );
 } else {
 	$image_URL = get_archive_thumbnail_src( 'nuclearnetwork-fullscreen' );
@@ -56,7 +57,7 @@ if ( $template === 'templates/template-no-image.php' ){
 
 <?php
 
-	if ( $is_series || $is_subtype ) { ?>
+	if ( $is_series || $is_analysis_subtype ) { ?>
 
 			<?php 
 			the_archive_title( '<h1 class="' . $title_classes . '"> Analysis / <span class="entry-header__title-secondary">', '</span></h1>' ); ?>
@@ -74,7 +75,18 @@ if ( $template === 'templates/template-no-image.php' ){
 			<?php
 
 			
-	} elseif ( $is_search ) {
+	} elseif ( $is_event_subtype ) { ?>
+
+		<?php 
+		the_archive_title( '<h1 class="' . $title_classes . '"> Events / <span class="entry-header__title-secondary">', '</span></h1>' ); ?>
+
+		<div class="entry-header__grid">
+			<a href="/events" class="entry-header__cta cta btn btn--med">All Events <?php echo nuclearnetwork_get_svg( 'chevron-right' ); ?></a>
+		</div>
+		<?php
+
+		
+} elseif ( $is_search ) {
 			
 		$archive_title = sprintf(
 			'%1$s %2$s',
