@@ -6,6 +6,23 @@
   margin-left: auto;
   text-align: center;
 
+  &__subtitle {
+    a {
+
+    }
+    span {
+
+    }
+  }
+
+  &__byline{
+    &-divider {
+
+    }
+    &-authors{
+
+    }
+  }
   &__title {
     color: $color-black-190;
     // @extend %text-style-paragraph-large-short;
