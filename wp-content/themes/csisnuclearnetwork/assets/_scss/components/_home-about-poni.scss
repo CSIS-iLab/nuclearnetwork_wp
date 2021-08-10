@@ -1,0 +1,116 @@
+@use '../abstracts' as *;
+
+.home {
+  &__about {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    color: $color-white-100;
+    background-color: $color-blue-000;
+    @include full-width-background($color-blue-000);
+
+    @include breakpoint('large') {
+      flex-wrap: nowrap;
+      gap: rem(32px);
+    }
+
+    &::before,
+    &::after {
+      @include z-index('homeAboutPONI');
+    }
+
+    &-content {
+      width: 100%;
+    }
+
+    .home__subtitle {
+      --home-subtitle-color: #{$color-white-100};
+      padding-top: rem(40);
+    }
+
+    &-description {
+      @extend %text-style-paragraph-medium;
+      padding-bottom: rem(24);
+      color: $color-white-190;
+    }
+
+    &-people {
+      display: flex;
+      flex-wrap: wrap;
+      gap: rem(24);
+      padding-bottom: rem(40);
+    }
+
+    &-person {
+      // This is where you would style the individual items in the definition list
+      display: grid;
+      flex: 1 1 calc(50% - #{rem(24)});
+      grid-template-areas: 
+        'image name'
+        'image title';
+      grid-template-columns: 100px auto;
+      grid-template-rows: max-content auto;
+      column-gap: rem(16);
+      row-gap: rem(2);
+      
+      &-image {
+        grid-area: image;
+
+        /* stylelint-disable-next-line */
+        img {
+          width: 100px;
+          height: 130px;
+          object-fit: cover;
+        }
+      }
+
+      &-name {
+        grid-area: name;
+        color: $color-white-100;
+        @extend %text-style-label-large;
+      }
+
+      &-title {
+        grid-area: title;
+        color: $color-white-165;
+        @extend %text-style-label-small;
+      }
+    }
+
+    &-familyphoto {
+      @include csis-block-full-width-wrapper;
+      padding-bottom: rem(8);
+
+      @include breakpoint('large') {
+        width: calc(100% + var(--container-padding));
+        margin-left: 0;
+      }
+
+      @include breakpoint('xxlarge') {
+        width: 100%;
+        max-width: rem(720);
+      }
+      
+      img {
+        width: calc(100% + var(--container-padding));
+        max-width: unset;
+        @include breakpoint('xxlarge') {
+          width: 100%;
+          max-width: rem(720);
+        }
+      }
+
+      figcaption {
+        padding-top: rem(8);
+        padding-bottom: rem(72);
+        padding-left: var(--container-padding);
+        color: $color-white-165;
+        @extend %text-style-paragraph-medium-short;
+
+        @include breakpoint('large') {
+          padding-left: 0;
+        }
+      }
+    }
+  }
+}
