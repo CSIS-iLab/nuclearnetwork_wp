@@ -17,7 +17,7 @@ $is_404 = is_404(); //404
 $page_for_posts = get_option( 'page_for_posts' );
 $is_author = is_author(); //Author
 $is_single = is_single();
-// $post_parent_id = wp_get_post_parent_id(get_the_ID());
+$post_parent_id = wp_get_post_parent_id(get_the_ID());
 
 $author_title = get_field( 'title', $object->ID );
 $description = get_the_excerpt();
@@ -85,9 +85,14 @@ if ( $event_full_date >= $yesterday ) {
 			<?php
 			}
 
+	} elseif ( $post_type === 'programs' && $is_single && !$post_parent_id ) { 
+		$program_info = get_field( 'program_post_info' ); ?>
+		<div class="entry-header__accepting-applications">Accepting Applications</div>
+
+
+<?php
 	} elseif ( $is_single ) { 
-		// nuclearnetwork_display_series();
-		// the_excerpt();
+
 		nuclearnetwork_posted_on();
 		nuclearnetwork_authors();
 	} 
