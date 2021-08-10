@@ -17,8 +17,9 @@ $is_404 = is_404(); //404
 $page_for_posts = get_option( 'page_for_posts' );
 $is_author = is_author(); //Author
 $is_single = is_single();
-$post_parent_id = wp_get_post_parent_id(get_the_ID());
+// $post_parent_id = wp_get_post_parent_id(get_the_ID());
 
+$author_title = get_field( 'title', $object->ID );
 $description = get_the_excerpt();
 
 $template = get_page_template_slug( get_the_ID() );
@@ -36,12 +37,16 @@ if ( $template === 'templates/template-no-image.php' ){
 	<div class="home__subtitle--border"></div>
 
 <?php
+// var_dump($object);
 	if ( !$is_author ) { 
 		nuclearnetwork_display_subtypes(); 
 	}
 	if ( $is_author || $pagename === 'about' ) { echo '<div class="post-meta post-meta__terms"><a href="' . site_url( "/about/" ) . '" class="post-meta__terms-type text--bold">About</a></div>';}
 	if ( $is_author ) {
 		the_archive_title( '<h1 class="entry-header__title">', '</h1>' );
+		if ( isset( $author_title ) && !empty( $author_title ) ) { 
+			echo '<div class="entry-header__job-title">' . $author_title . '</div>'; 
+		}
 	} else {
 		the_title( '<h1 class="entry-header__title">', '</h1>' );
 	}
