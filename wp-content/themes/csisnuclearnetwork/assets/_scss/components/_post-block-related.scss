@@ -7,26 +7,24 @@
   text-align: center;
 
   &__subtitle {
+    text-transform: uppercase;
     a {
-
-    }
-    span {
-
+      color: $color-accent-primary-200;
     }
   }
+
+
 
   &__byline{
     &-divider {
-
+      color: $color-black-130;
+      padding: 0 rem(8);
     }
-    &-authors{
 
-    }
   }
   &__title {
     color: $color-black-190;
-    // @extend %text-style-paragraph-large-short;
-    font-weight: normal;
+    @extend %text-style-heading-medium;
   }
 
   &__title a:hover,
@@ -55,6 +53,6 @@
     margin-top: rem(16);
     margin-bottom: rem(4);
     @extend %text-style-label-medium;
-    font-weight: 400;
+    color: $color-black-165;
   }
 }
