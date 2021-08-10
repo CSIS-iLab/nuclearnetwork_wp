@@ -1,7 +1,8 @@
 @use '../abstracts' as *;
 
 .blog,
-.tax-series {
+.tax-series,
+.tax-analysis_subtype {
   --page-header-bg: var(--page-header-analysis);
   --page-header-padding-bottom: #{rem(40)};
 
