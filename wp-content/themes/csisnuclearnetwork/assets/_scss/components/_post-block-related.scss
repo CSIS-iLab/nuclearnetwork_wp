@@ -26,15 +26,11 @@
     color: $color-black-100;
     @extend %text-style-heading-medium;
     margin: rem(4) 0 rem(12) 0; 
-  }
-
-  &__title a:hover,
-  &__img:hover ~ &__title a {
-    // color: $color-link-primary-200;
-  }
-
-  &__title a:focus,
-  &__img:focus ~ &__title a {
-    background: $color-bg-light-400;
+    &:hover {
+      color: $color-accent-primary-blue-200;
+    }
+    &:focus {
+      background: $color-bg-light-300;
+    }
   }
 }
