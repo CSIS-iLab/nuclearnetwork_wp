@@ -4,22 +4,22 @@
 
 .home {
   #site-content {
-    grid-template-areas:
-      'header header'
-      'featured recent'
-      'cta cta'
-      'content content';
-    margin-top: rem(16);
+    // grid-template-areas:
+    //   'header header'
+    //   'featured recent'
+    //   'cta cta'
+    //   'content content';
+    margin-top: rem(116);
 
     @include breakpoint('large') {
-      display: grid;
-      grid-template-columns: minmax(50%, auto) rem(330);
+      // display: grid;
+      // grid-template-columns: minmax(50%, auto) rem(330);
       align-items: start;
-      margin-top: rem(24);
+      margin-top: rem(124);
     }
 
     @include breakpoint('xlarge') {
-      margin-top: rem(32);
+      margin-top: rem(132);
     }
   }
 
