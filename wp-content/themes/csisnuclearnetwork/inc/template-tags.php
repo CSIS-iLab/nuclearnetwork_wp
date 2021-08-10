@@ -417,6 +417,7 @@ if (! function_exists('nuclearnetwork_display_subtypes')) :
 		$post_type = get_post_type_object(get_post_type());
 		global $post;
 
+		var_dump($post_type);
 		
 		if ( in_array( $post_type->name, array( 'events', 'updates' ) ) || ( $post_type->name === 'programs' && is_single() ) ) {
 			$post_type_name = $post_type->labels->singular_name;
