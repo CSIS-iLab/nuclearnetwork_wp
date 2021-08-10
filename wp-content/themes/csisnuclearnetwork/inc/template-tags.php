@@ -466,3 +466,56 @@ if ( ! function_exists( 'nuclearnetwork_citation' ) ) :
 		printf( '<h2 class="cite__heading text--bold text--caps">Cite this Page</h2><p class="cite__container text--short"><span class="cite__citation">' . esc_html( '%1$s, "%2$s,"', 'nuclearnetwork' ) . ' <em>%3$s</em>' . esc_html( ', Center for Strategic and International Studies, %4$s, %5$s%6$s.', 'nuclearnetwork') . '</span><button id="btn-copy" class="btn btn--dark btn--icon btn--short" data-clipboard-target=".cite__citation" aria-label="Copied!">' . nuclearnetwork_get_svg( 'copy' ) . 'Copy Citation</button></p>', $authors, $title, get_bloginfo( 'name' ), get_the_date(), $modified_date, get_the_permalink() ); // WPCS: XSS OK.
 	}
 endif;
+
+/**
+ * Displays the event's date.
+ *
+ *
+ * @return string $html The event date.
+ */
+if (! function_exists('nuclearnetwork_display_event_date')) :
+	function nuclearnetwork_display_event_date() {
+
+		global $post;
+		
+
+		$event_info = get_field( 'event_post_info' );
+		$event_start_date = $event_info['event_start_date'];
+		$event_start_time = $event_info['event_start_time'];
+		$legacy_event_date = get_post_meta( $id, '_post_start_date', true );
+		$event_location = $event_info['event_location'];
+
+		if ( $event_start_date ) {
+			$event_day = date_i18n('d', strtotime($event_start_date));
+			$event_month = date_i18n('M', strtotime($event_start_date));
+			$event_year = date_i18n('Y', strtotime($event_start_date));
+			
+			$event_date = '<span class="post-block__event-month text--caps">' . $event_month . '</span><span class="post-block__event-day">' . $event_day . '</span><span class="post-block__event-year text--short">' . $event_year . '</span>';
+		}
+
+		if ( $legacy_event_date ) {
+			$event_day = date_i18n('d', strtotime($legacy_event_date));
+			$event_month = date_i18n('M', strtotime($legacy_event_date));
+			$event_year = date_i18n('Y', strtotime($legacy_event_date));
+			
+			$event_date = '<span class="post-block__event-month text--caps">' . $event_month . '</span><span class="post-block__event-day">' . $event_day . '</span><span class="post-block__event-year text--short">' . $event_year . '</span>';
+		}
+
+		$event_full_date = date_i18n( strtotime("$event_start_date $event_start_time"));
+		$yesterday = strtotime('now');
+
+		if ( $event_full_date >= $yesterday ) {
+			$is_future_event = true;
+		}
+
+		if ( $event_start_time && $event_info['event_end_time'] ) {
+			$start_time = wp_date('g:i', strtotime($event_start_time));
+			$end_time = wp_date('g:i A T', strtotime($event_info['event_end_time']));
+			$event_time = $start_time . ' - ' . $end_time;
+		} elseif ( $event_start_time ) {
+			$event_time = wp_date('g:i A T', strtotime($event_start_time));
+		}
+
+		echo get_the_term_list( $post->ID, 'series', '<dl class="post-meta post-meta__series text--italic"><dt class="post-meta__label">Series </dt><dd>', ', ', '</dd></dl>');
+	}
+endif;

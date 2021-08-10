@@ -59,6 +59,7 @@ if ( $template === 'templates/template-no-image.php' ){
 
 	} elseif ( $post_type === 'events' && $is_single ) {
 		// echo '<div class="entry-header__header-content">';
+		nuclearnetwork_display_event_date();
 
 	} elseif ( $is_single ) { 
 		nuclearnetwork_display_series();

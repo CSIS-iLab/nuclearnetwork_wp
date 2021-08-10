@@ -21,7 +21,7 @@ $is_category = is_category(); //Category
 $is_single = is_single();
 $post_parent_id = wp_get_post_parent_id(get_the_ID());
 
-	if ( $is_tax || $is_category || $is_tag || $is_search || ( $post_type === 'updates' && $is_archive ) || ( $post_type === 'programs' && $is_single && $post_parent_id ) || $post_type === 'news' || $is_home || $post_type === 'events' || ( $post_type === 'programs' && $is_archive ) ) {  
+	if ( $is_tax || $is_category || $is_tag || $is_search || ( $post_type === 'programs' && $is_single && $post_parent_id ) || $post_type === 'news' || $is_home || ( in_array( $post_type, array( 'events', 'programs', 'projects', 'updates' ) ) && $is_archive ) ) {  
 
 		get_template_part( 'template-parts/entry-header-blue' );
 			
