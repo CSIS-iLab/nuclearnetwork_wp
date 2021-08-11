@@ -17,13 +17,9 @@
     }
   }
 
-  &__base {
-    @include shadow('lg');
-    margin-top: rem(32);
-  }
-
   &__featured {
     .post-block {
+      margin-bottom: rem(24);
       padding-top: rem(34);
 
       @include breakpoint('small') {
@@ -35,7 +31,6 @@
       }
 
       @include breakpoint('large') {
-        margin-bottom: rem(8);
         padding: rem(48);
         column-gap: rem(40);
       }
@@ -60,6 +55,7 @@
 
 .pagination__results {
   @extend %text-style-label-medium;
+  margin-bottom: rem(32);
   padding-bottom: rem(16);
   color: $color-black-180;
   font-weight: normal;
