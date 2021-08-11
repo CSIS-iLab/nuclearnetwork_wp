@@ -21,11 +21,15 @@ $post_parent_id = wp_get_post_parent_id(get_the_ID());
 
 $author_title = get_field( 'title', $object->ID );
 $description = get_the_excerpt();
+
 $event_info = get_field( 'event_post_info' );
 $event_start_date = $event_info['event_start_date'];
 $event_start_time = $event_info['event_start_time'];
 $legacy_event_date = get_post_meta( $id, '_post_start_date', true );
-$event_location = $event_info['event_location'];
+
+$program_info = get_field( 'program_post_info' ); 
+$application_deadline = $program_info['application_deadline'];
+
 $template = get_page_template_slug( get_the_ID() );
 $isNoImageTemplate = false;
 
@@ -33,10 +37,17 @@ if ( $template === 'templates/template-no-image.php' || $is_author ){
 	$isNoImageTemplate = true;
 }
 
+$is_future_event = false;
+
 $event_full_date = date_i18n( strtotime("$event_start_date $event_start_time"));
+$app_deadline_full_date = date_i18n( strtotime("$application_deadline"));
 $yesterday = strtotime('now');
 
 if ( $event_full_date >= $yesterday ) {
+	$is_future_event = true;
+}
+
+if ( $app_deadline_full_date >= $yesterday ) {
 	$is_future_event = true;
 }
 
@@ -73,6 +84,8 @@ if ( $event_full_date >= $yesterday ) {
 		<?php 
 
 	} elseif ( $post_type === 'events' && $is_single ) {
+		$registration_link = $event_info['event_registration_link'];
+
 		if ( !$is_future_event || $legacy_event_date ) {
 			echo '<div class="entry-header__event-past">' . nuclearnetwork_get_svg( 'alert' ) . 'This event has already occurred.</div>';
 		}
@@ -80,17 +93,18 @@ if ( $event_full_date >= $yesterday ) {
 		nuclearnetwork_display_event_date();
 		nuclearnetwork_display_event_location();
 
-		if ( isset($event_info['event_registration_link']) && !empty($event_info['event_registration_link']) && $is_future_event && !$legacy_event_date ) { ?>
-			<a href="<?php echo esc_url( $event_info['event_registration_link'] ); ?>" class="post-block__register btn btn--blue">Register<?php echo nuclearnetwork_get_svg( 'arrow-external' ); ?></a>
+		if ( isset($registration_link) && !empty($registration_link) && $is_future_event && !$legacy_event_date ) { ?>
+			<a href="<?php echo esc_url( $registration_link ); ?>" class="post-block__register btn btn--blue">Register<?php echo nuclearnetwork_get_svg( 'arrow-external' ); ?></a>
 			<?php
 			}
 
 	} elseif ( $post_type === 'programs' && $is_single && !$post_parent_id ) { 
-		$program_info = get_field( 'program_post_info' ); ?>
-		<div class="entry-header__accepting-applications">Accepting Applications</div>
+		$application_link = $program_info['application_link'];
+		$is_rolling = $program_info['rolling_application'];
+		var_dump($program_info);
+		echo '<div class="entry-header__accepting-applications">Accepting Applications</div>';
 
 
-<?php
 	} elseif ( $is_single ) { 
 
 		nuclearnetwork_posted_on();
