@@ -1,0 +1,82 @@
+@use '../abstracts' as *;
+
+.pagination__results {
+  margin-bottom: rem(32);
+  padding-bottom: rem(16);
+  color: $color-black-180;
+  @extend %text-style-label-medium;
+  font-weight: normal;
+  border-bottom: 1px solid $color-border-dark-130;
+}
+
+.pagination__wrapper {
+  display: flex;
+  gap: rem(8);
+  justify-content: flex-start;
+  align-items: center;
+  color: $color-black-165;
+
+  .pagination {
+    @extend %text-style-label-medium;
+    font-weight: normal;
+  }
+
+  .page-numbers {
+    padding-top: rem(4);
+    padding-bottom: rem(4);
+    border-radius: 2px;
+
+    &:hover {
+      color: $color-accent-primary-blue-300;
+      background: $color-bg-light-200;
+    }
+
+    &:focus {
+      color: $color-black-165;
+      background: $color-focus-300;
+      outline: 0;
+    }
+
+    &:not(.prev):not(.next):not(.dots) {
+      padding-right: rem(10);
+      padding-left: rem(10);
+    }
+  }
+
+  .current {
+    position: relative;
+    color: $color-white-190;
+    background: $color-accent-primary-blue-200;
+
+    &:hover {
+      color: $color-white-190;
+      background: $color-accent-primary-blue-300;
+    }
+  }
+
+  .page-numbers:first-child {
+    padding-left: 0 !important;
+  }
+
+  .prev,
+  .next {
+    position: relative;
+    top: rem(2); // vertically center arrows
+    font-size: 0.75em;
+  }
+
+  .icon-chevron-line-left,
+  .icon-chevron-line-right {
+    position: relative;
+    top: rem(2); // vertically center arrows
+  }
+
+  .icon-chevron-left,
+  .icon-chevron-right {
+    @include font-size(16px);
+  }
+
+  .placeholder {
+    display: none;
+  }
+}
