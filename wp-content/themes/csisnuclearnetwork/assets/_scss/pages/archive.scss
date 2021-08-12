@@ -1,11 +1,19 @@
 @use '../abstracts' as *;
+@use 'sass:map';
 @use '../components/pagination';
+
+@each $page, $values in $archive-widths {
+  .#{$page} {
+    --content-width: #{map.get($values, 'content')};
+    --postlist-width: #{map.get($values, 'postlist')};
+  }
+}
 
 .archive {
   background: $color-bg-light-200;
 
   &__content {
-    max-width: $size__archive-max-width;
+    max-width: var(--content-width, #{$size__archive-max-width});
     margin-right: auto;
     margin-left: auto;
 
@@ -16,6 +24,12 @@
         margin-bottom: rem(56);
       }
     }
+  }
+
+  &__postlist {
+    max-width: var(--postlist-width, 100%);
+    margin-right: auto;
+    margin-left: auto;
   }
 
   &__section-title {

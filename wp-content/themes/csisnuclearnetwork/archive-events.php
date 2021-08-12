@@ -23,7 +23,7 @@ get_header();
 			if ( have_posts() && !is_paged() ) {
 		?>
 		<h2 class="archive__section-title">Upcoming Events</h2>
-		<section class="events__upcoming">
+		<section class="archive__postlist events__upcoming">
 		<?php
 			$upcoming_args = array(
 				'post_type' => 'events',
@@ -60,16 +60,16 @@ get_header();
 			echo '<h2 class="archive__section-title">Past Events</h2>';
 			nuclearnetwork_pagination_number_of_posts( array("parent_tag" => "div") );
 
-			echo '<section class="archive__base">';
+			echo '<section class="archive__postlist">';
 			while ( have_posts() ) {
 				the_post();
 				get_template_part( 'template-parts/block-post', get_post_type() );
 			}
-			echo "</section>";
 			wp_reset_postdata();
 
 		  get_template_part( 'template-parts/pagination' );
 
+			echo "</section>";
     }
 
 	?>
