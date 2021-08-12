@@ -313,31 +313,31 @@ if ( class_exists( 'easyFootnotes' ) ) {
  * @param  array $query Query object.
  */
 
-// function nuclearnetwork_exclude_related__posts_from_archive( $query ) {
+function nuclearnetwork_exclude_related__posts_from_archive( $query ) {
 
-// 	if ( $query->is_main_query() && ! is_admin() && is_archive() ) {
-//         $term = get_queried_object();
-// 		$featured_post = get_field( 'featured_post', $term->name );
+	if ( $query->is_main_query() && ! is_admin() && is_archive() ) {
+    $term = get_queried_object();
+		$featured_post = get_field( 'featured_post', $term->name );
 
-// 		if ( $featured_post ) {
-// 				$excluded_post_ids = array();
+		if ( $featured_post ) {
+			$excluded_post_ids = array();
 
-// 				foreach ($featured_post as $post) {
-// 					$excluded_post_ids[] = $post->ID;
-// 				}
+			foreach ($featured_post as $post) {
+				$excluded_post_ids[] = $post->ID;
+			}
 
-// 			$query->set( 'post__not_in', $excluded_post_ids);
-// 		}
+			$query->set( 'post__not_in', $excluded_post_ids);
+		}
 
-// 	}
-// }
-// add_action( 'pre_get_posts', 'nuclearnetwork_exclude_related__posts_from_archive' );
+	}
+}
+add_action( 'pre_get_posts', 'nuclearnetwork_exclude_related__posts_from_archive' );
 
-// /**
-//  * Modify Events Archive loop to exclude Upcoming events and be sorted by start date.
-//  *
-//  * @param  array $query Query object.
-//  */
+/**
+ * Modify Events Archive loop to exclude Upcoming events and be sorted by start date.
+ *
+ * @param  array $query Query object.
+ */
 
 function nuclearnetwork_exclude_upcoming_events_from_archive_loop ( $query ) {
 
