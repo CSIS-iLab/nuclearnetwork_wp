@@ -38,18 +38,11 @@ if ( $template === 'templates/template-no-image.php' || $is_author ){
 }
 
 $is_future_event = false;
+$yesterday = date_i18n( strtotime('now'));
 
-$event_full_date = date_i18n( strtotime("$event_start_date $event_start_time"));
-$app_deadline_full_date = date_i18n( strtotime("$application_deadline"));
-$yesterday = strtotime('now');
 
-if ( $event_full_date >= $yesterday ) {
-	$is_future_event = true;
-}
 
-if ( $app_deadline_full_date >= $yesterday ) {
-	$is_future_event = true;
-}
+
 
 ?>
 
@@ -58,7 +51,7 @@ if ( $app_deadline_full_date >= $yesterday ) {
 <div class="entry-header__header-content">
 
 <?php
-// var_dump($object);
+// var_dump($event_full_date);
 	if ( !$is_author ) { 
 		nuclearnetwork_display_subtypes(); 
 	}
@@ -84,7 +77,12 @@ if ( $app_deadline_full_date >= $yesterday ) {
 		<?php 
 
 	} elseif ( $post_type === 'events' && $is_single ) {
+
 		$registration_link = $event_info['event_registration_link'];
+		$event_full_date = date_i18n( strtotime("$event_start_date $event_start_time"));
+		if ( $event_full_date >= $yesterday ) {
+			$is_future_event = true;
+		}
 
 		if ( !$is_future_event || $legacy_event_date ) {
 			echo '<div class="entry-header__event-past">' . nuclearnetwork_get_svg( 'alert' ) . 'This event has already occurred.</div>';
@@ -99,11 +97,29 @@ if ( $app_deadline_full_date >= $yesterday ) {
 			}
 
 	} elseif ( $post_type === 'programs' && $is_single && !$post_parent_id ) { 
-		$application_link = $program_info['application_link'];
-		$is_rolling = $program_info['rolling_application'];
-		var_dump($program_info);
-		echo '<div class="entry-header__accepting-applications">Accepting Applications</div>';
 
+		$application_link = $program_info['link_to_application_page'];
+		$is_rolling = $program_info['rolling_application'];
+		$class_name = $program_info['class_name'];
+		$deadline_formatted = date_i18n('M. d, Y', strtotime($application_deadline));
+		$app_deadline_full_date = date_i18n( strtotime("$application_deadline"));
+		if ( $app_deadline_full_date >= $yesterday || $is_rolling ) {
+			$is_future_event = true;
+		}
+
+		if ( $is_future_event || $is_rolling ) {
+			echo '<div class="entry-header__accepting-applications">Accepting Applications</div>';
+			
+			echo '<div class="entry-header__program-class">' . $class_name . '</div>';
+			
+			if ( !$is_rolling && $is_future_event ) {
+				echo '<dl class="post-meta post-meta__program-date"><dt class="post-meta__label--small text--bold text--caps">Deadline</dt><dd class="post-meta__date--program">' . $deadline_formatted . '</dd></dl>';
+			}
+			
+			if ( isset($application_link) && !empty($application_link) && $is_future_event ) {
+				echo '<a href="' . esc_url( $application_link ) . '" class="post-block__apply btn btn--blue">Apply ' . nuclearnetwork_get_svg( 'arrow-external' ) . '</a>';
+			}
+		}
 
 	} elseif ( $is_single ) { 
 
