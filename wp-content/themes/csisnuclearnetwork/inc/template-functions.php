@@ -342,8 +342,13 @@ if ( class_exists( 'easyFootnotes' ) ) {
 function nuclearnetwork_exclude_upcoming_events_from_archive_loop ( $query ) {
 
 	if ( !is_admin() && $query->is_main_query() && is_post_type_archive( 'events' ) ) {
-		// $query->set('orderby', 'meta_value');
 
+		$date_now = date('Y-m-d H:i:s');
+
+		/**
+		 * `_post_start_date` was a custom meta field from a previous theme. It's inclusion here is to ensure that older event posts are also sorted accordingly. Note that the two "date" fields are treated separately, so the chronological order of past events may be incorrect when the query starts using the older meta field instead of the ACF.
+		 * TODO: Convert old event posts to use new ACF start date field for consistent ordering.
+		 */
 		$query->set('meta_query', array(
 			'relation' => 'OR',
 			'_post_start_date' => array(
@@ -351,20 +356,17 @@ function nuclearnetwork_exclude_upcoming_events_from_archive_loop ( $query ) {
 			),
 			'event_post_info_event_start_date' => array(
 				'key' => 'event_post_info_event_start_date',
-			)
+				'compare'       => '<',
+				'value'         => $date_now,
+				'type'          => 'DATE',
+			),
 		));
 
 		$query->set('orderby', array(
 			'_post_start_date' => 'DESC',
 			'event_post_info_event_start_date' => 'DESC',
 		));
-
-		// echo '<pre>';
-		// var_dump($query);
-		// echo '</pre>';
 	}
-
-	// return $query;
 }
 add_action( 'pre_get_posts', 'nuclearnetwork_exclude_upcoming_events_from_archive_loop' );
 

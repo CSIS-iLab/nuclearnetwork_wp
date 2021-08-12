@@ -18,6 +18,14 @@
     }
   }
 
+  &__section-title {
+    margin-bottom: rem(16);
+    padding-bottom: rem(8);
+    color: $color-black-165;
+    @extend %text-style-heading-x-large;
+    border-bottom: 1px solid $color-border-dark-130;
+  }
+
   &__featured {
     .post-block {
       padding-top: rem(34);
@@ -41,6 +49,12 @@
         }
       }
     }
+  }
+
+  &__disclaimer {
+    margin-bottom: rem(56);
+    color: $color-black-180;
+    @extend %text-style-paragraph-large;
   }
 }
 
@@ -92,5 +106,22 @@
     @extend %text-style-label-large;
     display: flex;
     color: $color-white-190;
+  }
+}
+
+/*----------  Events  ----------*/
+.events__upcoming {
+  padding-top: rem(16);
+
+  @include breakpoint('medium') {
+    padding-top: rem(24);
+  }
+
+  > :last-child {
+    margin-bottom: rem(40);
+
+    @include breakpoint('large') {
+      margin-bottom: rem(48);
+    }
   }
 }
