@@ -159,12 +159,19 @@ function nuclearnetwork_posted_on( $date_format = null ) {
 	}
 
 	$date = get_option( 'date_format' );
+	$post_type = get_post_type();
 
 	if  ( $date_format ) {
 		$date = $date_format;
 	}
 
-	echo '<div class="post-meta post-meta__date">' . get_the_time( $date ) . '</div>';
+	if ( $post_type === 'news' ) {
+		echo '<div class="post-meta post-meta__date">' . get_the_time( $date ) . '</div>';
+	} elseif ( in_array( $post_type, array( 'events', 'programs', 'projects' ) ) ) {
+		return;
+	} else {
+		echo '<dl class="post-meta post-meta__date"><dt class="post-meta__label">Published </dt><dd>' . get_the_time( $date ) . '</dd></dl>';
+	}
 }
 
 /**
@@ -180,7 +187,7 @@ function nuclearnetwork_last_updated() {
 		return;
 	}
 
-	echo '<div class="post-meta post-meta__date"><span class="post-meta__label">Last Updated</span> ' . get_the_modified_time( get_option( 'date_format' ) ) . '</div>';
+	echo '<dl class="post-meta post-meta__date"><dt class="post-meta__label">Last Updated</dt> <dd>' . get_the_modified_time( get_option( 'date_format' ) ) . '</dd></dl>';
 }
 
 /**
@@ -205,11 +212,13 @@ function nuclearnetwork_authors() {
 		$authors = the_author_posts_link();
 	}
 
-	if ( !$authors ) {
+	$post_type = get_post_type();
+
+	if ( !$authors || in_array( $post_type, array( 'events', 'programs', 'projects' ) ) ) {
 		return;
 	}
 
-	echo '<div class="post-meta post-meta__authors">By ' . $authors . '</div>';
+	echo '<dl class="post-meta post-meta__authors"><dt class="post-meta__label">By</dt><dd>' . $authors . '</dd></dl>';
 }
 
 if (! function_exists('nuclearnetwork_authors_list_extended')) :
@@ -225,23 +234,40 @@ if (! function_exists('nuclearnetwork_authors_list_extended')) :
 		}
 
 		if (function_exists('coauthors_posts_links')) {
-			$authors = '<h2 class="section__heading">Authors</h2>';
+			$authors = '<h2 class="section__heading post__authors-heading">Authors</h2><p class="text--italic text--short post__authors-disclaimer">The views expressed above are the author’s and do not necessarily reflect those of the Center for Strategic and International Studies or the Project on Nuclear Issues.</p>';
 
 			foreach (get_coauthors() as $coauthor) {
 				$name = $coauthor->display_name;
+				$username = $coauthor->linked_account;
+				$user = get_user_by( 'login', $username );
 
-				$authors .= '<div class="post__authors-author"><h3 class="post__authors-author-name">' . $name . '</h3><p class="post__authors-author-bio">' . $name . ' ' . $coauthor->description . '</p>';
+				$title = get_field( 'title', $coauthor->ID );
+				$short_bio = get_field( 'short_bio', $coauthor->ID );
+				$user_bio = get_field( 'short_bio', 'user_' . $user->ID );
+				$guest_description = $coauthor->description;
+				$user_description = get_user_meta( $user->ID, 'description', true );
 
-				if ( $coauthor->website ) {
-					$authors .= '<a href="' . $coauthor->website . '" class="post__authors-author-link">Learn More ' . nuclearnetwork_get_svg( 'arrow-external' ) .'</a></div>';
+				if ( $short_bio ) {
+					$bio = $short_bio;
+				} elseif ( $user_bio ) {
+					$bio = $user_bio;
+				} elseif ( $guest_description ) {
+					$bio = $guest_description;
 				} else {
-					$authors .= '</div>';
+					$bio = $user_description;
 				}
+
+				if ( $title == null ){
+					$title = get_field( 'title', 'user_' . $user->ID );
+				}
+
+
+				$authors .= '<div class="post__authors-author"><h3 class="text--bold text--short post__authors-author-name">' . $name . '<span class="post__authors-author-title"> - ' . $title . '</span></h3><hr class="divider divider--thicc page__header-divider"><p class="post__authors-author-bio">' . $bio . '</p></div>';
 			}
 		} else {
 			$authors = the_author_posts_link();
 		}
-		return '<div class="post__authors"><hr class="post__authors-divider alignfull">' . $authors . '</div>';
+		echo '<div class="post__authors">' . $authors . '</div>';
 	}
 endif;
 
@@ -375,6 +401,47 @@ if ( ! function_exists( 'nuclearnetwork_display_footnotes' ) ) :
 				printf( '<div class="footnotes"><h2 class="footnotes__heading">' . esc_html( 'Footnotes', 'reconaisa') . '</h2><ol class="footnotes__list">%1$s</ol></div>', $footnotes ); // WPCS: XSS OK.
 				}
 		}
+	}
+endif;
+
+/**
+ * Displays the post's type and subtypes.
+ *
+ *
+ * @return string $html The subtypes.
+ */
+if (! function_exists('nuclearnetwork_display_subtypes')) :
+	function nuclearnetwork_display_subtypes() {
+
+		
+		// $post_type = get_post_type();
+		$post_type = get_post_type_object(get_post_type());
+		global $post;
+		
+		if ( in_array( $post_type->name, array( 'events', 'updates' ) ) || ( $post_type->name === 'programs' && is_single() ) ) {
+			$post_type_name = $post_type->labels->singular_name;
+			$tax_name = $post_type->taxonomies[0];
+		} elseif ($post_type->name === 'post' ) {
+			$post_type_name = get_the_title( get_option( 'page_for_posts' ) );
+			$tax_name = 'analysis_subtype';
+		}
+		
+		echo '<div class="post-meta post-meta__terms"><a href="' . get_post_type_archive_link( $post_type ) . '" class="post-meta__terms-type text--bold">' . $post_type_name . get_the_term_list( $post->ID, $tax_name, ' /&nbsp</a>', ',&nbsp') . '</div>';
+	}
+endif;
+
+/**
+ * Displays the post's series.
+ *
+ *
+ * @return string $html The series.
+ */
+if (! function_exists('nuclearnetwork_display_series')) :
+	function nuclearnetwork_display_series() {
+
+		global $post;
+		
+		echo get_the_term_list( $post->ID, 'series', '<dl class="post-meta post-meta__series text--italic"><dt class="post-meta__label">Series </dt><dd>', ', ', '</dd></dl>');
 	}
 endif;
 

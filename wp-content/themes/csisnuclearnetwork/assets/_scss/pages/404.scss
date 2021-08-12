@@ -3,38 +3,74 @@
 @use '../components/entry-header';
 
 .error-404 {
-  display: flex;
-  justify-content: center;
-  margin-top: rem(40);
-  margin-bottom: rem(56);
+  color: $color-black-190;
+  background-color: $color-white-190;
 
-  @include breakpoint('medium') {
-    margin-top: rem(56);
+  @include breakpoint('small', 'max-width') {
+    @include full-width-background($color-white-190);
+  }
+
+  @include breakpoint('small') {
+    margin-bottom: rem(48);
+  }
+
+  a {
+    color: $color-accent-primary-blue-200;
+    text-decoration: underline;
+    text-underline-position: under;
+
+    &:visited {
+      color: $color-bg-dark-400;
+    }
+
+    &:hover {
+      color: $color-accent-primary-blue-100;
+      text-decoration: none;
+    }
+
+    &:focus {
+      color: $color-accent-primary-blue-100;
+      text-decoration: none;
+      background-color: $color-bg-light-400;
+      outline: 0;
+    }
   }
 
   &__content {
     max-width: $size__content-max-width;
+    margin: auto;
+    padding-top: rem(24);
+    padding-bottom: rem(80);
+    @include breakpoint('small') {
+      padding-top: rem(16);
+    }
+    @include breakpoint('medium') {
+      padding-top: rem(44);
+    }
+    @include breakpoint('large') {
+      padding-top: rem(40);
+    }
   }
 
-  &__title {
-    // color: $color-accent-light-primary-200;
-    // @extend %text-style-label-3-x-large;
+  &__img {
+    margin: auto;
+    @include breakpoint('medium') {
+      width: rem(240);
+    }
   }
 
   &__subtitle {
-    // color: $color-accent-light-primary-100;
-    // @extend %text-style-label-medium-strong;
-    text-transform: uppercase;
-  }
-
-  &__text-spacing {
-    margin-top: rem(11);
+    @extend %text-style-label-large-strong-caps;
+    padding: rem(32) 0 rem(8) 0;
   }
 
   .intro-text {
     p {
-      color: $color-black-100;
-      // @extend %text-style-paragraph-medium-long;
+      @extend %text-style-paragraph-large;
+
+      &:first-of-type {
+        padding-bottom: rem(20);
+      }
     }
   }
 }

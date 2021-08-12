@@ -1,24 +1,43 @@
 @use '../abstracts' as *;
 @use '../components/home-issue-block';
+@use '../components/home-about-poni';
 
 .home {
   #site-content {
-    grid-template-areas:
-      'header header'
-      'featured recent'
-      'cta cta'
-      'content content';
-    margin-top: rem(16);
+    // grid-template-areas:
+    //   'header header'
+    //   'featured recent'
+    //   'cta cta'
+    //   'content content';
+    margin-top: rem(116);
 
     @include breakpoint('large') {
-      display: grid;
-      grid-template-columns: minmax(50%, auto) rem(330);
+      // display: grid;
+      // grid-template-columns: minmax(50%, auto) rem(330);
       align-items: start;
-      margin-top: rem(24);
+      margin-top: rem(124);
     }
 
     @include breakpoint('xlarge') {
-      margin-top: rem(32);
+      margin-top: rem(132);
+    }
+  }
+
+  &__subtitle {
+    --home-subtitle-color: #{$color-black-190};
+    --home-subtitle-border: #{$color-accent-secondary-yellow-100};
+    @extend %text-style-heading-x-large-strong;
+    color: var(--home-subtitle-color);
+
+    &--border {
+      &::after {
+        content: '';
+        display: block;
+        width: rem(45);
+        height: rem(4);
+        margin: rem(16) 0;
+        background-color: var(--home-subtitle-border);
+      }
     }
   }
 
