@@ -69,8 +69,9 @@ $yesterday = date_i18n( strtotime('now'));
 			the_archive_title( '<h1 class="entry-header__title">', '</h1>' );
 			if ( isset( $author_title ) && !empty( $author_title ) ) { 
 				echo '<div class="entry-header__job-title">' . $author_title . '</div>'; 
-				echo '</div><!-- .entry-header__header-content -->';
 			}
+			
+			echo '</div><!-- .entry-header__header-content -->';
 			
 		} else {
 			the_title( '<h1 class="entry-header__title">', '</h1>' );
