@@ -1,6 +1,6 @@
 <?php
 /**
- * The Archive template.
+ * The Archive template for the Events post type.
  *
  * @package CSIS iLab
  * @subpackage @package NuclearNetwork
