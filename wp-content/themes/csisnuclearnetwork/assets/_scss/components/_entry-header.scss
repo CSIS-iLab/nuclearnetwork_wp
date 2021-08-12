@@ -115,6 +115,7 @@
 
   &--blue {
     --page-header-title-color: #{$color-white-190};
+    --page-header-title-font: #{$color-white-190};
 
     &::before {
       @include csis-block-full-width-wrapper();
@@ -123,26 +124,6 @@
       background-repeat: no-repeat;
       background-position: center;
       background-size: cover;
-    }
-  }
-
-  &--light {
-    --page-header-title-color: #{$color-accent-primary-blue-100};
-    /* stylelint-disable-next-line */
-    $headerCircles: '/wp-content/themes/csisnuclearnetwork/assets/static/page-header-circles.svg';
-    /* stylelint-disable-next-line */
-    $gradient: url($headerCircles), linear-gradient(180deg, rgba(16, 48, 79, 0.68) 0%, rgba(53, 110, 163, 0.0966914) 30.95%, rgba(56, 115, 171, 0) 100%), linear-gradient(90.1deg, #1c4973 0.76%, #08223a 100.12%);
-    background-color: $color-bg-light-100;
-
-    &::before {
-      height: 100%;
-      background: $gradient;
-
-      @include breakpoint('small') {
-        @include csis-block-full-width-wrapper();
-        right: calc(-1 * calc((100vw - 100%) / 2));
-        width: calc(100% + calc(100vw - 100%));
-      }
     }
   }
 
@@ -191,10 +172,21 @@
   }
 
   &__desc {
-    @extend %text-style-paragraph-x-large;
-    grid-column: 1;
+    // grid-column: 1;
     max-width: $size__content-max-width;
-    color: $color-white-190;
+
+    .entry-header--blue & {
+      @extend %text-style-paragraph-x-large;
+      width: 50%;
+      color: $color-white-190;
+    }
+
+    .entry-header--light & {
+      @extend %text-style-paragraph-large;
+      width: 75%;
+      color: $color-black-190;
+      border-bottom: 1px solid #c6c6c6;
+    }
   }
 
   &__cta {

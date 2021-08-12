@@ -18,7 +18,6 @@ $is_single = is_single();
 $post_parent_id = wp_get_post_parent_id(get_the_ID());
 
 $author_title = get_field( 'title', $object->ID );
-$description = get_the_excerpt();
 
 $template = get_page_template_slug( get_the_ID() );
 $isNoImageTemplate = false;
@@ -61,20 +60,26 @@ $yesterday = date_i18n( strtotime('now'));
 		if ( $is_author || $pagename === 'about' ) { 
 			echo '<div class="post-meta post-meta__terms"><a href="' . site_url( "/about/" ) . '" class="post-meta__terms-type text--bold">About</a></div>';
 		}
-		
-		if ( $is_author ) {
+
+		if ( $pagename === 'about' ) {
+			the_title( '<h1 class="entry-header__title">', '</h1>' );
+			echo '</div><!-- .entry-header__header-content -->';
+
+		} elseif ( $is_author ) {
 			the_archive_title( '<h1 class="entry-header__title">', '</h1>' );
 			if ( isset( $author_title ) && !empty( $author_title ) ) { 
 				echo '<div class="entry-header__job-title">' . $author_title . '</div>'; 
+				echo '</div><!-- .entry-header__header-content -->';
 			}
 			
 		} else {
 			the_title( '<h1 class="entry-header__title">', '</h1>' );
 		}
 		
-		if ( !$is_author ) {
+		if ( !$is_author || !$pagename === 'about' ) {
 			nuclearnetwork_display_series();
-			the_excerpt();
+			echo '<div class="entry-header__desc text--short">' . get_the_excerpt() . '</div>';
+			echo '</div><!-- .entry-header__header-content -->';
 		}
 		
 		if ( $post_type === 'events' && $is_single ) {
@@ -132,11 +137,11 @@ $yesterday = date_i18n( strtotime('now'));
 			nuclearnetwork_authors();
 		} 
 		
-		if ( function_exists( 'ADDTOANY_SHARE_SAVE_KIT' ) ) { ADDTOANY_SHARE_SAVE_KIT(); }
 		?>
 
-	</div><!-- .entry-header__header-content -->
-	<?php
+
+<?php
+	if ( function_exists( 'ADDTOANY_SHARE_SAVE_KIT' ) ) { ADDTOANY_SHARE_SAVE_KIT(); }
 
 	if ( !$isNoImageTemplate ) {
 		get_template_part( 'template-parts/featured-image' );

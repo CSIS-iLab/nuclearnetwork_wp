@@ -494,7 +494,6 @@ if (! function_exists('nuclearnetwork_display_event_date')) :
 		} elseif ( $legacy_event_date ) {
 			$event_date = date_i18n('M. d, Y', strtotime($legacy_event_date));
 		}
-		var_dump($legacy_event_date);
 		if ( $event_start_time && $event_end_time ) {
 			$start_time = wp_date('g:i A T', strtotime($event_start_time));
 			$end_time = wp_date('g:i A T', strtotime($event_end_time));
