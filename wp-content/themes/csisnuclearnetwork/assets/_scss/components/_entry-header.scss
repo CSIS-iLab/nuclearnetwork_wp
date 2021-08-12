@@ -86,7 +86,6 @@
   display: flex;
   flex-direction: column;
   margin: 0 auto rem(24);
-  padding: calc(#{rem(24)} + var(--site-header-height)) 0 var(--page-header-padding-bottom); // Top padding includes 56px for the site header
 
   @include breakpoint('small') {
     margin-bottom: rem(40);
@@ -117,6 +116,8 @@
     --page-header-title-color: #{$color-white-190};
     --page-header-title-margin-bottom: #{rem(12)};
 
+    padding: calc(#{rem(24)} + var(--site-header-height)) 0 var(--page-header-padding-bottom); // Top padding includes 56px for the site header
+
     &::before {
       @include csis-block-full-width-wrapper();
       background: var(--page-header-bg);
@@ -134,7 +135,17 @@
     $headerCircles: '/wp-content/themes/csisnuclearnetwork/assets/static/page-header-circles.svg';
     /* stylelint-disable-next-line */
     $gradient: url($headerCircles), linear-gradient(180deg, rgba(16, 48, 79, 0.68) 0%, rgba(53, 110, 163, 0.0966914) 30.95%, rgba(56, 115, 171, 0) 100%), linear-gradient(90.1deg, #1c4973 0.76%, #08223a 100.12%);
+
+    padding: calc(#{rem(32)} + var(--site-header-height)) 0 rem(32); // Top padding includes 56px for the site header
     background-color: $color-bg-light-100;
+
+    @include breakpoint('medium') {
+      padding-top: calc(#{rem(40)} + var(--site-header-height));
+    }
+
+    @include breakpoint('large') {
+      padding-top: calc(#{rem(64)} + var(--site-header-height));
+    }
 
     &::before {
       height: 100%;
@@ -293,5 +304,14 @@
 
   .post-meta__terms-type {
     margin-bottom: rem(4);
+
+    &::before {
+      content: '';
+      display: inline-block;
+      width: rem(40);
+      height: rem(10);
+      margin-right: rem(16);
+      background-color: $color-accent-secondary-yellow-100;
+    }
   }
 }
