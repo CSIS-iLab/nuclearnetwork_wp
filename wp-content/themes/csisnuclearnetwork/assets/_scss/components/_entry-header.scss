@@ -115,7 +115,7 @@
 
   &--blue {
     --page-header-title-color: #{$color-white-190};
-    --page-header-title-font: #{$color-white-190};
+    --page-header-title-margin-bottom: #{rem(12)};
 
     &::before {
       @include csis-block-full-width-wrapper();
@@ -129,6 +129,7 @@
 
   &--light {
     --page-header-title-color: #{$color-accent-primary-blue-100};
+    --page-header-title-margin-bottom: #{rem(16)};
     /* stylelint-disable-next-line */
     $headerCircles: '/wp-content/themes/csisnuclearnetwork/assets/static/page-header-circles.svg';
     /* stylelint-disable-next-line */
@@ -145,15 +146,39 @@
         width: calc(100% + calc(100vw - 100%));
       }
     }
+
+    .author &,
+    .entry-header__title--about {
+      --page-header-title-margin-bottom: #{0};
+    }
+
+    .blog & {
+      --page-header-title-margin-bottom: #{4};
+    }
+  }
+
+  &__job-title {
+    margin-top: rem(8);
+  }
+
+  &__header-content {
+    margin-bottom: rem(16);
+    padding-bottom: rem(24);
+    border-bottom: 1px solid #c6c6c6;
+
+    @include breakpoint('medium') {
+      margin-bottom: rem(12);
+    }
+
+    @include breakpoint('large') {
+      margin-bottom: rem(8);
+    }
   }
 
   &__title {
     @extend %text-style-heading-3-x-large-strong;
+    margin-bottom: var(--page-header-title-margin-bottom);
     color: var(--page-header-title-color);
-
-    &:not(:only-child) {
-      margin-bottom: rem(12);
-    }
 
     &--yellow {
       color: $color-accent-secondary-yellow-100;
@@ -185,7 +210,6 @@
       @extend %text-style-paragraph-large;
       width: 75%;
       color: $color-black-190;
-      border-bottom: 1px solid #c6c6c6;
     }
   }
 
@@ -265,5 +289,9 @@
         margin-right: rem(40);
       }
     }
+  }
+
+  .post-meta__terms-type {
+    margin-bottom: rem(4);
   }
 }

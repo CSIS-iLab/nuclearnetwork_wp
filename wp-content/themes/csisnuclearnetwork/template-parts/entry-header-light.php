@@ -62,7 +62,7 @@ $yesterday = date_i18n( strtotime('now'));
 		}
 
 		if ( $pagename === 'about' ) {
-			the_title( '<h1 class="entry-header__title">', '</h1>' );
+			the_title( '<h1 class="entry-header__title entry-header__title--about">', '</h1>' );
 			echo '</div><!-- .entry-header__header-content -->';
 
 		} elseif ( $is_author ) {
@@ -70,7 +70,7 @@ $yesterday = date_i18n( strtotime('now'));
 			if ( isset( $author_title ) && !empty( $author_title ) ) { 
 				echo '<div class="entry-header__job-title">' . $author_title . '</div>'; 
 			}
-			
+
 			echo '</div><!-- .entry-header__header-content -->';
 			
 		} else {
