@@ -50,19 +50,24 @@ $yesterday = date_i18n( strtotime('now'));
 
 	<?php 
 
-	
+
 	} else {
 
 		
 		if ( !$is_author ) { 
 			nuclearnetwork_display_subtypes(); 
 		}
-		if ( $is_author || $pagename === 'about' ) { echo '<div class="post-meta post-meta__terms"><a href="' . site_url( "/about/" ) . '" class="post-meta__terms-type text--bold">About</a></div>';}
+
+		if ( $is_author || $pagename === 'about' ) { 
+			echo '<div class="post-meta post-meta__terms"><a href="' . site_url( "/about/" ) . '" class="post-meta__terms-type text--bold">About</a></div>';
+		}
+		
 		if ( $is_author ) {
 			the_archive_title( '<h1 class="entry-header__title">', '</h1>' );
 			if ( isset( $author_title ) && !empty( $author_title ) ) { 
 				echo '<div class="entry-header__job-title">' . $author_title . '</div>'; 
 			}
+			
 		} else {
 			the_title( '<h1 class="entry-header__title">', '</h1>' );
 		}
@@ -72,16 +77,14 @@ $yesterday = date_i18n( strtotime('now'));
 			the_excerpt();
 		}
 		
-
 		if ( $post_type === 'events' && $is_single ) {
-
-
 			$event_info = get_field( 'event_post_info' );
 			$event_start_date = $event_info['event_start_date'];
 			$event_start_time = $event_info['event_start_time'];
 			$legacy_event_date = get_post_meta( $id, '_post_start_date', true );
 			$registration_link = $event_info['event_registration_link'];
 			$event_full_date = date_i18n( strtotime("$event_start_date $event_start_time"));
+
 			if ( $event_full_date >= $yesterday ) {
 				$is_future_event = true;
 			}
@@ -98,10 +101,7 @@ $yesterday = date_i18n( strtotime('now'));
 			<?php
 			}
 			
-
 		} elseif ( $post_type === 'programs' && $is_single && !$post_parent_id ) { 
-
-
 			$program_info = get_field( 'program_post_info' ); 
 			$application_deadline = $program_info['application_deadline'];
 			$application_link = $program_info['link_to_application_page'];
@@ -109,13 +109,13 @@ $yesterday = date_i18n( strtotime('now'));
 			$class_name = $program_info['class_name'];
 			$deadline_formatted = date_i18n('M. d, Y', strtotime($application_deadline));
 			$app_deadline_full_date = date_i18n( strtotime("$application_deadline"));
+
 			if ( $app_deadline_full_date >= $yesterday || $is_rolling ) {
 				$is_future_event = true;
 			}
 		
 			if ( $is_future_event || $is_rolling ) {
 				echo '<div class="entry-header__accepting-applications">Accepting Applications</div>';
-				
 				echo '<div class="entry-header__program-class">' . $class_name . '</div>';
 				
 				if ( !$is_rolling && $is_future_event ) {
@@ -128,7 +128,6 @@ $yesterday = date_i18n( strtotime('now'));
 			}
 		
 		} elseif ( $is_single ) { 
-			
 			nuclearnetwork_posted_on();
 			nuclearnetwork_authors();
 		} 
@@ -138,6 +137,7 @@ $yesterday = date_i18n( strtotime('now'));
 
 	</div><!-- .entry-header__header-content -->
 	<?php
+
 	if ( !$isNoImageTemplate ) {
 		get_template_part( 'template-parts/featured-image' );
 	}

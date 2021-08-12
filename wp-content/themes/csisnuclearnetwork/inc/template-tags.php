@@ -476,6 +476,8 @@ endif;
 if (! function_exists('nuclearnetwork_display_event_date')) :
 	function nuclearnetwork_display_event_date() {
 
+		$id = get_queried_object_id();
+
 		$event_info = get_field( 'event_post_info' );
 		$event_start_date = $event_info['event_start_date'];
 		$event_end_date = $event_info['event_end_date'];
@@ -492,7 +494,7 @@ if (! function_exists('nuclearnetwork_display_event_date')) :
 		} elseif ( $legacy_event_date ) {
 			$event_date = date_i18n('M. d, Y', strtotime($legacy_event_date));
 		}
-		
+		var_dump($legacy_event_date);
 		if ( $event_start_time && $event_end_time ) {
 			$start_time = wp_date('g:i A T', strtotime($event_start_time));
 			$end_time = wp_date('g:i A T', strtotime($event_end_time));
