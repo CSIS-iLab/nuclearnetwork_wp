@@ -19,6 +19,9 @@ get_header();
 	?>
 
 	<div class='archive__content'>
+		<?php
+			if ( have_posts() && !is_paged() ) {
+		?>
 		<h2 class="archive__section-title">Upcoming Events</h2>
 		<section class="events__upcoming">
 		<?php
@@ -51,7 +54,7 @@ get_header();
 			}
 		?>
 		</section>
-
+	<?php } ?>
 	<?php
 		if ( have_posts() ) {
 			echo '<h2 class="archive__section-title">Past Events</h2>';
