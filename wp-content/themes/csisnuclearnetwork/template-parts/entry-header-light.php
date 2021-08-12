@@ -51,9 +51,8 @@ $yesterday = date_i18n( strtotime('now'));
 
 
 	} else {
-
 		
-		if ( !$is_author ) { 
+		if ( !$is_author || $pagename != 'about' ) { 
 			nuclearnetwork_display_subtypes(); 
 		}
 
@@ -77,7 +76,7 @@ $yesterday = date_i18n( strtotime('now'));
 			the_title( '<h1 class="entry-header__title">', '</h1>' );
 		}
 		
-		if ( !$is_author || !$pagename === 'about' ) {
+		if ( !$is_author || $pagename != 'about' ) {
 			nuclearnetwork_display_series();
 			echo '<div class="entry-header__desc text--short">' . get_the_excerpt() . '</div>';
 			echo '</div><!-- .entry-header__header-content -->';
