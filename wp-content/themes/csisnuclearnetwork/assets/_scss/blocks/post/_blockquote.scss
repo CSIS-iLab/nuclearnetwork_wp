@@ -1,19 +1,42 @@
 @use '../abstracts' as *;
 
 .wp-block-lazyblock-blockquote {
-  .csis-block--blockquote {
-    max-width: rem(340px);
+  @include breakpoint('medium') {
+    max-width: rem(340);
     margin: auto;
   }
 
   &.alignleft,
   &.alignright {
-    max-width: rem(340px);
-    margin-top: 0;
+    @include breakpoint('small') {
+      --margin-text-side: auto;
+      --margin-gutter-side: auto;
+      float: none !important;
+      max-width: 100%;
+    }
+
+    @include breakpoint('medium') {
+      --margin-text-side: auto;
+      --margin-gutter-side: auto;
+      float: none !important;
+      max-width: rem(340);
+    }
 
     @include breakpoint('large') {
       --margin-text-side: #{rem(48)};
-      --margin-gutter-side: 0;
+      --margin-gutter-side: -6vw;
+    }
+  }
+
+  &.alignleft {
+    @include breakpoint('large') {
+      float: left !important;
+    }
+  }
+
+  &.alignright {
+    @include breakpoint('large') {
+      float: right !important;
     }
   }
 
