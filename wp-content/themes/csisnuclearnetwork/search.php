@@ -27,7 +27,7 @@ get_header();
 
 			nuclearnetwork_pagination_number_of_posts();
 
-			echo '<section class="archive__base">';
+			echo '<section class="archive__postlist">';
 			while ( have_posts() ) {
 				the_post();
 
@@ -41,7 +41,7 @@ get_header();
 			?>
 
 			<div class="no-search-results-form section-inner thin">
-		
+
 			<h2 class="search-form__title"><?php esc_html_e( 'No Results', 'nuclearnetwork' ); ?></h2>
 
 			<p class="search-form__desc"><?php esc_html_e( 'Sorry, but nothing matched your search terms. Please try again with different keywords.', 'nuclearnetwork' ); ?></p>
@@ -54,7 +54,7 @@ get_header();
 				);
 
 				?>
-				
+
 			</div><!-- .no-search-results -->
 
 			<?php

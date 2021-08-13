@@ -176,3 +176,11 @@ $page-images: (
     ),
   ),
 );
+
+/*----------  Archive Content Widths  ----------*/
+$archive-widths: (
+  'post-type-archive-events': (
+    'content': 930px,
+    'postlist': 800px,
+  ),
+);
