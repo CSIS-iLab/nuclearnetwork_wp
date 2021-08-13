@@ -8,6 +8,25 @@
 <title>chevron-right</title>
 <path d="M22.275 15.951l-11.219 11.219-1.886-1.886 9.333-9.333-9.333-9.333 1.886-1.886 11.219 11.219z"></path>
 </symbol>
+<symbol id="icon-chevron-left" viewBox="0 0 16 16">
+<title>chevron-left</title>
+<path d="M4.86271 7.97555L10.4722 13.585L11.415 12.6422L6.74833 7.97554L11.415 3.30888L10.4722 2.36607L4.86271 7.97555Z"></path>
+</symbol>
+<symbol id="icon-chevron-line-right" viewBox="0 0 16 16">
+<title>chevron-line-right</title>
+<path d="M12.3482 2.34821L11.0982 2.34821L11.0982 13.5982H12.3482V2.34821Z" />
+<path d="M9.79458 7.9732L4.53569 2.71432L3.65181 3.59821L8.02681 7.9732L3.65181 12.3482L4.53569 13.2321L9.79458 7.9732Z" />
+</symbol>
+<symbol id="icon-chevron-line-left" viewBox="0 0 16 16">
+<title>chevron-line-left</title>
+<path d="M3.65181 13.5982H4.90181L4.90181 2.34821L3.65181 2.34821L3.65181 13.5982Z" />
+<path d="M6.20543 7.97321L11.4643 13.2321L12.3482 12.3482L7.97319 7.97321L12.3482 3.59821L11.4643 2.71432L6.20543 7.97321Z" />
+</symbol>
+<symbol id="icon-arrow-external" viewBox="0 0 30 32">
+<title>arrow-external</title>
+<path d="M24.3 4.661h-5.811v-2.844h8.655l0.030-0.030 0.030 0.030h1.951v1.951l0.030 0.030-0.030 0.030v8.655h-2.844v-5.811l-11.378 11.378-2.011-2.011 11.378-11.378z"></path>
+<path d="M0.711 1.816v28.444h28.444v-14.913h-2.844v12.069h-22.756v-22.756h11.703v-2.844h-14.547z"></path>
+</symbol>
 <symbol id="icon-copy" viewBox="0 0 32 32">
 <title>copy</title>
 <path d="M24 2.667h-21.333v21.333h2.667v-18.667h18.667v-2.667z"></path>

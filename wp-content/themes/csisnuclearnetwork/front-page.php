@@ -94,7 +94,10 @@ get_header();
 	endif; ?>
 
 <section class="home__cta">
-	<a href="/analysis" class="btn btn--outline-dark btn--med">All Posts <?php echo nuclearnetwork_get_svg( "chevron-right" ); ?></a>
+	<a href="/analysis" class="btn btn--outline-dark btn--large">All Posts <?php echo nuclearnetwork_get_svg( "chevron-right" ); ?></a>
+	<a href="/analysis" class="btn btn--outline-blue btn--small">All Posts <?php echo nuclearnetwork_get_svg( "chevron-right" ); ?></a>
+	<a href="/analysis" class="btn btn--blue btn--large">All Posts <?php echo nuclearnetwork_get_svg( "chevron-right" ); ?></a>
+	<a href="/analysis" class="btn btn--teal btn--large">All Posts <?php echo nuclearnetwork_get_svg( "chevron-right" ); ?></a>
 </section>
 
 	<?php
@@ -111,6 +114,7 @@ get_header();
 	endif;
 
 	?>
+	<?php get_template_part( 'template-parts/home-about-poni' ); ?>
 
 </main><!-- #site-content -->
 

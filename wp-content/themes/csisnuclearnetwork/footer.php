@@ -13,28 +13,37 @@
 
 ?>
 			<footer id="site-footer" class="footer" role="contentinfo">
-				<a href="https://www.csis.org" class="footer__logo"><?php include( get_template_directory() . '/assets/static/csis-logo.svg'); ?></a>
-
-				<div class="footer__desc">
-					<?php dynamic_sidebar( 'sidebar-1' ); ?>
-					<?php dynamic_sidebar( 'sidebar-2' ); ?>
+				<!-- div for the row -->
+				<!-- 1st column -->
+				<div class="footer__logo">
+					<a href="https://www.csis.org" class="footer__logo--small"><?php include( get_template_directory() . '/assets/static/csis-poni-logo.svg'); ?></a>
+					<a href="https://www.csis.org" class="footer__logo--medium"><?php include( get_template_directory() . '/assets/static/csis-logo-poni-full.svg'); ?></a>
 				</div>
-				<?php dynamic_sidebar( 'sidebar-3' ); ?>
 
-				<!-- Social Share -->
-				<div class="footer__social">
-					<h2 class="footer__social-header">
-						Follow Us
-					</h2>
-					<div class="footer__social-icons">
-						<a href="https://www.facebook.com/reconnasia/" class="footer__facebook-icon" aria-label="Visit the Reconnecting Asia Facebook page"><?php echo nuclearnetwork_get_svg( 'facebook' ); ?></a>
-						<a href="https://twitter.com/NuclearNetwork" class="footer__twitter-icon" aria-label="Visit the Reconnecting Asia Twitter page"><?php echo nuclearnetwork_get_svg( 'twitter' ); ?></a>
-						<a href="https://www.linkedin.com/company/csis/" class="footer__linkedin-icon" aria-label="Visit the CSIS LinkedIn page"><?php echo nuclearnetwork_get_svg( 'linkedin' ); ?></a>
-						<a href="https://www.instagram.com/csis/" class="footer__instagram-icon" aria-label="Visit the CSIS Instagram page"><?php echo nuclearnetwork_get_svg( 'instagram' ); ?></a>
-						<a href="https://www.youtube.com/channel/UCr5jq6MC_VCe1c5ciIZtk_w" class="footer__youtube-icon" aria-label="Visit the CSIS YouTube page"><?php echo nuclearnetwork_get_svg( 'youtube' ); ?></a>
+				<!-- description block -->
+				<div class="footer__description">
+					<?php dynamic_sidebar( 'Footer-Description' ); ?>
+				</div>
+
+				<!-- Newsletter Block -->
+				<div class="footer__newsletter">
+					<h2>Stay Up to Date</h2>
+					<?php dynamic_sidebar( 'Newsletters' ); ?>
+				</div>
+
+				<div class="footer__contact">
+					<h2>Contact Us</h2>
+					<?php dynamic_sidebar( 'Social-Share-1' ); ?>
+					<div>
+						<div class="footer__social-icons">
+							<a href="https://www.facebook.com/csisponi/" class="footer__facebook-icon" aria-label="Visit the Nuclear Network Facebook page"><?php echo nuclearnetwork_get_svg( 'facebook' ); ?></a>
+							<a href="https://twitter.com/NuclearNetwork" class="footer__twitter-icon" aria-label="Visit the Nuclear Network Twitter page"><?php echo nuclearnetwork_get_svg( 'twitter' ); ?></a>
+							<a href="https://www.linkedin.com/company/csis/" class="footer__linkedin-icon" aria-label="Visit the CSIS LinkedIn page"><?php echo nuclearnetwork_get_svg( 'linkedin' ); ?></a>
+							<a href="https://www.instagram.com/csis/" class="footer__instagram-icon" aria-label="Visit the CSIS Instagram page"><?php echo nuclearnetwork_get_svg( 'instagram' ); ?></a>
+							<a href="https://www.youtube.com/channel/UCr5jq6MC_VCe1c5ciIZtk_w" class="footer__youtube-icon" aria-label="Visit the CSIS YouTube page"><?php echo nuclearnetwork_get_svg( 'youtube' ); ?></a>
+						</div>
 					</div>
 				</div>
-
 
 				<p class="footer__copyright">Copyright &copy;
 					<?php

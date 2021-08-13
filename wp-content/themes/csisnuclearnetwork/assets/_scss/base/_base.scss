@@ -1,17 +1,24 @@
 @use 'abstracts' as *;
+@use 'sass:map';
 
 :root {
+  /* stylelint-disable-next-line*/
+  --scrollbarX: 0px;
   --scrollbar: var(--scrollbarX, 0);
   --scrollbarHalf: calc(var(--scrollbar) / 2);
   --logo-width: 120px;
   --logo-height: 32px;
   --logo-color: #{$color-black-100};
-  --site-header-height: #{rem(48)};
+  --site-header-height: #{rem(56)};
+
+  @each $page, $values in $page-images {
+    --page-header-#{$page}: #{map.get($values, 'image')};
+  }
 
   @include breakpoint('large') {
     --logo-width: 175px;
     --logo-height: 48px;
-    --site-header-height: #{rem(56)};
+    --site-header-height: #{rem(102)};
   }
 }
 
@@ -21,7 +28,7 @@
 
 html,
 body {
-  overflow-x: hidden;
+  // overflow-x: hidden;
 }
 
 body {
