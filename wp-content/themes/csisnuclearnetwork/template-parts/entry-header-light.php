@@ -37,7 +37,7 @@ $is_about = is_page( 'about' );
 
 <header class="entry-header entry-header--light">
 
-<div class="entry-header__header-content">
+<div class="entry-header__top">
 
 <?php
 
@@ -45,18 +45,14 @@ $is_about = is_page( 'about' );
 
 		<h1 class="entry-header__title"><?php _e( '404', 'nuclearnetwork' ); ?></h1>
 	
-	</div><!-- .entry-header__header-content -->
-
 	<?php 
 
 
-	} else {
+	}
 		
-		if ( !$is_author || !$is_about ) { 
+		if ( !$is_author && !$is_about && !$is_404 ) { 
 			nuclearnetwork_display_subtypes(); 
 		}
-
-		var_dump(is_page('about'));
 
 		if ( $is_author || $is_about ) { 
 			echo '<div class="post-meta post-meta__terms"><a href="' . site_url( "/about/" ) . '" class="post-meta__terms-type text--bold">About</a></div>';
@@ -64,7 +60,6 @@ $is_about = is_page( 'about' );
 
 		if ( $is_about ) {
 			the_title( '<h1 class="entry-header__title entry-header__title--about">', '</h1>' );
-			echo '</div><!-- .entry-header__header-content -->';
 
 		} elseif ( $is_author ) {
 			the_archive_title( '<h1 class="entry-header__title">', '</h1>' );
@@ -72,18 +67,19 @@ $is_about = is_page( 'about' );
 				echo '<div class="entry-header__job-title">' . $author_title . '</div>'; 
 			}
 
-			echo '</div><!-- .entry-header__header-content -->';
-			
 		} else {
 			the_title( '<h1 class="entry-header__title">', '</h1>' );
 		}
 		
-		if ( !$is_author || !$is_about ) {
+		if ( !$is_author && !$is_about && !$is_404 ) {
 			nuclearnetwork_display_series();
 			echo '<div class="entry-header__desc text--short">' . get_the_excerpt() . '</div>';
-			echo '</div><!-- .entry-header__header-content -->';
 		}
+		?>
 		
+	</div><!-- .entry-header__top -->
+	<div class="entry-header__bottom">
+		<?php
 		if ( $post_type === 'events' && $is_single ) {
 			$event_info = get_field( 'event_post_info' );
 			$event_start_date = $event_info['event_start_date'];
@@ -142,13 +138,14 @@ $is_about = is_page( 'about' );
 		?>
 
 
-<?php
-	if ( function_exists( 'ADDTOANY_SHARE_SAVE_KIT' ) ) { ADDTOANY_SHARE_SAVE_KIT(); }
+	<?php
+		if ( function_exists( 'ADDTOANY_SHARE_SAVE_KIT' ) && !$is_404 ) { 
+			ADDTOANY_SHARE_SAVE_KIT(); 
+		}
 
-	if ( !$isNoImageTemplate ) {
-		get_template_part( 'template-parts/featured-image' );
-	}
-}
+		if ( !$isNoImageTemplate ) {
+			get_template_part( 'template-parts/featured-image' );
+		}
 	?>
-
+	</div>
 </header><!-- .entry-header -->
