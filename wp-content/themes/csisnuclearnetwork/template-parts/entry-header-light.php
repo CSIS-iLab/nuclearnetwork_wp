@@ -117,17 +117,21 @@ $is_about = is_page( 'about' );
 				$is_future_event = true;
 			}
 		
-			if ( $is_future_event || $is_rolling ) {
-				echo '<div class="entry-header__accepting-applications">Accepting Applications</div>';
-				echo '<div class="entry-header__program-class">' . $class_name . '</div>';
+			if ( $is_future_event || $is_rolling ) { ?>
+				<div class="entry-header__application-block">
+					<?php
+				echo '<div class="entry-header__accepting-applications text--bold">Accepting Applications</div>';
+				echo '<div class="post-meta post-meta--large post-meta__class">' . $class_name . '</div>';
 				
 				if ( !$is_rolling && $is_future_event ) {
-					echo '<dl class="post-meta post-meta__program-date"><dt class="post-meta__label--small text--bold text--caps">Deadline</dt><dd class="post-meta__date--program">' . $deadline_formatted . '</dd></dl>';
+					echo '<dl class="post-meta post-meta__program-date"><dt class="post-meta__label post-meta__label--small text--bold text--caps">Deadline</dt><dd class="post-meta__date--program">' . $deadline_formatted . '</dd></dl>';
 				}
 				
 				if ( isset($application_link) && !empty($application_link) && $is_future_event ) {
-					echo '<a href="' . esc_url( $application_link ) . '" class="post-block__apply btn btn--blue">Apply ' . nuclearnetwork_get_svg( 'arrow-external' ) . '</a>';
-				}
+					echo '<a href="' . esc_url( $application_link ) . '" class="entry-header__apply btn btn--blue">Apply ' . nuclearnetwork_get_svg( 'arrow-external' ) . '</a>';
+				} ?>
+				</div><!-- .entry-header__application-block -->
+				<?php
 			}
 		
 		} elseif ( $is_single ) { 

@@ -5,10 +5,20 @@
   display: flex;
   color: var(--post-meta);
 
+  &--large {
+    @extend %text-style-label-large;
+    color: $color-accent-primary-blue-100;
+  }
+
   &__label {
     margin-right: rem(8);
     color: $color-black-165;
     font-style: normal;
+
+    &--small {
+      @extend %text-style-label-small-caps;
+      margin-right: rem(16);
+    }
   }
 
   &__authors,
@@ -39,6 +49,10 @@
 
   &__date {
     --post-meta: #{$color-black-190};
+  }
+
+  &__program-date {
+    --post-meta: #{$color-accent-primary-blue-100};
   }
 
   &__categories {
