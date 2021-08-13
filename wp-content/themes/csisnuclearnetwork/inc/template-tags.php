@@ -515,8 +515,14 @@ endif;
 if (! function_exists('nuclearnetwork_display_event_location')) :
 	function nuclearnetwork_display_event_location() {
 
+		$id = get_queried_object_id();
+
 		$event_info = get_field( 'event_post_info' );
 		$event_location = $event_info['event_location'];
+
+		if ( get_post_meta( $id, '_post_location', true ) ) {
+			$event_location = get_post_meta( $id, '_post_location', true );
+		}
 
 		if ( $event_location ) { ?>
 			<dl class="post-meta post-meta__event"><dt class="post-meta__label--small text--bold text--caps">Where</dt><dd><?php echo $event_location; ?></dd></dl>
