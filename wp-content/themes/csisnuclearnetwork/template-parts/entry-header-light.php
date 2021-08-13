@@ -29,7 +29,7 @@ if ( $template === 'templates/template-no-image.php' || $is_author ){
 $is_future_event = false;
 $yesterday = date_i18n( strtotime('now'));
 
-
+$is_about = is_page( 'about' );
 
 
 
@@ -52,15 +52,17 @@ $yesterday = date_i18n( strtotime('now'));
 
 	} else {
 		
-		if ( !$is_author || $pagename != 'about' ) { 
+		if ( !$is_author || !$is_about ) { 
 			nuclearnetwork_display_subtypes(); 
 		}
 
-		if ( $is_author || $pagename === 'about' ) { 
+		var_dump(is_page('about'));
+
+		if ( $is_author || $is_about ) { 
 			echo '<div class="post-meta post-meta__terms"><a href="' . site_url( "/about/" ) . '" class="post-meta__terms-type text--bold">About</a></div>';
 		}
 
-		if ( $pagename === 'about' ) {
+		if ( $is_about ) {
 			the_title( '<h1 class="entry-header__title entry-header__title--about">', '</h1>' );
 			echo '</div><!-- .entry-header__header-content -->';
 
@@ -76,7 +78,7 @@ $yesterday = date_i18n( strtotime('now'));
 			the_title( '<h1 class="entry-header__title">', '</h1>' );
 		}
 		
-		if ( !$is_author || $pagename != 'about' ) {
+		if ( !$is_author || !$is_about ) {
 			nuclearnetwork_display_series();
 			echo '<div class="entry-header__desc text--short">' . get_the_excerpt() . '</div>';
 			echo '</div><!-- .entry-header__header-content -->';
