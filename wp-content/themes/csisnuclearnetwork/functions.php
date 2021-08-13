@@ -240,7 +240,7 @@ function nuclearnetwork_register_scripts() {
 		wp_script_add_data( 'nuclearnetwork-js-carousel', 'async', true );
 	}
 
-	if ( is_home() ) {
+	if ( is_home() || is_archive() || is_search() ) {
 		wp_enqueue_script( 'nuclearnetwork-js-archive', get_template_directory_uri() . '/assets/js/archive.min.js', array(), $theme_version, true );
 		wp_script_add_data( 'nuclearnetwork-js-archive', 'defer', true );
 	}

@@ -20,6 +20,7 @@
   &-checkbox {
     display: flex;
     align-items: top;
+    width: fit-content;
     margin-left: rem(24);
     padding: rem(8) 0;
     color: $color-black-190;
@@ -28,12 +29,13 @@
 
     .fs-checkbox {
       --checkbox-bg: #{$color-postbg-200};
-      --checkbox-border: #{$color-border-dark-115};
+      --checkbox-border: #{$color-black-140};
       display: block;
+      margin-right: rem(8);
 
       i {
         position: relative;
-        left: rem(-8);
+        left: 0;
         display: block;
         width: 1.2em;
         height: 1.2em;
@@ -44,7 +46,7 @@
 
       &:hover {
         background: $color-bg-light-200;
-        
+
         /* stylelint-disable-next-line */
         i {
           border-width: 2px;
@@ -54,7 +56,7 @@
   }
 
   &-checkbox.checked {
-    .fs-checkbox {   
+    .fs-checkbox {
       --checkbox-bg: #{$color-accent-primary-blue-200};
       --checkbox-border: #{$color-border-light-115};
 
@@ -75,7 +77,7 @@
         transform: translate(-50%, -60%) rotate(45deg);
       }
     }
-  } 
+  }
 }
 
 .facet-headings {
@@ -83,7 +85,6 @@
   color: $color-black-180;
   @extend %text-style-label-small;
 }
-
 
 /*----------  Facet: fselect  ----------*/
 
@@ -95,6 +96,7 @@
   &-wrap {
     --input-background: #{$color-accent-primary-200};
     --input-border: var(--input-background);
+    --input-transition: background 0.3s ease-in-out, border 0.3s ease-in-out, filter 0.3s ease-in-out;
     --arrow-color: #{$color-white-190};
     position: relative;
     display: inline-block;
@@ -110,6 +112,7 @@
     &.fs-default {
       --input-background: #{$color-white-100};
       --input-border: #{$color-border-dark-115};
+      --input-transition: border 0.3s ease-in-out, filter 0.3s ease-in-out;
       --arrow-color: #{$color-black-165};
 
       &:hover {
@@ -133,11 +136,11 @@
     background-color: var(--input-background);
     border: 1px solid var(--input-border);
     border-radius: 2px;
-    cursor: default;
-    transition: background 0.3s ease-in-out, border 0.3s ease-in-out;
+    cursor: inherit;
+    transition: var(--input-transition);
 
     &:hover {
-      filter: $shadow--2;
+      filter: $shadow--1;
     }
   }
 
@@ -214,7 +217,6 @@
 
   &-option,
   &-search,
-  &-optgroup-label,
   &-no-results {
     padding: rem(12);
     cursor: default;
@@ -269,24 +271,10 @@
       opacity: 0.4;
     }
 
-    &.d1 .fs-option-label {
-      padding-left: 0 !important;
-    }
-
-    &.d1 .fs-checkbox {
-      padding-left: rem(20px);
-    }
-
     .fs-option-label {
       white-space: normal !important;
       word-break: break-word;
     }
-  }
-
-  &-optgroup-label {
-    font-weight: bold;
-    text-align: center;
-    background-color: #f8f8f8;
   }
 
   &-checkbox {
