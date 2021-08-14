@@ -247,7 +247,6 @@
   }
 
   &__desc {
-    // grid-column: 1;
     max-width: $size__content-max-width;
 
     .entry-header--blue & {
@@ -332,18 +331,6 @@
       &__link {
         color: $color-white-100;
         font-weight: 700;
-      }
-    }
-  }
-
-  &__grid {
-    @include breakpoint('large') {
-      display: grid;
-      grid-template-columns: minmax(50%, 680px) rem(380);
-      justify-content: stretch;
-
-      .entry-header__desc {
-        margin-right: rem(40);
       }
     }
   }
