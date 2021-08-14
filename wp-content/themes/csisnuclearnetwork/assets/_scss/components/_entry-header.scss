@@ -228,6 +228,24 @@
         margin-left: auto;
       }
     }
+
+    &__image-wrapper {
+      position: relative;
+      width: fit-content;
+      height: fit-content;
+      margin-right: auto;
+      margin-left: auto;
+
+      &::after {
+        position: absolute;
+        bottom: rem(-8);
+        content: '';
+        display: inline-block;
+        width: rem(72);
+        height: rem(8);
+        background-color: $color-accent-secondary-yellow-100;
+      }
+    }
   }
 
   &__job-title {
