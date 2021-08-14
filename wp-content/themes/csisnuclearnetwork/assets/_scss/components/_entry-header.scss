@@ -439,11 +439,11 @@
     margin-top: rem(16);
 
     @include breakpoint('medium') {
-      justify-content: flex-end;
       margin-top: rem(12);
     }
 
     @include breakpoint('large') {
+      justify-content: flex-end;
       margin-top: rem(0);
     }
   }
