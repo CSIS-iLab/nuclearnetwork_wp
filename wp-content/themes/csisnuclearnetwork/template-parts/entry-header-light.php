@@ -139,9 +139,14 @@ $is_about = is_page( 'about' );
 					<?php
 				}
 			
-			} elseif ( $is_single ) { 
-				nuclearnetwork_posted_on();
-				nuclearnetwork_authors();
+			} elseif ( $is_single ) { ?>
+				<div class="post-meta__wrapper">
+					<?php
+					nuclearnetwork_posted_on();
+					nuclearnetwork_authors(); 
+					?>
+				</div>
+				<?php
 			} 
 			
 			?>

@@ -355,6 +355,21 @@
     color: $color-accent-primary-blue-100;
   }
 
+  .post-meta__wrapper {
+    @include breakpoint('small') {
+      display: flex;
+
+      .post-meta__authors {
+        margin-left: rem(16);
+
+        &::before {
+          content: '|';
+          padding-right: rem(16);
+        }
+      }
+    }
+  }
+
   .post-meta__class {
     grid-area: class;
   }
