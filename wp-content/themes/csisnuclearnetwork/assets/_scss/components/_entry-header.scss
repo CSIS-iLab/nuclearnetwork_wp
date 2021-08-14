@@ -136,6 +136,7 @@
     /* stylelint-disable-next-line */
     $gradient: url($headerCircles), linear-gradient(180deg, rgba(16, 48, 79, 0.68) 0%, rgba(53, 110, 163, 0.0966914) 30.95%, rgba(56, 115, 171, 0) 100%), linear-gradient(90.1deg, #1c4973 0.76%, #08223a 100.12%);
 
+    max-width: $size__content-wide-max-width;
     margin: 0 calc(-1 * var(--container-padding)) rem(24);
     padding: calc(#{rem(32)} + var(--site-header-height)) var(--container-padding) rem(32); // Top padding includes 56px for the site header
     background-color: $color-bg-light-100;
@@ -182,10 +183,6 @@
     }
 
     @include breakpoint('large') {
-      width: 75%;
-    }
-
-    @include breakpoint('large') {
       width: 70%;
       min-width: $size__content-max-width;
       max-width: $size__header-max-width;
@@ -208,17 +205,29 @@
 
   &__bottom {
     @include breakpoint('large') {
-      display: grid;
-      grid-template-areas:
-        'meta share'
-        'image image';
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
     }
   }
 
   .featured-media {
-    grid-area: image;
-    margin-right: auto;
-    margin-left: auto;
+    margin: rem(24) auto 0;
+
+    @include breakpoint('small') {
+      margin-top: rem(32);
+    }
+
+    @include breakpoint('large') {
+      width: 85%;
+      max-width: $size__content-max-width;
+      margin: rem(48) auto 0;
+
+      img {
+        margin-right: auto;
+        margin-left: auto;
+      }
+    }
   }
 
   &__job-title {
@@ -338,7 +347,6 @@
   &__application-block {
     @include breakpoint('medium') {
       display: grid;
-      grid-area: meta;
       grid-template-areas:
         'accepting accepting'
         'class apply'
@@ -367,10 +375,6 @@
           padding-right: rem(16);
         }
       }
-    }
-
-    @include breakpoint('large') {
-      align-items: center;
     }
   }
 
@@ -403,10 +407,6 @@
       margin-right: rem(16);
       background-color: $color-accent-secondary-yellow-100;
     }
-  }
-
-  &__registration-block {
-    grid-area: meta;
   }
 
   &__event-past {
@@ -453,7 +453,6 @@
   /* stylelint-disable */
   .addtoany_list {
     /* stylelint-enable */
-    grid-area: share;
     justify-content: flex-start;
     margin-top: rem(16);
 
@@ -462,12 +461,12 @@
     }
 
     @include breakpoint('large') {
+      position: relative;
+      top: -8px;
       justify-content: flex-end;
-      align-self: flex-start;
       margin-top: rem(0);
 
       &:first-child {
-        grid-area: meta;
         justify-content: flex-start;
       }
     }

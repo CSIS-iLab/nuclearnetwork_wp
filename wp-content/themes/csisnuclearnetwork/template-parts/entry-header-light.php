@@ -156,11 +156,12 @@ $is_about = is_page( 'about' );
 			if ( function_exists( 'ADDTOANY_SHARE_SAVE_KIT' ) && !$is_404 ) { 
 				ADDTOANY_SHARE_SAVE_KIT(); 
 			}
+			?>
 
-			if ( !$isNoImageTemplate ) {
-				get_template_part( 'template-parts/featured-image' );
-			}
-		?>
 		</div><!-- .entry-header__bottom -->
 	</div><!-- .entry-header__content -->
+	<?php
+	if ( !$isNoImageTemplate ) {
+		get_template_part( 'template-parts/featured-image' );
+	} ?>
 </header><!-- .entry-header -->
