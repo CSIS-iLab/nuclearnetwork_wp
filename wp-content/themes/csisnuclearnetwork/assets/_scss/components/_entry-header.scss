@@ -319,8 +319,8 @@
 
   &__application-block {
     @include breakpoint('medium') {
-      grid-area: meta;
       display: grid;
+      grid-area: meta;
       grid-template-areas:
         'accepting accepting'
         'class apply'
@@ -417,14 +417,15 @@
   .addtoany_list {
     /* stylelint-enable */
     grid-area: share;
-    margin-top: rem(16);
     justify-content: flex-start;
+    margin-top: rem(16);
 
     @include breakpoint('medium') {
+      justify-content: flex-end;
       margin-top: rem(12);
     }
 
-    @include breakpoint('medium') {
+    @include breakpoint('large') {
       margin-top: rem(0);
     }
   }
