@@ -91,19 +91,23 @@ $is_about = is_page( 'about' );
 			if ( $event_full_date >= $yesterday ) {
 				$is_future_event = true;
 			}
-			
-			if ( !$is_future_event || $legacy_event_date ) {
-				echo '<div class="entry-header__event-past">' . nuclearnetwork_get_svg( 'alert' ) . 'This event has already occurred.</div>';
+			?>
+			<div class="entry-header__event-block">
+				<?php
+				if ( !$is_future_event || $legacy_event_date ) {
+					echo '<div class="entry-header__event-past">' . nuclearnetwork_get_svg( 'alert' ) . 'This event has already occurred.</div>';
+				}
+				
+				nuclearnetwork_display_event_date();
+				nuclearnetwork_display_event_location();
+				
+				if ( isset($registration_link) && !empty($registration_link) && $is_future_event && !$legacy_event_date ) { ?>
+				<a href="<?php echo esc_url( $registration_link ); ?>" class="post-block__register btn btn--blue">Register<?php echo nuclearnetwork_get_svg( 'arrow-external' ); ?></a>
+				<?php
 			}
-			
-			nuclearnetwork_display_event_date();
-			nuclearnetwork_display_event_location();
-			
-			if ( isset($registration_link) && !empty($registration_link) && $is_future_event && !$legacy_event_date ) { ?>
-			<a href="<?php echo esc_url( $registration_link ); ?>" class="post-block__register btn btn--blue">Register<?php echo nuclearnetwork_get_svg( 'arrow-external' ); ?></a>
+			?>
+			</div><!-- .entry-header__event-block -->
 			<?php
-			}
-			
 		} elseif ( $post_type === 'programs' && $is_single && !$post_parent_id ) { 
 			$program_info = get_field( 'program_post_info' ); 
 			$application_deadline = $program_info['application_deadline'];
