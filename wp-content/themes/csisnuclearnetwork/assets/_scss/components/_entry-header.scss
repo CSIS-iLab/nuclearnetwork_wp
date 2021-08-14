@@ -252,8 +252,16 @@
 
     .entry-header--blue & {
       @extend %text-style-paragraph-x-large;
-      width: 50%;
+      width: 100%;
       color: $color-white-190;
+
+      @include breakpoint('medium') {
+        width: 85%;
+      }
+
+      @include breakpoint('large') {
+        width: 50%;
+      }
     }
 
     .entry-header--light & {
