@@ -27,6 +27,15 @@
     @extend %text-style-label-large;
     cursor: pointer;
 
+    &:focus {
+      outline: 0;
+
+      /* stylelint-disable-next-line */
+      i {
+        outline: 2px solid $color-focus-100;
+      }
+    }
+
     .fs-checkbox {
       --checkbox-bg: #{$color-postbg-200};
       --checkbox-border: #{$color-black-140};
@@ -274,21 +283,6 @@
     .fs-option-label {
       white-space: normal !important;
       word-break: break-word;
-    }
-  }
-
-  &-checkbox {
-    display: block;
-
-    i {
-      position: relative;
-      display: block;
-      width: 1.2em;
-      height: 1.2em;
-      margin: auto;
-      background-color: var(--checkbox-bg);
-      border: 1px solid var(--checkbox-border);
-      border-radius: 4px;
     }
   }
 }
