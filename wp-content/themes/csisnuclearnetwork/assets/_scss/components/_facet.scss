@@ -2,7 +2,8 @@
 
 .facetwp {
   // Hides counters next to items
-  &-counter {
+  &-counter,
+  &-expand {
     display: none;
   }
 
@@ -21,11 +22,20 @@
     display: flex;
     align-items: top;
     width: fit-content;
-    margin-left: rem(24);
+    margin-left: rem(16);
     padding: rem(8) 0;
     color: $color-black-190;
     @extend %text-style-label-large;
     cursor: pointer;
+
+    &:hover .fs-checkbox {
+      background: $color-bg-light-200;
+
+      /* stylelint-disable-next-line */
+      i {
+        border-width: 2px;
+      }
+    }
 
     &:focus {
       outline: 0;
@@ -52,15 +62,6 @@
         border: 1px solid var(--checkbox-border);
         border-radius: 4px;
       }
-
-      &:hover {
-        background: $color-bg-light-200;
-
-        /* stylelint-disable-next-line */
-        i {
-          border-width: 2px;
-        }
-      }
     }
   }
 
@@ -86,6 +87,10 @@
         transform: translate(-50%, -60%) rotate(45deg);
       }
     }
+  }
+
+  &-type-checkboxes .facetwp-depth {
+    margin-left: rem(28);
   }
 }
 
@@ -212,12 +217,11 @@
   }
 
   &-search {
-    padding: 0 8px;
     border-bottom: 1px solid #eee;
 
     input {
       width: 100%;
-      padding: 6px 0;
+      padding: 0;
       border: 0;
       outline: none;
       box-shadow: none !important;
@@ -227,7 +231,7 @@
   &-option,
   &-search,
   &-no-results {
-    padding: rem(12);
+    padding: rem(8) rem(12);
     cursor: default;
   }
 
@@ -278,6 +282,21 @@
     &.disabled {
       cursor: default;
       opacity: 0.4;
+    }
+
+    .fs-checkbox {
+      display: block;
+
+      i {
+        position: relative;
+        left: 0;
+        display: block;
+        width: 1.2em;
+        height: 1.2em;
+        background-color: var(--checkbox-bg);
+        border: 1px solid var(--checkbox-border);
+        border-radius: 4px;
+      }
     }
 
     .fs-option-label {

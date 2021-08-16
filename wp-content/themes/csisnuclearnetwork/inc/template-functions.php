@@ -366,7 +366,7 @@ function jetpackme_more_related_posts( $options ) {
 // function nuclearnetwork_remove_selected_categories( $categories ) {
 // 	$excluded_topics = get_field( 'excluded_topic', 'option' );
 // 	$excluded_topic_names = array();
-	
+
 // 	foreach ( $excluded_topics as $topic ) {
 // 		$excluded_topic_names[] = $topic->slug;
 // 	}
@@ -380,3 +380,39 @@ function jetpackme_more_related_posts( $options ) {
 // 	return $categories;
 // }
 // add_filter( 'get_the_categories', 'nuclearnetwork_remove_selected_categories' );
+
+/**
+ * Add accessibility JS for facets.
+ * Modify the assets that are loaded on pages that use facets.
+ */
+add_filter( 'facetwp_assets', function( $assets ) {
+
+	unset( $assets['fSelect.css'] );
+	unset( $assets['front.css'] );
+
+	return $assets;
+});
+add_filter( 'facetwp_load_a11y', '__return_true' );
+
+/**
+ * Modifies the output of the FacetWP pagination filters, both the results and page numbers lists.
+ *
+ * @return string $output The HTML to display.
+ */
+function nuclearnetwork_facetwp_pagination_results( $output, $params) {
+	if ( 'counts' == $params['facet']['pager_type'] ) {
+		$output = nuclearnetwork_archive_filters_pagination_results($output, $params );
+	}
+
+	if ( 'numbers' == $params['facet']['pager_type'] ) {
+		$prev = nuclearnetwork_get_svg( 'chevron-left' );
+		$next = nuclearnetwork_get_svg( 'chevron-right' );
+		$output = str_replace( '«', $prev, $output );
+		$output = str_replace( '»',  $next, $output);
+	}
+
+	return $output;
+}
+
+add_filter( 'facetwp_facet_html', 'nuclearnetwork_facetwp_pagination_results', 10, 2);
+
