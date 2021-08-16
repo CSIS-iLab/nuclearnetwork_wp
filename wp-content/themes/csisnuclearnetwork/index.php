@@ -71,7 +71,7 @@ get_header();
 		}
 
 		if ( have_posts() ) {
-			echo '<section class="archive__base">';
+			echo '<section class="archive__postlist">';
 			while ( have_posts() ) {
 				the_post();
 				get_template_part( 'template-parts/block-post', get_post_type() );
