@@ -6,38 +6,34 @@
   margin-left: auto;
   text-align: center;
 
-  &__title {
-    color: $color-black-190;
-    // @extend %text-style-paragraph-large-short;
-    font-weight: normal;
-  }
-
-  &__title a:hover,
-  &__img:hover ~ &__title a {
-    // color: $color-link-primary-200;
-  }
-
-  &__title a:focus,
-  &__img:focus ~ &__title a {
-    background: $color-bg-light-400;
-  }
-
-  &__img {
-    display: block;
-    height: 180px;
-
-    img {
-      // width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
+  &__byline {
+    .post-meta__authors {
+      padding-left: rem(8);
     }
+
+    .post-meta__date {
+      &::after {
+        position: absolute;
+        left: rem(8);
+        padding-right: rem(8);
+        border-right: 1px solid $color-black-130;
+        content: '';
+      }
+    }
+
   }
 
-  .post-meta__date {
-    margin-top: rem(16);
-    margin-bottom: rem(4);
-    @extend %text-style-label-medium;
-    font-weight: 400;
+  &__title {
+    margin: rem(4) 0 rem(12) 0;
+    color: $color-black-100;
+    @extend %text-style-heading-medium; 
+
+    &:hover {
+      color: $color-accent-primary-blue-200;
+    }
+
+    &:focus {
+      background: $color-bg-light-300;
+    }
   }
 }

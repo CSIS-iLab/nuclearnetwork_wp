@@ -318,15 +318,15 @@ if ( class_exists( 'easyFootnotes' ) ) {
 function nuclearnetwork_exclude_related__posts_from_archive( $query ) {
 
 	if ( $query->is_main_query() && ! is_admin() && is_archive() ) {
-        $term = get_queried_object();
+    $term = get_queried_object();
 		$featured_post = get_field( 'featured_post', $term->name );
 
 		if ( $featured_post ) {
-				$excluded_post_ids = array();
+			$excluded_post_ids = array();
 
-				foreach ($featured_post as $post) {
-					$excluded_post_ids[] = $post->ID;
-				}
+			foreach ($featured_post as $post) {
+				$excluded_post_ids[] = $post->ID;
+			}
 
 			$query->set( 'post__not_in', $excluded_post_ids);
 		}
@@ -334,6 +334,43 @@ function nuclearnetwork_exclude_related__posts_from_archive( $query ) {
 	}
 }
 add_action( 'pre_get_posts', 'nuclearnetwork_exclude_related__posts_from_archive' );
+
+/**
+ * Modify Events Archive loop to exclude Upcoming events and be sorted by start date.
+ *
+ * @param  array $query Query object.
+ */
+
+function nuclearnetwork_exclude_upcoming_events_from_archive_loop ( $query ) {
+
+	if ( !is_admin() && $query->is_main_query() && is_post_type_archive( 'events' ) ) {
+
+		$date_now = date('Y-m-d H:i:s');
+
+		/**
+		 * `_post_start_date` was a custom meta field from a previous theme. It's inclusion here is to ensure that older event posts are also sorted accordingly. Note that the two "date" fields are treated separately, so the chronological order of past events may be incorrect when the query starts using the older meta field instead of the ACF.
+		 * TODO: Convert old event posts to use new ACF start date field for consistent ordering.
+		 */
+		$query->set('meta_query', array(
+			'relation' => 'OR',
+			'_post_start_date' => array(
+				'key' => '_post_start_date',
+			),
+			'event_post_info_event_start_date' => array(
+				'key' => 'event_post_info_event_start_date',
+				'compare'       => '<',
+				'value'         => $date_now,
+				'type'          => 'DATE',
+			),
+		));
+
+		$query->set('orderby', array(
+			'_post_start_date' => 'DESC',
+			'event_post_info_event_start_date' => 'DESC',
+		));
+	}
+}
+add_action( 'pre_get_posts', 'nuclearnetwork_exclude_upcoming_events_from_archive_loop' );
 
 /*
  * Removes the default Jetpack related posts plugin so we can call it with a shortcode instead
@@ -368,7 +405,7 @@ function jetpackme_more_related_posts( $options ) {
 // function nuclearnetwork_remove_selected_categories( $categories ) {
 // 	$excluded_topics = get_field( 'excluded_topic', 'option' );
 // 	$excluded_topic_names = array();
-	
+
 // 	foreach ( $excluded_topics as $topic ) {
 // 		$excluded_topic_names[] = $topic->slug;
 // 	}

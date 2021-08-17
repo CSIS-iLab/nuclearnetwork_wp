@@ -373,7 +373,7 @@ endif;
  * @return string $html The share links.
  */
 if (! function_exists('nuclearnetwork_pagination_number_of_posts')) :
-	function nuclearnetwork_pagination_number_of_posts() {
+	function nuclearnetwork_pagination_number_of_posts( $args = array("parent_tag" => "h2") ) {
 		global $wp_query;
 		$total_posts = $wp_query->found_posts;
 		$page = (get_query_var('paged')) ? get_query_var('paged') : 1;
@@ -381,7 +381,7 @@ if (! function_exists('nuclearnetwork_pagination_number_of_posts')) :
 
 		if ( $total_posts > 0 ) {
 			/* translators: 1: list of tags. */
-			printf( '<h2 class="pagination__results">' . esc_html__( '%1$s', 'nuclearnetwork' ) . ' Items, Page ' . esc_html__( '%2$s', 'nuclearnetwork' ) . ' of ' . esc_html__( '%3$s', 'nuclearnetwork' ) . '</h2>', $total_posts, $page, $pages ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			printf( '<' . esc_html__( '%1$s', 'nuclearnetwork' ) . ' class="pagination__results">' . esc_html__( '%2$s', 'nuclearnetwork' ) . ' Items, Page ' . esc_html__( '%3$s', 'nuclearnetwork' ) . ' of ' . esc_html__( '%4$s', 'nuclearnetwork' ) . '</' . esc_html__( '%1$s', 'nuclearnetwork' ) . '>', $args['parent_tag'], $total_posts, $page, $pages ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		}
 	}
 endif;
@@ -413,7 +413,8 @@ endif;
 if (! function_exists('nuclearnetwork_display_subtypes')) :
 	function nuclearnetwork_display_subtypes() {
 
-		
+		// $post_type = get_post_type();
+
 		$post_type = get_post_type_object(get_post_type());
 		global $post;
 
@@ -426,6 +427,7 @@ if (! function_exists('nuclearnetwork_display_subtypes')) :
 		}
 		
 		echo '<div class="post-meta post-meta__terms"><a href="' . get_post_type_archive_link( $post->post_type ) . '" class="post-meta__terms-type text--bold">' . $post_type_name . '&nbsp</a>' . get_the_term_list( $post->ID, $tax_name, '/&nbsp', ',&nbsp') . '</div>';
+
 	}
 endif;
 
@@ -439,7 +441,7 @@ if (! function_exists('nuclearnetwork_display_series')) :
 	function nuclearnetwork_display_series() {
 
 		global $post;
-		
+
 		echo get_the_term_list( $post->ID, 'series', '<dl class="post-meta post-meta__series text--italic"><dt class="post-meta__label">Series </dt><dd>', ', ', '</dd></dl>');
 	}
 endif;
