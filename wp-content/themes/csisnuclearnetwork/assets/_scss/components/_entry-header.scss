@@ -176,14 +176,12 @@
 
   &__content {
     @include breakpoint('medium') {
-      width: 85%;
       max-width: $size__content-max-width;
       margin-right: auto;
       margin-left: auto;
     }
 
     @include breakpoint('large') {
-      width: 70%;
       min-width: $size__content-max-width;
       max-width: $size__header-max-width;
     }
@@ -219,7 +217,6 @@
     }
 
     @include breakpoint('large') {
-      width: 85%;
       max-width: $size__content-max-width;
       margin: rem(48) auto 0;
 
@@ -274,11 +271,10 @@
   }
 
   &__desc {
-    max-width: $size__content-max-width;
-
     .entry-header--blue & {
       @extend %text-style-paragraph-x-large;
       width: 100%;
+      max-width: $size__content-max-width;
       color: $color-white-190;
 
       @include breakpoint('medium') {
