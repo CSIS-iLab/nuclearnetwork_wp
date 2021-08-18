@@ -271,24 +271,36 @@
   }
 
   &__desc {
+    grid-column: 1;
+
     .entry-header--blue & {
       @extend %text-style-paragraph-x-large;
       width: 100%;
       max-width: $size__content-max-width;
       color: $color-white-190;
 
-      @include breakpoint('medium') {
-        width: 85%;
-      }
-
       @include breakpoint('large') {
-        width: 50%;
+        width: unset;
       }
     }
 
     .entry-header--light & {
       @extend %text-style-paragraph-large;
       color: $color-black-190;
+    }
+  }
+
+  &__grid {
+    @include breakpoint('large') {
+      display: grid;
+      grid-template-columns: minmax(auto, 680px) rem(300);
+      justify-content: stretch;
+
+      .entry-header__desc {
+        @include breakpoint('large') {
+          margin-right: rem(40);
+        }
+      }
     }
   }
 
