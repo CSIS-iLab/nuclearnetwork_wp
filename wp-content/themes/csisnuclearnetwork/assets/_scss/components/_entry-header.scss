@@ -391,6 +391,22 @@
     color: $color-accent-primary-blue-100;
   }
 
+  &__apply {
+    grid-area: apply;
+  }
+
+  &__event-past {
+    @extend %text-style-label-large-italics;
+    position: relative;
+    color: $color-accent-primary-blue-200;
+
+    .icon {
+      position: relative;
+      top: rem(2);
+      margin-right: rem(4);
+    }
+  }
+
   .post-meta__wrapper {
     @include breakpoint('small') {
       display: flex;
@@ -420,10 +436,6 @@
     }
   }
 
-  &__apply {
-    grid-area: apply;
-  }
-
   .post-meta__terms-type {
     margin-bottom: rem(4);
 
@@ -437,16 +449,8 @@
     }
   }
 
-  &__event-past {
-    @extend %text-style-label-large-italics;
-    position: relative;
-    color: $color-accent-primary-blue-200;
-
-    .icon {
-      position: relative;
-      top: rem(2);
-      margin-right: rem(4);
-    }
+  .post-meta__series {
+    margin-bottom: rem(16);
   }
 
   .post-meta__event {
