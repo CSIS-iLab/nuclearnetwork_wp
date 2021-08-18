@@ -7,15 +7,6 @@
     display: none;
   }
 
-  // Override base styles
-  &-facet {
-    margin-bottom: rem(16) !important;
-  }
-
-  &-facet:last-of-type {
-    margin-bottom: rem(40) !important;
-  }
-
   /*----------  Facet: checkboxes  ----------*/
 
   &-checkbox {
@@ -98,6 +89,10 @@
   margin-bottom: rem(4);
   color: $color-black-180;
   @extend %text-style-label-small;
+}
+
+.facet__group + .facet__group {
+  margin-top: rem(16);
 }
 
 /*----------  Facet: fselect  ----------*/

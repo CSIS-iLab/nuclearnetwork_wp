@@ -70,6 +70,11 @@ function nuclearnetwork_body_classes( $classes ) {
 		$classes[] = basename( get_page_template_slug(), '.php' );
 	}
 
+	// Does this archive page have filters?
+	if ( is_home() || 'post' === get_post_type() || is_author() || is_search() ) {
+		$classes[] = 'archive--has-filters';
+	}
+
 	return $classes;
 
 }

@@ -25,12 +25,15 @@ get_header();
 
 			// Pagination Results & Filters
 			if ( class_exists( 'FacetWP') ) {
-				echo facetwp_display( 'facet', 'pagination_results' );
-
+				echo "<aside class='archive__sidebar'>";
 				nuclearnetwork_archive_filters( array(
-					'show_content_types' => true,
-					'show_analysis_subtypes' => false
+					'show_content_types' => !$is_analysis_archive,
+					'show_analysis_subtypes' => $is_analysis_archive,
+					'show_author' => $show_author_filter
 				));
+				echo "</aside>";
+
+				echo facetwp_display( 'facet', 'pagination_results' );
 
 			} else {
 				nuclearnetwork_pagination_number_of_posts();
