@@ -154,7 +154,7 @@
     }
 
     &::before {
-      height: 100%;
+      height: 40%;
       background: $gradient;
 
       @include breakpoint('small') {
