@@ -393,6 +393,10 @@
 
   &__apply {
     grid-area: apply;
+
+    &:nth-child(2) {
+      grid-area: class;
+    }
   }
 
   &__event-past {
@@ -430,6 +434,10 @@
     grid-area: deadline;
     margin-top: rem(8);
     margin-bottom: rem(16);
+
+    &:nth-child(2) {
+      grid-area: class;
+    }
 
     @include breakpoint('medium') {
       margin-bottom: 0;
