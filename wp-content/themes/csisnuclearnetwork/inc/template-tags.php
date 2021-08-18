@@ -492,35 +492,40 @@ if ( ! function_exists( 'nuclearnetwork_archive_filters' ) ) :
 
 		$content_types = '';
 		if ( $args['show_content_types'] ) {
-			$content_types .= '<div class="facet-headings text--caps">Filter By Type</div>';
+			$content_types .= '<div class="facet__group"><div class="facet-headings text--caps">Filter By Type</div>';
 			$content_types .= facetwp_display( 'facet', 'content_types' );
+			$content_types .= '</div>';
 		}
 
 		$analysis_subtypes = '';
 		if ( $args['show_analysis_subtypes'] ) {
-			$analysis_subtypes .= '<div class="facet-headings text--caps">Filter By Analysis Type</div>';
+			$analysis_subtypes .= '<div class="facet__group"><div class="facet-headings text--caps">Filter By Analysis Type</div>';
 			$analysis_subtypes .= facetwp_display( 'facet', 'analysis_subtypes' );
+			$analysis_subtypes .= '</div>';
 		}
 
 		$author = '';
 		if ( $args['show_author'] ) {
-			$author .= '<div class="facet-headings text--caps">Author</div>';
+			$author .= '<div class="facet__group"><div class="facet-headings text--caps">Author</div>';
 			$author .= facetwp_display( 'facet', 'author' );
+			$author .= '</div>';
 		}
 
 		$series = '';
 		if ( $args['show_series'] ) {
-			$series .= '<div class="facet-headings text--caps">Series</div>';
+			$series .= '<div class="facet__group"><div class="facet-headings text--caps">Series</div>';
 			$series .= facetwp_display( 'facet', 'series' );
+			$series .= '</div>';
 		}
 
 		$topics = '';
 		if ( $args['show_topics'] ) {
-			$topics .= '<div class="facet-headings text--caps">Topics</div>';
+			$topics .= '<div class="facet__group"><div class="facet-headings text--caps">Topics</div>';
 			$topics .= facetwp_display( 'facet', 'topics' );
+			$topics .= '</div>';
 		}
 
-		printf( '<div class="archive__filters">' . esc_html__( '%1$s %2$s %3$s %4$s %5$s', 'nuclearnetwork' ) . '</div>', $content_types, $analysis_subtypes, $author, $series, $topics );
+		printf( '<div class="archive__filters"><div class="archive__filters--primary">' . esc_html__( '%1$s %2$s', 'nuclearnetwork' ) . '</div><div class="archive__filters--secondary">' . esc_html__( '%3$s %4$s %5$s', 'nuclearnetwork' ) . '</div></div>', $content_types, $analysis_subtypes, $author, $series, $topics );
 
 	}
 endif;
