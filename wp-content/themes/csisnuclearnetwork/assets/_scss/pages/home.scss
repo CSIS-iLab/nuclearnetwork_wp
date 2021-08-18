@@ -493,4 +493,104 @@
       }
     }
   }
+
+  .newsletter-block-acf {
+    padding-top: rem(56);
+    padding-bottom: rem(72);
+    @include full-width-background(linear-gradient(180deg, #153b6a 0%, #215f8c 100%));
+    // background: linear-gradient(180deg, #153B6A 0%, #215F8C 100%);
+    display: flex;
+    flex-wrap: wrap;
+
+    @include breakpoint(medium) {
+      column-gap: rem(40);
+    }
+
+    h3 {
+      color: $color-white-100;
+      @extend %text-style-heading-x-large-strong;
+      flex-basis: 100%;
+      @include breakpoint(large) {
+        flex-basis: auto;
+      }
+    }
+
+    p {
+      margin-top: rem(8);
+      margin-bottom: rem(24);
+      flex-basis: 100%;
+      @extend %text-style-paragraph-large;
+      @extend %text-style-short;
+    }
+
+    .daily, .monthly {
+      color: $color-white-190;
+      display: flex;
+      flex-wrap: wrap;
+      align-content: start;
+
+      h3 {
+        @extend %text-style-heading-large-strong;
+        margin-top: 0;
+      }
+
+      @include breakpoint('medium'){
+        flex-basis: calc(50%-20px);
+      }
+    }
+
+    .daily {
+      padding-top: rem(16);
+      padding-bottom: rem(32);
+    }
+
+    .monthly {
+      padding-top: rem(24);
+      @include breakpoint(medium) {
+        padding-top: rem(16);
+      }
+    }
+
+    a {
+      color: $color-white-180;
+      @extend %text-style-label-medium;
+      display: block;
+      .icon {
+        margin-left: rem(6);
+      }
+    }
+
+    .recent-news {
+      :nth-child(2){
+        padding-top: rem(16);
+      }
+      flex-basis: 100%;
+
+      @include breakpoint(small) {
+        flex-basis: 50%;
+        padding-top: rem(8);
+        margin-left: rem(48);
+      }
+
+      @include breakpoint(medium) {
+        flex-basis: 100%;
+        padding-top: 0;
+        margin-left: 0;
+      }
+    }
+
+    .subscribe {
+      --buttonheight: #{rem(45)};
+      @extend %text-style-label-large;
+      display: block;
+      width: 116px;
+      height: var(--buttonheight);
+      margin-bottom: rem(24);
+      font-size: 18px;
+      line-height: var(--buttonheight);
+      text-align: center;
+      background-color: #0f609d;
+      border-radius: 2px;
+    }
+  }
 }
