@@ -159,8 +159,6 @@
 
       @include breakpoint('small') {
         @include csis-block-full-width-wrapper();
-        right: calc(-1 * calc((100vw - 100%) / 2));
-        width: calc(100% + calc(100vw - 100%));
       }
     }
 
