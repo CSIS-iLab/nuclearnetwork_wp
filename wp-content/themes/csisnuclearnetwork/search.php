@@ -21,11 +21,26 @@ get_header();
 	<div class='archive__content'>
 
 	<?php
-	$archive_subtitle    = '';
-
 		if ( have_posts() ) {
 
-			nuclearnetwork_pagination_number_of_posts();
+			// Pagination Results & Filters
+			if ( class_exists( 'FacetWP') ) {
+				echo facetwp_display( 'facet', 'pagination_results' );
+
+				nuclearnetwork_archive_filters( array(
+					'show_content_types' => true,
+					'show_analysis_subtypes' => false
+				));
+
+			} else {
+				nuclearnetwork_pagination_number_of_posts();
+			}
+
+		} ?>
+
+		<?php
+
+		if ( have_posts() ) {
 
 			echo '<section class="archive__postlist">';
 			while ( have_posts() ) {
@@ -60,7 +75,12 @@ get_header();
 			<?php
 		}
 
-		get_template_part( 'template-parts/pagination' );
+		// Pagination
+		if ( class_exists( 'FacetWP') ) {
+			echo facetwp_display( 'facet', 'pagination_navigation' );
+		} else {
+			get_template_part( 'template-parts/pagination' );
+		}
 	?>
 
 	</div>

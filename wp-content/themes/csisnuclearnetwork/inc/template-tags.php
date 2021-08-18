@@ -373,8 +373,13 @@ endif;
  * @return string $html The share links.
  */
 if (! function_exists('nuclearnetwork_pagination_number_of_posts')) :
-	function nuclearnetwork_pagination_number_of_posts( $args = array("parent_tag" => "h2") ) {
+	function nuclearnetwork_pagination_number_of_posts( array $options = array() ) {
 		global $wp_query;
+
+		$args = array_merge(array(
+			"parent_tag" => "h2"
+			), $options);
+
 		$total_posts = $wp_query->found_posts;
 		$page = (get_query_var('paged')) ? get_query_var('paged') : 1;
 		$pages = $wp_query->max_num_pages;
@@ -406,7 +411,6 @@ endif;
 
 /**
  * Displays the post's type and subtypes.
- *
  *
  * @return string $html The subtypes.
  */
@@ -465,5 +469,85 @@ if ( ! function_exists( 'nuclearnetwork_citation' ) ) :
 		}
 
 		printf( '<h2 class="cite__heading text--bold text--caps">Cite this Page</h2><p class="cite__container text--short"><span class="cite__citation">' . esc_html( '%1$s, "%2$s,"', 'nuclearnetwork' ) . ' <em>%3$s</em>' . esc_html( ', Center for Strategic and International Studies, %4$s, %5$s%6$s.', 'nuclearnetwork') . '</span><button id="btn-copy" class="btn btn--dark btn--icon btn--short" data-clipboard-target=".cite__citation" aria-label="Copied!">' . nuclearnetwork_get_svg( 'copy' ) . 'Copy Citation</button></p>', $authors, $title, get_bloginfo( 'name' ), get_the_date(), $modified_date, get_the_permalink() ); // WPCS: XSS OK.
+	}
+endif;
+
+if ( ! function_exists( 'nuclearnetwork_archive_filters' ) ) :
+	/**
+	 * Returns HTML with Archive Filters for the analysis/category/tag archives, search page, and author archives.
+	 *
+	 * @param array $options Arguments that indicate which filters to show.
+	 *
+	 * @return string $html The HTML to display.
+	 */
+	function nuclearnetwork_archive_filters( array $options = array() ) {
+
+		$args = array_merge(array(
+			'show_content_types' => true,
+			'show_analysis_subtypes' => false,
+			'show_author' => true,
+			'show_series' => true,
+			'show_topics' => true
+			), $options);
+
+		$content_types = '';
+		if ( $args['show_content_types'] ) {
+			$content_types .= '<div class="facet-headings text--caps">Filter By Type</div>';
+			$content_types .= facetwp_display( 'facet', 'content_types' );
+		}
+
+		$analysis_subtypes = '';
+		if ( $args['show_analysis_subtypes'] ) {
+			$analysis_subtypes .= '<div class="facet-headings text--caps">Filter By Analysis Type</div>';
+			$analysis_subtypes .= facetwp_display( 'facet', 'analysis_subtypes' );
+		}
+
+		$author = '';
+		if ( $args['show_author'] ) {
+			$author .= '<div class="facet-headings text--caps">Author</div>';
+			$author .= facetwp_display( 'facet', 'author' );
+		}
+
+		$series = '';
+		if ( $args['show_series'] ) {
+			$series .= '<div class="facet-headings text--caps">Series</div>';
+			$series .= facetwp_display( 'facet', 'series' );
+		}
+
+		$topics = '';
+		if ( $args['show_topics'] ) {
+			$topics .= '<div class="facet-headings text--caps">Topics</div>';
+			$topics .= facetwp_display( 'facet', 'topics' );
+		}
+
+		printf( '<div class="archive__filters">' . esc_html__( '%1$s %2$s %3$s %4$s %5$s', 'nuclearnetwork' ) . '</div>', $content_types, $analysis_subtypes, $author, $series, $topics );
+
+	}
+endif;
+
+
+if ( ! function_exists( 'nuclearnetwork_archive_filters_pagination_results' ) ) :
+	/**
+	 * Returns HTML with Archive Filters pagination.
+	 *
+	 * @param array $options Arguments that indicate which pagination to show.
+	 *
+	 * @return string $html The HTML to display.
+	 */
+	function nuclearnetwork_archive_filters_pagination_results( $output, $params ) {
+		$pager_args = FWP()->facet->pager_args;
+
+		$total_posts = $pager_args['total_rows'];
+		$page = $pager_args['page'];
+		$total_pages = $pager_args['total_pages'];
+
+		$items_label = 'Items';
+
+		if ( $total_posts === 1 ) {
+			$items_label = 'Item';
+		}
+
+		$output = '<div class="pagination__results">' . $total_posts . ' ' . $items_label . ', Page ' . $page . ' of ' . $total_pages . '</div>';
+		return $output;
 	}
 endif;

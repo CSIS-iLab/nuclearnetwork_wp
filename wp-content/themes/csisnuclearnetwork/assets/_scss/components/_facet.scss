@@ -1,0 +1,307 @@
+@use '../abstracts' as *;
+
+.facetwp {
+  // Hides counters next to items
+  &-counter,
+  &-expand {
+    display: none;
+  }
+
+  // Override base styles
+  &-facet {
+    margin-bottom: rem(16) !important;
+  }
+
+  &-facet:last-of-type {
+    margin-bottom: rem(40) !important;
+  }
+
+  /*----------  Facet: checkboxes  ----------*/
+
+  &-checkbox {
+    display: flex;
+    align-items: flex-start;
+    width: fit-content;
+    margin-left: rem(16);
+    padding: rem(8) 0;
+    color: $color-black-190;
+    @extend %text-style-label-large;
+    cursor: pointer;
+
+    &:hover .fs-checkbox {
+      background: $color-bg-light-200;
+
+      /* stylelint-disable-next-line */
+      i {
+        border-width: 2px;
+      }
+    }
+
+    &:focus {
+      outline: 0;
+
+      /* stylelint-disable-next-line */
+      i {
+        outline: 2px solid $color-focus-100;
+      }
+    }
+
+    .fs-checkbox {
+      --checkbox-bg: #{$color-postbg-200};
+      --checkbox-border: #{$color-black-140};
+      display: block;
+      margin-right: rem(8);
+
+      i {
+        position: relative;
+        left: 0;
+        display: block;
+        width: 1.2em;
+        height: 1.2em;
+        background-color: var(--checkbox-bg);
+        border: 1px solid var(--checkbox-border);
+        border-radius: 4px;
+      }
+    }
+  }
+
+  &-checkbox.checked {
+    .fs-checkbox {
+      --checkbox-bg: #{$color-accent-primary-blue-200};
+      --checkbox-border: #{$color-border-light-115};
+
+      i::before {
+        --borderWidth: 2px;
+        --height: 10px;
+        --width: 5px;
+        --borderColor: #{$color-white-190};
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        display: block;
+        width: var(--width);
+        height: var(--height);
+        border-right: var(--borderWidth) solid var(--borderColor);
+        border-bottom: var(--borderWidth) solid var(--borderColor);
+        transform: translate(-50%, -60%) rotate(45deg);
+      }
+    }
+  }
+
+  &-type-checkboxes .facetwp-depth {
+    margin-left: rem(28);
+  }
+}
+
+.facet-headings {
+  margin-bottom: rem(4);
+  color: $color-black-180;
+  @extend %text-style-label-small;
+}
+
+/*----------  Facet: fselect  ----------*/
+
+.facetwp-dropdown {
+  display: none;
+}
+
+.fs {
+  &-wrap {
+    --input-background: #{$color-accent-primary-200};
+    --input-border: var(--input-background);
+    --input-transition: background 0.3s ease-in-out, border 0.3s ease-in-out, filter 0.3s ease-in-out;
+    --arrow-color: #{$color-white-190};
+    position: relative;
+    display: inline-block;
+    max-width: 350px;
+    line-height: 1;
+    cursor: pointer;
+
+    &:hover {
+      --input-border: #{$color-accent-primary-blue-100};
+      --input-background: #{$color-accent-primary-blue-100};
+    }
+
+    &.fs-default {
+      --input-background: #{$color-white-100};
+      --input-border: #{$color-border-dark-115};
+      --input-transition: border 0.3s ease-in-out, filter 0.3s ease-in-out;
+      --arrow-color: #{$color-black-165};
+
+      &:hover {
+        --input-border: #{$color-border-dark-130};
+      }
+    }
+
+    .hidden {
+      display: none;
+    }
+  }
+
+  &-wrap,
+  &-label-wrap {
+    width: 100%;
+    height: 100%;
+  }
+
+  &-label-wrap {
+    position: relative;
+    background-color: var(--input-background);
+    border: 1px solid var(--input-border);
+    border-radius: 2px;
+    cursor: inherit;
+    transition: var(--input-transition);
+
+    &:hover {
+      filter: $shadow--1;
+    }
+  }
+
+  &-label-wrap,
+  &-dropdown {
+    user-select: none;
+  }
+
+  &-label {
+    position: relative;
+    height: 100%;
+    padding: rem(16);
+    overflow: hidden;
+    color: $color-white-100;
+    @extend %text-style-label-large;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    word-break: break-word;
+
+    .fs-default & {
+      color: $color-black-190;
+    }
+  }
+
+  .fs-label {
+    @extend %text-style-label-large;
+    color: $color-black-190;
+  }
+
+  &-arrow {
+    position: absolute;
+    top: 0;
+    right: rem(16);
+    bottom: 0;
+    width: 0;
+    height: 0;
+    margin: auto;
+    border-top: 5px solid var(--arrow-color);
+    border-right: 5px solid transparent;
+    border-left: 5px solid transparent;
+    transition: ease-in 0.15s;
+
+    .fs-open & {
+      transform: rotate(-180deg);
+    }
+  }
+
+  &-dropdown {
+    position: absolute;
+    z-index: 1000;
+    width: 100%;
+    margin: 0;
+    background-color: #fff;
+    border: 1px solid #ddd;
+
+    .fs-options {
+      max-height: 260px;
+      overflow: auto;
+    }
+  }
+
+  &-search {
+    border-bottom: 1px solid #eee;
+
+    input {
+      width: 100%;
+      padding: 0;
+      border: 0;
+      outline: none;
+      box-shadow: none !important;
+    }
+  }
+
+  &-option,
+  &-search,
+  &-no-results {
+    padding: rem(8) rem(12);
+    cursor: default;
+  }
+
+  &-option {
+    --checkbox-bg: #{$color-postbg-200};
+    --checkbox-border: #{$color-border-dark-115};
+    position: relative;
+    display: flex;
+    gap: rem(12);
+    line-height: 1.15;
+    word-break: break-all;
+    cursor: pointer;
+
+    &:hover {
+      background: $color-bg-light-200;
+
+      i {
+        border-width: 2px;
+      }
+    }
+
+    &.selected {
+      --checkbox-bg: #{$color-accent-primary-blue-200};
+      --checkbox-border: #{$color-border-light-115};
+
+      i::before {
+        --borderWidth: 2px;
+        --height: 10px;
+        --width: 5px;
+        --borderColor: #{$color-white-190};
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        display: block;
+        width: var(--width);
+        height: var(--height);
+        border-right: var(--borderWidth) solid var(--borderColor);
+        border-bottom: var(--borderWidth) solid var(--borderColor);
+        transform: translate(-50%, -60%) rotate(45deg);
+      }
+    }
+
+    &:last-child {
+      border-bottom: 0;
+    }
+
+    &.disabled {
+      cursor: default;
+      opacity: 0.4;
+    }
+
+    .fs-checkbox {
+      display: block;
+
+      i {
+        position: relative;
+        left: 0;
+        display: block;
+        width: 1.2em;
+        height: 1.2em;
+        background-color: var(--checkbox-bg);
+        border: 1px solid var(--checkbox-border);
+        border-radius: 4px;
+      }
+    }
+
+    .fs-option-label {
+      white-space: normal !important;
+      word-break: break-word;
+    }
+  }
+}

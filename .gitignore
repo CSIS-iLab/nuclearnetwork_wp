@@ -109,7 +109,6 @@ Thumbs.db
 # add your own entries here
 !wp-content/plugins/accesspress-anonymous-post-pro
 !wp-content/plugins/nuclearnetwork-google-analytics.php
-!wp-content/plugins/search-filter-pro
 !wp-content/plugins/custom-menu-items.php
 !wp-content/themes/nuclearnetwork
 !wp-content/themes/csisnuclearnetwork
