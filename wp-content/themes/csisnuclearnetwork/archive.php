@@ -14,6 +14,7 @@ $show_filters = false;
 $is_analysis_archive = is_home() || 'post' === get_post_type();
 
 $show_author_filter = !is_author();
+$show_series_filter = !is_tax( 'series' );
 
 if ( $is_analysis_archive ) {
 	$show_filters = true;
@@ -38,7 +39,8 @@ get_header();
 				nuclearnetwork_archive_filters( array(
 					'show_content_types' => !$is_analysis_archive,
 					'show_analysis_subtypes' => $is_analysis_archive,
-					'show_author' => $show_author_filter
+					'show_author' => $show_author_filter,
+					'show_series' => $show_series_filter
 				));
 				echo "</aside>";
 
@@ -73,7 +75,6 @@ get_header();
 				get_template_part( 'template-parts/block-post', get_post_type() );
 			}
 			wp_reset_postdata();
-			get_template_part( 'template-parts/pagination' );
 			echo "</section>";
 		}
 

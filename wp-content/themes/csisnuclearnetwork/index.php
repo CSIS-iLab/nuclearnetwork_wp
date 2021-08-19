@@ -21,6 +21,7 @@ $show_filters = false;
 $is_analysis_archive = is_home() || 'post' === get_post_type();
 
 $show_author_filter = !is_author();
+$show_series_filter = !is_tax( 'series' );
 
 if ( $is_analysis_archive ) {
 	$show_filters = true;
@@ -37,6 +38,20 @@ get_header();
 
 	<div class='archive__content'>
 	<?php
+		if ( class_exists('ACF') ) {
+			$featured_post = get_field('featured_post', $term->name);
+			if ( $featured_post ) {
+				echo '<section class="archive__featured">';
+				foreach( $featured_post as $post ):
+					setup_postdata($post);
+						get_template_part( 'template-parts/block-post', get_post_type() );
+					endforeach;
+				echo "</section>";
+				wp_reset_postdata();
+			}
+		}
+	?>
+	<?php
 		if ( have_posts() ) {
 			// Pagination Results & Filters
 			if ( class_exists( 'FacetWP') && $show_filters ) {
@@ -44,7 +59,8 @@ get_header();
 				nuclearnetwork_archive_filters( array(
 					'show_content_types' => !$is_analysis_archive,
 					'show_analysis_subtypes' => $is_analysis_archive,
-					'show_author' => $show_author_filter
+					'show_author' => $show_author_filter,
+					'show_series' => $show_series_filter
 				));
 				echo "</aside>";
 
@@ -57,32 +73,14 @@ get_header();
 		?>
 		<?php
 
-		if (class_exists('ACF') && !is_paged()) {
-			// vars
-			$featured_post = get_field('featured_post', $term->name);
-			if ( $featured_post ) {
-
-				echo '<section class="archive__featured">';
-				foreach( $featured_post as $post ):
-					// Setup this post for WP functions (variable must be named $post).
-					setup_postdata($post);
-						// get_template_part( 'template-parts/block-post-featured' );
-						get_template_part( 'template-parts/block-post', get_post_type() );
-					endforeach;
-				echo "</section>";
-				// Reset the global post object so that the rest of the page works correctly.
-				wp_reset_postdata();
-			}
-		}
-
 		if ( have_posts() ) {
 			echo '<section class="archive__postlist">';
 			while ( have_posts() ) {
 				the_post();
 				get_template_part( 'template-parts/block-post', get_post_type() );
 			}
-			echo "</section>";
 			wp_reset_postdata();
+			echo "</section>";
 		}
 
 		// Pagination

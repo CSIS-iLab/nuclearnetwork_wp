@@ -5,22 +5,15 @@
 
 .post-block {
   position: relative;
-  // display: grid;
-  // grid-template-areas:
-  //   'img'
-  //   'types'
-  //   'title'
-  //   'authors'
-  //   'date'
-  //   'excerpt'
-  //   'series';
-  // grid-template-columns: 1fr;
   margin-right: auto;
-  margin-bottom: rem(24);
   margin-left: auto;
   padding: rem(24) rem(24) rem(32);
   color: var(--post-meta);
   background: $color-white-100;
+
+  + .post-block {
+    margin-top: rem(24);
+  }
 
   &::before {
     @include shadow('lg');
@@ -47,21 +40,6 @@
 
   @include breakpoint('small') {
     padding: rem(32);
-  }
-
-  &.has-post-thumbnail {
-    @include breakpoint('medium') {
-      // grid-template-areas:
-      //   'types img'
-      //   'title img'
-      //   'authors img'
-      //   'date img'
-      //   'excerpt img'
-      //   'series series';
-      // grid-template-columns: 2fr 1fr;
-      // grid-template-rows: max-content max-content max-content max-content auto;
-      // column-gap: rem(32);
-    }
   }
 
   &__img {
@@ -199,6 +177,7 @@
   &__excerpt {
     @extend %text-style-paragraph-medium-short;
     grid-area: excerpt;
+    margin-bottom: rem(24);
     color: $color-black-190;
     overflow-wrap: break-word;
 
@@ -232,12 +211,17 @@
   }
 
   .post-meta__series {
-    margin-top: rem(24);
     padding-top: rem(16);
     border-top: 1px solid $color-border-dark-130;
 
     @include breakpoint('small') {
       padding-top: rem(24);
+    }
+
+    .archive__featured & {
+      @include breakpoint('large') {
+        clear: both;
+      }
     }
   }
 
