@@ -180,6 +180,10 @@ $page-images: (
 
 /*----------  Archive Content Widths  ----------*/
 $archive-widths: (
+  'archive--has-filters': (
+    'content': 1010px,
+    'sidebar': 270px,
+  ),
   'post-type-archive-events': (
     'content': 930px,
     'postlist': 800px,

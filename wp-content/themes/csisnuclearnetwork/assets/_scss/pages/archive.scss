@@ -6,6 +6,7 @@
   .#{$page} {
     --content-width: #{map.get($values, 'content')};
     --postlist-width: #{map.get($values, 'postlist')};
+    --sidebar-width: #{map.get($values, 'sidebar')};
   }
 }
 
@@ -30,6 +31,55 @@
     max-width: var(--postlist-width, 100%);
     margin-right: auto;
     margin-left: auto;
+  }
+
+  /*----------  Filters  ----------*/
+  &--has-filters {
+    .archive__content {
+      display: grid;
+
+      @include breakpoint('large') {
+        grid-template-columns: auto minmax(auto, var(--sidebar-width));
+        column-gap: rem(40);
+      }
+    }
+
+    .archive__sidebar {
+      margin-bottom: rem(40);
+
+      @include breakpoint('large') {
+        grid-column: 2;
+        grid-row: 1 / span 3;
+      }
+    }
+
+    .archive__featured {
+      grid-column: 1 / -1;
+      margin-bottom: rem(32);
+
+      @include breakpoint('large') {
+        margin-bottom: rem(40);
+      }
+
+      + .archive__sidebar {
+        @include breakpoint('medium') {
+          grid-row: 2 / span 3;
+        }
+      }
+    }
+  }
+
+  &__filters {
+    display: grid;
+    gap: rem(16);
+
+    @include breakpoint('small') {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include breakpoint('large') {
+      grid-template-columns: 1fr;
+    }
   }
 
   &__section-title {
