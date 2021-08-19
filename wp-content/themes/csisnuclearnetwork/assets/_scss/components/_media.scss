@@ -38,15 +38,6 @@ img.aligncenter,
     }
   }
 
-  .alignleft,
-  .alignright {
-    display: none;
-
-    @include breakpoint('small') {
-      display: block;
-    }
-  }
-
   .alignleft {
     margin-right: var(--margin-text-side);
     margin-left: var(--margin-gutter-side, 0);
