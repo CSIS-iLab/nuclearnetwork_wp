@@ -320,7 +320,11 @@ if ( class_exists( 'easyFootnotes' ) ) {
 
 function nuclearnetwork_exclude_related__posts_from_archive( $query ) {
 
-	if ( $query->is_main_query() && ! is_admin() && is_archive() ) {
+	if (is_admin()) {
+		return $query;
+	}
+
+	if ( $query->is_main_query() && ( is_archive() || is_home() ) ) {
     $term = get_queried_object();
 		$featured_post = get_field( 'featured_post', $term->name );
 
@@ -457,4 +461,3 @@ function nuclearnetwork_facetwp_pagination_results( $output, $params) {
 }
 
 add_filter( 'facetwp_facet_html', 'nuclearnetwork_facetwp_pagination_results', 10, 2);
-
