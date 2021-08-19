@@ -128,7 +128,8 @@
 
     .post-block.projects &,
     .post-block.programs &,
-    .post-block.news & {
+    .post-block.news &,
+    .post-block.series & {
       @extend %text-style-heading-large-strong;
       color: $color-accent-primary-blue-200;
 
@@ -162,7 +163,8 @@
     }
 
     .post-block.projects &,
-    .post-block.programs & {
+    .post-block.programs &,
+    .post-block.series & {
       &::after {
         content: '';
         display: block;

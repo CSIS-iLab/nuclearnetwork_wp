@@ -18,7 +18,9 @@ $is_search = is_search(); //Search
 $is_home = is_home(); //Analysis
 $page_for_posts = get_option( 'page_for_posts' );
 $is_tag = is_tag(); //Tag
-$is_series = is_tax('series'); //Series
+$series_page = get_field('series_page', 'option'); // Series page as archive
+$series_page_id = $series_page->ID;
+$is_series = is_tax('series') || is_page( $series_page_id ); //Series
 $is_analysis_subtype = is_tax('analysis_subtype');
 $is_event_subtype = is_tax('event_types');
 $is_category = is_category(); //Category
@@ -56,27 +58,37 @@ if ( $template === 'templates/template-no-image.php' ){
 
 <?php
 
-	if ( $is_series || $is_analysis_subtype ) { ?>
-
-			<?php 
-			the_archive_title( '<h1 class="' . $title_classes . '"> Analysis / <span class="entry-header__title-secondary">', '</span></h1>' ); ?>
+	if ( $is_series || $is_analysis_subtype ) {
+		if ( is_page( $series_page_id ) ) {
+			the_title( '<h1 class="' . $title_classes . '"> Analysis / <span class="entry-header__title-secondary">', '</span></h1>' );
+		} else {
+			the_archive_title( '<h1 class="' . $title_classes . '"> Analysis / <span class="entry-header__title-secondary">', '</span></h1>' );
+		}
+		?>
 
 			<div class="entry-header__grid">
 
-				<div class="entry-header__desc text--short"><?php echo term_description(); ?></div>
-				
+				<div class="entry-header__desc text--short">
+					<?php
+						if ( is_page( $series_page_id ) ) {
+							the_content();
+						} else {
+							echo term_description();
+						}
+					?>
+				</div>
+
 				<a href="/analysis" class="entry-header__cta cta btn btn--med">All Analysis <?php echo nuclearnetwork_get_svg( 'chevron-right' ); ?></a>
-				
+
 				<div class="entry-header__write-for-us desktop-only">
 					<?php dynamic_sidebar( 'write-for-us' ); ?>
 				</div>
 			</div>
 			<?php
 
-			
 	} elseif ( $is_event_subtype ) { ?>
 
-		<?php 
+		<?php
 		the_archive_title( '<h1 class="' . $title_classes . '"> Events / <span class="entry-header__title-secondary">', '</span></h1>' ); ?>
 
 		<div class="entry-header__grid">
@@ -84,17 +96,17 @@ if ( $template === 'templates/template-no-image.php' ){
 		</div>
 		<?php
 
-		
+
 } elseif ( $is_search ) {
-			
+
 		$archive_title = sprintf(
 			'%1$s %2$s',
 			'<span class="entry-header__title-label">' . __( 'Search results for', 'nuclearnetwork' ) . '</span>',
 			'&lsquo;' . get_search_query() . '&rsquo;'
 		); ?>
-				
+
 			<h1 class="<?php echo $title_classes; ?>"><?php echo wp_kses_post( $archive_title ); ?></h1>
-			
+
 			<?php
 
 	} elseif ( $post_type === 'updates' && $is_archive ) {
@@ -103,7 +115,7 @@ if ( $template === 'templates/template-no-image.php' ){
 
 		<div class="entry-header__grid">
 			<div class="entry-header__desc text--short"><?php echo $description; ?></div>
-			
+
 			<div class="entry-header__newsletter desktop-only">
 				<h2>Monthly Newsletter</h2>
 				<p>Get PONI Program Updates delivered directly to your inbox by signing up for our monthly newsletter!</p>
@@ -136,7 +148,7 @@ if ( $template === 'templates/template-no-image.php' ){
 	} elseif ( $is_home ) {
 
 		$description = get_field( 'archive_description', $page_for_posts );
-		
+
 		$post = get_page($page_for_posts);
 		setup_postdata($post); ?>
 		<h1 class="<?php echo $title_classes; ?>"><?php echo wp_kses_post( the_title() ); ?></h1>
@@ -153,14 +165,14 @@ if ( $template === 'templates/template-no-image.php' ){
 	} elseif ( $is_archive ) {
 
 		the_archive_title( '<h1 class="' . $title_classes . '">', '</h1>' ); ?>
-		
+
 		<div class="entry-header__desc text--short"><?php echo $description; ?></div>
 		<?php
 
 	} elseif ( $is_category || $is_tag ) {
 
 		the_archive_title( '<h1 class="' . $title_classes . '">', '</h1>' ); ?>
-		
+
 		<div class="entry-header__desc text--short"><?php echo $description; ?></div>
 		<?php
 

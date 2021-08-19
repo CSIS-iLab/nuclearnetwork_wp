@@ -36,8 +36,11 @@ function nuclearnetwork_body_classes( $classes ) {
 	global $post;
 	$post_type = isset( $post ) ? $post->post_type : false;
 
+	// Series Page as Archive
+	$series_page = get_field('series_page', 'option');
+
 	// Check if we're the "blog page" or search page, and make them look like the archives.
-	if ( is_home() || is_search() ) {
+	if ( is_home() || is_search() || is_page( $series_page->ID ) ) {
 		$classes[] = 'archive';
 	}
 
@@ -73,6 +76,11 @@ function nuclearnetwork_body_classes( $classes ) {
 	// Does this archive page have filters?
 	if ( is_home() || 'post' === get_post_type() || is_author() || is_search() ) {
 		$classes[] = 'archive--has-filters';
+	}
+
+	// Check if post & add slug.
+	if ( $post_type ) {
+		$classes[] = $post->post_type . '-' . $post->post_name;
 	}
 
 	return $classes;
