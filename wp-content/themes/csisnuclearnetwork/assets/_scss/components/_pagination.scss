@@ -7,9 +7,16 @@
   @extend %text-style-label-medium;
   font-weight: normal;
   border-bottom: 1px solid $color-border-dark-130;
+
+  .archive__section-title + & {
+    margin-top: rem(-8); // Offset title's margin bottom
+    padding-bottom: 0;
+    border-bottom: 0;
+  }
 }
 
-.pagination__wrapper {
+.pagination__wrapper,
+.facetwp-facet[data-name='pagination_navigation'] {
   display: flex;
   gap: rem(8);
   justify-content: flex-start;
@@ -21,14 +28,15 @@
     font-weight: normal;
   }
 
-  .page-numbers {
+  .page-numbers,
+  .facetwp-page {
     padding-top: rem(4);
     padding-bottom: rem(4);
     border-radius: 2px;
+    cursor: pointer;
 
     &:hover {
       color: $color-accent-primary-blue-300;
-      background: $color-bg-light-200;
     }
 
     &:focus {
@@ -43,7 +51,8 @@
     }
   }
 
-  .current {
+  .current,
+  .active {
     position: relative;
     color: $color-white-190;
     background: $color-accent-primary-blue-200;
