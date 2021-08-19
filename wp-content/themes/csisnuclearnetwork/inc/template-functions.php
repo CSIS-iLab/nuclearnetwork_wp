@@ -36,8 +36,11 @@ function nuclearnetwork_body_classes( $classes ) {
 	global $post;
 	$post_type = isset( $post ) ? $post->post_type : false;
 
+	// Series Page as Archive
+	$series_page = get_field('series_page', 'option');
+
 	// Check if we're the "blog page" or search page, and make them look like the archives.
-	if ( is_home() || is_search() ) {
+	if ( is_home() || is_search() || is_page( $series_page->ID ) ) {
 		$classes[] = 'archive';
 	}
 
@@ -73,6 +76,11 @@ function nuclearnetwork_body_classes( $classes ) {
 	// Does this archive page have filters?
 	if ( is_home() || 'post' === get_post_type() || is_author() || is_search() ) {
 		$classes[] = 'archive--has-filters';
+	}
+
+	// Check if post & add slug.
+	if ( $post_type ) {
+		$classes[] = $post->post_type . '-' . $post->post_name;
 	}
 
 	return $classes;
@@ -271,6 +279,8 @@ function nuclearnetwork_archive_titles( $title ) {
 			$title = sprintf( __( '%1$s' ), single_term_title( '', false ) );
 		} elseif (is_post_type_archive()) {
 				$title = post_type_archive_title( '', false );
+		} elseif ( is_author() ) {
+			$title = get_the_author();
 		}
     return $title;
 }
@@ -320,7 +330,11 @@ if ( class_exists( 'easyFootnotes' ) ) {
 
 function nuclearnetwork_exclude_related__posts_from_archive( $query ) {
 
-	if ( $query->is_main_query() && ! is_admin() && is_archive() ) {
+	if (is_admin()) {
+		return $query;
+	}
+
+	if ( $query->is_main_query() && ( is_archive() || is_home() ) ) {
     $term = get_queried_object();
 		$featured_post = get_field( 'featured_post', $term->name );
 
@@ -457,4 +471,3 @@ function nuclearnetwork_facetwp_pagination_results( $output, $params) {
 }
 
 add_filter( 'facetwp_facet_html', 'nuclearnetwork_facetwp_pagination_results', 10, 2);
-

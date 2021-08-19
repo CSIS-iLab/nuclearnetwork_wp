@@ -15,6 +15,7 @@ if ( has_post_thumbnail() && ! post_password_required() ) {
 	?>
 
 	<figure class="featured-media">
+		<div class="featured-media__image-wrapper">
 
 		<?php
 			if ( !$is_singular || $is_front_page ) {
@@ -27,7 +28,7 @@ if ( has_post_thumbnail() && ! post_password_required() ) {
 				echo '</a>';
 			}
 		?>
-
+		</div>
 	</figure><!-- .featured-media -->
 
 	<?php

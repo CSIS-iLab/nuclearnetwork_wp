@@ -52,6 +52,21 @@
         grid-row: 1 / span 3;
       }
     }
+
+    .archive__featured {
+      grid-column: 1 / -1;
+      margin-bottom: rem(32);
+
+      @include breakpoint('large') {
+        margin-bottom: rem(40);
+      }
+
+      + .archive__sidebar {
+        @include breakpoint('medium') {
+          grid-row: 2 / span 3;
+        }
+      }
+    }
   }
 
   &__filters {
