@@ -180,6 +180,25 @@
     }
   }
 
+  &__newsletter {
+    color: $color-white-190;
+
+    h3 {
+      color: $color-white-100;
+    }
+
+    p {
+      padding-bottom: rem(24);
+    }
+
+    .subscribe {
+      --buttonheight: #{rem(45)};
+      height: var(--buttonheight);
+      margin-bottom: rem(24);
+      line-height: var(--buttonheight);
+    }
+  }
+
   &__news-btn {
     width: fit-content;
     margin-top: rem(24);

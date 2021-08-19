@@ -95,10 +95,10 @@ if ( $template === 'templates/template-no-image.php' ){
 		<div class="entry-header__grid">
 			<div class="entry-header__desc text--short"><?php echo $description; ?></div>
 			
-			<div class="entry-header__newsletter desktop-only">
+			<div class="entry-header__newsletter communication-block desktop-only">
 				<h2>Monthly Newsletter</h2>
 				<p>Get PONI Program Updates delivered directly to your inbox by signing up for our monthly newsletter!</p>
-				<a href="<?php echo $monthly_news_link; ?>" class="btn">Subscribe</a>
+				<a href="<?php echo $monthly_news_link; ?>" class="btn btn--teal subscribe">Subscribe</a>
 			</div>
 		</div>
 		<?php

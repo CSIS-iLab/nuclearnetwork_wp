@@ -105,4 +105,10 @@
       --btn-bg: #{$color-bg-light-200};
     }
   }
+
+  &--newsletter {
+    &:focus {
+      --btn-color: #{$color-accent-primary-blue-200};
+    }
+  }
 }

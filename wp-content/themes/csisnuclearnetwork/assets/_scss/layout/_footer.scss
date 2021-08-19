@@ -142,16 +142,9 @@
   .communication-block {
     a {
       --buttonheight: #{rem(45)};
-      @extend %text-style-label-large;
-      display: block;
-      width: 116px;
       height: var(--buttonheight);
       margin-top: rem(12);
-      font-size: 18px;
       line-height: var(--buttonheight);
-      text-align: center;
-      background-color: #0f609d;
-      border-radius: 2px;
     }
   }
 
