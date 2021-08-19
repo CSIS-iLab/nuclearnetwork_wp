@@ -417,8 +417,8 @@ endif;
 if (! function_exists('nuclearnetwork_display_subtypes')) :
 	function nuclearnetwork_display_subtypes() {
 
-
 		// $post_type = get_post_type();
+
 		$post_type = get_post_type_object(get_post_type());
 		global $post;
 
@@ -429,8 +429,9 @@ if (! function_exists('nuclearnetwork_display_subtypes')) :
 			$post_type_name = get_the_title( get_option( 'page_for_posts' ) );
 			$tax_name = 'analysis_subtype';
 		}
+		
+		echo '<div class="post-meta post-meta__terms"><a href="' . get_post_type_archive_link( $post->post_type ) . '" class="post-meta__terms-type text--bold">' . $post_type_name . '&nbsp</a>' . get_the_term_list( $post->ID, $tax_name, '/&nbsp', ',&nbsp') . '</div>';
 
-		echo '<div class="post-meta post-meta__terms"><a href="' . get_post_type_archive_link( $post_type ) . '" class="post-meta__terms-type text--bold">' . $post_type_name . get_the_term_list( $post->ID, $tax_name, ' /&nbsp</a>', ',&nbsp') . '</div>';
 	}
 endif;
 
@@ -471,6 +472,71 @@ if ( ! function_exists( 'nuclearnetwork_citation' ) ) :
 		printf( '<h2 class="cite__heading text--bold text--caps">Cite this Page</h2><p class="cite__container text--short"><span class="cite__citation">' . esc_html( '%1$s, "%2$s,"', 'nuclearnetwork' ) . ' <em>%3$s</em>' . esc_html( ', Center for Strategic and International Studies, %4$s, %5$s%6$s.', 'nuclearnetwork') . '</span><button id="btn-copy" class="btn btn--dark btn--icon btn--short" data-clipboard-target=".cite__citation" aria-label="Copied!">' . nuclearnetwork_get_svg( 'copy' ) . 'Copy Citation</button></p>', $authors, $title, get_bloginfo( 'name' ), get_the_date(), $modified_date, get_the_permalink() ); // WPCS: XSS OK.
 	}
 endif;
+
+/**
+ * Displays the event's date.
+ *
+ *
+ * @return string $html The event date.
+ */
+if (! function_exists('nuclearnetwork_display_event_date')) :
+	function nuclearnetwork_display_event_date() {
+
+		$id = get_queried_object_id();
+
+		$event_info = get_field( 'event_post_info' );
+		$event_start_date = $event_info['event_start_date'];
+		$event_end_date = $event_info['event_end_date'];
+		$legacy_event_date = get_post_meta( $id, '_post_start_date', true );
+		$event_start_time = $event_info['event_start_time'];
+		$event_end_time = $event_info['event_end_time'];
+		
+		if ( $event_start_date && $event_end_date ) {
+			$start_date = date_i18n('M. d, Y', strtotime($event_start_date));
+			$end_date = date_i18n('M. d, Y', strtotime($event_end_date));
+			$event_date = $start_date . ' - ' . $end_date;
+		} elseif ( $event_start_date ) {
+			$event_date = date_i18n('M. d, Y', strtotime($event_start_date));
+		} elseif ( $legacy_event_date ) {
+			$event_date = date_i18n('M. d, Y', strtotime($legacy_event_date));
+		}
+		if ( $event_start_time && $event_end_time ) {
+			$start_time = wp_date('g:i A T', strtotime($event_start_time));
+			$end_time = wp_date('g:i A T', strtotime($event_end_time));
+			$event_time = $start_time . ' - ' . $end_time;
+		} elseif ( $event_start_time ) {
+			$event_time = wp_date('g:i A T', strtotime($event_start_time));
+		}
+
+		echo '<dl class="post-meta post-meta--large post-meta__event"><dt class="post-meta__label post-meta__label--small text--bold text--caps">When</dt><dd class="post-meta__event-datetime">' . $event_date . '</br>' . $event_time . '</dd></dl>';
+	}
+endif;
+
+/**
+ * Displays the event's location.
+ *
+ *
+ * @return string $html The event location.
+ */
+if (! function_exists('nuclearnetwork_display_event_location')) :
+	function nuclearnetwork_display_event_location() {
+
+		$id = get_queried_object_id();
+
+		$event_info = get_field( 'event_post_info' );
+		$event_location = $event_info['event_location'];
+
+		if ( get_post_meta( $id, '_post_location', true ) ) {
+			$event_location = get_post_meta( $id, '_post_location', true );
+		}
+
+		if ( $event_location ) { ?>
+			<dl class="post-meta post-meta--large post-meta__event"><dt class="post-meta__label post-meta__label--small text--bold text--caps">Where</dt><dd class="post-meta__event-location"><?php echo $event_location; ?></dd></dl>
+		<?php
+		}
+	}
+endif;
+
 
 if ( ! function_exists( 'nuclearnetwork_archive_filters' ) ) :
 	/**
