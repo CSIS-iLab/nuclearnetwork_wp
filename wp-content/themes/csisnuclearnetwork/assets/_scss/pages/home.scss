@@ -517,8 +517,8 @@
     }
 
     .home__subtitle {
-      grid-area: header;
       --home-subtitle-color: #{$color-white-100};
+      grid-area: header;
     }
 
     p {
