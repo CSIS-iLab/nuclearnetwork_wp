@@ -141,10 +141,7 @@
 
   .communication-block {
     a {
-      --buttonheight: #{rem(45)};
-      height: var(--buttonheight);
       margin-top: rem(12);
-      line-height: var(--buttonheight);
     }
   }
 

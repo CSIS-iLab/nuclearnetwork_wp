@@ -192,10 +192,7 @@
     }
 
     .subscribe {
-      --buttonheight: #{rem(45)};
-      height: var(--buttonheight);
       margin-bottom: rem(24);
-      line-height: var(--buttonheight);
     }
   }
 

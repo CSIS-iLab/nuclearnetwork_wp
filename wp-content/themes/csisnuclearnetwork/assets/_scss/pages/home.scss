@@ -514,13 +514,11 @@
 
     @include breakpoint(large) {
       grid-template-areas: 'header daily monthly';
-      column-gap: rem(40);
     }
 
-    h3 {
+    .home__subtitle {
       grid-area: header;
-      color: $color-white-100;
-      @extend %text-style-heading-x-large-strong;
+      --home-subtitle-color: #{$color-white-100};
     }
 
     p {
@@ -542,7 +540,6 @@
         max-width: 30vw;
         padding-top: 0 !important;
       }
-
       /* stylelint-disable */
       h3 {
         @extend %text-style-heading-large-strong;
@@ -581,18 +578,19 @@
         padding-top: 0;
       }
       @include breakpoint(xlarge) {
-        flex-basis: 50%;
+        flex-basis: auto;
         margin-left: rem(48);
         padding-top: rem(8);
       }
-
-/* stylelint-disable */
+      
+      /* stylelint-disable */
       :nth-child(2) {
         padding-top: rem(16);
       }
 
       a {
-        display: block;
+        display: flex;
+        align-items: flex-end;
         color: $color-white-180;
         @extend %text-style-label-medium;
 
@@ -608,13 +606,11 @@
         .icon {
           margin-left: rem(6);
         }
-/* stylelint-enable */
+        /* stylelint-enable */
       }
     }
 
     .subscribe {
-      --buttonheight: #{rem(45)};
-      height: var(--buttonheight);
       margin-bottom: rem(24);
     }
   }
