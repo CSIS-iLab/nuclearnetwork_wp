@@ -61,25 +61,7 @@ if ( $posts_pagination ) { ?>
 
 	<div class="pagination__wrapper">
 	<?php
-		if($pages == '')
-		{
-				global $wp_query;
-				$pages = $wp_query->max_num_pages;
-				if(!$pages)
-				{
-						$pages = 1;
-				}
-		}
-
-		if ( $paged != 1 ) {
-			echo "<a href='".get_pagenum_link(1)."' class='first page-numbers'>$first_text</a>";
-		}
-
 		echo $posts_pagination; //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- already escaped during generation.
-
-		if ($paged != $pages) {
-			echo "<a href='".get_pagenum_link($pages)."' class='last page-numbers'>$last_text</a>";
-		}
 	?>
 	</div><!-- .pagination-wrapper -->
 

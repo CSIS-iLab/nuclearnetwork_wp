@@ -9,6 +9,17 @@
 
 $term = get_queried_object();
 
+$show_filters = false;
+
+$is_analysis_archive = is_home() || 'post' === get_post_type();
+
+$show_author_filter = !is_author();
+$show_series_filter = !is_tax( 'series' );
+
+if ( $is_analysis_archive ) {
+	$show_filters = true;
+}
+
 get_header();
 ?>
 
@@ -22,7 +33,22 @@ get_header();
 
 	<?php
 		if ( have_posts() ) {
-			nuclearnetwork_pagination_number_of_posts();
+			// Pagination Results & Filters
+			if ( class_exists( 'FacetWP') && $show_filters ) {
+				echo "<aside class='archive__sidebar'>";
+				nuclearnetwork_archive_filters( array(
+					'show_content_types' => !$is_analysis_archive,
+					'show_analysis_subtypes' => $is_analysis_archive,
+					'show_author' => $show_author_filter,
+					'show_series' => $show_series_filter
+				));
+				echo "</aside>";
+
+				echo facetwp_display( 'facet', 'pagination_results' );
+
+			} else {
+				nuclearnetwork_pagination_number_of_posts();
+			}
 		}
 
 		if (class_exists('ACF') && !is_paged()) {
@@ -49,8 +75,14 @@ get_header();
 				get_template_part( 'template-parts/block-post', get_post_type() );
 			}
 			wp_reset_postdata();
-			get_template_part( 'template-parts/pagination' );
 			echo "</section>";
+		}
+
+		// Pagination
+		if ( class_exists( 'FacetWP') && $show_filters ) {
+			echo facetwp_display( 'facet', 'pagination_navigation' );
+		} else {
+			get_template_part( 'template-parts/pagination' );
 		}
 
 		if (class_exists('ACF') && !is_paged()) {

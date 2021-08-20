@@ -26,6 +26,7 @@
     &:focus {
       --icon-fill: var(--icon-fill-hover);
       background: $color-bg-light-300;
+      outline: 0;
     }
 
     img {
@@ -47,8 +48,9 @@
 
   /* stylelint-enable */
   .single__footer &,
-  .single__content & {
-    --icon-fill: invert(13%) sepia(100%) saturate(2787%) hue-rotate(189deg) brightness(98%) contrast(101%);
+  .single__content &,
+  .entry-header & {
+    --icon-fill: invert(28%) sepia(96%) saturate(449%) hue-rotate(168deg) brightness(93%) contrast(93%);
 
     --icon-fill-hover: invert(19%) sepia(12%) saturate(2648%) hue-rotate(169deg) brightness(91%) contrast(97%);
 

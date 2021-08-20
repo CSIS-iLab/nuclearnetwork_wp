@@ -103,6 +103,7 @@ $size__container-max-width: 1400px;
 $size__content-max-width: 680px;
 $size__content-wide-max-width: 1200px;
 $size__archive-max-width: 800px;
+$size__header-max-width: 900px;
 
 /*----------  Z-Index  ----------*/
 $z-index: (
@@ -136,49 +137,53 @@ $page-images: (
   'analysis': (
     image: (
       linear-gradient(0deg, rgba(2, 99, 190, 0.43), rgba(2, 99, 190, 0.43)),
-      url('/wp-content/themes/csisnuclearnetwork/assets/img/analysis_bg.png'),
+      url('/wp-content/themes/csisnuclearnetwork/assets/img/analysis_bg.jpg'),
     ),
   ),
   'events': (
     image: (
       linear-gradient(0deg, rgba(2, 99, 190, 0.43), rgba(2, 99, 190, 0.43)),
-      url('/wp-content/themes/csisnuclearnetwork/assets/img/events_bg.png'),
+      url('/wp-content/themes/csisnuclearnetwork/assets/img/events_bg.jpg'),
     ),
   ),
   'general': (
     image: (
       linear-gradient(0deg, rgba(2, 99, 190, 0.43), rgba(2, 99, 190, 0.43)),
-      url('/wp-content/themes/csisnuclearnetwork/assets/img/general_bg.png'),
+      url('/wp-content/themes/csisnuclearnetwork/assets/img/general_bg.jpg'),
     ),
   ),
   'npn': (
     image: (
       linear-gradient(0deg, rgba(2, 99, 190, 0.43), rgba(2, 99, 190, 0.43)),
-      url('/wp-content/themes/csisnuclearnetwork/assets/img/NPN_bg.png'),
+      url('/wp-content/themes/csisnuclearnetwork/assets/img/NPN_bg.jpg'),
     ),
   ),
   'programs': (
     image: (
       linear-gradient(0deg, rgba(2, 99, 190, 0.43), rgba(2, 99, 190, 0.43)),
-      url('/wp-content/themes/csisnuclearnetwork/assets/img/programs_bg.png'),
+      url('/wp-content/themes/csisnuclearnetwork/assets/img/programs_bg.jpg'),
     ),
   ),
   'projects': (
     image: (
       linear-gradient(0deg, rgba(2, 99, 190, 0.43), rgba(2, 99, 190, 0.43)),
-      url('/wp-content/themes/csisnuclearnetwork/assets/img/projects_bg.png'),
+      url('/wp-content/themes/csisnuclearnetwork/assets/img/projects_bg.jpg'),
     ),
   ),
   'updates': (
     image: (
       linear-gradient(0deg, rgba(2, 99, 190, 0.43), rgba(2, 99, 190, 0.43)),
-      url('/wp-content/themes/csisnuclearnetwork/assets/img/updates_bg.png'),
+      url('/wp-content/themes/csisnuclearnetwork/assets/img/updates_bg.jpg'),
     ),
   ),
 );
 
 /*----------  Archive Content Widths  ----------*/
 $archive-widths: (
+  'archive--has-filters': (
+    'content': 1010px,
+    'sidebar': 270px,
+  ),
   'post-type-archive-events': (
     'content': 930px,
     'postlist': 800px,

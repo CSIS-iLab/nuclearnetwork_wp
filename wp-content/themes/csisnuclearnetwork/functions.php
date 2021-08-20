@@ -182,7 +182,10 @@ function nuclearnetwork_register_styles() {
 		wp_enqueue_style( 'nuclearnetwork-style-home', get_stylesheet_directory_uri() . '/assets/css/pages/home.min.css', array(), $theme_version );
 	}
 
-	if ( is_archive() || is_search() || is_home() ) {
+	// Series Page as Archive
+	$series_page = get_field('series_page', 'option');
+
+	if ( is_archive() || is_search() || is_home() || is_page( $series_page->ID ) ) {
 		wp_enqueue_style( 'nuclearnetwork-style-archive', get_stylesheet_directory_uri() . '/assets/css/pages/archive.min.css', array(), $theme_version );
 	}
 
@@ -238,6 +241,14 @@ function nuclearnetwork_register_scripts() {
 	if ( is_front_page() ) {
 		wp_enqueue_script( 'nuclearnetwork-js-carousel', get_template_directory_uri() . '/assets/js/carousel.min.js', array(), $theme_version, true );
 		wp_script_add_data( 'nuclearnetwork-js-carousel', 'async', true );
+	}
+
+	// Series Page as Archive
+	$series_page = get_field('series_page', 'option');
+
+	if ( is_home() || is_archive() || is_search() || is_page( $series_page->ID ) ) {
+		wp_enqueue_script( 'nuclearnetwork-js-archive', get_template_directory_uri() . '/assets/js/archive.min.js', array(), $theme_version, true );
+		wp_script_add_data( 'nuclearnetwork-js-archive', 'defer', true );
 	}
 
 	if ( is_single() ) {

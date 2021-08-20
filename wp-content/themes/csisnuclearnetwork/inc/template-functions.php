@@ -36,8 +36,11 @@ function nuclearnetwork_body_classes( $classes ) {
 	global $post;
 	$post_type = isset( $post ) ? $post->post_type : false;
 
+	// Series Page as Archive
+	$series_page = get_field('series_page', 'option');
+
 	// Check if we're the "blog page" or search page, and make them look like the archives.
-	if ( is_home() || is_search() ) {
+	if ( is_home() || is_search() || is_page( $series_page->ID ) ) {
 		$classes[] = 'archive';
 	}
 
@@ -68,6 +71,16 @@ function nuclearnetwork_body_classes( $classes ) {
 	// Slim page template class names (class = name - file suffix).
 	if ( is_page_template() ) {
 		$classes[] = basename( get_page_template_slug(), '.php' );
+	}
+
+	// Does this archive page have filters?
+	if ( is_home() || 'post' === get_post_type() || is_author() || is_search() ) {
+		$classes[] = 'archive--has-filters';
+	}
+
+	// Check if post & add slug.
+	if ( $post_type ) {
+		$classes[] = $post->post_type . '-' . $post->post_name;
 	}
 
 	return $classes;
@@ -266,6 +279,8 @@ function nuclearnetwork_archive_titles( $title ) {
 			$title = sprintf( __( '%1$s' ), single_term_title( '', false ) );
 		} elseif (is_post_type_archive()) {
 				$title = post_type_archive_title( '', false );
+		} elseif ( is_author() ) {
+			$title = get_the_author();
 		}
     return $title;
 }
@@ -315,7 +330,11 @@ if ( class_exists( 'easyFootnotes' ) ) {
 
 function nuclearnetwork_exclude_related__posts_from_archive( $query ) {
 
-	if ( $query->is_main_query() && ! is_admin() && is_archive() ) {
+	if (is_admin()) {
+		return $query;
+	}
+
+	if ( $query->is_main_query() && ( is_archive() || is_home() ) ) {
     $term = get_queried_object();
 		$featured_post = get_field( 'featured_post', $term->name );
 
@@ -417,3 +436,38 @@ function jetpackme_more_related_posts( $options ) {
 // 	return $categories;
 // }
 // add_filter( 'get_the_categories', 'nuclearnetwork_remove_selected_categories' );
+
+/**
+ * Add accessibility JS for facets.
+ * Modify the assets that are loaded on pages that use facets.
+ */
+add_filter( 'facetwp_assets', function( $assets ) {
+
+	unset( $assets['fSelect.css'] );
+	unset( $assets['front.css'] );
+
+	return $assets;
+});
+add_filter( 'facetwp_load_a11y', '__return_true' );
+
+/**
+ * Modifies the output of the FacetWP pagination filters, both the results and page numbers lists.
+ *
+ * @return string $output The HTML to display.
+ */
+function nuclearnetwork_facetwp_pagination_results( $output, $params) {
+	if ( 'counts' == $params['facet']['pager_type'] ) {
+		$output = nuclearnetwork_archive_filters_pagination_results($output, $params );
+	}
+
+	if ( 'numbers' == $params['facet']['pager_type'] ) {
+		$prev = nuclearnetwork_get_svg( 'chevron-left' );
+		$next = nuclearnetwork_get_svg( 'chevron-right' );
+		$output = str_replace( '«', $prev, $output );
+		$output = str_replace( '»',  $next, $output);
+	}
+
+	return $output;
+}
+
+add_filter( 'facetwp_facet_html', 'nuclearnetwork_facetwp_pagination_results', 10, 2);
