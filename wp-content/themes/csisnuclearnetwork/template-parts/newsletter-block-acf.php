@@ -39,12 +39,7 @@
     }
 
     if ($latest_updates) {
-        print_r("This is working");
-        print_r($latest_updates);
         $recentUpdatesUrl = get_permalink($latest_updates[0]);
-    } else {
-        print_r("shit" . $latest_updates);
-        echo $recentUpdatesUrl;
     }
 
     $dailyNewsletterName = get_field('daily_newsletter_name');
