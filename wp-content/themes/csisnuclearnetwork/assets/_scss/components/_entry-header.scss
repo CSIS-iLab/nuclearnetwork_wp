@@ -336,6 +336,22 @@
     }
   }
 
+  &__newsletter {
+    color: $color-white-190;
+
+    h3 {
+      color: $color-white-100;
+    }
+
+    p {
+      padding-bottom: rem(24);
+    }
+
+    .subscribe {
+      margin-bottom: rem(24);
+    }
+  }
+
   &__news-btn {
     width: fit-content;
     margin-top: rem(24);

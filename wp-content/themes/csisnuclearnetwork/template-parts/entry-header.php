@@ -7,7 +7,6 @@
  * @since 1.0.0
  */
 
-
 $is_archive = is_archive(); //Not search, 404 or Analysis
 // $is_page = is_page();
 $post_type = get_post_type(); //News, updates, projects, events, programs

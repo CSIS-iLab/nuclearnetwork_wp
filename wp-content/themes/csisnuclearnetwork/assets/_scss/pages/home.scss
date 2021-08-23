@@ -493,4 +493,124 @@
       }
     }
   }
+
+  .newsletter-block-acf {
+    display: grid;
+    grid-template-areas: 
+      'header'
+      'daily'
+      'monthly';
+    padding-top: rem(56);
+    padding-bottom: rem(72);
+    @include full-width-background(linear-gradient(180deg, #153b6a 0%, #215f8c 100%));
+    background: linear-gradient(180deg, #153b6a 0%, #215f8c 100%);
+
+    @include breakpoint(medium) {
+      grid-template-areas: 
+        'header header'
+        'daily monthly';
+      column-gap: rem(40);
+    }
+
+    @include breakpoint(large) {
+      grid-template-areas: 'header daily monthly';
+    }
+
+    .home__subtitle {
+      --home-subtitle-color: #{$color-white-100};
+      grid-area: header;
+    }
+
+    p {
+      flex-basis: 100%;
+      margin-top: rem(8);
+      margin-bottom: rem(24);
+      @extend %text-style-paragraph-large;
+    }
+
+    .daily,
+    .monthly {
+      display: flex;
+      flex-wrap: wrap;
+      align-content: start;
+      color: $color-white-190;
+      
+      @include breakpoint(large) {
+        max-width: 30vw;
+        padding-top: 0 !important;
+      }
+      /* stylelint-disable */
+      h3 {
+        @extend %text-style-heading-large-strong;
+        margin-top: 0;
+      }
+      /* stylelint-enable */
+    }
+
+    .daily {
+      grid-area: daily;
+      padding-top: rem(16);
+      padding-bottom: rem(32);
+    }
+
+    .monthly {
+      grid-area: monthly;
+      padding-top: rem(24);
+
+      @include breakpoint(medium) {
+        padding-top: rem(16);
+      }
+    }
+
+    .recent-news {
+      flex-basis: 100%;
+
+      @include breakpoint(small) {
+        flex-basis: 50%;
+        margin-left: rem(48);
+        padding-top: rem(8);
+      }
+
+      @include breakpoint(medium) {
+        flex-basis: 100%;
+        margin-left: 0;
+        padding-top: 0;
+      }
+      @include breakpoint(xlarge) {
+        flex-basis: auto;
+        margin-left: rem(48);
+        padding-top: rem(8);
+      }
+      
+      /* stylelint-disable */
+      :nth-child(2) {
+        padding-top: rem(16);
+      }
+
+      a {
+        display: flex;
+        align-items: flex-end;
+        color: $color-white-180;
+        @extend %text-style-label-medium;
+
+        &:hover {
+          color: $color-white-100;
+        }
+
+        &:focus {
+          color: $color-white-100;
+          background-color: $color-accent-primary-100;
+        }
+        
+        .icon {
+          margin-left: rem(6);
+        }
+        /* stylelint-enable */
+      }
+    }
+
+    .subscribe {
+      margin-bottom: rem(24);
+    }
+  }
 }
