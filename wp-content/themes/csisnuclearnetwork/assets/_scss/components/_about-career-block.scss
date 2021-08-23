@@ -1,0 +1,30 @@
+@use '../abstracts' as *;
+
+.wp-block-lazyblock-career-opportunities {
+    background-color: $color-bg-light-300;
+    padding-top: .1rem;
+    padding-bottom: 2.5rem;
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem;
+    position: relative;
+
+    li::marker {
+        color: black !important;
+    }
+
+    .icon-suitcase {
+        vertical-align: top;
+    }
+}
+
+.wp-block-lazyblock-career-opportunities:before {
+    content:"";
+    background-color: $color-bg-light-300;
+    position: absolute;
+    padding-top: 2.5rem;
+    top: 0;
+    bottom: 0;
+    width: 200vw;
+    left: -100vw;
+    z-index: -1;
+}
