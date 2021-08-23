@@ -6,6 +6,7 @@
 @use '../blocks/post/members';
 @use '../blocks/post/partners';
 @use '../components/post-block-related';
+@use '../components/about-career-block';
 
 .single {
   &__content {
