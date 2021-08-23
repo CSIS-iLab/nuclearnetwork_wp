@@ -1,7 +1,6 @@
 <?php
 /**
- * The about PONI section of the home page,
- * including information about directors and a team photo
+ * The newsletter section of the home page.
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
@@ -12,7 +11,7 @@
 
 ?>
 
-<?php 
+<?php
     if( ! class_exists('ACF') ) {
     return;
     }
@@ -29,7 +28,7 @@
     'meta-key' => 'newsletter',
     'meta-value' => 'true'
     );
-    
+
     $latest_news = get_posts( $news_args );
 
     $latest_updates = get_posts( $progUpdate_args );
@@ -54,6 +53,6 @@
     $constructedMonthlyNewsletter = "<div class='monthly'><h3>" . $monthlyNewsletterName . "</h3><p class='text--short'>" . $monthlyNewsletterDesc . "</p><a class='subscribe btn btn--teal btn--newsletter' href=" . get_field('monthly_newsletter_link', 'option') . ">Subscribe</a>" . $monthlyNewsletterLinks . "</div>";
 
     $output = "<div class='newsletter-block-acf'><h2 class='home__subtitle'>Newsletters</h3>" . $constructedDailyNewsletter . $constructedMonthlyNewsletter . "</div>";
-    
+
     echo $output;
 ?>
