@@ -114,6 +114,7 @@ get_header();
 	endif;
 
 	?>
+	<?php get_template_part( 'template-parts/block-upcoming-event-recent-posts' ); ?>
 	<?php get_template_part( 'template-parts/newsletter-block-acf' ); ?>
 	<?php get_template_part( 'template-parts/home-about-poni' ); ?>
 

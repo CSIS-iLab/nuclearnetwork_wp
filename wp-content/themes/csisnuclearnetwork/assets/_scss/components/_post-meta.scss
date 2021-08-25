@@ -25,7 +25,7 @@
   &__terms,
   &__series {
     a {
-      color: $color-accent-primary-blue-200;
+      color: var(--post-meta);
 
       &::after {
         background-image: none;
