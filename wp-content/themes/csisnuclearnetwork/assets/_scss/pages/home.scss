@@ -504,6 +504,10 @@
     padding-bottom: rem(72);
     @include full-width-background(linear-gradient(180deg, #153b6a 0%, #215f8c 100%));
     background: linear-gradient(180deg, #153b6a 0%, #215f8c 100%);
+    background-image: url(../../static/missile-newsletter.svg), linear-gradient(180deg, #153b6a 0%, #215f8c 100%);
+    background-repeat: no-repeat;
+    background-position-y: bottom;
+    background-position-x: right;
 
     @include breakpoint(medium) {
       grid-template-areas: 
