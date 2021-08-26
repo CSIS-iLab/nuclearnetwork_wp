@@ -229,8 +229,7 @@
   &__footer {
     margin-top: rem(40);
     padding: rem(40) 0 rem(56);
-    background: $color-bg-light-200;
-    @include full-width-background($color-bg-light-200);
+    background: $color-postbg-200;
 
     @include breakpoint('large') {
       padding-top: rem(56);
