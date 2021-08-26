@@ -165,6 +165,9 @@ require get_template_directory() . '/inc/custom-blocks.php';
 // Shortcodes.
 require get_template_directory() . '/inc/shortcodes.php';
 
+// Load custom nav walker for primary menu.
+require get_template_directory() . '/inc/site-nav-walker.php';
+
 /**
  * Register and Enqueue Styles.
  */

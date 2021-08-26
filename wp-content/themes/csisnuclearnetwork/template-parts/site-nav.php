@@ -29,6 +29,7 @@
 				'container_class' => 'site-nav__container',
 				'items_wrap'      => '<ul role="list" id="primary-menu-list" class="%2$s">%3$s</ul>',
 				'fallback_cb'     => false,
+				'walker'					=> new NuclearNetwork_Menu(),
 			)
 		);
 		?>
