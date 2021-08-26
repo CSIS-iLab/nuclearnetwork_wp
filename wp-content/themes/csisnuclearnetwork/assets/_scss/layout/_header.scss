@@ -7,7 +7,7 @@
   right: 0;
   left: 0;
   z-index: 11;
-  background-color: $color-bg-dark-200;
+  background-color: transparent;
 
   &__inner {
     display: flex;
@@ -365,9 +365,14 @@
 
   .menu-item-has-children {
     @include breakpoint('large') {
-      &:hover .sub-menu,
+      .sub-menu {
+        display: none;
+      }
+
+      &.is-active .sub-menu,
       .sub-menu.focus {
         position: absolute;
+        display: block;
         clip-path: inset(0);
       }
 
