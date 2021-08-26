@@ -40,11 +40,17 @@
   @include csis-block-full-width-wrapper;
 }
 
+.alignfull {
+  > *:not(figcaption) {
+    @include csis-block-full-width-content($size__container-max-width);
+  }
+}
+
 .alignwide {
   > *:not(figcaption) {
-    @include breakpoint('medium') {
-      @include csis-block-full-width-content;
-    }
+    // @include breakpoint('medium') {
+    @include csis-block-wide-content;
+    // }
   }
 }
 
@@ -76,7 +82,7 @@
 
   @include breakpoint('xxlarge') {
     --margin-text-side: #{rem(56)};
-    --margin-gutter-side: #{rem(80)};
+    --margin-gutter-side: #{rem(-80)};
   }
 
   figcaption {
