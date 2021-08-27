@@ -504,9 +504,6 @@
     padding-bottom: rem(48);
     color: $color-white-100;
     column-gap: rem(40);
-    // EDIT THIS
-    background-color: #153b6a;
-    @include full-width-background(#153b6a);
 
     @include breakpoint(small) {
       padding-top: rem(72);
