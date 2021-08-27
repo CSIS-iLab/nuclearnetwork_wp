@@ -494,44 +494,167 @@
     }
   }
 
-  &__three-posts {
+  &__event-and-posts-block {
+    display: grid;
+    grid-template-areas: 
+      'event'
+      'news'
+      'twitter';
+    padding-top: rem(40);
+    padding-bottom: rem(48);
     color: $color-white-100;
+    column-gap: rem(40);
+    // EDIT THIS
     background-color: #153b6a;
-    margin: rem(32) 0 rem(48) 0;
+    @include full-width-background(#153b6a);
 
-    &-title {
-      margin-bottom: rem(16);
-      @extend %text-style-heading-large-strong;
-
+    @include breakpoint(small) {
+      padding-top: rem(72);
     }
 
-    .post-block-related {
-      text-align: left;
+    @include breakpoint(medium) {
+      grid-template-areas: 
+        'event twitter'
+        'news twitter';
+      grid-template-columns: 1fr 1fr;
+    }
 
-      &__title {
-        @extend %text-style-heading-medium;
-        color: $color-white-100;
+    @include breakpoint(xlarge) {
+      grid-template-areas: 
+        'event'
+        'news'
+        'twitter';
+      grid-template-columns: 1fr;
+    }
+
+    .post-meta__event-meta {
+      clear: both;
+      margin: 0 -6vw;
+      margin-top: rem(40);
+      padding: 0;
+      border-top: 3px $color-border-light-115 solid;
+      
+      @include breakpoint(medium) {
+        display: none;
       }
 
-      .post-meta__date {
+      @include breakpoint(xlarge) {
+        display: block;
+        margin: 0 -6%;
+        margin-top: rem(40);
+      }
+    }
 
-        .post-meta__label {
-          display: none;
+    &::after,
+    &::before {
+      z-index: -1;
+    }
+
+    .twitter-section {
+      grid-area: twitter;
+
+      &-title {
+        margin-top: rem(32);
+        margin-bottom: rem(16);
+        @extend %text-style-heading-large-strong;
+
+        @include breakpoint(medium) {
+          margin-top: 0;
+        }
+
+        @include breakpoint(xlarge) {
+          margin-top: rem(32);
         }
       }
+    }
 
-      .post-meta__terms{
+    .upcoming-event {
+      grid-area: event;
+
+      &-title {
+        @extend %text-style-heading-large-strong;
+      }
+    }
+
+    .post-block {
+      --post-meta: #{$color-white-100};
+      padding: 0;
+      padding-top: rem(16);
+      background-color: unset;
+
+      .post-meta {
         --post-meta: #{$color-accent-secondary-yellow-100};
       }
 
-      .post-meta__date {
-        --post-meta: #{$color-white-180};
-        @extend %text-style-label-medium;
+      &__event-meta {
+        clear: both;
+        margin: 0 -6vw;
+        padding: 0;
+        border-top: 3px $color-border-light-115 solid;
+
+        @include breakpoint(medium) {
+          margin: 0;
+          margin-left: -6vw;
+        }
+
+        @include breakpoint(xlarge) {
+          margin: 0 -6%;
+        }
+      }
+
+      &__title {
+        color: var(--post-meta);
+        @extend %text-style-heading-medium;
+      }
+
+      &__excerpt {
+        display: none;
+      }
+
+      &__event-date {
+        float: left;
+        background-color: var(--post-meta);
       }
     }
 
-    .post-block-related:nth-of-type(2){
-      margin: rem(40) 0;
+    .news-posts {
+      grid-area: news;
+      margin-top: rem(32);
+
+      &-title {
+        margin-bottom: rem(16);
+        @extend %text-style-heading-large-strong;
+      }
+
+      /* stylelint-disable */
+      .post-block-related {
+        text-align: left;
+
+        &__title {
+          @extend %text-style-heading-medium;
+          color: $color-white-100;
+        }
+
+        .post-meta__date {
+          .post-meta__label {
+            display: none;
+          }
+        }
+
+        .post-meta__terms {
+          --post-meta: #{$color-accent-secondary-yellow-100};
+        }
+
+        .post-meta__date {
+          --post-meta: #{$color-white-180};
+          @extend %text-style-label-medium;
+        }
+        /* stylelint-enable */
+      }
+
+      .post-block-related:nth-of-type(2) {
+        margin: rem(40) 0;
+      }
     }
   }
 

@@ -335,21 +335,9 @@ function nuclearnetwork_sidebar_registration() {
 		array_merge(
 			$footer_shared_args,
 			array(
-				'name'        => __( 'Descrption Footer Component', 'nuclearnetwork' ),
+				'name'        => __( 'Twitter Feed', 'nuclearnetwork' ),
 				'id'          => 'sidebar-2',
-				'description' => __( 'Widgets in this area will be displayed in the second column in the footer.', 'nuclearnetwork' ),
-			)
-		)
-	);
-
-	// Footer #3.
-	register_sidebar(
-		array_merge(
-			$footer_shared_args,
-			array(
-				'name'        => __( 'Footer #3', 'nuclearnetwork' ),
-				'id'          => 'sidebar-3',
-				'description' => __( 'Widgets in this area will be displayed in the third column in the footer.', 'nuclearnetwork' ),
+				'description' => __( 'This is the twitter feed for the main page.', 'nuclearnetwork' ),
 			)
 		)
 	);
