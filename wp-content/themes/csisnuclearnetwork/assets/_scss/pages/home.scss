@@ -1,6 +1,7 @@
 @use '../abstracts' as *;
 @use '../components/home-issue-block';
 @use '../components/home-about-poni';
+@use '../components/home-event-block';
 
 .home {
   #site-content {
@@ -504,6 +505,7 @@
     padding-bottom: rem(48);
     color: $color-white-100;
     column-gap: rem(40);
+    background-color: #153b6a;
 
     @include breakpoint(small) {
       padding-top: rem(72);
@@ -514,6 +516,7 @@
         'event twitter'
         'news twitter';
       grid-template-columns: 1fr 1fr;
+      grid-template-rows: max-content;
     }
 
     @include breakpoint(xlarge) {
@@ -530,9 +533,10 @@
       margin-top: rem(40);
       padding: 0;
       border-top: 3px $color-border-light-115 solid;
-      
+
       @include breakpoint(medium) {
-        display: none;
+        margin-right: 0;
+        margin-left: -6vw;
       }
 
       @include breakpoint(xlarge) {
@@ -570,6 +574,7 @@
 
       &-title {
         @extend %text-style-heading-large-strong;
+        margin-bottom: rem(16);
       }
     }
 
@@ -577,40 +582,15 @@
       --post-meta: #{$color-white-100};
       padding: 0;
       padding-top: rem(16);
-      background-color: unset;
+      // background-color: unset;
 
       .post-meta {
         --post-meta: #{$color-accent-secondary-yellow-100};
       }
 
-      &__event-meta {
-        clear: both;
-        margin: 0 -6vw;
-        padding: 0;
-        border-top: 3px $color-border-light-115 solid;
-
-        @include breakpoint(medium) {
-          margin: 0;
-          margin-left: -6vw;
-        }
-
-        @include breakpoint(xlarge) {
-          margin: 0 -6%;
-        }
-      }
-
       &__title {
         color: var(--post-meta);
         @extend %text-style-heading-medium;
-      }
-
-      &__excerpt {
-        display: none;
-      }
-
-      &__event-date {
-        float: left;
-        background-color: var(--post-meta);
       }
     }
 
@@ -621,6 +601,17 @@
       &-title {
         margin-bottom: rem(16);
         @extend %text-style-heading-large-strong;
+      }
+
+      .post-meta__event-meta {
+
+        @include breakpoint(medium) {
+          display: none;
+        }
+
+        @include breakpoint(xlarge) {
+          display: block;
+        }
       }
 
       /* stylelint-disable */

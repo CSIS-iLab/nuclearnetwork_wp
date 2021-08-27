@@ -35,10 +35,11 @@ $latest_events = new WP_Query( $event_args );
 echo "<div class='home__event-and-posts-block'>";
 if ( $latest_events ) {
     // do logic
-    echo "<div class='upcoming-event'><h3 class='upcoming-event-title'>Upcoming Event</h3>";
+    echo "<div class='upcoming-event'>";
     while ( $latest_events->have_posts() ) {
         $latest_events->the_post();
-        get_template_part( 'template-parts/block-post');
+        // get_template_part( 'template-parts/block-post');
+        get_template_part( 'template-parts/home-event-block' );
     }
     wp_reset_postdata();
     echo "</div>";
@@ -48,7 +49,6 @@ if ( $latest_news ) {
     echo "<div class='news-posts'><h3 class='news-posts-title'>Latest News</h3>";
     while ( $latest_news->have_posts() ) {
         $latest_news->the_post();
-        // get_template_part( 'template-parts/block', get_post_type() );
         get_template_part( 'template-parts/block-post-related');
     }
     wp_reset_postdata();
