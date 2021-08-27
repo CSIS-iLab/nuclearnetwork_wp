@@ -10,22 +10,31 @@ class NuclearNetwork_Menu extends Walker_Nav_Menu {
     function start_lvl( &$output, $depth = 0, $args = array() ) {
 				// Only show the featured content if we have a URL.
         if ( $args->has_featured === true && $args->featured_post ) {
-          $featured_post_id = $args->featured_post[0];
+          $featured_post = $args->featured_post[0];
+          $featured_post_id = $featured_post->ID;
             $title = get_the_title($featured_post_id);
             $permalink = get_permalink($featured_post_id);
             $thumbnail = get_the_post_thumbnail_url($featured_post_id);
             $post_type = get_post_type($featured_post_id);
 
-            if ( function_exists( 'coauthors' ) ) {
-              $authors = coauthors_posts_links( ', ', ',&nbsp', null, null, false );
+            
+            // var_dump(get_coauthors($featured_post_id));
+
+            if (function_exists('coauthors_posts_links')) {
+              $authors = '';
+        
+              foreach (get_coauthors($featured_post_id) as $coauthor) {
+                $name = $coauthor->display_name;
+        
+                $authors .= '<div class="site-nav__feat-post-author">' . $name . '</div>';
+              }
             } else {
-              $authors = the_author_posts_link();
+              $authors .= the_author_posts_link($featured_post_id);
             }
+
             $author_list = '<div class="site-nav__feat-post-authors text--bold">' . $authors . '</div>';
 
-            if ( !$authors || in_array( $post_type, array( 'events', 'programs', 'projects' ) ) ) {
-              $author_list = '';
-            }
+
             
             $featured_post_html = '<div class="site-nav__feat-post-terms-type text--bold">Featured</div>
             <a href="' . esc_url ( $permalink ) . '" class="site-nav__feat-post-title text--bold">' . $title . '</a>' .
