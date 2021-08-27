@@ -10,13 +10,12 @@ class NuclearNetwork_Menu extends Walker_Nav_Menu {
     function start_lvl( &$output, $depth = 0, $args = array() ) {
 				// Only show the featured content if we have a URL.
         if ( $args->has_featured === true && $args->featured_post ) {
-          $featured_post_id = $args->featured_post[0]->ID;
+          $featured_post_id = $args->featured_post[0];
             $title = get_the_title($featured_post_id);
             $permalink = get_permalink($featured_post_id);
             $thumbnail = get_the_post_thumbnail_url($featured_post_id);
             $post_type = get_post_type($featured_post_id);
 
-            
             if ( function_exists( 'coauthors' ) ) {
               $authors = coauthors_posts_links( ', ', ',&nbsp', null, null, false );
             } else {
@@ -53,9 +52,9 @@ class NuclearNetwork_Menu extends Walker_Nav_Menu {
         $args->parent_title = $item->title;
 
         $args->has_featured = false;
+        $args->featured_post = get_field('featured_post_main_menu', $args->menu);
         
         if (in_array('nav-menu__has-featured', $item->classes)) {
-          $args->featured_post = get_field('featured_post_main_menu', $args->menu);
           $args->has_featured = true;
         }
 
