@@ -12,13 +12,10 @@ class NuclearNetwork_Menu extends Walker_Nav_Menu {
         if ( $args->has_featured === true && $args->featured_post ) {
           $featured_post = $args->featured_post[0];
           $featured_post_id = $featured_post->ID;
-            $title = get_the_title($featured_post_id);
+            $title = mb_strimwidth(get_the_title($featured_post_id), 0, 59, '...');
             $permalink = get_permalink($featured_post_id);
             $thumbnail = get_the_post_thumbnail_url($featured_post_id);
             $post_type = get_post_type($featured_post_id);
-
-            
-            // var_dump(get_coauthors($featured_post_id));
 
             if (function_exists('coauthors_posts_links')) {
               $authors = '';
@@ -33,8 +30,6 @@ class NuclearNetwork_Menu extends Walker_Nav_Menu {
             }
 
             $author_list = '<div class="site-nav__feat-post-authors text--bold">' . $authors . '</div>';
-
-
             
             $featured_post_html = '<div class="site-nav__feat-post-terms-type text--bold">Featured</div>
             <a href="' . esc_url ( $permalink ) . '" class="site-nav__feat-post-title text--bold">' . $title . '</a>' .
@@ -43,12 +38,16 @@ class NuclearNetwork_Menu extends Walker_Nav_Menu {
           }
 
         $indent = str_repeat("\t", $depth);
-        $output .= "\n$indent<div class='submenu-container row'>
-            <div class='hidden-xs col-md-4 submenu-featured-post'>
-                " . $featured_post_html . "
-            </div>\n
-            <div class='col-xs-12 col-md submenu-children'>\n
-                <ul class='sub-menu'>\n";
+        $output .= "\n$indent<div class='sub-menu-container row'>
+            <div class='col-xs-12 col-md sub-menu-children'>\n";
+
+        if ( $args->has_featured ) {
+          $output .= "<div class='hidden-xs col-md-4 sub-menu-featured-post'>
+                      " . $featured_post_html . "
+                      </div>\n";
+        }
+
+        $output .= "<ul class='sub-menu'>\n";
     }
 
     function end_lvl( &$output, $depth = 0, $args = array() ) {
@@ -63,7 +62,7 @@ class NuclearNetwork_Menu extends Walker_Nav_Menu {
         $args->has_featured = false;
         $args->featured_post = get_field('featured_post_main_menu', $args->menu);
         
-        if (in_array('nav-menu__has-featured', $item->classes)) {
+        if (in_array('site-nav__has-featured', $item->classes)) {
           $args->has_featured = true;
         }
 

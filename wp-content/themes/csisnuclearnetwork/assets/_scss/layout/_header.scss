@@ -2,7 +2,7 @@
 
 .header {
   position: fixed;
-  @extend %text-style-label-large-caps;
+  // @extend %text-style-label-large-caps;
   top: 0;
   right: 0;
   left: 0;
@@ -327,8 +327,8 @@
   &__menu {
     position: relative;
     height: 100%;
-    color: $color-white-190;
-    @extend %text-style-label-large-caps;
+    // color: $color-white-190;
+    // @extend %text-style-label-large-caps;
 
     @include breakpoint('large') {
       position: static;
@@ -366,7 +366,7 @@
   .menu-item-has-children {
     @include breakpoint('large') {
       .sub-menu {
-        display: none;
+        // display: none;
       }
 
       &.is-active .sub-menu,
@@ -397,7 +397,7 @@
       @include font-size(18px);
       @include shadow('lg');
       transition: clip-path 0.3s linear, visibility 0.3s linear;
-      clip-path: inset(0 0 100% 0);
+      // clip-path: inset(0 0 100% 0);
     }
 
     a {
@@ -406,6 +406,92 @@
       @include breakpoint('large') {
         padding-right: 1rem;
       }
+    }
+  }
+
+  &__has-featured {
+    .sub-menu-container {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .sub-menu-children {
+      order: 1;
+    }
+
+    .sub-menu {
+      display: grid;
+    }
+  }
+
+  &__icon-link {
+    grid-column: 1;
+  }
+
+  &__cat-list {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+
+    a::after {
+      content: '' !important;
+    }
+  }
+
+  .sub-menu-featured-post {
+    display: none;
+
+    @include breakpoint('large') {
+      display: grid;
+      grid-template-areas:
+        'terms img'
+        'title img'
+        'author img';
+      grid-template-columns: 2fr 1fr;
+      max-width: rem(437);
+      padding-left: rem(24);
+      column-gap: rem(16);
+      row-gap: rem(8);
+      background: linear-gradient(180deg, #10385f 0%, #1c5b96 100%);
+    }
+  }
+
+  &__feat-post-terms-type {
+    @extend %text-style-label-small-caps;
+    grid-area: terms;
+    margin-top: rem(24);
+    color: $color-white-165;
+  }
+
+  &__feat-post-title {
+    @extend %text-style-label-large;
+    grid-area: title;
+    color: $color-white-190;
+  }
+
+  &__feat-post-authors {
+    @extend %text-style-label-small;
+    display: flex;
+    grid-area: author;
+    margin-bottom: rem(24);
+    color: $color-white-180;
+  }
+
+  &__feat-post-author:not(:last-child)::after {
+    content: ',';
+    margin-right: rem(4);
+  }
+
+  &__feat-post-thumbnail {
+    grid-area: img;
+
+    a {
+      height: 100%;
+    }
+
+    img {
+      object-fit: cover;
+      object-position: center;
+      height: 100%;
     }
   }
 }
