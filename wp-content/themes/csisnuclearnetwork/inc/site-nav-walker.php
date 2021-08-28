@@ -37,6 +37,12 @@ class NuclearNetwork_Menu extends Walker_Nav_Menu {
             <div class="site-nav__feat-post-thumbnail"><a href="' . esc_url ( $permalink ) . '"> <img src="' . esc_url ( $thumbnail ) . '"></a></div>';
           }
 
+        $class_names = $value = '';
+        $classes = empty( $item->classes ) ? array() : (array) $item->classes;
+        $classes[] = 'sub-menu sub-menu-depth-' . $depth;
+        $class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item, $args ) );
+        $class_names = $class_names ? ' class="' . esc_attr( $class_names ) . '"' : '';
+
         $indent = str_repeat("\t", $depth);
         $output .= "\n$indent<div class='sub-menu-container row'>
             <div class='col-xs-12 col-md sub-menu-children'>\n";
@@ -47,7 +53,7 @@ class NuclearNetwork_Menu extends Walker_Nav_Menu {
                       </div>\n";
         }
 
-        $output .= "<ul class='sub-menu'>\n";
+        $output .= "<ul" . $class_names . ">\n";
     }
 
     function end_lvl( &$output, $depth = 0, $args = array() ) {
