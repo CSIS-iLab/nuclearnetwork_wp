@@ -122,4 +122,12 @@
 .title {
   flex-grow: 1;
   margin-bottom: 0;
+
+  &:hover {
+    color: #{$color-accent-secondary-yellow-100};
+  }
+
+  &:focus {
+    background-color: $color-accent-primary-blue-100;
+  }
 }

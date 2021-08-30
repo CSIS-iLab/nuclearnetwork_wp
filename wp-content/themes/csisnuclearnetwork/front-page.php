@@ -15,14 +15,14 @@ get_header();
 <main id="site-content" role="main">
 	<?php
 	$excluded_featured_post_ids_from_recent = array();
-	$featured_primary_post = get_field( 'primary_featured_post' );
+	$featured_posts = get_field( 'featured_posts' );
 
-	if ( $featured_primary_post ) :
+	if ( $featured_posts ) :
 
 		echo '<section class="home__featured-primary">';
 		echo '<h2 class="home__featured-primary-label">Featured</h2>';
 
-		foreach ( $featured_primary_post as $post ) :
+		foreach ( $featured_posts as $post ) :
 			$excluded_featured_post_ids_from_recent[] = $post->ID;
 
 			setup_postdata( $post );
@@ -35,17 +35,6 @@ get_header();
 		echo '</section>';
 		
 	endif; 
-	
-	get_template_part( 'template-parts/carousel', get_post_type() );
-
-	$secondary_featured_post = get_field( 'secondary_featured_posts' );
-
-	if ( $secondary_featured_post ) {
-		foreach ($secondary_featured_post as $post) {
-			$excluded_featured_post_ids_from_recent[] = $post->ID;
-		}
-	}
-	
 	?>
 
 	<section class="home__recent">
@@ -75,24 +64,6 @@ get_header();
 		</div>
 	</section>
 
-	<?php
-	$featured_secondary_posts = get_field( 'secondary_featured_posts' );
-	if ( $featured_secondary_posts ) :
-
-		echo '<section class="home__featured-secondary">';
-
-		foreach ( $featured_secondary_posts as $post ) :
-
-			setup_postdata( $post );
-			get_template_part( 'template-parts/block', get_post_type() );
-
-		endforeach;
-
-		wp_reset_postdata();
-		echo '</section>';
-
-	endif; ?>
-
 <section class="home__cta">
 	<a href="/analysis" class="btn btn--outline-dark btn--large">All Posts <?php echo nuclearnetwork_get_svg( "chevron-right" ); ?></a>
 	<a href="/analysis" class="btn btn--outline-blue btn--small">All Posts <?php echo nuclearnetwork_get_svg( "chevron-right" ); ?></a>
@@ -114,7 +85,7 @@ get_header();
 	endif;
 
 	?>
-	<?php get_template_part( 'template-parts/block-upcoming-event-recent-posts' ); ?>
+	<?php get_template_part( 'template-parts/block-upcoming-event-recent-posts', null, $excluded_featured_post_ids_from_recent); ?>
 	<?php get_template_part( 'template-parts/newsletter-block-acf' ); ?>
 	<?php get_template_part( 'template-parts/home-about-poni' ); ?>
 

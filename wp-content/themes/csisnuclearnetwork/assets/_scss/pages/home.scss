@@ -505,7 +505,6 @@
     padding-bottom: rem(48);
     color: $color-white-100;
     column-gap: rem(40);
-    background-color: #153b6a;
 
     @include breakpoint(small) {
       padding-top: rem(72);
@@ -621,6 +620,14 @@
         &__title {
           @extend %text-style-heading-medium;
           color: $color-white-100;
+
+            &:hover {
+              color: $color-accent-secondary-yellow-100;
+            }
+
+            &:focus {
+              background-color: $color-accent-primary-blue-100;
+            }
         }
 
         .post-meta__date {
