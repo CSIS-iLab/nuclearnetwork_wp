@@ -76,7 +76,7 @@
       margin-top: rem(12px);
     }
 
-    ol:not(.footnotes__list):not(.easy-footnotes-wrapper):not(.career-block__li)::marker,
+    ol:not(.footnotes__list):not(.easy-footnotes-wrapper),
     li::marker {
       color: $color-accent-secondary-yellow-100;
     }
@@ -266,7 +266,7 @@
   /* stylelint-disable-next-line */
   h2.cite__heading {
     color: $color-accent-primary-blue-100;
-    @extend %text-style-label-medium; 
+    @extend %text-style-label-medium;
   }
 
   .cite__container {
