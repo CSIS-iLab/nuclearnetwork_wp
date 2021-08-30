@@ -1,25 +1,32 @@
 @use '../abstracts' as *;
 
 .wp-block-lazyblock-career-opportunities {
-    background-color: $color-bg-light-300;
-    @include full-width-background($color-bg-light-300);
-    padding-top: 2.5rem;
-    padding-bottom: 2.5rem;
-    margin-top: 2.5rem;
-    margin-bottom: 2.5rem;
-    position: relative;
-    @extend %text-style-paragraph-large;
-    color: $color-black-190;
+  position: relative;
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+  color: $color-black-190;
+  @include full-width-background($color-bg-light-300);
+  background-color: $color-bg-light-300;
+  @extend %text-style-paragraph-large;
 
-    li::marker {
-        color: $color-black-100 !important;
-    }
+  .career-block__li::marker {
+    color: $color-black-100;
+  }
 
-    .icon-suitcase {
-        vertical-align: top;
-    }
+  .icon-suitcase {
+    vertical-align: top;
+  }
 
-    h2 {
-        margin-top: 0 !important;
+  .career-block__h2 {
+    margin-top: 0;
+    margin-bottom: rem(12);
+    color: $color-accent-primary-blue-300;
+    @extend %text-style-heading-x-large;
+    
+    @include breakpoint('large') {
+      margin-bottom: rem(16);
     }
+  }
 }

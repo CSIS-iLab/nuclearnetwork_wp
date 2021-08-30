@@ -20,7 +20,7 @@
 
     /*----------  Headings  ----------*/
 
-    h2:not(.footnotes__heading):not(.cite__heading),
+    h2:not(.footnotes__heading):not(.cite__heading):not(.career-block__h2),
     h3,
     h4,
     h5,
@@ -29,7 +29,7 @@
       margin-bottom: rem(8);
     }
 
-    h2:not(.footnotes__heading):not(.cite__heading) {
+    h2:not(.footnotes__heading):not(.cite__heading):not(.career-block__h2) {
       --heading-margin-top: #{rem(56)};
       margin-bottom: rem(16);
       @extend %text-style-heading-x-large;
@@ -76,7 +76,7 @@
       margin-top: rem(12px);
     }
 
-    ol:not(.footnotes__list):not(.easy-footnotes-wrapper)::marker,
+    ol:not(.footnotes__list):not(.easy-footnotes-wrapper):not(.career-block__li)::marker,
     li::marker {
       color: $color-accent-secondary-yellow-100;
     }
