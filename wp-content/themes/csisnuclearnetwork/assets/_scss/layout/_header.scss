@@ -442,6 +442,13 @@
 
   &__icon-link {
     grid-column: 1;
+
+    &::after {
+      display: inline-block;
+      content: url('/wp-content/themes/csisnuclearnetwork/assets/static/icons/chevron-right.svg');
+      width: 8px;
+      height: 12px;
+    }
   }
 
   &__cat-list {
