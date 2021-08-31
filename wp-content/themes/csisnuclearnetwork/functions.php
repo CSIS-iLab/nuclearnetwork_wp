@@ -387,10 +387,13 @@ function nuclearnetwork_sidebar_registration() {
 
 
 	register_sidebar(
-		array(
-			'name'        => __( 'Write for us', 'nuclearnetwork' ),
-			'id'          => 'write-for-us',
-			'description' => __( 'Write for us', 'nuclearnetwork' )
+		array_merge(
+			$footer_shared_args,
+			array(
+				'name'        => __( 'Write for us', 'nuclearnetwork' ),
+				'id'          => 'write-for-us',
+				'description' => __( 'Write for us', 'nuclearnetwork' )
+			)
 		)
 	);
 
