@@ -11,24 +11,21 @@
     }
   }
 
-  .post-meta {
-    --post-meta: #{$color-accent-secondary-yellow-100};
+  &-title {
+    flex-grow: 1;
+    margin-bottom: 0;
+
+    &:hover {
+      color: #{$color-accent-secondary-yellow-100};
+    }
+
+    &:focus {
+      background-color: $color-accent-primary-blue-100;
+    }
   }
 
-  &-meta {
-    clear: both;
-    margin: 0 -6vw;
-    padding: 0;
-    border-top: 3px $color-border-light-115 solid;
-
-    @include breakpoint(medium) {
-      margin: 0;
-      margin-left: -6vw;
-    }
-
-    @include breakpoint(xlarge) {
-      margin: 0 -6%;
-    }
+  .post-meta {
+    --post-meta: #{$color-accent-secondary-yellow-100};
   }
 
   &-date {
@@ -75,17 +72,6 @@
       --date-width: #{rem(108)};
       --date-height: #{rem(135)};
     }
-
-    .archive__featured {
-      color: $color-bg-light-100;
-      background-color: var(--calendar-color);
-
-      &::before {
-        background-color: $color-bg-light-100;
-        border-right: 4px solid var(--calendar-color);
-        border-left: 4px solid var(--calendar-color);
-      }
-    }
   }
 
   &-month {
@@ -117,17 +103,19 @@
       letter-spacing: 0.005em;
     }
   }
-}
 
-.title {
-  flex-grow: 1;
-  margin-bottom: 0;
+  .post-meta__terms {
+    --post-meta: #{$color-accent-secondary-yellow-100};
 
-  &:hover {
-    color: #{$color-accent-secondary-yellow-100};
-  }
+    &-type {
+      &:hover {
+        color: $color-white-100;
+      }
 
-  &:focus {
-    background-color: $color-accent-primary-blue-100;
+      &:focus { 
+        color: $color-white-100;
+        background-color: $color-accent-primary-blue-100;
+      }
+    }
   }
 }

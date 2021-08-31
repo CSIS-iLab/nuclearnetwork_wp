@@ -46,7 +46,7 @@ if ($yesterday >= $event_full_date){
     return;
 } else {
 ?>
-<h3 class='upcoming-event-title'>Upcoming Event</h3>
+<h3 class='home__event-and-posts-block-title'>Upcoming Event</h3>
 <div class="event event-content">
 			<?php
 			if ( $event_date ) { ?>
@@ -54,9 +54,9 @@ if ($yesterday >= $event_full_date){
 			<?php
 			}
 			nuclearnetwork_display_subtypes();
-			the_title( '<h3 class="title text--bold"><a href="' . esc_url( get_permalink() ) . '">', '</a></h3>' );
+			the_title( '<h3 class="event-title text--bold"><a href="' . esc_url( get_permalink() ) . '">', '</a></h3>' );
 			?>
 </div>
-<div class='post-meta__event-meta'></div>
+<hr></hr>
 
 <?php } ?>

@@ -37,33 +37,6 @@ get_header();
 	endif; 
 	?>
 
-	<section class="home__recent">
-		<h2 class="home__recent-label"><?php _e( 'Recent Posts', 'nuclearnetwork' ); ?></h2>
-		<?php
-		echo nuclearnetwork_get_svg( "3-arrows" );
-
-		echo '<div class="home__recent-posts">';
-		$most_recent_args = array(
-			'post_type' => 'post',
-			'post_status' => 'publish',
-			'posts_per_page' => 3,
-			'post__not_in' => $excluded_featured_post_ids_from_recent
-		);
-
-		$most_recent_posts = new WP_Query( $most_recent_args );
-
-		if ( $most_recent_posts->have_posts() ) {
-			while ( $most_recent_posts->have_posts() ) {
-				$most_recent_posts->the_post();
-				get_template_part( 'template-parts/block', get_post_type() );
-			}
-			wp_reset_postdata();
-		}
-
-		?>
-		</div>
-	</section>
-
 <section class="home__cta">
 	<a href="/analysis" class="btn btn--outline-dark btn--large">All Posts <?php echo nuclearnetwork_get_svg( "chevron-right" ); ?></a>
 	<a href="/analysis" class="btn btn--outline-blue btn--small">All Posts <?php echo nuclearnetwork_get_svg( "chevron-right" ); ?></a>
@@ -85,7 +58,7 @@ get_header();
 	endif;
 
 	?>
-	<?php get_template_part( 'template-parts/block-upcoming-event-recent-posts', null, $excluded_featured_post_ids_from_recent); ?>
+	<?php get_template_part( 'template-parts/home-recent-section', null, $excluded_featured_post_ids_from_recent); ?>
 	<?php get_template_part( 'template-parts/newsletter-block-acf' ); ?>
 	<?php get_template_part( 'template-parts/home-about-poni' ); ?>
 

@@ -502,7 +502,7 @@
       'news'
       'twitter';
     padding-top: rem(40);
-    padding-bottom: rem(48);
+    padding-bottom: rem(72);
     color: $color-white-100;
     column-gap: rem(40);
 
@@ -526,16 +526,31 @@
       grid-template-columns: 1fr;
     }
 
-    .post-meta__event-meta {
-      clear: both;
-      margin: 0 -6vw;
-      margin-top: rem(40);
-      padding: 0;
-      border-top: 3px $color-border-light-115 solid;
+    &-title {
+      margin-bottom: rem(16);
+      @extend %text-style-heading-large-strong;
+
+      &-twitter {
+        margin-top: rem(32);
+        @include breakpoint(medium) {
+          margin-top: 0;
+        }
+
+        @include breakpoint(xlarge) {
+          margin-top: rem(32);
+        }
+      }
+    }
+
+    hr {
+      height: 3px;
+      margin: rem(40) -6vw 0;
+      color: $color-border-light-115;
+      background-color: $color-border-light-115;
+      border: unset;
 
       @include breakpoint(medium) {
         margin-right: 0;
-        margin-left: -6vw;
       }
 
       @include breakpoint(xlarge) {
@@ -552,58 +567,17 @@
 
     .twitter-section {
       grid-area: twitter;
-
-      &-title {
-        margin-top: rem(32);
-        margin-bottom: rem(16);
-        @extend %text-style-heading-large-strong;
-
-        @include breakpoint(medium) {
-          margin-top: 0;
-        }
-
-        @include breakpoint(xlarge) {
-          margin-top: rem(32);
-        }
-      }
     }
 
     .upcoming-event {
       grid-area: event;
-
-      &-title {
-        @extend %text-style-heading-large-strong;
-        margin-bottom: rem(16);
-      }
-    }
-
-    .post-block {
-      --post-meta: #{$color-white-100};
-      padding: 0;
-      padding-top: rem(16);
-      // background-color: unset;
-
-      .post-meta {
-        --post-meta: #{$color-accent-secondary-yellow-100};
-      }
-
-      &__title {
-        color: var(--post-meta);
-        @extend %text-style-heading-medium;
-      }
+      margin-bottom: rem(32);
     }
 
     .news-posts {
       grid-area: news;
-      margin-top: rem(32);
 
-      &-title {
-        margin-bottom: rem(16);
-        @extend %text-style-heading-large-strong;
-      }
-
-      .post-meta__event-meta {
-
+      hr {
         @include breakpoint(medium) {
           display: none;
         }
@@ -638,6 +612,15 @@
 
         .post-meta__terms {
           --post-meta: #{$color-accent-secondary-yellow-100};
+          &-type {
+            &:hover {
+              color: white;
+            }
+            &:focus { 
+              color: white;
+              background-color: $color-accent-primary-blue-100;
+            }
+          }
         }
 
         .post-meta__date {
@@ -647,7 +630,7 @@
         /* stylelint-enable */
       }
 
-      .post-block-related:nth-of-type(2) {
+      .post-block-related:not(:first-of-type):not(:last-of-type) {
         margin: rem(40) 0;
       }
     }

@@ -10,32 +10,20 @@
  * @subpackage @package NuclearNetwork
  * @since 1.0.0
  */
-
-$classes = 'home__upcomingEventSection';
 if( ! class_exists('ACF') ) {
     return;
 }
 
+// set excluded posts
 $excluded_posts = $args;
 
-
-// $excluded_featured_post_ids_from_recent = array();
-// $featured_posts = get_field( 'featured_posts' );
-
-// foreach($featured_posts as $post){
-//     $excluded_featured_post_ids_from_recent[] = $post->ID;
-// }
-
-// echo $args[0];
-// echo $excluded_featured_post_ids_from_recent[0];
-
-$news_args = array(
+// set args for retrieving posts
+$recent_args = array(
 'numberposts' => 3,
 'posts_per_page' => 3,
 'post_type'   => 'post',
 'post_status' => 'publish',
 'post__not_in' => $excluded_posts
-// 'fields' => 'ids'
 );
 $event_args = array(
 'numberposts' => 1,
@@ -44,43 +32,44 @@ $event_args = array(
 'post_type'   => 'events',
 'post__not_in' => $excluded_posts
 );
-$latest_news = new WP_Query( $news_args );
+
+// retrieve posts 
+$latest_posts = new WP_Query( $recent_args );
 $latest_events = new WP_Query( $event_args );
 
+// start output
 echo "<div class='home__event-and-posts-block'>";
+
+// check for events
 if ( $latest_events ) {
-    // do logic
     echo "<div class='upcoming-event'>";
+    // cycle through and output all events
     while ( $latest_events->have_posts() ) {
         $latest_events->the_post();
-        // get_template_part( 'template-parts/block-post');
         get_template_part( 'template-parts/home-event-block' );
     }
     wp_reset_postdata();
     echo "</div>";
 }
 
-if ( $latest_news ) {
-    echo "<div class='news-posts'><h3 class='news-posts-title'>Latest News</h3>";
-    while ( $latest_news->have_posts() ) {
-        $latest_news->the_post();
+// check for posts
+if ( $latest_posts ) {
+    // cycle through and post all news
+    echo "<div class='news-posts'><h3 class='home__event-and-posts-block-title'>The Latest</h3>";
+    while ( $latest_posts->have_posts() ) {
+        $latest_posts->the_post();
         get_template_part( 'template-parts/block-post-related');
     }
     wp_reset_postdata();
-    echo "<div class='post-meta__event-meta'></div>";
+    echo "<hr></hr>";
     echo "</div>";
 }
 
-echo "<div class='twitter-section'><h3 class='twitter-section-title'>Twitter</h3>";
+echo "<div class='twitter-section'><h3 class='home__event-and-posts-block-title home__event-and-posts-block-title-twitter'>Twitter</h3>";
 // twitter sidebar
 dynamic_sidebar( 'sidebar-2' );
+
+// finish output
 echo "</div></div>";
 
 ?>
-
-<article <?php post_class( $classes ); ?>>
-
-
-
-
-</article>
