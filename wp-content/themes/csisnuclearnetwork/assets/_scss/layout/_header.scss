@@ -192,6 +192,7 @@
 
 .site-nav {
   --line-width: #{rem(20)};
+  --sub-menu-bg: #{$color-bg-light-200};
 
   display: flex;
   align-items: center;
@@ -346,6 +347,10 @@
 
       &:first-child {
         margin-top: calc(#{rem(24)} + var(--line-width));
+
+        @include breakpoint('large') {
+          margin-top: rem(16);
+        }
       }
 
       @include breakpoint('large') {
@@ -419,14 +424,9 @@
     list-style: none;
 
     @include breakpoint('large') {
-      position: absolute;
-      top: 100%;
-      left: calc(-0.5rem + 1px);
+      width: max-content;
       padding: 0.5rem;
       color: $color-black-190;
-      background-color: $color-bg-light-200;
-      transition: clip-path 0.3s linear, visibility 0.3s linear;
-      // clip-path: inset(0 0 100% 0);
     }
 
     li:not(.menu-item-has-children) {
@@ -438,39 +438,55 @@
     }
   }
 
+  .sub-menu-container-depth-0 {
+    @include breakpoint('large') {
+      position: absolute;
+      top: 80%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+
   .sub-menu-depth-0 {
     padding-left: rem(32);
+
+    @include breakpoint('large') {
+      padding: rem(24);
+      color: $color-black-190;
+      background-color: var(--sub-menu-bg);
+      transition: clip-path 0.3s linear, visibility 0.3s linear;
+
+      &::after {
+        position: absolute;
+        top: -12px;
+        left: 50%;
+        width: 0;
+        height: 0;
+        content: '';
+        border-right: 10px solid transparent;
+        border-bottom: 12px solid var(--sub-menu-bg);
+        border-left: 10px solid transparent;
+        transform: translateX(-50%);
+      }
+    }
   }
 
   &__has-featured {
     > .sub-menu-container {
-      position: relative;
-      top: 100%;
-
       @include breakpoint('large') {
-        background-color: $color-bg-light-200;
+        .sub-menu {
+          display: grid;
+          grid-template-rows: max-content auto;
+        }
+
+        .sub-menu-depth-0 {
+          padding: rem(24);
+        }
       }
 
       .sub-menu-children {
         display: flex;
         flex-direction: column-reverse;
-      }
-
-      .sub-menu {
-        position: relative;
-        left: 0;
-        width: 100%;
-
-        @include breakpoint('large') {
-          display: grid;
-          grid-template-rows: max-content auto;
-        }
-      }
-
-      .sub-menu-depth-0 {
-        @include breakpoint('large') {
-          padding: rem(24);
-        }
       }
 
       .sub-menu-depth-1 {
@@ -512,6 +528,7 @@
       font-weight: bold;
 
       @include breakpoint('large') {
+        margin-top: 0;
         color: $color-accent-primary-blue-100;
       }
     }

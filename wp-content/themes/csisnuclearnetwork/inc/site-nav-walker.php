@@ -44,7 +44,7 @@ class NuclearNetwork_Menu extends Walker_Nav_Menu {
         $class_names = $class_names ? ' class="' . esc_attr( $class_names ) . '"' : '';
 
         $indent = str_repeat("\t", $depth);
-        $output .= "\n$indent<div class='sub-menu-container row'>
+        $output .= "\n$indent<div class='sub-menu-container sub-menu-container-depth-" . $depth . " row'>
             <div class='col-xs-12 col-md sub-menu-children'>\n";
 
         if ( $args->has_featured ) {
