@@ -20,17 +20,30 @@
     position: relative;
     order: 2;
     width: fit-content;
+    height: max-content;
     margin: auto;
+
+    &--desktop {
+      display: none;
+    }
 
     @include breakpoint('large') {
       z-index: 3;
       order: 1;
       margin: 0;
+
+      &--mobile {
+        display: none;
+      }
+
+      &--desktop {
+        display: block;
+      }
     }
 
     svg {
       max-width: 210px;
-      height: var(--logo-height);
+      // height: var(--logo-height);
 
       @include breakpoint('large') {
         max-width: 339px;
