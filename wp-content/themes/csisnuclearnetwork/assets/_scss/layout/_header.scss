@@ -424,7 +424,7 @@
     list-style: none;
 
     @include breakpoint('large') {
-      width: max-content;
+      width: 100%;
       padding: 0.5rem;
       color: $color-black-190;
     }
@@ -443,6 +443,7 @@
       position: absolute;
       top: 80%;
       left: 50%;
+      width: max-content;
       transform: translateX(-50%);
     }
   }
