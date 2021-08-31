@@ -204,12 +204,12 @@
   &__container {
     position: fixed !important;
     top: 0;
-    right: 83;
+    right: 83px;
     bottom: 0;
     left: 0;
     z-index: 1;
-    width: rem(320px);
-    background: $color-bg-dark-200;
+    width: rem(250);
+    background: $color-accent-primary-blue-100;
     visibility: hidden;
     transition: clip-path 0.3s linear, visibility 0.3s linear;
     clip-path: inset(0 100% 0 0);
@@ -327,17 +327,24 @@
   &__menu {
     position: relative;
     height: 100%;
+    margin: 0;
+    padding: rem(16);
 
     @include breakpoint('large') {
       position: static;
       top: 0;
       display: flex;
       align-items: center;
+      max-width: unset;
     }
 
     > li {
       position: relative;
-      margin: 0.75rem 0;
+      margin-top: rem(16);
+
+      &:first-child {
+        margin-top: rem(24);
+      }
 
       @include breakpoint('large') {
         display: flex;
@@ -349,6 +356,8 @@
       > a,
       > button {
         @extend %text-style-label-large-caps;
+        margin-bottom: rem(8);
+        padding: 0;
         color: $color-white-100;
         border: 0;
 
@@ -361,7 +370,7 @@
     a,
     button {
       display: inline-block;
-      padding: 0.75rem 0 0.75rem 2rem;
+      // padding: 0.75rem 0 0.75rem 2rem;
       background-color: transparent;
 
       &:hover {
@@ -376,8 +385,6 @@
 
   .menu-item-has-children {
     @include breakpoint('large') {
-      // background-color: $color-bg-light-200;
-
       .sub-menu {
         // display: none;
       }
@@ -405,7 +412,7 @@
   .sub-menu {
     @extend %text-style-label-medium;
     width: 200px;
-    padding-bottom: 0.5rem;
+    padding: 0;
     color: $color-white-190;
     list-style: none;
 
@@ -420,8 +427,8 @@
       // clip-path: inset(0 0 100% 0);
     }
 
-    a {
-      padding-bottom: rem(8);
+    li:not(.menu-item-has-children) {
+      margin-bottom: rem(8);
 
       @include breakpoint('large') {
         padding-right: rem(24);
@@ -429,11 +436,18 @@
     }
   }
 
+  .sub-menu-depth-0 {
+    padding-left: rem(32);
+  }
+
   &__has-featured {
     > .sub-menu-container {
       position: relative;
       top: 100%;
-      background-color: $color-bg-light-200;
+
+      @include breakpoint('large') {
+        background-color: $color-bg-light-200;
+      }
 
       .sub-menu-children {
         display: flex;
@@ -443,13 +457,18 @@
       .sub-menu {
         position: relative;
         left: 0;
-        display: grid;
-        grid-template-rows: max-content auto;
         width: 100%;
+
+        @include breakpoint('large') {
+          display: grid;
+          grid-template-rows: max-content auto;
+        }
       }
 
       .sub-menu-depth-0 {
-        padding: rem(24);
+        @include breakpoint('large') {
+          padding: rem(24);
+        }
       }
 
       .sub-menu-depth-1 {
@@ -485,7 +504,8 @@
 
     > a {
       @extend %text-style-label-small-caps;
-      padding-bottom: rem(12);
+      margin-top: rem(8);
+      margin-bottom: rem(12);
       color: $color-accent-secondary-yellow-100;
       font-weight: bold;
 
