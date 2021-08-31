@@ -191,6 +191,8 @@
 }
 
 .site-nav {
+  --line-width: #{rem(20)};
+
   display: flex;
   align-items: center;
   order: 1;
@@ -243,8 +245,8 @@
     left: 0;
     @include z-index(navTrigger);
     display: block;
-    width: 40px;
-    height: 40px;
+    width: rem(40);
+    height: rem(40);
     background-color: transparent;
     border: 0;
     transform: rotate(0deg);
@@ -264,10 +266,10 @@
     }
 
     &.is-active {
-      left: rem(230px);
+      left: -6vw;
 
       @include breakpoint('medium') {
-        left: rem(200px);
+        // left: rem(200px);
       }
     }
 
@@ -279,9 +281,9 @@
       position: absolute;
       left: 25%;
       display: block;
-      width: 20px;
+      width: var(--line-width);
       height: 2px;
-      background: $color-white-190;
+      background: $color-white-165;
       transform: rotate(0deg);
       opacity: 1;
       transition: 0.25s ease-in-out;
@@ -343,7 +345,7 @@
       margin-top: rem(16);
 
       &:first-child {
-        margin-top: rem(24);
+        margin-top: calc(#{rem(24)} + var(--line-width));
       }
 
       @include breakpoint('large') {
