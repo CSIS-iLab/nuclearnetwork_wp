@@ -610,10 +610,10 @@
           }
         }
 
-        .post-meta__terms,
-        .post-meta__terms a{
+        .post-meta__terms {
           --post-meta: #{$color-accent-secondary-yellow-100};
-          &-type {
+          &-type,
+          a {
             &:hover {
               color: white;
             }
