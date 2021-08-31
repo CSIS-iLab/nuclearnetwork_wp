@@ -192,7 +192,6 @@
 
 .site-nav {
   --line-width: #{rem(20)};
-  --sub-menu-bg: #{$color-bg-light-200};
 
   display: flex;
   align-items: center;
@@ -377,7 +376,6 @@
     a,
     button {
       display: inline-block;
-      // padding: 0.75rem 0 0.75rem 2rem;
       background-color: transparent;
 
       &:hover {
@@ -396,7 +394,7 @@
         // display: none;
       }
 
-      &.is-active .sub-menu,
+      &.is-active .sub-menu-container-depth-0,
       .sub-menu.focus {
         position: absolute;
         display: block;
@@ -440,22 +438,15 @@
 
   .sub-menu-container-depth-0 {
     @include breakpoint('large') {
+      // --sub-menu-bg: #{$color-bg-light-200};
       position: absolute;
       top: 80%;
       left: 50%;
       width: max-content;
+      background-color: $color-bg-light-200;
       transform: translateX(-50%);
-    }
-  }
-
-  .sub-menu-depth-0 {
-    padding-left: rem(32);
-
-    @include breakpoint('large') {
-      padding: rem(24);
-      color: $color-black-190;
-      background-color: var(--sub-menu-bg);
       transition: clip-path 0.3s linear, visibility 0.3s linear;
+      clip-path: inset(0 0 100% 0);
 
       &::after {
         position: absolute;
@@ -465,10 +456,35 @@
         height: 0;
         content: '';
         border-right: 10px solid transparent;
-        border-bottom: 12px solid var(--sub-menu-bg);
+        border-bottom: 12px solid $color-bg-light-200;
         border-left: 10px solid transparent;
         transform: translateX(-50%);
       }
+
+      &.is-active {
+        clip-path: inset(0);
+      }
+    }
+  }
+
+  .sub-menu-depth-0 {
+    padding-left: rem(32);
+
+    @include breakpoint('large') {
+      padding: rem(24);
+      color: $color-black-190;
+
+      // &::after {
+      //   position: absolute;
+      //   top: -12px;
+      //   left: 50%;
+      //   width: 0;
+      //   height: 0;
+      //   content: '';
+      //   border-right: 10px solid transparent;
+      //   border-left: 10px solid transparent;
+      //   transform: translateX(-50%);
+      // }
     }
   }
 
