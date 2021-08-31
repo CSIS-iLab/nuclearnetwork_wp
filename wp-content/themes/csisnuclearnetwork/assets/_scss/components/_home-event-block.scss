@@ -3,11 +3,9 @@
 .event {
   &-content {
     &::after {
-      @include breakpoint('small') {
-        content: '';
-        display: table;
-        clear: both;
-      }
+      content: '';
+      display: table;
+      clear: both;
     }
   }
 
