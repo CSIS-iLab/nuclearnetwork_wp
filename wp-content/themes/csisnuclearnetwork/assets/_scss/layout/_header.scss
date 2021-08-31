@@ -327,8 +327,6 @@
   &__menu {
     position: relative;
     height: 100%;
-    // color: $color-white-190;
-    // @extend %text-style-label-large-caps;
 
     @include breakpoint('large') {
       position: static;
@@ -347,11 +345,24 @@
         height: 100%;
         margin-right: rem(22);
       }
+
+      > a,
+      > button {
+        @extend %text-style-label-large-caps;
+        color: $color-white-100;
+        border: 0;
+
+        @include breakpoint('large') {
+          color: $color-black-100;
+        }
+      }
     }
 
-    a {
+    a,
+    button {
       display: inline-block;
       padding: 0.75rem 0 0.75rem 2rem;
+      background-color: transparent;
 
       &:hover {
         // color: $color-accent-dark-primary-400;
@@ -365,7 +376,7 @@
 
   .menu-item-has-children {
     @include breakpoint('large') {
-      background-color: $color-bg-light-200;
+      // background-color: $color-bg-light-200;
 
       .sub-menu {
         // display: none;
@@ -377,17 +388,25 @@
         display: block;
         clip-path: inset(0);
       }
+    }
 
-      > a::after {
-        content: '\25be';
-        padding-left: rem(8);
+    > a::after,
+    > button::after {
+      content: '\25be';
+      padding-left: rem(8);
+      color: $color-white-100;
+
+      @include breakpoint('large') {
+        color: $color-black-100;
       }
     }
   }
 
   .sub-menu {
+    @extend %text-style-label-medium;
     width: 200px;
     padding-bottom: 0.5rem;
+    color: $color-white-190;
     list-style: none;
 
     @include breakpoint('large') {
@@ -395,9 +414,8 @@
       top: 100%;
       left: calc(-0.5rem + 1px);
       padding: 0.5rem;
+      color: $color-black-190;
       background-color: $color-bg-light-200;
-
-      @include font-size(18px);
       transition: clip-path 0.3s linear, visibility 0.3s linear;
       // clip-path: inset(0 0 100% 0);
     }
@@ -448,6 +466,11 @@
       content: url('/wp-content/themes/csisnuclearnetwork/assets/static/icons/chevron-right.svg');
       width: 8px;
       height: 12px;
+      filter: invert(100%) sepia(54%) saturate(4966%) hue-rotate(179deg) brightness(125%) contrast(103%);
+
+      @include breakpoint('large') {
+        filter: invert(0%) sepia(4%) saturate(7482%) hue-rotate(274deg) brightness(95%) contrast(104%);
+      }
     }
   }
 
@@ -460,8 +483,15 @@
       border-left: 1px solid #cfcfcf;
     }
 
-    a:first-child {
+    > a {
+      @extend %text-style-label-small-caps;
       padding-bottom: rem(12);
+      color: $color-accent-secondary-yellow-100;
+      font-weight: bold;
+
+      @include breakpoint('large') {
+        color: $color-accent-primary-blue-100;
+      }
     }
 
     a::after {
