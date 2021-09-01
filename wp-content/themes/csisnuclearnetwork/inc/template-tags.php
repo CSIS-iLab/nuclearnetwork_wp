@@ -234,7 +234,7 @@ if (! function_exists('nuclearnetwork_authors_list_extended')) :
 		}
 
 		if (function_exists('coauthors_posts_links')) {
-			$authors = '<h2 class="section__heading post__authors-heading">Authors</h2><p class="text--italic text--short post__authors-disclaimer">The views expressed above are the author’s and do not necessarily reflect those of the Center for Strategic and International Studies or the Project on Nuclear Issues.</p>';
+			$authors = '<h2 class="single__section-heading post__authors-heading">Authors</h2><p class="text--italic text--short post__authors-disclaimer">The views expressed above are the author’s and do not necessarily reflect those of the Center for Strategic and International Studies or the Project on Nuclear Issues.</p>';
 
 			foreach (get_coauthors() as $coauthor) {
 				$name = $coauthor->display_name;
@@ -403,7 +403,7 @@ if ( ! function_exists( 'nuclearnetwork_display_footnotes' ) ) :
 			$footnotes = $easyFootnotes->easy_footnote_after_content('');
 
 			if ( $footnotes != '' ) {
-				printf( '<div class="footnotes"><h2 class="footnotes__heading">' . esc_html( 'Footnotes', 'reconaisa') . '</h2><ol class="footnotes__list">%1$s</ol></div>', $footnotes ); // WPCS: XSS OK.
+				printf( '<div class="footnotes"><h2 class="footnotes__heading single__section-heading">' . esc_html( 'Footnotes', 'reconaisa') . '</h2><ol class="footnotes__list">%1$s</ol></div>', $footnotes ); // WPCS: XSS OK.
 				}
 		}
 	}

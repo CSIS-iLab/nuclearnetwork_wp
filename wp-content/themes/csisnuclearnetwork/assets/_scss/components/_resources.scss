@@ -1,0 +1,7 @@
+@use '../abstracts' as *;
+
+.resources {
+  &__heading {
+    margin-bottom: rem(24);
+  }
+}

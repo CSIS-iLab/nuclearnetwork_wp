@@ -15,8 +15,7 @@
 
     &-heading {
       margin-bottom: rem(16);
-      color: $color-accent-primary-blue-100;
-      @extend %text-style-label-large-strong-caps;
+
       @include breakpoint('large') {
         margin-bottom: rem(32);
       }

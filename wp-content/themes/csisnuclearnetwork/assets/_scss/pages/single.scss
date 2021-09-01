@@ -280,6 +280,11 @@
     }
   }
 
+  &__section-heading {
+    @extend %text-style-label-large-strong-caps;
+    color: $color-accent-primary-blue-100;
+  }
+
   /* stylelint-disable-next-line */
   h2.cite__heading {
     color: $color-accent-primary-blue-100;
