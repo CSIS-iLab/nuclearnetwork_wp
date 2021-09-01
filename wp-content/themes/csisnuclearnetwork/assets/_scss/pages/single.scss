@@ -230,12 +230,6 @@
     max-width: $size__content-max-width;
     margin-top: rem(40);
     padding: rem(40) 0 rem(56);
-    background: $color-bg-light-200;
-    @include full-width-background($color-bg-light-200);
-
-    @include breakpoint('large') {
-      padding-top: rem(56);
-    }
 
     @include breakpoint('xlarge') {
       max-width: rem(900);
@@ -244,23 +238,17 @@
     &-heading {
       display: flex;
       gap: rem(12);
-      justify-content: center;
+      justify-content: start;
       align-items: center;
       margin-bottom: rem(24);
-      @extend %text-style-heading-large-strong-caps;
+      @extend %text-style-heading-large-strong;
+      color: $color-accent-primary-blue-100;
+    }
 
-      @include breakpoint('small') {
-        margin-bottom: rem(32);
-      }
-
-      @include breakpoint('large') {
-        margin-bottom: rem(40);
-      }
-
-      .icon {
-        height: 0.5em;
-        font-size: 2em;
-      }
+    &-label {
+      @extend %text-style-label-small-strong;
+      color: $color-black-165;
+      text-transform: uppercase;
     }
 
     &-write-for-us {

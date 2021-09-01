@@ -40,10 +40,12 @@
 			echo '</div>';
 			nuclearnetwork_citation();
 			echo '</div></div>';
-			// echo do_shortcode( '[jprel]' );
-			// if ( function_exists( 'ADDTOANY_SHARE_SAVE_KIT' ) ) { ADDTOANY_SHARE_SAVE_KIT(); }
+			echo do_shortcode( '[jprel]' );
+			if ( function_exists( 'ADDTOANY_SHARE_SAVE_KIT' ) ) { ADDTOANY_SHARE_SAVE_KIT(); }
 			// get_template_part( 'template-parts/featured-image-caption' );
+			get_template_part( 'template-parts/post-related-content' );
 		?>
+		// ?>
 	</footer>
 	<?php } ?>
 
