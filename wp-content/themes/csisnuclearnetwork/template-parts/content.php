@@ -31,13 +31,14 @@
 	</div><!-- .post-inner -->
 
 	<?php if ( is_single() ) { ?>
-	<!-- <footer class="single__footer"> -->
+	<footer class="single__footer">
 		<?php
+	        get_template_part( 'template-parts/post-related-content' );
 			// nuclearnetwork_authors_list_extended();
 			// echo do_shortcode( '[jprel]' );
 			// if ( function_exists( 'ADDTOANY_SHARE_SAVE_KIT' ) ) { ADDTOANY_SHARE_SAVE_KIT(); }
 		// ?>
-	<!-- </footer> -->
+	</footer>
 	<?php } ?>
 
 </article><!-- .post -->
