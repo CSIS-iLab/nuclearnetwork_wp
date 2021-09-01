@@ -60,13 +60,10 @@
 
   @include breakpoint('small') {
     --margin-text-side: 6vw;
-    --padding-sides: var(--container-padding);
-    max-width: 32vw;
-    padding: 0 var(--padding-sides);
+    max-width: rem(200);
   }
 
   @include breakpoint('medium') {
-    --padding-sides: 0;
     margin-top: rem(16);
   }
 
@@ -83,12 +80,6 @@
   @include breakpoint('xxlarge') {
     --margin-text-side: #{rem(56)};
     --margin-gutter-side: #{rem(-80)};
-  }
-
-  figcaption {
-    @include breakpoint('medium') {
-      --padding-sides: 0;
-    }
   }
 }
 
