@@ -11,13 +11,13 @@
  * @since 1.0.0
  */
 
+get_template_part( 'template-parts/entry-header' );
 ?>
 
 <article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
 
 	<?php
 
-	get_template_part( 'template-parts/entry-header' );
 
 	?>
 

@@ -10,6 +10,9 @@
 
 .single {
   &__content {
+    padding-top: rem(24);
+    padding-bottom: rem(56);
+
     p:not([class]) {
       margin-bottom: rem(24);
     }
