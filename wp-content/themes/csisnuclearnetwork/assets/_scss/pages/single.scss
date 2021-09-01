@@ -106,7 +106,7 @@
       margin-top: rem(12px);
     }
 
-    ol:not(.footnotes__list):not(.easy-footnotes-wrapper),
+    ol:not(.footnotes__list):not(.easy-footnotes-wrapper):not(.career-block__li)::marker,
     li::marker {
       color: $color-accent-secondary-yellow-100;
     }
