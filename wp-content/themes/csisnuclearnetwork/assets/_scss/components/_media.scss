@@ -74,11 +74,24 @@ img.aligncenter,
 .wp-block-video {
   &.alignfull figcaption,
   &.alignwide figcaption {
+    width: 100%;
+    max-width: 100%;
     padding-right: var(--container-padding);
     padding-left: var(--container-padding);
 
-    // Fixes a layout issue where the caption has the padding applied when it doesn't need it. Necessary to cover screens 680px-720px wide (max width of the content + (20px of padding * 2 sides)).
-    @include breakpoint(720px) {
+    @include breakpoint('small') {
+      padding-right: calc(var(--container-padding) + 6vw);
+      padding-left: calc(var(--container-padding) + 6vw);
+    }
+
+    // This is to align the figcaption as alignwide/full would otherwise force it to be full width. Margin/paddings address tweaks at different breakpoints
+    @include breakpoint(680px) {
+      max-width: $size__content-max-width;
+      margin-left: 0;
+    }
+
+    @include breakpoint(895px) {
+      margin-left: auto;
       padding-right: 0;
       padding-left: 0;
     }

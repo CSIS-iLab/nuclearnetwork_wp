@@ -41,16 +41,18 @@
 }
 
 .alignfull {
-  > *:not(figcaption) {
+  > * {
     @include csis-block-full-width-content($size__container-max-width);
   }
 }
 
 .alignwide {
-  > *:not(figcaption) {
-    // @include breakpoint('medium') {
-    @include csis-block-wide-content;
-    // }
+  > * {
+    @include csis-block-full-width-content($size__container-max-width);
+
+    @include breakpoint('small') {
+      @include csis-block-wide-content;
+    }
   }
 }
 
