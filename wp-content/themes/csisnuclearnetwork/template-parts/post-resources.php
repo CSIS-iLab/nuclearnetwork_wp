@@ -13,10 +13,9 @@
 
 
 $resources = get_field( 'resources' );
-// var_dump($resources);
 
 if ( ! empty( $resources ) ) {
-  echo '<h2 class="section__heading">Resources</h2>
-  <div>' . $resources . '</div>';
+  echo '<div class="resources"><h2 class="resources__heading single__section-heading">Resources</h2>
+  <div class="resources__content">' . $resources . '</div></div>';
 }
 ?>

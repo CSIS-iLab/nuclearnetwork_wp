@@ -403,7 +403,7 @@ if ( ! function_exists( 'nuclearnetwork_display_footnotes' ) ) :
 			$footnotes = $easyFootnotes->easy_footnote_after_content('');
 
 			if ( $footnotes != '' ) {
-				printf( '<div class="footnotes"><h2 class="footnotes__heading">' . esc_html( 'Footnotes', 'nuclearnetwork') . '</h2><ol class="footnotes__list">%1$s</ol></div>', $footnotes ); // WPCS: XSS OK.
+				printf( '<div class="footnotes"><h2 class="footnotes__heading single__section-heading">' . esc_html( 'Footnotes', 'nuclearnetwork') . '</h2><ol class="footnotes__list">%1$s</ol></div>', $footnotes ); // WPCS: XSS OK.
 				}
 		}
 	}
