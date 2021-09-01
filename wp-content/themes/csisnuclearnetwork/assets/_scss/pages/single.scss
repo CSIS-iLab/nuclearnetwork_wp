@@ -9,6 +9,20 @@
 @use '../components/about-career-block';
 
 .single {
+  &__post {
+    background-color: $color-white-100;
+    @include full-width-background($color-white-100);
+
+    @include breakpoint('small') {
+      @include full-width-background(transparent);
+      padding-top: rem(40);
+      padding-right: 6vw;
+      padding-right: var(--container-padding);
+      padding-left: 6vw;
+      padding-left: var(--container-padding);
+    }
+  }
+
   &__content {
     padding-top: rem(24);
     padding-bottom: rem(56);
