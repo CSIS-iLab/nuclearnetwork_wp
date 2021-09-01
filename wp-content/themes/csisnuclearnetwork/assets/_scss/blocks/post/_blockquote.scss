@@ -26,6 +26,11 @@
       --margin-text-side: #{rem(48)};
       --margin-gutter-side: -6vw;
     }
+
+    @include breakpoint('xxlarge') {
+      --margin-text-side: #{rem(56)};
+      --margin-gutter-side: #{rem(-80)};
+    }
   }
 
   &.alignleft {

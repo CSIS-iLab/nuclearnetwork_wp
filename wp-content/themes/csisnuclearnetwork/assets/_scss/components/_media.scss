@@ -36,19 +36,11 @@ img.aligncenter,
   .alignleft {
     margin-right: var(--margin-text-side);
     margin-left: var(--margin-gutter-side, 0);
-
-    @include breakpoint('xlarge') {
-      margin-left: -16%;
-    }
   }
 
   .alignright {
     margin-right: var(--margin-gutter-side, 0);
     margin-left: var(--margin-text-side);
-
-    @include breakpoint('xlarge') {
-      margin-right: -16%;
-    }
   }
 }
 
