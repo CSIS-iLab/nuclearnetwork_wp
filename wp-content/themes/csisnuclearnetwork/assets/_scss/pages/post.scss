@@ -3,28 +3,35 @@
 .post {
   &__authors {
     --padding-top-authors: #{rem(56)};
-    max-width: rem(700);
     margin-top: rem(24);
     margin-bottom: rem(32);
-    padding-top: var(--padding-top-authors);
 
     @include breakpoint('large') {
       --padding-top-authors: #{rem(32)};
       margin-bottom: rem(48);
     }
 
-    &::before {
-      position: relative;
-      width: 100%;
-      padding: var(--padding-top-authors) 100%;
-      border-top: 1px solid $color-border-dark-130;
-      content: '';
+    &-group {
+      max-width: rem(500);
+      @include breakpoint(large) {
+        float: left;
+        max-width: calc(100% - 308px);
+      }
+    }
+
+    hr {
+      height: 1px;
+      margin-bottom: var(--padding-top-authors);
+      color: $color-border-dark-130;
+      background-color: $color-border-dark-130;
+      border: unset;
     }
 
     &-heading {
       margin-bottom: rem(16);
       color: $color-accent-primary-blue-100;
       @extend %text-style-label-large-strong-caps;
+      max-width: rem(700);
       @include breakpoint('large') {
         margin-bottom: rem(32);
       }
@@ -34,10 +41,13 @@
       margin-bottom: rem(32);
       color: $color-black-190;
       letter-spacing: 0.0005em;
+      max-width: rem(500);
+      @include breakpoint(large){
+        max-width: rem(700);
+      }
     }
 
     &-author {
-      max-width: rem(500);
       margin-bottom: rem(24);
 
       &:last-of-type {

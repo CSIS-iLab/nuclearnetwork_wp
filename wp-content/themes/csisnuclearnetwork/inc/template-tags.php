@@ -234,7 +234,7 @@ if (! function_exists('nuclearnetwork_authors_list_extended')) :
 		}
 
 		if (function_exists('coauthors_posts_links')) {
-			$authors = '<h2 class="section__heading post__authors-heading">Authors</h2><p class="text--italic text--short post__authors-disclaimer">The views expressed above are the author’s and do not necessarily reflect those of the Center for Strategic and International Studies or the Project on Nuclear Issues.</p>';
+			$authors = '<h2 class="section__heading post__authors-heading">Authors</h2><p class="text--italic text--short post__authors-disclaimer">The views expressed above are the author’s and do not necessarily reflect those of the Center for Strategic and International Studies or the Project on Nuclear Issues.</p><div class="post__authors-group">';
 
 			foreach (get_coauthors() as $coauthor) {
 				$name = $coauthor->display_name;
@@ -264,10 +264,14 @@ if (! function_exists('nuclearnetwork_authors_list_extended')) :
 
 				$authors .= '<div class="post__authors-author"><h3 class="text--bold text--short post__authors-author-name">' . $name . '<span class="post__authors-author-title"> - ' . $title . '</span></h3><hr class="divider divider--thicc page__header-divider"><p class="post__authors-author-bio">' . $bio . '</p></div>';
 			}
+
+			$authors .= '</div>';
 		} else {
 			$authors = the_author_posts_link();
 		}
-		echo '<div class="post__authors">' . $authors . '</div>';
+		echo '<div class="post__authors"><hr>' . $authors . '<div class="single__footer__write-for-us">';
+		dynamic_sidebar('write-for-us');
+		echo '</div></div>';
 	}
 endif;
 
@@ -403,7 +407,7 @@ if ( ! function_exists( 'nuclearnetwork_display_footnotes' ) ) :
 			$footnotes = $easyFootnotes->easy_footnote_after_content('');
 
 			if ( $footnotes != '' ) {
-				printf( '<div class="footnotes"><h2 class="footnotes__heading">' . esc_html( 'Footnotes', 'reconaisa') . '</h2><ol class="footnotes__list">%1$s</ol></div>', $footnotes ); // WPCS: XSS OK.
+				printf( '<div class="footnotes"><h2 class="footnotes__heading">' . esc_html( 'Footnotes', 'nuclearnetwork') . '</h2><ol class="footnotes__list">%1$s</ol></div>', $footnotes ); // WPCS: XSS OK.
 				}
 		}
 	}
