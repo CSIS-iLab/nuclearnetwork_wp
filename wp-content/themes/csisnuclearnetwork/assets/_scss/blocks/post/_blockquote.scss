@@ -1,37 +1,76 @@
 @use '../abstracts' as *;
 
 .wp-block-lazyblock-blockquote {
-  .csis-block--blockquote {
-    padding: rem(16) rem(16) rem(32);
-    background: $color-bg-dark-200;
+  @include breakpoint('medium') {
+    max-width: rem(340);
+    margin: auto;
+  }
+
+  &.alignleft,
+  &.alignright {
+    @include breakpoint('small') {
+      --margin-text-side: auto;
+      --margin-gutter-side: auto;
+      float: none !important;
+      max-width: 100%;
+    }
+
+    @include breakpoint('medium') {
+      --margin-text-side: auto;
+      --margin-gutter-side: auto;
+      float: none !important;
+      max-width: rem(340);
+    }
+
+    @include breakpoint('large') {
+      --margin-text-side: #{rem(48)};
+      --margin-gutter-side: -6vw;
+    }
+
+    @include breakpoint('xxlarge') {
+      --margin-text-side: #{rem(56)};
+      --margin-gutter-side: #{rem(-80)};
+    }
+  }
+
+  &.alignleft {
+    @include breakpoint('large') {
+      float: left !important;
+    }
+  }
+
+  &.alignright {
+    @include breakpoint('large') {
+      float: right !important;
+    }
   }
 
   .blockquote {
-    &__arrows {
-      width: 46px;
-      height: 23px;
-      margin-bottom: rem(12);
-    }
-
     &__content {
-      margin-bottom: rem(12);
-      color: $color-white-190;
-      // @extend %text-style-paragraph-large-short-sans;
+      margin: rem(8) 0 rem(24);
+      @extend %text-style-paragraph-x-large-short;
+      color: $color-black-190;
     }
 
     &__author {
-      color: $color-white-165;
-      @extend %text-style-paragraph-medium-short-caps;
+      margin: rem(12) 0 rem(32) 0;
+      @extend %text-style-label-small-strong;
+      color: $color-black-165;
       font-style: normal;
     }
-  }
 
-  /*----------  Center Variation  ----------*/
-  &.aligncenter {
-    @include breakpoint('medium') {
-      max-width: rem(360);
-      margin-right: auto;
-      margin-left: auto;
+    &__left-quote {
+      width: rem(52);
+      height: rem(41);
+      margin: 0;
+      padding: 0;
+      color: $color-accent-secondary-yellow-100;
+    }
+
+    &__separator {
+      height: 1px;
+      margin-left: 0;
+      color: $color-black-130;
     }
   }
 }

@@ -1,6 +1,8 @@
 @use '../abstracts' as *;
 
 .post {
+  background-color: $color-white-100;
+
   &__authors {
     --padding-top-authors: #{rem(56)};
     max-width: rem(700);

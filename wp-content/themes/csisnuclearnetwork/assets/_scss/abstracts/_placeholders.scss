@@ -102,6 +102,12 @@
   text-transform: uppercase;
 }
 
+%text-style-label-small-strong {
+  @extend %text-style-label-small;
+  font-weight: bold;
+  letter-spacing: 0.03em;
+}
+
 /*----------  Paragraphs  ----------*/
 
 %text-style-paragraph-x-large {
