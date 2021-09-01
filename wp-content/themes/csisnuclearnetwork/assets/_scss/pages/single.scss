@@ -250,6 +250,7 @@
     margin-left: auto;
     padding: rem(40) 0 rem(56);
     background: $color-postbg-200;
+    @include full-width-background($color-postbg-200);
 
     hr {
       max-width: $size__footer-max-width;
