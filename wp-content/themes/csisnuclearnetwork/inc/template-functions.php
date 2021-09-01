@@ -83,6 +83,12 @@ function nuclearnetwork_body_classes( $classes ) {
 		$classes[] = $post->post_type . '-' . $post->post_name;
 	}
 
+	// Check if class bio post
+	$post_parent_id = wp_get_post_parent_id(get_the_ID());
+	if ( 'programs' == get_post_type() && is_single() && $post_parent_id ) {
+		$classes[] = 'class-bio';
+	}
+
 	return $classes;
 
 }

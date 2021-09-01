@@ -85,20 +85,7 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  margin: 0 auto rem(24);
-
-  @include breakpoint('small') {
-    margin-bottom: rem(40);
-  }
-
-  @include breakpoint('large') {
-    margin-bottom: rem(64);
-    padding-top: calc(#{rem(56)} + var(--site-header-height));
-  }
-
-  @include breakpoint('xlarge') {
-    margin-bottom: rem(80);
-  }
+  margin: 0 auto;
 
   &::before {
     content: '';

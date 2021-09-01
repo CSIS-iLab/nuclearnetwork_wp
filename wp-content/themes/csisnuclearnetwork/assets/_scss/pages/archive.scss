@@ -15,15 +15,20 @@
 
   &__content {
     max-width: var(--content-width, #{$size__archive-max-width});
+    margin-top: rem(32);
     margin-right: auto;
     margin-left: auto;
 
-    > *:not(.cards__container):last-child {
-      margin-bottom: rem(40);
+    @include breakpoint('small') {
+      margin-top: rem(40);
+    }
 
-      @include breakpoint('large') {
-        margin-bottom: rem(56);
-      }
+    @include breakpoint('large') {
+      margin-top: rem(64);
+    }
+
+    @include breakpoint('xlarge') {
+      margin-top: rem(80);
     }
   }
 
