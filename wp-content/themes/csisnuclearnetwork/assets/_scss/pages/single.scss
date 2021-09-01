@@ -15,16 +15,28 @@
 
     @include breakpoint('small') {
       @include full-width-background(transparent);
-      padding-top: rem(40);
       padding-right: 6vw;
       padding-right: var(--container-padding);
       padding-left: 6vw;
       padding-left: var(--container-padding);
     }
+
+    .class-bio & {
+      padding-top: rem(32);
+
+      @include breakpoint('small') {
+        margin-top: rem(40);
+        padding-top: rem(40);
+      }
+
+      @include breakpoint('large') {
+        margin-top: rem(-64);
+        padding-top: rem(72);
+      }
+    }
   }
 
   &__content {
-    padding-top: rem(24);
     padding-bottom: rem(56);
 
     p:not([class]) {
