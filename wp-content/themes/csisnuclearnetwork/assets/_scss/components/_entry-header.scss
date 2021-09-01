@@ -138,12 +138,12 @@
     $gradient: url($headerCircles), linear-gradient(180deg, rgba(16, 48, 79, 0.68) 0%, rgba(53, 110, 163, 0.0966914) 30.95%, rgba(56, 115, 171, 0) 100%), linear-gradient(90.1deg, #1c4973 0.76%, #08223a 100.12%);
 
     max-width: $size__content-wide-max-width;
-    margin: 0 calc(-1 * var(--container-padding)) rem(24);
+    margin: 0 calc(-1 * var(--container-padding));
     padding: calc(var(--page-header-padding-top) + var(--site-header-height)) var(--container-padding) rem(32); // Top padding includes 56px for the site header
     background-color: $color-bg-light-100;
 
     @include breakpoint('small') {
-      margin: 0 auto rem(40);
+      margin: 0 auto;
     }
 
     @include breakpoint('medium') {
