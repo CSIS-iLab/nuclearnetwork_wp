@@ -227,10 +227,10 @@
   }
 
   &__footer {
+    max-width: $size__content-max-width;
     margin-top: rem(40);
     padding: rem(40) 0 rem(56);
     background: $color-bg-light-200;
-    max-width: $size__content-max-width;
     @include full-width-background($color-bg-light-200);
 
     @include breakpoint('large') {
@@ -282,9 +282,9 @@
 
       &::after {
         @include breakpoint(large) {
-          content: "";
-          clear: both;
           display: table;
+          content: '';
+          clear: both;
         }
       }
     }
@@ -298,8 +298,8 @@
 
   .cite__container {
     @extend %text-style-paragraph-small;
-    color: $color-black-165;
     max-width: rem(500);
+    color: $color-black-165;
     @include breakpoint(large) {
       max-width: calc(100% - 308px);
     }

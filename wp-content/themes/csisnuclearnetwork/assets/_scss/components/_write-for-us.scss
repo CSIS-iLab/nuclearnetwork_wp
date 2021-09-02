@@ -7,8 +7,8 @@
 
   &__title {
     @extend %text-style-label-large-strong-caps;
-    color: var(--write-title-color);
     margin-bottom: rem(4);
+    color: var(--write-title-color);
   }
 
   &__desc,

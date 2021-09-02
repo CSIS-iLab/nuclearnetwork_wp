@@ -2,7 +2,7 @@
 
 .post {
   &__authors {
-    --max-width-limit: rem(500);
+    --max-width-limit: #{rem(500)};
     --padding-top-authors: #{rem(56)};
     margin-top: rem(24);
     margin-bottom: rem(32);
@@ -21,9 +21,9 @@
 
       &::after {
         @include breakpoint(large) {
-          content: "";
-          clear: both;
           display: table;
+          clear: both;
+          content: '';
         }
       }
     }
@@ -37,21 +37,21 @@
     }
 
     &-heading {
+      max-width: rem(700);
       margin-bottom: rem(16);
       color: $color-accent-primary-blue-100;
       @extend %text-style-label-large-strong-caps;
-      max-width: rem(700);
       @include breakpoint('large') {
         margin-bottom: rem(32);
       }
     }
 
     &-disclaimer {
+      max-width: var(--max-width-limit);
       margin-bottom: rem(32);
       color: $color-black-190;
       letter-spacing: 0.0005em;
-      max-width: var(--max-width-limit);
-      @include breakpoint(large){
+      @include breakpoint(large) {
         max-width: rem(700);
       }
     }
