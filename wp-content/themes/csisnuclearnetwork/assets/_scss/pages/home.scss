@@ -524,6 +524,7 @@
         'news'
         'twitter';
       grid-template-columns: 1fr;
+      padding-top: rem(40);
     }
 
     &-title {
