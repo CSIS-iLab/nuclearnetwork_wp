@@ -2,6 +2,7 @@
 
 .post {
   &__authors {
+    --max-width-limit: rem(500);
     --padding-top-authors: #{rem(56)};
     margin-top: rem(24);
     margin-bottom: rem(32);
@@ -12,10 +13,18 @@
     }
 
     &-group {
-      max-width: rem(500);
+      max-width: var(--max-width-limit);
       @include breakpoint(large) {
         float: left;
         max-width: calc(100% - 308px);
+      }
+
+      &::after {
+        @include breakpoint(large) {
+          content: "";
+          clear: both;
+          display: table;
+        }
       }
     }
 
@@ -41,7 +50,7 @@
       margin-bottom: rem(32);
       color: $color-black-190;
       letter-spacing: 0.0005em;
-      max-width: rem(500);
+      max-width: var(--max-width-limit);
       @include breakpoint(large){
         max-width: rem(700);
       }

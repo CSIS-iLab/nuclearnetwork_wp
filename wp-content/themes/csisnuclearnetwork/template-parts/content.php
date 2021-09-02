@@ -34,9 +34,9 @@
 		    
 			nuclearnetwork_authors_list_extended(); 
 			nuclearnetwork_citation();
-			get_template_part( 'template-parts/featured-image-caption' );
+			// get_template_part( 'template-parts/featured-image-caption' );
 		// ?>
-	<!-- </footer> -->
+	</footer>
 	<?php } ?>
 
 </article><!-- .post -->

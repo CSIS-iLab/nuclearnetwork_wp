@@ -264,8 +264,6 @@
     }
 
     &__write-for-us {
-      padding: rem(20);
-      background-color: $color-bg-light-300;
       margin: rem(32) 0 rem(48);
 
       @include breakpoint(small) {
@@ -274,8 +272,20 @@
 
       @include breakpoint(large) {
         margin: 0;
-        display: flex;
         margin-left: auto;
+      }
+
+      .widget {
+        padding: rem(20);
+        background-color: $color-bg-light-300;
+      }
+
+      &::after {
+        @include breakpoint(large) {
+          content: "";
+          clear: both;
+          display: table;
+        }
       }
     }
   }
@@ -289,6 +299,10 @@
   .cite__container {
     @extend %text-style-paragraph-small;
     color: $color-black-165;
+    max-width: rem(500);
+    @include breakpoint(large) {
+      max-width: calc(100% - 308px);
+    }
   }
 
   .cite__citation {
