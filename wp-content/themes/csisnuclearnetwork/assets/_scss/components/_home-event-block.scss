@@ -1,0 +1,115 @@
+@use '../abstracts' as *;
+
+.event {
+  &-content {
+    &::after {
+      content: '';
+      display: table;
+      clear: both;
+    }
+  }
+
+  &-title {
+    flex-grow: 1;
+    margin-bottom: 0;
+
+    &:hover {
+      color: #{$color-accent-secondary-yellow-100};
+    }
+
+    &:focus {
+      background-color: $color-accent-primary-blue-100;
+    }
+  }
+
+  .post-meta {
+    a {
+      color: $color-accent-secondary-yellow-100;
+
+      &:hover {
+        color: $color-white-100;
+      }
+
+      &:focus {
+        color: $color-white-100;
+        background-color: $color-accent-primary-blue-100;
+      }
+    }
+  }
+
+  &-date {
+    --date-width: #{rem(90)};
+    --date-height: #{rem(111)};
+    --calendar-top-padding: #{rem(21)};
+    --calendar-color: #{$color-accent-primary-300};
+
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    float: left;
+    width: var(--date-width);
+    height: var(--date-height);
+    margin-right: rem(24);
+    padding-top: var(--calendar-top-padding);
+    padding-bottom: rem(10);
+    color: var(--calendar-color);
+    text-align: center;
+    background-color: $color-white-100;
+    border: 4px solid var(--calendar-color);
+    border-radius: 3px;
+
+    &::before {
+      position: absolute;
+      top: 0;
+      left: -4px;
+      width: var(--date-width);
+      height: var(--calendar-top-padding);
+      background-color: var(--calendar-color);
+      content: '';
+
+      @include breakpoint('large') {
+        --calendar-top-padding: #{rem(25)}; // 21px for the height of the box and 4px for the height of the bottom border
+      }
+    }
+
+    @include breakpoint('small') {
+      float: left;
+    }
+
+    @include breakpoint('large') {
+      --date-width: #{rem(108)};
+      --date-height: #{rem(135)};
+    }
+  }
+
+  &-month {
+    @extend %text-style-paragraph-medium-short;
+
+    @include breakpoint('large') {
+      @include font-clamp(21px, 24px);
+      line-height: 1.33;
+      letter-spacing: 0.03em;
+    }
+  }
+
+  &-day {
+    @extend %text-style-heading-x-large;
+    line-height: 0.8;
+
+    @include breakpoint('large') {
+      @include font-size(42px);
+      font-weight: normal;
+    }
+  }
+
+  &-year {
+    @extend %text-style-paragraph-small;
+
+    @include breakpoint('large') {
+      @include font-size(16px);
+      font-weight: 700;
+      letter-spacing: 0.005em;
+    }
+  }
+}

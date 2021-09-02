@@ -19,8 +19,11 @@
 	?>
 	<div class='post-block-related__byline'>
 		<?php nuclearnetwork_posted_on('M j, Y') ?> 
-		By 
-		<?php nuclearnetwork_authors(); ?>
+		<?php 
+		if (!is_front_page()){
+			nuclearnetwork_authors();
+		}
+		?>
 	</div>
 
 </article><!-- .post-block-related -->

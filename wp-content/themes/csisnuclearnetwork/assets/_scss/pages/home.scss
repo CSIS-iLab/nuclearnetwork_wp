@@ -1,6 +1,7 @@
 @use '../abstracts' as *;
 @use '../components/home-issue-block';
 @use '../components/home-about-poni';
+@use '../components/home-event-block';
 
 .home {
   #site-content {
@@ -490,6 +491,157 @@
 
       .icon {
         margin-left: rem(8);
+      }
+    }
+  }
+
+  &__event-and-posts-block {
+    display: grid;
+    grid-template-areas: 
+      'event'
+      'news'
+      'twitter';
+    padding-top: rem(40);
+    padding-bottom: rem(72);
+    color: $color-white-100;
+    column-gap: rem(40);
+
+    @include breakpoint(small) {
+      padding-top: rem(72);
+    }
+
+    @include breakpoint(medium) {
+      grid-template-areas: 
+        'event twitter'
+        'news twitter';
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: max-content;
+    }
+
+    @include breakpoint(large) {
+      grid-template-areas: 
+        'event'
+        'news'
+        'twitter';
+      grid-template-columns: 1fr;
+      padding-top: rem(40);
+    }
+
+    &-title {
+      margin-bottom: rem(16);
+      @extend %text-style-heading-large-strong;
+
+      &--twitter {
+        margin-top: rem(32);
+        @include breakpoint(medium) {
+          margin-top: 0;
+        }
+
+        @include breakpoint(large) {
+          margin-top: rem(32);
+        }
+      }
+    }
+
+    hr {
+      height: 3px;
+      margin: rem(40) -6vw 0;
+      color: $color-border-light-115;
+      background-color: $color-border-light-115;
+      border: unset;
+
+      @include breakpoint(medium) {
+        margin-right: 0;
+      }
+
+      @include breakpoint(large) {
+        display: block;
+        margin: 0 -6%;
+        margin-top: rem(40);
+      }
+    }
+
+    &::after,
+    &::before {
+      z-index: -1;
+    }
+
+    .twitter-section {
+      grid-area: twitter;
+    }
+
+    .upcoming-event {
+      grid-area: event;
+
+      hr {
+        margin-bottom: rem(32);
+      }
+    }
+
+    .recent-posts {
+      grid-area: news;
+
+      hr {
+        @include breakpoint(medium) {
+          display: none;
+        }
+
+        @include breakpoint(large) {
+          display: block;
+        }
+      }
+
+      /* stylelint-disable */
+      .post-block-related {
+        text-align: left;
+
+        &__title {
+          @extend %text-style-heading-medium;
+          color: $color-white-100;
+
+            &:hover {
+              color: $color-accent-secondary-yellow-100;
+            }
+
+            &:focus {
+              background-color: $color-accent-primary-blue-100;
+            }
+        }
+
+        .post-meta__date {
+          .post-meta__label {
+            display: none;
+          }
+        }
+        
+        .post-meta__terms {
+          color: $color-accent-secondary-yellow-100;
+          a {
+            color: $color-accent-secondary-yellow-100;
+          }
+
+          &-type,
+          a {
+            &:hover {
+              color: $color-white-100;
+            }
+
+            &:focus { 
+              color: $color-white-100;
+              background-color: $color-accent-primary-blue-100;
+            }
+          }
+        } 
+
+        .post-meta__date {
+          --post-meta: #{$color-white-180};
+          @extend %text-style-label-medium;
+        }
+        /* stylelint-enable */
+      }
+
+      .post-block-related:not(:first-of-type):not(:last-of-type) {
+        margin: rem(40) 0;
       }
     }
   }
