@@ -28,7 +28,7 @@ get_template_part( 'template-parts/entry-header' );
 			if ( function_exists( 'ADDTOANY_SHARE_SAVE_KIT' ) ) { ADDTOANY_SHARE_SAVE_KIT(); }
 		?>
 	</div><!-- .post-inner -->
-
+	
 	<?php if ( is_single() ) { ?>
 	<footer class="single__footer">
 		<?php
