@@ -261,6 +261,10 @@
     background: $color-postbg-200;
     @include full-width-background($color-postbg-200);
 
+    &::after {
+      z-index: 2;
+    }
+
     @include breakpoint('large') {
       padding-top: rem(56);
     }
@@ -313,37 +317,37 @@
     margin: rem(8) 0 rem(16) 0;
   }
 
-  #btn-copy {
-    color: $color-black-190;
-    text-transform: unset;
-    background: transparent;
-    border: 2px solid $color-black-190;
-    transition: all ease 0.3s;
+  // #btn-copy {
+  //   color: $color-black-190;
+  //   text-transform: unset;
+  //   background: transparent;
+  //   border: 2px solid $color-black-190;
+  //   transition: all ease 0.3s;
 
-    &:hover {
-      color: $color-white-100;
-      background: $color-blue-400-button-blue;
-      border: unset;
+  //   &:hover {
+  //     color: $color-white-100;
+  //     background: $color-blue-400-button-blue;
+  //     border: unset;
 
-      svg {
-        color: $color-white-100;
-      }
-    }
+  //     svg {
+  //       color: $color-white-100;
+  //     }
+  //   }
 
-    &:focus {
-      color: $color-accent-primary-blue-200;
-      background: $color-bg-light-300;
+  //   &:focus {
+  //     color: $color-accent-primary-blue-200;
+  //     background: $color-bg-light-300;
 
-      svg {
-        color: $color-accent-primary-blue-200;
-      }
-    }
+  //     svg {
+  //       color: $color-accent-primary-blue-200;
+  //     }
+  //   }
 
-    svg {
-      margin-right: rem(8);
-      color: $color-black-165;
-    }
-  }
+  //   svg {
+  //     margin-right: rem(8);
+  //     color: $color-black-165;
+  //   }
+  // }
 }
 
 .related-posts {
