@@ -496,7 +496,7 @@
 
   .newsletter-block-acf {
     display: grid;
-    grid-template-areas: 
+    grid-template-areas:
       'header'
       'daily'
       'monthly';
@@ -504,13 +504,13 @@
     padding-bottom: rem(72);
     @include full-width-background(linear-gradient(180deg, #153b6a 0%, #215f8c 100%));
     background: linear-gradient(180deg, #153b6a 0%, #215f8c 100%);
-    background-image: url(../../static/missile-newsletter.svg), linear-gradient(180deg, #153b6a 0%, #215f8c 100%);
+    background-image: url('../../static/missile-newsletter.svg'), linear-gradient(180deg, #153b6a 0%, #215f8c 100%);
     background-repeat: no-repeat;
-    background-position-y: bottom;
     background-position-x: right;
+    background-position-y: bottom;
 
     @include breakpoint(medium) {
-      grid-template-areas: 
+      grid-template-areas:
         'header header'
         'daily monthly';
       column-gap: rem(40);
@@ -538,7 +538,7 @@
       flex-wrap: wrap;
       align-content: start;
       color: $color-white-190;
-      
+
       @include breakpoint(large) {
         max-width: 30vw;
         padding-top: 0 !important;
@@ -585,7 +585,7 @@
         margin-left: rem(48);
         padding-top: rem(8);
       }
-      
+
       /* stylelint-disable */
       :nth-child(2) {
         padding-top: rem(16);
@@ -605,7 +605,7 @@
           color: $color-white-100;
           background-color: $color-accent-primary-100;
         }
-        
+
         .icon {
           margin-left: rem(6);
         }

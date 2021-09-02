@@ -58,6 +58,7 @@
   &__categories {
     // --post-meta: #{$color-link-primary-200};
     // @extend %text-style-label-x-small-strong-caps;
+    margin-bottom: rem(24);
 
     ul {
       display: flex;
