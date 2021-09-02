@@ -518,7 +518,7 @@
       grid-template-rows: max-content;
     }
 
-    @include breakpoint(xlarge) {
+    @include breakpoint(large) {
       grid-template-areas: 
         'event'
         'news'
@@ -531,13 +531,13 @@
       margin-bottom: rem(16);
       @extend %text-style-heading-large-strong;
 
-      &-twitter {
+      &--twitter {
         margin-top: rem(32);
         @include breakpoint(medium) {
           margin-top: 0;
         }
 
-        @include breakpoint(xlarge) {
+        @include breakpoint(large) {
           margin-top: rem(32);
         }
       }
@@ -554,7 +554,7 @@
         margin-right: 0;
       }
 
-      @include breakpoint(xlarge) {
+      @include breakpoint(large) {
         display: block;
         margin: 0 -6%;
         margin-top: rem(40);
@@ -578,7 +578,7 @@
       }
     }
 
-    .news-posts {
+    .recent-posts {
       grid-area: news;
 
       hr {
@@ -586,7 +586,7 @@
           display: none;
         }
 
-        @include breakpoint(xlarge) {
+        @include breakpoint(large) {
           display: block;
         }
       }
@@ -613,20 +613,25 @@
             display: none;
           }
         }
-
+        
         .post-meta__terms {
-          --post-meta: #{$color-accent-secondary-yellow-100};
+          color: $color-accent-secondary-yellow-100;
+          a {
+            color: $color-accent-secondary-yellow-100;
+          }
+
           &-type,
           a {
             &:hover {
-              color: white;
+              color: $color-white-100;
             }
+
             &:focus { 
-              color: white;
+              color: $color-white-100;
               background-color: $color-accent-primary-blue-100;
             }
           }
-        }
+        } 
 
         .post-meta__date {
           --post-meta: #{$color-white-180};

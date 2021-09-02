@@ -101,19 +101,4 @@
       letter-spacing: 0.005em;
     }
   }
-
-  .post-meta__terms {
-    --post-meta: #{$color-accent-secondary-yellow-100};
-
-    &-type {
-      &:hover {
-        color: $color-white-100;
-      }
-
-      &:focus { 
-        color: $color-white-100;
-        background-color: $color-accent-primary-blue-100;
-      }
-    }
-  }
 }
