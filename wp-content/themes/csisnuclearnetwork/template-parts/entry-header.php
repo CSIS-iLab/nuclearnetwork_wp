@@ -20,7 +20,14 @@ $is_author = is_author(); //Author
 $is_single = is_single();
 $post_parent_id = wp_get_post_parent_id(get_the_ID());
 
-	if ( $is_home || ($is_archive && !$is_author) || $is_search || ( $post_type === 'programs' && $is_single && $post_parent_id ) || in_array( $post_type, array( 'news' ) ) ) {
+$template = get_page_template_slug( get_the_ID() );
+$isClassBioTemplate = false;
+
+if ( $template === 'templates/class-bio.php'){
+	$isClassBioTemplate = true;
+}
+
+	if ( $is_home || ($is_archive && !$is_author) || $is_search || $isClassBioTemplate || in_array( $post_type, array( 'news' ) ) ) {
 
 		get_template_part( 'template-parts/entry-header-blue' );
 
