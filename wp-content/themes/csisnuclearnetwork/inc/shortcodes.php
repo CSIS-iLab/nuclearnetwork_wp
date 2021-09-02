@@ -63,7 +63,7 @@ function jetpackme_custom_related( $atts ) {
 					->set_query_name( 'jetpackme-shortcode' ) // Optional, name can be anything
 					->get_for_post_id(
 							get_the_ID(),
-							array( 'size' => 4 )
+							array( 'size' => 2 )
 					);
 
 	// if no related content we bail
