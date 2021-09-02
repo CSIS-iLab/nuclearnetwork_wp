@@ -289,7 +289,7 @@ if (! function_exists('nuclearnetwork_display_categories')) :
 		$categories_list = get_the_category_list();
 
 		if ('Uncategorized' === $categories_list) {
-				return;
+		    return;
 		}
 
 		// Always display "Event" for events

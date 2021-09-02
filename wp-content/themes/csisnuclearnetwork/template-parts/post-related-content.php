@@ -27,6 +27,7 @@
     echo '<h2 class="single__footer-heading">';
         _e( 'Related', 'nuclearnetwork' );
     echo '</h2>';
+    echo '<div class="single__footer-related-posts">';
 
     if ( $related_posts ) {
         echo '<ul class="related-posts" role="list">';
@@ -39,7 +40,9 @@
         echo '</ul>';
         wp_reset_postdata();
     }
+    echo '</div>';
 
+    echo '<div class="single__footer-related-terms">';
     if (has_category()) {
       echo '<h3 class="single__footer-label">Topics</h3>';
       nuclearnetwork_display_categories();
@@ -49,5 +52,6 @@
       echo '<h3 class="single__footer-label">Keywords</h3>';
       nuclearnetwork_display_tags();
     }
+    echo '</div>';
 
 ?>
