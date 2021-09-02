@@ -56,13 +56,11 @@
   }
 
   &__categories {
-    // --post-meta: #{$color-link-primary-200};
-    // @extend %text-style-label-x-small-strong-caps;
+    --post-meta: #{$color-accent-primary-blue-200};
+    margin-top: rem(2);
     margin-bottom: rem(24);
 
     ul {
-      display: flex;
-      flex-wrap: wrap;
       margin: 0;
       padding: 0;
       row-gap: rem(4);
@@ -70,16 +68,8 @@
     }
 
     li {
-      display: inline-block;
-    }
-
-    li:not(:last-of-type) {
-      &::after {
-        content: '';
-        margin-right: rem(10);
-        margin-left: rem(10);
-        border-right: 1px solid $color-border-dark-130;
-      }
+      display: block;
+      margin-bottom: rem(4);
     }
 
     a {
