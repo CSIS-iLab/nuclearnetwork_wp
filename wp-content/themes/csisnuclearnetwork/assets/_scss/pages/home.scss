@@ -572,7 +572,10 @@
 
     .upcoming-event {
       grid-area: event;
-      margin-bottom: rem(32);
+
+      hr {
+        margin-bottom: rem(32);
+      }
     }
 
     .news-posts {
