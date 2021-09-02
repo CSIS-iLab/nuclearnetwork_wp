@@ -31,8 +31,13 @@
 	<?php if ( is_single() ) { ?>
 	<footer class="single__footer">
 		<?php
-		    
+
+		    echo '<div class="post__authors"><hr>';
+			echo '<h2 class="section__heading post__authors-heading">Authors</h2><p class="text--italic text--short post__authors-disclaimer">The views expressed above are the author’s and do not necessarily reflect those of the Center for Strategic and International Studies or the Project on Nuclear Issues.</p><div class="post__authors-group">';
 			nuclearnetwork_authors_list_extended(); 
+			echo '</div><div class="single__footer__write-for-us">';
+			dynamic_sidebar('write-for-us'); 
+			echo '</div></div>';
 			nuclearnetwork_citation();
 			// get_template_part( 'template-parts/featured-image-caption' );
 		// ?>
