@@ -372,19 +372,9 @@
     grid-row: 1 / span 2;
 
     .write-for-us {
-      &__title,
-      .icon {
-        color: $color-accent-secondary-yellow-100;
-      }
-
-      &__desc {
-        color: $color-white-100;
-      }
-
-      &__link {
-        color: $color-white-100;
-        font-weight: 700;
-      }
+      --write-title-color: #{$color-accent-secondary-yellow-100};
+      --write-body-color: #{$color-white-100};
+      --write-link-color: #{$color-white-100};
     }
   }
 
