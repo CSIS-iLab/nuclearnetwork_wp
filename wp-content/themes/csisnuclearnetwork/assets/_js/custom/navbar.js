@@ -57,7 +57,6 @@ const ClickyMenus = function (menu) {
       preventOffScreenSubmenu(submenu)
       currentMenuItem = button
     }
-    console.log(currentMenuItem)
   }
 
   function preventOffScreenSubmenu(submenu) {
@@ -87,9 +86,6 @@ const ClickyMenus = function (menu) {
   }
 
   function closeOpenMenu(e) {
-    console.log(currentMenuItem)
-    console.log(e.target)
-    console.log(container)
     if (currentMenuItem && !e.target.closest('#' + container.id)) {
       toggleSubmenu(currentMenuItem)
     }
@@ -200,7 +196,6 @@ const toggleMenu = () => {
 const closeMenu = () => {
   document.addEventListener('click', function (e) {
     const buttonClicked = e.target === trigger || e.target.parentElement === trigger
-    console.log(e)
 
     if (!nav.contains(e.target) && !buttonClicked) {
       trigger.setAttribute('aria-expanded', 'false')
