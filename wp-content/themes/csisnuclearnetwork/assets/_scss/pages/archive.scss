@@ -1,6 +1,7 @@
 @use '../abstracts' as *;
 @use 'sass:map';
 @use '../components/pagination';
+@use '../components/npn-monthly-archives';
 
 @each $page, $values in $archive-widths {
   .#{$page} {
@@ -88,6 +89,12 @@
     color: $color-black-165;
     @extend %text-style-heading-x-large;
     border-bottom: 1px solid $color-border-dark-130;
+  }
+
+  &__subheading {
+    margin-bottom: rem(16);
+    color: $color-accent-primary-100;
+    @extend %text-style-heading-large-strong;
   }
 
   &__featured {
@@ -182,6 +189,37 @@
 
   > :last-child {
     margin-bottom: rem(40);
+
+    @include breakpoint('large') {
+      margin-bottom: rem(48);
+    }
+  }
+}
+
+/*----------  NPN  ----------*/
+.post-type-archive-news {
+  .archive__content {
+    display: grid;
+    grid-template-columns: auto minmax(auto, var(--sidebar-width));
+    column-gap: rem(32);
+
+    @include breakpoint('small') {
+      column-gap: rem(40);
+    }
+  }
+
+  .archive__sidebar {
+    grid-column: 2;
+    grid-row: 1 / span 3;
+  }
+
+  .archive__postlist {
+    width: 100%;
+  }
+
+  .archive__disclaimer {
+    margin-bottom: rem(24);
+    color: $color-black-100;
 
     @include breakpoint('large') {
       margin-bottom: rem(48);

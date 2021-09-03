@@ -369,7 +369,9 @@ function nuclearnetwork_sidebar_registration() {
 		array(
 			'name'        => __( 'Nuclear Policy News', 'nuclearnetwork' ),
 			'id'          => 'nuclear-policy-news',
-			'description' => __( 'Nuclear Policy News', 'nuclearnetwork' )
+			'description' => __( 'Nuclear Policy News', 'nuclearnetwork' ),
+			'before_widget' => '<div id="%1$s" class="%2$s">',
+			'after_widget' => '</div>'
 		)
 	);
 

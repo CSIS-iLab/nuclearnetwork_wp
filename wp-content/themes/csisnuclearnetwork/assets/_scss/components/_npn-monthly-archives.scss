@@ -1,0 +1,44 @@
+@use '../abstracts/' as *;
+
+/* stylelint-disable selector-class-pattern, selector-no-qualifying-type, selector-max-compound-selectors */
+.widget_collapsarch {
+  color: $color-black-180;
+  @extend %text-style-label-large;
+
+  .widgettitle {
+    display: none;
+  }
+
+  .sym {
+    color: $color-black-165;
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    > li + li {
+      margin-top: rem(16);
+    }
+
+    li > span {
+      display: flex;
+      gap: rem(8);
+      cursor: pointer;
+    }
+
+    ul {
+      margin-top: rem(16);
+      padding-left: rem(36);
+
+      li + li {
+        margin-top: rem(8);
+      }
+    }
+
+    a:hover {
+      color: $color-black-100;
+    }
+  }
+}
