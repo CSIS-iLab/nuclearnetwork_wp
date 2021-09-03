@@ -39,8 +39,10 @@
 			dynamic_sidebar('write-for-us'); 
 			echo '</div></div>';
 			nuclearnetwork_citation();
+			// echo do_shortcode( '[jprel]' );
+			// if ( function_exists( 'ADDTOANY_SHARE_SAVE_KIT' ) ) { ADDTOANY_SHARE_SAVE_KIT(); }
 			// get_template_part( 'template-parts/featured-image-caption' );
-		// ?>
+		?>
 	</footer>
 	<?php } ?>
 
