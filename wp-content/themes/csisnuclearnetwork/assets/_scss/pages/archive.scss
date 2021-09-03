@@ -212,7 +212,7 @@
 
     @include breakpoint('medium') {
       grid-column: 2;
-      grid-row: 2;
+      grid-row: 2 / span 2;
     }
   }
 

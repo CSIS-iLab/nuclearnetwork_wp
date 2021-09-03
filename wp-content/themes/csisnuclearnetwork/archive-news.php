@@ -48,13 +48,6 @@ get_header();
 			wp_reset_postdata();
 			echo "</section>";
 		}
-
-		// Pagination
-		if ( class_exists( 'FacetWP') && $show_filters ) {
-			echo facetwp_display( 'facet', 'pagination_navigation' );
-		} else {
-			get_template_part( 'template-parts/pagination' );
-		}
 	?>
 	</div>
 

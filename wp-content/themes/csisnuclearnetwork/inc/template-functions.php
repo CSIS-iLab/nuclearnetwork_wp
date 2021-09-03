@@ -396,12 +396,16 @@ add_action( 'pre_get_posts', 'nuclearnetwork_exclude_upcoming_events_from_archiv
 
 function nuclearnetwork_show_all_news_posts_per_month ( $query ) {
 
-	if ( !is_admin() && $query->is_main_query() && is_post_type_archive( 'news' ) && !$query->query_vars['monthnum'] ) {
-		$year = date('Y');
-		$month = date('m');
-		$query->set('monthnum', $month);
-		$query->set('year', $year);
+	if ( !is_admin() && $query->is_main_query() && is_post_type_archive( 'news' ) ) {
+
 		$query->set('posts_per_page', 50);
+
+		if (!$query->is_month() ) {
+			$year = date('Y');
+			$month = date('m');
+			$query->set('monthnum', $month);
+			$query->set('year', $year);
+		}
 	}
 }
 add_action( 'pre_get_posts', 'nuclearnetwork_show_all_news_posts_per_month' );
