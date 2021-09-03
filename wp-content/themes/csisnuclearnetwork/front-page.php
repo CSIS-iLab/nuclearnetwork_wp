@@ -60,6 +60,7 @@ get_header();
 	?>
 	<?php get_template_part( 'template-parts/home-recent-section', null, $excluded_featured_post_ids_from_recent); ?>
 	<?php get_template_part( 'template-parts/newsletter-block-acf' ); ?>
+	<?php get_template_part( 'template-parts/home-featured-programs' ); ?>
 	<?php get_template_part( 'template-parts/home-about-poni' ); ?>
 
 </main><!-- #site-content -->
