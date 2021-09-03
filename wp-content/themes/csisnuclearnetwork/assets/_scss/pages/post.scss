@@ -5,26 +5,26 @@
     --max-width-limit: #{rem(500)};
     --padding-top-authors: #{rem(56)};
     margin-top: rem(24);
-    margin-bottom: rem(32);
+    margin-bottom: rem(56);
 
     @include breakpoint('large') {
       --padding-top-authors: #{rem(32)};
       margin-bottom: rem(48);
+
+      &-content {
+        display: grid;
+        grid-template-columns: auto rem(260);
+        column-gap: rem(48);
+      }
     }
 
     &-group {
+      grid-column: 1;
       max-width: var(--max-width-limit);
-      @include breakpoint(large) {
-        float: left;
-        max-width: calc(100% - 308px);
-      }
 
-      &::after {
-        @include breakpoint(large) {
-          display: table;
-          clear: both;
-          content: '';
-        }
+      @include breakpoint('large') {
+        max-width: unset;
+        margin-bottom: rem(48);
       }
     }
 
@@ -50,6 +50,7 @@
       margin-bottom: rem(32);
       color: $color-black-190;
       letter-spacing: 0.0005em;
+
       @include breakpoint(large) {
         max-width: rem(700);
       }
