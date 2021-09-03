@@ -1,0 +1,41 @@
+/*=========================================
+=            Table of Contents            =
+=========================================*/
+
+.toc-heading {
+	font-family: $font__lato;
+	@include fontSize(20px);
+	line-height: 1.25;
+	font-weight: normal;
+	color: $primary-blue;
+	margin: 1rem 0 0 0;
+	text-transform: uppercase;
+}
+
+.toc-desc {
+	@include fontSize(16px);
+	font-style: italic;
+	color: $dark-gray;
+	margin: 0;
+}
+
+.toc-read-publication {
+	@include fontSize(16px);
+	line-height: 2.03;
+	text-transform: uppercase;
+	margin-bottom: 2rem;
+
+	a {
+		color: $primary-blue;
+		box-shadow: none !important;
+	}
+
+	p + & { margin-top: -1rem; }
+
+	i {
+		&::before {
+			width: 0.5rem;
+			margin: 0;
+		}
+	}
+}

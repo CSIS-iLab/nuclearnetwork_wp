@@ -1,0 +1,49 @@
+/*=============================
+=            Posts            =
+=============================*/
+
+.sidebar-left {
+  // Content
+  .entry-content {
+    width: 100%;
+  }
+
+  // Sidebar
+  .post-sidebar {
+    position: static;
+    margin-bottom: 2rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid $gray;
+
+    @include breakpoint("medium") {
+      position: fixed;
+      float: left;
+      width: calc(25% - 1.5rem);
+      max-width: 250px;
+      margin-bottom: 0;
+      padding-bottom: 0;
+      padding-right: 1rem;
+      border-bottom: 0;
+
+      @include breakpoint("large") {
+        max-width: 230px;
+      }
+    }
+  }
+  // Post Body
+  .post-content {
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+
+    @include breakpoint("medium") {
+      width: 75%;
+      margin-left: calc(25% - 1rem);
+      padding-right: 0;
+    }
+
+    // Headings
+    h1, h2, h3, h4, h5, h6 { clear: none; }
+  }
+}

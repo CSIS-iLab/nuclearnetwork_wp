@@ -1,13 +1,26 @@
 @use 'abstracts' as *;
 
 .write-for-us {
+  --write-title-color: #{$color-accent-primary-blue-200};
+  --write-body-color: #{$color-accent-primary-blue-100};
+  --write-link-color: #{$color-accent-primary-blue-200};
+
   &__title {
     @extend %text-style-label-large-strong-caps;
     margin-bottom: rem(4);
+    color: var(--write-title-color);
   }
 
   &__desc,
   &__link {
     @extend %text-style-paragraph-medium-short;
+  }
+
+  &__desc {
+    color: var(--write-body-color);
+  }
+
+  &__link {
+    color: var(--write-link-color);
   }
 }

@@ -1,0 +1,37 @@
+.widget {
+	margin: 0 0 3rem 0;
+
+	/* Make sure select elements fit in widgets. */
+	select {
+		max-width: 100%;
+	}
+
+	.widget-title {
+		background-color: $yellow;
+		color: $black;
+		text-transform: uppercase;
+		font-weight: bold;
+		width: fit-content;
+		margin: 0 0 1rem -2rem;
+		padding: 0.5rem 1rem 0.5rem 0;
+		@include fontSize(15px);
+
+		i {
+			color: $white;
+			width: 2rem;
+			padding: 0 0.25rem;
+		}
+
+		.icon-twitter:before { margin-top: 0; }
+
+		a:hover {
+			color: $white;
+			@include transition(color .3s ease-in-out)
+		}
+	}
+
+	p {
+		@extend .body-small;
+	}
+
+}

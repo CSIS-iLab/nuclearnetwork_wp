@@ -1,0 +1,93 @@
+/*==============================
+=            Colors            =
+==============================*/
+$black: #000;
+$off-black: #333;
+$white: #fff;
+$off-white: #f1f1f1;
+$primary-blue: #235d94;
+$secondary-blue: #3873ab;
+$dark-blue: #163553;
+$medium-blue: #6e9dca;
+$light-blue: #cbdce5;
+$dark-gray: #6d6d6d;
+$gray: #c7c6c4;
+$light-gray: #dedede;
+$yellow: #f1c161;
+$dark-yellow: #d19827;
+
+$color__background-body: $white;
+$color__background-screen: $white;
+$color__background-hr: $light-gray;
+$color__background-hr-stat-home: #dbd9d7;
+$color__navigation-border: #dfdfdf;
+$color__background-button-gray: #d6d6d6;
+$color__background-button-blue: $primary-blue;
+$color__background-button-blue-hover: $medium-blue;
+$color__background-button-yellow: $yellow;
+$color__background-button-yellow-hover: $dark-yellow;
+$color__background-pre: #eee;
+$color__background-ins: #fff9c0;
+$color__background-tooltip: rgba(0,0,0,0.8);
+$color__background-nav-overlay: #53636b;
+$color__background-nav-overlay-heading: #4a5b63;
+$color__background-share-divider: $color__background-hr-stat-home;
+$color__background-btn-view: #d1d8dc;
+$color__background-btn-view-hover: $color__background-button-gray;
+$color__background-input: #fafafa;
+$color__background-archive-sidebar: #e5e5e5;
+$color__background-checkbox: #e6e6e6;
+
+$color__text-screen: $black;
+$color__text-input: $gray;
+$color__text-input-focus: $black;
+$color__link: $black;
+$color__link-visited: $dark-blue;
+$color__link-hover: $secondary-blue;
+$color__text-main: $black;
+$color__text-copyright: #8c898c;
+$color__text-seeMore: #797679;
+$color__text-statIcon: #698491;
+$color__text-h6: #1c2e36;
+$color__text-captions: #808081;
+
+$color__border-input: $dark-blue;
+$color__border-abbr: #666;
+
+$color__facebook: #3b5998;
+$color__twitter: #00aced;
+$color__linkedin: #0077b5;
+$color__email: $yellow;
+
+/*==================================
+=            Typography            =
+==================================*/
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400,700|PT+Sans:400,700');
+
+$font__Roboto: 'Roboto', sans-serif;
+$font__Hind: 'Hind', sans-serif;
+
+$font__lato: 'Lato', sans-serif;
+$font__ptsans: 'PT Sans', sans-serif;
+
+
+$font__main: $font__ptsans;
+$font__code: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+$font__pre: "Courier 10 Pitch", Courier, monospace;
+$font__line-height-body: 1.5;
+$font__line-height-pre: 1.6;
+
+
+
+/*=================================
+=            Structure            =
+=================================*/
+
+$size__container-max-width: 1208px;
+$size__content-max-width: 700px;
+$size__header-top-height: 40px;
+$size__header-bottom-height: 50px;
+$size__header-bottom-height-mobile: 60px;
+$size__homepage-block-height: 15rem;
+$size__homepage-block-height-2x: 31rem;
+$size__homepage-block-height-mobile: 10.3rem; 
