@@ -237,6 +237,11 @@
       margin-top: 1rem;
     }
 
+    hr {
+      max-width: $size__content-max-width;
+      margin: 0 auto;
+    }
+
     &-heading {
       display: flex;
       gap: rem(12);
@@ -249,28 +254,28 @@
 
     &-related-heading {
       margin-bottom: rem(24);
-      @extend %text-style-heading-related;
       color: $color-accent-primary-blue-100;
+      font-family: $font__lato;
+      font-weight: 900;
+      letter-spacing: 0.05em;
     }
 
     &-related-container {
-      display: grid;
-
       @include breakpoint('large') {
+        display: grid;
         grid-template-columns: auto rem(260);
       }
     }
 
     &-related-posts {
-      grid-column: 1/2;
-      grid-row: 1;
+      grid-column: 1;
     }
 
     &-related-terms {
-      grid-column-start: 2/3;
+      grid-column-start: 2;
 
-      > div.entry__tags {
-        margin-left: 0;
+      .entry__tags {
+        margin-left: 0 !important;
       }
     }
 
