@@ -109,8 +109,6 @@
       margin-bottom: 12px;
       padding: 0;
       white-space: nowrap;
-      @extend %text-style-label-small-strong;
-      text-transform: uppercase;
 
       a {
         display: flex;
