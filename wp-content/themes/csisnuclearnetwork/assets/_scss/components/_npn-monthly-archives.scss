@@ -2,8 +2,13 @@
 
 /* stylelint-disable selector-class-pattern, selector-no-qualifying-type, selector-max-compound-selectors */
 .widget_collapsarch {
+  display: none;
   color: $color-black-180;
   @extend %text-style-label-large;
+
+  @include breakpoint('medium') {
+    display: block;
+  }
 
   .widgettitle {
     display: none;
@@ -40,5 +45,30 @@
     a:hover {
       color: $color-black-100;
     }
+  }
+}
+
+.widget_archive {
+  @include breakpoint('medium') {
+    display: none;
+  }
+
+  .widgettitle {
+    display: none;
+  }
+
+  select {
+    width: 100%;
+    padding: rem(16);
+    color: $color-black-190;
+    @extend %text-style-label-large;
+    background: $color-white-100;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' id='icon-caret-down' viewBox='0 0 32 32'%3E%3Ctitle%3Ecaret-down%3C/title%3E%3Cpath d='M7.333 12.667l9.333 10 9.333-10h-18.667z'%3E%3C/path%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: calc(100% - #{rem(16px)}) center;
+    background-size: 20px;
+    border: 1px solid $color-border-dark-115;
+    border-radius: 2px;
+    appearance: none;
   }
 }

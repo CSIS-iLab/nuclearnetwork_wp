@@ -22,8 +22,15 @@ get_header();
 	?>
 
 	<div class='archive__content'>
-		<h2 class="archive__subheading"><?php echo $date; ?> Nuclear Policy News</h2>
-		<p class="archive__disclaimer text--short">Select the date to view the newsletter in the Nuclear Policy News archive.</p>
+		<div class="archive__subheader">
+			<h2 class="archive__subheading"><?php echo $date; ?> Nuclear Policy News</h2>
+			<?php
+			if ( class_exists('ACF') ) {
+				$instructions = get_field( 'archive_instructions', 'news' );
+				echo '<p class="archive__disclaimer text--short">' . $instructions . '</p>';
+			}
+			?>
+		</div>
 
 	<?php
 		if ( have_posts() ) {
