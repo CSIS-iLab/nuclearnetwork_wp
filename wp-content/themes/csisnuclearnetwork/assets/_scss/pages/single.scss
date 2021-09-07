@@ -264,6 +264,10 @@
     background: $color-postbg-200;
     @include full-width-background($color-postbg-200);
 
+    &::after {
+      z-index: 2;
+    }
+
     hr {
       max-width: $size__footer-max-width;
       margin: 0 auto rem(24);
