@@ -17,7 +17,7 @@
 <div class='home__featured-programs'>
     <h3 class='home__featured-programs-subtitle home__subtitle home__subtitle--border'>Programs</h3>
     <!-- .nuclearnetwork_get_svg('chevron-right') . -->
-    <div class='home__featured-programs-all-link'><a href='<?php home_url() ?>/programs/'>All Programs <?php nuclearnetwork_get_svg('chevron-right'); ?></a></div>
+    <div class='home__featured-programs-all-link'><a href='<?php home_url() ?>/programs/'>All Programs <?php echo nuclearnetwork_get_svg( 'chevron-right' ); ?></a></div>
     <!-- template tags function -->
     <?php nuclearnetwork_display_featured_programs() ?>
 <!-- end div -->
