@@ -89,7 +89,7 @@ class NuclearNetwork_Menu extends Walker_Nav_Menu {
         $attributes .= ! empty( $item->url )        ? ' href="'   . esc_attr( $item->url        ) .'"' : '';
         $item_output = $args->before;
         if ( $args->walker->has_children && $depth == 0 ) {
-          $item_output .= '<button>' . $attributes;
+          $item_output .= '<button>';
           $item_output .= $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after;
           $item_output .= '</button>';
         } else {
