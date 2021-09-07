@@ -28,15 +28,7 @@ $is_author = is_author(); //Author
 $is_single = is_single();
 $post_parent_id = wp_get_post_parent_id(get_the_ID());
 
-if ( $is_search || $is_tag || $is_category ) {
-	$image_URL = get_field( 'header_image', 'option' );
-} elseif ( $is_home || $is_series || $is_analysis_subtype ) {
-	$image_URL = get_the_post_thumbnail_url( $page_for_posts );
-} else {
-	$image_URL = get_archive_thumbnail_src( 'nuclearnetwork-fullscreen' );
-}
 
-$feat_image = 'style="background-image:url('. $image_URL .');"';
 $title_classes = 'entry-header__title entry-header__title--yellow';
 if ( $is_tag || $is_category || $is_search || $post_type === 'programs' && $is_single && $post_parent_id ) {
 	$title_classes = 'entry-header__title';
