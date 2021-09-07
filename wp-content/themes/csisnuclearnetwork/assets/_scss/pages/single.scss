@@ -257,12 +257,15 @@
 
   &__footer {
     max-width: $size__footer-max-width;
-    margin-top: rem(40);
     margin-right: auto;
     margin-left: auto;
-    padding: rem(40) 0 rem(56);
+    padding: rem(56) 0 rem(80);
     background: $color-postbg-200;
     @include full-width-background($color-postbg-200);
+
+    @include breakpoint('large') {
+      padding-top: rem(64);
+    }
 
     &::after {
       z-index: 2;
