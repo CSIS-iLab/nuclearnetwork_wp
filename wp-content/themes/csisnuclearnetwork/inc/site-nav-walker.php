@@ -45,10 +45,10 @@ class NuclearNetwork_Menu extends Walker_Nav_Menu {
 
         $indent = str_repeat("\t", $depth);
         $output .= "\n$indent<div class='sub-menu-container sub-menu-container-depth-" . $depth . " row'>
-            <div class='col-xs-12 col-md sub-menu-children' aria-expanded='false'>\n";
+            <div class='sub-menu-children' aria-expanded='false'>\n";
 
         if ( $args->has_featured ) {
-          $output .= "<div class='hidden-xs col-md-4 sub-menu-featured-post'>
+          $output .= "<div class='hidden-xs sub-menu-featured-post'>
                       " . $featured_post_html . "
                       </div>\n";
         }
