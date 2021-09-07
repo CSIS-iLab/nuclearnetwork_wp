@@ -17,11 +17,7 @@
 <div class='home__featured-programs'>
     <h3 class='home__subtitle home__subtitle--border'>Programs</h3>
     <!-- .nuclearnetwork_get_svg('chevron-right') . -->
-<<<<<<< HEAD
     <div class='home__featured-programs-all-link'><a href='<?php home_url() ?>/programs/'>All Programs <?php echo nuclearnetwork_get_svg( 'chevron-right' ); ?></a></div>
-=======
-    <a href=''>All Programs <?php nuclearnetwork_get_svg('chevron-right'); ?></a>
->>>>>>> parent of d6c183f (finished section)
     <!-- template tags function -->
     <?php nuclearnetwork_display_featured_programs() ?>
 <!-- end div -->
