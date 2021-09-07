@@ -443,21 +443,16 @@
     }
 
     &-program {
-      // &:not(:first-of-type):not(:last-of-type) {
-      //   margin: rem(32) 0;
-      // }
-
-      // &:first-of-type {
-      //   margin-top: 0;
-      // }
       &:nth-of-type(3) {
         margin: rem(32) 0;
       }
 
       &-title {
         @extend %text-style-heading-large-strong;
-        color: $color-accent-primary-blue-200;
         padding-bottom: rem(12);
+        color: $color-accent-primary-blue-200;
+
+        /* stylelint-disable */
         a:hover {
           color: $color-black-100;
         }
@@ -465,6 +460,7 @@
           color: $color-black-100;
           background-color: $color-bg-light-300;
         }
+        /* stylelint-enable */
       }
 
       &-desc {
@@ -479,23 +475,28 @@
 
     &-all-link {
       @extend %text-style-label-medium;
-      text-align: right;
       color: $color-accent-primary-blue-200;
+      text-align: right;
+      /* stylelint-disable */
       &:after {
         content: "";
         clear: both;
         display: table;
       }
+
       svg {
         margin-bottom: rem(-2);
       }
+
       a:hover {
         color: $color-black-100;
       }
+
       a:focus {
         color: $color-black-100;
         background-color: $color-bg-light-300;
       }
+      /* stylelint-enable */
     }
   }
 
