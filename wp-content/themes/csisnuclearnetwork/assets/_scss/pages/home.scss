@@ -458,10 +458,10 @@
         @extend %text-style-heading-large-strong;
         color: $color-accent-primary-blue-200;
         padding-bottom: rem(12);
-        &:hover {
+        a:hover {
           color: $color-black-100;
         }
-        &:focus {
+        a:focus {
           color: $color-black-100;
           background-color: $color-bg-light-300;
         }
@@ -486,10 +486,10 @@
         clear: both;
         display: table;
       }
-      &:hover {
+      a:hover {
         color: $color-black-100;
       }
-      &:focus {
+      a:focus {
         color: $color-black-100;
         background-color: $color-bg-light-300;
       }
