@@ -275,10 +275,12 @@
     }
 
     &-related-terms {
-      grid-column-start: 2;
+      &:not(:only-child) {
+        grid-column: 2;
+      }
 
       .entry__tags {
-        margin-left: 0 !important;
+        margin-left: 0;
       }
     }
 
