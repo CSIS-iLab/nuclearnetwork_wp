@@ -176,10 +176,17 @@
         padding: 0;
         color: $color-white-100;
         border: 0;
+        border-bottom: 2px solid transparent;
         cursor: pointer;
+        transition: all 0.3s ease-in-out;
 
         @include breakpoint('large') {
+          padding-bottom: rem(8);
           color: $color-black-100;
+        }
+
+        &:hover {
+          border-bottom: 2px solid #f2be57;
         }
       }
     }
@@ -216,11 +223,27 @@
     > a::after,
     > button::after {
       content: '\25be';
+      display: inline-block;
       padding-left: rem(8);
       color: $color-white-100;
+      transition: all 0.3s ease-in-out;
 
       @include breakpoint('large') {
         color: $color-black-100;
+      }
+    }
+
+    &.is-active {
+      > a,
+      > button {
+        border-bottom: 2px solid #f2be57;
+      }
+
+      > a::after,
+      > button::after {
+        padding-right: rem(8);
+        padding-left: 0;
+        transform: rotate(-180deg);
       }
     }
   }
