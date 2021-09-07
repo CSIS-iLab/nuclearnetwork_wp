@@ -227,40 +227,69 @@
   }
 
   &__footer {
-    max-width: $size__content-max-width;
+    max-width: $size__footer-max-width;
     margin-top: rem(40);
+    margin-right: auto;
+    margin-left: auto;
     padding: rem(40) 0 rem(56);
-    background: $color-bg-light-200;
-    @include full-width-background($color-bg-light-200);
 
-    @include breakpoint('large') {
-      padding-top: rem(56);
+    hr {
+      max-width: $size__footer-max-width;
+      margin: 0 auto rem(24);
+      border: 0;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.3);
     }
 
-    @include breakpoint('xlarge') {
-      max-width: rem(900);
+    hr {
+      max-width: $size__footer-max-width;
+      margin: 0 auto rem(24);
+      border: 0;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.3);
     }
 
     &-heading {
       display: flex;
       gap: rem(12);
-      justify-content: center;
+      justify-content: start;
       align-items: center;
       margin-bottom: rem(24);
       @extend %text-style-heading-large-strong-caps;
+      color: $color-accent-primary-blue-100;
+    }
 
-      @include breakpoint('small') {
-        margin-bottom: rem(32);
-      }
+    &-related-heading {
+      margin-bottom: rem(24);
+      color: $color-accent-primary-blue-100;
+      @include font-size(28px);
+      font-family: $font__lato;
+      font-weight: 900;
+      letter-spacing: 0.05em;
+    }
 
+    &-related-container {
       @include breakpoint('large') {
-        margin-bottom: rem(40);
+        display: grid;
+        grid-template-columns: auto rem(260);
+      }
+    }
+
+    &-related-posts {
+      grid-column: 1;
+    }
+
+    &-related-terms {
+      &:not(:only-child) {
+        grid-column: 2;
       }
 
-      .icon {
-        height: 0.5em;
-        font-size: 2em;
+      .entry__tags {
+        margin-left: 0;
       }
+    }
+
+    &-label {
+      @extend %text-style-label-small-strong;
+      color: $color-black-165;
     }
 
     &-write-for-us {
@@ -286,6 +315,11 @@
           clear: both;
         }
       }
+    }
+
+    &-label {
+      @extend %text-style-label-small-strong;
+      color: $color-black-165;
     }
   }
 

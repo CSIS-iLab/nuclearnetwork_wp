@@ -18,24 +18,42 @@
 	// vars
 	$related_posts = get_field( 'related_posts', $term );
 
-	// if related content we show them
-	if ( $related_posts || has_tag() ) {
-		echo '<h2 class="single__footer-heading">';
-			echo nuclearnetwork_get_svg( "3-arrows" );
-			_e( 'Related Content', 'nuclearnetwork' );
-		echo '</h2>';
-		nuclearnetwork_display_tags();
+	// if no related content we bail
+	if ( !($related_posts || has_tag() || has_category()) ) {
+      return;
+    }
 
-		if ( $related_posts ) {
-			echo '<ul class="related-posts" role="list">';
-				foreach( $related_posts as $post ):
-					setup_postdata($post);
-					echo '<li>';
-					get_template_part( 'template-parts/block-post-related' );
-					echo '</li>';
-				endforeach;
-			echo '</ul>';
-			wp_reset_postdata();
-		}
-	}
+    echo '<hr />';
+    echo '<h2 class="single__footer-related-heading">';
+        _e( 'Related', 'nuclearnetwork' );
+    echo '</h2>';
+    echo '<div class="single__footer-related-container">';
+    
+    if ( $related_posts ) {
+      echo '<div class="single__footer-related-posts">';
+        echo '<ul class="related-posts" role="list">';
+            foreach( $related_posts as $post ):
+                setup_postdata($post);
+                echo '<li>';
+                get_template_part( 'template-parts/block-post-related' );
+                echo '</li>';
+            endforeach;
+        echo '</ul>';
+        wp_reset_postdata();
+      echo '</div>';
+    }
+
+    echo '<div class="single__footer-related-terms">';
+    if (has_category()) {
+      echo '<h3 class="single__footer-label text--caps">Topics</h3>';
+      nuclearnetwork_display_categories();
+    }
+
+    if ( has_tag()) {
+      echo '<h3 class="single__footer-label text--caps">Keywords</h3>';
+      nuclearnetwork_display_tags();
+    }
+    echo '</div>';
+    echo '</div>';
+
 ?>

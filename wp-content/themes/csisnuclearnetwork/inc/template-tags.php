@@ -289,7 +289,7 @@ if (! function_exists('nuclearnetwork_display_categories')) :
 		$categories_list = get_the_category_list();
 
 		if ('Uncategorized' === $categories_list) {
-				return;
+		    return;
 		}
 
 		// Always display "Event" for events
@@ -314,7 +314,7 @@ if (! function_exists('nuclearnetwork_display_tags')) :
 	function nuclearnetwork_display_tags() {
 
 		/* translators: used between list items, there is a space after the comma */
-		$tags_list = get_the_tag_list('<ul class="post-meta__tags" role="list"><li class="btn btn--dark btn--xsmall">', '</li><li class="btn btn--dark btn--xsmall">', '</li></ul>');
+		$tags_list = get_the_tag_list('<ul class="post-meta__tags" role="list"><li class="btn btn--blue btn--small text--bold text--caps">', '</li><li class="btn btn--blue btn--small text--bold text--caps">', '</li></ul>');
 
 		if ( $tags_list ) {
 			/* translators: 1: list of tags. */
