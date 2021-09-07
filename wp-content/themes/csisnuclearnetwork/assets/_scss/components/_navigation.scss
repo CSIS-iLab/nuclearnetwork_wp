@@ -181,8 +181,8 @@
 
         @include breakpoint('large') {
           padding-bottom: rem(8);
-          border-bottom: 2px solid transparent;
           color: $color-black-100;
+          border-bottom: 2px solid transparent;
 
           &:hover {
             border-bottom: 2px solid #f2be57;
@@ -196,10 +196,6 @@
       display: inline-block;
       background-color: transparent;
 
-      &:hover {
-        // color: $color-accent-dark-primary-400;
-      }
-
       @include breakpoint('large') {
         padding: 0;
       }
@@ -209,15 +205,9 @@
   .menu-item-has-children {
     &.is-active .sub-menu-container-depth-0,
     .sub-menu.focus {
-      position: absolute;
+      position: relative;
       display: block;
       clip-path: inset(0);
-    }
-
-    @include breakpoint('large') {
-      .sub-menu {
-        // display: none;
-      }
     }
 
     > a::after,
@@ -274,20 +264,17 @@
 
   .sub-menu-container-depth-0 {
     position: absolute;
-    top: 80%;
-    left: 50%;
-    transition: clip-path 0.3s linear, visibility 0.3s linear;
-    clip-path: inset(0 0 100% 0);
-
-    &.is-active {
-      clip-path: inset(0);
-    }
+    display: none;
 
     @include breakpoint('large') {
-      // --sub-menu-bg: #{$color-bg-light-200};
+      position: absolute;
+      top: 80%;
+      left: 50%;
       width: max-content;
       background-color: $color-bg-light-200;
       transform: translateX(-50%);
+      transition: clip-path 0.3s linear, visibility 0.3s linear;
+      clip-path: inset(0 0 100% 0);
 
       &::after {
         position: absolute;
