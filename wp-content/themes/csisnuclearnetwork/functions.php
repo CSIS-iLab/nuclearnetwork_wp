@@ -366,6 +366,17 @@ function nuclearnetwork_sidebar_registration() {
 	);
 
 	register_sidebar(
+		array(
+			'name'        => __( 'Nuclear Policy News', 'nuclearnetwork' ),
+			'id'          => 'nuclear-policy-news',
+			'description' => __( 'Nuclear Policy News', 'nuclearnetwork' ),
+			'before_widget' => '<div id="%1$s" class="%2$s">',
+			'after_widget' => '</div>'
+		)
+	);
+
+
+	register_sidebar(
 		array_merge(
 			$footer_shared_args,
 			array(
@@ -373,14 +384,6 @@ function nuclearnetwork_sidebar_registration() {
 				'id'          => 'write-for-us',
 				'description' => __( 'Write for us', 'nuclearnetwork' )
 			)
-		)
-	);
-
-	register_sidebar(
-		array(
-			'name'        => __( 'Nuclear Policy News', 'nuclearnetwork' ),
-			'id'          => 'nuclear-policy-news',
-			'description' => __( 'Nuclear Policy News', 'nuclearnetwork' )
 		)
 	);
 

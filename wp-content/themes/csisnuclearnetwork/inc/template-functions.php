@@ -372,7 +372,6 @@ function nuclearnetwork_exclude_upcoming_events_from_archive_loop ( $query ) {
 
 		/**
 		 * `_post_start_date` was a custom meta field from a previous theme. It's inclusion here is to ensure that older event posts are also sorted accordingly. Note that the two "date" fields are treated separately, so the chronological order of past events may be incorrect when the query starts using the older meta field instead of the ACF.
-		 * TODO: Convert old event posts to use new ACF start date field for consistent ordering.
 		 */
 		$query->set('meta_query', array(
 			'relation' => 'OR',
@@ -394,6 +393,28 @@ function nuclearnetwork_exclude_upcoming_events_from_archive_loop ( $query ) {
 	}
 }
 add_action( 'pre_get_posts', 'nuclearnetwork_exclude_upcoming_events_from_archive_loop' );
+
+/**
+ * Modify News Archive to show all of the posts for a given month.
+ *
+ * @param  array $query Query object.
+ */
+
+function nuclearnetwork_show_all_news_posts_per_month ( $query ) {
+
+	if ( !is_admin() && $query->is_main_query() && is_post_type_archive( 'news' ) ) {
+
+		$query->set('posts_per_page', 50);
+
+		if (!$query->is_month() ) {
+			$year = date('Y');
+			$month = date('m');
+			$query->set('monthnum', $month);
+			$query->set('year', $year);
+		}
+	}
+}
+add_action( 'pre_get_posts', 'nuclearnetwork_show_all_news_posts_per_month' );
 
 /*
  * Removes the default Jetpack related posts plugin so we can call it with a shortcode instead
