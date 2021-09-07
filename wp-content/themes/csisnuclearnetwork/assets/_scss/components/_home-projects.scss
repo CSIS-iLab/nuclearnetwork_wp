@@ -1,0 +1,136 @@
+@use '../abstracts' as *;
+@use '../vendors/splide';
+
+.home__projects {
+  --image-height: 340px;
+  --link-color: #{$color-black-180};
+  --projects-padding: var(--projects-padding);
+  padding: rem(24) 0 rem(64);
+  @include csis-block-full-width-wrapper;
+  background: $color-bg-light-400;
+
+  @include breakpoint('large') {
+    --projects-padding: #{rem(40)};
+    width: 100%;
+    margin: 0;
+    padding-bottom: rem(40);
+  }
+
+  &-header {
+    margin-bottom: rem(20);
+    padding: 0 var(--projects-padding);
+
+    @include breakpoint('small') {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+  }
+
+  .home__subtitle {
+    --home-subtitle-border: #{$color-accent-primary-blue-300};
+
+    &::after {
+      margin-top: rem(12);
+      margin-bottom: rem(12);
+
+      @include breakpoint('small') {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &-item {
+    > *:not(.home__projects-img) {
+      padding: 0 var(--projects-padding);
+    }
+  }
+
+  &-img {
+    display: block;
+    margin-bottom: rem(20);
+
+    img {
+      width: 100%;
+      max-height: var(--image-height);
+      object-fit: cover;
+      object-position: center center;
+
+      @include breakpoint('medium') {
+        height: var(--image-height);
+        max-height: unset;
+      }
+    }
+  }
+
+  &-title {
+    margin-bottom: rem(8);
+    color: $color-black-100;
+    @extend %text-style-heading-large-strong;
+  }
+
+  .post-block__excerpt {
+    margin-bottom: 0 !important;
+    @extend %text-style-paragraph-large;
+    @extend %text-style-short;
+    color: $color-black-180;
+  }
+
+  // Splide
+  .splide__pagination {
+    @include breakpoint('medium') {
+      position: absolute;
+      top: calc(var(--image-height) + #{rem(20)});
+      right: var(--projects-padding);
+      justify-content: flex-end;
+      margin-top: 0;
+    }
+  }
+
+  .splide__arrows {
+    @include breakpoint('medium') {
+      top: calc(var(--image-height) + #{rem(20)});
+      right: var(--projects-padding);
+    }
+  }
+}
+
+.splide__pagination {
+  gap: rem(8);
+  width: 100%;
+  margin-top: rem(20);
+  padding: 0;
+
+  &__page {
+    width: rem(12);
+    height: rem(12);
+    background: $color-bg-dark-120;
+    border: 0;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+    appearance: none;
+  }
+
+  &__page:hover,
+  .is-active {
+    background: $color-accent-primary-blue-200;
+  }
+}
+
+.splide__arrows {
+  position: absolute;
+
+  .splide__arrow {
+    padding: 0;
+    @include font-size(20px);
+    line-height: 1;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+  }
+
+  .icon {
+    color: $color-bg-dark-100;
+  }
+}
