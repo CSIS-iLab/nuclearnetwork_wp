@@ -233,8 +233,11 @@
     margin-left: auto;
     padding: rem(40) 0 rem(56);
 
-    @include breakpoint('xlarge') {
-      max-width: rem(900);
+    hr {
+      max-width: $size__footer-max-width;
+      margin: 0 auto rem(24);
+      border: 0;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.3);
     }
 
     hr {
@@ -312,6 +315,11 @@
           clear: both;
         }
       }
+    }
+
+    &-label {
+      @extend %text-style-label-small-strong;
+      color: $color-black-165;
     }
   }
 

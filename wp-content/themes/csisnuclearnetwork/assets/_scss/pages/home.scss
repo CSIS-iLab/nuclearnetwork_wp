@@ -497,7 +497,7 @@
 
   &__event-and-posts-block {
     display: grid;
-    grid-template-areas: 
+    grid-template-areas:
       'event'
       'news'
       'twitter';
@@ -511,7 +511,7 @@
     }
 
     @include breakpoint(medium) {
-      grid-template-areas: 
+      grid-template-areas:
         'event twitter'
         'news twitter';
       grid-template-columns: 1fr 1fr;
@@ -519,7 +519,7 @@
     }
 
     @include breakpoint(large) {
-      grid-template-areas: 
+      grid-template-areas:
         'event'
         'news'
         'twitter';
@@ -599,13 +599,13 @@
           @extend %text-style-heading-medium;
           color: $color-white-100;
 
-            &:hover {
-              color: $color-accent-secondary-yellow-100;
-            }
+          &:hover {
+            color: $color-accent-secondary-yellow-100;
+          }
 
-            &:focus {
-              background-color: $color-accent-primary-blue-100;
-            }
+          &:focus {
+            background-color: $color-accent-primary-blue-100;
+          }
         }
 
         .post-meta__date {
@@ -613,7 +613,7 @@
             display: none;
           }
         }
-        
+
         .post-meta__terms {
           color: $color-accent-secondary-yellow-100;
           a {
@@ -626,12 +626,12 @@
               color: $color-white-100;
             }
 
-            &:focus { 
+            &:focus {
               color: $color-white-100;
               background-color: $color-accent-primary-blue-100;
             }
           }
-        } 
+        }
 
         .post-meta__date {
           --post-meta: #{$color-white-180};
