@@ -1,0 +1,1068 @@
+/*==============================
+=            Header            =
+==============================*/
+
+// Overall Component Styles
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 50;
+
+    body.logged-in & {
+        top: 32px;
+    }
+
+    ul {
+        list-style: none;
+        margin: 0;
+        padding-left: 0;
+    }
+
+    li {
+        margin: 0;
+    }
+
+    .search-container {
+        text-align: right;
+    }
+} // Logo Styles
+.header-logo {
+    position: relative;
+    z-index: 5;
+    height: $size__header-bottom-height-mobile;
+    background-color: $dark-blue;
+    text-align: center;
+    transition: all 1s ease-in-out;
+    @include breakpoint("medium") {
+        height: 100%;
+        @include box-shadow( 0, 2px, 10px, 0, rgba($black, 0.5));
+    }
+
+
+
+    &.col-xs-2.is-minimal {
+        padding: 0 1rem 0 0;
+        @include breakpoint("medium") {
+            padding: 0 .5rem 0 .5rem;
+            max-width: 90px;
+        }
+    }
+
+    &.col-md-4.is-minimal {
+        flex-shrink: 2;
+    }
+
+    &.col-xs-2.is-minimal,
+    &.col-md-4 {
+        padding: 0 1rem 0 0;
+        @include breakpoint("medium") {
+            padding: 0 .5rem 0 .5rem;
+        }
+    }
+
+    &.col-xs-2.is-minimal {
+        @include breakpoint("medium") {
+            max-width: 90px;
+        }
+    }
+
+    &::before {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 100%;
+        width: 100vw;
+        height: 100%;
+        background-color: $dark-blue;
+        @include breakpoint("medium") {
+            width: 0vw;
+        }
+    }
+
+    .logo-big {
+        height: 100%;
+        @include breakpoint("medium") {
+            display: block;
+        }
+    }
+
+    .logo-small {
+        //width: 90%;
+        height: 40px;
+        max-height: 40px;
+        margin: .5rem auto;
+
+        @include breakpoint("medium") {
+            display: none;
+        }
+    }
+
+    &.is-minimal {
+        box-shadow: none; //transition: all 1.5s;
+        height: 60px; //transition: height 1s ease-in-out;
+        .col-xs-10.is-minimal {
+            @include breakpoint("medium") {
+                background-color: $dark-blue;
+                max-width: calc(100% - 90px);
+                transition: max-width .5s ease-in;
+            }
+        }
+
+        &::before {
+            content: "";
+            display: block;
+            position: absolute;
+            top: 0;
+            right: 100%;
+            width: 100vw;
+            height: 100%;
+            background-color: $dark-blue;
+            @include breakpoint("medium") {
+                animation: before-logo-minimal .5s ease-in-out;
+            }
+        }
+
+        @keyframes before-logo-minimal {
+            from {
+                width: 0vw;
+            }
+            to {
+                width: 100vw;
+            }
+        }
+
+        svg {
+            @include breakpoint("medium") {
+                min-height: 2.1rem;
+            }
+        }
+    }
+
+    &.is-large {
+        &::before {
+            content: "";
+            display: block;
+            position: absolute;
+            top: 0;
+            right: 100%;
+            height: 100%;
+            background-color: $dark-blue; //transition: width 1s ease-in-out;
+            @include breakpoint("medium") {
+                animation: before-logo .7s ease-in-out;
+                width: 0vw;
+            }
+        }
+
+        @keyframes before-logo {
+            from {
+                width: 100vw;
+            }
+            to {
+                width: 0vw;
+            }
+        }
+
+        svg {
+            @include breakpoint("medium") {
+                min-height: 2.1rem;
+            }
+        }
+    }
+}
+
+.header-content-container {
+    &.col-md {
+        @include breakpoint("medium") {
+            //max-width: 100%;
+            flex-grow: 3;
+        }
+        &.is-minimal {
+            @include breakpoint("medium") {
+                max-width: 100%;
+                flex-grow: 4;
+            }
+        }
+    }
+} // Top Bar: Social Media & Search
+.header-top {
+    display: none;
+    transition: height .5s ease-in .3s;
+    @include breakpoint("medium") {
+        position: relative;
+        display: block;
+        height: $size__header-top-height;
+        background-color: $primary-blue;
+
+
+        &::after,
+        &::before {
+            content: "";
+            display: block;
+            position: absolute;
+            top: 0;
+            width: 100vw;
+            height: 100%;
+            background-color: $primary-blue;
+        }
+
+        &::after {
+            left: 100%;
+        }
+
+        &::before {
+            right: 100%;
+        }
+
+        .is-minimal & {
+            height: 0px;
+            transition: height .4s ease-in;
+        }
+    }
+} // Bottom Bar: Main Menu & Search
+.header-bottom {
+    position: relative;
+    height: $size__header-bottom-height-mobile;
+    background-color: $secondary-blue;
+    transition: all .5s ease-in;
+    @include breakpoint("medium") {
+        height: $size__header-bottom-height;
+    }
+
+    &::after,
+    &::before {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        width: 100vw;
+        height: 100%;
+        background-color: $secondary-blue;
+    }
+
+    &::after {
+        left: 100%;
+    }
+
+    &::before {
+        right: 100%;
+    } // Social Media
+    .header-social {
+        display: none;
+    } // Search
+    @include breakpoint("medium") {
+        .search-container {
+            display: none;
+        }
+    } // Minimal Header
+    .is-minimal & {
+        height: $size__header-bottom-height-mobile;
+
+
+        .search-container {
+            display: block;
+        }
+
+        .menu-container {
+            @media screen and (min-width: 48em) and (max-width: 62em) {
+
+                flex-basis: 75%;
+                max-width: 75%;
+            }
+        }
+    }
+
+    .menu-container {
+        display: none;
+
+        @include breakpoint("medium") {
+            display: block;
+            padding-right: 0;
+        }
+
+        @media screen and (min-width: 48em) and (max-width: 62em) {
+            flex-basis: 83.33333333%;
+            max-width: 83.33333333%;
+        }
+    }
+
+    &.toggled .menu-container {
+        display: block;
+        position: fixed;
+        top: $size__header-bottom-height-mobile;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: $secondary-blue;
+        overflow-y: scroll;
+
+        body.logged-in & {
+            top: 92px;
+        }
+
+        .header-social {
+            display: block;
+            background-color: $dark-blue;
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+            text-align: center;
+
+            a {
+                @include fontSize(38px);
+            }
+        }
+    } // Mobile Icons
+    @include breakpoint("xsmall") {
+        i {
+            @include fontSize(24px);
+        }
+    }
+} // Main Menu
+#primary-menu {
+
+    @include breakpoint("medium") {
+        margin-left: 0.5rem;
+    }
+
+    li {
+        display: block;
+        text-align: center;
+
+        @include breakpoint("medium") {
+            display: inline-block;
+            position: relative;
+            margin-right: 1rem;
+            text-align: left;
+        }
+
+        @include breakpoint("large") {
+            margin-right: 1.8rem;
+        }
+
+        &:nth-last-of-type(2) {
+            margin-right: 0;
+        }
+
+        @include breakpoint("xsmall") {
+            &:nth-of-type(even) {
+                background-color: $primary-blue;
+            }
+        }
+
+        a {
+            display: block;
+            padding: 1.5rem 0 0.5rem;
+            font-family: $font__lato;
+            @include fontSize(20px);
+            line-height: 1.62;
+            letter-spacing: 2.3px;
+            text-transform: uppercase;
+            font-weight: 300;
+            color: $yellow;
+
+            @include breakpoint("medium") {
+                padding: 0;
+                @include fontSize(16px);
+                line-height: 2.03;
+                letter-spacing: 1.9px;
+                font-weight: normal;
+                color: $white;
+            }
+        }
+
+        &:hover>a {
+            color: $yellow;
+        } // Submenu Items
+        ul {
+            display: block;
+
+            @include breakpoint("medium") {
+                display: none;
+            }
+
+            li {
+                &:nth-of-type(even) {
+                    background-color: transparent;
+                }
+                &:first-of-type a {
+                    padding-top: 0;
+                }
+                &:last-of-type a {
+                    padding-bottom: 1.5rem;
+                }
+            }
+
+
+            a {
+                padding: 0.2rem 0;
+                @include fontSize(18px);
+                line-height: 1.8;
+                letter-spacing: 0;
+                text-transform: none;
+                font-weight: 400;
+                color: $white;
+            }
+        }
+
+        @include breakpoint("medium") {
+            &:hover ul {
+                display: table;
+                position: absolute;
+                z-index: 1;
+                width: 250px;
+                width: -moz-max-content;
+                width: max-content;
+                border-top: 2px solid $yellow;
+                border-bottom: 2px solid $off-white;
+
+                li {
+                    display: block;
+                    margin-right: 0;
+
+                    a {
+                        display: block;
+                        background-color: $off-white;
+                        padding: 0 1rem;
+                        text-transform: none;
+                        color: $black;
+
+                        &:hover {
+                            background-color: $light-gray;
+                        }
+                    }
+                }
+            }
+        }
+    } // Special styles for "Apply" link
+    li.apply {
+        @include breakpoint("medium") {
+            position: absolute;
+            right: 0;
+            margin-right: 0;
+
+            .is-minimal & {
+                right: 2.5rem;
+
+                &.is-shifted {
+                    right: 25%;
+
+                    @include breakpoint("large") {
+                        right: 33%;
+                    }
+
+                    @include transition(right 0.2s ease-in);
+                }
+            }
+        }
+
+        a {
+            background-color: $yellow;
+            color: $black;
+
+            @include breakpoint("medium") {
+                padding: 0 0.5rem;
+            }
+
+            &:hover {
+                color: $white;
+            }
+        }
+        ul {
+            right: 0;
+            left: auto;
+        }
+        li a:hover {
+            color: $black;
+        }
+    } // Special Styles for "Home" link
+    li.home {
+        background-color: $primary-blue;
+
+        span {
+            display: block;
+            font-family: $font__ptsans;
+            @include fontSize(28px);
+            line-height: 1.1;
+            letter-spacing: 0.5px;
+            color: $white;
+        }
+
+        span:nth-of-type(2) {
+            font-weight: bold;
+        }
+
+        span:nth-of-type(3) {
+            @include fontSize(12px);
+            font-style: italic;
+            line-height: 1.78;
+            text-transform: none;
+            color: $gray;
+        }
+
+        @include breakpoint("medium") {
+            display: none;
+        }
+    }
+} // Menu Toggle for Mobile
+.menu-toggle {
+    font-family: $font__lato;
+    @include fontSize(16px);
+    line-height: 2.03;
+    letter-spacing: 1.9px;
+    text-transform: uppercase;
+    color: $white;
+
+    span {
+        display: inline;
+
+        &.is-hidden {
+            display: none;
+        }
+    }
+} // Social Media Icons
+.header-social {
+    list-style: none;
+
+    li {
+        display: inline-block;
+        margin-right: 1rem;
+
+        a {
+            line-height: 1;
+            color: $medium-blue;
+
+            &:hover {
+                color: $white;
+            }
+        }
+    }
+} // Search
+.header-search-form {
+
+    @include breakpoint("xsmall") {
+        &.is-active {
+            position: fixed;
+            top: $size__header-bottom-height-mobile;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: $primary-blue;
+
+            .search-label {
+                position: fixed;
+                z-index: 5;
+                top: 1rem;
+                right: 1rem;
+            }
+        }
+    }
+
+    .search-label {
+        color: $white;
+        cursor: pointer;
+
+        &:hover {
+            color: $yellow;
+        }
+
+        &.is-hidden {
+            display: none;
+        }
+    }
+
+    .search-field:focus~label .search-label {
+        color: $yellow;
+    }
+
+    .search-field {
+        display: block;
+        width: 90%;
+        opacity: 1;
+        margin: 2rem auto;
+        background-color: transparent;
+        color: $medium-blue;
+        border: 0;
+        border-bottom: 2px solid darken($primary-blue, 8%);
+        border-radius: 0;
+        @include fontSize(24px);
+        @include transition(opacity 0.5s linear, width 0.2s ease-in);
+
+        @include breakpoint("medium") {
+            display: inline-block;
+            width: calc(100% - 3rem);
+            visibility: visible;
+            opacity: 1;
+            position: static;
+            margin: 0;
+            background-color: darken($primary-blue, 8%);
+            border: 0;
+            @include fontSize(15px);
+        }
+
+        &:focus {
+            color: $medium-blue
+        }
+
+        @include placeholder {
+            color: $medium-blue;
+        }
+
+        &.is-hidden {
+            opacity: 0;
+            width: 0;
+            height: 0;
+            margin: 0;
+            padding: 0;
+
+            @include breakpoint("medium") {
+                height: unset;
+                margin: 0;
+                padding: 5px 9px;
+            }
+        }
+    }
+}
+
+#Shape-28 {
+    @include breakpoint("medium") {
+        @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+            display: inline-block;
+        }
+    }
+}
+
+
+
+.logo-container {
+    display: none;
+    @include breakpoint("medium") {
+        transition: all .3s ease-in .2s;
+        display: block;
+        position: relative;
+        height: 100%;
+        padding: .7rem 1rem 1rem;
+    }
+} // Header Animation on Scroll
+#Shape-28 {
+    @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+        display: inline-block;
+    }
+}
+
+.header-logo.is-minimal {
+    .logo-container {
+        display: none;
+        @include breakpoint("medium") {
+            overflow: hidden;
+            position: relative;
+            display: block;
+            height: 100%;
+        }
+
+
+
+        svg {
+            transition: all .3s ease-in .2s;
+            transform-origin: 0% 0%; //@include animation(scale);
+            display: block;
+            @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+                /* IE10+ CSS styles go here */
+                position: absolute;
+                height: 32px;
+            }
+
+
+            #Inner-Ring {
+                @include animation(shrink-fade, normal);
+            }
+
+            #Outer-Ring {
+                #Outer-Ovals {
+                    #Oval-large {
+                        @include animation(oval-large-rotate, normal);
+                        #Oval1 {
+                            #Oval1-yellow {
+                                @include animation(less-opacity, normal);
+                            }
+                        }
+                    }
+                    #Oval-small {
+                        @include animation(oval-small-rotate, normal);
+                        @-moz-document url-prefix() {
+                            transform-origin: 60px 80px;
+                        }
+                        -webkit-transform-origin: 60px 80px;
+                        #Oval2 {
+                            @include animation(oval-large-grow, normal);
+                            #Oval2-yellow {
+                                @include animation(more-opacity, normal);
+                            }
+                        }
+                    }
+                }
+                #Outer-Orbit {
+                    @include animation(outer-orbit-shrink-rotate, normal);
+                }
+            }
+
+            #Middle-Ring {
+                // @include animation(middle-orbit-shrink-rotate);
+                #Middle-Ovals {
+                    @include animation(middle-ovals-shrink-rotate, normal);
+                }
+
+                #Middle-Ovals #Oval-5 {
+                    @include animation(grow-middle-dot, normal);
+                }
+                #Middle-Orbit {
+                    @include animation(middle-orbit-shrink-rotate, normal);
+                }
+            }
+
+            #Logo-Text {
+                #Letters {
+                    #Shape-3,
+                    #Shape-8,
+                    #Shape-16,
+                    #Shape-23,
+                    #Shape-26,
+                    #LetterN {
+                        transform-origin: 50% 50%;
+                        animation: letters-group .3s ease-out 0s both 1 normal;
+                    }
+
+                    #Shape,
+                    #Shape-5,
+                    #Shape-10,
+                    #Shape-13,
+                    #Shape-20,
+                    #Shape-25 {
+                        transform-origin: 50% 50%;
+                        animation: letters-group .3s ease-out .1s both 1 normal;
+                    }
+
+                    #Shape-2,
+                    #Shape-14,
+                    #Shape-11,
+                    #Shape-18,
+                    #Shape-22,
+                    #Shape-27 {
+                        transform-origin: 50% 50%;
+                        animation: letters-group .3s ease-out .2s both 1 normal;
+                    }
+
+                    #Shape-6,
+                    #Shape-12,
+                    #Shape-17,
+                    #Shape-19,
+                    #Shape-24 {
+                        transform-origin: 50% 50%;
+                        animation: letters-group .3s ease-out .3s both 1 normal;
+                    }
+
+                    #Shape-4,
+                    #Shape-7,
+                    #Shape-9,
+                    #Shape-15,
+                    #Shape-21 {
+                        transform-origin: 50% 50%;
+                        animation: letters-group .3s ease-out .4s both 1 normal;
+                    }
+                }
+                #LetterN {
+                    @include animation(letter-n, normal);
+                }
+            }
+            @keyframes middle-ovals-shrink-rotate {
+                to {
+                    transform: scale(.75) rotate(-55deg);
+                }
+            }
+
+            @keyframes more-opacity {
+                to {
+                    opacity: 1;
+                }
+            }
+
+            @keyframes more-opacity {
+                to {
+                    opacity: 1;
+                }
+            }
+
+            @keyframes less-opacity {
+                to {
+                    opacity: .6;
+                }
+            }
+
+            @keyframes oval-small-rotate {
+                to {
+                    transform: rotate(170deg);
+                }
+            }
+
+            @keyframes oval-large-rotate {
+                to {
+                    transform: rotate(30deg);
+                }
+            }
+
+            @keyframes middle-orbit-shrink-rotate {
+                to {
+                    transform: scale(.75) rotate(20deg);
+                }
+            }
+
+            @keyframes oval-large-grow {
+                to {
+                    transform: scale(2.5);
+                }
+            }
+
+            @keyframes outer-orbit-shrink-rotate {
+                to {
+                    transform: rotate(20deg);
+                }
+            }
+
+            @keyframes grow-middle-dot {
+                to {
+                    transform: scale(1.50);
+                }
+            }
+
+            @keyframes outer-orbit-rotate-clockwise2 {
+                to {
+                    transform: rotate(30deg);
+                }
+            }
+
+            @keyframes shrink-fade {
+                to {
+                    transform: scale(0);
+                    opacity: 0;
+                }
+            }
+
+            @keyframes letter-n {
+                to {
+                    transform: scale(4.2) translate(27%, -6%);
+                    -moz-transform: scale(4.2) translate(2px, -20px);
+                    -webkit-transform: scale(4.2) translate(2px, -20px);
+                }
+            }
+
+            @keyframes letters-group {
+                to {
+                    transform: scale(0);
+                    opacity: 0;
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+
+.header-logo.is-large {
+    svg {
+
+        #Inner-Ring {
+            @include animationrev(rev-shrink-fade, reverse);
+        }
+
+        #Outer-Ring {
+            #Outer-Ovals {
+                #Oval-large {
+                    @include animationrev(rev-oval-large-rotate, reverse);
+                    #Oval1 {
+                        #Oval1-yellow {
+                            @include animationrev(rev-less-opacity, reverse);
+                        }
+                    }
+                }
+                #Oval-small {
+                    @include animationrev(rev-oval-small-rotate, reverse);
+                    @-moz-document url-prefix() {
+                        transform-origin: 60px 80px;
+                    }
+                    -webkit-transform-origin: 60px 80px;
+                    #Oval2 {
+                        @include animationrev(rev-oval-large-grow, reverse);
+                        #Oval2-yellow {
+                            @include animationrev(rev-more-opacity, reverse);
+                        }
+                    }
+                }
+            }
+            #Outer-Orbit {
+                @include animationrev(rev-outer-orbit-shrink-rotate, reverse);
+            }
+        }
+
+        #Middle-Ring {
+            // @include animation(middle-orbit-shrink-rotate);
+            #Middle-Ovals {
+                @include animationrev(rev-middle-ovals-shrink-rotate, reverse);
+            }
+
+            #Middle-Ovals #Oval-5 {
+                @include animationrev(rev-grow-middle-dot, reverse);
+            }
+            #Middle-Orbit {
+                @include animationrev(rev-middle-orbit-shrink-rotate, reverse);
+            }
+        }
+
+        #Logo-Text {
+            #Letters {
+                #Shape-3,
+                #Shape-8,
+                #Shape-16,
+                #Shape-23,
+                #Shape-26,
+                #LetterN {
+                    transform-origin: 50% 50%;
+                    animation: rev-letters-group .3s ease-in-out 0s both 1 reverse;
+                }
+
+                #Shape,
+                #Shape-5,
+                #Shape-10,
+                #Shape-13,
+                #Shape-20,
+                #Shape-25 {
+                    transform-origin: 50% 50%;
+                    animation: rev-letters-group .3s ease-in-out .1s both 1 reverse;
+                }
+
+                #Shape-2,
+                #Shape-14,
+                #Shape-11,
+                #Shape-18,
+                #Shape-22,
+                #Shape-27 {
+                    transform-origin: 50% 50%;
+                    animation: rev-letters-group .3s ease-in-out .2s both 1 reverse;
+                }
+
+                #Shape-6,
+                #Shape-12,
+                #Shape-17,
+                #Shape-19,
+                #Shape-24 {
+                    transform-origin: 50% 50%;
+                    animation: rev-letters-group .3s ease-in-out .3s both 1 reverse;
+                }
+
+                #Shape-4,
+                #Shape-7,
+                #Shape-9,
+                #Shape-15,
+                #Shape-21 {
+                    transform-origin: 50% 50%;
+                    animation: rev-letters-group .3s ease-in-out .4s both 1 reverse;
+                }
+            }
+            #LetterN {
+                transform-origin: 50% 50%;
+                animation: rev-letter-n .3s ease-in-out 0s both 1 reverse;
+                @-moz-document url-prefix() {
+                    transform-origin: 50px 50px;
+                }
+            }
+        }
+        @keyframes rev-middle-ovals-shrink-rotate {
+            to {
+                transform: scale(.75) rotate(-55deg);
+            }
+        }
+
+        @keyframes rev-more-opacity {
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes rev-more-opacity {
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes rev-less-opacity {
+            to {
+                opacity: .6;
+            }
+        }
+
+        @keyframes rev-oval-small-rotate {
+            to {
+                transform: rotate(170deg);
+            }
+        }
+
+        @keyframes rev-oval-large-rotate {
+            to {
+                transform: rotate(30deg);
+            }
+        }
+
+        @keyframes rev-middle-orbit-shrink-rotate {
+            to {
+                transform: scale(.75) rotate(20deg);
+            }
+        }
+
+        @keyframes rev-oval-large-grow {
+            to {
+                transform: scale(2.5);
+            }
+        }
+
+        @keyframes rev-outer-orbit-shrink-rotate {
+            to {
+                transform: rotate(20deg);
+            }
+        }
+
+        @keyframes rev-grow-middle-dot {
+            to {
+                transform: scale(1.50);
+            }
+        }
+
+        @keyframes rev-outer-orbit-rotate-clockwise2 {
+            to {
+                transform: rotate(30deg);
+            }
+        }
+
+        @keyframes rev-shrink-fade {
+            to {
+                transform: scale(0);
+                opacity: 0;
+            }
+        }
+
+        @keyframes rev-letter-n {
+            to {
+                transform: scale(4.2) translate(27%, -6%);
+                -moz-transform: scale(4.2) translate(2px, -20px);
+                -webkit-transform: scale(4.2) translate(2px, -20px);
+            }
+        }
+
+        @keyframes rev-letters-group {
+            to {
+                transform: scale(0);
+                opacity: 0;
+                display: none;
+            }
+        }
+    }
+}
