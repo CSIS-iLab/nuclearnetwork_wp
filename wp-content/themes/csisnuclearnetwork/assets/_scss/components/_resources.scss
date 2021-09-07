@@ -1,0 +1,22 @@
+@use '../abstracts' as *;
+
+.resources {
+  padding-bottom: rem(24);
+
+  &__heading {
+    margin-bottom: rem(24);
+  }
+
+  &__content {
+    @extend %text-style-label-medium;
+    color: $color-black-190;
+
+    a {
+      color: $color-accent-primary-blue-200;
+    }
+
+    li:not(.last-of-type) {
+      margin-bottom: rem(12);
+    }
+  }
+}

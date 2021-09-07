@@ -9,7 +9,36 @@
 @use '../components/about-career-block';
 
 .single {
+  &__post {
+    background-color: $color-white-100;
+    @include full-width-background($color-white-100);
+
+    @include breakpoint('small') {
+      @include full-width-background(transparent);
+      padding-right: 6vw;
+      padding-right: var(--container-padding);
+      padding-left: 6vw;
+      padding-left: var(--container-padding);
+    }
+
+    .class-bio & {
+      padding-top: rem(32);
+
+      @include breakpoint('small') {
+        margin-top: rem(40);
+        padding-top: rem(40);
+      }
+
+      @include breakpoint('large') {
+        margin-top: rem(-64);
+        padding-top: rem(72);
+      }
+    }
+  }
+
   &__content {
+    padding-bottom: rem(56);
+
     p:not([class]) {
       margin-bottom: rem(24);
     }
@@ -228,16 +257,18 @@
 
   &__footer {
     max-width: $size__footer-max-width;
-    margin-top: rem(40);
     margin-right: auto;
     margin-left: auto;
-    padding: rem(40) 0 rem(56);
+    padding: rem(56) 0 rem(80);
+    background: $color-postbg-200;
+    @include full-width-background($color-postbg-200);
 
-    hr {
-      max-width: $size__footer-max-width;
-      margin: 0 auto rem(24);
-      border: 0;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+    @include breakpoint('large') {
+      padding-top: rem(64);
+    }
+
+    &::after {
+      z-index: 2;
     }
 
     hr {
@@ -323,6 +354,16 @@
     }
   }
 
+  &__section-heading {
+    @extend %text-style-label-large-strong-caps;
+    color: $color-accent-primary-blue-100;
+  }
+
+  &__section-heading {
+    @extend %text-style-label-large-strong-caps;
+    color: $color-accent-primary-blue-100;
+  }
+
   /* stylelint-disable-next-line */
   h2.cite__heading {
     color: $color-accent-primary-blue-100;
@@ -345,37 +386,37 @@
     margin: rem(8) 0 rem(16) 0;
   }
 
-  #btn-copy {
-    color: $color-black-190;
-    text-transform: unset;
-    background: transparent;
-    border: 2px solid $color-black-190;
-    transition: all ease 0.3s;
+  // #btn-copy {
+  //   color: $color-black-190;
+  //   text-transform: unset;
+  //   background: transparent;
+  //   border: 2px solid $color-black-190;
+  //   transition: all ease 0.3s;
 
-    &:hover {
-      color: $color-white-100;
-      background: $color-blue-400-button-blue;
-      border: unset;
+  //   &:hover {
+  //     color: $color-white-100;
+  //     background: $color-blue-400-button-blue;
+  //     border: unset;
 
-      svg {
-        color: $color-white-100;
-      }
-    }
+  //     svg {
+  //       color: $color-white-100;
+  //     }
+  //   }
 
-    &:focus {
-      color: $color-accent-primary-blue-200;
-      background: $color-bg-light-300;
+  //   &:focus {
+  //     color: $color-accent-primary-blue-200;
+  //     background: $color-bg-light-300;
 
-      svg {
-        color: $color-accent-primary-blue-200;
-      }
-    }
+  //     svg {
+  //       color: $color-accent-primary-blue-200;
+  //     }
+  //   }
 
-    svg {
-      margin-right: rem(8);
-      color: $color-black-165;
-    }
-  }
+  //   svg {
+  //     margin-right: rem(8);
+  //     color: $color-black-165;
+  //   }
+  // }
 }
 
 .related-posts {

@@ -1,8 +1,6 @@
 @use '../abstracts' as *;
 
 .post {
-  background-color: $color-white-100;
-
   &__authors {
     --max-width-limit: #{rem(500)};
     --padding-top-authors: #{rem(56)};
@@ -40,8 +38,7 @@
     &-heading {
       max-width: rem(700);
       margin-bottom: rem(16);
-      color: $color-accent-primary-blue-100;
-      @extend %text-style-label-large-strong-caps;
+
       @include breakpoint('large') {
         margin-bottom: rem(32);
       }

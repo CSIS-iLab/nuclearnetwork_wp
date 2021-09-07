@@ -403,7 +403,7 @@ if ( ! function_exists( 'nuclearnetwork_display_footnotes' ) ) :
 			$footnotes = $easyFootnotes->easy_footnote_after_content('');
 
 			if ( $footnotes != '' ) {
-				printf( '<div class="footnotes"><h2 class="footnotes__heading">' . esc_html( 'Footnotes', 'nuclearnetwork') . '</h2><ol class="footnotes__list">%1$s</ol></div>', $footnotes ); // WPCS: XSS OK.
+				printf( '<div class="footnotes"><h2 class="footnotes__heading single__section-heading">' . esc_html( 'Footnotes', 'nuclearnetwork') . '</h2><ol class="footnotes__list">%1$s</ol></div>', $footnotes ); // WPCS: XSS OK.
 				}
 		}
 	}
@@ -469,9 +469,7 @@ if ( ! function_exists( 'nuclearnetwork_citation' ) ) :
 			$title = get_the_archive_title();
 		}
 
-		printf( '<div class="cite">
-		<h2 class="cite__heading text--bold text--caps">Cite this Page</h2>
-		<p class="cite__container text--short"><span class="cite__citation">' . esc_html( '%1$s, "%2$s,"', 'nuclearnetwork' ) . ' <em>%3$s</em>' . esc_html( ', Center for Strategic and International Studies, %4$s, %5$s%6$s.', 'nuclearnetwork') . '</span><button id="btn-copy" class="btn btn--dark btn--icon btn--short" data-clipboard-target=".cite__citation" aria-label="Copied!">' . nuclearnetwork_get_svg( 'copy' ) . 'Copy Citation</button></p></div>', $authors, $title, get_bloginfo( 'name' ), get_the_date(), $modified_date, get_the_permalink() ); // WPCS: XSS OK.
+		printf( '<h2 class="cite__heading text--bold text--caps">Cite this Page</h2><p class="cite__container text--short"><span class="cite__citation">' . esc_html( '%1$s, "%2$s,"', 'nuclearnetwork' ) . ' <em>%3$s</em>' . esc_html( ', Center for Strategic and International Studies, %4$s, %5$s%6$s.', 'nuclearnetwork') . '</span><button id="btn-copy" class="btn btn--outline-dark btn--icon btn--med" data-clipboard-target=".cite__citation" aria-label="Copied!">' . nuclearnetwork_get_svg( 'copy' ) . 'Copy Citation</button></p>', $authors, $title, get_bloginfo( 'name' ), get_the_date(), $modified_date, get_the_permalink() ); // WPCS: XSS OK.
 	}
 endif;
 

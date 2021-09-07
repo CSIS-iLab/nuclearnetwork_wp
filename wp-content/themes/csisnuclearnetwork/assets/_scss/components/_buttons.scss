@@ -59,6 +59,10 @@
     &-dark {
       --btn-color: #{$color-black-190};
       --btn-border: #{$color-black-190};
+
+      &:focus {
+        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+      }
     }
 
     &-blue {

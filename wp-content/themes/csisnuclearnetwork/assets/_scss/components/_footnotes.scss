@@ -23,9 +23,7 @@
   margin: rem(56px) 0 rem(48px) 0;
 
   &__heading {
-    @extend %text-style-label-large-strong-caps;
     margin-bottom: rem(24);
-    color: $color-accent-primary-blue-100;
   }
 
   &__list {

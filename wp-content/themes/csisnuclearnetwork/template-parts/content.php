@@ -11,13 +11,13 @@
  * @since 1.0.0
  */
 
+get_template_part( 'template-parts/entry-header' );
 ?>
 
-<article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
+<article <?php post_class( 'single__post' ); ?> id="post-<?php the_ID(); ?>">
 
 	<?php
 
-	get_template_part( 'template-parts/entry-header' );
 
 	?>
 
@@ -28,13 +28,14 @@
 			if ( function_exists( 'ADDTOANY_SHARE_SAVE_KIT' ) ) { ADDTOANY_SHARE_SAVE_KIT(); }
 		?>
 	</div><!-- .post-inner -->
-
+	
 	<?php if ( is_single() ) { ?>
 	<footer class="single__footer">
 		<?php
 
-		    echo '<div class="post__authors"><hr>';
-			echo '<h2 class="section__heading post__authors-heading">Authors</h2><p class="text--italic text--short post__authors-disclaimer">The views expressed above are the author’s and do not necessarily reflect those of the Center for Strategic and International Studies or the Project on Nuclear Issues.</p><div class="post__authors-content"><div class="post__authors-group">';
+			get_template_part( 'template-parts/post-resources' );
+		  echo '<div class="post__authors"><hr>';
+			echo '<h2 class="section__heading post__authors-heading single__section-heading">Authors</h2><p class="text--italic text--short post__authors-disclaimer">The views expressed above are the author’s and do not necessarily reflect those of the Center for Strategic and International Studies or the Project on Nuclear Issues.</p><div class="post__authors-content"><div class="post__authors-group">';
 			nuclearnetwork_authors_list_extended(); 
 			echo '</div><div class="single__footer-write-for-us">';
 			dynamic_sidebar('write-for-us'); 
