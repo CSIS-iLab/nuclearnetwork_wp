@@ -257,6 +257,7 @@
     &-related-heading {
       margin-bottom: rem(24);
       color: $color-accent-primary-blue-100;
+      @include font-size(28px);
       font-family: $font__lato;
       font-weight: 900;
       letter-spacing: 0.05em;
