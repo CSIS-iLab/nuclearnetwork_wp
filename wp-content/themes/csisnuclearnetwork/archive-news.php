@@ -35,6 +35,15 @@ get_header();
 	<?php
 		if ( have_posts() ) {
       echo "<aside class='archive__sidebar'>";
+      echo "<select class='archive__dropdown' name='archive-dropdown' onchange='document.location.href=this.options[this.selectedIndex].value;'>";
+      $args = array(
+        'type'            => 'monthly',
+        'format'          => 'option', 
+        'post_type'       => 'news',
+        'echo'            => 1,
+      );
+      wp_get_archives( $args );
+      echo "</select>";
       dynamic_sidebar( 'nuclear-policy-news' );
       echo "</aside>";
 		}
