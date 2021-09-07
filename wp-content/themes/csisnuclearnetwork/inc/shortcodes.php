@@ -75,9 +75,9 @@ function jetpackme_custom_related( $atts ) {
 	echo '<h2 class="single__footer-heading">';
 			_e( 'Related', 'nuclearnetwork' );
 	echo '</h2>';
-	echo '<div class="single__footer-related-posts">';
-
+	
 	if ( $related_posts ) {
+		echo '<div class="single__footer-related-posts">';
 			echo '<ul class="related-posts" role="list">';
 					foreach( $related_posts as $post ):
 							setup_postdata($post);
@@ -87,8 +87,8 @@ function jetpackme_custom_related( $atts ) {
 					endforeach;
 			echo '</ul>';
 			wp_reset_postdata();
+		echo '</div>';
 	}
-	echo '</div>';
 
 	echo '<div class="single__footer-related-terms">';
 	if (has_category()) {
