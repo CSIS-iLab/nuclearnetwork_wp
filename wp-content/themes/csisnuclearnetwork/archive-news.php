@@ -60,6 +60,8 @@ get_header();
 	?>
 	</div>
 
+  <?php get_template_part( 'template-parts/featured-image-caption' ); ?>
+
 </main><!-- #site-content -->
 
 <?php
