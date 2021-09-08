@@ -144,22 +144,20 @@ function menuFunctions() {
 
 const menuFocus = () => {
   parentMenus.forEach((parentMenu) => {
-    console.log(parentMenu)
     const topLevelLinks = parentMenu.querySelectorAll('button')
     topLevelLinks.forEach((link) => {
       link.addEventListener('focus', function () {
         this.parentElement.classList.add('focus')
       })
-      const subMenuItem = link.parentElement
 
-      if (subMenuItem.nextElementSibling) {
-        const subMenu = subMenuItem.nextElementSibling
+      if (link.nextElementSibling) {
+        const subMenu = link.nextElementSibling.children[0]
         const subMenuLinks = subMenu.querySelectorAll('a')
         const lastLinkIndex = subMenuLinks.length - 1
         const lastLink = subMenuLinks[lastLinkIndex]
 
         lastLink.addEventListener('blur', function () {
-          this.parentElement.parentElement.classList.remove('focus')
+          subMenu.parentElement.parentElement.classList.remove('focus')
         })
       }
     })
