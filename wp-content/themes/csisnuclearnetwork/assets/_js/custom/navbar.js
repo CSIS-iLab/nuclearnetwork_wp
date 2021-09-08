@@ -146,11 +146,20 @@ const menuFocus = () => {
   parentMenus.forEach((parentMenu) => {
     const topLevelLinks = parentMenu.querySelectorAll('button')
     topLevelLinks.forEach((link) => {
+      const subMenuContainer = link.nextElementSibling
       link.addEventListener('focus', function () {
         this.parentElement.classList.add('focus')
+
+        if ('true' === link.getAttribute('aria-expanded')) {
+          link.setAttribute('aria-expanded', false)
+          subMenuContainer.setAttribute('aria-hidden', true)
+        } else {
+          link.setAttribute('aria-expanded', true)
+          subMenuContainer.setAttribute('aria-hidden', false)
+        }
       })
 
-      if (link.nextElementSibling) {
+      if (subMenuContainer) {
         const subMenu = link.nextElementSibling.children[0]
         const subMenuLinks = subMenu.querySelectorAll('a')
         const lastLinkIndex = subMenuLinks.length - 1
@@ -158,6 +167,15 @@ const menuFocus = () => {
 
         lastLink.addEventListener('blur', function () {
           subMenu.parentElement.parentElement.classList.remove('focus')
+          subMenu.parentElement.parentElement.classList.remove('is-active')
+
+          if ('true' === link.getAttribute('aria-expanded')) {
+            link.setAttribute('aria-expanded', false)
+            subMenuContainer.setAttribute('aria-hidden', true)
+          } else {
+            link.setAttribute('aria-expanded', true)
+            subMenuContainer.setAttribute('aria-hidden', false)
+          }
         })
       }
     })
@@ -168,6 +186,7 @@ const menuFocus = () => {
 const toggleMenu = () => {
   trigger.addEventListener('click', function () {
     if (navContainer.classList.contains('is-active')) {
+      console.log(this)
       this.setAttribute('aria-expanded', 'false')
       this.classList.remove('is-active')
       navContainer.classList.remove('is-active')
