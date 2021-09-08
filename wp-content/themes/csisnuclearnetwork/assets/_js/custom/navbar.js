@@ -50,11 +50,13 @@ const ClickyMenus = function (menu) {
       button.setAttribute('aria-expanded', false)
       submenu.setAttribute('aria-hidden', true)
       mainMenuItem.classList.remove('is-active')
+      mainMenuItem.classList.remove('focus')
       currentMenuItem = false
     } else {
       button.setAttribute('aria-expanded', true)
       submenu.setAttribute('aria-hidden', false)
       mainMenuItem.classList.add('is-active')
+      mainMenuItem.classList.add('focus')
       preventOffScreenSubmenu(submenu)
       currentMenuItem = button
     }
@@ -186,7 +188,6 @@ const menuFocus = () => {
 const toggleMenu = () => {
   trigger.addEventListener('click', function () {
     if (navContainer.classList.contains('is-active')) {
-      console.log(this)
       this.setAttribute('aria-expanded', 'false')
       this.classList.remove('is-active')
       navContainer.classList.remove('is-active')
