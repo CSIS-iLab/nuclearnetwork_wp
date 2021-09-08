@@ -416,6 +416,21 @@ function nuclearnetwork_show_all_news_posts_per_month ( $query ) {
 }
 add_action( 'pre_get_posts', 'nuclearnetwork_show_all_news_posts_per_month' );
 
+/**
+ * Modify Programs & Projects Archive to show all of the posts.
+ *
+ * @param  array $query Query object.
+ */
+
+function nuclearnetwork_show_all_project_program_posts ( $query ) {
+
+	if ( !is_admin() && $query->is_main_query() && in_array( is_post_type_archive(), array( 'programs', 'projects' ) ) ) {
+
+		$query->set('posts_per_page', -1);
+	}
+}
+add_action( 'pre_get_posts', 'nuclearnetwork_show_all_project_program_posts' );
+
 /*
  * Removes the default Jetpack related posts plugin so we can call it with a shortcode instead
  */
