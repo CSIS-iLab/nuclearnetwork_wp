@@ -272,36 +272,6 @@ if (! function_exists('nuclearnetwork_authors_list_extended')) :
 endif;
 
 /**
- * Displays the featured programs
- * 
- * returns html of programs
- */
-if (! function_exists('nuclearnetwork_display_featured_programs')) :
-
-	function nuclearnetwork_display_featured_programs()
-	{
-		global $post;
-
-		$featured_programs = get_field( 'featured_programs' );
-		if ($featured_programs){
-			wp_reset_postdata();
-			foreach($featured_programs as $post) {
-				setup_postdata ( $post );
-				echo "<div class='home__featured-programs-program'><h4 class='home__featured-programs-program-title'><a href='";
-				the_permalink();
-				echo "'>";
-				the_title();
-				echo "</a></h4><p class='home__featured-programs-program-desc'>";
-				the_excerpt(); 
-				echo "</p></div>";
-			}
-			wp_reset_postdata();
-		}
-	}
-
-endif;
-
-/**
  * Displays the post's categories.
  *
  *
@@ -459,7 +429,7 @@ if (! function_exists('nuclearnetwork_display_subtypes')) :
 			$post_type_name = get_the_title( get_option( 'page_for_posts' ) );
 			$tax_name = 'analysis_subtype';
 		}
-		
+
 		echo '<div class="post-meta post-meta__terms"><a href="' . get_post_type_archive_link( $post->post_type ) . '" class="post-meta__terms-type text--bold">' . $post_type_name . '&nbsp</a>' . get_the_term_list( $post->ID, $tax_name, '/&nbsp', ',&nbsp') . '</div>';
 
 	}
@@ -520,7 +490,7 @@ if (! function_exists('nuclearnetwork_display_event_date')) :
 		$legacy_event_date = get_post_meta( $id, '_post_start_date', true );
 		$event_start_time = $event_info['event_start_time'];
 		$event_end_time = $event_info['event_end_time'];
-		
+
 		if ( $event_start_date && $event_end_date ) {
 			$start_date = date_i18n('M. d, Y', strtotime($event_start_date));
 			$end_date = date_i18n('M. d, Y', strtotime($event_end_date));

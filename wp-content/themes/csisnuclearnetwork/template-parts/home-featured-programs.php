@@ -1,10 +1,6 @@
 <?php
 /**
- * The default template for displaying content
- *
- * Used for both singular and index.
- *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
+ * Display featured programs
  *
  * @package CSIS iLab
  * @subpackage @package nuclearnetwork
@@ -13,12 +9,23 @@
 
 ?>
 
-<!-- structure of big div surrounding the three programs coming from function in template tags -->
-<div class='home__featured-programs'>
-    <h3 class='home__subtitle home__subtitle--border home__featured-programs-subtitle'>Programs</h3>
-    <!-- .nuclearnetwork_get_svg('chevron-right') . -->
-    <div class='home__featured-programs-all-link'><a href='<?php home_url() ?>/programs/'>All Programs <?php echo nuclearnetwork_get_svg( 'chevron-right' ); ?></a></div>
-    <!-- template tags function -->
-    <?php nuclearnetwork_display_featured_programs() ?>
-<!-- end div -->
+<div class='home__programs'>
+	<h2 class='home__subtitle home__subtitle--border'>Programs</h2>
+	<a href='<?php home_url() ?>/programs/' class="home__archive-link text--link">All Programs <?php echo nuclearnetwork_get_svg( 'chevron-right' ); ?></a>
+	<?php
+	$featured_programs = get_field( 'featured_programs' );
+	if ( $featured_programs ) :
+		echo "<ul class='home__programs-list' role='list'>";
+		foreach ( $featured_programs as $post ) :
+			setup_postdata ( $post ); ?>
+			<li>
+				<?php the_title( '<h3 class="home__programs-title text--bold"><a href="' . esc_url( get_permalink() ) . '">', '</a></h3>' ); ?>
+				<?php the_excerpt(); ?>
+			</li>
+		<?php
+		endforeach;
+		wp_reset_postdata();
+		echo "</ul>";
+		endif;
+	?>
 </div>
