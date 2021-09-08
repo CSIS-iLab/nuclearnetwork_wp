@@ -13,6 +13,12 @@
     max-width: 800px;
   }
 
+  &__pungh {
+    @include breakpoint('medium') {
+      max-width: 50%;
+    }
+  }
+
   #site-content {
     // grid-template-areas:
     //   'header header'
