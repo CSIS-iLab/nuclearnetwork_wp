@@ -6,17 +6,18 @@
 const trigger = document.querySelector('.site-nav__trigger')
 const navContainer = document.querySelector('.site-nav__container')
 const nav = document.querySelector('.site-nav__menu')
-// const parentMenus = document.querySelectorAll('.sub-menu')
+const parentMenus = document.querySelectorAll('.menu-item-has-children')
 // const parentEls = document.querySelectorAll('.menu-item-has-children')
 
 const Navigation = () => {
-  // menuFocus()
+  menuFocus()
   toggleMenu()
   // toggleSubmenu()
   closeMenu()
   menuFunctions()
 }
 
+// Adapted from https://github.com/mrwweb/clicky-menus/blob/main/clicky-menus.js
 const ClickyMenus = function (menu) {
   // DOM element(s)
   const container = menu.parentElement
@@ -141,28 +142,29 @@ function menuFunctions() {
   })
 }
 
-// const menuFocus = () => {
-//   parentMenus.forEach((parentMenu) => {
-//     const topLevelLinks = parentMenu.querySelectorAll('a')
-//     topLevelLinks.forEach((link) => {
-//       link.addEventListener('focus', function () {
-//         this.parentElement.parentElement.classList.add('focus')
-//       })
-//       const subMenuItem = link.parentElement
+const menuFocus = () => {
+  parentMenus.forEach((parentMenu) => {
+    console.log(parentMenu)
+    const topLevelLinks = parentMenu.querySelectorAll('button')
+    topLevelLinks.forEach((link) => {
+      link.addEventListener('focus', function () {
+        this.parentElement.classList.add('focus')
+      })
+      const subMenuItem = link.parentElement
 
-//       if (subMenuItem.nextElementSibling) {
-//         const subMenu = subMenuItem.nextElementSibling
-//         const subMenuLinks = subMenu.querySelectorAll('a')
-//         const lastLinkIndex = subMenuLinks.length - 1
-//         const lastLink = subMenuLinks[lastLinkIndex]
+      if (subMenuItem.nextElementSibling) {
+        const subMenu = subMenuItem.nextElementSibling
+        const subMenuLinks = subMenu.querySelectorAll('a')
+        const lastLinkIndex = subMenuLinks.length - 1
+        const lastLink = subMenuLinks[lastLinkIndex]
 
-//         lastLink.addEventListener('blur', function () {
-//           this.parentElement.parentElement.classList.remove('focus')
-//         })
-//       }
-//     })
-//   })
-// }
+        lastLink.addEventListener('blur', function () {
+          this.parentElement.parentElement.classList.remove('focus')
+        })
+      }
+    })
+  })
+}
 
 // change the hamburger icon to close icon on mobile
 const toggleMenu = () => {
