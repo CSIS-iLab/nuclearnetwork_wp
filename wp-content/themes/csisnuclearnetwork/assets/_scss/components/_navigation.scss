@@ -204,7 +204,7 @@
 
   .menu-item-has-children {
     &.is-active .sub-menu-container-depth-0,
-    .sub-menu.focus {
+    &.focus .sub-menu-container-depth-0 {
       position: relative;
       display: block;
 
