@@ -11,9 +11,9 @@ a {
   text-decoration: none;
   transition: all 0.3s ease-in-out;
 
-  &:not(.btn):hover,
-  &:not(.btn):focus,
-  &:not(.btn):active {
+  &:not(.btn):not(.text--link):hover,
+  &:not(.btn):not(.text--link):focus,
+  &:not(.btn):not(.text--link):active {
     color: inherit;
   }
 

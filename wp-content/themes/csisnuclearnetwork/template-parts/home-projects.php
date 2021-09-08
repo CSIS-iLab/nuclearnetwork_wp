@@ -9,15 +9,21 @@
  * @since 1.0.0
  */
 
+$project_archive_page = get_field( 'project_archive_page' );
+
 ?>
 
 <section class="home__projects">
 	<header class="home__projects-header">
 		<h2 class="home__subtitle home__subtitle--border">Projects</h2>
-		<a href="/projects/" class="home__archive-link">
-			All Projects
-			<?php echo nuclearnetwork_get_svg( "chevron-right" ); ?>
-		</a>
+		<?php if ( $project_archive_page ) : ?>
+			<a href="<?php echo esc_url( $project_archive_page); ?>" class="home__archive-link text--link">
+				<?php
+					the_field( 'project_archive_cta' );
+					echo nuclearnetwork_get_svg( "chevron-right" );
+				?>
+			</a>
+		<?php endif; ?>
 	</header>
 	<?php
 	$featured_projects = get_field( 'featured_projects' );
