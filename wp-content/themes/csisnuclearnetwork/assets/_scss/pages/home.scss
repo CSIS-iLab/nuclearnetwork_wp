@@ -1,9 +1,16 @@
 @use '../abstracts' as *;
+@use '../components/carousel';
 @use '../components/home-issue-block';
 @use '../components/home-about-poni';
 @use '../components/home-event-block';
+@use '../components/home-projects';
 
 .home {
+  // TODO: Remove this and replace with real layout styles
+  &__projects {
+    max-width: 800px;
+  }
+
   #site-content {
     // grid-template-areas:
     //   'header header'
@@ -39,6 +46,26 @@
         margin: rem(16) 0;
         background-color: var(--home-subtitle-border);
       }
+    }
+  }
+
+  &__archive-link {
+    display: inline-flex;
+    gap: rem(8);
+    align-items: flex-end;
+    @extend %text-style-label-medium;
+    color: var(--link-color);
+
+    &:hover {
+      color: var(--link-hover-color);
+
+      .icon {
+        color: var(--icon-hover-color, inherit);
+      }
+    }
+
+    .icon {
+      color: var(--icon-color, inherit);
     }
   }
 

@@ -27,14 +27,14 @@ get_header();
 
 			setup_postdata( $post );
 			get_template_part( 'template-parts/block', get_post_type() );
-			
+
 		endforeach;
-		
+
 		wp_reset_postdata();
-		
+
 		echo '</section>';
-		
-	endif; 
+
+	endif;
 	?>
 
 <section class="home__cta">
@@ -59,6 +59,7 @@ get_header();
 
 	?>
 	<?php get_template_part( 'template-parts/home-recent-section', null, $excluded_featured_post_ids_from_recent); ?>
+	<?php get_template_part( 'template-parts/home-projects' ); ?>
 	<?php get_template_part( 'template-parts/newsletter-block-acf' ); ?>
 	<?php get_template_part( 'template-parts/home-about-poni' ); ?>
 
