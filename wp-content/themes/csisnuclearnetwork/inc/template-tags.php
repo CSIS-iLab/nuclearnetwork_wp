@@ -287,11 +287,11 @@ if (! function_exists('nuclearnetwork_display_featured_programs')) :
 			wp_reset_postdata();
 			foreach($featured_programs as $post) {
 				setup_postdata ( $post );
-				echo "<div class='home__featured-programs-program'><h4 class='home__featured-programs-title'><a href='";
+				echo "<div class='home__featured-programs-program'><h4 class='home__featured-programs-program-title'><a href='";
 				the_permalink();
 				echo "'>";
 				the_title();
-				echo "</a></h4><p class='home__featured-programs-desc'>";
+				echo "</a></h4><p class='home__featured-programs-program-desc'>";
 				the_excerpt(); 
 				echo "</p></div>";
 			}

@@ -15,7 +15,7 @@
 
 <!-- structure of big div surrounding the three programs coming from function in template tags -->
 <div class='home__featured-programs'>
-    <h3 class='home__subtitle home__subtitle--border'>Programs</h3>
+    <h3 class='home__subtitle home__subtitle--border home__featured-programs-subtitle'>Programs</h3>
     <!-- .nuclearnetwork_get_svg('chevron-right') . -->
     <div class='home__featured-programs-all-link'><a href='<?php home_url() ?>/programs/'>All Programs <?php echo nuclearnetwork_get_svg( 'chevron-right' ); ?></a></div>
     <!-- template tags function -->
