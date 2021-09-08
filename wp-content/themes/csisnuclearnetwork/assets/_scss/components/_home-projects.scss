@@ -4,7 +4,7 @@
 .home__projects {
   --image-height: 340px;
   --link-color: #{$color-black-180};
-  --projects-padding: var(--projects-padding);
+  --projects-padding: var(--container-padding);
   padding: rem(24) 0 rem(64);
   @include csis-block-full-width-wrapper;
   background: $color-bg-light-400;
@@ -81,9 +81,9 @@
     @include breakpoint('medium') {
       position: absolute;
       top: calc(var(--image-height) + #{rem(20)});
-      right: var(--projects-padding);
+      right: calc(var(--offset-arrow-size) + var(--offset-arrow-padding) + var(--projects-padding));
       justify-content: flex-end;
-      margin-top: 0;
+      margin: 0;
     }
   }
 
@@ -91,19 +91,40 @@
     @include breakpoint('medium') {
       top: calc(var(--image-height) + #{rem(20)});
       right: var(--projects-padding);
+      bottom: unset;
+      left: unset;
+      transform: none;
     }
   }
 }
 
+.splide {
+  --offset-arrow-size: #{rem(22)};
+  --offset-arrow-padding: #{rem(32)};
+  --pagination-dot-size: #{rem(12)};
+  --pagination-gap: #{rem(8)};
+  --pagination-size: calc(var(--pagination-gap) + var(--pagination-dot-size));
+
+  @include breakpoint('medium') {
+    --offset-arrow-padding: #{rem(24)};
+  }
+}
+
 .splide__pagination {
-  gap: rem(8);
+  @include z-index('splidePagination');
+  gap: var(--pagination-gap);
   width: 100%;
   margin-top: rem(20);
-  padding: 0;
+  padding: 2px 0 0;
+
+  @include breakpoint('large') {
+    width: fit-content;
+    margin: rem(20) calc(var(--offset-arrow-size) + var(--offset-arrow-padding)) 0;
+  }
 
   &__page {
-    width: rem(12);
-    height: rem(12);
+    width: var(--pagination-dot-size);
+    height: var(--pagination-dot-size);
     background: $color-bg-dark-120;
     border: 0;
     border-radius: 50%;
@@ -120,17 +141,36 @@
 
 .splide__arrows {
   position: absolute;
+  bottom: rem(-5);
+  left: 50%;
+  @include z-index('splideArrows');
+  display: flex;
+  // Offset by the size of the padding between the arrows & the dots on both sides + the total size of the dots (number of dots * size) + the size of the gap between the dots (number of dots - 1 * size of the gap)
+  gap: calc((var(--offset-arrow-padding) * 2) + (var(--pagination-dot-size) * var(--num-items)) + ((var(--pagination-gap) * (var(--num-items) - 1))));
+  justify-content: space-between;
+  transform: translate(-50%, 0);
 
   .splide__arrow {
     padding: 0;
-    @include font-size(20px);
+    @include font-size(22px);
     line-height: 1;
     background: transparent;
     border: 0;
     cursor: pointer;
+    transition: color 0.3s ease-in-out;
+
+    &[disabled] {
+      cursor: not-allowed;
+      opacity: 0.5;
+    }
+
+    &:hover:not([disabled]) .icon {
+      color: $color-accent-primary-blue-200;
+    }
   }
 
   .icon {
     color: $color-bg-dark-100;
+    transition: color 0.3s ease-in-out;
   }
 }
