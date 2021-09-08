@@ -179,6 +179,10 @@
         cursor: pointer;
         transition: all 0.3s ease-in-out;
 
+        &:focus {
+          color: $color-white-100;
+        }
+
         @include breakpoint('large') {
           padding-bottom: rem(8);
           color: $color-black-100;
@@ -186,6 +190,10 @@
 
           &:hover {
             border-bottom: 2px solid #f2be57;
+          }
+
+          &:focus {
+            color: $color-black-100;
           }
         }
       }
@@ -203,14 +211,29 @@
   }
 
   .menu-item-has-children {
-    &.is-active .sub-menu-container-depth-0,
-    &.focus .sub-menu-container-depth-0 {
-      position: relative;
-      display: block;
+    &.is-active,
+    &.focus {
+      .sub-menu-container-depth-0 {
+        position: relative;
+        display: block;
 
-      @include breakpoint('large') {
-        position: absolute;
-        clip-path: inset(0);
+        @include breakpoint('large') {
+          position: absolute;
+          clip-path: inset(0);
+        }
+      }
+
+      > a::after,
+      > button::after {
+        padding-right: rem(8);
+        padding-left: 0;
+        transform: rotate(-180deg);
+      }
+
+      button {
+        @include breakpoint('large') {
+          border-bottom: 2px solid #f2be57;
+        }
       }
     }
 
@@ -224,22 +247,6 @@
 
       @include breakpoint('large') {
         color: $color-black-100;
-      }
-    }
-
-    &.is-active {
-      > a,
-      > button {
-        @include breakpoint('large') {
-          border-bottom: 2px solid #f2be57;
-        }
-      }
-
-      > a::after,
-      > button::after {
-        padding-right: rem(8);
-        padding-left: 0;
-        transform: rotate(-180deg);
       }
     }
   }
