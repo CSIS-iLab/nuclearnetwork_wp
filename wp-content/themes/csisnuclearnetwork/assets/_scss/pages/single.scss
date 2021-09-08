@@ -90,7 +90,7 @@
     }
 
     ul,
-    ol:not(.footnotes__list):not(.easy-footnotes-wrapper) {
+    ol:not(.footnotes__list):not(.easy-footnotes-wrapper):not(.career-block__li)::marker {
       margin-top: rem(16px);
       padding-left: rem(42px);
       @extend %text-style-paragraph-large;
@@ -98,7 +98,7 @@
       color: $color-gray-190;
     }
 
-    li {
+    li:not(.career-block__li)::marker {
       padding-left: rem(18px);
     }
 
@@ -106,7 +106,7 @@
       margin-top: rem(12px);
     }
 
-    ol:not(.footnotes__list):not(.easy-footnotes-wrapper):not(.career-block__li)::marker,
+    ol:not(.footnotes__list):not(.easy-footnotes-wrapper),
     li::marker {
       color: $color-accent-secondary-yellow-100;
     }

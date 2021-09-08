@@ -38,6 +38,7 @@
 
 %text-style-heading-large-strong {
   @include font-clamp(21px, 24px);
+  font-weight: bold;
   line-height: 1.25;
 }
 
@@ -56,6 +57,11 @@
 %text-style-heading-medium {
   @include font-clamp(18px, 20px);
   font-weight: normal;
+}
+
+%text-style-heading-medium-strong {
+  @extend %text-style-heading-medium;
+  font-weight: bold;
 }
 
 /*----------  Labels  ----------*/
