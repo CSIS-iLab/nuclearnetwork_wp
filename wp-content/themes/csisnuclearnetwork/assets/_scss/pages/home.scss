@@ -3,6 +3,7 @@
 @use '../components/home-issue-block';
 @use '../components/home-about-poni';
 @use '../components/home-event-block';
+@use '../components/home-pungh.scss';
 @use '../components/home-projects';
 @use '../components/home-programs';
 
@@ -10,6 +11,13 @@
   // TODO: Remove this and replace with real layout styles
   &__projects {
     max-width: 800px;
+  }
+
+  &__pungh {
+    // TODO: Remove this & make breakpoint adjustments as necessary in home-pungh.scss component if not switching positions at the large breakpoint.
+    @include breakpoint('large') {
+      max-width: 50%;
+    }
   }
 
   #site-content {
@@ -47,6 +55,11 @@
         margin: rem(12) 0 rem(16);
         background-color: var(--home-subtitle-border);
       }
+    }
+
+    &--sm {
+      @extend %text-style-heading-large-strong;
+      color: var(--home-subtitle-color);
     }
   }
 
