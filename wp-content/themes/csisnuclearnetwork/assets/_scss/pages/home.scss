@@ -14,7 +14,8 @@
   }
 
   &__pungh {
-    @include breakpoint('medium') {
+    // TODO: Remove this & make breakpoint adjustments as necessary in home-pungh.scss component if not switching positions at the large breakpoint.
+    @include breakpoint('large') {
       max-width: 50%;
     }
   }

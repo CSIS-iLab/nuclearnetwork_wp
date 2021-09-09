@@ -3,8 +3,22 @@
 // Program Updates & Next Gen Highlights
 .home__pungh {
   padding: rem(40) 0 rem(72);
+  background: $color-postbg-200;
+  @include full-width-background($color-postbg-200);
+
+  @include breakpoint('large') {
+    padding-right: rem(32);
+    padding-left: rem(32);
+  }
+
+  &::before {
+    @include breakpoint('large') {
+      display: none;
+    }
+  }
 
   .home__archive-link {
+    --link-color: #{$color-accent-primary-blue-200};
     --link-hover-color: #{$color-black-100};
     white-space: nowrap;
 
@@ -14,41 +28,63 @@
     }
   }
 
-  &-list {
-    grid-column: 1 / -1;
-    margin: 0;
-    padding: 0;
-
-    li + li {
-      margin-top: rem(32);
-    }
-  }
-
   &-title {
-    @extend %text-style-heading-large-strong;
-    margin-bottom: rem(12);
+    display: block;
+    margin-bottom: rem(8);
+    @extend %text-style-heading-medium-strong;
     color: $color-accent-primary-blue-200;
 
-    a {
-      &:hover {
-        color: $color-black-100;
-      }
+    &:hover,
+    &:focus {
+      color: $color-accent-primary-blue-100;
+    }
 
-      &:focus {
-        color: $color-black-100;
-        background-color: $color-bg-light-300;
-      }
+    &:focus {
+      background: $color-bg-light-300;
     }
   }
 
   .post-block__excerpt {
-    margin-bottom: 0;
-    @extend %text-style-paragraph-large;
-    @extend %text-style-short;
+    color: $color-black-180;
+  }
+}
+
+.home__pu {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  column-gap: rem(32);
+  row-gap: rem(8);
+
+  > :last-child {
+    flex-basis: 100%;
+    width: 100%;
+    margin-top: rem(8);
+  }
+
+  &-list {
+    padding: 0;
+  }
+
+  li + li {
+    margin-top: rem(16);
+    padding-top: rem(16);
+    border-top: 1px solid $color-border-dark-130;
+  }
+
+  .post-meta__label {
+    display: none;
+  }
+
+  .post-meta__date {
+    --post-meta: #{$color-black-180};
   }
 }
 
 .home__ngh {
+  margin-top: rem(40);
+
   .home__subtitle--sm {
     margin-bottom: rem(16);
   }
@@ -82,30 +118,14 @@
     }
   }
 
-  &-title {
-    margin-bottom: rem(8);
-    color: $color-accent-primary-blue-200;
-
-    a {
-      &:hover,
-      &:focus {
-        color: $color-accent-primary-blue-100;
-      }
-
-      &:focus {
-        background: $color-bg-light-300;
-      }
-    }
-  }
-
-  .post-block__excerpt {
-    color: $color-black-180;
-  }
-
   .splide__arrows {
     @include breakpoint('large') {
       left: 0;
       transform: none;
     }
+  }
+
+  .splide__pagination {
+    clear: both;
   }
 }

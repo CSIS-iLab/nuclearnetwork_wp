@@ -58,6 +58,11 @@
   font-weight: normal;
 }
 
+%text-style-heading-medium-strong {
+  @extend %text-style-heading-medium;
+  font-weight: bold;
+}
+
 /*----------  Labels  ----------*/
 
 %text-style-label-large {

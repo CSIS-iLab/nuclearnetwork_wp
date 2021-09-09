@@ -9,23 +9,54 @@
  * @since 1.0.0
  */
 
-$project_archive_page = get_field( 'project_archive_page' );
+$program_updates_archive = get_field( 'program_updates_archive' );
 
+$updates_args = array(
+	'posts_per_page' => 3,
+	'post_type'   => 'updates',
+	'post_status' => 'publish',
+	'date_query' => array(
+		array(
+			'column' => 'post_date_gmt',
+			'after'  => '90 days ago',
+		)
+	)
+);
+$updates_posts = new WP_Query( $updates_args );
 ?>
 
-<div class="home__pungh">
-  Program Updates
-	<header class="home__projects-header">
-		<h2 class="home__subtitle home__subtitle--border">Projects</h2>
-		<?php if ( $project_archive_page ) : ?>
-			<a href="<?php echo esc_url( $project_archive_page); ?>" class="home__archive-link text--link">
+<section class="home__pungh">
+  <div class="home__pu">
+		<h2 class="home__subtitle--sm">Program Updates</h2>
+		<?php if ( $program_updates_archive ) : ?>
+			<a href="<?php echo esc_url( $program_updates_archive); ?>" class="home__archive-link text--link">
 				<?php
-					the_field( 'project_archive_cta' );
+					the_field( 'program_updates_cta' );
 					echo nuclearnetwork_get_svg( "chevron-right" );
 				?>
 			</a>
 		<?php endif; ?>
-	</header>
+
+		<?php
+		if ( $updates_posts ) {
+			echo "<ul class='home__pu-list' role='list'>";
+			// cycle through and output all events
+			while ( $updates_posts->have_posts() ) {
+				$updates_posts->the_post();
+				echo '<li>';
+				echo '<a href="' . get_permalink() . '" class="home__pungh-title">' . get_the_title() . '</a>';
+				nuclearnetwork_posted_on('M j, Y');
+				echo '</li>';
+			}
+			wp_reset_postdata();
+			echo "</ul>";
+		} else {
+			echo '<p class="home__pu-no-results post-block__excerpt">' . get_the_field('program_updates_no_results') . '</p>';
+		}
+		?>
+
+	</div>
+
 	<?php
 	if( have_rows('next_gen_highlights') ):
     echo '<div class="home__ngh"><h2 class="home__subtitle--sm">Next Gen Highlights</h2>';
@@ -48,7 +79,7 @@ $project_archive_page = get_field( 'project_archive_page' );
 			?>
 			<li class="home__ngh-item splide__slide">
 				<a href="<?php echo esc_url($url); ?>" class="home__ngh-img" aria-hidden="true"><?php echo wp_get_attachment_image( $image, 'medium' ); ?></a>
-				<h3 class="home__ngh-title text--bold"><a href="<?php echo esc_url($url); ?>" class="text--link"><?php echo esc_html($name); ?></a></h3>
+				<a href="<?php echo esc_url($url); ?>" class="home__pungh-title"><?php echo esc_html($name); ?></a>
 				<p class="post-block__excerpt"><?php the_sub_field('next_gen_description'); ?></p>
 			</li>
 		<?php
@@ -56,4 +87,4 @@ $project_archive_page = get_field( 'project_archive_page' );
 		echo "</ul></div></div></div>";
 		endif;
 	?>
-</div>
+</section>

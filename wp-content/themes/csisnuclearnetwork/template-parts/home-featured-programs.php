@@ -9,7 +9,7 @@
 
 ?>
 
-<div class='home__programs'>
+<section class='home__programs'>
 	<h2 class='home__subtitle home__subtitle--border'>Programs</h2>
 	<a href='<?php home_url() ?>/programs/' class="home__archive-link text--link">All Programs <?php echo nuclearnetwork_get_svg( 'chevron-right' ); ?></a>
 	<?php
@@ -28,4 +28,4 @@
 		echo "</ul>";
 		endif;
 	?>
-</div>
+</section>
