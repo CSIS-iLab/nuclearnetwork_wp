@@ -416,6 +416,21 @@ function nuclearnetwork_show_all_news_posts_per_month ( $query ) {
 }
 add_action( 'pre_get_posts', 'nuclearnetwork_show_all_news_posts_per_month' );
 
+/**
+ * Modify Archive to limit posts per page and paginate results
+ *
+ * @param  array $query Query object.
+ */
+
+function nuclearnetwork_paginate_archive_posts ( $query ) {
+
+    if ( !is_admin() && is_archive()) {
+
+        $query->set('posts_per_page', 10);
+    }
+}
+add_action( 'pre_get_posts', 'nuclearnetwork_paginate_archive_posts');
+
 /*
  * Removes the default Jetpack related posts plugin so we can call it with a shortcode instead
  */
