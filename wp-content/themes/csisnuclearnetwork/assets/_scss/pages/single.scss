@@ -7,6 +7,7 @@
 @use '../blocks/post/partners';
 @use '../components/post-block-related';
 @use '../components/about-career-block';
+@use '../components/team-member-block';
 
 .single {
   &__post {
@@ -89,7 +90,7 @@
     }
 
     ul,
-    ol:not(.footnotes__list):not(.easy-footnotes-wrapper) {
+    ol:not(.footnotes__list):not(.easy-footnotes-wrapper):not(.career-block__li)::marker {
       margin-top: rem(16px);
       padding-left: rem(42px);
       @extend %text-style-paragraph-large;
@@ -97,7 +98,7 @@
       color: $color-gray-190;
     }
 
-    li {
+    li:not(.career-block__li)::marker {
       padding-left: rem(18px);
     }
 
