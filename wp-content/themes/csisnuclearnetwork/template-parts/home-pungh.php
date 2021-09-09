@@ -28,7 +28,7 @@ $project_archive_page = get_field( 'project_archive_page' );
 	</header>
 	<?php
 	if( have_rows('next_gen_highlights') ):
-    echo '<div class="home__ngh"><h2 class="home__subtitle">Next Gen Highlights</h2>';
+    echo '<div class="home__ngh"><h2 class="home__subtitle--sm">Next Gen Highlights</h2>';
 		echo '<div class="js-splide splide">
 		<div class="splide__arrows">
 			<button class="splide__arrow splide__arrow--prev">
@@ -47,8 +47,8 @@ $project_archive_page = get_field( 'project_archive_page' );
 			$name = $link['title'];
 			?>
 			<li class="home__ngh-item splide__slide">
-				<a href="<?php echo esc_url($url); ?>" class="home__ngh-img"><?php echo wp_get_attachment_image( $image, 'medium' ); ?></a>
-				<h3 class="home__ngh-title text--bold"><a href="<?php echo esc_url($url); ?>"><?php echo esc_html($name); ?></a></h3>
+				<a href="<?php echo esc_url($url); ?>" class="home__ngh-img" aria-hidden="true"><?php echo wp_get_attachment_image( $image, 'medium' ); ?></a>
+				<h3 class="home__ngh-title text--bold"><a href="<?php echo esc_url($url); ?>" class="text--link"><?php echo esc_html($name); ?></a></h3>
 				<p class="post-block__excerpt"><?php the_sub_field('next_gen_description'); ?></p>
 			</li>
 		<?php

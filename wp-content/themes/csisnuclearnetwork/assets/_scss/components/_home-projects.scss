@@ -78,6 +78,8 @@
 
   // Splide
   .splide__pagination {
+    margin-top: rem(20);
+
     @include breakpoint('medium') {
       position: absolute;
       top: calc(var(--image-height) + #{rem(20)});

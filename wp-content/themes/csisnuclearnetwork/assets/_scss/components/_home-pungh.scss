@@ -2,7 +2,7 @@
 
 // Program Updates & Next Gen Highlights
 .home__pungh {
-  // container
+  padding: rem(40) 0 rem(72);
 
   .home__archive-link {
     --link-hover-color: #{$color-black-100};
@@ -49,7 +49,7 @@
 }
 
 .home__ngh {
-  .home__subtitle {
+  .home__subtitle--sm {
     margin-bottom: rem(16);
   }
 
@@ -73,6 +73,7 @@
       --img-size: 180px;
       float: left;
       margin-right: rem(32);
+      margin-bottom: 0;
       margin-left: 0;
     }
 
@@ -83,9 +84,28 @@
 
   &-title {
     margin-bottom: rem(8);
+    color: $color-accent-primary-blue-200;
+
+    a {
+      &:hover,
+      &:focus {
+        color: $color-accent-primary-blue-100;
+      }
+
+      &:focus {
+        background: $color-bg-light-300;
+      }
+    }
   }
 
   .post-block__excerpt {
     color: $color-black-180;
+  }
+
+  .splide__arrows {
+    @include breakpoint('large') {
+      left: 0;
+      transform: none;
+    }
   }
 }

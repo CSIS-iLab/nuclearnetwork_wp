@@ -55,6 +55,11 @@
         background-color: var(--home-subtitle-border);
       }
     }
+
+    &--sm {
+      @extend %text-style-heading-large-strong;
+      color: var(--home-subtitle-color);
+    }
   }
 
   &__archive-link {
