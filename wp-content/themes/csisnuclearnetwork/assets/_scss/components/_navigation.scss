@@ -212,7 +212,7 @@
 
   .menu-item-has-children {
     &.is-active,
-    &.focus {
+    &:focus-within {
       .sub-menu-container-depth-0 {
         position: relative;
         display: block;
@@ -366,7 +366,7 @@
 
   &__cat-list {
     grid-column: 2;
-    grid-row: 1 / span 2;
+    grid-row: 1 / span 3;
 
     @include breakpoint('large') {
       padding-left: rem(24);

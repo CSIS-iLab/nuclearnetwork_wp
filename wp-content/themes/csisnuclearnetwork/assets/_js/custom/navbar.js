@@ -6,11 +6,11 @@
 const trigger = document.querySelector('.site-nav__trigger')
 const navContainer = document.querySelector('.site-nav__container')
 const nav = document.querySelector('.site-nav__menu')
-const parentMenus = document.querySelectorAll('.menu-item-has-children')
+// const parentMenus = document.querySelectorAll('.menu-item-has-children')
 // const parentEls = document.querySelectorAll('.menu-item-has-children')
 
 const Navigation = () => {
-  menuFocus()
+  // menuFocus()
   toggleMenu()
   // toggleSubmenu()
   closeMenu()
@@ -50,13 +50,13 @@ const ClickyMenus = function (menu) {
       button.setAttribute('aria-expanded', false)
       submenu.setAttribute('aria-hidden', true)
       mainMenuItem.classList.remove('is-active')
-      mainMenuItem.classList.remove('focus')
+      // mainMenuItem.classList.remove('focus')
       currentMenuItem = false
     } else {
       button.setAttribute('aria-expanded', true)
       submenu.setAttribute('aria-hidden', false)
       mainMenuItem.classList.add('is-active')
-      mainMenuItem.classList.add('focus')
+      // mainMenuItem.classList.add('focus')
       preventOffScreenSubmenu(submenu)
       currentMenuItem = button
     }
@@ -144,45 +144,45 @@ function menuFunctions() {
   })
 }
 
-const menuFocus = () => {
-  parentMenus.forEach((parentMenu) => {
-    const topLevelLinks = parentMenu.querySelectorAll('button')
-    topLevelLinks.forEach((link) => {
-      const subMenuContainer = link.nextElementSibling
-      link.addEventListener('focus', function () {
-        this.parentElement.classList.add('focus')
+// const menuFocus = () => {
+//   parentMenus.forEach((parentMenu) => {
+//     const topLevelLinks = parentMenu.querySelectorAll('button')
+//     topLevelLinks.forEach((link) => {
+//       const subMenuContainer = link.nextElementSibling
+//       link.addEventListener('focus', function () {
+//         this.parentElement.classList.add('focus')
 
-        if ('true' === link.getAttribute('aria-expanded')) {
-          link.setAttribute('aria-expanded', false)
-          subMenuContainer.setAttribute('aria-hidden', true)
-        } else {
-          link.setAttribute('aria-expanded', true)
-          subMenuContainer.setAttribute('aria-hidden', false)
-        }
-      })
+//         if ('true' === link.getAttribute('aria-expanded')) {
+//           link.setAttribute('aria-expanded', false)
+//           subMenuContainer.setAttribute('aria-hidden', true)
+//         } else {
+//           link.setAttribute('aria-expanded', true)
+//           subMenuContainer.setAttribute('aria-hidden', false)
+//         }
+//       })
 
-      if (subMenuContainer) {
-        const subMenu = link.nextElementSibling.children[0]
-        const subMenuLinks = subMenu.querySelectorAll('a')
-        const lastLinkIndex = subMenuLinks.length - 1
-        const lastLink = subMenuLinks[lastLinkIndex]
+//       if (subMenuContainer) {
+//         const subMenu = link.nextElementSibling.children[0]
+//         const subMenuLinks = subMenu.querySelectorAll('a')
+//         const lastLinkIndex = subMenuLinks.length - 1
+//         const lastLink = subMenuLinks[lastLinkIndex]
 
-        lastLink.addEventListener('blur', function () {
-          subMenu.parentElement.parentElement.classList.remove('focus')
-          subMenu.parentElement.parentElement.classList.remove('is-active')
+//         lastLink.addEventListener('blur', function () {
+//           subMenu.parentElement.parentElement.classList.remove('focus')
+//           subMenu.parentElement.parentElement.classList.remove('is-active')
 
-          if ('true' === link.getAttribute('aria-expanded')) {
-            link.setAttribute('aria-expanded', false)
-            subMenuContainer.setAttribute('aria-hidden', true)
-          } else {
-            link.setAttribute('aria-expanded', true)
-            subMenuContainer.setAttribute('aria-hidden', false)
-          }
-        })
-      }
-    })
-  })
-}
+//           if ('true' === link.getAttribute('aria-expanded')) {
+//             link.setAttribute('aria-expanded', false)
+//             subMenuContainer.setAttribute('aria-hidden', true)
+//           } else {
+//             link.setAttribute('aria-expanded', true)
+//             subMenuContainer.setAttribute('aria-hidden', false)
+//           }
+//         })
+//       }
+//     })
+//   })
+// }
 
 // change the hamburger icon to close icon on mobile
 const toggleMenu = () => {
