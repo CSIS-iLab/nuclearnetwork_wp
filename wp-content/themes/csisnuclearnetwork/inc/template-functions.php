@@ -424,7 +424,7 @@ add_action( 'pre_get_posts', 'nuclearnetwork_show_all_news_posts_per_month' );
 
 function nuclearnetwork_paginate_archive_posts ( $query ) {
 
-    if ( !is_admin() && is_archive()) {
+    if ( !is_admin() ) {
 
         $query->set('posts_per_page', 10);
     }
