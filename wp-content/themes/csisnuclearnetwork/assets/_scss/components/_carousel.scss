@@ -17,12 +17,12 @@
   @include z-index('splidePagination');
   gap: var(--pagination-gap);
   width: 100%;
-  margin-top: rem(20);
+  margin-top: rem(16);
   padding: 2px 0 0;
 
   @include breakpoint('large') {
     width: fit-content;
-    margin: rem(20) calc(var(--offset-arrow-size) + var(--offset-arrow-padding)) 0;
+    margin: rem(24) calc(var(--offset-arrow-size) + var(--offset-arrow-padding)) 0;
   }
 
   &__page {
