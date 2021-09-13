@@ -5,6 +5,7 @@
 @use 'base/typography';
 @use 'base/utilities';
 @use 'components/buttons';
+@use 'components/classlist';
 @use 'components/entry-header';
 @use 'components/facet';
 @use 'components/footnotes';
@@ -16,6 +17,5 @@
 @use 'components/share';
 @use 'components/search';
 @use 'components/write-for-us';
-@use 'components/classlist';
 @use 'layout/header';
 @use 'layout/footer';

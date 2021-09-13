@@ -26,19 +26,20 @@
 
   &__bio {
     @extend %text-style-paragraph-medium-short;
+    margin-bottom: rem(32);
   }
 
   &__info {
     &:after {
-        clear: both;
-        content: '';
-        display: table;
+      clear: both;
+      content: '';
+      display: table;
     }
   }
 
   hr {
     height: rem(1);
-    margin-top: rem(32);
+    margin-top: 0;
     margin-bottom: rem(40);
     background-color: $color-border-dark-130;
     border: unset;
