@@ -583,7 +583,7 @@ if ( ! function_exists( 'nuclearnetwork_archive_filters' ) ) :
 			$topics .= '</div>';
 		}
 
-		printf( '<div class="archive__filters"><div class="archive__filters--primary">' . esc_html__( '%1$s', 'nuclearnetwork' ) . '</div><div class="archive__filters--secondary">' . esc_html__( '%3$s %4$s %5$s', 'nuclearnetwork' ) . '</div></div>', $content_types, $author, $series, $topics );
+		printf( '<div class="archive__filters"><div class="archive__filters--primary">' . esc_html__( '%1$s', 'nuclearnetwork' ) . '</div><div class="archive__filters--secondary">' . esc_html__( '%2$s %3$s %4$s', 'nuclearnetwork' ) . '</div></div>', $content_types, $author, $series, $topics );
 
 	}
 endif;
