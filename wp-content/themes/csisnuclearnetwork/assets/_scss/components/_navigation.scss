@@ -225,7 +225,7 @@
 
         @include breakpoint('large') {
           position: absolute;
-          clip-path: inset(0);
+          clip-path: inset(-20px 0 0 0);
         }
       }
 
@@ -296,7 +296,7 @@
     display: none;
 
     @include breakpoint('large') {
-      top: 80%;
+      top: 95%;
       left: 50%;
       display: unset;
       width: max-content;
@@ -326,18 +326,6 @@
     @include breakpoint('large') {
       padding: rem(24);
       color: $color-black-190;
-
-      // &::after {
-      //   position: absolute;
-      //   top: -12px;
-      //   left: 50%;
-      //   width: 0;
-      //   height: 0;
-      //   content: '';
-      //   border-right: 10px solid transparent;
-      //   border-left: 10px solid transparent;
-      //   transform: translateX(-50%);
-      // }
     }
   }
 
