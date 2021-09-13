@@ -179,9 +179,11 @@
         cursor: pointer;
         transition: all 0.3s ease-in-out;
 
+        /* stylelint-disable */
         &:focus {
           color: $color-white-100;
         }
+        /* stylelint-enable */
 
         @include breakpoint('large') {
           padding-bottom: rem(8);
@@ -271,6 +273,18 @@
         padding-right: rem(24);
       }
     }
+
+    a {
+      &:hover {
+        color: $color-accent-primary-blue-200;
+      }
+
+      &:focus {
+        color: $color-black-100;
+        background: $color-bg-light-300;
+        outline: 0;
+      }
+    }
   }
 
   .sub-menu-container-depth-0 {
@@ -350,7 +364,7 @@
   &__icon-link {
     grid-column: 1;
 
-    &::after {
+    a::after {
       display: inline-block;
       content: url('/wp-content/themes/csisnuclearnetwork/assets/static/icons/chevron-right.svg');
       width: 8px;
@@ -361,6 +375,10 @@
       @include breakpoint('large') {
         filter: invert(0%) sepia(4%) saturate(7482%) hue-rotate(274deg) brightness(95%) contrast(104%);
       }
+    }
+
+    a:hover::after {
+      filter: invert(30%) sepia(16%) saturate(4486%) hue-rotate(180deg) brightness(89%) contrast(89%);
     }
   }
 
