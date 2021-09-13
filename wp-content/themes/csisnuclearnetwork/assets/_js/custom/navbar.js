@@ -3,6 +3,8 @@
  *
  */
 
+import { disableBodyScroll as disableBodyScroll, enableBodyScroll as enableBodyScroll } from 'body-scroll-lock'
+
 const trigger = document.querySelector('.site-nav__trigger')
 const navContainer = document.querySelector('.site-nav__container')
 const nav = document.querySelector('.site-nav__menu')
@@ -191,10 +193,12 @@ const toggleMenu = () => {
       this.setAttribute('aria-expanded', 'false')
       this.classList.remove('is-active')
       navContainer.classList.remove('is-active')
+      enableBodyScroll(navContainer)
     } else {
       navContainer.classList.add('is-active')
       this.setAttribute('aria-expanded', 'true')
       this.classList.add('is-active')
+      disableBodyScroll(navContainer)
     }
   })
 }
