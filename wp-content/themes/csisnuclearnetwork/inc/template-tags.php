@@ -417,8 +417,6 @@ endif;
 if (! function_exists('nuclearnetwork_display_subtypes')) :
 	function nuclearnetwork_display_subtypes() {
 
-		// $post_type = get_post_type();
-
 		$post_type = get_post_type_object(get_post_type());
 		global $post;
 
@@ -426,8 +424,9 @@ if (! function_exists('nuclearnetwork_display_subtypes')) :
 			$post_type_name = $post_type->labels->singular_name;
 			$tax_name = $post_type->taxonomies[0];
 		} elseif ($post_type->name === 'post' ) {
+        
 			$post_type_name = get_the_title( get_option( 'page_for_posts' ) );
-			$tax_name = 'analysis_subtype';
+			$tax_name = 'filtered_content_types';
 		}
 
 		echo '<div class="post-meta post-meta__terms"><a href="' . get_post_type_archive_link( $post->post_type ) . '" class="post-meta__terms-type text--bold">' . $post_type_name . '&nbsp</a>' . get_the_term_list( $post->ID, $tax_name, '/&nbsp', ',&nbsp') . '</div>';
