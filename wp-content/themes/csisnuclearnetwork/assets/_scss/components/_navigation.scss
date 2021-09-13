@@ -420,6 +420,16 @@
     @extend %text-style-label-large;
     grid-area: title;
     color: $color-white-190;
+
+    &:hover {
+      color: $color-accent-secondary-yellow-100 !important;
+    }
+
+    &:focus {
+      color: $color-white-190 !important;
+      background: $color-accent-primary-blue-100;
+      outline: 0;
+    }
   }
 
   &__feat-post-authors {
