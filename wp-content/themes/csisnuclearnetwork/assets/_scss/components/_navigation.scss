@@ -20,8 +20,9 @@
     bottom: 0;
     left: 0;
     z-index: 1;
-    width: rem(250);
-    background: $color-accent-primary-blue-100;
+    // width: rem(250);
+    width: 100%;
+    background: $color-black-165;
     visibility: hidden;
     transition: clip-path 0.3s linear, visibility 0.3s linear;
     clip-path: inset(0 100% 0 0);
@@ -138,16 +139,19 @@
 
   &__menu {
     position: relative;
+    width: rem(250);
     height: 100%;
     margin: 0;
     padding: rem(16);
+    background: $color-accent-primary-blue-100;
 
     @include breakpoint('large') {
       position: static;
       top: 0;
       display: flex;
       align-items: center;
-      max-width: unset;
+      width: unset;
+      background: transparent;
     }
 
     > li {
