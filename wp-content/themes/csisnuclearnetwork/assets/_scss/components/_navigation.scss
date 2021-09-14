@@ -240,9 +240,11 @@
     > a::after,
     > button::after {
       content: '\25be';
+      @include font-size(12px);
       display: inline-block;
       padding-left: rem(8);
       color: $color-white-100;
+      vertical-align: 15%;
       transition: all 0.3s ease-in-out;
     }
   }
