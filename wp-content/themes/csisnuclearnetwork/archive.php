@@ -46,7 +46,7 @@ get_header();
 
 				echo facetwp_display( 'facet', 'pagination_results' );
 
-			} else {
+			} else if ( ! is_post_type_archive( 'projects' ) && is_post_type_archive( 'programs' ) ) {
 				nuclearnetwork_pagination_number_of_posts();
 			}
 		}
