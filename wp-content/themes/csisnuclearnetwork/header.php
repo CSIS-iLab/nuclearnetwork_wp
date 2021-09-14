@@ -33,6 +33,7 @@
 		<div class="container header__inner">
       <a href="<?php echo get_home_url(); ?>" class="header__logo header__logo--desktop" title="Go home"><?php include( get_template_directory() . '/assets/static/ngnn-logo.svg'); ?></a>
       <a href="<?php echo get_home_url(); ?>" class="header__logo header__logo--mobile" title="Go home"><?php include( get_template_directory() . '/assets/static/ngnn-logo-mobile.svg'); ?></a>
+      <a href="<?php echo get_home_url(); ?>" class="header__logo header__logo--home" title="Go home"><?php include( get_template_directory() . '/assets/static/ngnn-logo-large.svg'); ?></a>
       <div class="spacer"></div>
 
       <?php get_template_part( 'template-parts/site-nav' );?>
