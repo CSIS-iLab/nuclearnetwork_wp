@@ -1,13 +1,14 @@
 @use 'abstracts' as *;
+@use '../components/navigation';
 
 .header {
   position: fixed;
-  @extend %text-style-label-large-caps;
+  // @extend %text-style-label-large-caps;
   top: 0;
   right: 0;
   left: 0;
   z-index: 11;
-  background-color: $color-bg-dark-200;
+  background-color: transparent;
 
   &__inner {
     display: flex;
@@ -20,17 +21,30 @@
     position: relative;
     order: 2;
     width: fit-content;
+    height: max-content;
     margin: auto;
+
+    &--desktop {
+      display: none;
+    }
 
     @include breakpoint('large') {
       z-index: 3;
       order: 1;
       margin: 0;
+
+      &--mobile {
+        display: none;
+      }
+
+      &--desktop {
+        display: block;
+      }
     }
 
     svg {
       max-width: 210px;
-      height: var(--logo-height);
+      // height: var(--logo-height);
 
       @include breakpoint('large') {
         max-width: 339px;
@@ -187,220 +201,5 @@
 
   button:focus {
     outline: 0;
-  }
-}
-
-.site-nav {
-  display: flex;
-  align-items: center;
-  order: 1;
-  height: 100%;
-
-  @include breakpoint('large') {
-    position: initial;
-    order: 2;
-  }
-
-  &__container {
-    position: fixed !important;
-    top: 0;
-    right: 83;
-    bottom: 0;
-    left: 0;
-    z-index: 1;
-    width: rem(320px);
-    background: $color-bg-dark-200;
-    visibility: hidden;
-    transition: clip-path 0.3s linear, visibility 0.3s linear;
-    clip-path: inset(0 100% 0 0);
-
-    @include breakpoint('large') {
-      position: static !important;
-      top: unset;
-      right: unset;
-      left: unset;
-      @include z-index(navContainer);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      width: 100%;
-      height: 100%;
-      padding: 0;
-      background: transparent;
-      transform: none;
-      visibility: visible;
-      clip-path: none;
-    }
-
-    &.is-active {
-      visibility: visible;
-      clip-path: inset(0);
-    }
-  }
-
-  &__trigger {
-    position: relative;
-    left: 0;
-    @include z-index(navTrigger);
-    display: block;
-    width: 40px;
-    height: 40px;
-    background-color: transparent;
-    border: 0;
-    transform: rotate(0deg);
-    cursor: pointer;
-    transition: all 0.3s linear;
-
-    &:focus {
-      .line {
-        background: $color-white-100;
-      }
-    }
-
-    &:hover {
-      .line {
-        // background: $color-accent-dark-primary-400;
-      }
-    }
-
-    &.is-active {
-      left: rem(230px);
-
-      @include breakpoint('medium') {
-        left: rem(200px);
-      }
-    }
-
-    @include breakpoint('large') {
-      display: none;
-    }
-
-    .line {
-      position: absolute;
-      left: 25%;
-      display: block;
-      width: 20px;
-      height: 2px;
-      background: $color-white-190;
-      transform: rotate(0deg);
-      opacity: 1;
-      transition: 0.25s ease-in-out;
-
-      /* stylelint-disable-next-line */
-      &:nth-child(1) {
-        top: 35%;
-      }
-
-      /* stylelint-disable-next-line */
-      &:nth-child(2),
-      &:nth-child(3) {
-        top: 50%;
-      }
-
-      /* stylelint-disable-next-line */
-      &:nth-child(4) {
-        top: 65%;
-      }
-    }
-
-    &.is-active .line {
-      /* stylelint-disable-next-line */
-      &:nth-child(1),
-      &:nth-child(4) {
-        top: 50%;
-        left: 50%;
-        width: 0%;
-      }
-
-      /* stylelint-disable-next-line */
-      &:nth-child(2) {
-        transform: rotate(45deg);
-      }
-
-      /* stylelint-disable-next-line */
-      &:nth-child(3) {
-        transform: rotate(-45deg);
-      }
-    }
-  }
-
-  &__menu {
-    position: relative;
-    height: 100%;
-    color: $color-white-190;
-    @extend %text-style-label-large-caps;
-
-    @include breakpoint('large') {
-      position: static;
-      top: 0;
-      display: flex;
-      align-items: center;
-    }
-
-    > li {
-      position: relative;
-      margin: 0.75rem 0;
-
-      @include breakpoint('large') {
-        display: flex;
-        align-items: center;
-        height: 100%;
-        margin-right: rem(22);
-      }
-    }
-
-    a {
-      display: inline-block;
-      padding: 0.75rem 0 0.75rem 2rem;
-
-      &:hover {
-        // color: $color-accent-dark-primary-400;
-      }
-
-      @include breakpoint('large') {
-        padding: 0;
-      }
-    }
-  }
-
-  .menu-item-has-children {
-    @include breakpoint('large') {
-      &:hover .sub-menu,
-      .sub-menu.focus {
-        position: absolute;
-        clip-path: inset(0);
-      }
-
-      > a::after {
-        content: '\25be';
-        padding-left: rem(8);
-      }
-    }
-  }
-
-  .sub-menu {
-    width: 200px;
-    padding-bottom: 0.5rem;
-    list-style: none;
-
-    @include breakpoint('large') {
-      position: absolute;
-      top: 100%;
-      left: calc(-0.5rem + 1px);
-      padding: 0.5rem;
-      background-color: $color-bg-dark-200;
-      @include font-size(18px);
-      @include shadow('lg');
-      transition: clip-path 0.3s linear, visibility 0.3s linear;
-      clip-path: inset(0 0 100% 0);
-    }
-
-    a {
-      padding: 0.75rem 0 0.75rem 1rem;
-
-      @include breakpoint('large') {
-        padding-right: 1rem;
-      }
-    }
   }
 }
