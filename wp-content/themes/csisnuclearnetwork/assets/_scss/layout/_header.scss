@@ -27,6 +27,10 @@
       display: none;
     }
 
+    &--home {
+      display: none;
+    }
+
     @include breakpoint('large') {
       @include z-index('siteHeaderLogo');
       order: 1;

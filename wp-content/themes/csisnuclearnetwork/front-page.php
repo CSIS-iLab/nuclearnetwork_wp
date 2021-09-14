@@ -13,6 +13,7 @@ get_header();
 ?>
 
 <main id="site-content" role="main">
+	<hr class="home__top-border"/>
 	<?php
 	$excluded_featured_post_ids_from_recent = array();
 	$featured_posts = get_field( 'featured_posts' );
