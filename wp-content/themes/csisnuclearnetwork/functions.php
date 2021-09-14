@@ -238,6 +238,9 @@ function nuclearnetwork_register_scripts() {
 	wp_enqueue_script( 'nuclearnetwork-js-skip-link', get_template_directory_uri() . '/assets/js/skip-link-focus-fix.min.js', array(), $theme_version, true );
 	wp_script_add_data( 'nuclearnetwork-js-skip-link', 'async', true );
 
+	wp_enqueue_script( 'nuclearnetwork-js-header', get_template_directory_uri() . '/assets/js/header.min.js', array(), $theme_version, true );
+	wp_script_add_data( 'nuclearnetwork-js-header', 'defer', true );
+
 	wp_enqueue_script( 'nuclearnetwork-js-bundle', get_template_directory_uri() . '/assets/js/bundle.min.js', array(), $theme_version, true );
 	wp_script_add_data( 'nuclearnetwork-js-bundle', 'defer', true );
 
