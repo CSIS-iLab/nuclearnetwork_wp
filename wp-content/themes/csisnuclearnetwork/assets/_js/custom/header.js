@@ -9,8 +9,6 @@ document.addEventListener('DOMContentLoaded', function () {
     threshold: 0,
   }
 
-  console.log(entryHeader.offsetHeight)
-
   const onIntersect = (entries) => {
     entries.forEach((entry) => {
       if (!entry.isIntersecting) {
