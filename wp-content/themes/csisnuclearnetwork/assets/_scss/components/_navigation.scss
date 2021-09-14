@@ -20,7 +20,6 @@
     bottom: 0;
     left: 0;
     z-index: 1;
-    // width: rem(250);
     width: 100%;
     background: $color-black-165;
     visibility: hidden;
@@ -191,15 +190,10 @@
 
         @include breakpoint('large') {
           padding-bottom: rem(8);
-          color: $color-black-100;
           border-bottom: 2px solid transparent;
 
           &:hover {
             border-bottom: 2px solid #f2be57;
-          }
-
-          &:focus {
-            color: $color-black-100;
           }
         }
       }
@@ -250,10 +244,6 @@
       padding-left: rem(8);
       color: $color-white-100;
       transition: all 0.3s ease-in-out;
-
-      @include breakpoint('large') {
-        color: $color-black-100;
-      }
     }
   }
 
