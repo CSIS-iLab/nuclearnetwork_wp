@@ -102,8 +102,13 @@
   &--blue {
     --page-header-title-color: #{$color-white-190};
     --page-header-title-margin-bottom: #{rem(12)};
+    --page-header-padding-top: #{rem(24)};
 
-    padding: calc(#{rem(24)} + var(--site-header-height)) 0 var(--page-header-padding-bottom); // Top padding includes 56px for the site header
+    padding: calc(var(--page-header-padding-top) + var(--site-header-height)) 0 var(--page-header-padding-bottom);
+
+    @include breakpoint('large') {
+      --page-header-padding-top: #{rem(56)};
+    }
 
     &::before {
       @include csis-block-full-width-wrapper();
@@ -126,7 +131,7 @@
 
     max-width: $size__content-wide-max-width;
     margin: 0 calc(-1 * var(--container-padding));
-    padding: calc(var(--page-header-padding-top) + var(--site-header-height)) var(--container-padding) rem(32); // Top padding includes 56px for the site header
+    padding: calc(var(--page-header-padding-top) + var(--site-header-height)) var(--container-padding) rem(32);
     background-color: $color-bg-light-100;
 
     @include breakpoint('small') {
