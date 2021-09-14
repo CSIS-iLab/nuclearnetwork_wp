@@ -32,9 +32,6 @@
       right: unset;
       left: unset;
       @include z-index(navContainer);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
       width: 100%;
       height: 100%;
       padding: 0;
@@ -169,7 +166,10 @@
         display: flex;
         align-items: center;
         height: 100%;
-        margin-right: rem(22);
+
+        &:not(:last-child) {
+          margin-right: rem(24);
+        }
       }
 
       > a,
