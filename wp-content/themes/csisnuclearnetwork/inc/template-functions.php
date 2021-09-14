@@ -283,14 +283,21 @@ function nuclearnetwork_archive_titles( $title ) {
         $title = single_tag_title( '<span class="entry-header__title-label">Tag</span> ', false );
     } elseif ( is_tax() ) { //for custom post types
 			$title = sprintf( __( '%1$s' ), single_term_title( '', false ) );
-		} elseif (is_post_type_archive()) {
-				$title = post_type_archive_title( '', false );
-		} elseif ( is_author() ) {
-			$title = get_the_author();
-		}
+    } elseif (is_post_type_archive()) {
+            $title = post_type_archive_title( '', false );
+    } elseif ( is_author() ) {
+        $title = get_the_author();
+    }
     return $title;
 }
 add_filter( 'get_the_archive_title', 'nuclearnetwork_archive_titles' );
+
+function nuclearnetwork_taxonomy( $terms ) {
+    unset($terms[0]);
+  return $terms;
+}
+add_filter( 'term_links-filtered_content_types', 'nuclearnetwork_taxonomy' );
+
 
 /**
 *

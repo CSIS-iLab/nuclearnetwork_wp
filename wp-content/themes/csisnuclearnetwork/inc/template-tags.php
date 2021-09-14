@@ -422,12 +422,10 @@ if (! function_exists('nuclearnetwork_display_subtypes')) :
 
 		if ( in_array( $post_type->name, array( 'events', 'updates' ) ) || ( $post_type->name === 'programs' && is_single() ) ) {
 			$post_type_name = $post_type->labels->singular_name;
-			$tax_name = $post_type->taxonomies[0];
 		} elseif ($post_type->name === 'post' ) {
-        
-			$post_type_name = get_the_title( get_option( 'page_for_posts' ) );
-			$tax_name = 'filtered_content_types';
+            $post_type_name = get_the_title( get_option( 'page_for_posts' ) );
 		}
+		$tax_name = 'filtered_content_types';
 
 		echo '<div class="post-meta post-meta__terms"><a href="' . get_post_type_archive_link( $post->post_type ) . '" class="post-meta__terms-type text--bold">' . $post_type_name . '&nbsp</a>' . get_the_term_list( $post->ID, $tax_name, '/&nbsp', ',&nbsp') . '</div>';
 
@@ -562,6 +560,13 @@ if ( ! function_exists( 'nuclearnetwork_archive_filters' ) ) :
 			$content_types .= '</div>';
 		}
 
+        $analysis_subtypes = '';
+		if ( $args['show_analysis_subtypes'] ) {
+			$analysis_subtypes .= '<div class="facet__group"><div class="facet-headings text--caps">Filter By Analysis Type</div>';
+			$analysis_subtypes .= facetwp_display( 'facet', 'analysis_subtypes' );
+			$analysis_subtypes .= '</div>';
+		}
+
 		$author = '';
 		if ( $args['show_author'] ) {
 			$author .= '<div class="facet__group"><div class="facet-headings text--caps">Author</div>';
@@ -583,7 +588,7 @@ if ( ! function_exists( 'nuclearnetwork_archive_filters' ) ) :
 			$topics .= '</div>';
 		}
 
-		printf( '<div class="archive__filters"><div class="archive__filters--primary">' . esc_html__( '%1$s', 'nuclearnetwork' ) . '</div><div class="archive__filters--secondary">' . esc_html__( '%2$s %3$s %4$s', 'nuclearnetwork' ) . '</div></div>', $content_types, $author, $series, $topics );
+        printf( '<div class="archive__filters"><div class="archive__filters--primary">' . esc_html__( '%1$s %2$s', 'nuclearnetwork' ) . '</div><div class="archive__filters--secondary">' . esc_html__( '%3$s %4$s %5$s', 'nuclearnetwork' ) . '</div></div>', $content_types, $analysis_subtypes, $author, $series, $topics );
 
 	}
 endif;
