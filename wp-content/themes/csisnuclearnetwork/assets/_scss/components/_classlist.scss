@@ -31,9 +31,9 @@
 
   &__info {
     &::after {
+      content: '';
       display: table;
       clear: both;
-      content: '';
     }
   }
 
