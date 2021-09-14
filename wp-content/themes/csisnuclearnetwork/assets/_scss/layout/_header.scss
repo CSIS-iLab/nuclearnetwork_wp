@@ -76,7 +76,7 @@
     clip-path: inset(0 0 0 100%);
 
     @include breakpoint('large') {
-      right: 6vw;
+      right: var(--container-padding);
       @include z-index('searchFormDesktop');
     }
 
@@ -131,7 +131,7 @@
   }
 
   &__search-submit {
-    margin-left: 8px;
+    margin-left: rem(6);
     padding: rem(8.5) rem(10);
     color: $color-white-100;
     background-color: $color-accent-primary-blue-100;
@@ -156,7 +156,7 @@
   }
 
   &__search-close {
-    width: rem(24);
+    width: rem(18);
     margin-left: rem(4);
     padding: 0;
     color: $color-white-190;
