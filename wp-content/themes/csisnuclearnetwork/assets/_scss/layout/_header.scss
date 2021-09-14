@@ -3,11 +3,10 @@
 
 .header {
   position: fixed;
-  // @extend %text-style-label-large-caps;
   top: 0;
   right: 0;
   left: 0;
-  z-index: 11;
+  @include z-index('siteHeader');
   background-color: transparent;
 
   &__inner {
@@ -29,7 +28,7 @@
     }
 
     @include breakpoint('large') {
-      z-index: 3;
+      @include z-index('siteHeaderLogo');
       order: 1;
       margin: 0;
 
@@ -69,7 +68,7 @@
   #searchform {
     position: absolute;
     right: 0;
-    z-index: 4;
+    @include z-index('searchForm');
     display: flex;
     justify-content: flex-end;
     background-color: $color-bg-dark-200;
@@ -79,7 +78,7 @@
 
     @include breakpoint('large') {
       right: rem(48);
-      z-index: 2;
+      @include z-index('searchFormDesktop');
     }
 
     &.is-active {
@@ -91,11 +90,16 @@
   }
 
   &__search-trigger {
+    @include z-index('searchFormDesktop');
     color: $color-white-190;
-    background-color: $color-bg-dark-200;
+    background-color: transparent;
     border: 0;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
+
+    .icon {
+      color: $color-white-190;
+    }
 
     &:hover {
       // color: $color-accent-dark-primary-400;
@@ -106,7 +110,7 @@
     }
 
     @include breakpoint('large') {
-      color: $color-white-165;
+      // color: $color-white-165;
 
       &::before {
         content: ' ';
@@ -136,7 +140,7 @@
     margin-left: 8px;
     padding: rem(5) rem(6.5);
     color: $color-white-100;
-    // background-color: $color-accent-light-primary-200;
+    background-color: $color-accent-primary-blue-100;
     border: 0;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
@@ -147,7 +151,7 @@
 
     &:focus {
       // color: $color-link-primary-200;
-      background: $color-bg-light-200;
+      // background: $color-bg-light-200;
       outline: 0;
     }
 
@@ -161,7 +165,7 @@
   &__search-close {
     width: rem(36);
     color: $color-white-165;
-    background-color: $color-bg-dark-200;
+    background-color: transparent;
     border: 0;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
