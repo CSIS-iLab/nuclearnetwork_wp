@@ -82,7 +82,11 @@
     clip-path: inset(0 0 0 100%);
 
     @include breakpoint('large') {
+<<<<<<< HEAD
       right: var(--container-padding);
+=======
+      right: rem(48);
+>>>>>>> Header z index variables
       @include z-index('searchFormDesktop');
     }
 
@@ -102,6 +106,10 @@
     cursor: pointer;
     transition: all 0.3s ease-in-out;
 
+    .icon {
+      color: $color-white-190;
+    }
+
     &:hover {
       color: $color-white-100;
     }
@@ -111,6 +119,11 @@
     }
 
     @include breakpoint('large') {
+<<<<<<< HEAD
+=======
+      // color: $color-white-165;
+
+>>>>>>> Header z index variables
       &::before {
         content: ' ';
         padding-right: 22px;
@@ -150,7 +163,12 @@
     }
 
     &:focus {
+<<<<<<< HEAD
       color: $color-white-165;
+=======
+      // color: $color-link-primary-200;
+      // background: $color-bg-light-200;
+>>>>>>> Header z index variables
       outline: 0;
     }
 
@@ -162,10 +180,15 @@
   }
 
   &__search-close {
+<<<<<<< HEAD
     width: rem(18);
     margin-left: rem(4);
     padding: 0;
     color: $color-white-190;
+=======
+    width: rem(36);
+    color: $color-white-165;
+>>>>>>> Header z index variables
     background-color: transparent;
     border: 0;
     cursor: pointer;
