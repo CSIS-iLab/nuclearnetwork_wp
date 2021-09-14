@@ -184,7 +184,7 @@
 
         /* stylelint-disable */
         &:focus {
-          color: $color-white-100;
+          color: $color-white-100 !important;
         }
         /* stylelint-enable */
 
