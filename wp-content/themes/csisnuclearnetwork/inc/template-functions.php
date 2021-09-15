@@ -417,7 +417,7 @@ function nuclearnetwork_show_all_news_posts_per_month ( $query ) {
 add_action( 'pre_get_posts', 'nuclearnetwork_show_all_news_posts_per_month' );
 
 /**
- * Modify Archive to limit posts per page and paginate results
+ * Modify Project and Program Archives to show all posts
  *
  * @param  array $query Query object.
  */
