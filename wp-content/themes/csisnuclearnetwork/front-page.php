@@ -13,29 +13,19 @@ get_header();
 ?>
 
 <main id="site-content" role="main">
+	<!-- set up excluded posts array – important because it is used by template-parts/home-recent-section -->
 	<?php
 	$excluded_featured_post_ids_from_recent = array();
 	$featured_posts = get_field( 'featured_posts' );
-
 	if ( $featured_posts ) :
-
-		echo '<section class="home__featured-primary">';
-		echo '<h2 class="home__featured-primary-label">Featured</h2>';
-
 		foreach ( $featured_posts as $post ) :
 			$excluded_featured_post_ids_from_recent[] = $post->ID;
-
-			setup_postdata( $post );
-			get_template_part( 'template-parts/block', get_post_type() );
-
 		endforeach;
-
-		wp_reset_postdata();
-
-		echo '</section>';
-
 	endif;
 	?>
+
+	<?php get_template_part( 'template-parts/home-featured-posts', null, $featured_posts ); ?>
+
 
 <section class="home__cta">
 	<a href="/analysis" class="btn btn--outline-dark btn--large">All Posts <?php echo nuclearnetwork_get_svg( "chevron-right" ); ?></a>
