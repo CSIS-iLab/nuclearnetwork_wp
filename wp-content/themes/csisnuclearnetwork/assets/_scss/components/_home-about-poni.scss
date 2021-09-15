@@ -49,7 +49,7 @@
         'image name'
         'image title';
       grid-template-columns: 100px auto;
-      grid-template-rows: max-content auto;
+      grid-template-rows: max-content 1fr;
       column-gap: rem(16);
       row-gap: rem(2);
       
