@@ -8,6 +8,7 @@
   left: 0;
   @include z-index('siteHeader');
   background-color: transparent;
+  transition: background 0.3s linear;
 
   &__inner {
     display: flex;
@@ -64,6 +65,7 @@
 
   .search {
     display: flex;
+    grid-area: search;
     align-items: center;
     order: 3;
     height: 100%;

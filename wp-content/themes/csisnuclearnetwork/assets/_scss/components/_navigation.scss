@@ -4,6 +4,7 @@
   --line-width: #{rem(20)};
 
   display: flex;
+  grid-area: nav;
   align-items: center;
   order: 1;
   height: 100%;
