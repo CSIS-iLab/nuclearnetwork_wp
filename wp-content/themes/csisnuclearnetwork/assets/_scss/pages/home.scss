@@ -237,29 +237,19 @@
   }
 
   &__featured-posts {
-
-    grid-area: featured-posts;  
-
-    @include breakpoint(medium){
-      display: flex;
-      column-gap: rem(40);
-    }
-
-    @include breakpoint(large){
-      display: block;
-    }
+    grid-area: featured-posts;
 
     hr {
       height: 1px;
       color: $color-border-dark-130;
       background-color: $color-border-dark-130;
-      border: unset;
       margin-top: rem(24);
       margin-bottom: rem(40);
+      border: unset;
     }
     
     .post-meta__authors {
-        padding-bottom: rem(4);
+      padding-bottom: rem(4);
     }
 
     .post-meta__date {
@@ -282,19 +272,32 @@
     }
 
     &-primary {
-      flex: 1;
       padding-bottom: rem(56);
+      background-color: $color-blue-000;
+      @include full-width-background($color-blue-000);
 
-      img {
-        max-width: unset;
+      .featured-post-image {
+        --aspect-ratio: #{calc(4/3)};
+        padding-top: calc(100% / var(--aspect-ratio));
+        background: linear-gradient(180deg, rgba(10, 35, 58, 0.7) 0%, #0a233a 100%);
+        background-size: cover;
         width: calc(100% + 12vw);
         margin-left: -6vw;
+
+        @include breakpoint(small) {
+          width: 100%;
+          margin-left: 0;
+          margin-bottom: -10%;
+        }
       }
 
       .post {
         &__title {
           color: $color-white-100;
           @extend %text-style-heading-large-strong;
+          @include breakpoint(large) {
+            @include font-clamp(24px, 32px);
+          }
         }
       }
 
@@ -328,13 +331,22 @@
   }
 
     &-secondary {
-      flex: 1;
-
       @include full-width-background($color-bg-light-400);
       background-color: $color-bg-light-400;
       padding: rem(56) 0;
 
+      @include breakpoint(medium){
+        display: flex;
+        column-gap: rem(40);
+      }
+
+      @include breakpoint(large){
+        display: block;
+      }
+
       .post {
+        flex: 1;
+
         &__title {
           @extend %text-style-heading-medium-strong;
           padding-bottom: rem(12);
