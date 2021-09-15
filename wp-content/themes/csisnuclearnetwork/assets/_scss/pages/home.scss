@@ -241,10 +241,10 @@
 
     hr {
       height: 1px;
-      color: $color-border-dark-130;
-      background-color: $color-border-dark-130;
       margin-top: rem(24);
       margin-bottom: rem(40);
+      color: $color-border-dark-130;
+      background-color: $color-border-dark-130;
       border: unset;
     }
     
@@ -276,18 +276,23 @@
       background-color: $color-blue-000;
       @include full-width-background($color-blue-000);
 
+      &::before,
+      &::after {
+        z-index: -1;
+      }
+
       .featured-post-image {
         --aspect-ratio: #{calc(4/3)};
+        width: calc(100% + 12vw);
+        margin-left: -6vw;
         padding-top: calc(100% / var(--aspect-ratio));
         background: linear-gradient(180deg, rgba(10, 35, 58, 0.7) 0%, #0a233a 100%);
         background-size: cover;
-        width: calc(100% + 12vw);
-        margin-left: -6vw;
 
         @include breakpoint(small) {
           width: 100%;
-          margin-left: 0;
           margin-bottom: -10%;
+          margin-left: 0;
         }
       }
 
@@ -318,29 +323,29 @@
       }
 
       .post-meta__terms,
-      .post-meta__terms a{
-        padding-top: rem(16);
-        color: $color-accent-secondary-yellow-100;
+      .post-meta__terms a {
         display: block;
         margin-bottom: rem(4);
+        padding-top: rem(16);
+        color: $color-accent-secondary-yellow-100;
       }
 
       .post-block__excerpt {
         color: $color-white-190;
       }
-  }
+    }
 
     &-secondary {
       @include full-width-background($color-bg-light-400);
-      background-color: $color-bg-light-400;
       padding: rem(56) 0;
+      background-color: $color-bg-light-400;
 
-      @include breakpoint(medium){
+      @include breakpoint(medium) {
         display: flex;
         column-gap: rem(40);
       }
 
-      @include breakpoint(large){
+      @include breakpoint(large) {
         display: block;
       }
 
@@ -356,6 +361,7 @@
       .post-meta__date,
       .post-meta__authors {
         color: $color-black-180;
+        
         .post-meta__label {
           color: $color-black-180;
         }
