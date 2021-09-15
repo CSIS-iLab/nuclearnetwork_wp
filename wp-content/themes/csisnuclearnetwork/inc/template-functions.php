@@ -297,6 +297,11 @@ function nuclearnetwork_taxonomy( $terms ) {
 
     if ( in_array( $post_type->name, array( 'events', 'updates' ) ) || ( $post_type->name === 'programs' && is_single() ) ) {
         $post_type_name = $post_type->labels->singular_name;
+        $terms = array_filter( $terms, function ( $term ) {
+          if ( wp_strip_all_tags($term) !== 'Event' ) { 
+              return $term;
+          }
+        });
 	} elseif ($post_type->name === 'post' ) {
         $post_type_name = get_the_title( get_option( 'page_for_posts' ) );
     }
