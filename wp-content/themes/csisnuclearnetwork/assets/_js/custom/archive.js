@@ -6,6 +6,9 @@ document.addEventListener('facetwp-loaded', function () {
 
 const modifyCheckboxes = () => {
   const checkbox = document.querySelectorAll('.facetwp-checkbox')
+
+  // Check to ensure elements are removed to prevent duplication
+  resetElements()
   for (let i = 0; i < checkbox.length; i++) {
     const span = document.createElement('span')
     span.classList.add('fs-checkbox')
@@ -13,6 +16,13 @@ const modifyCheckboxes = () => {
 
     checkbox[i].prepend(span)
   }
+}
+
+const resetElements = () => {
+  const box = document.querySelectorAll('.fs-checkbox')
+  Array.from(box).forEach((el) => {
+    return el.remove()
+  })
 }
 
 const modifyFSelect = () => {
