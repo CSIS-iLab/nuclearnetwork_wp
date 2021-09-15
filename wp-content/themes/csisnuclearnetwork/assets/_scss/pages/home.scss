@@ -59,6 +59,7 @@
       text-align: center;
       opacity: 1;
       text-align: center;
+      opacity: 1;
       transition: all 0.3s linear;
 
       @include breakpoint('small') {
@@ -348,6 +349,164 @@
             }
           }
         }
+      }
+    }
+
+    .site-nav {
+      @include breakpoint('xmedium') {
+        position: initial;
+        order: 2;
+
+        &__container {
+          position: static !important;
+          top: unset;
+          right: unset;
+          left: unset;
+          @include z-index(navContainer);
+          width: 100%;
+          height: 100%;
+          padding: 0;
+          background: transparent;
+          transform: none;
+          visibility: visible;
+          clip-path: none;
+        }
+
+        &__trigger {
+          display: none;
+        }
+
+        &__menu {
+          position: static;
+          top: 0;
+          display: flex;
+          align-items: center;
+          width: unset;
+          background: transparent;
+
+          /* stylelint-disable */
+          > li {
+            display: flex;
+            align-items: center;
+            height: 100%;
+
+            &:first-child {
+              margin-top: rem(16);
+            }
+
+            &:not(:last-child) {
+              margin-right: rem(24);
+            }
+
+            > a,
+            > button {
+              padding-bottom: rem(8);
+              border-bottom: 2px solid transparent;
+
+              &:hover {
+                border-bottom: 2px solid #f2be57;
+              }
+            }
+          }
+
+          a,
+          button {
+            padding: 0;
+          }
+        }
+
+        .menu-item-has-children {
+          &.is-active,
+          &:focus-within {
+            .sub-menu-container-depth-0 {
+              position: absolute;
+              clip-path: inset(-20px 0 0 0);
+            }
+
+            button {
+              border-bottom: 2px solid #f2be57;
+            }
+          }
+        }
+
+        .sub-menu {
+          width: 100%;
+          padding: 0.5rem;
+          color: $color-black-190;
+
+          li:not(.menu-item-has-children) {
+            padding-right: rem(24);
+          }
+        }
+
+        .sub-menu-container-depth-0 {
+          top: 95%;
+          left: 50%;
+          display: unset;
+          width: max-content;
+          background-color: $color-bg-light-200;
+          transform: translateX(-50%);
+          transition: clip-path 0.3s linear, visibility 0.3s linear;
+          clip-path: inset(0 0 100% 0);
+
+          &::after {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            width: 0;
+            height: 0;
+            content: '';
+            border-right: 10px solid transparent;
+            border-bottom: 12px solid $color-bg-light-200;
+            border-left: 10px solid transparent;
+            transform: translateX(-50%);
+          }
+        }
+
+        .sub-menu-depth-0 {
+          padding: rem(24);
+          color: $color-black-190;
+        }
+
+        &__has-featured > .sub-menu-container {
+          .sub-menu {
+            display: grid;
+            grid-template-rows: max-content auto;
+          }
+
+          .sub-menu-depth-0 {
+            padding: rem(24);
+          }
+        }
+
+        &__icon-link a::after {
+          filter: invert(0%) sepia(4%) saturate(7482%) hue-rotate(274deg) brightness(95%) contrast(104%);
+        }
+
+        &__cat-list {
+          padding-left: rem(24);
+          border-left: 1px solid #cfcfcf;
+
+          > a {
+            margin-top: 0;
+            color: $color-accent-primary-blue-100;
+          }
+        }
+
+        .sub-menu-featured-post {
+          display: grid;
+          grid-template-areas:
+            'terms img'
+            'title img'
+            'author img';
+          grid-template-columns: 2fr 1fr;
+          max-width: rem(437);
+          padding-left: rem(24);
+          column-gap: rem(16);
+          row-gap: rem(8);
+          background: linear-gradient(180deg, #10385f 0%, #1c5b96 100%);
+        }
+        /* stylelint-enable */
       }
     }
   }
