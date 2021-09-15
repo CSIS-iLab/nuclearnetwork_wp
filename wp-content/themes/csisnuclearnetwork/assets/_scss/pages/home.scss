@@ -25,6 +25,17 @@
   .header {
     &__inner {
       height: 100%;
+      transition: all 0.3s ease;
+
+      @include breakpoint('large') {
+        display: grid;
+        grid-auto-columns: max-content;
+        grid-template-areas:
+          'logo logo'
+          'nav search';
+        justify-content: space-between;
+        text-align: center;
+      }
     }
 
     &__logo--desktop,
@@ -39,10 +50,13 @@
 
     &__logo--home {
       display: block;
+      grid-area: logo;
       width: 67%;
       height: auto;
+      margin: 0 auto;
       padding: rem(16) 0;
       opacity: 1;
+      text-align: center;
       transition: all 0.3s linear;
 
       svg {
@@ -52,6 +66,7 @@
 
     &.full-color {
       .header__inner {
+        display: flex;
         height: var(--site-header-height);
       }
 
