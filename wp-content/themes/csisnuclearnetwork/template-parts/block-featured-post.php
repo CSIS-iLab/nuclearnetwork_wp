@@ -52,7 +52,9 @@ if ( $legacy_event_date ) {
 <article <?php post_class( $classes ); ?> id="post-<?php the_ID(); ?>">	
 		<?php if ( has_post_thumbnail() && $post_type != 'events' && $args[0] == "true" ) : ?>
 			<a href="<?php the_permalink(); ?>" class="post__img" title="<?php the_title_attribute(); ?>">
-				<?php the_post_thumbnail( 'large' ); ?>
+				<?php echo "<div class='featured-post-image' style='background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 66.55%, rgba(10, 35, 58, 0.7) 100%), url(" . get_the_post_thumbnail_url() . ") ;'></div>" ?>
+			
+				<!-- <?php the_post_thumbnail( 'large' ); ?> -->
 			</a>
 		<?php endif; 
 
