@@ -75,6 +75,7 @@ $color-focus-300: rgba(171, 212, 251, 0.5);
 
 /* stylelint-disable */
 $gradient-archive-header: linear-gradient(0deg, rgba(2, 99, 190, 0.43), rgba(2, 99, 190, 0.43));
+$gradient-homepage-background: linear-gradient(180deg, rgba(0, 59, 116, 0) 9.45%, rgba(18, 71, 120, 0.82) 44.87%, rgba(8, 53, 95, 0.81) 99.04%), linear-gradient(180deg, rgba(30, 58, 85, 0.68) 0%, rgba(53, 110, 163, 0.0966914) 36.63%, rgba(56, 115, 171, 0) 118.32%);
 /* stylelint-enable */
 
 /*----------  Fonts  ----------*/
@@ -111,9 +112,10 @@ $size__footer-max-width: 900px;
 $z-index: (
   postBG: -1,
   homeAboutPONI: -1,
-  hpBackground: -1,
   hpFeatContent: 2,
   hpFeatImg: 1,
+  hpHeaderImg: -1,
+  hpBackground: -2,
   navContainer: 2,
   navTrigger: 3,
   searchForm: 4,
