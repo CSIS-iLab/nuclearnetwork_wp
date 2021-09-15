@@ -293,8 +293,18 @@ function nuclearnetwork_archive_titles( $title ) {
 add_filter( 'get_the_archive_title', 'nuclearnetwork_archive_titles' );
 
 function nuclearnetwork_taxonomy( $terms ) {
-    unset($terms[0]);
-  return $terms;
+    $post_type = get_post_type_object(get_post_type());
+
+    if ( in_array( $post_type->name, array( 'events', 'updates' ) ) || ( $post_type->name === 'programs' && is_single() ) ) {
+        $post_type_name = $post_type->labels->singular_name;
+	} elseif ($post_type->name === 'post' ) {
+        $post_type_name = get_the_title( get_option( 'page_for_posts' ) );
+    }
+
+    if ( $post_type_name === wp_strip_all_tags($terms[0]) ) {
+        unset($terms[0]);
+    }
+    return $terms;
 }
 add_filter( 'term_links-filtered_content_types', 'nuclearnetwork_taxonomy' );
 
