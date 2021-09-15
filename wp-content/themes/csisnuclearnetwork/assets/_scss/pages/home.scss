@@ -345,6 +345,13 @@
     //   'cta cta'
     //   'content content';
     padding-top: rem(106);
+    background: $gradient-homepage-background;
+    @include full-width-background($gradient-homepage-background, '', false);
+
+    &::before,
+    &::after {
+      @include z-index('hpBackground');
+    }
 
     @include breakpoint('small') {
       padding-top: rem(155);
