@@ -29,17 +29,23 @@ document.addEventListener('DOMContentLoaded', function () {
   const homepage = document.querySelector('.home')
   const border = document.querySelector('.home__top-border')
 
+  const mobile = window.matchMedia('(max-width: 800px)')
+  let siteHeaderHeight
+
   if (homepage !== null) {
-    const borderHeight = `${border.offsetHeight * -1}px`
+    if (mobile.matches) {
+      siteHeaderHeight = `${header.offsetHeight * -1 + 56}px`
+    } else {
+      siteHeaderHeight = `${header.offsetHeight * -1 + 102}px`
+    }
 
     const options = {
-      rootMargin: `${borderHeight} 0px 0px 0px`,
+      rootMargin: `${siteHeaderHeight} 0px 0px 0px`,
       threshold: 0,
     }
 
     const onIntersect = (entries) => {
       entries.forEach((entry) => {
-        console.log(entry)
         if (!entry.isIntersecting) {
           header.classList.add('full-color')
         } else {
