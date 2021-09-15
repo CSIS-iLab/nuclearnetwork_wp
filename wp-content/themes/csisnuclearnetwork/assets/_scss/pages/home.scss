@@ -58,6 +58,7 @@
       padding: rem(16) 0;
       text-align: center;
       opacity: 1;
+      text-align: center;
       transition: all 0.3s linear;
 
       @include breakpoint('small') {
