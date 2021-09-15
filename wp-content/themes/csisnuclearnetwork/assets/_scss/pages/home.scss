@@ -100,13 +100,10 @@
         margin: auto;
         opacity: 1;
         pointer-events: initial;
-<<<<<<< HEAD
       }
 
       .site-nav__menu > li:first-child {
         margin-top: calc(#{rem(24)} + var(--line-width));
-=======
->>>>>>> Remove pointer events when logo is hidden
       }
 
       @include breakpoint('xmedium') {
