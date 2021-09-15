@@ -239,29 +239,116 @@
   &__featured-posts {
 
     grid-area: featured-posts;  
+
+    @include breakpoint(medium){
+      display: flex;
+      column-gap: rem(40);
+    }
+
+    @include breakpoint(large){
+      display: block;
+    }
+
+    hr {
+      height: 1px;
+      color: $color-border-dark-130;
+      background-color: $color-border-dark-130;
+      border: unset;
+      margin-top: rem(24);
+      margin-bottom: rem(40);
+    }
     
+    .post-meta__authors {
+        padding-bottom: rem(4);
+    }
+
+    .post-meta__date {
+      @extend %text-style-label-medium;
+    }
+
+    .post-block__excerpt {
+      @extend %text-style-paragraph-medium-short;
+      margin-top: rem(12);
+    }
+
+    .featured-event-date {
+      margin-left: rem(8);
+    }
+
     .post {
       &__title {
-        color: $color-white-100;
-        @extend %text-style-heading-large-strong;
-      }
-
-      .post-meta__terms,
-      .post-meta__terms a{
-        color: $color-accent-secondary-yellow-100;
-        display: block;
+        padding-bottom: rem(12);
       }
     }
 
     &-primary {
+      flex: 1;
+      padding-bottom: rem(56);
+
       img {
         max-width: unset;
         width: calc(100% + 12vw);
         margin-left: -6vw;
       }
+
+      .post {
+        &__title {
+          color: $color-white-100;
+          @extend %text-style-heading-large-strong;
+        }
+      }
+
+      .post-meta__authors {
+        color: $color-white-180;
+
+        a {
+          color: $color-accent-secondary-yellow-100;
+        }
+      }
+
+      .post-meta {
+        --post-meta: #{$color-white-180};
+      }
+
+      .post-meta__label {
+        color: $color-white-180;
+      }
+
+      .post-meta__terms,
+      .post-meta__terms a{
+        padding-top: rem(16);
+        color: $color-accent-secondary-yellow-100;
+        display: block;
+        margin-bottom: rem(4);
+      }
+
+      .post-block__excerpt {
+        color: $color-white-190;
+      }
   }
 
     &-secondary {
+      flex: 1;
+
+      @include full-width-background($color-bg-light-400);
+      background-color: $color-bg-light-400;
+      padding: rem(56) 0;
+
+      .post {
+        &__title {
+          @extend %text-style-heading-medium-strong;
+          padding-bottom: rem(12);
+        }
+      }
+
+      .post-meta__date,
+      .post-meta__authors {
+        color: $color-black-180;
+        .post-meta__label {
+          color: $color-black-180;
+        }
+
+      }
 
     }
   }

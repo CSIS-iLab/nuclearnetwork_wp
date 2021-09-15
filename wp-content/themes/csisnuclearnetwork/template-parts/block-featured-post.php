@@ -29,7 +29,7 @@ if ($args[0] == "true") {
     $post_info = "secondary";
 }
 
-$classes = 'post home__featured-posts-' . $post_info;
+$classes = 'post';
 
 if ( $event_start_date ) {
 	$event_day = date_i18n('d', strtotime($event_start_date));
@@ -62,7 +62,7 @@ if ( $post_type === 'events' ) { ?>
             nuclearnetwork_display_subtypes();
             the_title( '<h3 class="post__title text--bold"><a href="' . esc_url( get_permalink() ) . '">', '</a></h3>' );
 			if ( $event_date ) { ?>
-			<div>Event Date:<?php echo $event_date; ?></div>
+			<div class='post-meta__date'>Event Date:<?php echo $event_date; ?></div>
 			<?php
 			}
 			the_excerpt(); 
