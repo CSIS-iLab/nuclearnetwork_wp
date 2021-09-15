@@ -236,6 +236,36 @@
     }
   }
 
+  &__featured-posts {
+
+    grid-area: featured-posts;  
+    
+    .post {
+      &__title {
+        color: $color-white-100;
+        @extend %text-style-heading-large-strong;
+      }
+
+      .post-meta__terms,
+      .post-meta__terms a{
+        color: $color-accent-secondary-yellow-100;
+        display: block;
+      }
+    }
+
+    &-primary {
+      img {
+        max-width: unset;
+        width: calc(100% + 12vw);
+        margin-left: -6vw;
+      }
+  }
+
+    &-secondary {
+
+    }
+  }
+
   &__featured-primary {
     @include csis-block-full-width-wrapper();
     position: relative;
