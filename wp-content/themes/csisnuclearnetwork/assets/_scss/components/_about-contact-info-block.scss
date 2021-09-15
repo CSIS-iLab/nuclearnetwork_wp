@@ -1,0 +1,17 @@
+@use '../abstracts' as *;
+
+.wp-block-lazyblock-contact-information {
+  width: 100%;
+  background-color: $color-bg-light-300;
+
+  @include breakpoint('small') {
+    width: rem(280px);
+    margin: 0 auto;
+  }
+
+  @include breakpoint('large') {
+    position: relative;
+    bottom: 300px;
+    float: right;
+  }
+}
