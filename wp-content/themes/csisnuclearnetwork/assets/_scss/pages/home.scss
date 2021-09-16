@@ -289,9 +289,12 @@
         background: linear-gradient(180deg, rgba(10, 35, 58, 0.7) 0%, #0a233a 100%);
         background-size: cover;
 
-        @include breakpoint(small) {
-          width: 100%;
+        @include breakpoint('small') {
           margin-bottom: -10%;
+        }
+
+        @include breakpoint('xmedium') {
+          width: 100%;
           margin-left: 0;
         }
       }
