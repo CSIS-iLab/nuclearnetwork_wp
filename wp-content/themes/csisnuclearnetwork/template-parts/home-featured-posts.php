@@ -29,7 +29,6 @@
 
         echo "<div class='home__featured-posts-secondary'>";
 		foreach ( $featured_posts as $post ) :
-            // echo $post->ID;
 		    if ($counter != 0) {
                 if ($counter == 2){
                     echo "<hr>";

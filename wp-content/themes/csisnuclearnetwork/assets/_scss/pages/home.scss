@@ -83,37 +83,20 @@
     }
   }
 
-  .post-block {
-    padding-right: 0;
-    padding-left: 0;
-
-    &__title,
-    .post-meta__date {
-      margin-bottom: rem(8);
-    }
-
-    &__excerpt {
-      // margin-bottom: rem(16); // This needs to be scoped or it will apply in all of the home page sections.
-    }
-  }
-
   &__recent,
-  &__featured-primary {
+  &__featured-posts-primary {
     &-label,
     .post-meta__authors,
     .post-meta__authors a,
-    .post-block__title,
     .post-block__excerpt {
       color: $color-white-190;
     }
 
-    .post-meta__date {
-      color: $color-white-165;
-    }
+    // .post-meta__date {
+    //   color: $color-white-180;
+    // }
 
-    .post-meta__categories {
-      // --post-meta: #{$color-accent-dark-primary-400};
-
+    .post-meta__terms {
       a {
         /* stylelint-disable-next-line */
         &:hover,
@@ -315,10 +298,6 @@
         a {
           color: $color-accent-secondary-yellow-100;
         }
-      }
-
-      .post-meta {
-        --post-meta: #{$color-white-180};
       }
 
       .post-meta__label {
