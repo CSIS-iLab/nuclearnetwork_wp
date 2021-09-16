@@ -2,32 +2,45 @@
 
 .wp-block-lazyblock-contact-information {
   width: 100%;
+  margin: 0 auto;
   padding: rem(24px);
   background-color: $color-bg-light-300;
 
-  h3,
   h4 {
-    @extend %text-style-heading-large-strong;
-    text-transform: uppercase;
-  }
-
-  h4 {
-    @extend %text-style-heading-large-strong !important;
+    margin: 0 0 rem(4px) !important;
     color: $color-accent-primary-blue-200 !important;
     font-weight: 700;
     text-transform: uppercase;
-    border: 3px solid #f0f;
+  }
+
+  h5 {
+    display: block;
+    margin: 0 !important;
+    color: $color-accent-primary-blue-200 !important;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  .contact-email {
+    display: block;
+    @extend %text-style-label-medium;
+    margin-bottom: rem(12px) !important;
+  }
+
+  p {
+    @extend %text-style-label-medium;
+    @include font-size(16px);
+    margin-bottom: 0 !important;
   }
 
   @include breakpoint('small') {
     width: rem(280px);
-    margin: 0 auto;
+    // margin: 0 auto;
   }
 
   @include breakpoint('large') {
-    position: relative;
-    bottom: 300px;
+    --margin-text-side: #{rem(48)};
+    --margin-gutter-side: #{rem(-80)};
     float: right;
-    clear: right;
   }
 }
