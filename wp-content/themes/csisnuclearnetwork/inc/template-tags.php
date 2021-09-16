@@ -428,13 +428,12 @@ if (! function_exists('nuclearnetwork_display_subtypes')) :
 		$tax_name = 'filtered_content_types';
 
         $terms =  get_the_terms( $post->ID, $tax_name ) ;
-        if ( count( $terms ) <= 1 && $terms[0]->parent !== 484 ) {
+        if ( count( ( is_countable( $terms ) ? $terms:[] ) ) <= 1 && $terms[0]->parent !== 484 ) {
             $term_list = get_the_term_list( $post->ID, $tax_name, '&nbsp', ',&nbsp');
-         } else {
+        } else {
             $term_list = get_the_term_list( $post->ID, $tax_name, '/&nbsp', ',&nbsp');
-         }
-         echo '<div class="post-meta post-meta__terms"><a href="' . get_post_type_archive_link( $post->post_type ) . '" class="post-meta__ter
-ms-type text--bold">' . $post_type_name . '&nbsp</a>' . $term_list . '</div>';
+        }
+        echo '<div class="post-meta post-meta__terms"><a href="' . get_post_type_archive_link( $post->post_type ) . '" class="post-meta__terms-type text--bold">' . $post_type_name . '&nbsp</a>' . $term_list . '</div>';
 	}
 endif;
 
