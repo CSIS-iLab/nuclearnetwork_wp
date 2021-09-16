@@ -32,7 +32,7 @@ if ( $event_start_date ) {
 	$event_month = date_i18n('M', strtotime($event_start_date));
 	$event_year = date_i18n('Y', strtotime($event_start_date));
 	
-	$event_date = '<span class="featured-event-date">'. $event_month . ' ' . $event_day . ', ' . $event_year. '</span>';
+	$event_date = $event_month . ' ' . $event_day . ', ' . $event_year;
 }
 
 if ( $legacy_event_date ) {
@@ -40,17 +40,17 @@ if ( $legacy_event_date ) {
 	$event_month = date_i18n('M', strtotime($legacy_event_date));
 	$event_year = date_i18n('Y', strtotime($legacy_event_date));
 	
-	$event_date = '<span class="featured-event-date">'. $event_month . ' ' . $event_day . ', ' . $event_year. '</span>';
+	$event_date = $event_month . ' ' . $event_day . ', ' . $event_year;
 }
 
 
 ?>
 <article <?php post_class( $classes ); ?> id="post-<?php the_ID(); ?>">	
 		<?php if ( $args[0] == "true" ) : ?>
-			<a href="<?php the_permalink(); ?>" class="feat-post__img" title="<?php the_title_attribute(); ?>">
-				<?php echo "<div class='featured-post-image' style='background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 66.55%, rgba(10, 35, 58, 0.7) 100%), url(" . get_the_post_thumbnail_url() . ") ;'></div>" ?>
+			<!-- <a href="<?php the_permalink(); ?>" class="feat-post__img" title="<?php the_title_attribute(); ?>"> -->
+				<?php echo "<div class='feat-post__image' style='background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 66.55%, rgba(10, 35, 58, 0.7) 100%), url(" . get_the_post_thumbnail_url() . ") ;'></div>" ?>
 			
-			</a>
+			<!-- </a> -->
 			<?php endif; ?>
 			<div class="feat-post__content">
 				<?php
@@ -58,9 +58,8 @@ if ( $legacy_event_date ) {
 			the_title( '<h3 class="feat-post__title text--bold"><a href="' . esc_url( get_permalink() ) . '">', '</a></h3>' );
 
 if ( $post_type === 'events' ) { 
-			if ( $event_date ) { ?>
-			<div class='post-meta__date'>Event Date:<?php echo $event_date; ?></div>
-			<?php
+			if ( $event_date ) {
+			echo '<dl class="post-meta post-meta__date"><dt class="post-meta__label">Event Date</dt><dd>' . $event_date . '</dd></dl>';
 			}
 			the_excerpt(); 
 
