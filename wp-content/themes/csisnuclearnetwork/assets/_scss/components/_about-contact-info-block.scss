@@ -2,7 +2,22 @@
 
 .wp-block-lazyblock-contact-information {
   width: 100%;
+  padding: rem(24px);
   background-color: $color-bg-light-300;
+
+  h3,
+  h4 {
+    @extend %text-style-heading-large-strong;
+    text-transform: uppercase;
+  }
+
+  h4 {
+    @extend %text-style-heading-large-strong !important;
+    color: $color-accent-primary-blue-200 !important;
+    font-weight: 700;
+    text-transform: uppercase;
+    border: 3px solid #f0f;
+  }
 
   @include breakpoint('small') {
     width: rem(280px);
@@ -13,5 +28,6 @@
     position: relative;
     bottom: 300px;
     float: right;
+    clear: right;
   }
 }
