@@ -247,7 +247,7 @@
       background-color: $color-border-dark-130;
       border: unset;
     }
-    
+
     .post-meta__authors {
       padding-bottom: rem(4);
     }
@@ -265,7 +265,7 @@
       margin-left: rem(8);
     }
 
-    .post {
+    .feat-post {
       &__title {
         padding-bottom: rem(12);
       }
@@ -282,7 +282,7 @@
       }
 
       .featured-post-image {
-        --aspect-ratio: #{calc(4/3)};
+        --aspect-ratio: #{calc(4 / 3)};
         width: calc(100% + 12vw);
         margin-left: -6vw;
         padding-top: calc(100% / var(--aspect-ratio));
@@ -296,7 +296,7 @@
         }
       }
 
-      .post {
+      .feat-post {
         &__title {
           color: $color-white-100;
           @extend %text-style-heading-large-strong;
@@ -349,7 +349,7 @@
         display: block;
       }
 
-      .post {
+      .feat-post {
         flex: 1;
 
         &__title {
@@ -361,211 +361,9 @@
       .post-meta__date,
       .post-meta__authors {
         color: $color-black-180;
-        
+
         .post-meta__label {
           color: $color-black-180;
-        }
-
-      }
-
-    }
-  }
-
-  &__featured-primary {
-    @include csis-block-full-width-wrapper();
-    position: relative;
-    grid-area: header;
-    padding: rem(80) 6vw rem(16);
-
-    @include breakpoint('small') {
-      margin-bottom: rem(48);
-      padding-top: rem(160);
-      padding-bottom: rem(32);
-    }
-
-    @include breakpoint('medium') {
-      padding-bottom: rem(40);
-    }
-
-    @include breakpoint('large') {
-      padding-bottom: rem(56);
-    }
-
-    @include breakpoint('xxlarge') {
-      padding-right: rem(80);
-      padding-left: rem(80);
-    }
-
-    &-label {
-      @extend %text-style-label-small;
-      display: flex;
-      align-items: flex-end;
-      width: fit-content;
-      height: rem(30);
-      padding-right: rem(22);
-      padding-left: rem(16);
-      font-weight: normal;
-      text-transform: uppercase;
-      // background: $color-bg-dark-290;
-      clip-path: polygon(0 0, 85% 0, 100% 100%, 0% 100%);
-
-      @include breakpoint('medium') {
-        padding-right: rem(32);
-        padding-left: rem(24);
-      }
-
-      @include breakpoint('xxlarge') {
-        margin-left: calc(((100vw - 1400px) / 2) - var(--scrollbarHalf));
-      }
-    }
-
-    .post-block {
-      position: unset;
-      grid-template-columns: unset;
-      margin-top: 0;
-      padding: rem(16);
-      column-gap: unset;
-      // background: $color-bg-dark-290;
-
-      @include breakpoint('medium') {
-        padding: rem(24);
-      }
-
-      @include breakpoint('large') {
-        display: flex;
-        flex-direction: column;
-        width: 50%;
-        max-width: rem(800);
-        margin-left: 0;
-        padding: rem(32) rem(40);
-      }
-
-      @include breakpoint('xxlarge') {
-        margin-left: calc(((100vw - 1400px) / 2) - var(--scrollbarHalf));
-      }
-
-      &__title {
-        @extend %text-style-heading-2-x-large;
-      }
-
-      &__excerpt {
-        // @extend %text-style-paragraph-large-short;
-      }
-    }
-
-    .post-block__img {
-      margin: 0;
-
-      img {
-        @include vw100();
-        position: absolute;
-        top: 0;
-        left: 0;
-        height: 100%;
-        object-fit: cover;
-        @include z-index(hpHeaderImg);
-      }
-    }
-  }
-
-  &__featured-secondary {
-    grid-area: featured;
-    background: $color-bg-light-100;
-    @include full-width-background($color-bg-light-100);
-
-    @include breakpoint('small') {
-      padding-right: rem(24);
-      padding-left: rem(24);
-      @include full-width-background(transparent);
-    }
-
-    @include breakpoint('large') {
-      margin-right: rem(48);
-      padding-right: rem(48);
-      padding-left: rem(48);
-    }
-
-    .post-block {
-      display: flex;
-      flex-direction: column;
-      padding-top: 0;
-      padding-bottom: rem(24);
-
-      &::after {
-        background: transparent;
-      }
-
-      &:not(:last-child) {
-        border-bottom: 1px solid $color-black-130;
-      }
-
-      @include breakpoint('xlarge') {
-        padding-bottom: rem(32);
-
-        &:not(:first-child) {
-          &.has-post-thumbnail {
-            display: grid;
-            grid-template-areas:
-              'title img'
-              'excerpt img'
-              'authors img'
-              'date img'
-              'categories img';
-            grid-template-columns: 2fr 1fr;
-            grid-template-rows: max-content max-content max-content max-content auto;
-            column-gap: rem(32);
-          }
-        }
-      }
-
-      &:first-child {
-        margin-top: 0;
-        padding-top: rem(40);
-
-        @include breakpoint('small') {
-          margin-top: rem(40);
-        }
-
-        @include breakpoint('large') {
-          margin-top: 0;
-        }
-
-        @include breakpoint('xlarge') {
-          padding-top: 0;
-        }
-
-        /* stylelint-disable-next-line */
-        .post-block__img {
-          @include breakpoint('xlarge') {
-            margin-right: rem(-48);
-            margin-bottom: rem(40);
-            margin-left: rem(-48);
-          }
-
-          /* stylelint-disable-next-line */
-          img {
-            width: 100%;
-          }
-        }
-      }
-
-      &:not(:last-child) {
-        margin-bottom: rem(40);
-      }
-
-      .post-meta__authors {
-        /* stylelint-disable */
-        a {
-          &:hover {
-            /* stylelint-enable */
-            // color: $color-link-primary-200;
-          }
-
-          /* stylelint-disable-next-line */
-          &:focus {
-            // color: $color-link-primary-200;
-            background: $color-bg-light-400;
-          }
         }
       }
     }

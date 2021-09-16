@@ -2,7 +2,7 @@
 /**
  * The default template for displaying content
  *
- * Used for both singular and index.
+ * Used for front page.
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
@@ -11,7 +11,7 @@
  * @since 1.0.0
  */
 $post_type = get_post_type();
-$page_for_posts = get_option( 'page_for_posts' );
+// $page_for_posts = get_option( 'page_for_posts' );
 ?>
 
 <?php
@@ -19,9 +19,9 @@ $event_info = get_field( 'event_post_info' );
 $event_start_date = $event_info['event_start_date'];
 $legacy_event_date = get_post_meta( $id, '_post_start_date', true );
 
-if ( get_post_meta( $id, '_post_location', true ) ) {
-	$event_location = get_post_meta( $id, '_post_location', true );
-}
+// if ( get_post_meta( $id, '_post_location', true ) ) {
+// 	$event_location = get_post_meta( $id, '_post_location', true );
+// }
 
 if ($args[0] == "true") {
     $post_info = "primary";
@@ -29,7 +29,7 @@ if ($args[0] == "true") {
     $post_info = "secondary";
 }
 
-$classes = 'post';
+$classes = 'feat-post';
 
 if ( $event_start_date ) {
 	$event_day = date_i18n('d', strtotime($event_start_date));
@@ -51,18 +51,17 @@ if ( $legacy_event_date ) {
 ?>
 <article <?php post_class( $classes ); ?> id="post-<?php the_ID(); ?>">	
 		<?php if ( has_post_thumbnail() && $post_type != 'events' && $args[0] == "true" ) : ?>
-			<a href="<?php the_permalink(); ?>" class="post__img" title="<?php the_title_attribute(); ?>">
+			<a href="<?php the_permalink(); ?>" class="feat-post__img" title="<?php the_title_attribute(); ?>">
 				<?php echo "<div class='featured-post-image' style='background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 66.55%, rgba(10, 35, 58, 0.7) 100%), url(" . get_the_post_thumbnail_url() . ") ;'></div>" ?>
 			
-				<!-- <?php the_post_thumbnail( 'large' ); ?> -->
 			</a>
 		<?php endif; 
 
 if ( $post_type === 'events' ) { ?>
-		<div class="post__event-content">
+		<div class="feat-post__event-content">
 			<?php
             nuclearnetwork_display_subtypes();
-            the_title( '<h3 class="post__title text--bold"><a href="' . esc_url( get_permalink() ) . '">', '</a></h3>' );
+            the_title( '<h3 class="feat-post__title text--bold"><a href="' . esc_url( get_permalink() ) . '">', '</a></h3>' );
 			if ( $event_date ) { ?>
 			<div class='post-meta__date'>Event Date:<?php echo $event_date; ?></div>
 			<?php
@@ -73,7 +72,7 @@ if ( $post_type === 'events' ) { ?>
 		<?php
 	} else {
 		nuclearnetwork_display_subtypes();
-		the_title( '<h3 class="post__title text--bold"><a href="' . esc_url( get_permalink() ) . '">', '</a></h3>' );
+		the_title( '<h3 class="feat-post__title text--bold"><a href="' . esc_url( get_permalink() ) . '">', '</a></h3>' );
 		nuclearnetwork_authors();
 		nuclearnetwork_posted_on('M j, Y');
 		the_excerpt();
