@@ -47,10 +47,9 @@ if ( $legacy_event_date ) {
 ?>
 <article <?php post_class( $classes ); ?> id="post-<?php the_ID(); ?>">	
 		<?php if ( $args[0] == "true" ) : ?>
-			<!-- <a href="<?php the_permalink(); ?>" class="feat-post__img" title="<?php the_title_attribute(); ?>"> -->
-				<?php echo "<div class='feat-post__image' style='background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 66.55%, rgba(10, 35, 58, 0.7) 100%), url(" . get_the_post_thumbnail_url() . ") ;'></div>" ?>
-			
-			<!-- </a> -->
+				<?php echo "<div class='feat-post__image' style='background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 66.55%, rgba(10, 35, 58, 0.7) 100%), url(" . get_the_post_thumbnail_url() . ") ;'><div class='feat-post__gradient-top'></div><div class='feat-post__gradient-bottom'></div></div>" ?>
+			<!-- <div class="feat-post__gradient-top"></div>
+			<div class="feat-post__gradient-bottom"></div> -->
 			<?php endif; ?>
 			<div class="feat-post__content">
 				<?php
