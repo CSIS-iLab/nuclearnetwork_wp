@@ -51,10 +51,11 @@ if ( $legacy_event_date ) {
 				<?php echo "<div class='featured-post-image' style='background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 66.55%, rgba(10, 35, 58, 0.7) 100%), url(" . get_the_post_thumbnail_url() . ") ;'></div>" ?>
 			
 			</a>
+			<?php endif; ?>
 			<div class="feat-post__content">
-		<?php endif; 
-nuclearnetwork_display_subtypes();
-the_title( '<h3 class="feat-post__title text--bold"><a href="' . esc_url( get_permalink() ) . '">', '</a></h3>' );
+				<?php
+			nuclearnetwork_display_subtypes();
+			the_title( '<h3 class="feat-post__title text--bold"><a href="' . esc_url( get_permalink() ) . '">', '</a></h3>' );
 
 if ( $post_type === 'events' ) { 
 			if ( $event_date ) { ?>
