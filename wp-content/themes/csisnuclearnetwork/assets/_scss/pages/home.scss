@@ -45,7 +45,6 @@
   &__top {
     @include vw100();
     position: relative;
-    max-width: $size__container-max-width;
     height: 100%;
     margin-right: auto;
     margin-left: -6vw;
@@ -59,12 +58,19 @@
     background-size: cover;
 
     @include breakpoint('large') {
+      margin-left: calc(((100vw - 100%) / 2) * -1);
       padding-top: rem(124);
     }
 
     @include breakpoint('xlarge') {
       padding-top: rem(132);
     }
+  }
+
+  &__container {
+    max-width: $size__content-wide-max-width;
+    margin-right: auto;
+    margin-left: auto;
   }
 
   &__subtitle {
