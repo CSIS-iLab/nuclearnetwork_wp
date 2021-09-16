@@ -13,6 +13,7 @@ get_header();
 ?>
 
 <main id="site-content" role="main">
+	<div class="home__top">
 	<!-- set up excluded posts array – important because it is used by template-parts/home-recent-section -->
 	<?php
 	$excluded_featured_post_ids_from_recent = array();
@@ -50,6 +51,7 @@ get_header();
 	?>
 	<?php get_template_part( 'template-parts/home-recent-section', null, $excluded_featured_post_ids_from_recent); ?>
 	<?php get_template_part( 'template-parts/home-projects' ); ?>
+	</div>
 	<?php get_template_part( 'template-parts/newsletter-block-acf' ); ?>
 	<?php get_template_part( 'template-parts/home-featured-programs' ); ?>
 	<?php get_template_part( 'template-parts/home-pungh' ); ?>

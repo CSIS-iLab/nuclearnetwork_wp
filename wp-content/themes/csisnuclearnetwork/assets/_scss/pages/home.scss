@@ -42,6 +42,16 @@
     }
   }
 
+  &__top {
+    background: $gradient-home-top;
+    @include full-width-background($gradient-home-top, '', false);
+
+    &::before,
+    &::after {
+      @include z-index('hpBackground');
+    }
+  }
+
   &__subtitle {
     --home-subtitle-color: #{$color-black-190};
     --home-subtitle-border: #{$color-accent-secondary-yellow-100};
@@ -309,12 +319,16 @@
       padding: rem(56) 0;
       background-color: $color-bg-light-400;
 
-      @include breakpoint(medium) {
+      @include breakpoint('medium') {
         display: flex;
         column-gap: rem(40);
       }
 
-      @include breakpoint(large) {
+      @include breakpoint('xmedium') {
+        @include full-width-background(transparent);
+      }
+
+      @include breakpoint('large') {
         display: block;
       }
 
