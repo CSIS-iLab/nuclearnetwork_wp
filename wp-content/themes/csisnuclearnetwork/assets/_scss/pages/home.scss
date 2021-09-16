@@ -375,6 +375,12 @@
     }
 
     .site-nav {
+      &__menu {
+        > li:first-child {
+          margin-top: calc(#{rem(24)} + var(--line-width) + #{rem(32)});
+        }
+      }
+
       @include breakpoint('xmedium') {
         position: initial;
         order: 2;
