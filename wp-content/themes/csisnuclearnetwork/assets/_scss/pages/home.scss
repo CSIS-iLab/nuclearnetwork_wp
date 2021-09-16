@@ -185,6 +185,10 @@
       color: $color-border-dark-130;
       background-color: $color-border-dark-130;
       border: unset;
+
+      @include breakpoint('large') {
+        display: none;
+      }
     }
 
     .post-meta__authors {
@@ -255,15 +259,6 @@
         }
       }
 
-      .post-meta__terms {
-        padding-top: rem(16);
-        color: $color-accent-secondary-yellow-100;
-      }
-
-      .post-meta__authors {
-        color: $color-white-180;
-      }
-
       .post-meta__terms,
       .post-meta__authors,
       .post-meta__series {
@@ -279,6 +274,21 @@
             background: $color-accent-primary-blue-100;
           }
         }
+      }
+
+      .post-meta__terms {
+        padding-top: rem(16);
+        color: $color-accent-secondary-yellow-100;
+      }
+
+      .post-meta__authors {
+        color: $color-white-180;
+      }
+
+      .post-meta__series {
+        margin-top: rem(24);
+        padding-top: rem(24);
+        border-top: 1px solid $color-border-light-130;
       }
 
       .post-meta__date {
@@ -311,6 +321,16 @@
       .feat-post {
         flex: 1;
 
+        &:first-child {
+          @include breakpoint('large') {
+            margin-bottom: rem(40);
+          }
+
+          @include breakpoint('xlarge') {
+            margin-bottom: 0;
+          }
+        }
+
         &__title {
           @extend %text-style-heading-medium-strong;
           padding-bottom: rem(12);
@@ -334,6 +354,16 @@
 
       .post-meta__label {
         color: $color-black-180;
+      }
+
+      .post-meta__series {
+        margin-top: rem(16);
+
+        @include breakpoint('medium') {
+          margin-top: rem(24);
+          padding-top: rem(24);
+          border-top: 1px solid $color-border-dark-130;
+        }
       }
     }
   }
