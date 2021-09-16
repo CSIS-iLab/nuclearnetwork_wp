@@ -13,36 +13,20 @@ get_header();
 ?>
 
 <main id="site-content" role="main">
+	<div class="home__top">
+		<div class="home__container">
+	<!-- set up excluded posts array – important because it is used by template-parts/home-recent-section -->
 	<?php
 	$excluded_featured_post_ids_from_recent = array();
 	$featured_posts = get_field( 'featured_posts' );
-
 	if ( $featured_posts ) :
-
-		echo '<section class="home__featured-primary">';
-		echo '<h2 class="home__featured-primary-label">Featured</h2>';
-
 		foreach ( $featured_posts as $post ) :
 			$excluded_featured_post_ids_from_recent[] = $post->ID;
-
-			setup_postdata( $post );
-			get_template_part( 'template-parts/block', get_post_type() );
-
 		endforeach;
-
-		wp_reset_postdata();
-
-		echo '</section>';
-
 	endif;
 	?>
 
-<section class="home__cta">
-	<a href="/analysis" class="btn btn--outline-dark btn--large">All Posts <?php echo nuclearnetwork_get_svg( "chevron-right" ); ?></a>
-	<a href="/analysis" class="btn btn--outline-blue btn--small">All Posts <?php echo nuclearnetwork_get_svg( "chevron-right" ); ?></a>
-	<a href="/analysis" class="btn btn--blue btn--large">All Posts <?php echo nuclearnetwork_get_svg( "chevron-right" ); ?></a>
-	<a href="/analysis" class="btn btn--teal btn--large">All Posts <?php echo nuclearnetwork_get_svg( "chevron-right" ); ?></a>
-</section>
+	<?php get_template_part( 'template-parts/home-featured-posts', null, $featured_posts ); ?>
 
 	<?php
 	$featured_content = get_field('featured_content');
@@ -60,6 +44,8 @@ get_header();
 	?>
 	<?php get_template_part( 'template-parts/home-recent-section', null, $excluded_featured_post_ids_from_recent); ?>
 	<?php get_template_part( 'template-parts/home-projects' ); ?>
+	</div>
+	</div>
 	<?php get_template_part( 'template-parts/newsletter-block-acf' ); ?>
 	<?php get_template_part( 'template-parts/home-featured-programs' ); ?>
 	<?php get_template_part( 'template-parts/home-pungh' ); ?>

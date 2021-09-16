@@ -89,6 +89,7 @@ $font-line-height-default: 1.15;
 $breakpoints: (
   'small': 30em,
   'medium': 40em,
+  'xmedium': 50em,
   'large': 64em,
   'xlarge': 75em,
   'xxlarge': 87.5em,
@@ -110,7 +111,9 @@ $size__footer-max-width: 900px;
 $z-index: (
   postBG: -1,
   homeAboutPONI: -1,
-  hpHeaderImg: -1,
+  hpBackground: -1,
+  hpFeatContent: 2,
+  hpFeatImg: 1,
   navContainer: 2,
   navTrigger: 3,
   splideArrows: 1,
