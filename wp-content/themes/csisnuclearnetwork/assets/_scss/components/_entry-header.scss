@@ -130,7 +130,9 @@
     $gradient: url($headerCircles), linear-gradient(180deg, rgba(16, 48, 79, 0.68) 0%, rgba(53, 110, 163, 0.0966914) 30.95%, rgba(56, 115, 171, 0) 100%), linear-gradient(90.1deg, #1c4973 0.76%, #08223a 100.12%);
 
     &::before {
+      width: 100vw;
       height: 40%;
+      margin-left: -6vw;
       background: $gradient;
 
       @include breakpoint('small') {
