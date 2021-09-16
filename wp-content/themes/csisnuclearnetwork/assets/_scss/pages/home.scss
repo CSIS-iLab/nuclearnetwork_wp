@@ -69,10 +69,6 @@
 
       svg {
         max-width: 100%;
-
-        @include breakpoint('large') {
-          max-width: 100%;
-        }
       }
     }
 
@@ -374,10 +370,6 @@
       // grid-template-columns: minmax(50%, auto) rem(330);
       align-items: start;
       padding-top: rem(395);
-    }
-
-    @include breakpoint('xlarge') {
-      // margin-top: rem(132);
     }
   }
 
