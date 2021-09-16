@@ -12,7 +12,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const onIntersect = (entries) => {
       entries.forEach((entry) => {
-        console.log(entry)
         if (!entry.isIntersecting) {
           header.classList.add('full-color')
         } else {
