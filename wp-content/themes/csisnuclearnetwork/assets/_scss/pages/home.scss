@@ -370,10 +370,14 @@
 
       @include breakpoint('xmedium') {
         @include full-width-background(transparent);
+        padding-right: 6vw;
+        padding-left: 6vw;
       }
 
       @include breakpoint('large') {
         display: block;
+        padding-right: rem(40);
+        padding-left: rem(40);
       }
 
       .feat-post {
