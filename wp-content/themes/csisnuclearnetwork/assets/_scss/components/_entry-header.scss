@@ -425,6 +425,14 @@
     }
   }
 
+  .post-meta__date {
+    --post-meta: #{$color-black-165};
+
+    .post-meta__label {
+      display: none;
+    }
+  }
+
   .post-meta__wrapper {
     @include breakpoint('small') {
       display: flex;
@@ -483,10 +491,17 @@
     @include breakpoint('small') {
       flex-direction: row;
       align-items: baseline;
+    }
 
-      &-datetime {
+    &-datetime {
+      @extend %text-style-label-large;
+      @include breakpoint('small') {
         margin-left: rem(24);
       }
+    }
+
+    &-location {
+      @extend %text-style-label-large;
     }
 
     &:not(:first-child) {
