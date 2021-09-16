@@ -110,12 +110,13 @@ $size__footer-max-width: 900px;
 
 /*----------  Z-Index  ----------*/
 $z-index: (
-  postBG: -1,
+  entryHeaderImgFlair: 2,
   homeAboutPONI: -1,
-  hpHeaderImg: -1,
   hpBackground: -2,
+  hpHeaderImg: -1,
   navContainer: 2,
   navTrigger: 3,
+  postBG: -1,
   searchForm: 4,
   searchFormDesktop: 2,
   siteHeader: 11,

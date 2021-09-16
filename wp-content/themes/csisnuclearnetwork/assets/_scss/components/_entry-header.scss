@@ -194,6 +194,7 @@
 
         /* stylelint-disable */
         &::after {
+          @include z-index('entryHeaderImgFlair');
           position: absolute;
           bottom: rem(-8);
           content: '';
