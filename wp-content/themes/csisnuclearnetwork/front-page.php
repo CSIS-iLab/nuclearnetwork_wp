@@ -27,14 +27,6 @@ get_header();
 
 	<?php get_template_part( 'template-parts/home-featured-posts', null, $featured_posts ); ?>
 
-
-<section class="home__cta">
-	<a href="/analysis" class="btn btn--outline-dark btn--large">All Posts <?php echo nuclearnetwork_get_svg( "chevron-right" ); ?></a>
-	<a href="/analysis" class="btn btn--outline-blue btn--small">All Posts <?php echo nuclearnetwork_get_svg( "chevron-right" ); ?></a>
-	<a href="/analysis" class="btn btn--blue btn--large">All Posts <?php echo nuclearnetwork_get_svg( "chevron-right" ); ?></a>
-	<a href="/analysis" class="btn btn--teal btn--large">All Posts <?php echo nuclearnetwork_get_svg( "chevron-right" ); ?></a>
-</section>
-
 	<?php
 	$featured_content = get_field('featured_content');
 
