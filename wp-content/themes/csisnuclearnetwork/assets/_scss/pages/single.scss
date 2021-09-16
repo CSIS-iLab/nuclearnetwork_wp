@@ -11,6 +11,7 @@
 
 .single {
   &__post {
+    padding-top: rem(32);
     background-color: $color-white-100;
     @include full-width-background($color-white-100);
 
