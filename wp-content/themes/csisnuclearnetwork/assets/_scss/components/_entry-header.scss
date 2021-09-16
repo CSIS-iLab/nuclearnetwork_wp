@@ -172,6 +172,10 @@
         --page-header-padding-top: #{rem(64)};
         padding-bottom: rem(48);
       }
+
+      &:only-child {
+        padding-bottom: 0;
+      }
     }
 
     .featured-media {
