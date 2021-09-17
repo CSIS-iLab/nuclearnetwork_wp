@@ -7,6 +7,13 @@
  * @since 1.0.0
  */
 
+$author = get_queried_object();
+$author_id = $author->ID;
+
+foreach ( get_coauthors() as $coauthor ) {
+	var_dump($coauthor);
+}
+nuclearnetwork_authors_list_extended(); 
 if ( (bool) get_the_author_meta( 'description' ) && (bool) get_theme_mod( 'show_author_bio', true ) ) : ?>
 <div class="author-bio">
 	<div class="author-title-wrapper">

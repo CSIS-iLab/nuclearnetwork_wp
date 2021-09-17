@@ -32,6 +32,10 @@ get_header();
 	<div class='archive__content'>
 
 	<?php
+	if ( is_archive( 'author' ) ) {
+		get_template_part( 'template-parts/entry-author-bio');
+	}
+
 		if ( have_posts() ) {
 			// Pagination Results & Filters
 			if ( class_exists( 'FacetWP') && $show_filters ) {
