@@ -541,8 +541,8 @@
     }
 
     .post-meta__terms {
-      word-break: break-word;
       display: block;
+      word-break: break-word;
     }
 
     .post-meta__authors {
@@ -728,7 +728,6 @@
       }
 
       .feat-post {
-
         &:first-child {
           @include breakpoint('large') {
             margin-bottom: rem(40);
