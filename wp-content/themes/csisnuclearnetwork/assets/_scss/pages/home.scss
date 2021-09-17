@@ -10,18 +10,6 @@
 /* stylelint-disable max-nesting-depth, selector-max-compound-selectors */
 
 .home {
-  // TODO: Remove this and replace with real layout styles
-  &__projects {
-    max-width: 800px;
-  }
-
-  &__pungh {
-    // TODO: Remove this & make breakpoint adjustments as necessary in home-pungh.scss component if not switching positions at the large breakpoint.
-    @include breakpoint('medium') {
-      max-width: 50%;
-    }
-  }
-
   .header {
     &__inner {
       height: var(--hp-top-padding);
@@ -346,20 +334,6 @@
     }
   }
 
-  #site-content {
-    // grid-template-areas:
-    //   'header header'
-    //   'featured recent'
-    //   'cta cta'
-    //   'content content';
-
-    @include breakpoint('xmedium') {
-      // display: grid;
-      // grid-template-columns: minmax(50%, auto) rem(330);
-      align-items: start;
-    }
-  }
-
   &__top {
     --hp-top-padding: #{rem(155)};
     @include vw100();
@@ -382,6 +356,8 @@
 
     @include breakpoint('large') {
       margin-left: calc(((100vw - 100%) / 2) * -1);
+      padding-right: rem(32);
+      padding-left: rem(32);
     }
 
     &-border {
@@ -415,6 +391,21 @@
     max-width: $size__content-wide-max-width;
     margin-right: auto;
     margin-left: auto;
+
+    @include breakpoint('xmedium') {
+      padding-bottom: rem(56);
+    }
+
+    @include breakpoint('large') {
+      display: grid;
+      grid-template-areas:
+        'featured desc'
+        'featured recent'
+        'projects recent';
+      grid-template-columns: minmax(0, auto) rem(400);
+      padding-bottom: rem(96);
+      column-gap: rem(32);
+    }
   }
 
   &__poni-description {
@@ -426,6 +417,7 @@
     --icon-focus-color: #{$color-white-100};
     --link-focus-background: #{$color-accent-primary-blue-100};
     @extend %text-style-paragraph-large;
+    grid-area: desc;
     margin-bottom: rem(24);
     padding: rem(16) 6vw;
     color: $color-white-100;
@@ -504,7 +496,7 @@
   }
 
   &__featured-posts {
-    grid-area: featured-posts;
+    grid-area: featured;
 
     hr {
       height: 1px;
@@ -542,8 +534,11 @@
       background-color: $color-blue-000;
       @include full-width-background($color-blue-000);
 
-      @include breakpoint('xmedium') {
-        @include full-width-background(transparent);
+      &::before,
+      &::after {
+        @include breakpoint('xmedium') {
+          display: none;
+        }
       }
 
       .feat-post {
@@ -768,6 +763,7 @@
 
   &__event-and-posts-block {
     display: grid;
+    grid-area: recent;
     grid-template-areas:
       'event'
       'news'
