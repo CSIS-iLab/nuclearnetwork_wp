@@ -10,7 +10,10 @@
   @include full-width-background($color-white-100);
 
   .home__archive-link {
+    --link-color: #{$color-accent-primary-blue-200};
     --link-hover-color: #{$color-black-100};
+    --link-focus-color: #{$color-black-100};
+    --link-focus-background: #{$color-bg-light-300};
     white-space: nowrap;
 
     &:focus {
