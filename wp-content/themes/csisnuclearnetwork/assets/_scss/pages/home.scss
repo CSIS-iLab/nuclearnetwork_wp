@@ -207,7 +207,7 @@
             }
 
             &:not(:last-child) {
-              margin-right: rem(24);
+              margin-right: rem(8);
             }
 
             > a,
@@ -317,6 +317,12 @@
           column-gap: rem(16);
           row-gap: rem(8);
           background: linear-gradient(180deg, #10385f 0%, #1c5b96 100%);
+        }
+      }
+
+      @include breakpoint('large') {
+        &__menu > li:not(:last-child) {
+          margin-right: rem(24);
         }
       }
 
