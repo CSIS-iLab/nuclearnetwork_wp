@@ -535,9 +535,18 @@
       background-color: $color-border-dark-130;
       border: unset;
 
-      @include breakpoint('large') {
+      @include breakpoint('medium') {
         display: none;
       }
+
+      @include breakpoint('large') {
+        display: block;
+      }
+    }
+
+    .post-meta__terms {
+      word-break: break-word;
+      display: block;
     }
 
     .post-meta__authors {
@@ -699,7 +708,8 @@
       background-color: $color-bg-light-400;
 
       @include breakpoint('medium') {
-        display: flex;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
         column-gap: rem(40);
       }
 
@@ -716,7 +726,6 @@
       }
 
       .feat-post {
-        flex: 1;
 
         &:first-child {
           @include breakpoint('large') {

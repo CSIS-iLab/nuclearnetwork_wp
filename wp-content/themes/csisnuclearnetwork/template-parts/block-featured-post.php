@@ -50,9 +50,9 @@ if ( $legacy_event_date ) {
 				<?php echo "<div class='aspect-ratio'><div class='feat-post__image' style='background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 66.55%, rgba(10, 35, 58, 0.7) 100%), url(" . get_the_post_thumbnail_url() . ") ;'><div class='feat-post__gradient-top'></div><div class='feat-post__gradient-bottom'></div></div></div>" ?>
 			<!-- <div class="feat-post__gradient-top"></div>
 			<div class="feat-post__gradient-bottom"></div> -->
-			<?php endif; ?>
+		<?php endif; ?>
 			<div class="feat-post__content">
-				<?php
+			<?php
 			nuclearnetwork_display_subtypes();
 			the_title( '<h3 class="feat-post__title text--bold"><a href="' . esc_url( get_permalink() ) . '">', '</a></h3>' );
 
