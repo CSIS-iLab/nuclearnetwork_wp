@@ -538,10 +538,6 @@
       @include breakpoint('medium') {
         display: none;
       }
-
-      @include breakpoint('large') {
-        display: block;
-      }
     }
 
     .post-meta__terms {
@@ -723,6 +719,12 @@
         display: block;
         padding-right: rem(40);
         padding-left: rem(40);
+      }
+
+      @include breakpoint(xlarge) {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: rem(40);
       }
 
       .feat-post {
