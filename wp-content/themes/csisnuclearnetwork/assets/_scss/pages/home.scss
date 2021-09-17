@@ -1154,6 +1154,11 @@
       grid-area: daily;
       padding-top: rem(16);
       padding-bottom: rem(32);
+      border-bottom: 1px solid $color-border-light-130;
+
+      @include breakpoint('medium') {
+        border-bottom: 0;
+      }
     }
 
     .monthly {
@@ -1195,7 +1200,6 @@
 
       a {
         display: flex;
-        // gap: rem(6);
       }
     }
 
