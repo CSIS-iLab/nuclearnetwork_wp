@@ -6,13 +6,22 @@
   background: $color-postbg-200;
   @include full-width-background($color-postbg-200);
 
+  @include breakpoint('medium') {
+    padding-left: rem(40);
+  }
+
+  @include breakpoint('xmedium') {
+    padding-left: rem(32);
+  }
+
   @include breakpoint('large') {
     padding-right: rem(32);
     padding-left: rem(32);
   }
 
-  &::before {
-    @include breakpoint('large') {
+  &::before,
+  &::after {
+    @include breakpoint('medium') {
       display: none;
     }
   }
@@ -28,6 +37,11 @@
 
     @include breakpoint('small') {
       margin: 0;
+    }
+
+    @include breakpoint('medium') {
+      margin-top: rem(8);
+      margin-bottom: rem(16);
     }
   }
 
@@ -61,6 +75,10 @@
 
   @include breakpoint('small') {
     display: flex;
+  }
+
+  @include breakpoint('medium') {
+    display: unset;
   }
 
   > :last-child {
@@ -128,6 +146,10 @@
         object-fit: cover;
       }
     }
+  }
+
+  .splide {
+    max-width: 100%;
   }
 
   .splide__arrows {
