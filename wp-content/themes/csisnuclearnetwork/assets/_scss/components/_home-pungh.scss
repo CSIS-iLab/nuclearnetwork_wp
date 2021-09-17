@@ -20,14 +20,11 @@
   .home__archive-link {
     --link-color: #{$color-accent-primary-blue-200};
     --link-hover-color: #{$color-black-100};
+    --link-focus-color: #{$color-black-100};
+    --link-focus-background: #{$color-bg-light-300};
     margin-top: rem(8);
     margin-bottom: rem(16);
     white-space: nowrap;
-
-    &:focus {
-      color: $color-black-100;
-      background-color: $color-bg-light-300;
-    }
 
     @include breakpoint('small') {
       margin: 0;

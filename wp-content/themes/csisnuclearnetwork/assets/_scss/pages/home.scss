@@ -489,7 +489,7 @@
     }
 
     &:focus {
-      color: var(--link-focus-color);
+      color: var(--link-focus-color, --link-color);
       background-color: var(--link-focus-background);
       outline: 0;
 
@@ -1166,6 +1166,10 @@
     }
 
     .recent-news {
+      --link-color: #{$color-white-180};
+      --link-hover-color: #{$color-white-100};
+      --link-focus-color: #{$color-white-100};
+      --link-focus-background: #{$color-accent-primary-100};
       flex-basis: 100%;
 
       @include breakpoint(small) {
@@ -1186,27 +1190,12 @@
       }
 
       :nth-child(2) {
-        padding-top: rem(16);
+        margin-top: rem(16);
       }
 
       a {
         display: flex;
-        align-items: flex-end;
-        color: $color-white-180;
-        @extend %text-style-label-medium;
-
-        &:hover {
-          color: $color-white-100;
-        }
-
-        &:focus {
-          color: $color-white-100;
-          background-color: $color-accent-primary-100;
-        }
-
-        .icon {
-          margin-left: rem(6);
-        }
+        // gap: rem(6);
       }
     }
 

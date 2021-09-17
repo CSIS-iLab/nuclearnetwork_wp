@@ -4,6 +4,7 @@
   --image-height: 340px;
   --link-color: #{$color-black-180};
   --link-hover-color: #{$color-accent-primary-blue-200};
+  --link-focus-background: #{$color-bg-light-300};
   --projects-padding: var(--container-padding);
   padding: rem(24) 0 rem(64);
   @include csis-block-full-width-wrapper;
