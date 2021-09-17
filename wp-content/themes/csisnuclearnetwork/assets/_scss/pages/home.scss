@@ -535,9 +535,14 @@
       background-color: $color-border-dark-130;
       border: unset;
 
-      @include breakpoint('large') {
+      @include breakpoint('medium') {
         display: none;
       }
+    }
+
+    .post-meta__terms {
+      display: block;
+      word-break: break-word;
     }
 
     .post-meta__authors {
@@ -699,7 +704,8 @@
       background-color: $color-bg-light-400;
 
       @include breakpoint('medium') {
-        display: flex;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
         column-gap: rem(40);
       }
 
@@ -715,9 +721,13 @@
         padding-left: rem(40);
       }
 
-      .feat-post {
-        flex: 1;
+      @include breakpoint(xlarge) {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: rem(40);
+      }
 
+      .feat-post {
         &:first-child {
           @include breakpoint('large') {
             margin-bottom: rem(40);
