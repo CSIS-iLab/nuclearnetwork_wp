@@ -20,11 +20,17 @@
   .home__archive-link {
     --link-color: #{$color-accent-primary-blue-200};
     --link-hover-color: #{$color-black-100};
+    margin-top: rem(8);
+    margin-bottom: rem(16);
     white-space: nowrap;
 
     &:focus {
       color: $color-black-100;
       background-color: $color-bg-light-300;
+    }
+
+    @include breakpoint('small') {
+      margin: 0;
     }
   }
 
@@ -50,12 +56,15 @@
 }
 
 .home__pu {
-  display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   column-gap: rem(32);
   row-gap: rem(8);
+
+  @include breakpoint('small') {
+    display: flex;
+  }
 
   > :last-child {
     flex-basis: 100%;
