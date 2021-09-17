@@ -257,7 +257,7 @@ if (! function_exists('nuclearnetwork_authors_list_extended')) :
 					$bio = $user_description;
 				}
 
-				if ( $title == null ){
+				if ( $title !== null ){
 					$title = " - " . get_field( 'title', 'user_' . $user->ID );
 				}
 
