@@ -257,12 +257,12 @@ if (! function_exists('nuclearnetwork_authors_list_extended')) :
 					$bio = $user_description;
 				}
 
-				if ( $title == null ){
-					$title = get_field( 'title', 'user_' . $user->ID );
+				if ( $title !== null ){
+					$title = " - " . get_field( 'title', 'user_' . $user->ID );
 				}
 
 
-				$authors .= '<div class="post__authors-author"><h3 class="text--bold text--short post__authors-author-name">' . $name . '<span class="post__authors-author-title"> - ' . $title . '</span></h3><hr class="divider divider--thicc page__header-divider"><p class="post__authors-author-bio">' . $bio . '</p></div>';
+				$authors .= '<div class="post__authors-author"><h3 class="text--bold text--short post__authors-author-name">' . $name . '<span class="post__authors-author-title">' . $title . '</span></h3><hr class="divider divider--thicc page__header-divider"><p class="post__authors-author-bio">' . $bio . '</p></div>';
 			}
 		} else {
 			$authors = the_author_posts_link();
