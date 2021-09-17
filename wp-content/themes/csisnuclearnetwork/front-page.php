@@ -16,6 +16,7 @@ get_header();
 	<div class="home__top">
 		<div class="home__container">
 	<!-- set up excluded posts array – important because it is used by template-parts/home-recent-section -->
+	<hr class="home__top-border"/>
 	<?php
 	$excluded_featured_post_ids_from_recent = array();
 	$featured_posts = get_field( 'featured_posts' );
