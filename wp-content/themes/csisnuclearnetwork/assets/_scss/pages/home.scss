@@ -817,14 +817,18 @@
       background-color: $color-border-light-115;
       border: unset;
 
-      @include breakpoint(medium) {
+      @include breakpoint('medium') {
         margin-right: 0;
       }
 
-      @include breakpoint(large) {
+      @include breakpoint('large') {
         display: block;
-        margin: 0 -6%;
-        margin-top: rem(40);
+        margin: rem(40) rem(-32px) 0 0;
+      }
+
+      @include breakpoint('xxlarge') {
+        display: block;
+        margin: rem(40) -6vw 0 0;
       }
     }
 
