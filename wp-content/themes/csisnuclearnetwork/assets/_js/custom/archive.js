@@ -2,6 +2,7 @@ document.addEventListener('facetwp-loaded', function () {
   modifyCheckboxes()
   modifyFSelect()
   modifyFSelectOptions()
+  pageScroll()
 })
 
 const modifyCheckboxes = () => {
@@ -44,4 +45,8 @@ const modifyFSelectOptions = () => {
     const splitText = t.innerText.split(' ')
     t.innerText = splitText.slice(0, splitText.length - 1).join(' ')
   })
+}
+
+const pageScroll = () => {
+  window.scrollTo(0, 0)
 }
