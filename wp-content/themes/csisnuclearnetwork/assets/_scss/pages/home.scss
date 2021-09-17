@@ -17,7 +17,7 @@
 
   &__pungh {
     // TODO: Remove this & make breakpoint adjustments as necessary in home-pungh.scss component if not switching positions at the large breakpoint.
-    @include breakpoint('large') {
+    @include breakpoint('medium') {
       max-width: 50%;
     }
   }
@@ -503,96 +503,6 @@
     }
   }
 
-  &__recent {
-    position: relative;
-    z-index: 1;
-    grid-area: recent;
-    padding-top: rem(24);
-    padding-bottom: rem(32);
-    background: $color-bg-dark-200;
-    @include full-width-background($color-bg-dark-200);
-
-    @include breakpoint('small') {
-      padding-right: rem(24);
-      padding-left: rem(24);
-    }
-
-    @include breakpoint('large') {
-      margin-top: rem(-160);
-    }
-
-    &::after,
-    &::before {
-      @include breakpoint('small') {
-        display: none;
-      }
-    }
-
-    &-label {
-      @extend %text-style-heading-large-strong;
-    }
-
-    .icon-3-arrows {
-      width: rem(36);
-      height: rem(18);
-      margin-top: rem(4);
-    }
-
-    &-posts {
-      margin-top: rem(32);
-    }
-
-    .post-block {
-      display: block;
-      padding-bottom: rem(32);
-      background: $color-bg-dark-200;
-      @include full-width-background($color-bg-dark-200);
-
-      @include breakpoint('small') {
-        &::after,
-        &::before {
-          display: none;
-        }
-      }
-
-      @include breakpoint('large') {
-        &:last-child {
-          border-bottom: 0;
-        }
-      }
-
-      &:not(:last-child) {
-        border-bottom: 1px solid $color-border-light-115;
-      }
-
-      &:first-of-type {
-        margin-top: 0;
-        padding-top: 0;
-      }
-
-      &:last-of-type {
-        padding-bottom: 0;
-      }
-
-      &__img {
-        display: none;
-      }
-
-      &__title,
-      .post-meta__date {
-        margin-bottom: rem(16);
-      }
-
-      &__excerpt {
-        margin-bottom: rem(8);
-      }
-
-      .post-meta__categories li:not(:last-of-type)::after {
-        border-right: 1px solid $color-border-light-130;
-      }
-    }
-  }
-
   &__featured-posts {
     grid-area: featured-posts;
 
@@ -853,94 +763,6 @@
 
     .icon {
       margin-left: rem(8);
-    }
-  }
-
-  &__featured-content {
-    @include csis-block-full-width-wrapper();
-    grid-area: content;
-    padding-top: rem(20);
-    padding-bottom: rem(20);
-
-    @include breakpoint('large') {
-      padding-top: rem(48);
-      padding-bottom: rem(60);
-    }
-
-    @include breakpoint('xxlarge') {
-      padding-left: rem(80);
-    }
-
-    &-wrapper {
-      margin-right: 6vw;
-      margin-left: 6vw;
-      padding: rem(40);
-      color: $color-white-100;
-      // background-color: $color-bg-dark-290;
-
-      @include breakpoint('large') {
-        width: 44vw;
-        max-width: rem(800);
-      }
-
-      @include breakpoint('xxlarge') {
-        margin-left: calc(((100vw - 1400px) / 2) - var(--scrollbarHalf));
-      }
-    }
-
-    &-title {
-      @extend %text-style-heading-2-x-large;
-    }
-
-    &-desc {
-      @extend %text-style-label-large;
-      margin-top: rem(32);
-      margin-bottom: rem(32);
-
-      *:not(:last-child) {
-        margin-bottom: rem(8);
-      }
-
-      ul {
-        padding-left: 0;
-        list-style: none;
-      }
-
-      li {
-        display: flex;
-        align-items: center;
-      }
-
-      li::before {
-        margin-right: rem(22);
-      }
-
-      li:first-child::before {
-        content: url('data:image/svg+xml,%3Csvg width="14" height="22" viewBox="0 0 14 24" fill="none" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M13.8462 12.625L0 0.75V23.25L13.8462 12.625Z" fill="%23B4D0D0"/%3E%3C/svg%3E');
-      }
-
-      li:nth-child(2)::before {
-        content: url('data:image/svg+xml,%3Csvg width="14" height="22" viewBox="0 0 14 24" fill="none" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M13.8462 12.625L0 0.75V23.25L13.8462 12.625Z" fill="%236ABEB0"/%3E%3C/svg%3E%0A');
-      }
-
-      li:nth-child(3)::before {
-        content: url('data:image/svg+xml,%3Csvg width="14" height="22" viewBox="0 0 14 24" fill="none" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M13.8462 12.625L0 0.75V23.25L13.8462 12.625Z" fill="%233D8283"/%3E%3C/svg%3E%0A');
-      }
-
-      li:nth-child(4)::before {
-        content: url('data:image/svg+xml,%3Csvg width="14" height="22" viewBox="0 0 14 24" fill="none" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M13.8462 12.625L0 0.75V23.25L13.8462 12.625Z" fill="%232C6565"/%3E%3C/svg%3E%0A');
-      }
-    }
-
-    &-link {
-      display: flex;
-      width: fit-content;
-      margin-right: auto;
-      margin-left: auto;
-
-      .icon {
-        margin-left: rem(8);
-      }
     }
   }
 
@@ -1205,6 +1027,20 @@
 
     .subscribe {
       margin-bottom: rem(24);
+    }
+  }
+
+  &__programs-and-updates-container {
+    @include breakpoint('medium') {
+      display: flex;
+
+      > * {
+        flex-basis: 100%;
+      }
+    }
+
+    @include breakpoint('large') {
+      margin: 0 -6vw;
     }
   }
 }

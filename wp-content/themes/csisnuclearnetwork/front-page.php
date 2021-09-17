@@ -69,8 +69,10 @@ $poni_about_page = get_field('about_poni');
 	</div>
 	</div>
 	<?php get_template_part( 'template-parts/newsletter-block-acf' ); ?>
-	<?php get_template_part( 'template-parts/home-featured-programs' ); ?>
-	<?php get_template_part( 'template-parts/home-pungh' ); ?>
+	<div class="home__programs-and-updates-container">
+		<?php get_template_part( 'template-parts/home-featured-programs' ); ?>
+		<?php get_template_part( 'template-parts/home-pungh' ); ?>
+	</div>
 	<?php get_template_part( 'template-parts/home-about-poni' ); ?>
 
 </main><!-- #site-content -->
