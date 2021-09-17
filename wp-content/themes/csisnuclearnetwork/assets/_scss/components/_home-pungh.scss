@@ -78,6 +78,14 @@
     display: flex;
   }
 
+  @include breakpoint('medium') {
+    display: unset;
+  }
+
+  @include breakpoint('medium') {
+    display: flex;
+  }
+
   > :last-child {
     flex-basis: 100%;
     width: 100%;
