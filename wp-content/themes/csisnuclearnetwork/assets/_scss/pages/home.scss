@@ -10,18 +10,6 @@
 /* stylelint-disable max-nesting-depth, selector-max-compound-selectors */
 
 .home {
-  // TODO: Remove this and replace with real layout styles
-  &__projects {
-    max-width: 800px;
-  }
-
-  &__pungh {
-    // TODO: Remove this & make breakpoint adjustments as necessary in home-pungh.scss component if not switching positions at the large breakpoint.
-    @include breakpoint('large') {
-      max-width: 50%;
-    }
-  }
-
   .header {
     &__inner {
       height: var(--hp-top-padding);
@@ -352,20 +340,6 @@
     }
   }
 
-  #site-content {
-    // grid-template-areas:
-    //   'header header'
-    //   'featured recent'
-    //   'cta cta'
-    //   'content content';
-
-    @include breakpoint('xmedium') {
-      // display: grid;
-      // grid-template-columns: minmax(50%, auto) rem(330);
-      align-items: start;
-    }
-  }
-
   &__top {
     --hp-top-padding: #{rem(155)};
     @include vw100();
@@ -388,6 +362,34 @@
 
     @include breakpoint('large') {
       margin-left: calc(((100vw - 100%) / 2) * -1);
+      padding-right: rem(32);
+      padding-left: rem(32);
+    }
+
+    &-border {
+      @include vw100();
+      height: rem(2);
+      margin-bottom: rem(24);
+      margin-left: -6vw;
+      background-color: $color-white-115;
+      border: 0;
+
+      @include breakpoint('small') {
+        margin-bottom: rem(32);
+      }
+
+      @include breakpoint('medium') {
+        margin-bottom: rem(48);
+      }
+
+      @include breakpoint('large') {
+        margin-bottom: rem(32);
+        margin-left: calc(((100vw - 100%) / 2) * -1);
+      }
+
+      @include breakpoint('xlarge') {
+        margin-bottom: rem(48);
+      }
     }
   }
 
@@ -395,6 +397,55 @@
     max-width: $size__content-wide-max-width;
     margin-right: auto;
     margin-left: auto;
+
+    @include breakpoint('xmedium') {
+      padding-bottom: rem(56);
+    }
+
+    @include breakpoint('large') {
+      display: grid;
+      grid-template-areas:
+        'featured desc'
+        'featured recent'
+        'projects recent';
+      grid-template-columns: minmax(0, auto) rem(400);
+      padding-bottom: rem(96);
+      column-gap: rem(32);
+    }
+  }
+
+  &__poni-description {
+    --link-color: #{$color-white-180};
+    --link-hover-color: #{$color-white-100};
+    --link-focus-color: #{$color-white-100};
+    --icon-color: #{$color-white-180};
+    --icon-hover-color: #{$color-white-100};
+    --icon-focus-color: #{$color-white-100};
+    --link-focus-background: #{$color-accent-primary-blue-100};
+    @extend %text-style-paragraph-large;
+    grid-area: desc;
+    margin-bottom: rem(24);
+    padding: rem(16) 6vw;
+    color: $color-white-100;
+    background-color: $color-bg-blue-114;
+    border-left: 2px solid $color-border-light-150;
+
+    @include breakpoint('small') {
+      padding-right: rem(24);
+      padding-left: rem(32);
+    }
+
+    @include breakpoint('medium') {
+      margin-bottom: rem(32);
+    }
+
+    @include breakpoint('medium') {
+      margin-bottom: rem(40);
+    }
+
+    p {
+      margin-bottom: rem(12);
+    }
   }
 
   &__subtitle {
@@ -435,103 +486,23 @@
       }
     }
 
+    &:focus {
+      color: var(--link-focus-color, --link-color);
+      background-color: var(--link-focus-background);
+      outline: 0;
+
+      .icon {
+        color: var(--icon-focus-color, inherit);
+      }
+    }
+
     .icon {
       color: var(--icon-color, inherit);
     }
   }
 
-  &__recent {
-    position: relative;
-    z-index: 1;
-    grid-area: recent;
-    padding-top: rem(24);
-    padding-bottom: rem(32);
-    background: $color-bg-dark-200;
-    @include full-width-background($color-bg-dark-200);
-
-    @include breakpoint('small') {
-      padding-right: rem(24);
-      padding-left: rem(24);
-    }
-
-    @include breakpoint('large') {
-      margin-top: rem(-160);
-    }
-
-    &::after,
-    &::before {
-      @include breakpoint('small') {
-        display: none;
-      }
-    }
-
-    &-label {
-      @extend %text-style-heading-large-strong;
-    }
-
-    .icon-3-arrows {
-      width: rem(36);
-      height: rem(18);
-      margin-top: rem(4);
-    }
-
-    &-posts {
-      margin-top: rem(32);
-    }
-
-    .post-block {
-      display: block;
-      padding-bottom: rem(32);
-      background: $color-bg-dark-200;
-      @include full-width-background($color-bg-dark-200);
-
-      @include breakpoint('small') {
-        &::after,
-        &::before {
-          display: none;
-        }
-      }
-
-      @include breakpoint('large') {
-        &:last-child {
-          border-bottom: 0;
-        }
-      }
-
-      &:not(:last-child) {
-        border-bottom: 1px solid $color-border-light-115;
-      }
-
-      &:first-of-type {
-        margin-top: 0;
-        padding-top: 0;
-      }
-
-      &:last-of-type {
-        padding-bottom: 0;
-      }
-
-      &__img {
-        display: none;
-      }
-
-      &__title,
-      .post-meta__date {
-        margin-bottom: rem(16);
-      }
-
-      &__excerpt {
-        margin-bottom: rem(8);
-      }
-
-      .post-meta__categories li:not(:last-of-type)::after {
-        border-right: 1px solid $color-border-light-130;
-      }
-    }
-  }
-
   &__featured-posts {
-    grid-area: featured-posts;
+    grid-area: featured;
 
     hr {
       height: 1px;
@@ -569,8 +540,11 @@
       background-color: $color-blue-000;
       @include full-width-background($color-blue-000);
 
-      @include breakpoint('xmedium') {
-        @include full-width-background(transparent);
+      &::before,
+      &::after {
+        @include breakpoint('xmedium') {
+          display: none;
+        }
       }
 
       .feat-post {
@@ -793,96 +767,9 @@
     }
   }
 
-  &__featured-content {
-    @include csis-block-full-width-wrapper();
-    grid-area: content;
-    padding-top: rem(20);
-    padding-bottom: rem(20);
-
-    @include breakpoint('large') {
-      padding-top: rem(48);
-      padding-bottom: rem(60);
-    }
-
-    @include breakpoint('xxlarge') {
-      padding-left: rem(80);
-    }
-
-    &-wrapper {
-      margin-right: 6vw;
-      margin-left: 6vw;
-      padding: rem(40);
-      color: $color-white-100;
-      // background-color: $color-bg-dark-290;
-
-      @include breakpoint('large') {
-        width: 44vw;
-        max-width: rem(800);
-      }
-
-      @include breakpoint('xxlarge') {
-        margin-left: calc(((100vw - 1400px) / 2) - var(--scrollbarHalf));
-      }
-    }
-
-    &-title {
-      @extend %text-style-heading-2-x-large;
-    }
-
-    &-desc {
-      @extend %text-style-label-large;
-      margin-top: rem(32);
-      margin-bottom: rem(32);
-
-      *:not(:last-child) {
-        margin-bottom: rem(8);
-      }
-
-      ul {
-        padding-left: 0;
-        list-style: none;
-      }
-
-      li {
-        display: flex;
-        align-items: center;
-      }
-
-      li::before {
-        margin-right: rem(22);
-      }
-
-      li:first-child::before {
-        content: url('data:image/svg+xml,%3Csvg width="14" height="22" viewBox="0 0 14 24" fill="none" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M13.8462 12.625L0 0.75V23.25L13.8462 12.625Z" fill="%23B4D0D0"/%3E%3C/svg%3E');
-      }
-
-      li:nth-child(2)::before {
-        content: url('data:image/svg+xml,%3Csvg width="14" height="22" viewBox="0 0 14 24" fill="none" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M13.8462 12.625L0 0.75V23.25L13.8462 12.625Z" fill="%236ABEB0"/%3E%3C/svg%3E%0A');
-      }
-
-      li:nth-child(3)::before {
-        content: url('data:image/svg+xml,%3Csvg width="14" height="22" viewBox="0 0 14 24" fill="none" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M13.8462 12.625L0 0.75V23.25L13.8462 12.625Z" fill="%233D8283"/%3E%3C/svg%3E%0A');
-      }
-
-      li:nth-child(4)::before {
-        content: url('data:image/svg+xml,%3Csvg width="14" height="22" viewBox="0 0 14 24" fill="none" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M13.8462 12.625L0 0.75V23.25L13.8462 12.625Z" fill="%232C6565"/%3E%3C/svg%3E%0A');
-      }
-    }
-
-    &-link {
-      display: flex;
-      width: fit-content;
-      margin-right: auto;
-      margin-left: auto;
-
-      .icon {
-        margin-left: rem(8);
-      }
-    }
-  }
-
   &__event-and-posts-block {
     display: grid;
+    grid-area: recent;
     grid-template-areas:
       'event'
       'news'
@@ -936,14 +823,18 @@
       background-color: $color-border-light-115;
       border: unset;
 
-      @include breakpoint(medium) {
+      @include breakpoint('medium') {
         margin-right: 0;
       }
 
-      @include breakpoint(large) {
+      @include breakpoint('large') {
         display: block;
-        margin: 0 -6%;
-        margin-top: rem(40);
+        margin: rem(40) rem(-32px) 0 0;
+      }
+
+      @include breakpoint('xxlarge') {
+        display: block;
+        margin: rem(40) -6vw 0 0;
       }
     }
 
@@ -1091,6 +982,11 @@
       grid-area: daily;
       padding-top: rem(16);
       padding-bottom: rem(32);
+      border-bottom: 1px solid $color-border-light-130;
+
+      @include breakpoint('medium') {
+        border-bottom: 0;
+      }
     }
 
     .monthly {
@@ -1103,6 +999,10 @@
     }
 
     .recent-news {
+      --link-color: #{$color-white-180};
+      --link-hover-color: #{$color-white-100};
+      --link-focus-color: #{$color-white-100};
+      --link-focus-background: #{$color-accent-primary-100};
       flex-basis: 100%;
 
       @include breakpoint(small) {
@@ -1123,32 +1023,30 @@
       }
 
       :nth-child(2) {
-        padding-top: rem(16);
+        margin-top: rem(16);
       }
 
       a {
         display: flex;
-        align-items: flex-end;
-        color: $color-white-180;
-        @extend %text-style-label-medium;
-
-        &:hover {
-          color: $color-white-100;
-        }
-
-        &:focus {
-          color: $color-white-100;
-          background-color: $color-accent-primary-100;
-        }
-
-        .icon {
-          margin-left: rem(6);
-        }
       }
     }
 
     .subscribe {
       margin-bottom: rem(24);
+    }
+  }
+
+  &__programs-and-updates-container {
+    @include breakpoint('medium') {
+      display: flex;
+
+      > * {
+        flex-basis: 100%;
+      }
+    }
+
+    @include breakpoint('large') {
+      margin: 0 -6vw;
     }
   }
 }

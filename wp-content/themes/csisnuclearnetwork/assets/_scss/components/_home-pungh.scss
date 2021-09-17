@@ -6,13 +6,23 @@
   background: $color-postbg-200;
   @include full-width-background($color-postbg-200);
 
+  @include breakpoint('medium') {
+    max-width: 50%;
+    padding-left: rem(40);
+  }
+
+  @include breakpoint('xmedium') {
+    padding-left: rem(32);
+  }
+
   @include breakpoint('large') {
     padding-right: rem(32);
     padding-left: rem(32);
   }
 
-  &::before {
-    @include breakpoint('large') {
+  &::before,
+  &::after {
+    @include breakpoint('medium') {
       display: none;
     }
   }
@@ -20,11 +30,19 @@
   .home__archive-link {
     --link-color: #{$color-accent-primary-blue-200};
     --link-hover-color: #{$color-black-100};
+    --link-focus-color: #{$color-black-100};
+    --link-focus-background: #{$color-bg-light-300};
+    margin-top: rem(8);
+    margin-bottom: rem(16);
     white-space: nowrap;
 
-    &:focus {
-      color: $color-black-100;
-      background-color: $color-bg-light-300;
+    @include breakpoint('small') {
+      margin: 0;
+    }
+
+    @include breakpoint('medium') {
+      margin-top: rem(8);
+      margin-bottom: rem(16);
     }
   }
 
@@ -50,12 +68,23 @@
 }
 
 .home__pu {
-  display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   column-gap: rem(32);
   row-gap: rem(8);
+
+  @include breakpoint('small') {
+    display: flex;
+  }
+
+  @include breakpoint('medium') {
+    display: unset;
+  }
+
+  @include breakpoint('medium') {
+    display: flex;
+  }
 
   > :last-child {
     flex-basis: 100%;
@@ -122,6 +151,10 @@
         object-fit: cover;
       }
     }
+  }
+
+  .splide {
+    max-width: 100%;
   }
 
   .splide__arrows {

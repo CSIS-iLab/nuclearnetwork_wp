@@ -18,9 +18,9 @@
 	<div class="home__about-content">
 		<h2 class="home__subtitle home__subtitle--border">About PONI</h2>
 		<?php 
-			$poni_description = get_field('poni_description');
+			$ngnn_site_description = get_field('ngnn_site_description');
 		?>
-		<p class="home__about-description text--short"><?php echo esc_html( $poni_description ) ?></p>
+		<p class="home__about-description text--short"><?php echo esc_html( $ngnn_site_description ) ?></p>
 		<?php
 			$director_and_deputy_director = get_field( 'director_and_deputy_director' );
 			if ( $director_and_deputy_director ) :

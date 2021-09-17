@@ -4,15 +4,23 @@
   --image-height: 340px;
   --link-color: #{$color-black-180};
   --link-hover-color: #{$color-accent-primary-blue-200};
+  --link-focus-background: #{$color-bg-light-300};
   --projects-padding: var(--container-padding);
+  grid-area: projects;
+  max-width: 100vw;
   padding: rem(24) 0 rem(64);
   @include csis-block-full-width-wrapper;
   background: $color-bg-light-400;
 
+  @include breakpoint('xmedium') {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
   @include breakpoint('large') {
     --projects-padding: #{rem(40)};
-    width: 100%;
-    margin: 0;
+    max-width: 100%;
+    margin: rem(72) 0 0;
     padding-bottom: rem(40);
   }
 
