@@ -6,6 +6,16 @@
   padding: rem(24px);
   background-color: $color-bg-light-300;
 
+  @include breakpoint('small') {
+    width: rem(280px);
+  }
+
+  @include breakpoint('large') {
+    float: right;
+    margin-right: rem(-48px);
+    margin-left: rem(48px);
+  }
+
   h4 {
     margin: 0 0 rem(4px) !important;
     color: $color-accent-primary-blue-200 !important;
@@ -21,7 +31,7 @@
     text-transform: uppercase;
   }
 
-  .contact-email {
+  a {
     display: block;
     @extend %text-style-label-medium;
     margin-bottom: rem(12px) !important;
@@ -31,16 +41,5 @@
     @extend %text-style-label-medium;
     @include font-size(16px);
     margin-bottom: 0 !important;
-  }
-
-  @include breakpoint('small') {
-    width: rem(280px);
-    // margin: 0 auto;
-  }
-
-  @include breakpoint('large') {
-    --margin-text-side: #{rem(48)};
-    --margin-gutter-side: #{rem(-80)};
-    float: right;
   }
 }
