@@ -138,6 +138,10 @@
       @include breakpoint('small') {
         @include csis-block-full-width-wrapper();
       }
+
+      .author & {
+        height: 70%;
+      }
     }
 
     .entry-header__content,
@@ -233,6 +237,14 @@
     @include breakpoint('large') {
       min-width: $size__content-max-width;
       max-width: $size__header-max-width;
+    }
+
+    .author & {
+      > * {
+        max-width: rem(750);
+        margin-right: auto;
+        margin-left: auto;
+      }
     }
   }
 

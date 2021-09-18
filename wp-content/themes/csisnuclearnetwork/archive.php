@@ -27,14 +27,15 @@ get_header();
 
 	<?php
 		get_template_part( 'template-parts/entry-header' );
+		
+		if ( is_archive( 'author' ) ) {
+			get_template_part( 'template-parts/entry-author-bio');
+		}
 	?>
 
 	<div class='archive__content'>
 
 	<?php
-	if ( is_archive( 'author' ) ) {
-		get_template_part( 'template-parts/entry-author-bio');
-	}
 
 		if ( have_posts() ) {
 			// Pagination Results & Filters
