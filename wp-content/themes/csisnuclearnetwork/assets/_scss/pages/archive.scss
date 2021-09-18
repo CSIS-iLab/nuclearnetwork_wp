@@ -59,18 +59,22 @@
       }
     }
 
-    .archive__featured {
+    .archive__featured,
+    .archive__author-info {
       grid-column: 1 / -1;
-      margin-bottom: rem(32);
-
-      @include breakpoint('large') {
-        margin-bottom: rem(40);
-      }
 
       + .archive__sidebar {
         @include breakpoint('medium') {
           grid-row: 2 / span 3;
         }
+      }
+    }
+
+    .archive__featured {
+      margin-bottom: rem(32);
+
+      @include breakpoint('large') {
+        margin-bottom: rem(40);
       }
     }
   }
@@ -133,57 +137,6 @@
   }
 }
 
-.cards__container {
-  margin-top: rem(40);
-  @include csis-block-full-width-wrapper;
-
-  @include breakpoint('large') {
-    display: flex;
-    margin-top: rem(56);
-  }
-}
-
-.card {
-  flex: 0 0 50%;
-  padding: rem(24) 6vw;
-  background-repeat: no-repeat;
-  background-size: cover;
-
-  &__link {
-    display: block;
-    max-width: rem(400);
-    margin: auto;
-    padding: rem(24);
-    // background-color: $color-bg-dark-290;
-    @include shadow(md);
-
-    &:hover .card__title {
-      // color: $color-link-primary-200;
-    }
-
-    &:focus .card__title {
-      background: $color-bg-light-400;
-    }
-  }
-
-  &__title {
-    @extend %text-style-heading-large-strong;
-    margin-bottom: rem(12);
-    color: $color-white-100;
-    transition: color 0.3s ease-in-out;
-  }
-
-  .icon {
-    margin-right: rem(12);
-  }
-
-  &__description {
-    @extend %text-style-label-large;
-    display: flex;
-    color: $color-white-190;
-  }
-}
-
 /*----------  Events  ----------*/
 .events__upcoming {
   padding-top: rem(16);
@@ -237,6 +190,97 @@
 
     @include breakpoint('large') {
       margin-bottom: rem(48);
+    }
+  }
+}
+
+/*----------  Authors  ----------*/
+.author {
+  .archive__content {
+    margin-top: 0;
+
+    @include breakpoint('large') {
+      margin-top: 0;
+    }
+  }
+
+  .archive__author {
+    &-wrapper {
+      background-color: $color-bg-light-100;
+      @include full-width-background($color-bg-light-100);
+
+      &::before,
+      &::after {
+        @include breakpoint('small') {
+          display: none;
+        }
+      }
+
+      @include breakpoint('small') {
+        padding-right: 6vw;
+        padding-left: 6vw;
+      }
+    }
+
+    &-bio {
+      clear: both;
+      padding-top: rem(32);
+      padding-bottom: rem(48);
+
+      @include breakpoint('large') {
+        max-width: rem(750);
+        margin-right: auto;
+        margin-left: auto;
+        padding-top: rem(48);
+        padding-bottom: rem(64);
+      }
+    }
+
+    &-avatar {
+      img {
+        width: 100%;
+        margin-bottom: rem(24);
+
+        @include breakpoint('small') {
+          max-width: rem(256);
+          margin-right: auto;
+          margin-left: auto;
+        }
+      }
+
+      @include breakpoint('medium') {
+        float: right;
+        margin-left: rem(24);
+      }
+    }
+
+    &-description {
+      @extend %text-style-paragraph-large;
+      color: $color-black-190;
+
+      @include breakpoint('large') {
+        max-width: $size__content-max-width;
+      }
+    }
+
+    &-download {
+      display: block;
+      margin: rem(24) auto 0;
+
+      @include breakpoint('large') {
+        margin-top: rem(24);
+      }
+    }
+
+    &-name {
+      @extend %text-style-heading-x-large;
+      padding-top: rem(48);
+      padding-bottom: rem(24);
+
+      @include breakpoint('large') {
+        padding-top: rem(64);
+        padding-bottom: rem(32);
+      }
     }
   }
 }
