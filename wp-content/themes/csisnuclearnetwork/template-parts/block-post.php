@@ -98,7 +98,7 @@ if ( $is_monthly_newsletter ) {
 			} ?>
 		</div>
 		<?php
-		if ( $event_start_date || $event_location ) { ?>
+		if ( $event_start_time || $event_location ) { ?>
 		<div class="post-block__event-meta">
 			<?php
 			if ( $event_start_time ) { ?>

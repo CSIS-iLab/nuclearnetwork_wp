@@ -43,12 +43,16 @@
   }
 
   &__img {
-    float: right;
+    // float: right;
     width: 100%;
-    margin-bottom: rem(24);
     transition: all 0.3s ease-in-out;
 
+    img {
+      margin-bottom: rem(24);
+    }
+
     @include breakpoint('medium') {
+      float: right;
       max-width: rem(175);
       margin-left: rem(24);
 
@@ -59,7 +63,9 @@
 
     @include breakpoint('large') {
       .archive__featured & {
-        margin-bottom: rem(32);
+        img {
+          margin-bottom: rem(32);
+        }
       }
     }
 

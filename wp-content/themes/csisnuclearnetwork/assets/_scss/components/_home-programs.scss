@@ -9,8 +9,23 @@
   background: $color-white-100;
   @include full-width-background($color-white-100);
 
+  @include breakpoint('medium') {
+    padding-right: rem(40);
+  }
+
+  @include breakpoint('xmedium') {
+    padding-right: rem(32);
+  }
+
+  @include breakpoint('large') {
+    padding-left: rem(32);
+  }
+
   .home__archive-link {
+    --link-color: #{$color-accent-primary-blue-200};
     --link-hover-color: #{$color-black-100};
+    --link-focus-color: #{$color-black-100};
+    --link-focus-background: #{$color-bg-light-300};
     white-space: nowrap;
 
     &:focus {
