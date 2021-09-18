@@ -278,6 +278,9 @@
       padding-bottom: rem(24);
 
       @include breakpoint('large') {
+        max-width: rem(1010);
+        margin-right: auto;
+        margin-left: auto;
         padding-top: rem(64);
         padding-bottom: rem(32);
       }
