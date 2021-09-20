@@ -3,7 +3,8 @@
 /* stylelint-disable */
 .blog,
 .tax-series,
-.tax-analysis_subtype {
+.tax-analysis_subtype,
+.page-series {
   /* stylelint-enable */
   --page-header-bg: var(--page-header-analysis);
   --page-header-padding-bottom: #{rem(40)};
