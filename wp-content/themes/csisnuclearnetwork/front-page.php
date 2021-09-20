@@ -16,6 +16,8 @@ $poni_about_page = get_field('about_poni');
 
 <main id="site-content" role="main">
 	<div class="home__top">
+		<div class="home__top-top-bg"></div>
+		<div class="home__top-bottom-bg"></div>
 		<hr class="home__top-border"/>
 		<div class="home__container">
 	<!-- set up excluded posts array – important because it is used by template-parts/home-recent-section -->
