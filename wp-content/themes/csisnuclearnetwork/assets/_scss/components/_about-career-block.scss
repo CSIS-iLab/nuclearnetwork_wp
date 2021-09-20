@@ -11,6 +11,10 @@
   background-color: $color-bg-light-300;
   @extend %text-style-paragraph-large;
 
+  &::after {
+    z-index: 1;
+  }
+
   .career-block__li::marker {
     color: $color-black-100;
   }
@@ -24,7 +28,7 @@
     margin-bottom: rem(12);
     color: $color-accent-primary-blue-300;
     @extend %text-style-heading-x-large;
-    
+
     @include breakpoint('large') {
       margin-bottom: rem(16);
     }

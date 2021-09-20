@@ -7,10 +7,12 @@
 @use '../blocks/post/partners';
 @use '../components/post-block-related';
 @use '../components/about-career-block';
+@use '../components/about-contact-info-block';
 @use '../components/team-member-block';
 
 .single {
   &__post {
+    max-width: $size__content-wide-max-width;
     padding-top: rem(32);
     background-color: $color-white-100;
     @include full-width-background($color-white-100);

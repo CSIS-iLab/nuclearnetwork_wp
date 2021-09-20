@@ -3,10 +3,12 @@
 @use '../components/entry-header';
 
 .single__content {
-  margin-bottom: rem(56);
+  @include breakpoint('small') {
+    margin-bottom: rem(56);
 
-  // If the last child is the gray section block, offset the margin-bottom so the gray section sits flush against the site footer.
-  :last-child.wp-block-lazyblock-gray-section {
-    margin-bottom: rem(-56);
+    // If the last child is the gray section block, offset the margin-bottom so the gray section sits flush against the site footer.
+    :last-child.wp-block-lazyblock-gray-section {
+      margin-bottom: rem(-56);
+    }
   }
 }
