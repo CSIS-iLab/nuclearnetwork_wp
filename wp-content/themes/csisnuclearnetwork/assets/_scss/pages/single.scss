@@ -304,6 +304,7 @@
       @include breakpoint('large') {
         display: grid;
         grid-template-columns: auto rem(260);
+        gap: rem(40);
       }
     }
 
@@ -318,6 +319,16 @@
 
       .entry__tags {
         margin-left: 0;
+      }
+    }
+
+    .related-posts {
+      margin: 0 0 rem(48);
+      padding: 0;
+      gap: rem(32);
+
+      @include breakpoint('large') {
+        margin-bottom: 0;
       }
     }
 
@@ -387,15 +398,5 @@
   .cite__citation {
     display: block;
     margin: rem(8) 0 rem(16) 0;
-  }
-}
-
-.related-posts {
-  margin: 0 0 rem(48);
-  padding: 0;
-  gap: rem(32);
-
-  @include breakpoint('large') {
-    margin-bottom: 0;
   }
 }

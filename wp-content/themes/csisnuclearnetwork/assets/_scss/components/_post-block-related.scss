@@ -2,15 +2,13 @@
 
 .post-block-related {
   display: block;
-  margin-right: auto;
-  margin-left: auto;
-  text-align: center;
+  max-width: rem(550);
 
   &__byline {
     display: flex;
 
     .post-meta__authors {
-      padding-left: rem(8);
+      margin-left: rem(8);
     }
 
     .post-meta__date {
