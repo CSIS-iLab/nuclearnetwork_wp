@@ -12,7 +12,7 @@
 
   @include breakpoint('large') {
     float: right;
-    margin-right: rem(-48px);
+    margin-right: -6vw;
     margin-left: rem(48px);
   }
 
