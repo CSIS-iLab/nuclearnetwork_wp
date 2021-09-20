@@ -89,6 +89,20 @@ function nuclearnetwork_body_classes( $classes ) {
 		$classes[] = 'class-bio';
 	}
 
+	// Check if subtype archive
+	$ancestors = get_ancestors(
+		get_queried_object_id(),
+		get_queried_object()->taxonomy
+	);
+	if ( !empty ( $ancestors ) ) {
+		foreach ( $ancestors as $ancestor )
+		{
+				$term     = get_term( $ancestor, get_queried_object()->taxonomy );
+				$classes[] = esc_attr( "$term->taxonomy-$term->slug" );
+		}
+	}
+
+
 	return $classes;
 
 }
