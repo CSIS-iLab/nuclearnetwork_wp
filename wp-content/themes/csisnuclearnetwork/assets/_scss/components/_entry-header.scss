@@ -3,7 +3,7 @@
 /* stylelint-disable */
 .blog,
 .tax-series,
-.tax-analysis_subtype,
+.filtered_content_types-analysis,
 .page-series {
   /* stylelint-enable */
   --page-header-bg: var(--page-header-analysis);
@@ -16,7 +16,7 @@
 
 /* stylelint-disable */
 .post-type-archive-events,
-.tax-event_types {
+.filtered_content_types-event {
   /* stylelint-enable */
   --page-header-bg: var(--page-header-events);
   --page-header-padding-bottom: #{rem(48)};
