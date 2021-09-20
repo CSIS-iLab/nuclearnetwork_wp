@@ -12,6 +12,8 @@
     }
 
     .post-meta__date {
+      color: $color-black-165;
+
       &::after {
         padding-right: rem(8);
         border-right: 1px solid $color-border-dark-130;
