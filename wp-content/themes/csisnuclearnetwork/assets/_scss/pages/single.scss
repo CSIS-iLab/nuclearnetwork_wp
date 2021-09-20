@@ -388,63 +388,14 @@
     display: block;
     margin: rem(8) 0 rem(16) 0;
   }
-
-  // #btn-copy {
-  //   color: $color-black-190;
-  //   text-transform: unset;
-  //   background: transparent;
-  //   border: 2px solid $color-black-190;
-  //   transition: all ease 0.3s;
-
-  //   &:hover {
-  //     color: $color-white-100;
-  //     background: $color-blue-400-button-blue;
-  //     border: unset;
-
-  //     svg {
-  //       color: $color-white-100;
-  //     }
-  //   }
-
-  //   &:focus {
-  //     color: $color-accent-primary-blue-200;
-  //     background: $color-bg-light-300;
-
-  //     svg {
-  //       color: $color-accent-primary-blue-200;
-  //     }
-  //   }
-
-  //   svg {
-  //     margin-right: rem(8);
-  //     color: $color-black-165;
-  //   }
-  // }
 }
 
 .related-posts {
-  // display: grid;
-  // justify-items: center;
   margin: 0 0 rem(48);
   padding: 0;
   gap: rem(32);
-  // column-gap: rem(32);
-
-  @include breakpoint('small') {
-    // --track-min-width: 160px;
-    // Sets track width, ensures that columns break in groups of 2.
-    /* stylelint-disable */
-    // grid-template-columns: repeat(auto-fill, minmax(var(--track-min-width), 1fr) minmax(var(--track-min-width), 1fr));
-    /* stylelint-enable */
-  }
-
-  @include breakpoint('medium') {
-    // --track-min-width: 266px;
-  }
 
   @include breakpoint('large') {
-    // display: flex;
-    // justify-content: center;
     margin-bottom: 0;
   }
 }
