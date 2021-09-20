@@ -323,12 +323,15 @@
     }
 
     .related-posts {
-      margin: 0 0 rem(48);
+      margin-bottom: rem(48);
       padding: 0;
-      gap: rem(32);
 
       @include breakpoint('large') {
         margin-bottom: 0;
+      }
+
+      li:first-child {
+        margin-bottom: rem(32);
       }
     }
 
