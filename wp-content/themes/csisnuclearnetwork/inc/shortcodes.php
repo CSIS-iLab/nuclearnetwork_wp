@@ -72,10 +72,11 @@ function jetpackme_custom_related( $atts ) {
 	}
 
 	echo '<hr />';
-	echo '<h2 class="single__footer-heading">';
+	echo '<h2 class="single__footer-related-heading">';
 			_e( 'Related', 'nuclearnetwork' );
 	echo '</h2>';
-	
+	echo '<div class="single__footer-related-container">';
+
 	if ( $related_posts ) {
 		echo '<div class="single__footer-related-posts">';
 			echo '<ul class="related-posts" role="list">';
@@ -92,14 +93,15 @@ function jetpackme_custom_related( $atts ) {
 
 	echo '<div class="single__footer-related-terms">';
 	if (has_category()) {
-		echo '<h3 class="single__footer-label">Topics</h3>';
+		echo '<h3 class="single__footer-label text--caps">Topics</h3>';
 		nuclearnetwork_display_categories();
 	}
 
 	if ( has_tag()) {
-		echo '<h3 class="single__footer-label">Keywords</h3>';
+		echo '<h3 class="single__footer-label text--caps">Keywords</h3>';
 		nuclearnetwork_display_tags();
 	}
+	echo '</div>';
 	echo '</div>';
 	}
 
