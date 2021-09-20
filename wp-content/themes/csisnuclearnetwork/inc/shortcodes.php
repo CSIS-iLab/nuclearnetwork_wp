@@ -80,8 +80,12 @@ function jetpackme_custom_related( $atts ) {
 	if ( $related_posts ) {
 		echo '<div class="single__footer-related-posts">';
 			echo '<ul class="related-posts" role="list">';
-					foreach( $related_posts as $post ):
+					foreach( $related_posts as $result ):
+						global $post;
+						$post = get_post($result['id']);
+
 							setup_postdata($post);
+							
 							echo '<li>';
 							get_template_part( 'template-parts/block-post-related' );
 							echo '</li>';
