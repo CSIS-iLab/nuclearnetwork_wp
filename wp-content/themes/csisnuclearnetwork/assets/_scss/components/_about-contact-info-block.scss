@@ -23,7 +23,7 @@
     text-transform: uppercase;
   }
 
-  h5 {
+  dt {
     display: block;
     margin: 0 !important;
     color: $color-accent-primary-blue-200 !important;
@@ -31,15 +31,26 @@
     text-transform: uppercase;
   }
 
-  a {
+  dd {
     display: block;
     @extend %text-style-label-medium;
     margin-bottom: rem(12px) !important;
-  }
+    color: $color-black-180;
 
-  p {
-    @extend %text-style-label-medium;
-    @include font-size(16px);
-    margin-bottom: 0 !important;
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    a {
+      &:hover,
+      &:focus {
+        color: $color-accent-primary-blue-200;
+      }
+
+      &:focus {
+        background-color: $color-bg-light-300;
+        outline: 0;
+      }
+    }
   }
 }
