@@ -21,6 +21,10 @@
         border-right: 1px solid $color-border-dark-130;
         content: '';
       }
+
+      .post-meta__label {
+        display: none;
+      }
     }
   }
 
