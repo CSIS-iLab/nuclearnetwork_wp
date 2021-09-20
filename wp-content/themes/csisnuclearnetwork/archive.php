@@ -27,11 +27,16 @@ get_header();
 
 	<?php
 		get_template_part( 'template-parts/entry-header' );
+		
+		if ( is_archive( 'author' ) ) {
+			get_template_part( 'template-parts/entry-author-bio');
+		}
 	?>
 
 	<div class='archive__content'>
 
 	<?php
+
 		if ( have_posts() ) {
 			// Pagination Results & Filters
 			if ( class_exists( 'FacetWP') && $show_filters ) {

@@ -138,6 +138,10 @@
       @include breakpoint('small') {
         @include csis-block-full-width-wrapper();
       }
+
+      .author & {
+        height: 70%;
+      }
     }
 
     .entry-header__content,
@@ -234,6 +238,14 @@
       min-width: $size__content-max-width;
       max-width: $size__header-max-width;
     }
+
+    .author & {
+      > * {
+        max-width: rem(750);
+        margin-right: auto;
+        margin-left: auto;
+      }
+    }
   }
 
   &__top {
@@ -260,6 +272,7 @@
 
   &__job-title {
     margin-top: rem(8);
+    color: $color-black-165;
   }
 
   &__title {
