@@ -90,6 +90,7 @@ function nuclearnetwork_body_classes( $classes ) {
 	}
 
 	// Check if subtype archive
+	// Borrowed from https://wordpress.stackexchange.com/a/116512
 	$ancestors = get_ancestors(
 		get_queried_object_id(),
 		get_queried_object()->taxonomy
