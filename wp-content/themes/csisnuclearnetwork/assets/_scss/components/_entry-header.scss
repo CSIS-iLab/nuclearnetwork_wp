@@ -180,6 +180,12 @@
       &:only-child {
         padding-bottom: 0;
       }
+
+      > * {
+        max-width: $size__header-max-width;
+        margin-right: auto;
+        margin-left: auto;
+      }
     }
 
     .featured-media {
