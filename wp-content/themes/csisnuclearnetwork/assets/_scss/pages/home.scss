@@ -344,6 +344,7 @@
     --hp-top-padding: #{rem(155)};
     @include vw100();
     position: relative;
+    @include z-index(hpBackground);
     height: 100%;
     margin-right: auto;
     margin-left: -6vw;
@@ -352,7 +353,8 @@
     padding-right: var(--container-padding);
     padding-left: 6vw;
     padding-left: var(--container-padding);
-    background-image: url('../../_img/homepage_bg.jpg');
+    background: $gradient-homepage-background;
+    // background-image: url('../../_img/homepage_bg.jpg');
     background-repeat: no-repeat;
     background-size: cover;
 
@@ -364,6 +366,34 @@
       margin-left: calc(((100vw - 100%) / 2) * -1);
       padding-right: rem(32);
       padding-left: rem(32);
+    }
+
+    &-top-bg,
+    &-bottom-bg {
+      position: absolute;
+      @include z-index(hpBackgroundBubbles);
+      width: 100%;
+      height: 100%;
+      margin-left: -6vw;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+
+      @include breakpoint('large') {
+        margin-left: rem(-32);
+      }
+    }
+
+    &-top-bg {
+      top: 0;
+      max-height: rem(937);
+      background-image: url('../../static/homepage-top.svg');
+    }
+
+    &-bottom-bg {
+      bottom: 0;
+      max-height: rem(835);
+      background-image: url('../../static/homepage-bottom.svg');
     }
 
     &-border {
