@@ -72,7 +72,7 @@ function jetpackme_custom_related( $atts ) {
 	}
 
 	echo '<hr />';
-	echo '<h2 class="single__footer-related-heading">';
+	echo '<h2 class="single__footer-related-heading text--bold">';
 			_e( 'Related', 'nuclearnetwork' );
 	echo '</h2>';
 	echo '<div class="single__footer-related-container">';

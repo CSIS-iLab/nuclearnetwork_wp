@@ -297,7 +297,6 @@
       color: $color-accent-primary-blue-100;
       @include font-size(28px);
       font-family: $font__lato;
-      font-weight: 900;
       letter-spacing: 0.05em;
     }
 
@@ -424,32 +423,28 @@
 }
 
 .related-posts {
-  display: grid;
-  justify-items: center;
-  margin: 0 auto rem(40);
+  // display: grid;
+  // justify-items: center;
+  margin: 0 0 rem(48);
   padding: 0;
-  row-gap: rem(32);
-  column-gap: rem(32);
+  gap: rem(32);
+  // column-gap: rem(32);
 
   @include breakpoint('small') {
-    --track-min-width: 160px;
+    // --track-min-width: 160px;
     // Sets track width, ensures that columns break in groups of 2.
     /* stylelint-disable */
-    grid-template-columns: repeat(auto-fill, minmax(var(--track-min-width), 1fr) minmax(var(--track-min-width), 1fr));
+    // grid-template-columns: repeat(auto-fill, minmax(var(--track-min-width), 1fr) minmax(var(--track-min-width), 1fr));
     /* stylelint-enable */
   }
 
   @include breakpoint('medium') {
-    --track-min-width: 266px;
+    // --track-min-width: 266px;
   }
 
   @include breakpoint('large') {
-    display: flex;
-    justify-content: center;
-    padding: 0;
-  }
-
-  > li {
-    max-width: rem(275);
+    // display: flex;
+    // justify-content: center;
+    margin-bottom: 0;
   }
 }
