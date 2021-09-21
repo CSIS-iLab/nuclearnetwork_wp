@@ -16,8 +16,6 @@ $poni_about_page = get_field('about_poni');
 
 <main id="site-content" role="main">
 	<div class="home__top">
-		<div class="home__top-top-bg"></div>
-		<div class="home__top-bottom-bg"></div>
 		<hr class="home__top-border"/>
 		<div class="home__container">
 	<!-- set up excluded posts array – important because it is used by template-parts/home-recent-section -->
@@ -69,6 +67,8 @@ $poni_about_page = get_field('about_poni');
 	<?php get_template_part( 'template-parts/home-recent-section', null, $excluded_featured_post_ids_from_recent); ?>
 	<?php get_template_part( 'template-parts/home-projects' ); ?>
 	</div>
+	<div class="home__top-top-bg"></div>
+	<div class="home__top-bottom-bg"></div>
 	</div>
 	<?php get_template_part( 'template-parts/newsletter-block-acf' ); ?>
 	<div class="home__programs-and-updates-container">
