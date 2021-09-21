@@ -344,7 +344,7 @@
     --hp-top-padding: #{rem(155)};
     @include vw100();
     position: relative;
-    @include z-index(hpBackground);
+    // @include z-index(hpBackground);
     height: 100%;
     margin-right: auto;
     margin-left: -6vw;
@@ -354,9 +354,8 @@
     padding-left: 6vw;
     padding-left: var(--container-padding);
     background: $gradient-homepage-background;
-    // background-image: url('../../_img/homepage_bg.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
+    // background-repeat: no-repeat;
+    // background-size: cover;
 
     @include breakpoint('xmedium') {
       --hp-top-padding: #{rem(395)};
@@ -424,9 +423,16 @@
   }
 
   &__container {
+    position: relative;
+    z-index: 5;
     max-width: $size__content-wide-max-width;
     margin-right: auto;
     margin-left: auto;
+
+    > * {
+      position: relative;
+      z-index: 5;
+    }
 
     @include breakpoint('xmedium') {
       padding-bottom: rem(56);
