@@ -27,6 +27,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   const homepage = document.querySelector('.home')
   const border = document.querySelector('.home__top-border')
+  const pageContent = document.querySelector('.home__top')
 
   const mobile = window.matchMedia('(max-width: 800px)')
   let siteHeaderHeight
@@ -40,15 +41,17 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const options = {
       rootMargin: `${siteHeaderHeight} 0px 0px 0px`,
-      threshold: 0,
+      threshold: 1.0,
     }
 
     const onIntersect = (entries) => {
       entries.forEach((entry) => {
         if (!entry.isIntersecting) {
           header.classList.add('full-color')
+          pageContent.classList.add('is-sticky')
         } else {
           header.classList.remove('full-color')
+          pageContent.classList.remove('is-sticky')
         }
       })
     }
