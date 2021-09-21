@@ -349,6 +349,10 @@
         }
       }
     }
+
+    #search-trigger::before {
+      border-left: 0;
+    }
   }
 
   &__top {
