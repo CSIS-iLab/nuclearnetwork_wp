@@ -19,6 +19,7 @@
 
     @include breakpoint('small') {
       @include full-width-background(transparent);
+      margin-bottom: rem(80);
       padding-right: 6vw;
       padding-right: var(--container-padding);
       padding-left: 6vw;
@@ -263,7 +264,7 @@
     max-width: $size__footer-max-width;
     margin-right: auto;
     margin-left: auto;
-    padding: rem(56) 0 rem(80);
+    padding: rem(56) 0 0;
     background: $color-postbg-200;
     @include full-width-background($color-postbg-200);
 
