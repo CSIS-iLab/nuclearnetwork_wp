@@ -7,8 +7,8 @@
   /* stylelint-disable-next-line */
   $footerBubbles: '/wp-content/themes/csisnuclearnetwork/assets/static/footer-background.svg';
   /* stylelint-disable-next-line */
-  $gradient: url($footerBubbles), linear-gradient(180deg, rgba(16, 48, 79, 0.68) 0%, rgba(53, 110, 163, 0.0966914) 30.95%, rgba(56, 115, 171, 0) 100%), linear-gradient(180.1deg, #1C4973 0.76%, #08223A 100.12%);
-  
+  $gradient: url($footerBubbles), linear-gradient(180deg, rgba(16, 48, 79, 0.68) 0%, rgba(53, 110, 163, 0.0966914) 30.95%, rgba(56, 115, 171, 0) 100%), linear-gradient(180.1deg, #1c4973 0.76%, #08223a 100.12%);
+
   position: relative;
   display: grid;
   grid-template-areas:
@@ -19,8 +19,6 @@
     'copyright';
   padding: var(--padding-container);
   color: $color-white-190;
-  background: $color-accent-primary-blue-100;
-  backdrop-filter: blur(124px);
   @extend %text-style-paragraph-medium-short;
 
   &::before {
