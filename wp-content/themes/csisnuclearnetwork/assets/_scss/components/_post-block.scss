@@ -189,6 +189,10 @@
     color: $color-black-190;
     overflow-wrap: break-word;
 
+    &:last-child {
+      margin-bottom: 0;
+    }
+
     .post-block.events & {
       margin-bottom: rem(12);
     }
