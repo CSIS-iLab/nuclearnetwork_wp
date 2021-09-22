@@ -273,13 +273,22 @@
 
     a {
       &:hover {
-        color: $color-accent-primary-blue-200;
+        color: $color-accent-secondary-yellow-100;
       }
 
       &:focus {
-        color: $color-black-100;
-        background: $color-bg-light-300;
+        background: $color-bg-blue-114;
         outline: 0;
+      }
+
+      @include breakpoint('large') {
+        &:hover {
+          color: $color-accent-primary-blue-200;
+        }
+
+        &:focus {
+          color: $color-black-100;
+        }
       }
     }
   }
