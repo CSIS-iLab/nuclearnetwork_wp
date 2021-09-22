@@ -1,13 +1,14 @@
 @use '../abstracts' as *;
 
+@use '../blocks/post/class-links-block';
 @use '../blocks/post/definition-list';
 @use '../blocks/post/gray-section';
 @use '../blocks/post/interactive';
 @use '../blocks/post/members';
 @use '../blocks/post/partners';
-@use '../components/post-block-related';
 @use '../components/about-career-block';
 @use '../components/about-contact-info-block';
+@use '../components/post-block-related';
 @use '../components/team-member-block';
 
 .single {
@@ -53,7 +54,7 @@
 
     /*----------  Headings  ----------*/
 
-    h2:not(.footnotes__heading):not(.cite__heading):not(.career-block__h2),
+    h2:not(.footnotes__heading):not(.cite__heading):not(.career-block__h2):not(.class-links-block__title),
     h3,
     h4,
     h5,
@@ -62,7 +63,7 @@
       margin-bottom: rem(8);
     }
 
-    h2:not(.footnotes__heading):not(.cite__heading):not(.career-block__h2) {
+    h2:not(.footnotes__heading):not(.cite__heading):not(.career-block__h2):not(.class-links-block__title) {
       --heading-margin-top: #{rem(56)};
       margin-bottom: rem(16);
       @extend %text-style-heading-x-large;
@@ -92,8 +93,8 @@
       @extend %text-style-long;
     }
 
-    ul,
-    ol:not(.footnotes__list):not(.easy-footnotes-wrapper):not(.career-block__li)::marker {
+    ul:not(.career-block__li):not(.class-links-block__classes),
+    ol:not(.footnotes__list):not(.easy-footnotes-wrapper) {
       margin-top: rem(16px);
       padding-left: rem(42px);
       @extend %text-style-paragraph-large;
@@ -101,7 +102,7 @@
       color: $color-gray-190;
     }
 
-    li:not(.career-block__li)::marker {
+    li:not(.career-block__li):not(.class-links-block__class) {
       padding-left: rem(18px);
     }
 
