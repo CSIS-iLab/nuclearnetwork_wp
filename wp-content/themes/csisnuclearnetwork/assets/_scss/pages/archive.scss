@@ -262,6 +262,10 @@
       @extend %text-style-paragraph-large;
       color: $color-black-190;
 
+      p:not(:last-child) {
+        margin-bottom: rem(16);
+      }
+
       @include breakpoint('large') {
         max-width: $size__content-max-width;
       }
