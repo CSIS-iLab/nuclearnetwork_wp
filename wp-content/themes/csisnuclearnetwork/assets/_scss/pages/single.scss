@@ -52,6 +52,10 @@
       display: none;
     }
 
+    > *:first-child {
+      margin-top: 0 !important;
+    }
+
     /*----------  Headings  ----------*/
 
     h2:not(.footnotes__heading):not(.cite__heading):not(.career-block__h2),
