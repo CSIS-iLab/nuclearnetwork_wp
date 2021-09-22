@@ -12,7 +12,7 @@
     }
 
     .post-meta__date {
-      color: $color-black-165;
+      --post-meta: #{$color-black-165};
 
       &::after {
         padding-right: rem(8);

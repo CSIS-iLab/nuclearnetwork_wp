@@ -885,6 +885,7 @@
         }
 
         .post-meta__date {
+          &::after,
           .post-meta__label {
             display: none;
           }
