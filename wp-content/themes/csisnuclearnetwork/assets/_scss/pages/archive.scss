@@ -206,6 +206,7 @@
 
   .archive__author {
     &-wrapper {
+      max-width: $size__content-wide-max-width;
       background-color: $color-bg-light-100;
       @include full-width-background($color-bg-light-100);
 
