@@ -1,9 +1,36 @@
 document.addEventListener('DOMContentLoaded', function () {
-  const entryHeader = document.querySelector('.entry-header')
+  const entryHeaderBlue = document.querySelector('.entry-header--blue')
+  const entryHeaderLight = document.querySelector('.entry-header--light')
   const header = document.querySelector('.header')
 
-  if (entryHeader !== null) {
-    const pageHeaderHeight = `${entryHeader.offsetHeight * -1}px`
+  if (entryHeaderBlue !== null) {
+    const pageHeaderHeight = `${entryHeaderBlue.offsetHeight * -1}px`
+
+    const entryHeaderOptions = {
+      rootMargin: `${pageHeaderHeight} 0px 0px 0px`,
+      threshold: 0,
+    }
+    console.log(entryHeaderOptions)
+
+    const onIntersect = (entries) => {
+      entries.forEach((entry) => {
+        console.log(entry)
+        if (!entry.isIntersecting) {
+          header.classList.add('full-color')
+        } else {
+          header.classList.remove('full-color')
+        }
+      })
+    }
+
+    const observer = new IntersectionObserver(onIntersect, entryHeaderOptions)
+
+    observer.observe(entryHeaderBlue)
+  }
+
+  if (entryHeaderLight !== null) {
+    const entryHeaderContent = entryHeaderLight.querySelector('.entry-header__content')
+    const pageHeaderHeight = `${(entryHeaderContent.scrollHeight + header.offsetHeight) * -1}px`
 
     const entryHeaderOptions = {
       rootMargin: `${pageHeaderHeight} 0px 0px 0px`,
@@ -22,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const observer = new IntersectionObserver(onIntersect, entryHeaderOptions)
 
-    observer.observe(entryHeader)
+    observer.observe(entryHeaderContent)
   }
 
   const homepage = document.querySelector('.home')
