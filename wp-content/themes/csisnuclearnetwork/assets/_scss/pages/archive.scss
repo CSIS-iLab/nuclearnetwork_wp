@@ -296,3 +296,15 @@
     }
   }
 }
+
+/*----------  Projects & Programs  ----------*/
+.post-type-archive-projects,
+.post-type-archive-programs {
+  .archive__content {
+    margin-bottom: rem(56);
+
+    @include breakpoint('large') {
+      margin-bottom: rem(80);
+    }
+  }
+}
