@@ -327,7 +327,7 @@
   &__grid {
     @include breakpoint('large') {
       display: grid;
-      grid-template-columns: minmax(auto, 680px) rem(300);
+      grid-template-columns: minmax(auto, 680px) calc(rem(300) + rem(56));
       justify-content: stretch;
 
       .entry-header__desc {
