@@ -22,11 +22,14 @@
   justify-content: flex-start;
   align-items: center;
   margin-top: rem(32);
-  margin-bottom: rem(48);
   color: $color-black-165;
 
-  @include breakpoint('large') {
-    margin-bottom: rem(56);
+  &:last-child {
+    margin-bottom: rem(48);
+
+    @include breakpoint('large') {
+      margin-bottom: rem(56);
+    }
   }
 
   .pagination {
