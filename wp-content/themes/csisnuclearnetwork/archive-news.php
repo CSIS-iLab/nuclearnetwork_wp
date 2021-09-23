@@ -57,10 +57,9 @@ get_header();
 			wp_reset_postdata();
 			echo "</section>";
 		}
+		get_template_part( 'template-parts/featured-image-caption' );
 	?>
 	</div>
-
-  <?php get_template_part( 'template-parts/featured-image-caption' ); ?>
 
 </main><!-- #site-content -->
 
