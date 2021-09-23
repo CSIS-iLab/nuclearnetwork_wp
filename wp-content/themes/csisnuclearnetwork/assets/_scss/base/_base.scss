@@ -11,10 +11,6 @@
   --logo-color: #{$color-black-100};
   --site-header-height: #{rem(56)};
 
-  @each $page, $values in $page-images {
-    --page-header-#{$page}: #{map.get($values, 'image')};
-  }
-
   @include breakpoint('large') {
     --logo-width: 175px;
     --logo-height: 48px;

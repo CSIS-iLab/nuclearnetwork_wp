@@ -39,7 +39,6 @@ $is_series = is_tax('series') || is_page( $series_page_id ); //Series
 $is_analysis_subtype = is_tax('analysis_subtype');
 $is_event_subtype = is_tax('event_types');
 $is_category = is_category(); //Category
-$is_author = is_author(); //Author
 $is_single = is_single();
 $post_parent_id = wp_get_post_parent_id(get_the_ID());
 
@@ -51,13 +50,6 @@ if ( $is_tag || $is_category || $is_search || $post_type === 'programs' && $is_s
 $description = get_field( 'archive_description', $object->name );
 $npn_link = get_field( 'nuclear_policy_news_link', 'option' );
 $monthly_news_link = get_field( 'monthly_newsletter_link', 'option' );
-
-$template = get_page_template_slug( get_the_ID() );
-$isNoImageTemplate = false;
-
-if ( $template === 'templates/template-no-image.php' ){
-	$isNoImageTemplate = true;
-}
 
 $archive_image = get_field('image', $object->name);
 
@@ -116,7 +108,7 @@ url(' . $archive_image_url . ')';
 		<?php
 
 
-} elseif ( $is_search ) {
+	} elseif ( $is_search ) {
 
 		$archive_title = sprintf(
 			'%1$s %2$s',
