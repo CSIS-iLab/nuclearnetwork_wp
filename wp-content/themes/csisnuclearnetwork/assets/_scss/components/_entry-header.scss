@@ -99,8 +99,6 @@
     --page-header-padding-top: #{rem(24)};
     @include csis-block-full-width-wrapper();
 
-    // margin-right: auto;
-    // margin-left: auto;
     padding: calc(var(--page-header-padding-top) + var(--site-header-height)) var(--container-padding, 6vw) var(--page-header-padding-bottom);
     background-color: $color-blue-000;
 

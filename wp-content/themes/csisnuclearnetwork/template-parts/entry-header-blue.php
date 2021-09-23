@@ -128,7 +128,7 @@ url(' . $archive_image_url . ')';
 			<div class="entry-header__newsletter communication-block desktop-only">
 				<h2>Monthly Newsletter</h2>
 				<p>Get PONI Program Updates delivered directly to your inbox by signing up for our monthly newsletter!</p>
-				<a href="<?php echo $monthly_news_link; ?>" class="btn btn--blue">Subscribe</a>
+				<a href="<?php echo $monthly_news_link; ?>" class="btn btn--teal">Subscribe</a>
 			</div>
 		</div>
 		<?php
@@ -151,7 +151,7 @@ url(' . $archive_image_url . ')';
 		the_archive_title( '<h1 class="' . $title_classes . '">', '</h1>' ); ?>
 		<div class="entry-header__desc text--short"><?php echo $description; ?></div>
 
-		<a href="<?php echo $npn_link; ?>" class="btn entry-header__news-btn">Subscribe to the Newsletter</a>
+		<a href="<?php echo $npn_link; ?>" class="btn btn--teal entry-header__news-btn">Subscribe to the Newsletter</a>
 		<?php
 
 	} elseif ( $is_home ) {
