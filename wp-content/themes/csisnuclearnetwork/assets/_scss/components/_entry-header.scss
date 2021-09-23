@@ -104,6 +104,11 @@
     --page-header-title-color: #{$color-white-190};
     --page-header-title-margin-bottom: #{rem(12)};
     --page-header-padding-top: #{rem(24)};
+    @include csis-block-full-width-wrapper();
+    background-color: $color-blue-000;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 
     padding: calc(var(--page-header-padding-top) + var(--site-header-height)) 0 var(--page-header-padding-bottom);
 
@@ -113,7 +118,7 @@
 
     &::before {
       @include csis-block-full-width-wrapper();
-      background: var(--page-header-bg);
+      // background: var(--page-header-bg);
       background-color: $color-blue-000;
       background-repeat: no-repeat;
       background-position: center;
