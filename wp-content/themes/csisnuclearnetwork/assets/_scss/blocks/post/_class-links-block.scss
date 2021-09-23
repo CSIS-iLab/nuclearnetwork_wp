@@ -44,5 +44,15 @@
   &__link {
     color: $color-accent-primary-blue-200;
     @extend %text-style-label-large;
+
+    &:hover,
+    &:focus {
+      color: $color-accent-primary-blue-100;
+    }
+
+    &:focus {
+      background-color: $color-bg-light-400;
+      outline: 0;
+    }
   }
 }
