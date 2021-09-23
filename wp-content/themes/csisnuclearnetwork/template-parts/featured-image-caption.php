@@ -48,6 +48,8 @@ if ( $is_home || $is_series || $is_series_page || $subtype === 'analysis-filtere
 	$archive_image = get_field('general_archive_header_image', 'option');
 } elseif ( $subtype === 'event-filtered_content_types' ) {
 	$archive_image = get_field('image', $term->name . 's');
+} elseif ( $post_type === 'programs' && $is_single && $post_parent_id ) {
+	$archive_image = get_field('image', $object->post_type);
 }
 
 	$caption = $archive_image['caption'];
