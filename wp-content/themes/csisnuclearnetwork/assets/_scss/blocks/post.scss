@@ -1,6 +1,8 @@
 @use '../abstracts' as *;
 
 @use 'post/blockquote';
+@use 'post/class-links-block';
+@use 'post/download-btn';
 @use 'post/button';
 @use 'post/publications';
 
