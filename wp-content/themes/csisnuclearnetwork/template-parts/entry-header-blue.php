@@ -36,8 +36,6 @@ $series_page = get_field('series_page', 'option'); // Series page as archive
 $series_page_id = $series_page->ID;
 $is_series_page = is_page($series_page_id);
 $is_series = is_tax('series') || is_page( $series_page_id ); //Series
-$is_analysis_subtype = is_tax('analysis_subtype');
-$is_event_subtype = is_tax('event_types');
 $is_category = is_category(); //Category
 $is_single = is_single();
 $post_parent_id = wp_get_post_parent_id(get_the_ID());
@@ -53,11 +51,11 @@ $monthly_news_link = get_field( 'monthly_newsletter_link', 'option' );
 
 $archive_image = get_field('image', $object->name);
 
-if ( $is_home || $is_series || $is_series_page || $subtype === 'analysis-filtered_content_types') {
+if ( $is_home || $is_series || $is_series_page || $subtype === 'analysis-filtered_content_types' ) {
 	$archive_image = get_field('image', $page_for_posts);
-} elseif ( $is_category || $is_tag || $is_search) {
+} elseif ( $is_category || $is_tag || $is_search ) {
 	$archive_image = get_field('general_archive_header_image', 'option');
-} elseif ( $subtype === 'event-filtered_content_types') {
+} elseif ( $subtype === 'event-filtered_content_types' ) {
 	$archive_image = get_field('image', $term->name . 's');
 }
 
@@ -69,7 +67,7 @@ url(' . $archive_image_url . ')';
 <header class="entry-header entry-header--blue" style="background: <?php echo $archive_header_bg; ?> center / cover no-repeat">
 
 <?php
-	if ( $is_series || $is_analysis_subtype ) {
+	if ( $is_series || $subtype === 'analysis-filtered_content_types' ) {
 		if ( is_page( $series_page_id ) ) {
 			the_title( '<h1 class="' . $title_classes . '"> Analysis / <span class="entry-header__title-secondary">', '</span></h1>' );
 		} else {
@@ -97,7 +95,7 @@ url(' . $archive_image_url . ')';
 			</div>
 			<?php
 
-	} elseif ( $is_event_subtype ) { ?>
+	} elseif ( $subtype === 'event-filtered_content_types' ) { ?>
 
 		<?php
 		the_archive_title( '<h1 class="' . $title_classes . '"> Events / <span class="entry-header__title-secondary">', '</span></h1>' ); ?>
