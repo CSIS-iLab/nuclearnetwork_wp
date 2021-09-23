@@ -28,7 +28,7 @@ get_header();
 	<?php
 		get_template_part( 'template-parts/entry-header' );
 		
-		if ( is_archive( 'author' ) ) {
+		if ( is_author() ) {
 			get_template_part( 'template-parts/entry-author-bio');
 		}
 	?>

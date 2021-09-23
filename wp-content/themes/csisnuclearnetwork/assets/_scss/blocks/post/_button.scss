@@ -1,0 +1,9 @@
+@use '../abstracts' as *;
+
+.wp-block-lazyblock-button {
+  a {
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+  }
+}

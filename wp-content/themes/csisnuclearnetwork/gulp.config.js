@@ -36,7 +36,7 @@ module.exports = {
   js: {
     src: '_js',
     dest: 'js',
-    entry: ['vendor/vendor.js', 'vendor/skip-link-focus-fix.js', 'custom/bundle.js', 'custom/archive.js', 'custom/carousel.js', 'custom/header.js'],
+    entry: ['vendor/vendor.js', 'vendor/skip-link-focus-fix.js', 'custom/bundle.js', 'custom/archive.js', 'custom/carousel.js', 'custom/header.js', 'custom/entry-header-image.js'],
   },
 
   sass: {

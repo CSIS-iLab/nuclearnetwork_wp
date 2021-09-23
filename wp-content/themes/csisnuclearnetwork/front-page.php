@@ -67,6 +67,8 @@ $poni_about_page = get_field('about_poni');
 	<?php get_template_part( 'template-parts/home-recent-section', null, $excluded_featured_post_ids_from_recent); ?>
 	<?php get_template_part( 'template-parts/home-projects' ); ?>
 	</div>
+	<div class="home__top-top-bg"></div>
+	<div class="home__top-bottom-bg"></div>
 	</div>
 	<?php get_template_part( 'template-parts/newsletter-block-acf' ); ?>
 	<div class="home__programs-and-updates-container">

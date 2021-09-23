@@ -29,7 +29,7 @@ get_template_part( 'template-parts/entry-header' );
 		?>
 	</div><!-- .post-inner -->
 	
-	<?php if ( is_single() ) { ?>
+	<?php if ( is_single() && get_post_type() === 'post' ) { ?>
 	<footer class="single__footer">
 		<?php
 
