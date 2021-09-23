@@ -62,7 +62,7 @@ get_header();
 
 			<h2 class="search-form__title"><?php esc_html_e( 'No Results', 'nuclearnetwork' ); ?></h2>
 
-			<p class="search-form__desc"><?php esc_html_e( 'Sorry, but nothing matched your search terms. Please try again with different keywords.', 'nuclearnetwork' ); ?></p>
+			<p class="search-form__desc text--long"><?php esc_html_e( 'Sorry, but nothing matched your search terms. Please try again with different keywords.', 'nuclearnetwork' ); ?></p>
 
 				<?php
 				get_search_form(

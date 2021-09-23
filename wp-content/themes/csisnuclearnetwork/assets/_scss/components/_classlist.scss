@@ -27,6 +27,7 @@
   &__bio {
     @extend %text-style-paragraph-medium-short;
     margin-bottom: rem(32);
+    color: $color-black-165;
   }
 
   &__info {

@@ -3,7 +3,8 @@
 /* stylelint-disable */
 .blog,
 .tax-series,
-.tax-analysis_subtype {
+.filtered_content_types-analysis,
+.page-series {
   /* stylelint-enable */
   --page-header-bg: var(--page-header-analysis);
   --page-header-padding-bottom: #{rem(40)};
@@ -15,7 +16,7 @@
 
 /* stylelint-disable */
 .post-type-archive-events,
-.tax-event_types {
+.filtered_content_types-event {
   /* stylelint-enable */
   --page-header-bg: var(--page-header-events);
   --page-header-padding-bottom: #{rem(48)};
@@ -326,7 +327,7 @@
   &__grid {
     @include breakpoint('large') {
       display: grid;
-      grid-template-columns: minmax(auto, 680px) rem(300);
+      grid-template-columns: minmax(auto, 680px) calc(rem(300) + rem(56));
       justify-content: stretch;
 
       .entry-header__desc {

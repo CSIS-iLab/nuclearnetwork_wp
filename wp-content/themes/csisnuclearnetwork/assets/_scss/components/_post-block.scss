@@ -189,6 +189,10 @@
     color: $color-black-190;
     overflow-wrap: break-word;
 
+    &:last-child {
+      margin-bottom: 0;
+    }
+
     .post-block.events & {
       margin-bottom: rem(12);
     }
@@ -437,7 +441,7 @@
     }
 
     /* stylelint-disable */
-    &[href*="//"]:not([href*="nuclearnetwork.local"]):not([href*="localhost"]):not([href*="nuclearnetwork"])
+    &[href*="//"]:not([href*="nuclearnetwork.local"]):not([href*="localhost"]):not([href*="nuclearnetwork"]):not([href*="csisngnndev"]):not([href*="csisngnnstage"])
     {
       /* stylelint-enable */
       h3::after {

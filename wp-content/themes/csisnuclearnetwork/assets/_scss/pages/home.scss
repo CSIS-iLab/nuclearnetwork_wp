@@ -13,7 +13,7 @@
   .header {
     &__inner {
       height: var(--hp-top-padding);
-      transition: height 0.3s ease-in;
+      transition: height 0.5s ease-in;
 
       @include breakpoint('xmedium') {
         display: grid;
@@ -31,9 +31,17 @@
       height: 0;
       margin: 0;
       padding: 0;
+      transform: scale(0);
       opacity: 0;
-      transition: width 0.3s ease-in, opacity 0.3s ease-in;
       pointer-events: none;
+    }
+
+    &__logo--desktop {
+      transition: transform 0.5s ease-in;
+    }
+
+    &__logo--mobile {
+      transition: transform 0.3s ease-in;
     }
 
     &__logo--home {
@@ -45,7 +53,7 @@
       padding: rem(16) 0;
       text-align: center;
       opacity: 1;
-      transition: width 0.3s ease-in, opacity 0.3s ease-in;
+      transition: transform 0.5s ease-out;
 
       @include breakpoint('small') {
         width: rem(320);
@@ -72,6 +80,7 @@
         height: 0;
         margin: 0;
         padding: 0;
+        transform: scale(0);
         opacity: 0;
       }
 
@@ -79,6 +88,7 @@
         width: auto;
         height: auto;
         margin: auto;
+        transform: scale(1);
         opacity: 1;
         pointer-events: initial;
       }
@@ -107,6 +117,7 @@
           height: auto;
           margin: initial;
           padding: initial;
+          transform: scale(1);
           opacity: 1;
           pointer-events: initial;
         }
@@ -338,6 +349,10 @@
         }
       }
     }
+
+    #search-trigger::before {
+      border-left: 0;
+    }
   }
 
   &__top {
@@ -352,9 +367,7 @@
     padding-right: var(--container-padding);
     padding-left: 6vw;
     padding-left: var(--container-padding);
-    background-image: url('../../_img/homepage_bg.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
+    background: $gradient-homepage-background;
 
     @include breakpoint('xmedium') {
       --hp-top-padding: #{rem(395)};
@@ -364,6 +377,33 @@
       margin-left: calc(((100vw - 100%) / 2) * -1);
       padding-right: rem(32);
       padding-left: rem(32);
+    }
+
+    &-top-bg,
+    &-bottom-bg {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      margin-left: -6vw;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+
+      @include breakpoint('large') {
+        margin-left: rem(-32);
+      }
+    }
+
+    &-top-bg {
+      top: 0;
+      max-height: rem(937);
+      background-image: url('../../static/homepage-top.svg');
+    }
+
+    &-bottom-bg {
+      bottom: 0;
+      max-height: rem(835);
+      background-image: url('../../static/homepage-bottom.svg');
     }
 
     &-border {
@@ -397,6 +437,11 @@
     max-width: $size__content-wide-max-width;
     margin-right: auto;
     margin-left: auto;
+
+    > * {
+      position: relative;
+      @include z-index(hpContent);
+    }
 
     @include breakpoint('xmedium') {
       padding-bottom: rem(56);
@@ -885,6 +930,7 @@
         }
 
         .post-meta__date {
+          &::after,
           .post-meta__label {
             display: none;
           }

@@ -2,6 +2,16 @@
 
 @use '../components/entry-header';
 
+.error404 {
+  .entry-header {
+    @include breakpoint('small') {
+      &::before {
+        height: 80%;
+      }
+    }
+  }
+}
+
 .error-404 {
   color: $color-black-190;
   background-color: $color-white-190;
@@ -12,6 +22,10 @@
 
   @include breakpoint('small') {
     margin-bottom: rem(48);
+    padding-right: 6vw;
+    padding-right: var(--container-padding);
+    padding-left: 6vw;
+    padding-left: var(--container-padding);
   }
 
   a {

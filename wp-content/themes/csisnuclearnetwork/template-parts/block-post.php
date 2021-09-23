@@ -82,43 +82,46 @@ if ( $is_monthly_newsletter ) {
 		nuclearnetwork_posted_on('Y'); ?>
 	</a>
 	<?php
-	} elseif ( $post_type === 'events' ) { ?>
-		<div class="post-block__event-content">
-			<?php
-			if ( $event_date ) { ?>
-			<div class="post-block__event-date"><?php echo $event_date; ?></div>
-			<?php
-			}
-			nuclearnetwork_display_subtypes();
-			the_title( '<h3 class="post-block__title text--bold"><a href="' . esc_url( get_permalink() ) . '">', '</a></h3>' );
-			the_excerpt(); 
-			if ( isset($event_info['event_registration_link']) && !empty($event_info['event_registration_link']) && $is_future_event && !$legacy_event_date ) { ?>
-			<a href="<?php echo esc_url( $event_info['event_registration_link'] ); ?>" class="post-block__register btn btn--outline-blue">Register<?php echo nuclearnetwork_get_svg( 'arrow-external' ); ?></a>
-			<?php
-			} ?>
-		</div>
+} elseif ( $post_type === 'events' ) { ?>
+	<div class="post-block__event-content">
 		<?php
-		if ( $event_start_time || $event_location ) { ?>
-		<div class="post-block__event-meta">
-			<?php
-			if ( $event_start_time ) { ?>
-			<dl class="post-meta post-meta__event"><dt class="post-meta__label">Time</dt><dd><?php echo $event_time; ?></dd></dl>
-			<?php
-			}
-			if ( $event_location ) { ?>
-			<dl class="post-meta post-meta__event"><dt class="post-meta__label">Location</dt><dd><?php echo $event_location; ?></dd></dl>
-			<?php
-			} ?>
-		</div>
+		if ( $event_date ) { ?>
+		<div class="post-block__event-date"><?php echo $event_date; ?></div>
 		<?php
-	}
-	} else {
+		}
 		nuclearnetwork_display_subtypes();
 		the_title( '<h3 class="post-block__title text--bold"><a href="' . esc_url( get_permalink() ) . '">', '</a></h3>' );
-		nuclearnetwork_authors();
-		nuclearnetwork_posted_on('M j, Y');
-		the_excerpt();
-		nuclearnetwork_display_series();
-	} 
-	?>
+		the_excerpt(); 
+		if ( isset($event_info['event_registration_link']) && !empty($event_info['event_registration_link']) && $is_future_event && !$legacy_event_date ) { ?>
+		<a href="<?php echo esc_url( $event_info['event_registration_link'] ); ?>" class="post-block__register btn btn--outline-blue">Register<?php echo nuclearnetwork_get_svg( 'arrow-external' ); ?></a>
+		<?php
+		} ?>
+	</div>
+	<?php
+	if ( $event_start_time || $event_location ) { ?>
+	<div class="post-block__event-meta">
+		<?php
+		if ( $event_start_time ) { ?>
+		<dl class="post-meta post-meta__event"><dt class="post-meta__label">Time</dt><dd><?php echo $event_time; ?></dd></dl>
+		<?php
+		}
+		if ( $event_location ) { ?>
+		<dl class="post-meta post-meta__event"><dt class="post-meta__label">Location</dt><dd><?php echo $event_location; ?></dd></dl>
+		<?php
+		} ?>
+	</div>
+	<?php
+	}
+} elseif ( in_array( $post_type, array( 'projects', 'programs' ) ) ) {
+	the_title( '<h3 class="post-block__title text--bold"><a href="' . esc_url( get_permalink() ) . '">', '</a></h3>' );
+	the_excerpt();
+} else {
+	nuclearnetwork_display_subtypes();
+	the_title( '<h3 class="post-block__title text--bold"><a href="' . esc_url( get_permalink() ) . '">', '</a></h3>' );
+	nuclearnetwork_authors();
+	nuclearnetwork_posted_on('M j, Y');
+	the_excerpt();
+	nuclearnetwork_display_series();
+} 
+?>
 </article><!-- .post -->
