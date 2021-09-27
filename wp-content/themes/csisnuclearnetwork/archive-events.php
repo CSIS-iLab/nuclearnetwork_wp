@@ -72,6 +72,7 @@ get_header();
 			echo "</section>";
     }
 
+		get_template_part( 'template-parts/featured-image-caption' );
 	?>
 	</div>
 

@@ -6,7 +6,6 @@
 .filtered_content_types-analysis,
 .page-series {
   /* stylelint-enable */
-  --page-header-bg: var(--page-header-analysis);
   --page-header-padding-bottom: #{rem(40)};
 
   @include breakpoint('large') {
@@ -18,7 +17,6 @@
 .post-type-archive-events,
 .filtered_content_types-event {
   /* stylelint-enable */
-  --page-header-bg: var(--page-header-events);
   --page-header-padding-bottom: #{rem(48)};
 
   @include breakpoint('large') {
@@ -27,7 +25,6 @@
 }
 
 .post-type-archive-programs {
-  --page-header-bg: var(--page-header-programs);
   --page-header-padding-bottom: #{rem(48)};
 
   @include breakpoint('large') {
@@ -36,7 +33,6 @@
 }
 
 .post-type-archive-projects {
-  --page-header-bg: var(--page-header-projects);
   --page-header-padding-bottom: #{rem(48)};
 
   @include breakpoint('large') {
@@ -45,7 +41,6 @@
 }
 
 .post-type-archive-news {
-  --page-header-bg: var(--page-header-npn);
   --page-header-padding-bottom: #{rem(48)};
 
   @include breakpoint('large') {
@@ -54,7 +49,6 @@
 }
 
 .post-type-archive-updates {
-  --page-header-bg: var(--page-header-updates);
   --page-header-padding-bottom: #{rem(40)};
 
   @include breakpoint('large') {
@@ -63,7 +57,6 @@
 }
 
 .single-programs {
-  --page-header-bg: var(--page-header-programs);
   --page-header-padding-bottom: #{rem(48)};
 
   @include breakpoint('large') {
@@ -104,20 +97,13 @@
     --page-header-title-color: #{$color-white-190};
     --page-header-title-margin-bottom: #{rem(12)};
     --page-header-padding-top: #{rem(24)};
+    @include csis-block-full-width-wrapper();
 
-    padding: calc(var(--page-header-padding-top) + var(--site-header-height)) 0 var(--page-header-padding-bottom);
+    padding: calc(var(--page-header-padding-top) + var(--site-header-height)) var(--container-padding, 6vw) var(--page-header-padding-bottom);
+    background-color: $color-blue-000;
 
     @include breakpoint('large') {
       --page-header-padding-top: #{rem(56)};
-    }
-
-    &::before {
-      @include csis-block-full-width-wrapper();
-      background: var(--page-header-bg);
-      background-color: $color-blue-000;
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: cover;
     }
   }
 

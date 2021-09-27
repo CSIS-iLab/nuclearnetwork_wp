@@ -16,9 +16,10 @@
 
   &__content {
     max-width: var(--content-width, #{$size__archive-max-width});
-    margin-top: rem(32);
-    margin-right: auto;
-    margin-left: auto;
+    margin: rem(32) auto;
+    // margin-top: rem(32);
+    // margin-right: auto;
+    // margin-left: auto;
 
     @include breakpoint('small') {
       margin-top: rem(40);
@@ -37,6 +38,16 @@
     max-width: var(--postlist-width, 100%);
     margin-right: auto;
     margin-left: auto;
+  }
+
+  &__header-image-caption {
+    @extend %text-style-paragraph-small;
+    margin-top: rem(48);
+    color: $color-black-165;
+
+    @include breakpoint('large') {
+      margin-top: rem(56);
+    }
   }
 
   /*----------  Filters  ----------*/
@@ -158,15 +169,10 @@
 .post-type-archive-news {
   .archive__content {
     display: grid;
-    margin-bottom: rem(56);
 
     @include breakpoint('medium') {
       grid-template-columns: auto minmax(auto, var(--sidebar-width));
       column-gap: rem(40);
-    }
-
-    @include breakpoint('large') {
-      margin-bottom: rem(80);
     }
   }
 
@@ -302,8 +308,7 @@
   }
 }
 
-/*----------  Projects & Programs  ----------*/
-.post-type-archive-projects,
+/*----------  Programs  ----------*/
 .post-type-archive-programs {
   .archive__content {
     margin-bottom: rem(56);

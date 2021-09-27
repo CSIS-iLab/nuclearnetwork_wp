@@ -95,32 +95,10 @@ get_header();
 			get_template_part( 'template-parts/pagination' );
 		}
 
-		if (class_exists('ACF') && !is_paged()) {
-			$cards = get_field('card', $term);
-
-			if ( $cards ) { ?>
-				<div class="cards__container">
-				<?php foreach( $cards as $card) {
-					if ( $card['card_description'] ) {
-
-						$link = $card['page_link'];
-						?>
-					<div class='card' style="background-image: url('<?php echo esc_url($card['background_image']); ?>');">
-						<a href="<?php echo esc_url($link['url'])  ?>" class="card__link">
-							<?php if($card['card_title']) {
-								echo '<h2 class="card__title">' . $card['card_title'] . '</h2>';
-							} else {
-								echo '<h2 class="card__title">' . $link['title'] . '</h2>';
-							} ?>
-							<?php echo '<p class="card__description">' . nuclearnetwork_get_svg( 'single-arrow' ) . $card['card_description'] . '</p>'; ?>
-						</a>
-					</div><!-- .card -->
-				<?php }
-				} ?>
-			</div><!-- .cards__container -->
-			<?php
-			}
+		if ( !is_author() ) {
+			get_template_part( 'template-parts/featured-image-caption' );
 		}
+
 	?>
 	</div>
 

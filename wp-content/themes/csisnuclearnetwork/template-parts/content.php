@@ -43,7 +43,6 @@ get_template_part( 'template-parts/entry-header' );
 			nuclearnetwork_citation();
 			echo '</div></div>';
 			echo do_shortcode( '[jprel]' );
-			// get_template_part( 'template-parts/featured-image-caption' );
 		?>
 	</footer>
 	<?php } ?>

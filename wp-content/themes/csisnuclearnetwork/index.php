@@ -89,7 +89,11 @@ get_header();
 		} else {
 			get_template_part( 'template-parts/pagination' );
 		}
-	?>
+
+		if ( $is_analysis_archive ) {
+			get_template_part( 'template-parts/featured-image-caption' );
+		}
+		?>
 	</div>
 
 </main><!-- #site-content -->

@@ -7,6 +7,20 @@
  * @since 1.0.0
  */
 
+	// Borrowed from https://wordpress.stackexchange.com/a/116512
+	$ancestors = get_ancestors(
+		get_queried_object_id(),
+		get_queried_object()->taxonomy
+	);
+	if ( !empty ( $ancestors ) ) {
+		foreach ( $ancestors as $ancestor )
+		{
+				$term     = get_term( $ancestor, get_queried_object()->taxonomy );
+				$subtype = esc_attr( "$term->slug-$term->taxonomy" );
+		}
+	}
+
+
 $object = get_queried_object();
 
 $is_archive = is_archive(); //Not search, 404 or Analysis
@@ -20,11 +34,9 @@ $page_for_posts = get_option( 'page_for_posts' );
 $is_tag = is_tag(); //Tag
 $series_page = get_field('series_page', 'option'); // Series page as archive
 $series_page_id = $series_page->ID;
+$is_series_page = is_page($series_page_id);
 $is_series = is_tax('series') || is_page( $series_page_id ); //Series
-$is_analysis_subtype = is_tax('analysis_subtype');
-$is_event_subtype = is_tax('event_types');
 $is_category = is_category(); //Category
-$is_author = is_author(); //Author
 $is_single = is_single();
 $post_parent_id = wp_get_post_parent_id(get_the_ID());
 
@@ -37,20 +49,27 @@ $description = get_field( 'archive_description', $object->name );
 $npn_link = get_field( 'nuclear_policy_news_link', 'option' );
 $monthly_news_link = get_field( 'monthly_newsletter_link', 'option' );
 
-$template = get_page_template_slug( get_the_ID() );
-$isNoImageTemplate = false;
+$archive_image = get_field('image', $object->name);
 
-if ( $template === 'templates/template-no-image.php' ){
-	$isNoImageTemplate = true;
+if ( $is_home || $is_series || $is_series_page || $subtype === 'analysis-filtered_content_types' ) {
+	$archive_image = get_field('image', $page_for_posts);
+} elseif ( $is_category || $is_tag || $is_search ) {
+	$archive_image = get_field('general_archive_header_image', 'option');
+} elseif ( $subtype === 'event-filtered_content_types' ) {
+	$archive_image = get_field('image', $term->name . 's');
+} elseif ( $post_type === 'programs' && $is_single && $post_parent_id ) {
+	$archive_image = get_field('image', $object->post_type);
 }
 
+$archive_image_url = $archive_image['url'];
+$archive_header_bg = 'linear-gradient(0deg, rgba(2, 99, 190, 0.43), rgba(2, 99, 190, 0.43)),
+url(' . $archive_image_url . ')';
 ?>
 
-<header class="entry-header entry-header--blue">
+<header class="entry-header entry-header--blue" style="background: <?php echo $archive_header_bg; ?> center / cover no-repeat">
 
 <?php
-
-	if ( $is_series || $is_analysis_subtype ) {
+	if ( $is_series || $subtype === 'analysis-filtered_content_types' ) {
 		if ( is_page( $series_page_id ) ) {
 			the_title( '<h1 class="' . $title_classes . '"> Analysis / <span class="entry-header__title-secondary">', '</span></h1>' );
 		} else {
@@ -78,7 +97,7 @@ if ( $template === 'templates/template-no-image.php' ){
 			</div>
 			<?php
 
-	} elseif ( $is_event_subtype ) { ?>
+	} elseif ( $subtype === 'event-filtered_content_types' ) { ?>
 
 		<?php
 		the_archive_title( '<h1 class="' . $title_classes . '"> Events / <span class="entry-header__title-secondary">', '</span></h1>' ); ?>
@@ -89,7 +108,7 @@ if ( $template === 'templates/template-no-image.php' ){
 		<?php
 
 
-} elseif ( $is_search ) {
+	} elseif ( $is_search ) {
 
 		$archive_title = sprintf(
 			'%1$s %2$s',
@@ -111,7 +130,7 @@ if ( $template === 'templates/template-no-image.php' ){
 			<div class="entry-header__newsletter communication-block desktop-only">
 				<h2>Monthly Newsletter</h2>
 				<p>Get PONI Program Updates delivered directly to your inbox by signing up for our monthly newsletter!</p>
-				<a href="<?php echo $monthly_news_link; ?>" class="btn btn--blue">Subscribe</a>
+				<a href="<?php echo $monthly_news_link; ?>" class="btn btn--teal">Subscribe</a>
 			</div>
 		</div>
 		<?php
@@ -134,7 +153,7 @@ if ( $template === 'templates/template-no-image.php' ){
 		the_archive_title( '<h1 class="' . $title_classes . '">', '</h1>' ); ?>
 		<div class="entry-header__desc text--short"><?php echo $description; ?></div>
 
-		<a href="<?php echo $npn_link; ?>" class="btn entry-header__news-btn">Subscribe to the Newsletter</a>
+		<a href="<?php echo $npn_link; ?>" class="btn btn--teal entry-header__news-btn">Subscribe to the Newsletter</a>
 		<?php
 
 	} elseif ( $is_home ) {
