@@ -76,8 +76,13 @@ get_header();
 		if ( have_posts() ) {
 			echo '<section class="archive__postlist">';
 			while ( have_posts() ) {
-				the_post();
-				get_template_part( 'template-parts/block-post', get_post_type() );
+
+
+					the_post();
+					if (!get_post_parent()){
+						get_template_part( 'template-parts/block-post', get_post_type() );
+					}
+				
 			}
 			wp_reset_postdata();
 			echo "</section>";
