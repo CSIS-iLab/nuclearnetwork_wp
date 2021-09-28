@@ -842,6 +842,7 @@
         'news'
         'twitter';
       grid-template-columns: 1fr;
+      grid-template-rows: repeat(3, min-content);
       padding-top: rem(40);
     }
 
