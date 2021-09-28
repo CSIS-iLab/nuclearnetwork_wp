@@ -96,6 +96,11 @@
   letter-spacing: 0.01em;
 }
 
+%text-style-label-medium-strong {
+  @extend %text-style-label-medium;
+  font-weight: 700;
+}
+
 %text-style-label-small {
   @include font-size(14px);
   font-family: $font__pt;
