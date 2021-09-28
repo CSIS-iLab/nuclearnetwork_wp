@@ -98,7 +98,7 @@
       @extend %text-style-long;
     }
 
-    ul:not(.career-block__li):not(.class-links-block__classes),
+    ul:not(.career-block__li):not(.class-links-block__classes):not(.team-member-block__ul),
     ol:not(.footnotes__list):not(.easy-footnotes-wrapper) {
       margin-top: rem(16px);
       padding-left: rem(42px);
@@ -107,7 +107,7 @@
       color: $color-gray-190;
     }
 
-    li:not(.career-block__li):not(.class-links-block__class) {
+    li:not(.career-block__li):not(.class-links-block__class):not(.team-member-block__ul li) {
       padding-left: rem(18px);
     }
 
@@ -303,7 +303,6 @@
       color: $color-accent-primary-blue-100;
       @include font-size(28px);
       font-family: $font__lato;
-      letter-spacing: 0.05em;
     }
 
     &-related-container {
@@ -333,12 +332,33 @@
       padding: 0;
 
       @include breakpoint('large') {
+        margin-top: 0;
         margin-bottom: 0;
       }
 
       li:first-child {
         margin-bottom: rem(32);
       }
+    }
+
+    .post-block-related__title {
+      margin-bottom: rem(8);
+    }
+
+    .post__authors {
+      margin-top: 0;
+    }
+
+    .post__authors-heading {
+      margin-bottom: rem(12);
+    }
+
+    .post__authors-disclaimer {
+      margin-bottom: rem(24);
+    }
+
+    .post__authors-author {
+      margin-bottom: rem(16);
     }
 
     &-label {
