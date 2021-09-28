@@ -1,6 +1,6 @@
 <?php
 /**
- * Displays the featured image
+ * Displays the featured image on light entry headers
  *
  * @package CSIS iLab
  * @subpackage @package NuclearNetwork
@@ -10,7 +10,9 @@
 $is_singular = is_singular();
 $is_front_page = is_front_page();
 
-if ( has_post_thumbnail() && ! post_password_required() ) {
+if ( has_post_thumbnail() && ! post_password_required() && !is_page_template( 'templates/template-no-image.php' ) ) {
+
+	$caption = get_the_post_thumbnail_caption();
 
 	?>
 
@@ -29,6 +31,12 @@ if ( has_post_thumbnail() && ! post_password_required() ) {
 			}
 		?>
 		</div>
+		<?php
+
+			if ( $caption ) {
+				echo '<div class="featured-media__caption">' . esc_html( $caption ) . '</div>';
+			}
+		?>
 	</figure><!-- .featured-media -->
 
 	<?php

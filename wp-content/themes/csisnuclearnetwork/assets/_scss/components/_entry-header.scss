@@ -178,8 +178,8 @@
     .featured-media {
       width: 100%;
 
-      @include breakpoint('large') {
-        img {
+      img {
+        @include breakpoint('large') {
           margin-right: auto;
           margin-left: auto;
         }
@@ -192,7 +192,6 @@
         height: fit-content;
         margin-right: auto;
         margin-left: auto;
-
         /* stylelint-disable */
         &::after {
           @include z-index('entryHeaderImgFlair');
@@ -205,6 +204,15 @@
           background-color: $color-accent-secondary-yellow-100;
         }
         /* stylelint-enable */
+      }
+
+      &__caption {
+        @extend %text-style-paragraph-medium-short;
+        max-width: $size__content-max-width;
+        margin-top: calc(rem(12) + rem(8)); //The margin from the mockup plus the height of the pseudo element
+        margin-right: auto;
+        margin-left: auto;
+        color: $color-black-165;
       }
     }
 
