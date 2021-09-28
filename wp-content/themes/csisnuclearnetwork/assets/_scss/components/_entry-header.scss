@@ -399,8 +399,14 @@
 
     .write-for-us {
       --write-title-color: #{$color-accent-secondary-yellow-100};
+      --write-title-hover-color: #{$color-white-100};
+      --write-title-focus-color: #{$color-white-100};
+      --write-title-focus-bg-color: #{$color-accent-primary-blue-100};
       --write-body-color: #{$color-white-100};
       --write-link-color: #{$color-white-100};
+      --write-link-hover-color: #{$color-accent-secondary-yellow-100};
+      --write-link-focus-color: #{$color-white-100};
+      --write-link-focus-bg-color: #{$color-accent-primary-blue-100};
     }
   }
 
