@@ -918,7 +918,7 @@
         text-align: left;
 
         &__title {
-          @extend %text-style-heading-medium;
+          @extend %text-style-heading-medium-strong;
           color: $color-white-100;
 
           &:hover {
