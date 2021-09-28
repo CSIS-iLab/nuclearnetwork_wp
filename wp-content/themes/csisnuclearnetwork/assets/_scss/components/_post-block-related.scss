@@ -29,7 +29,7 @@
   &__title {
     margin-bottom: rem(12);
     color: $color-black-100;
-    @extend %text-style-heading-medium;
+    @extend %text-style-heading-medium-strong;
 
     &:hover {
       color: $color-accent-primary-blue-200;
