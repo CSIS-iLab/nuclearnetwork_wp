@@ -393,20 +393,26 @@
 
   /* stylelint-disable-next-line */
   h2.cite__heading {
+    display: none;
     color: $color-accent-primary-blue-100;
     @extend %text-style-label-medium;
+
+    @include breakpoint('large') {
+      display: block;
+    }
   }
 
   .cite__container {
     @extend %text-style-paragraph-small;
+    display: none;
     grid-column: 1;
-    max-width: rem(500);
     color: $color-black-165;
 
     @include breakpoint('large') {
-      max-width: unset;
+      display: block;
     }
 
+    /* stylelint-disable-next-line */
     .btn svg {
       margin-right: rem(8);
       margin-left: 0;
