@@ -16,6 +16,6 @@ $resources = get_field( 'resources' );
 
 if ( ! empty( $resources ) ) {
   echo '<div class="resources"><h2 class="resources__heading single__section-heading">Resources</h2>
-  <div class="resources__content">' . $resources . '</div></div>';
+  <div class="resources__content">' . $resources . '</div></div><hr>';
 }
 ?>
