@@ -44,6 +44,7 @@
     display: block;
     padding-left: rem(16) !important;
     color: $color-black-180;
+    overflow-wrap: break-word;
 
     &::after {
       position: absolute;
