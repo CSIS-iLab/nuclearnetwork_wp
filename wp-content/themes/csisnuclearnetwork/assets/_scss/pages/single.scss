@@ -345,22 +345,6 @@
       margin-bottom: rem(8);
     }
 
-    .post__authors {
-      margin-top: 0;
-    }
-
-    .post__authors-heading {
-      margin-bottom: rem(12);
-    }
-
-    .post__authors-disclaimer {
-      margin-bottom: rem(24);
-    }
-
-    .post__authors-author {
-      margin-bottom: rem(16);
-    }
-
     &-label {
       @extend %text-style-label-small-strong;
       color: $color-black-165;

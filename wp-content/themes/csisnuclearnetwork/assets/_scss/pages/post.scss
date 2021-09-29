@@ -4,7 +4,7 @@
   &__authors {
     --max-width-limit: #{rem(500)};
     --padding-top-authors: #{rem(56)};
-    margin-top: rem(24);
+    margin-top: rem(0);
     margin-bottom: rem(56);
 
     @include breakpoint('large') {
@@ -40,13 +40,13 @@
       margin-bottom: rem(16);
 
       @include breakpoint('large') {
-        margin-bottom: rem(32);
+        margin-bottom: rem(12);
       }
     }
 
     &-disclaimer {
       max-width: var(--max-width-limit);
-      margin-bottom: rem(32);
+      margin-bottom: rem(24);
       color: $color-black-190;
       letter-spacing: 0.0005em;
 
@@ -56,7 +56,7 @@
     }
 
     &-author {
-      margin-bottom: rem(24);
+      margin-bottom: rem(16);
 
       &:last-of-type {
         margin: 0;
