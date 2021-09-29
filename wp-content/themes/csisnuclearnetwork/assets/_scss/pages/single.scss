@@ -406,6 +406,11 @@
     @include breakpoint('large') {
       max-width: unset;
     }
+
+    .btn svg {
+      margin-right: rem(8);
+      margin-left: 0;
+    }
   }
 
   .cite__citation {
