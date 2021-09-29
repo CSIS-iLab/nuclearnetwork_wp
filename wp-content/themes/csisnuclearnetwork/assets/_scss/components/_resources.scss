@@ -19,4 +19,15 @@
       margin-bottom: rem(12);
     }
   }
+
+  hr {
+    height: 1px;
+    margin-bottom: rem(56);
+    background-color: $color-border-dark-130;
+    border: 0;
+
+    @include breakpoint('large') {
+      margin-bottom: rem(32);
+    }
+  }
 }

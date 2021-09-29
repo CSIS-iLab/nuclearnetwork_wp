@@ -20,7 +20,7 @@
 		<?php 
 			$ngnn_site_description = get_field('ngnn_site_description');
 		?>
-		<p class="home__about-description text--short"><?php echo esc_html( $ngnn_site_description ) ?></p>
+		<div class="home__about-description text--short"><?php echo $ngnn_site_description ?></div>
 		<?php
 			$director_and_deputy_director = get_field( 'director_and_deputy_director' );
 			if ( $director_and_deputy_director ) :

@@ -40,15 +40,16 @@
 
   li {
     position: relative;
-    left: 8px;
+    left: 16px;
     display: block;
     padding-left: rem(16) !important;
     color: $color-black-180;
+    overflow-wrap: break-word;
 
     &::after {
       position: absolute;
       top: 0;
-      left: -8px;
+      left: -16px;
       display: block;
       margin-left: 0;
       content: counter(item) '.';

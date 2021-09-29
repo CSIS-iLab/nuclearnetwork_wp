@@ -2,13 +2,37 @@
 
 .write-for-us {
   --write-title-color: #{$color-accent-primary-blue-200};
+  --write-title-hover-color: #{$color-accent-primary-blue-100};
+  --write-title-focus-color: #{$color-accent-primary-blue-100};
+  --write-title-focus-bg-color: #{$color-bg-light-300};
   --write-body-color: #{$color-accent-primary-blue-100};
   --write-link-color: #{$color-accent-primary-blue-200};
+  --write-link-hover-color: #{$color-accent-primary-blue-100};
+  --write-link-focus-color: #{$color-accent-primary-blue-100};
+  --write-link-focus-bg-color: #{$color-bg-light-300};
 
   &__title {
     @extend %text-style-label-large-strong-caps;
     margin-bottom: rem(4);
     color: var(--write-title-color);
+
+    a:hover {
+      color: var(--write-title-hover-color);
+
+      .icon {
+        color: var(--write-title-hover-color, inherit);
+      }
+    }
+
+    a:focus {
+      color: var(--write-title-focus-color, --link-color);
+      background-color: var(--write-title-focus-bg-color);
+      outline: 0;
+
+      .icon {
+        color: var(--write-title-focus-color, inherit);
+      }
+    }
   }
 
   &__desc,
@@ -21,6 +45,18 @@
   }
 
   &__link {
-    color: var(--write-link-color);
+    a {
+      color: var(--write-link-color);
+
+      &:hover {
+        color: var(--write-link-hover-color);
+      }
+
+      &:focus {
+        color: var(--write-link-focus-color, --link-color);
+        background-color: var(--write-link-focus-bg-color);
+        outline: 0;
+      }
+    }
   }
 }

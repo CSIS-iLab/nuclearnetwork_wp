@@ -31,7 +31,23 @@
     &-description {
       @extend %text-style-paragraph-medium;
       padding-bottom: rem(24);
-      color: $color-white-190;
+
+      a {
+        text-decoration: underline;
+
+        /* stylelint-disable-next-line */
+        &:hover,
+        &:focus {
+          color: $color-white-100;
+          text-decoration: none;
+        }
+
+        /* stylelint-disable-next-line */
+        &:focus {
+          background-color: $color-accent-primary-100;
+          outline: 0;
+        }
+      }
     }
 
     &-people {
@@ -45,14 +61,14 @@
       // This is where you would style the individual items in the definition list
       display: grid;
       flex: 1 1 calc(50% - #{rem(24)});
-      grid-template-areas: 
+      grid-template-areas:
         'image name'
         'image title';
       grid-template-columns: 100px auto;
       grid-template-rows: max-content 1fr;
       column-gap: rem(16);
       row-gap: rem(2);
-      
+
       &-image {
         grid-area: image;
 
@@ -90,7 +106,7 @@
         width: 100%;
         max-width: rem(720);
       }
-      
+
       img {
         width: calc(100% + var(--container-padding));
         max-width: unset;

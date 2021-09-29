@@ -3,12 +3,10 @@
 .post {
   &__authors {
     --max-width-limit: #{rem(500)};
-    --padding-top-authors: #{rem(56)};
     margin-top: rem(0);
     margin-bottom: rem(56);
 
     @include breakpoint('large') {
-      --padding-top-authors: #{rem(32)};
       margin-bottom: rem(48);
 
       &-content {
@@ -26,13 +24,6 @@
         max-width: unset;
         margin-bottom: rem(48);
       }
-    }
-
-    hr {
-      height: 1px;
-      margin-bottom: var(--padding-top-authors);
-      background-color: $color-border-dark-130;
-      border: 0;
     }
 
     &-heading {

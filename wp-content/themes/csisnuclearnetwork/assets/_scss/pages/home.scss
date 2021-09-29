@@ -842,6 +842,7 @@
         'news'
         'twitter';
       grid-template-columns: 1fr;
+      grid-template-rows: repeat(3, min-content);
       padding-top: rem(40);
     }
 
@@ -917,7 +918,6 @@
         text-align: left;
 
         &__title {
-          @extend %text-style-heading-medium;
           color: $color-white-100;
 
           &:hover {

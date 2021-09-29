@@ -43,14 +43,13 @@
 
     $dailyNewsletterName = get_field('daily_newsletter_name');
     $dailyNewsletterDesc = get_field('daily_newsletter_description');
-    $dailyNewsletterLinks = "<div class='recent-news'><a class='home__archive-link text--link' href=" . $recentNewsUrl . ">Most recent newsletter" .nuclearnetwork_get_svg('chevron-right') . "</a><a class='home__archive-link text--link' href=" . get_post_type_archive_link( 'news' ) . ">All Nuclear Policy News" .nuclearnetwork_get_svg('chevron-right') . "</a></div>";
+    $dailyNewsletterLinks = "<div class='recent-news'><a class='home__archive-link text--link' href=" . $recentNewsUrl . ">Most recent news" .nuclearnetwork_get_svg('chevron-right') . "</a><a class='home__archive-link text--link' href=" . get_post_type_archive_link( 'news' ) . ">All Nuclear Policy News" .nuclearnetwork_get_svg('chevron-right') . "</a></div>";
     $monthlyNewsletterName = get_field('monthly_newsletter_name');
     $monthlyNewsletterDesc = get_field('monthly_newsletter_description');
-    $monthlyNewsletterLinks = "<div class='recent-news'><a class='home__archive-link text--link' href=" . $recentUpdatesUrl . ">Most recent newsletter" .nuclearnetwork_get_svg('chevron-right') . "</a></div>";
 
     $constructedDailyNewsletter = "<div class='daily'><h3>" . $dailyNewsletterName . "</h3><p class='text--short'>" . $dailyNewsletterDesc . "</p><a class='subscribe btn btn--teal btn--newsletter' href=" . get_field('nuclear_policy_news_link', 'option') . ">Subscribe</a>" . $dailyNewsletterLinks . "</div>";
 
-    $constructedMonthlyNewsletter = "<div class='monthly'><h3>" . $monthlyNewsletterName . "</h3><p class='text--short'>" . $monthlyNewsletterDesc . "</p><a class='subscribe btn btn--teal btn--newsletter' href=" . get_field('monthly_newsletter_link', 'option') . ">Subscribe</a>" . $monthlyNewsletterLinks . "</div>";
+    $constructedMonthlyNewsletter = "<div class='monthly'><h3>" . $monthlyNewsletterName . "</h3><p class='text--short'>" . $monthlyNewsletterDesc . "</p><a class='subscribe btn btn--teal btn--newsletter' href=" . get_field('monthly_newsletter_link', 'option') . ">Subscribe</a></div>";
 
     $output = "<div class='newsletter-block-acf'><h2 class='home__subtitle'>Newsletters</h3>" . $constructedDailyNewsletter . $constructedMonthlyNewsletter . "</div>";
 
