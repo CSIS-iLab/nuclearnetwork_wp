@@ -142,7 +142,7 @@
     }
 
     /* stylelint-disable */
-    a[href*="//"]:not([class]):not([href*="nuclearnetwork.local"]):not([href*="localhost"]):not([href*="nuclearnetwork"])
+    a[href*="//"]:not([class]):not([href*="nuclearnetwork.local"]):not([href*="localhost"]):not([href*="nuclearnetwork"]):not([href*="csisngnndev"]):not([href*="csisngnnstage"])
     {
       /* stylelint-enable */
       &::after {
