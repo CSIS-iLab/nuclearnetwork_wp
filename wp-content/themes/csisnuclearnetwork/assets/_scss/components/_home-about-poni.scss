@@ -35,12 +35,14 @@
       a {
         text-decoration: underline;
 
+        /* stylelint-disable-next-line */
         &:hover,
         &:focus {
           color: $color-white-100;
           text-decoration: none;
         }
 
+        /* stylelint-disable-next-line */
         &:focus {
           background-color: $color-accent-primary-100;
           outline: 0;
