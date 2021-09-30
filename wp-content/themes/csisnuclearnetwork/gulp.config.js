@@ -28,7 +28,7 @@ module.exports = {
       progressive: true,
     },
     optipng: {
-      optimizationLevel: 5,
+      optimizationLevel: process.env.NODE_ENV === 'production' ? 5 : 2,
       interlaced: null,
     },
   },
