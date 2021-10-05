@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const options = {
       rootMargin: `${siteHeaderHeight} 0px 0px 0px`,
-      threshold: 1.0,
+      threshold: 0,
     }
 
     const onIntersect = (entries) => {
