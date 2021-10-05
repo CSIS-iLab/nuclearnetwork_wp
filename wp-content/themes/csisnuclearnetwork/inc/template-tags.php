@@ -238,10 +238,10 @@ if (! function_exists('nuclearnetwork_authors_list_extended')) :
 
 			foreach (get_coauthors() as $coauthor) {
 				$name = $coauthor->display_name;
-				$username = $coauthor->linked_account;
-				$user = get_user_by( 'login', $username );
+				$username = $coauthor->user_email;
+				$user = get_user_by( 'email', $username );
 
-				$title = get_field( 'title', $coauthor->ID );
+
 				$short_bio = get_field( 'short_bio', $coauthor->ID );
 				$user_bio = get_field( 'short_bio', 'user_' . $user->ID );
 				$guest_description = $coauthor->description;
@@ -257,12 +257,17 @@ if (! function_exists('nuclearnetwork_authors_list_extended')) :
 					$bio = $user_description;
 				}
 
-				if ( $title !== null ){
-					$title = " - " . get_field( 'title', 'user_' . $user->ID );
+				$title = get_field( 'title', $coauthor->ID );
+				
+				if ( $title === null ) {
+					$title = get_field( 'title', 'user_' . $user->ID );
 				}
 
+				if ( $title !== null ){
+					$title = " - " . $title;
+				}
 
-				$authors .= '<div class="post__authors-author"><h3 class="text--bold text--short post__authors-author-name">' . $name . '<span class="post__authors-author-title">' . $title . '</span></h3><hr class="divider divider--thicc page__header-divider"><p class="post__authors-author-bio">' . $bio . '</p></div>';
+				$authors .= '<div class="post__authors-author"><h3 class="text--bold text--short post__authors-author-name">' . coauthors_posts_links_single( $coauthor ) . '<span class="post__authors-author-title">' . $title . '</span></h3><hr class="divider divider--thicc page__header-divider"><p class="post__authors-author-bio">' . $bio . '</p></div>';
 			}
 		} else {
 			$authors = the_author_posts_link();
