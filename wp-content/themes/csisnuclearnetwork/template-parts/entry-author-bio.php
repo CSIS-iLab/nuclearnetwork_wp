@@ -22,14 +22,20 @@ if ( !$user_bio ) {
 } elseif ( !$user_bio) {
 	$user_bio = get_field( 'short_bio', $author_id );
 }
+$headshot = get_avatar( get_the_author_meta( 'ID' ), 160 );
 
 ?>
 <div class="archive__author-info">
 	<div class="archive__author-wrapper">
 		<div class="archive__author-bio">
-			<div class="archive__author-avatar vcard">
-				<?php echo get_avatar( get_the_author_meta( 'ID' ), 160 ); ?>
-			</div>
+			<?php
+			if ( strpos( $headshot, 'gravatar' ) == false ) { ?>
+				<div class="archive__author-avatar vcard">
+					<?php echo $headshot ?>
+				</div>
+				<?php
+			}
+			?>
 		<div class="archive__author-description text--long">
 			<?php echo wp_kses_post( wpautop( $user_bio ) ); ?>
 		</div><!-- .author-description -->
