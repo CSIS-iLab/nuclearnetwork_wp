@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Blue/Archive Header
   if (entryHeaderBlue !== null) {
-    const pageHeaderHeight = `${entryHeaderBlue.offsetHeight * -1}px`
+    const pageHeaderHeight = `${(entryHeaderBlue.offsetHeight - 1) * -1}px`
 
     const entryHeaderOptions = {
       rootMargin: `${pageHeaderHeight} 0px 0px 0px`,
