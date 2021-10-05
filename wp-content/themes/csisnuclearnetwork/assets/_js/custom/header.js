@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const entryHeaderLight = document.querySelector('.entry-header--light')
   const header = document.querySelector('.header')
 
+  // Blue/Archive Header
   if (entryHeaderBlue !== null) {
     const pageHeaderHeight = `${entryHeaderBlue.offsetHeight * -1}px`
 
@@ -10,11 +11,9 @@ document.addEventListener('DOMContentLoaded', function () {
       rootMargin: `${pageHeaderHeight} 0px 0px 0px`,
       threshold: 0,
     }
-    console.log(entryHeaderOptions)
 
     const onIntersect = (entries) => {
       entries.forEach((entry) => {
-        console.log(entry)
         if (!entry.isIntersecting) {
           header.classList.add('full-color')
         } else {
@@ -28,6 +27,7 @@ document.addEventListener('DOMContentLoaded', function () {
     observer.observe(entryHeaderBlue)
   }
 
+  // Light/Single Post Header
   if (entryHeaderLight !== null) {
     const entryHeaderContent = entryHeaderLight.querySelector('.entry-header__content')
     const pageHeaderHeight = `${(entryHeaderContent.scrollHeight + header.offsetHeight) * -1}px`
@@ -52,6 +52,7 @@ document.addEventListener('DOMContentLoaded', function () {
     observer.observe(entryHeaderContent)
   }
 
+  // Homepage Header
   const homepage = document.querySelector('.home')
   const border = document.querySelector('.home__top-border')
   const pageContent = document.querySelector('.home__top')
