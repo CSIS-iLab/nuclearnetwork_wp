@@ -10,11 +10,16 @@
 /* stylelint-disable max-nesting-depth, selector-max-compound-selectors */
 
 .home {
-  .header {
-    &__inner {
-      height: var(--hp-top-padding);
-      transition: height 0.5s ease-in;
+  --hp-top-padding: #{rem(155)};
 
+  @include breakpoint('xmedium') {
+    --hp-top-padding: #{rem(395)};
+  }
+
+  .header {
+    position: static;
+
+    &__inner {
       @include breakpoint('xmedium') {
         display: grid;
         grid-auto-columns: max-content;
@@ -46,14 +51,13 @@
 
     &__logo--home {
       display: block;
-      grid-area: logo;
       width: 67%;
       height: auto;
       margin: 0 auto;
       padding: rem(16) 0;
       text-align: center;
       opacity: 1;
-      transition: transform 0.5s ease-out;
+      // transition: transform 0.5s ease-out;
 
       @include breakpoint('small') {
         width: rem(320);
@@ -61,7 +65,6 @@
 
       @include breakpoint('xmedium') {
         width: rem(516);
-        margin-top: rem(80);
       }
 
       svg {
@@ -70,18 +73,10 @@
     }
 
     &.full-color {
+      position: fixed;
+
       .header__inner {
         display: flex;
-        height: var(--site-header-height);
-      }
-
-      .header__logo--home {
-        width: 0;
-        height: 0;
-        margin: 0;
-        padding: 0;
-        transform: scale(0);
-        opacity: 0;
       }
 
       .header__logo--mobile {
@@ -356,27 +351,27 @@
   }
 
   &__top {
-    --hp-top-padding: #{rem(155)};
     @include vw100();
     position: relative;
     height: 100%;
+    margin-top: calc(var(--hp-top-padding) * -1);
     margin-right: auto;
     margin-left: -6vw;
-    padding-top: (var(--hp-top-padding));
+    padding-top: var(--hp-top-padding);
     padding-right: 6vw;
     padding-right: var(--container-padding);
     padding-left: 6vw;
     padding-left: var(--container-padding);
     background: $gradient-homepage-background;
 
-    @include breakpoint('xmedium') {
-      --hp-top-padding: #{rem(395)};
-    }
-
     @include breakpoint('large') {
       margin-left: calc(((100vw - 100%) / 2) * -1);
       padding-right: rem(32);
       padding-left: rem(32);
+    }
+
+    &.is-sticky {
+      padding-top: calc(var(--hp-top-padding) + var(--site-header-height));
     }
 
     &-top-bg,
