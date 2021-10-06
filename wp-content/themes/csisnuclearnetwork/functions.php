@@ -229,6 +229,9 @@ function nuclearnetwork_register_scripts() {
 
 		wp_add_inline_script( 'nuclearnetwork-iframeResizer', 'const iframes = iFrameResize({ log: false }, ".js-resize")' );
 
+		wp_enqueue_script( 'nuclearnetwork-js-entry-header-image', get_template_directory_uri() . '/assets/js/entry-header-image.min.js', array(), $theme_version, true );
+		wp_script_add_data( 'nuclearnetwork-js-entry-header-image', 'defer', true );
+
 		// wp_script_add_data( 'nuclearnetwork-iframeResizer', 'async', true );
 	}
 
@@ -243,11 +246,6 @@ function nuclearnetwork_register_scripts() {
 
 	wp_enqueue_script( 'nuclearnetwork-js-bundle', get_template_directory_uri() . '/assets/js/bundle.min.js', array(), $theme_version, true );
 	wp_script_add_data( 'nuclearnetwork-js-bundle', 'defer', true );
-
-	if ( is_singular() || is_author() ) {
-		wp_enqueue_script( 'nuclearnetwork-js-entry-header-image', get_template_directory_uri() . '/assets/js/entry-header-image.min.js', array(), $theme_version, true );
-		wp_script_add_data( 'nuclearnetwork-js-entry-header-image', 'defer', true );
-	}
 
 	if ( is_front_page() ) {
 		wp_enqueue_script( 'nuclearnetwork-js-carousel', get_template_directory_uri() . '/assets/js/carousel.min.js', array(), $theme_version, true );
