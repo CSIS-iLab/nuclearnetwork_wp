@@ -262,6 +262,10 @@
         @include breakpoint('medium') {
           width: rem(256);
         }
+
+        &[src*='PlaceholderForNoFeatImage'] {
+          display: none;
+        }
       }
 
       @include breakpoint('medium') {
