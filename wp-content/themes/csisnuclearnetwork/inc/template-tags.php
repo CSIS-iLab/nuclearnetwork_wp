@@ -263,7 +263,7 @@ if (! function_exists('nuclearnetwork_authors_list_extended')) :
 					$title = get_field( 'title', 'user_' . $user->ID );
 				}
 
-				if ( $title !== null ){
+				if ( !empty( $title ) ){
 					$title = " - " . $title;
 				}
 
