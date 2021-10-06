@@ -263,6 +263,7 @@
           width: rem(256);
         }
 
+        /* stylelint-disable-next-line */
         &[src*='PlaceholderForNoFeatImage'] {
           display: none;
         }
