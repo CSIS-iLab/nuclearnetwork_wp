@@ -64,14 +64,16 @@ document.addEventListener('DOMContentLoaded', function () {
   if (homepage !== null) {
     if (mobile.matches) {
       // siteHeaderHeight = `${(header.offsetHeight - 1) * -1 + 56}px`
+      // siteHeaderHeight = '-102px'
     } else {
       // siteHeaderHeight = `${header.offsetHeight * -1}px`
       // siteHeaderHeight = `${bigLogo.offsetHeight * -1 + 102}px`
+      // siteHeaderHeight = '0px'
     }
 
     const options = {
       // rootMargin: `${siteHeaderHeight} 0px 0px 0px`,
-      // rootMargin: '-102px 0px 0px 0px',
+      rootMargin: '-102px 0px 0px 0px',
       // threshold: 0.1,
     }
 
