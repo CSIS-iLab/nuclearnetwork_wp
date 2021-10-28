@@ -14,6 +14,8 @@ if( ! class_exists('ACF') ) {
     return;
 }
 
+$date_now = date('Y-m-d H:i:s');
+
 // set excluded posts
 $excluded_posts = $args;
 
@@ -30,7 +32,18 @@ $event_args = array(
 'posts_per_page' => 1,
 'post_status' => 'publish',
 'post_type'   => 'events',
-'post__not_in' => $excluded_posts
+'post__not_in' => $excluded_posts,
+'meta_query' => array(
+	'relation' => 'OR',
+	array(
+	'key'           => 'event_post_info_event_start_date',
+	'compare'       => '>=',
+	'value'         => $date_now,
+	'type'          => 'DATE',
+	),
+),
+'orderby' => 'meta_value',
+'order' => 'ASC'
 );
 
 // retrieve posts 
