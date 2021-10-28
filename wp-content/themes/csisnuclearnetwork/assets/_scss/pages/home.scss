@@ -20,8 +20,14 @@
     position: static;
 
     &__inner {
-      @include breakpoint('xmedium') {
-        justify-items: space-between;
+      justify-content: space-between;
+
+      .spacer {
+        display: none;
+
+        @include breakpoint('large') {
+          display: block;
+        }
       }
     }
 
@@ -151,6 +157,8 @@
     }
 
     .site-nav {
+      order: 1;
+
       &__menu {
         > li:first-child {
           margin-top: calc(#{rem(24)} + var(--line-width) + #{rem(32)});
@@ -159,7 +167,6 @@
 
       @include breakpoint('xmedium') {
         position: initial;
-        order: 1;
         transition: order 0.1s ease-in;
 
         &__container {
@@ -379,10 +386,10 @@
     @include vw100();
     position: relative;
     height: 100%;
-    margin-top: calc(var(--hp-top-padding) * -1);
+    margin-top: calc((var(--hp-top-padding) + rem(56)) * -1);
     margin-right: auto;
     margin-left: -6vw;
-    padding-top: var(--hp-top-padding);
+    padding-top: calc(var(--hp-top-padding) + rem(56));
     padding-right: 6vw;
     padding-right: var(--container-padding);
     padding-left: 6vw;

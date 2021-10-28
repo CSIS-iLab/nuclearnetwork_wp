@@ -225,6 +225,7 @@ const closeMenu = () => {
       trigger.setAttribute('aria-expanded', 'false')
       trigger.classList.remove('is-active')
       navContainer.classList.remove('is-active')
+      enableBodyScroll(navContainer)
     }
   })
 }

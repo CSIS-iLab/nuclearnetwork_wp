@@ -72,7 +72,7 @@ $is_about = is_page( 'about' );
 				the_title( '<h1 class="entry-header__title">', '</h1>' );
 			}
 			
-			if ( !$is_author && !$is_about && !$is_404 ) {
+			if ( !$is_author && !$is_about && !$is_404 && $post_type != 'news' ) {
 				nuclearnetwork_display_series();
 				echo '<div class="entry-header__desc text--short">' . get_the_excerpt() . '</div>';
 			}
@@ -141,7 +141,7 @@ $is_about = is_page( 'about' );
 					<?php
 				}
 			
-			} elseif ( $is_single ) { ?>
+			} elseif ( $is_single && $post_type != 'news' ) { ?>
 				<div class="post-meta__wrapper">
 					<?php
 					nuclearnetwork_posted_on();

@@ -18,6 +18,7 @@
   }
 
   &__logo {
+    @include z-index('siteHeaderLogo');
     position: relative;
     order: 2;
     width: fit-content;
@@ -33,7 +34,6 @@
     }
 
     @include breakpoint('large') {
-      @include z-index('siteHeaderLogo');
       order: 1;
       margin: 0;
 

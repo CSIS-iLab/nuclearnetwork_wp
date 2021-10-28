@@ -3,11 +3,12 @@
 .classlist {
   &__item {
     img {
-      width: 150px;
+      width: 100%;
+      max-width: 150px;
 
       @include breakpoint(medium) {
         float: left;
-        width: 200px;
+        max-width: 200px;
         margin-right: rem(32);
         margin-bottom: rem(32);
       }

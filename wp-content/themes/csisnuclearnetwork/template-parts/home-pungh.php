@@ -27,7 +27,7 @@ $updates_posts = new WP_Query( $updates_args );
 
 <section class="home__pungh">
   <div class="home__pu">
-		<h2 class="home__subtitle--sm">Program Updates</h2>
+		<h2 class="home__subtitle--sm">PONI Updates</h2>
 		<?php if ( $program_updates_archive ) : ?>
 			<a href="<?php echo esc_url( $program_updates_archive); ?>" class="home__archive-link text--link">
 				<?php

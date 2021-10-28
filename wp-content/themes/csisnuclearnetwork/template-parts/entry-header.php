@@ -27,7 +27,7 @@ if ( $template === 'templates/class-bio.php'){
 	$isClassBioTemplate = true;
 }
 
-	if ( $is_home || ($is_archive && !$is_author) || $is_search || $isClassBioTemplate || in_array( $post_type, array( 'news' ) ) ) {
+	if ( $is_home || ($is_archive && !$is_author) || $is_search || $isClassBioTemplate || in_array( $post_type, array( 'news' ) ) && !$is_single ) {
 
 		get_template_part( 'template-parts/entry-header-blue' );
 

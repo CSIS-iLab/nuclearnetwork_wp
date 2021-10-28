@@ -54,30 +54,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Homepage Header
   const homepage = document.querySelector('.home')
-  // const border = document.querySelector('.home__top-border')
   const pageContent = document.querySelector('.home__top')
   const bigLogo = document.querySelector('.header__logo--home')
 
-  const mobile = window.matchMedia('(max-width: 800px)')
-  // let siteHeaderHeight
-
   if (homepage !== null) {
-    if (mobile.matches) {
-      // siteHeaderHeight = `${(header.offsetHeight - 1) * -1 + 56}px`
-    } else {
-      // siteHeaderHeight = `${header.offsetHeight * -1}px`
-      // siteHeaderHeight = `${bigLogo.offsetHeight * -1 + 102}px`
-    }
-
     const options = {
-      // rootMargin: `${siteHeaderHeight} 0px 0px 0px`,
-      // rootMargin: '-102px 0px 0px 0px',
-      // threshold: 0.1,
+      rootMargin: '-102px 0px 0px 0px',
     }
 
     const onIntersect = (entries) => {
       entries.forEach((entry) => {
-        console.log(entry)
         if (!entry.isIntersecting) {
           header.classList.add('full-color')
           pageContent.classList.add('is-sticky')
