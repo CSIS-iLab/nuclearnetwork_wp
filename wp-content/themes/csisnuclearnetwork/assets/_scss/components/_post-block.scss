@@ -196,6 +196,11 @@
     .post-block.events & {
       margin-bottom: rem(12);
     }
+
+    .post-block.projects &,
+    .post-block.programs & {
+      @include font-size(18px);
+    }
   }
 
   .post-meta__authors {
