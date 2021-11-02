@@ -68,7 +68,7 @@ if ( $latest_events ) {
 // check for posts
 if ( $latest_posts ) {
     // cycle through and post all news
-    echo "<div class='recent-posts'><h3 class='home__event-and-posts-block-title'>The Latest</h3>";
+    echo "<div class='recent-posts'><h3 class='home__event-and-posts-block-title'>Latest Analysis</h3>";
     while ( $latest_posts->have_posts() ) {
         $latest_posts->the_post();
         get_template_part( 'template-parts/block-post-related');
