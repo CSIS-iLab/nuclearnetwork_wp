@@ -38,7 +38,7 @@ $updates_posts = new WP_Query( $updates_args );
 		<?php endif; ?>
 
 		<?php
-		if ( $updates_posts ) {
+		if ( !empty($updates_posts->posts) ) {
 			echo "<ul class='home__pu-list' role='list'>";
 			// cycle through and output all events
 			while ( $updates_posts->have_posts() ) {
@@ -51,7 +51,7 @@ $updates_posts = new WP_Query( $updates_args );
 			wp_reset_postdata();
 			echo "</ul>";
 		} else {
-			echo '<p class="home__pu-no-results post-block__excerpt">' . get_the_field('program_updates_no_results') . '</p>';
+			echo '<p class="home__pu-no-results post-block__excerpt">' . get_field('program_updates_no_results') . '</p>';
 		}
 		?>
 
