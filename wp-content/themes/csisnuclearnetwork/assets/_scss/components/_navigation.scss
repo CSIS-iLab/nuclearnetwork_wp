@@ -461,13 +461,14 @@
     grid-area: img;
 
     a {
+      display: flex;
       height: 100%;
     }
 
     img {
+      flex: 0 0 35%;
       object-fit: cover;
       object-position: center;
-      height: 100%;
     }
   }
 }
