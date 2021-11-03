@@ -79,11 +79,23 @@
           object-fit: cover;
         }
       }
-
+      
       &-name {
         grid-area: name;
         color: $color-white-100;
         @extend %text-style-label-large;
+        
+        /* stylelint-disable-next-line */
+        a:hover {
+          color: $color-white-180;
+        }
+        
+        /* stylelint-disable-next-line */
+        a:focus {
+          color: $color-white-180;
+          background-color: $color-accent-primary-blue-100;
+          outline: 0;
+        }
       }
 
       &-title {
