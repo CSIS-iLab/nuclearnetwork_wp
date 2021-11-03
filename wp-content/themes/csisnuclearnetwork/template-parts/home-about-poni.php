@@ -29,9 +29,10 @@
 					setup_postdata ( $post );
 					$coauthor_data = $coauthors_plus->get_coauthor_by( 'id', $post->ID );
 
+					$author_link = coauthors_posts_links_single( $coauthor_data );
 				?>
 				<div class='home__about-person'>
-					<dt class="home__about-person-name text--bold"><?php the_title(); ?></dt>
+					<dt class="home__about-person-name text--bold"><?php echo $author_link; ?></dt>
 					<dd class="home__about-person-title"><?php the_field( 'title' ); ?></dd>
 					<dd class="home__about-person-image"><?php echo coauthors_get_avatar( $coauthor_data, "100" ); ?></dd>
 				</div>
