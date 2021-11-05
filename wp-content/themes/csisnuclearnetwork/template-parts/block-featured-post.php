@@ -53,7 +53,9 @@ if ( $legacy_event_date ) {
 		<?php endif; ?>
 			<div class="feat-post__content">
 			<?php
-			nuclearnetwork_display_subtypes();
+			if ( $post_type !== 'programs' && $post_type !== 'projects' ) {
+				nuclearnetwork_display_subtypes();
+			}
 			the_title( '<h3 class="feat-post__title text--bold"><a href="' . esc_url( get_permalink() ) . '">', '</a></h3>' );
 
 if ( $post_type === 'events' ) { 
