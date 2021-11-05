@@ -133,6 +133,10 @@ $is_about = is_page( 'about' );
 					if ( !$is_rolling && $is_future_event ) {
 						echo '<dl class="post-meta post-meta__program-date"><dt class="post-meta__label post-meta__label--small text--bold text--caps">Deadline</dt><dd class="post-meta__date--program">' . $deadline_formatted . '</dd></dl>';
 					}
+
+					if ( $is_rolling ) {
+						echo '<dl class="post-meta post-meta__program-date"><dt class="post-meta__label post-meta__label--small text--bold text--caps">Deadline</dt><dd class="post-meta__date--program">Rolling</dd></dl>';
+					}
 					
 					if ( isset($application_link) && !empty($application_link) && $is_future_event ) {
 						echo '<a href="' . esc_url( $application_link ) . '" class="entry-header__apply btn btn--blue">Apply ' . nuclearnetwork_get_svg( 'arrow-external' ) . '</a>';
