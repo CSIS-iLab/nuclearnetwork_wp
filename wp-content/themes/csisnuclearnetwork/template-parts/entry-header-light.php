@@ -28,6 +28,7 @@ if ( $template === 'templates/template-no-image.php' || $is_author ){
 
 $is_future_event = false;
 $yesterday = date_i18n( strtotime('now'));
+$today = date_i18n( strtotime('-1 day'));
 
 $is_about = is_page( 'about' );
 
@@ -118,7 +119,7 @@ $is_about = is_page( 'about' );
 				$deadline_formatted = date_i18n('M. d, Y', strtotime($application_deadline));
 				$app_deadline_full_date = date_i18n( strtotime("$application_deadline"));
 
-				if ( $app_deadline_full_date >= $yesterday || $is_rolling ) {
+				if ( $app_deadline_full_date >= $today || $is_rolling ) {
 					$is_future_event = true;
 				}
 			
