@@ -65,7 +65,7 @@ $ git checkout origin/main -ft
 To begin development, navigate to the theme directory and start npm.
 
 ```shell
-$ cd wp-content/themes/nuclearnetwork_wp
+cd wp-content/themes/csisnuclearnetwork
 $ npm install
 $ npm start
 ```

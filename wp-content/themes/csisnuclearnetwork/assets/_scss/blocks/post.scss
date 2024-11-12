@@ -1,0 +1,109 @@
+@use '../abstracts' as *;
+
+@use 'post/blockquote';
+@use 'post/class-links-block';
+@use 'post/button';
+@use 'post/publications';
+
+.csis-block {
+  clear: both;
+  width: 100%;
+  margin-top: rem(32);
+  margin-bottom: rem(32);
+
+  img {
+    width: 100%;
+  }
+}
+
+/*----------  Aside Sizes  ----------*/
+.csis-block--large,
+.wp-block-lazyblock-post-interactive.alignleft,
+.wp-block-lazyblock-post-interactive.alignright,
+.wp-block-image .alignleft,
+.wp-block-image .alignright {
+  @include breakpoint('medium') {
+    max-width: 32vw;
+  }
+
+  @include breakpoint('large') {
+    max-width: rem(350px);
+  }
+
+  @include breakpoint('xlarge') {
+    max-width: rem(380px);
+  }
+}
+
+/*----------  Alignments  ----------*/
+.alignfull,
+.alignwide {
+  @include csis-block-full-width-wrapper;
+}
+
+.alignfull {
+  > * {
+    @include csis-block-full-width-content($size__container-max-width);
+  }
+}
+
+.alignwide {
+  > * {
+    @include csis-block-full-width-content($size__container-max-width);
+
+    @include breakpoint('small') {
+      @include csis-block-wide-content;
+    }
+  }
+}
+
+.alignleft,
+.alignright {
+  float: none;
+
+  @include breakpoint('small') {
+    --margin-text-side: 6vw;
+    max-width: rem(200);
+  }
+
+  @include breakpoint('medium') {
+    margin-top: rem(16);
+  }
+
+  @include breakpoint('large') {
+    --margin-text-side: #{rem(48)};
+    --margin-gutter-side: -6vw;
+    max-width: rem(350px);
+  }
+
+  @include breakpoint('xlarge') {
+    max-width: rem(380px);
+  }
+
+  @include breakpoint('xxlarge') {
+    --margin-text-side: #{rem(56)};
+    --margin-gutter-side: #{rem(-80)};
+  }
+}
+
+.csis-block {
+  &.alignleft {
+    float: none;
+    margin-right: var(--margin-text-side);
+    margin-left: var(--margin-gutter-side, 0);
+
+    @include breakpoint('small') {
+      float: left;
+    }
+  }
+
+  &.alignright {
+    float: none;
+    margin-right: var(--margin-gutter-side, 0);
+    margin-left: var(--margin-text-side);
+
+    @include breakpoint('small') {
+      float: right;
+    }
+  }
+}

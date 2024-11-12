@@ -1,0 +1,53 @@
+@use '../abstracts' as *;
+
+.wp-block-lazyblock-career-opportunities {
+  position: relative;
+  z-index: 1;
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+  color: $color-black-190;
+  @include csis-block-full-width-wrapper;
+  @extend %text-style-paragraph-large;
+
+  @include breakpoint('small') {
+    padding-right: var(--container-padding);
+    padding-left: var(--container-padding);
+
+    &::before,
+    &::after {
+      display: none;
+    }
+  }
+
+  .career-block__wrapper {
+    @include csis-block-full-width-content($size__content-wide-max-width);
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+    background-color: $color-bg-light-300;
+
+    > * {
+      max-width: $size__content-max-width;
+      margin-right: auto;
+      margin-left: auto;
+    }
+  }
+
+  .career-block__li::marker {
+    color: $color-black-100;
+  }
+
+  .icon-suitcase {
+    vertical-align: top;
+  }
+
+  .career-block__h2 {
+    margin-top: 0;
+    margin-bottom: rem(12);
+    color: $color-accent-primary-blue-300;
+    @extend %text-style-heading-x-large;
+
+    @include breakpoint('large') {
+      margin-bottom: rem(16);
+    }
+  }
+}

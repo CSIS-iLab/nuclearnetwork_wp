@@ -1,0 +1,50 @@
+@use '../abstracts' as *;
+
+.wp-block-lazyblock-report-block {
+  --margin-text-side: auto;
+  --margin-gutter-side: auto;
+  max-width: 240px !important; // Override the alignment max-width
+  margin: 0 var(--margin-gutter-side) 0 var(--margin-text-side);
+
+  @include breakpoint('small') {
+    --margin-text-side: auto;
+    --margin-gutter-side: auto;
+  }
+
+  @include breakpoint('medium') {
+    --margin-text-side: auto;
+    --margin-gutter-side: auto;
+  }
+
+  @include breakpoint('large') {
+    --margin-text-side: #{-6vw};
+    --margin-gutter-side: #{rem(48)};
+    float: left;
+    
+    .alignleft,
+    .alignright {
+      --margin-text-side: #{rem(48)};
+      --margin-gutter-side: #{6vw};
+    }
+  }
+
+  @include breakpoint('xxlarge') {
+    --margin-gutter-side: #{rem(80)};
+  }
+
+  .csis-block--publication {
+    display: grid;
+    grid-column-gap: 0;
+    grid-row-gap: rem(12);
+    padding-bottom: rem(32);
+
+    .btn {
+      width: fit-content;
+    }
+
+    figcaption {
+      @extend %text-style-label-large;
+      color: $color-black-190;
+    }
+  }
+}

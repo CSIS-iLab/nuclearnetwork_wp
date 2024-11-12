@@ -1,0 +1,210 @@
+/*=================================
+=            Variables            =
+=================================*/
+
+/*----------  Colors  ----------*/
+$color-white-100: rgba(255, 255, 255, 1);
+$color-white-115: rgba(255, 255, 255, 0.15);
+$color-white-130: rgba(255, 255, 255, 0.3);
+$color-white-140: rgba(255, 255, 255, 0.65);
+$color-white-150: rgba(255, 255, 255, 0.5);
+$color-white-165: rgba(255, 255, 255, 0.65);
+$color-white-180: rgba(255, 255, 255, 0.8);
+$color-white-190: rgba(255, 255, 255, 0.9);
+
+$color-black-100: rgba(0, 0, 0, 1);
+$color-black-115: rgba(0, 0, 0, 0.15);
+$color-black-200: rgba(0, 0, 0, 0.2);
+$color-black-130: rgba(0, 0, 0, 0.3);
+$color-black-140: rgba(0, 0, 0, 0.4);
+$color-black-150: rgba(0, 0, 0, 0.5);
+$color-black-165: rgba(0, 0, 0, 0.65);
+$color-black-180: rgba(0, 0, 0, 0.8);
+$color-black-190: rgba(0, 0, 0, 0.9);
+
+$color-bg-light-100: $color-white-100;
+$color-bg-light-200: rgba(241, 243, 245, 1);
+$color-bg-light-300: rgba(230, 233, 236, 1);
+$color-bg-light-400: rgba(214, 219, 224, 1);
+
+$color-bg-dark-100: rgba(13, 15, 18, 1);
+$color-bg-dark-120: rgba(0, 0, 0, 0.2);
+$color-bg-dark-200: rgba(30, 36, 41, 1);
+$color-bg-dark-300: rgba(39, 46, 51, 1);
+$color-bg-dark-400: rgba(48, 55, 61, 1);
+
+$color-bg-blue-114: rgba(109, 169, 212, 0.14);
+
+$color-border-light-115: $color-white-115;
+$color-border-light-130: $color-white-130;
+$color-border-light-150: $color-white-150;
+
+$color-border-dark-115: $color-black-115;
+$color-border-dark-130: $color-black-130;
+$color-border-dark-150: $color-black-150;
+
+$color-blue-400-button-blue: rgba(15, 96, 157, 1);
+
+$color-blue-000: rgba(10, 35, 58, 1);
+
+$color-gray-190: rgba(23, 23, 23, 1);
+
+$color-postbg-200: rgba(241, 241, 241, 1);
+
+$color-archive-header-blue-overlay: rgba(2, 99, 190, 0.43);
+
+$color-accent-secondary-yellow-100: rgba(242, 190, 87, 1);
+
+$color-accent-primary-blue-100: rgba(22, 53, 83, 1);
+$color-accent-primary-blue-200: rgba(28, 91, 150, 1);
+$color-accent-primary-blue-300: rgba(53, 114, 171, 1);
+
+$color-accent-homepage-line-blue: rgba(62, 98, 151, 1);
+
+$color-accent-primary-dark-bg-blue-400: rgba(0, 126, 204, 1);
+
+$color-accent-primary-100: rgba(31, 48, 71, 1);
+$color-accent-primary-200: rgba(0, 73, 122, 1);
+$color-accent-primary-300: rgba(0, 101, 164, 1);
+$color-accent-primary-400: rgba(0, 126, 204, 1);
+$color-accent-primary-500: rgba(199, 219, 239, 1);
+$color-accent-primary-600: rgba(230, 240, 249, 1);
+$color-accent-primary-700: rgba(236, 242, 248, 1);
+
+$color-focus-100: rgba(64, 148, 254, 1);
+$color-focus-200: rgba(151, 200, 247, 0.68);
+$color-focus-300: rgba(171, 212, 251, 0.5);
+
+/* stylelint-disable */
+$gradient-archive-header: linear-gradient(0deg, rgba(2, 99, 190, 0.43), rgba(2, 99, 190, 0.43));
+$gradient-homepage-background: linear-gradient(91.1deg, #1c4973 0.76%, #08223a 100.12%), linear-gradient(180deg, rgba(0, 59, 116, 0) 9.45%, rgba(18, 71, 120, 0.82) 44.87%, rgba(8, 53, 95, 0.81) 99.04%), linear-gradient(180deg, rgba(30, 58, 85, 0.68) 0%, rgba(53, 110, 163, 0.0966914) 36.63%, rgba(56, 115, 171, 0) 118.32%);
+/* stylelint-enable */
+
+/*----------  Fonts  ----------*/
+$font__lato: 'Lato', sans-serif;
+$font__pt: 'PT sans', sans-serif;
+
+$font-family-default: $font__lato;
+$font-size-default: 16px;
+$font-line-height-default: 1.15;
+
+/*----------  Structure  ----------*/
+$breakpoints: (
+  'small': 30em,
+  'medium': 40em,
+  'xmedium': 50em,
+  'large': 64em,
+  'xlarge': 75em,
+  'xxlarge': 87.5em,
+);
+
+// Used to calculate font size in font-clamp mixin.
+$container-min-width: 30rem;
+$container-max-width: 87.5rem;
+$container-width-diff: 57.5rem; // Difference in rems between small & large breakpoints
+
+$size__container-max-width: 1400px;
+$size__content-max-width: 680px;
+$size__content-wide-max-width: 1200px;
+$size__archive-max-width: 800px;
+$size__header-max-width: 900px;
+$size__footer-max-width: 900px;
+
+/*----------  Z-Index  ----------*/
+$z-index: (
+  entryHeaderImgFlair: 2,
+  homeAboutPONI: -1,
+  hpFeatContent: 2,
+  hpFeatImg: 1,
+  hpContent: 5,
+  hpHeaderImg: -1,
+  navContainer: 6,
+  navTrigger: 7,
+  postBG: -1,
+  searchForm: 4,
+  searchFormDesktop: 2,
+  siteHeader: 11,
+  siteHeaderLogo: 3,
+  splideArrows: 1,
+  splidePagination: 2,
+);
+
+/*----------  Box Shadows  ----------*/
+$shadows: (
+  md: (
+    0 4px 6px rgba(0, 0, 0, 0.1),
+    0 1px 9px rgba(0, 0, 0, 0.06),
+  ),
+  lg: (
+    0 5px 20px rgba(0, 0, 0, 0.1),
+    0 0 7px rgba(0, 0, 0, 0.1),
+  ),
+);
+
+/*----------  Shadows  ----------*/
+
+$shadow--1: drop-shadow(0 3px 4px rgba(2, 3, 3, 0.03)) drop-shadow(0 3px 3px rgba(2, 3, 3, 0.02)) drop-shadow(0 1px 8px rgba(2, 3, 3, 0.04));
+
+/*----------  Page Specific Images  ----------*/
+
+/* stylelint-disable function-parentheses-space-inside */
+$page-images: (
+  'analysis': (
+    image: (
+      linear-gradient(0deg, rgba(2, 99, 190, 0.43), rgba(2, 99, 190, 0.43)),
+      url('/wp-content/themes/csisnuclearnetwork/assets/img/analysis_bg.jpg'),
+    ),
+  ),
+  'events': (
+    image: (
+      linear-gradient(0deg, rgba(2, 99, 190, 0.43), rgba(2, 99, 190, 0.43)),
+      url('/wp-content/themes/csisnuclearnetwork/assets/img/events_bg.jpg'),
+    ),
+  ),
+  'general': (
+    image: (
+      linear-gradient(0deg, rgba(2, 99, 190, 0.43), rgba(2, 99, 190, 0.43)),
+      url('/wp-content/themes/csisnuclearnetwork/assets/img/general_bg.jpg'),
+    ),
+  ),
+  'npn': (
+    image: (
+      linear-gradient(0deg, rgba(2, 99, 190, 0.43), rgba(2, 99, 190, 0.43)),
+      url('/wp-content/themes/csisnuclearnetwork/assets/img/NPN_bg.jpg'),
+    ),
+  ),
+  'programs': (
+    image: (
+      linear-gradient(0deg, rgba(2, 99, 190, 0.43), rgba(2, 99, 190, 0.43)),
+      url('/wp-content/themes/csisnuclearnetwork/assets/img/programs_bg.jpg'),
+    ),
+  ),
+  'projects': (
+    image: (
+      linear-gradient(0deg, rgba(2, 99, 190, 0.43), rgba(2, 99, 190, 0.43)),
+      url('/wp-content/themes/csisnuclearnetwork/assets/img/projects_bg.jpg'),
+    ),
+  ),
+  'updates': (
+    image: (
+      linear-gradient(0deg, rgba(2, 99, 190, 0.43), rgba(2, 99, 190, 0.43)),
+      url('/wp-content/themes/csisnuclearnetwork/assets/img/updates_bg.jpg'),
+    ),
+  ),
+);
+
+/*----------  Archive Content Widths  ----------*/
+$archive-widths: (
+  'archive--has-filters': (
+    'content': 1010px,
+    'sidebar': 270px,
+  ),
+  'post-type-archive-events': (
+    'content': 930px,
+    'postlist': 800px,
+  ),
+  'post-type-archive-news': (
+    'content': 810px,
+    'sidebar': 20%,
+  ),
+);

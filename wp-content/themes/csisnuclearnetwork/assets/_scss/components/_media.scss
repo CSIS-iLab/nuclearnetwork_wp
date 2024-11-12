@@ -1,0 +1,99 @@
+@use '../abstracts' as *;
+
+.videoWrapper {
+  position: relative;
+  height: 0;
+  padding-bottom: 56.25%; /* 16:9 */
+  /* falls back to 16/9, but otherwise uses ratio from HTML */
+  padding-bottom: calc(var(--aspect-ratio, 0.5625) * 100%);
+
+  iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+/* Images */
+/* stylelint-disable-next-line */
+img.aligncenter,
+.wp-block-image .aligncenter img,
+.wp-block-image > img {
+  width: 100%;
+}
+
+.wp-block-image,
+.wp-block-video {
+  &.alignfull,
+  &.alignwide,
+  .aligncenter {
+    // width: 100%;
+    margin-top: rem(40);
+    margin-bottom: rem(32);
+  }
+
+  .alignleft {
+    margin-right: var(--margin-text-side);
+    margin-left: var(--margin-gutter-side, 0);
+  }
+
+  .alignright {
+    margin-right: var(--margin-gutter-side, 0);
+    margin-left: var(--margin-text-side);
+  }
+}
+
+/* Captions */
+.wp-block-image figcaption,
+.wp-block-video figcaption {
+  max-width: $size__content-max-width;
+  margin: rem(12) auto 0;
+  @extend %text-style-paragraph-medium-short;
+  color: $color-black-165;
+
+  &::before {
+    content: '';
+    display: block;
+    width: rem(72);
+    height: rem(10);
+    margin: rem(-12px) 0 12px 0;
+    background: $color-accent-secondary-yellow-100;
+  }
+
+  /* stylelint-disable */
+  a[href*='//']:not([class])
+  {
+    /* stylelint-enable */
+    @extend %text-style-paragraph-medium-short;
+  }
+}
+
+.wp-block-image,
+.wp-block-video {
+  &.alignfull figcaption,
+  &.alignwide figcaption {
+    width: 100%;
+    max-width: 100%;
+    padding-right: var(--container-padding);
+    padding-left: var(--container-padding);
+
+    @include breakpoint('small') {
+      padding-right: calc(var(--container-padding) + 6vw);
+      padding-left: calc(var(--container-padding) + 6vw);
+    }
+
+    // This is to align the figcaption as alignwide/full would otherwise force it to be full width. Margin/paddings address tweaks at different breakpoints
+    @include breakpoint(680px) {
+      max-width: $size__content-max-width;
+      margin-left: 0;
+    }
+
+    @include breakpoint(895px) {
+      margin-left: auto;
+      padding-right: 0;
+      padding-left: 0;
+    }
+  }
+}

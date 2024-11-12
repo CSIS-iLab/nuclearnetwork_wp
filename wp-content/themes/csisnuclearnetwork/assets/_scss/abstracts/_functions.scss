@@ -1,0 +1,65 @@
+@use 'variables' as *;
+@use 'sass:math';
+
+/*=================================
+=            Functions            =
+=================================*/
+
+$browser-context: 16px;
+
+@function rem($size) {
+  @if is-px($size) == false {
+    $size: $size * 1px;
+  }
+
+  $rem-size: math.div($size, $browser-context);
+  @return $rem-size * 1rem;
+}
+
+@function is-number($value) {
+  @return type-of($value) == 'number';
+}
+
+@function is-px($value) {
+  @return is-number($value) and index('px', unit($value)) != null;
+}
+
+// Calculates the slope based off the min/max font size and min/max widths.
+@function calc-slope($min-font-size, $max-font-size) {
+  $font-size-diff: $max-font-size - $min-font-size;
+
+  $result: math.div($font-size-diff, $container-width-diff);
+
+  @return $result;
+}
+
+// Returns the preferred value for the font-clamp mixin based on the min/max font sizes.
+@function calc-preferred-font-value($min-font-size, $max-font-size) {
+  $slope: calc-slope($min-font-size, $max-font-size);
+
+  $intersection: -($container-min-width) * $slope + $min-font-size;
+
+  @return ($intersection, ($slope * 100vw));
+}
+
+@function z-index($key) {
+  $z-index: map-get($z-index, $key);
+
+  @if $z-index {
+    @return $z-index;
+  }
+
+  @warn 'There is no item "#{$element}" in this list; choose one of: #{$list}';
+  @return null;
+}
+
+@function box-shadow($key) {
+  $box-shadow: map-get($shadows, $key);
+
+  @if $box-shadow {
+    @return $box-shadow;
+  }
+
+  @warn 'There is no item "#{$element}" in this list; choose one of: #{$list}';
+  @return null;
+}

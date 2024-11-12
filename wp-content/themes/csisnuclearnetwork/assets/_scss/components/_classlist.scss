@@ -1,0 +1,49 @@
+@use '../abstracts' as *;
+
+.classlist {
+  &__item {
+    img {
+      width: 100%;
+      max-width: 150px;
+
+      @include breakpoint(medium) {
+        float: left;
+        max-width: 200px;
+        margin-right: rem(32);
+        margin-bottom: rem(32);
+      }
+    }
+  }
+
+  &__name {
+    @extend %text-style-heading-medium;
+    margin: rem(16) 0;
+    color: $color-accent-primary-blue-200;
+
+    @include breakpoint(medium) {
+      margin-top: 0;
+    }
+  }
+
+  &__bio {
+    @extend %text-style-paragraph-medium-short;
+    margin-bottom: rem(32);
+    color: $color-black-165;
+  }
+
+  &__info {
+    &::after {
+      content: '';
+      display: table;
+      clear: both;
+    }
+  }
+
+  hr {
+    height: rem(1);
+    margin-top: 0;
+    margin-bottom: rem(40);
+    background-color: $color-border-dark-130;
+    border: unset;
+  }
+}

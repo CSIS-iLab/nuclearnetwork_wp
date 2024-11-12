@@ -1,0 +1,58 @@
+@use '../abstracts' as *;
+
+.class-links-block {
+  --margin-text-side: auto;
+  --margin-gutter-side: auto;
+  width: fit-content;
+  margin: rem(32) var(--margin-gutter-side, 0) rem(32) var(--margin-text-side);
+  padding: rem(32) rem(48);
+  background-color: $color-bg-light-300;
+
+  @include breakpoint('small') {
+    --margin-text-side: auto;
+    --margin-gutter-side: auto;
+    float: none !important;
+    max-width: 100%;
+  }
+
+  @include breakpoint('medium') {
+    --margin-text-side: #{rem(48)};
+    --margin-gutter-side: 6vw;
+    float: right !important;
+  }
+
+  @include breakpoint('large') {
+    --margin-gutter-side: -6vw;
+  }
+
+  @include breakpoint('xxlarge') {
+    // --margin-text-side: #{rem(56)};
+    --margin-gutter-side: #{rem(-80)};
+  }
+
+  &__title {
+    margin: 0 0 rem(16);
+    color: $color-accent-primary-blue-100;
+    @extend %text-style-heading-medium-strong;
+  }
+
+  &__classes {
+    padding: 0;
+    list-style: none;
+  }
+
+  &__link {
+    color: $color-accent-primary-blue-200;
+    @extend %text-style-label-large;
+
+    &:hover,
+    &:focus {
+      color: $color-accent-primary-blue-100;
+    }
+
+    &:focus {
+      background-color: $color-bg-light-400;
+      outline: 0;
+    }
+  }
+}

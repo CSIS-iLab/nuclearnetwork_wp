@@ -1,0 +1,66 @@
+@use 'abstracts' as *;
+
+.search-form {
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: rem(120);
+
+  #search-form-1 {
+    // padding: rem(8) rem(4);
+    padding: rem(11) rem(4);
+    border: 0.5px solid $color-bg-light-300;
+    border-radius: 0;
+    @extend %text-style-label-large;
+
+    @include breakpoint('large') {
+      width: rem(800px);
+    }
+
+    &::placeholder {
+      color: $color-black-140;
+    }
+  }
+
+  &__submit {
+    margin-left: rem(6);
+    padding: rem(8.5) rem(10);
+    color: $color-white-100;
+    background-color: $color-accent-primary-blue-100;
+    border: 0;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      color: $color-white-165;
+    }
+
+    &:focus {
+      color: $color-white-165;
+      outline: 0;
+    }
+
+    .icon {
+      position: relative;
+      top: rem(2);
+      @include font-size(20px);
+    }
+  }
+
+  &__title {
+    margin-bottom: rem(8);
+    color: $color-accent-primary-blue-200;
+    @extend %text-style-heading-large-strong;
+  }
+
+  &__desc {
+    margin-bottom: rem(16);
+    color: $color-black-190;
+    @extend %text-style-label-large;
+  }
+}
+
+/* stylelint-disable-next-line */
+input[type='search']::-webkit-search-cancel-button {
+  display: none;
+}

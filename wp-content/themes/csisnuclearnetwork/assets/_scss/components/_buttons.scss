@@ -1,0 +1,119 @@
+@use '../abstracts' as *;
+
+.btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  padding: var(--btn-padding, rem(12) rem(20));
+  color: var(--btn-color);
+  text-align: center;
+  background: var(--btn-bg, transparent);
+  border: 1px solid var(--btn-border, transparent);
+  border-radius: 2px;
+  transition: all 0.3s ease-in-out;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:not([disabled]) {
+    cursor: pointer;
+  }
+
+  &[disabled] {
+    cursor: not-allowed;
+  }
+
+  svg {
+    margin-left: rem(8);
+  }
+
+  // Font Sizes
+  &--small {
+    @extend %text-style-label-small;
+    --btn-padding: #{rem(6) rem(12)};
+  }
+
+  &--med {
+    @extend %text-style-label-medium;
+    --btn-padding: #{rem(8) rem(12)};
+  }
+
+  // The default font size for buttons. Override by using one of the other modifier classes.
+  &:not(.btn--xsmall):not(.btn--small):not(.btn--med),
+  &--large {
+    @extend %text-style-label-large;
+    --btn-padding: #{rem(12) rem(20)};
+  }
+
+  // Button Styles
+  &--circle {
+    width: rem(32);
+    height: rem(32);
+    padding: 0;
+    border-radius: 50%;
+  }
+
+  &--outline {
+    &-dark {
+      --btn-color: #{$color-black-190};
+      --btn-border: #{$color-black-190};
+
+      &:focus {
+        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+      }
+    }
+
+    &-blue {
+      --btn-color: #{$color-accent-primary-blue-200};
+      --btn-border: #{$color-accent-primary-blue-200};
+    }
+
+    &-dark,
+    &-blue {
+      &:hover {
+        --btn-color: #{$color-white-100};
+        --btn-bg: #{$color-accent-primary-blue-200};
+        --btn-border: #{$color-accent-primary-blue-200};
+      }
+
+      &:focus {
+        --btn-color: #{$color-accent-primary-blue-200};
+        --btn-bg: #{$color-bg-light-200};
+        --btn-border: #{$color-bg-light-200};
+      }
+    }
+  }
+
+  &--blue {
+    --btn-color: #{$color-white-100};
+    --btn-bg: #{$color-blue-400-button-blue};
+    border: 0;
+  }
+
+  &--teal {
+    --btn-color: #{$color-white-190};
+    --btn-bg: #{$color-accent-primary-dark-bg-blue-400};
+    border: 0;
+  }
+
+  &--blue,
+  &--teal {
+    &:hover {
+      --btn-color: #{$color-white-100};
+      --btn-bg: #{$color-bg-dark-300};
+    }
+
+    &:focus {
+      --btn-color: #{$color-accent-primary-blue-200};
+      --btn-bg: #{$color-bg-light-200};
+    }
+  }
+
+  &--newsletter {
+    &:focus {
+      --btn-color: #{$color-accent-primary-blue-200};
+    }
+  }
+}

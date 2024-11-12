@@ -1,0 +1,211 @@
+@use 'abstracts' as *;
+@use '../components/navigation';
+
+.header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  @include z-index('siteHeader');
+  background-color: transparent;
+  transition: background 0.3s ease-in;
+
+  &__inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    height: var(--site-header-height);
+  }
+
+  &__logo {
+    @include z-index('siteHeaderLogo');
+    position: relative;
+    order: 2;
+    width: fit-content;
+    height: max-content;
+    margin: auto;
+
+    &--desktop {
+      display: none;
+    }
+
+    &--home {
+      display: none;
+    }
+
+    @include breakpoint('large') {
+      order: 1;
+      margin: 0;
+
+      &--mobile {
+        display: none;
+      }
+
+      &--desktop {
+        display: block;
+      }
+    }
+
+    svg {
+      max-width: 210px;
+      // height: var(--logo-height);
+
+      @include breakpoint('large') {
+        max-width: 339px;
+      }
+    }
+  }
+
+  .spacer {
+    @include breakpoint('large') {
+      flex-grow: 1;
+      order: 2;
+    }
+  }
+
+  .search {
+    display: flex;
+    grid-area: search;
+    align-items: center;
+    order: 3;
+    height: 100%;
+  }
+
+  #searchform {
+    position: absolute;
+    right: 0;
+    @include z-index('searchForm');
+    display: flex;
+    justify-content: flex-end;
+    opacity: 0;
+    transition: clip-path 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    clip-path: inset(0 0 0 100%);
+
+    @include breakpoint('large') {
+      right: var(--container-padding);
+      @include z-index('searchFormDesktop');
+    }
+
+    &.is-active {
+      width: 100%;
+      margin: auto;
+      opacity: 1;
+      clip-path: inset(0);
+    }
+  }
+
+  &__search-trigger {
+    @include z-index('searchFormDesktop');
+    color: $color-white-190;
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+
+    .icon {
+      color: $color-white-190;
+    }
+
+    &:hover {
+      color: $color-white-100;
+    }
+
+    &:focus {
+      color: $color-white-100;
+    }
+
+    @include breakpoint('large') {
+      &::before {
+        content: ' ';
+        padding-right: 22px;
+        border-left: 1px $color-border-light-115 solid;
+        pointer-events: none;
+      }
+    }
+
+    &.is-active {
+      opacity: 0;
+    }
+  }
+
+  #navSearchInput {
+    flex: 1 1 auto;
+    padding: rem(11) rem(4);
+    border: 0;
+    border-radius: 0;
+
+    &::placeholder {
+      @extend %text-style-label-large;
+      color: $color-black-140;
+    }
+  }
+
+  &__search-submit {
+    margin-left: rem(6);
+    padding: rem(8.5) rem(10);
+    color: $color-white-100;
+    background-color: $color-accent-primary-blue-100;
+    border: 0;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      color: $color-white-165;
+    }
+
+    &:focus {
+      color: $color-white-165;
+      outline: 0;
+    }
+
+    .icon {
+      position: relative;
+      top: rem(2);
+      @include font-size(20px);
+    }
+  }
+
+  &__search-close {
+    width: rem(18);
+    margin-left: rem(4);
+    padding: 0;
+    color: $color-white-190;
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      color: $color-white-100;
+    }
+
+    &:focus {
+      color: $color-white-100;
+    }
+
+    .icon {
+      @include font-size(18px);
+    }
+  }
+
+  .input-group {
+    display: flex;
+    align-items: center;
+    width: 90%;
+    height: 100%;
+    margin: auto;
+
+    @include breakpoint('large') {
+      width: 60%;
+      margin: 0;
+    }
+  }
+
+  button:focus {
+    outline: 0;
+  }
+
+  &.full-color {
+    background-color: $color-accent-primary-blue-100;
+  }
+}

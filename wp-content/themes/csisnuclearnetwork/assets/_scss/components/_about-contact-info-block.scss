@@ -1,0 +1,56 @@
+@use '../abstracts' as *;
+
+.wp-block-lazyblock-contact-information {
+  width: 100%;
+  margin: 0 auto rem(40);
+  padding: rem(24px);
+  background-color: $color-bg-light-300;
+
+  @include breakpoint('small') {
+    width: rem(280px);
+  }
+
+  @include breakpoint('large') {
+    float: right;
+    margin-right: -6vw;
+    margin-left: rem(48px);
+  }
+
+  h4 {
+    margin: 0 0 rem(4px) !important;
+    color: $color-accent-primary-blue-200 !important;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  dt {
+    display: block;
+    margin: 0 !important;
+    color: $color-accent-primary-blue-200 !important;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  dd {
+    display: block;
+    @extend %text-style-label-medium;
+    margin-bottom: rem(12px) !important;
+    color: $color-black-180;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    a {
+      &:hover,
+      &:focus {
+        color: $color-accent-primary-blue-200;
+      }
+
+      &:focus {
+        background-color: $color-bg-light-300;
+        outline: 0;
+      }
+    }
+  }
+}

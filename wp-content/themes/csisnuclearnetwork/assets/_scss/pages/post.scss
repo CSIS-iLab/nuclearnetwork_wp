@@ -1,0 +1,108 @@
+@use '../abstracts' as *;
+
+.post {
+  &__authors {
+    --max-width-limit: #{rem(500)};
+    margin-top: rem(0);
+    margin-bottom: rem(56);
+
+    @include breakpoint('large') {
+      margin-bottom: rem(48);
+
+      &-content {
+        display: grid;
+        grid-template-columns: auto rem(260);
+        column-gap: rem(48);
+      }
+    }
+
+    &-group {
+      grid-column: 1;
+      max-width: var(--max-width-limit);
+
+      @include breakpoint('large') {
+        max-width: unset;
+        margin-bottom: rem(48);
+      }
+    }
+
+    &-heading {
+      max-width: rem(700);
+      margin-bottom: rem(16);
+
+      @include breakpoint('large') {
+        margin-bottom: rem(12);
+      }
+    }
+
+    &-disclaimer {
+      max-width: var(--max-width-limit);
+      margin-bottom: rem(24);
+      color: $color-black-190;
+      letter-spacing: 0.0005em;
+
+      @include breakpoint(large) {
+        max-width: rem(700);
+      }
+    }
+
+    &-author {
+      margin-bottom: rem(16);
+
+      &:last-of-type {
+        margin: 0;
+      }
+
+      hr {
+        width: rem(40);
+        height: rem(4);
+        margin: rem(4) 0 rem(8) 0;
+        background-color: $color-accent-secondary-yellow-100;
+        border: 0;
+      }
+    }
+
+    &-author-name {
+      color: $color-accent-primary-blue-200;
+      @extend %text-style-paragraph-large;
+
+      span {
+        font-weight: 400;
+      }
+    }
+
+    &-author-bio {
+      color: $color-black-190;
+      @extend %text-style-paragraph-medium-short;
+    }
+  }
+
+  .entry__tags {
+    max-width: $size__content-max-width;
+    margin-right: auto;
+    margin-bottom: rem(24);
+    margin-left: auto;
+
+    @include breakpoint('large') {
+      margin-bottom: rem(40);
+    }
+  }
+
+  &-meta__tags {
+    margin: 0;
+    padding: 8px 0 0;
+
+    li {
+      display: block;
+      margin-bottom: 12px;
+      padding: 0;
+      white-space: nowrap;
+
+      a {
+        display: flex;
+        align-self: center;
+        padding: rem(4) rem(8);
+      }
+    }
+  }
+}

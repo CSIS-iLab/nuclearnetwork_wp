@@ -1,0 +1,109 @@
+@use '../abstracts' as *;
+
+.home__projects {
+  --image-height: 340px;
+  --link-color: #{$color-black-180};
+  --link-hover-color: #{$color-accent-primary-blue-200};
+  --link-focus-background: #{$color-bg-light-300};
+  --projects-padding: var(--container-padding);
+  grid-area: projects;
+  max-width: 100vw;
+  padding: rem(24) 0 rem(64);
+  @include csis-block-full-width-wrapper;
+  background: $color-bg-light-400;
+
+  @include breakpoint('xmedium') {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  @include breakpoint('large') {
+    --projects-padding: #{rem(40)};
+    max-width: 100%;
+    margin: rem(72) 0 0;
+    padding-bottom: rem(40);
+  }
+
+  &-header {
+    margin-bottom: rem(20);
+    padding: 0 var(--projects-padding);
+
+    @include breakpoint('small') {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+  }
+
+  .home__subtitle {
+    --home-subtitle-border: #{$color-accent-primary-blue-300};
+
+    &::after {
+      margin-top: rem(12);
+      margin-bottom: rem(12);
+
+      @include breakpoint('small') {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &-item {
+    > *:not(.home__projects-img) {
+      padding: 0 var(--projects-padding);
+    }
+  }
+
+  &-img {
+    display: block;
+    margin-bottom: rem(20);
+
+    img {
+      width: 100%;
+      max-height: var(--image-height);
+      object-fit: cover;
+      object-position: center center;
+
+      @include breakpoint('medium') {
+        height: var(--image-height);
+        max-height: unset;
+      }
+    }
+  }
+
+  &-title {
+    margin-bottom: rem(8);
+    color: $color-black-100;
+    @extend %text-style-heading-large-strong;
+  }
+
+  .post-block__excerpt {
+    margin-bottom: 0 !important;
+    @extend %text-style-paragraph-large;
+    @extend %text-style-short;
+    color: $color-black-180;
+  }
+
+  // Splide
+  .splide__pagination {
+    margin-top: rem(20);
+
+    @include breakpoint('medium') {
+      position: absolute;
+      top: calc(var(--image-height) + #{rem(20)});
+      right: calc(var(--offset-arrow-size) + var(--offset-arrow-padding) + var(--projects-padding));
+      justify-content: flex-end;
+      margin: 0;
+    }
+  }
+
+  .splide__arrows {
+    @include breakpoint('medium') {
+      top: calc(var(--image-height) + #{rem(20)});
+      right: var(--projects-padding);
+      bottom: unset;
+      left: unset;
+      transform: none;
+    }
+  }
+}

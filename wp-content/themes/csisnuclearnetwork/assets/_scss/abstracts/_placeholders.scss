@@ -1,0 +1,165 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+/*----------  Headings  ----------*/
+
+%text-style-heading-3-x-large {
+  @include font-clamp(30px, 48px);
+  font-weight: normal;
+}
+
+%text-style-heading-3-x-large-strong {
+  @extend %text-style-heading-3-x-large;
+  font-weight: bold;
+  letter-spacing: -0.01em;
+}
+
+%text-style-heading-2-x-large {
+  @include font-size(42px);
+  font-weight: normal;
+}
+
+%text-style-heading-2-x-large-strong {
+  @extend %text-style-heading-2-x-large;
+  font-weight: bold;
+  letter-spacing: -0.015em;
+}
+
+%text-style-heading-x-large {
+  @include font-clamp(24px, 32px);
+  font-weight: normal;
+}
+
+%text-style-heading-x-large-strong {
+  @extend %text-style-heading-x-large;
+  font-weight: bold;
+  line-height: 1.125;
+}
+
+%text-style-heading-large-strong {
+  @include font-clamp(21px, 24px);
+  font-weight: bold;
+  line-height: 1.25;
+}
+
+%text-style-heading-large-strong-caps {
+  @extend %text-style-heading-large-strong;
+  line-height: 1.33;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+%text-style-heading-large-strong-mobile {
+  @extend %text-style-heading-large-strong;
+  line-height: 1.15;
+}
+
+%text-style-heading-medium {
+  @include font-clamp(18px, 20px);
+  font-weight: normal;
+}
+
+%text-style-heading-medium-strong {
+  @extend %text-style-heading-medium;
+  font-weight: bold;
+}
+
+/*----------  Labels  ----------*/
+
+%text-style-label-large {
+  @include font-clamp(16px, 18px);
+  font-family: $font__pt;
+  letter-spacing: 0.005em;
+}
+
+%text-style-label-large-caps {
+  @extend %text-style-label-large;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+%text-style-label-large-strong-caps {
+  @extend %text-style-label-large-caps;
+  font-weight: bold;
+  letter-spacing: 0.035em;
+}
+
+%text-style-label-large-italics {
+  @extend %text-style-label-large;
+  font-style: italic;
+  letter-spacing: 0.01em;
+}
+
+%text-style-label-medium {
+  @include font-size(16px);
+  font-family: $font__pt;
+  letter-spacing: 0.01em;
+}
+
+%text-style-label-medium-strong {
+  @extend %text-style-label-medium;
+  font-weight: 700;
+}
+
+%text-style-label-small {
+  @include font-size(14px);
+  font-family: $font__pt;
+  letter-spacing: 0.015em;
+}
+
+%text-style-label-small-caps {
+  @extend %text-style-label-small;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+%text-style-label-small-strong {
+  @extend %text-style-label-small;
+  font-weight: bold;
+  letter-spacing: 0.03em;
+}
+
+/*----------  Paragraphs  ----------*/
+
+%text-style-paragraph-x-large {
+  @include font-size(22px);
+}
+
+%text-style-paragraph-x-large-short {
+  @include font-clamp(18px, 32px);
+  line-height: 1.3;
+}
+
+%text-style-paragraph-large {
+  @include font-clamp(16px, 18px);
+  letter-spacing: 0.005em;
+}
+
+%text-style-paragraph-medium {
+  @include font-size(16px);
+}
+
+%text-style-paragraph-medium-short {
+  @extend %text-style-paragraph-medium;
+  line-height: 1.3;
+  letter-spacing: 0.005em;
+}
+
+%text-style-paragraph-medium-short-caps {
+  @extend %text-style-paragraph-medium;
+  line-height: 1.3;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+%text-style-paragraph-small {
+  @include font-size(14px);
+}
+
+%text-style-short {
+  line-height: 1.3;
+}
+
+%text-style-long {
+  line-height: 1.6;
+}

@@ -1,0 +1,94 @@
+@use '../abstracts' as *;
+
+/*=================================
+=            Footnotes            =
+=================================*/
+
+.single__content {
+  .easy-footnote {
+    font-size: rem(12px);
+
+    sup {
+      position: relative;
+      top: -0.6em;
+      left: 1px;
+      vertical-align: baseline;
+      transition: all 0.3s ease-in-out;
+    }
+  }
+}
+
+.footnotes {
+  clear: both;
+  margin: rem(56px) 0 rem(48px) 0;
+
+  &__heading {
+    margin-bottom: rem(24);
+  }
+
+  &__list {
+    margin-bottom: rem(24);
+    padding-left: 0;
+  }
+}
+
+.easy-footnotes-wrapper {
+  @extend %text-style-paragraph-medium-short;
+  padding-left: 0;
+  line-height: 1.3;
+  counter-reset: item;
+
+  li {
+    position: relative;
+    left: 16px;
+    display: block;
+    padding-right: rem(16);
+    padding-left: rem(16) !important;
+    color: $color-black-180;
+    overflow-wrap: break-word;
+
+    &::after {
+      position: absolute;
+      top: 0;
+      left: -16px;
+      display: block;
+      margin-left: 0;
+      content: counter(item) '.';
+      @extend %text-style-paragraph-medium-short;
+      color: $color-black-180;
+      counter-increment: item;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: rem(4);
+    }
+
+    a:not(.easy-footnote-to-top) {
+      font-size: rem(16) !important;
+
+      &::after {
+        content: none !important;
+      }
+    }
+
+    .easy-footnote-margin-adjust {
+      display: hidden;
+    }
+
+    .easy-footnote-to-top {
+      &::after {
+        position: absolute;
+        width: 15px;
+        height: 15px;
+        content: '';
+        margin-top: -11px;
+        background: url('/wp-content/themes/csisnuclearnetwork/assets/static/icons/reverse-arrow.svg') no-repeat;
+        transition: all 0.3s ease-in-out;
+      }
+
+      &:hover::after {
+        filter: invert(0%) sepia(96%) saturate(16%) hue-rotate(282deg) brightness(8%) contrast(104%) opacity(0.8);
+      }
+    }
+  }
+}

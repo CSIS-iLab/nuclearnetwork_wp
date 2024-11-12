@@ -1,0 +1,81 @@
+@use '../abstracts' as *;
+
+.wp-block-lazyblock-team-members {
+  .team-member-block__ul {
+    padding-left: 0;
+  }
+
+  .team-member-block__ul li {
+    padding-bottom: rem(20);
+    padding-left: 0;
+
+    @include breakpoint('medium') {
+      display: flex;
+      clear: both;
+    }
+  }
+
+  .team-member-block__name {
+    @extend %text-style-heading-medium-strong;
+    color: $color-accent-primary-blue-200;
+    line-height: 100%;
+  }
+
+  .team-member-block__title {
+    @extend %text-style-label-medium;
+    color: $color-black-165;
+
+    &::after {
+      content: '';
+      display: flex;
+      width: rem(45);
+      height: rem(4);
+      margin-top: rem(8);
+      margin-bottom: rem(12);
+      background-color: $color-accent-secondary-yellow-100;
+
+      @include breakpoint('medium') {
+        display: block;
+      }
+    }
+  }
+
+  .team-member-block__bio {
+    @extend %text-style-paragraph-medium-short;
+    color: $color-black-190;
+  }
+    
+  .senior-1 {
+    .team-member-block__name {
+      @extend %text-style-heading-large-strong;
+    }
+
+    .team-member-block__title {
+      @extend %text-style-label-large;
+      line-height: 100%;
+    }
+  }
+
+  .team-member-block__img {
+    float: left;
+    width: rem(80);
+    max-width: none;
+    height: rem(100);
+    margin-right: rem(16);
+    margin-bottom: rem(16);
+    object-fit: cover;
+
+    @include breakpoint('medium') {
+      width: rem(100);
+      height: rem(125);
+      margin-right: rem(24);
+      margin-bottom: 0;
+    }
+
+    @include breakpoint('large') {
+      width: rem(145);
+      height: rem(180);
+    }
+  }
+}
+

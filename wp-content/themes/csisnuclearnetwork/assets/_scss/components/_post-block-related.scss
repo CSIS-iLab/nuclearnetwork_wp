@@ -1,0 +1,42 @@
+@use '../abstracts' as *;
+
+.post-block-related {
+  display: block;
+  max-width: rem(550);
+
+  &__byline {
+    display: flex;
+
+    .post-meta__authors {
+      margin-left: rem(8);
+    }
+
+    .post-meta__date {
+      --post-meta: #{$color-black-165};
+
+      &::after {
+        padding-right: rem(8);
+        border-right: 1px solid $color-border-dark-130;
+        content: '';
+      }
+
+      .post-meta__label {
+        display: none;
+      }
+    }
+  }
+
+  &__title {
+    margin-bottom: rem(12);
+    color: $color-black-100;
+    @extend %text-style-heading-medium-strong;
+
+    &:hover {
+      color: $color-accent-primary-blue-200;
+    }
+
+    &:focus {
+      background: $color-bg-light-300;
+    }
+  }
+}

@@ -1,0 +1,325 @@
+@use '../abstracts' as *;
+@use 'sass:map';
+@use '../components/pagination';
+@use '../components/npn-monthly-archives';
+
+@each $page, $values in $archive-widths {
+  .#{$page} {
+    --content-width: #{map.get($values, 'content')};
+    --postlist-width: #{map.get($values, 'postlist')};
+    --sidebar-width: #{map.get($values, 'sidebar')};
+  }
+}
+
+.archive {
+  background: $color-bg-light-200;
+
+  &__content {
+    max-width: var(--content-width, #{$size__archive-max-width});
+    margin: rem(32) auto;
+    // margin-top: rem(32);
+    // margin-right: auto;
+    // margin-left: auto;
+
+    @include breakpoint('small') {
+      margin-top: rem(40);
+    }
+
+    @include breakpoint('large') {
+      margin-top: rem(64);
+    }
+
+    @include breakpoint('xlarge') {
+      margin-top: rem(80);
+    }
+  }
+
+  &__postlist {
+    max-width: var(--postlist-width, 100%);
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  &__header-image-caption {
+    @extend %text-style-paragraph-small;
+    margin-top: rem(48);
+    color: $color-black-165;
+
+    @include breakpoint('large') {
+      margin-top: rem(56);
+    }
+  }
+
+  /*----------  Filters  ----------*/
+  &--has-filters {
+    .archive__content {
+      display: grid;
+
+      @include breakpoint('large') {
+        grid-template-columns: auto minmax(auto, var(--sidebar-width));
+        column-gap: rem(40);
+      }
+    }
+
+    .archive__sidebar {
+      margin-bottom: rem(40);
+
+      @include breakpoint('large') {
+        grid-column: 2;
+        grid-row: 1 / span 3;
+      }
+    }
+
+    .archive__featured,
+    .archive__author-info {
+      grid-column: 1 / -1;
+
+      + .archive__sidebar {
+        @include breakpoint('medium') {
+          grid-row: 2 / span 3;
+        }
+      }
+    }
+
+    .archive__featured {
+      margin-bottom: rem(32);
+
+      @include breakpoint('large') {
+        margin-bottom: rem(40);
+      }
+    }
+  }
+
+  &__filters {
+    display: grid;
+    gap: rem(16);
+
+    @include breakpoint('small') {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include breakpoint('large') {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__section-title {
+    margin-bottom: rem(16);
+    padding-bottom: rem(8);
+    color: $color-black-165;
+    @extend %text-style-heading-x-large;
+    border-bottom: 1px solid $color-border-dark-130;
+  }
+
+  &__subheading {
+    margin-bottom: rem(16);
+    color: $color-accent-primary-100;
+    @extend %text-style-heading-large-strong;
+  }
+
+  &__featured {
+    .post-block {
+      padding-top: rem(34);
+
+      @include breakpoint('small') {
+        padding: rem(40) rem(40) rem(40) rem(50);
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: rem(10);
+        background-color: $color-accent-secondary-yellow-100;
+
+        @include breakpoint('small') {
+          width: rem(10);
+          height: 100%;
+        }
+      }
+    }
+  }
+
+  &__disclaimer {
+    color: $color-black-180;
+    @extend %text-style-paragraph-large;
+  }
+}
+
+/*----------  Events  ----------*/
+.events__upcoming {
+  padding-top: rem(16);
+
+  @include breakpoint('medium') {
+    padding-top: rem(24);
+  }
+
+  > :last-child {
+    margin-bottom: rem(40);
+
+    @include breakpoint('large') {
+      margin-bottom: rem(48);
+    }
+  }
+}
+
+/*----------  NPN  ----------*/
+.post-type-archive-news {
+  .archive__content {
+    display: grid;
+
+    @include breakpoint('medium') {
+      grid-template-columns: auto minmax(auto, var(--sidebar-width));
+      column-gap: rem(40);
+    }
+  }
+
+  .archive__sidebar {
+    margin-bottom: rem(24);
+
+    @include breakpoint('medium') {
+      grid-column: 2;
+      grid-row: 2 / span 2;
+    }
+  }
+
+  .archive__subheader {
+    @include breakpoint('medium') {
+      grid-column: 1 / -1;
+    }
+  }
+
+  .archive__postlist {
+    width: 100%;
+  }
+
+  .archive__disclaimer {
+    margin-bottom: rem(24);
+    color: $color-black-100;
+
+    @include breakpoint('large') {
+      margin-bottom: rem(48);
+    }
+  }
+}
+
+/*----------  Authors  ----------*/
+.author {
+  .archive__content {
+    margin-top: 0;
+
+    @include breakpoint('large') {
+      margin-top: 0;
+    }
+  }
+
+  .archive__author {
+    &-wrapper {
+      max-width: $size__content-wide-max-width;
+      background-color: $color-bg-light-100;
+      @include full-width-background($color-bg-light-100);
+
+      &::before,
+      &::after {
+        @include breakpoint('small') {
+          display: none;
+        }
+      }
+
+      @include breakpoint('small') {
+        padding-right: 6vw;
+        padding-left: 6vw;
+      }
+    }
+
+    &-bio {
+      clear: both;
+      padding-top: rem(32);
+      padding-bottom: rem(48);
+
+      @include breakpoint('large') {
+        max-width: rem(750);
+        margin-right: auto;
+        margin-left: auto;
+        padding-top: rem(48);
+        padding-bottom: rem(64);
+      }
+    }
+
+    &-avatar {
+      img {
+        width: 100%;
+        margin-bottom: rem(24);
+
+        @include breakpoint('small') {
+          max-width: rem(256);
+          margin-right: auto;
+          margin-left: auto;
+        }
+
+        @include breakpoint('medium') {
+          width: rem(256);
+        }
+
+        /* stylelint-disable-next-line */
+        &[src*='PlaceholderForNoFeatImage'] {
+          display: none;
+        }
+      }
+
+      @include breakpoint('medium') {
+        float: right;
+        margin-left: rem(24);
+      }
+    }
+
+    &-description {
+      @extend %text-style-paragraph-large;
+      color: $color-black-190;
+
+      p:not(:last-child) {
+        margin-bottom: rem(16);
+      }
+
+      @include breakpoint('large') {
+        max-width: $size__content-max-width;
+      }
+    }
+
+    &-download {
+      display: block;
+      margin: rem(24) auto 0;
+
+      @include breakpoint('large') {
+        margin-top: rem(24);
+      }
+    }
+
+    &-name {
+      @extend %text-style-heading-x-large;
+      padding-top: rem(48);
+      padding-bottom: rem(24);
+
+      @include breakpoint('large') {
+        max-width: rem(1010);
+        margin-right: auto;
+        margin-left: auto;
+        padding-top: rem(64);
+        padding-bottom: rem(32);
+      }
+    }
+  }
+}
+
+/*----------  Programs  ----------*/
+.post-type-archive-programs {
+  .archive__content {
+    margin-bottom: rem(56);
+
+    @include breakpoint('large') {
+      margin-bottom: rem(80);
+    }
+  }
+}
