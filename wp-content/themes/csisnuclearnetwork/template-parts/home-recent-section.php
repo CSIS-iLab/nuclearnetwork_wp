@@ -78,10 +78,12 @@ if ( $latest_posts ) {
     echo "</div>";
 }
 
-echo "<div class='twitter-section'><h3 class='home__event-and-posts-block-title home__event-and-posts-block-title--twitter'>Twitter</h3>";
+echo "<div class='twitter-section'><h3 class='home__event-and-posts-block-title home__event-and-posts-block-title--twitter'>LinkedIn</h3>";
 // twitter sidebar
 dynamic_sidebar( 'sidebar-2' );
 
+  echo "<script src='https://static.elfsight.com/platform/platform.js' async></script>";
+  echo "<div class='elfsight-app-050a3766-b9b6-4565-b8dd-3b5e69a060a4' data-elfsight-app-lazy></div>";
 // finish output
 echo "</div></section>";
 
