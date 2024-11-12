@@ -126,6 +126,12 @@
     }
   }
 
+  &__x-icon {
+    position: relative;
+    top: rem(6);
+    left: rem(6);
+  }
+
   &__copyright {
     grid-area: copyright;
     color: $color-white-165;

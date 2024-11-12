@@ -84,13 +84,6 @@ dynamic_sidebar( 'sidebar-2' );
 
   echo "<script src='https://static.elfsight.com/platform/platform.js' async></script>";
   echo "<div class='elfsight-app-050a3766-b9b6-4565-b8dd-3b5e69a060a4' data-elfsight-app-lazy></div>";
-
-  /* -------------------------------------------------------------------------- */
-  /*                              Twitter follow us                             */
-  /* -------------------------------------------------------------------------- */
-  echo "<a href='https://twitter.com/csisponi?ref_src=twsrc%5Etfw' class='twitter-follow-button' data-show-count='false'>Follow @csisponi</a>";
-  echo "<script async src='https://platform.twitter.com/widgets.js' charset='utf-8'></script>";
-
 // finish output
 echo "</div></section>";
 
