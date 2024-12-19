@@ -52,6 +52,7 @@ if ( $legacy_event_date ) {
 			<div class="feat-post__gradient-bottom"></div> -->
 		<?php endif; ?>
 			<div class="feat-post__content">
+				<div>Hi</div>
 			<?php
 			if ( $post_type !== 'programs' && $post_type !== 'projects' ) {
 				nuclearnetwork_display_subtypes();
