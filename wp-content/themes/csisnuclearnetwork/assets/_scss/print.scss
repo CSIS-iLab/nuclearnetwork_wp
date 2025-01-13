@@ -20,7 +20,7 @@
     }
 
     &::after {
-      content: 'Printed from #{$website-name}, ©2021 by the Center for Strategic and International Studies. All rights reserved.';
+      content: 'Printed from the #{$website-name}, ©2021 by the Center for Strategic and International Studies. All rights reserved.';
       margin-top: 0.5cm;
       font-size: 12pt;
     }
