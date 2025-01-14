@@ -3,6 +3,7 @@
 # nuclearnetwork_wp
 
 WordPress theme for [Next Generation Nuclear Network](https://nuclearnetwork.csis.org). Developed from the [\_s starter theme](http://underscores.me).
+This project use node `v14.21.3`
 
 ## Contributing
 
