@@ -1,6 +1,6 @@
 <?php
 /**
- * Reconnecting Asia functions and definitions
+ * Nuclear Network functions and definitions
  *
  * @link https://developer.wordpress.org/themes/basics/theme-functions/
  *

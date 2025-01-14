@@ -1,6 +1,7 @@
 <?php
+
 /**
- * The template for displaying the 404 template in the Reconnecting Asia theme.
+ * The template for displaying the 404 template in the Nuclear Network theme.
  *
  * @package CSIS iLab
  * @subpackage @package NuclearNetwork

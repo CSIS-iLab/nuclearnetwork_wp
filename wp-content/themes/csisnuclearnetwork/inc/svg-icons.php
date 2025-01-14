@@ -1,6 +1,7 @@
 <?php
+
 /**
- * Reconnecting Asia SVG Icon helper functions
+ * Nuclear Network SVG Icon helper functions
  *
  * @package CSIS iLab
  * @subpackage @package nuclearnetwork

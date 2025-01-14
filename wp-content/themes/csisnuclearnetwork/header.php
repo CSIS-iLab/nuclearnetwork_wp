@@ -1,6 +1,7 @@
 <?php
+
 /**
- * Header file for the Reconnecting Asia WordPress default theme.
+ * Header file for the Nuclear Network WordPress default theme.
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
